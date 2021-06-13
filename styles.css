@@ -1,0 +1,141 @@
+
+/*
+html {
+  --textColor1: #000000;
+  --textColor2: #00ee22;
+  --textColorDirection: 90deg;
+
+  --bgColor1: #eaeaea;
+  --bgColor2: #dd1313;
+  --bgColorDirection: 90deg;
+
+}
+*/
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: #eaeaea;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    background-clip: padding-box;
+    height: 90px;
+    border-bottom-left-radius: 0;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+#scrollArea {
+    margin: 0 auto;
+    width: 490px;
+    height: 500px;
+    display: none;
+    overflow-y: auto;
+    overflow-x: show;
+    background: #00000000;
+    border-radius: 15px;
+}
+li.selected {background:rgb(112, 112, 112)}
+HTML
+* {
+  box-sizing: border-box;
+}
+.draggable {
+    -webkit-app-region: drag;
+}
+/* Normal Input field */
+
+.container {
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1000px;
+    text-align: center;
+
+}
+/*the list itself (not the items)*/
+#itemList {
+    padding-inline-start: 0;
+    background-color: #eaeaea;
+    margin: 0 auto;
+    display: list;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 10px;
+}
+/*Each item in the list*/
+.item {
+    list-style-type: none;
+    background-color: #eaeaea;
+    display: grid;
+    padding-left: 10px;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+        'fullname terms'
+        'party terms';
+    text-align: left;
+}
+
+
+
+.item > h1 {
+    grid-area: fullname;
+    margin-bottom: 25px;
+}
+
+.item > h3 {
+    grid-area: party;
+    margin: 0;
+}
+
+.item > p {
+    grid-area: terms;
+    margin: 0;
+}
+
+
+.item > img {
+    max-height: 100px;
+    grid-area: image;
+}
+
+#searchBar {
+  -webkit-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  background-image: url("File:///F:/Faeq's other data/Life/Programming/Quokka/icon.png");
+  background-position: 10px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  width: 50%;
+  height: 50px;
+  font-size: 16px;
+  font-family: Arial;
+  text-align: center;
+  padding: 12px 20px 12px 20px;
+  box-shadow: 0 0 5px rgba(155, 155, 155, 1);
+  border: 1px solid rgba(155, 155, 155, 1);
+  border-radius: 360px;
+  margin-bottom: 12px;
+}
+
+#searchWrapper {
+    position: relative;
+}
+
+#searchWrapper::after {
+    position: absolute;
+    top: 7px;
+    left: 15px;
+}
