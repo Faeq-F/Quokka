@@ -1,0 +1,15 @@
+{
+    "All main files": "all",
+    "Settings": "settings",
+    "Files": "f>",
+    "Translator": "t>",
+    "Color": "c>",
+    "Unit converter": "u>",
+    "Unicode character lookup": "char>",
+    "Kill running processes": "k>",
+    "Show IP address": "IP",
+    "Show MAC adress": "MAC",
+    "Powershell commands": ">",
+    "Screenshot / recorder": "scr",
+    "Search the internet": "?"
+}
