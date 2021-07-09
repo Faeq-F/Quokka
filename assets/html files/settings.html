@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quokka settings</title>
+    <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel = "stylesheet" href = "styles.css" />
+</head>
+<style>
+
+  :root {
+    --textColor1: #ff00b3;
+    --textColor2: #00ee22;
+    --textColorDirection: 90deg;
+
+    --bgColor1: #27cfb9;
+    --bgColor2: #dd1313;
+    --bgColorDirection: 90deg;
+
+  }
+  #Container {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f100;
+    text-align: center;
+    border: 0px solid #d3d3d300;
+    border-radius: 15px;
+  }
+
+  #header {
+    cursor: move;
+    padding: 5px;
+    margin-left: 15px;
+    z-index: 10;
+    width: 200px;
+    background-color: var(--bgColor2);
+    font-family: Arial;
+    border: 0px solid #d3d3d300;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+  }
+
+</style>
+
+  <body>
+
+    <div id="Container">
+      <div id="header">Quokka Settings</div>
+      <iframe id="frame" style="border-radius: 15px; border: 0px solid #00000000; height: 700px; width: 400px; padding: 10px;" src="./preferences.html">
+      </iframe>
+    </div>
+
+    <script>
+      //Make the DIV element draggable:
+      dragElement(document.getElementById("Container"));
+
+      function dragElement(element) {
+        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+        if (document.getElementById("header")) {
+          /* if present, the header is where you move the DIV from:*/
+          document.getElementById("header").onmousedown = dragMouseDown;
+        } else {
+          /* otherwise, move the DIV from anywhere inside the DIV:*/
+          element.onmousedown = dragMouseDown;
+        }
+
+        function dragMouseDown(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // get the mouse cursor position at startup:
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          document.onmouseup = closeDragElement;
+          // call a function whenever the cursor moves:
+          document.onmousemove = elementDrag;
+        }
+
+        function elementDrag(e) {
+          e = e || window.event;
+          e.preventDefault();
+          // calculate the new cursor position:
+          pos1 = pos3 - e.clientX;
+          pos2 = pos4 - e.clientY;
+          pos3 = e.clientX;
+          pos4 = e.clientY;
+          // set the element's new position:
+          element.style.top = (element.offsetTop - pos2) + "px";
+          element.style.left = (element.offsetLeft - pos1) + "px";
+        }
+
+        function closeDragElement() {
+          /* stop moving when mouse button is released:*/
+          document.onmouseup = null;
+          document.onmousemove = null;
+        }
+      }
+    </script>
+  <script src="./renderer.js"></script>
+
+</html>
