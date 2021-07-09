@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Quokka</title>
+<meta charset="UTF-8" />
+<link rel = "stylesheet" href = "../Style sheets/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div id="searchWrapper">
+        <input
+            type="text"
+            name="searchBar"
+            id="searchBar"
+            placeholder="Quokka search"
+        />
+    </div>
+    <div id="scrollArea">
+    <ul id="itemList"></ul>
+    </div>
+  </div>
+
+  <script src="../selection.js"></script>
+  <script src="../load items.js"></script>
+  <!--Focus the input field on load so that the user can immediately type for their shortcut-->
+  <script>$("input:text").focus();</script>
+  <script src="../renderer.js"></script>
+
+</body>
+
+</html>
