@@ -1,0 +1,19 @@
+{
+  "name": "Quokka",
+  "productName": "Quokka",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "faeq",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-store": "^8.0.0"
+  },
+  "devDependencies": {
+    "electron": "13.0.1",
+    "electron-prebuilt": "^1.4.13"
+  }
+}
