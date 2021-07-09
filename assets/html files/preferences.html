@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <style>
+
+:root {
+  --textColor1: #6b6b6b;
+  --textColor2: #ffffff;
+  --textColorDirection: 90deg;
+
+  --bgColor1: #cf27cf;
+  --bgColor2: #1abc9c;
+  --bgColorDirection: 90deg;
+}
+
+
+html,body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+  background-color: var(--bgColor2);
+}
+
+body{
+	align-items: center;
+	justify-content: center;
+}
+
+.inner{
+	display: flex;
+	align-items: center;
+
+	justify-content: center;
+}
+
+.text{
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	padding-right: 24px;
+
+	justify-content: center;
+}
+
+.icon{
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.outer{
+	display: flex;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	transition: .5s;
+	margin: 12px;
+	border-radius: 1000px;
+	border: 0px solid rgba(0,0,0,.0);
+	box-shadow: inset 0px 3px 3px 1px rgba(0,0,0,.08),inset 0px -1px 2px 1px rgba(255,255,255,.45);
+	cursor: pointer;
+}
+
+*{
+	flex-shrink: 0;
+}
+
+#container{
+	display: inline-flex;
+  align-items: center;
+	justify-content: center;
+  position: fixed;
+	border-radius: 1000px;
+	box-shadow: inset 0px -2px 5px 0 rgba(0,0,0,.1),inset 0px 2px 5px 0 rgba(255,255,255,.5);
+	background: rgba(151, 64, 64, 0.2);
+}
+
+#container::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	border-radius: 100%;
+	bottom: 0px;
+	box-shadow: 0 40px 20px 3px rgba(0,0,0,.13);
+	transform: scaleX(1.05);
+}
+
+.highlight{
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	z-index: 1;
+	background: #a8db18;
+	/*margin-top: 12px;*/
+	left: 12px;
+	transition: 0.5s;
+	border-radius: 1000px;
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+.selected{
+	width: initial;
+}
+
+.inner{
+	position: relative;
+}
+.active .inner{
+	z-index: 2;
+}
+
+*{
+	font-family: "Heebo", sans-serif;
+	color: white;
+	font-weight: 700;
+	box-sizing: border-box;
+}
+
+.icon{
+	color: rgba(0,0,0,.4);
+	font-weight: 900;
+}
+
+.text{
+	text-shadow: 0 1px rgba(0,0,0,.4)
+}
+
+.outer:not(.active) .text{
+	visibility: hidden;
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background: var(--bgColor2);
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-clip: padding-box;
+    height: 90px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+      body {
+        margin: 0;
+        font-family: Arial;
+      }
+
+      #Navigation {
+        list-style-type: none;
+        overflow: hidden;
+        text-align:center;
+        display:inline;
+        background-color: var(--bgColor2);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0 auto;
+
+      }
+
+      li {
+        border-radius: 15px;
+        text-align:center;
+        margin: 5px;
+      }
+
+      li a {
+        display: block;
+        text-align:center;
+        color: var(--textColor1);
+        filter: alpha(opacity=100);
+        background-color: var(--bgColor1);
+        text-decoration: none;
+        width: 30px;
+        height: 20px;
+        font-size: 16px;
+        font-family: Arial;
+        box-shadow: 0 0 5px rgba(155, 155, 155, 1);
+        border: 1px solid rgba(155, 155, 155, 1);
+        border-radius: 360px;
+      }
+
+      li a:hover:not(.active) {
+        filter: alpha(opacity=50);
+      }
+    </style>
+  </head>
+
+  <body>
+<div style="background-color: var(--bgColor2);">
+  <div id="container">
+
+    <div class="highlight"></div>
+
+    <div class="outer">
+      <div class="inner">
+        <div class="icon">1</div>
+        <div class="text">
+          Home
+        </div>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <div class="icon">2</div>
+        <div class="text">
+          Colors
+        </div>
+      </div>
+    </div>
+
+    <div class="outer">
+      <div class="inner">
+        <div class="icon">3</div>
+        <div class="text">
+          Integration
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <div style="padding-top:50px;background-color:#1abc9c;height:1500px;color: var(--textColor2);">
+      <h1>Settings</h1>
+      <p>This application is designed for both<br>normal and advanced PC users; do not<br>change a setting if you do not<br>know what
+        it does.</p>
+      <p>(You can also read the github page for this<br>project to understand how it works)</p>
+
+      <ul class="actions">
+        <li><a href="#one" class="button scrolly">Set globals file location</a></li>
+      </ul>
+
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <input type="color" value="#ff0000"
+        style="border-radius: 15px; border-color: #FFFFFF00; background-color: #FFFFFF00;">
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+      <p>Some text some text some text some text..</p>
+    </div>
+
+  </body>
+<script>
+  const outers = Array.from(document.getElementsByClassName('outer'));
+    let active = null;
+    let queue = Promise.resolve();
+
+    const h = document.getElementsByClassName('highlight')[0];
+    const init = outers[0].style.width;
+
+    const u = outers[1].getBoundingClientRect().x - outers[0].getBoundingClientRect().x;
+
+    outers.forEach((o, i) => {
+      o.dataset.idx = i;
+      o.addEventListener('click', () => activate(o));
+    })
+
+    function activate(thing) {
+      if (active === thing) return;
+      queue = queue.then(() => {
+        return new Promise(r => {
+          moveTo(thing);
+          minimize(thing).then(() => expand(thing)).then(r);
+          active = thing;
+          thing.classList.add('active');
+        })
+      })
+    }
+
+
+    function minimize(thing) {
+      if (!active) return Promise.resolve();
+      active.classList.remove('active');
+      return new Promise(r => {
+        active.addEventListener('transitionend', r, { once: true })
+        active.style.width = init;
+        h.style.width = init;
+      });
+    }
+
+    function moveTo(target) {
+      h.style.transform = `translateX(${u * target.dataset.idx}px)`
+    }
+
+    function expand(target) {
+      return new Promise(r => {
+        target.addEventListener('transitionend', r, { once: true });
+        const width = target.getElementsByClassName('inner')[0].getBoundingClientRect().width + 'px';
+        target.style.width = width;
+        h.style.width = width;
+      })
+    }
+
+    setTimeout(() => activate(outers[0]), 500)
+
+</script>
+</html>
