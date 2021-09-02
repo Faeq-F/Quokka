@@ -84,13 +84,8 @@
                     </li>{% endif %}
 				</ul><!-- /.dl-submenu -->
 			</li>
-			<li>
-				<a href="#">My work</a>
-				<ul class="dl-submenu">
-					<li><a href="{{ site.url }}FAQ/">FAQ</a></li>
-					<li><a href="{{ site.url }}Releases/">Releases</a></li>
-				</ul>
-			</li>
+			<li><a href="{{ site.url }}FAQ/">FAQ</a></li>
+			<li><a href="{{ site.url }}Releases/">Releases</a></li>
 			{% for link in site.data.navigation %}
 		    {% if link.url contains 'http' %}
 		        {% assign domain = '' %}
