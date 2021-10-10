@@ -19,5 +19,5 @@ This launcher is a way of running your portable and installed apps easily. It ha
     If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
 
 ## Screenshots:
-![LanucherScreenshot1](https://user-images.githubusercontent.com/61658458/110971701-1acb7e00-8353-11eb-92e0-30561f996a04.png)
-![LauncherScreenshot2](https://user-images.githubusercontent.com/61658458/110971703-1b641480-8353-11eb-9860-ca551d4d5b1c.png)
+![LanucherScreenshot1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
+
