@@ -1,2 +1,23 @@
 # Quokka
 A customisable keystroke launcher
+
+This launcher is a way of running your portable and installed apps easily. It has additional features such as opening files & folders, color conversion, translation and much more.
+
+## Requirements:
+ - A computer running Windows 7 or higher
+ - A Windows defender exclusion for the location of the exe (Add exclusions to any other anti-malware software that is installed on your computer; you do not want the software to mistake the app for viruses or other malware.)
+
+## Suggestions:
+ - Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
+
+## Instuctions for use:
+1. Run the app and use the global shortcut (Alt + Space) to open the search bar.<br><br>
+    You can search for the item you want in the search field
+2. Select your item by using the arrow keys
+3. Press enter to execute the shortcut
+
+    If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
+
+## Screenshots:
+![LanucherScreenshot1](https://user-images.githubusercontent.com/61658458/110971701-1acb7e00-8353-11eb-92e0-30561f996a04.png)
+![LauncherScreenshot2](https://user-images.githubusercontent.com/61658458/110971703-1b641480-8353-11eb-9860-ca551d4d5b1c.png)
