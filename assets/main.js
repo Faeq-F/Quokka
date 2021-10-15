@@ -10,7 +10,7 @@ const path = require('path');
 const url = require('url')
 app.commandLine.appendSwitch('--allow-file-access-from-files');
 
-
+delete require('electron').nativeImage.createThumbnailFromPath
 function readFile(fileURL,mimeType){
   //readFile does not accept the file:\\\ thing, so we remove it
   const pathToFile = fileURL.replace("file:\\\\",'');
