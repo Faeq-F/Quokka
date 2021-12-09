@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "electron-store": "^8.0.0"
+    
   },
   "devDependencies": {
-    "electron": "13.0.1",
+    "electron": ">=13.3.0"
     "electron-prebuilt": "^1.4.13"
   }
 }
