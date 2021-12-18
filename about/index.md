@@ -1,3 +1,9 @@
+---
+layout: About
+title: Releases
+excerpt: "Quokka Releases"
+comments: false
+---
 <style>
 * {
   box-sizing: border-box;
