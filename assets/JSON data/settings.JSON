@@ -1,0 +1,150 @@
+[
+  {
+    "Theme": "**",
+    "ContainerSettings": {
+      "ContainerPosition": {
+        "containerY": "**",
+        "containerX": "**"
+      },
+      "ContainerWidth": {
+        "containerWidth": "**"
+      },
+      "ContainerBackground": {
+        "containerBgColor1": "**",
+        "containerBgColor2": "**",
+        "containerBgColorDirection": "**"
+      },
+      "ContainerCornerRadius": {
+        "containerCornerRadius": "**"
+      },
+      "ContainerBorderColors": {
+        "containerTopBorder": "**",
+        "containerRightBorder": "**",
+        "containerBottomBorder": "**"
+      },
+      "ContainerBorderStyles": {
+        "containerTopBorderStyle": "**",
+        "containerRightBorderStyle": "**",
+        "containerBottomBorderStyle": "**",
+        "containerLeftBorderStyle": "**"
+      },
+      "ContainerBorderWidths": {
+        "containerTopBorderWidth": "**",
+        "containerRightBorderWidth": "**",
+        "containerBottomBorderWidth": "**",
+        "containerLeftBorderWidth": "**"
+      },
+      "ContainerShadow": {
+        "containerShadow": "**",
+        "containerShadowWidth": "**",
+        "containerShadowBlur": "**"
+      }
+    },
+    "SearchBarSettings": {
+      "SearchBarDimensions": {
+        "searchBarHeight": "**",
+        "searchBarWidth": "**"
+      },
+      "SearchBarBackground": {
+        "searchBarBgColor1": "**",
+        "searchBarBgColor2": "**",
+        "searchBarBgColorDirections": "**"
+      },
+      "SearchBarCornerRadius": {
+        "searchBarCornerRadius": "**"
+      },
+      "SearchBarBorderColors": {
+        "searchBarTopBorder": "**",
+        "searchBarRightBorder": "**",
+        "searchBarBottomBorder": "**",
+        "searchBarLeftBorder": "**"
+      },
+      "SearchBarBorderStyles": {
+        "searchBarTopBorderStyle": "**",
+        "searchBarRightBorderStyle": "**",
+        "searchBarBottomBorderStyle": "**",
+        "searchBarLeftBorderStyle": "**"
+      },
+      "SearchBarBorderWidths": {
+        "searchBarTopBorderWidth": "**",
+        "searchBarRightBorderWidth": "**",
+        "searchBarBottomBorderWidth": "**",
+        "searchBarLeftBorderWidth": "**"
+      },
+      "SearchBarShadow": {
+        "searchBarShadow": "**",
+        "searchBarShadowWidth": "**",
+        "searchBarShadowBlur": "**"
+      },
+      "SearchBarSpacingFromItemList": {
+        "searchBarItemListSpacing": "**"
+      },
+      "SearchBarIconSettings": {
+        "IconLocation": {
+          "searchBarIconPath": "**"
+        },
+        "SearchBarIconSize": {
+          "searchBarIconSize": "**"
+        },
+        "SearchBarIconPadding": {
+          "SearchBarIconTop": "**",
+          "SearchBarIconRight": "**",
+          "SearchBarIconBottom": "**",
+          "SearchBarIconLeft": "**"
+        },
+        "IconFilters": {
+          "SearchBarIconOpacity": "**",
+          "SearchBarIconBrightness": "**",
+          "SearchBarIconContrast": "**",
+          "SearchBarIconGrayScale": "**",
+          "SearchBarIconInvert": "**",
+          "SearchBarIconHue": "**",
+          "SearchBarIconSaturate": "**",
+          "SearchBarIconSepia": "**"
+        }
+      },
+      "SearchBarTextSettings": {
+        "PlaceholderText": {
+          "searchbarplaceholdertext": "**"
+        },
+        "TextFont": {
+          "SearchBarFontFamily": ""
+        },
+        "TextSize": {
+          "searchBarTextSize": ""
+        },
+        "TextAlignment": {
+          "searchBarTextAlign": ""
+        },
+        "TextColor": {
+          "SearchBarUI": "",
+          "PlaceholderText": ""
+        },
+        "TextBordersAndShadows": {
+          "UIBorderSize": "",
+          "UIBorderColor": "",
+          "UIShadowSize": "",
+          "UIShadowColor": "",
+          "PlaceBorderSize": "",
+          "PlaceBorderColor": "",
+          "PlaceShadowSize": "",
+          "PlaceShadowColor": ""
+        }
+      }
+    },
+    "ItemListSettings": {
+      "ListSize": {
+        "ItemListHeight": "",
+        "ItemListWidth": ""
+      }
+    },
+    "ItemSpacing": {
+      "ItemSpacing": ""
+    },
+    "ListShadow": {
+      "ItemListShadow": "",
+      "ItemListShadowWidth": "",
+      "ItemListShadowBlur": ""
+    }
+  }
+]
