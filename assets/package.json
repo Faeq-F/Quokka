@@ -1,8 +1,8 @@
 {
   "name": "Quokka",
   "productName": "Quokka",
-  "description": "My Electron application description",
-  "keywords": [],
+  "description": "Keystroke launcher",
+  "keywords": [Keystroke, launcher],
   "main": "./main.js",
   "version": "1.0.0",
   "author": "faeq",
@@ -14,7 +14,7 @@
     
   },
   "devDependencies": {
-    "electron": ">=13.3.0"
+    "electron": ">=13.6.6"
     "electron-prebuilt": "^1.4.13"
   }
 }
