@@ -18,6 +18,38 @@ This launcher is a way of running your portable and installed apps easily. It ha
 
     If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
 
-## Screenshots:
+## Features:
+### App Launcher:
+<br>
+### Portable Application launcher:
+<br>
+### File / Folder search:
+<br>
+### Color space conversion:
+<br>
+### Translation:
+<br>
+### Unit conversion:
+<br>
+### Currency conversion:
+<br>
+### Unicode character lookup:
+<br>
+### Emoji lookup:
+<br>
+### Web search:
+<br>
+### Calculator:
+<br>
+### Power commands:
+<br>
+### System IP & MAC address:
+<br>
+### Powershell command launcher:
+<br>
+### Wikipedia search:
+<br>
+### Dictionary:
+<br>
 ![LanucherScreenshot1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
 
