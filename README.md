@@ -20,36 +20,50 @@ This launcher is a way of running your portable and installed apps easily. It ha
 
 ## Features:
 ### App Launcher:
+![AppLauncher]()
 <br>
 ### Portable Application launcher:
+![AppLauncher]()
 <br>
 ### File / Folder search:
+![AppLauncher]()
 <br>
 ### Color space conversion:
+![AppLauncher]()
 <br>
 ### Translation:
+![AppLauncher]()
 <br>
 ### Unit conversion:
+![AppLauncher]()
 <br>
 ### Currency conversion:
+![AppLauncher]()
 <br>
 ### Unicode character lookup:
+![AppLauncher]()
 <br>
 ### Emoji lookup:
+![AppLauncher]()
 <br>
 ### Web search:
+![AppLauncher]()
 <br>
 ### Calculator:
+![AppLauncher]()
 <br>
 ### Power commands:
+![AppLauncher]()
 <br>
 ### System IP & MAC address:
+![AppLauncher]()
 <br>
 ### Powershell command launcher:
+![AppLauncher]()
 <br>
 ### Wikipedia search:
+![AppLauncher]()
 <br>
 ### Dictionary:
-<br>
 ![LanucherScreenshot1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
 
