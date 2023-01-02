@@ -23,7 +23,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![AppLauncher]()
 <br>
 ### Portable Application launcher:
-![AppLauncher]()
+![PortableAppLauncher]()
 <br>
 ### File / Folder search:
 ![AppLauncher]()
