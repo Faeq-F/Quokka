@@ -26,7 +26,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![PortableAppLauncher]()
 <br>
 ### File / Folder search:
-![AppLauncher]()
+![FileSearch]()
 <br>
 ### Color space conversion:
 ![AppLauncher]()
