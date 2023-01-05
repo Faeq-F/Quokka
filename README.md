@@ -32,7 +32,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![ColorConvert]()
 <br>
 ### Translation:
-![AppLauncher]()
+![Translation]()
 <br>
 ### Unit conversion:
 ![AppLauncher]()
