@@ -35,7 +35,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![Translation]()
 <br>
 ### Unit conversion:
-![AppLauncher]()
+![UnitConvert]()
 <br>
 ### Currency conversion:
 ![AppLauncher]()
