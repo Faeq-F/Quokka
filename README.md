@@ -38,7 +38,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![UnitConvert]()
 <br>
 ### Currency conversion:
-![AppLauncher]()
+![CurrencyConvert]()
 <br>
 ### Unicode character lookup:
 ![AppLauncher]()
