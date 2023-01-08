@@ -41,7 +41,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![CurrencyConvert]()
 <br>
 ### Unicode character lookup:
-![AppLauncher]()
+![UnicodeLookup]()
 <br>
 ### Emoji lookup:
 ![AppLauncher]()
