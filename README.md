@@ -50,7 +50,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![WebSearch]()
 <br>
 ### Calculator:
-![AppLauncher]()
+![Calculator]()
 <br>
 ### Power commands:
 ![AppLauncher]()
