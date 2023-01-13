@@ -53,7 +53,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![Calculator]()
 <br>
 ### Power commands:
-![AppLauncher]()
+![PowerCommands]()
 <br>
 ### System IP & MAC address:
 ![AppLauncher]()
