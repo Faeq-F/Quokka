@@ -59,7 +59,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![IP&MAC]()
 <br>
 ### Powershell command launcher:
-![AppLauncher]()
+![Powershell]()
 <br>
 ### Wikipedia search:
 ![AppLauncher]()
