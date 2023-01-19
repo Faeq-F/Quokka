@@ -62,7 +62,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![Powershell]()
 <br>
 ### Wikipedia search:
-![AppLauncher]()
+![WikipediaSearch]()
 <br>
 ### Dictionary:
 ![LanucherScreenshot1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
