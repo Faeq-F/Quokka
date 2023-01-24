@@ -21,6 +21,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ## Features:
 ### App Launcher:
 ![AppLauncher]()
+![AllAppsCommand]()
 <br>
 ### Portable Application launcher:
 ![PortableAppLauncher]()
