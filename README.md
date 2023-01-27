@@ -34,6 +34,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Translation:
 ![Translation]()
+![Translation]()
 <br>
 ### Unit conversion:
 ![UnitConvert]()
