@@ -40,6 +40,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Unit conversion:
 ![UnitConvert]()
+![UnitConvert]()
 <br>
 ### Currency conversion:
 ![CurrencyConvert]()
