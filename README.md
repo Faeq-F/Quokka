@@ -48,6 +48,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Unicode character lookup:
 ![UnicodeLookup]()
+![UnicodeLookup]()
 <br>
 ### Emoji lookup:
 ![EmojiLookup]()
