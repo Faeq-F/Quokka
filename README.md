@@ -52,6 +52,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Emoji lookup:
 ![EmojiLookup]()
+![EmojiLookup]()
 <br>
 ### Web search:
 ![WebSearch]()
