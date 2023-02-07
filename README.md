@@ -59,6 +59,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Calculator:
 ![Calculator]()
+![Calculator]()
 <br>
 ### Power commands:
 ![PowerCommands]()
