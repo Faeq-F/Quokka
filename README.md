@@ -48,7 +48,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![CurrencyConvert]()
 <br>
 ### Unicode character lookup:
-![UnicodeLookup]()
+![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charTheta.png)
 ![UnicodeLookup]()
 <br>
 ### Emoji lookup:
