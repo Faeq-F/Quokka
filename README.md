@@ -49,7 +49,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Unicode character lookup:
 ![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charTheta.png)
-![UnicodeLookup]()
+![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charAccent.png)
 <br>
 ### Emoji lookup:
 ![EmojiLookup]()
