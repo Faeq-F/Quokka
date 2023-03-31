@@ -37,7 +37,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![ColorConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/colorRgb3.png)
 <br>
 ### Translation:
-![Translation]()
+![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate1.png)
 ![Translation]()
 ![Translation]()
 <br>
