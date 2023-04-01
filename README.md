@@ -38,7 +38,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Translation:
 ![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate1.png)
-![Translation]()
+![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate2.png)
 ![Translation]()
 <br>
 ### Unit conversion:
