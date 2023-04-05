@@ -19,6 +19,8 @@ This launcher is a way of running your portable and installed apps easily. It ha
     If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
 
 ## Features:
+### Themes:
+
 ### App Launcher:
 ![AppLauncher]()
 ![AllAppsCommand]()
