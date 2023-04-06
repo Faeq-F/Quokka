@@ -20,7 +20,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 
 ## Features:
 ### Themes:
-
+![DefaultTheme]()
 ### App Launcher:
 ![AppLauncher]()
 ![AllAppsCommand]()
