@@ -1,7 +1,7 @@
 # Quokka
 A customisable keystroke launcher
 
-This launcher is a way of running your portable and installed apps easily. It has additional features such as opening files & folders, color conversion, translation and much more.
+This launcher is a way of running your portable and installed apps easily. It has additional features such as opening files & folders, color conversion, translation and much more (no API keys needed!).
 
 ## Requirements:
  - A computer running Windows 7 or higher
