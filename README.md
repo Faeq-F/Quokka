@@ -79,7 +79,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![Powershell]()
 <br>
 ### Wikipedia search:
-![WikipediaSearch1]()
+![WikipediaSearch1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki1.png)
 ![WikipediaSearch2]()
 <br>
 ### Dictionary:
