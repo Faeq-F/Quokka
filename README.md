@@ -80,7 +80,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <br>
 ### Wikipedia search:
 ![WikipediaSearch1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki1.png)
-![WikipediaSearch2]()
+![WikipediaSearch2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki2.png)
 <br>
 ### Dictionary:
 ![Dictionary](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
