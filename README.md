@@ -26,7 +26,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![ExampleTheme3]()
 ### App Launcher:
 ![AppLauncher]()
-![AllAppsCommand]()
+![AllAppsCommand](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/AllAppsCommand.png)
 <br>
 ### Portable Application launcher:
 ![PortableAppLauncher]()
