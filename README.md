@@ -4,10 +4,11 @@ A customisable keystroke launcher
 This launcher is a way of running your portable and installed apps easily. It has additional features such as opening files & folders, color conversion, translation and much more (no API keys needed!).
 
 ## Contents
-
-## Requirements:
- - A computer running Windows 7 or higher
- - A Windows defender exclusion for the location of the exe (Add exclusions to any other anti-malware software that is installed on your computer; you do not want the software to mistake the app for viruses or other malware.)
+<details><summary><h3>Requirements</h3></summary><p>
+ - A computer running Windows 7 or higher<br>
+ - A Windows defender exclusion for the location of the exe<br>
+<pre>Add exclusions to any other anti-malware software that is installed on your computer; you do not want the software to mistake the app for viruses or other malware.</pre>
+</p></details>
 
 ## Suggestions:
  - Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
