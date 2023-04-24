@@ -11,6 +11,9 @@ This launcher is a way of running your portable and installed apps easily. It ha
 </p></details>
 <details><summary><h3>Suggestions</h3></summary><p>
 </p></details>
+</p></details>
+<details><summary><h3>Instuctions for use</h3></summary><p>
+</p></details>
 
 ## Suggestions:
  - Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
