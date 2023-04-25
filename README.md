@@ -10,13 +10,10 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <pre>Add exclusions to any other anti-malware software that is installed on your computer; you do not want the software to mistake the app for viruses or other malware.</pre>
 </p></details>
 <details><summary><h3>Suggestions</h3></summary><p>
-</p></details>
+- Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
 </p></details>
 <details><summary><h3>Instuctions for use</h3></summary><p>
 </p></details>
-
-## Suggestions:
- - Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
 
 ## Instuctions for use:
 1. Run the app and use the global shortcut (Alt + Space) to open the search bar.<br><br>
