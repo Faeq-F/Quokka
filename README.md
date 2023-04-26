@@ -13,15 +13,15 @@ This launcher is a way of running your portable and installed apps easily. It ha
 - Setting up a task to run the launcher at startup in Task Scheduler helps ease of use as you won't need to start the program manually
 </p></details>
 <details><summary><h3>Instuctions for use</h3></summary><p>
-</p></details>
-
-## Instuctions for use:
 1. Run the app and use the global shortcut (Alt + Space) to open the search bar.<br><br>
     You can search for the item you want in the search field
 2. Select your item by using the arrow keys
 3. Press enter to execute the shortcut
 
     If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
+</p></details>
+
+
 
 ## Features:
 ### Themes:
