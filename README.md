@@ -20,8 +20,8 @@ This launcher is a way of running your portable and installed apps easily. It ha
 
     If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
 </p></details>
-
-
+<details><summary><h3>Features</h3></summary><p>
+</p></details>
 
 ## Features:
 ### Themes:
