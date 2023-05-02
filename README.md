@@ -30,7 +30,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![AppLauncher]()
 ![AllAppsCommand](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/AllAppsCommand.png)
 <br>
-### Portable Application launcher:
+<h4>Portable Application launcher</h4>
 ![PortableAppLauncher]()
 <br>
 ### File / Folder search:
