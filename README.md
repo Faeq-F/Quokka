@@ -33,7 +33,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <h4>Portable Application launcher</h4>
 ![PortableAppLauncher]()
 <br>
-### File / Folder search:
+<h4>File / Folder search</h4>
 ![FileSearch]()
 ![FileSearch]()
 <br>
