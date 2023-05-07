@@ -52,7 +52,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![UnitConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/UnitConversion1.png)
 ![UnitConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/unitConversion2.png)
 <br>
-### Currency conversion:
+<h4>Currency conversion</h4>
 ![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency1.png)
 ![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency2.png)
 <br>
