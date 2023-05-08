@@ -56,7 +56,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency1.png)
 ![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency2.png)
 <br>
-### Unicode character lookup:
+<h4>Unicode character lookup</h4>
 ![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charTheta.png)
 ![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charAccent.png)
 <br>
