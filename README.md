@@ -60,7 +60,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charTheta.png)
 ![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charAccent.png)
 <br>
-### Emoji lookup:
+<h4>Emoji lookup</h4>
 ![EmojiLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/EmojiSmile.png)
 ![EmojiLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/EmojiMoon.png)
 <br>
