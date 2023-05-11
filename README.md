@@ -67,7 +67,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <h4>Web search</h4>
 ![WebSearch]()
 <br>
-### Calculator:
+<h4>Calculator</h4>
 ![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc1.png)
 ![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc2.png)
 <br>
