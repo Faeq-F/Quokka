@@ -71,7 +71,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc1.png)
 ![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc2.png)
 <br>
-### Power commands:
+<h4>Power commands</h4>
 ![PowerCommands]()
 <br>
 ### System IP & MAC address:
