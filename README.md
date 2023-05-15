@@ -80,7 +80,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <h4>Powershell command launcher</h4>
 ![Powershell]()
 <br>
-### Wikipedia search:
+<h4>Wikipedia search</h4>
 ![WikipediaSearch1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki1.png)
 ![WikipediaSearch2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki2.png)
 <br>
