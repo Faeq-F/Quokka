@@ -84,7 +84,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 ![WikipediaSearch1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki1.png)
 ![WikipediaSearch2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki2.png)
 <br>
-### Dictionary:
+<h4>Dictionary</h4>
 ![Dictionary](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
 ![Dictionary2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/dictionary2.png)
 </p></details>
