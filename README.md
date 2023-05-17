@@ -22,13 +22,13 @@ This launcher is a way of running your portable and installed apps easily. It ha
 </p></details>
 <details><summary><h3>Features</h3></summary><p>
 <h4>Themes</h4>
-![DefaultTheme]()
+![DefaultTheme]()<br>
 ![ExampleTheme1]()
 ![ExampleTheme2]()
 ![ExampleTheme3]()
 <h4>App Launcher</h4>
 ![AppLauncher]()
-![AllAppsCommand](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/AllAppsCommand.png)
+<img src="https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/AllAppsCommand.png" />
 <br>
 <h4>Portable Application launcher</h4>
 ![PortableAppLauncher]()
