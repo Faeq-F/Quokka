@@ -23,7 +23,7 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <details><summary><h3>Features</h3></summary><p>
 <h4>Themes</h4>
 ![DefaultTheme]()<br>
-![ExampleTheme1]()
+![ExampleTheme1]()<br>
 ![ExampleTheme2]()
 ![ExampleTheme3]()
 <h4>App Launcher</h4>
