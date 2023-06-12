@@ -7,7 +7,8 @@ This launcher is a way of running your portable and installed apps easily. It ha
 <details><summary><h3>Requirements</h3></summary><p>
  - A computer running Windows 7 or higher<br>
  - A Windows defender exclusion for the location of the exe<br>
-<pre>Add exclusions to any other anti-malware software that is installed on your computer; you do not want the software to mistake the app for viruses or other malware.</pre>
+&nbsp;&nbsp;Add exclusions to any other anti-malware software that is installed
+ <br>&nbsp;&nbsp;on your computer; you do not want the software to mistake the app for viruses or other malware.
 </p></details>
 <details><summary><h3>Suggestions</h3></summary><p>
 - Creating a task in Task Scheduler to run the launcher at startup
