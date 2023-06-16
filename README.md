@@ -20,7 +20,8 @@ This launcher is a way of running your portable and installed apps easily. It ha
 2. Select your item by using the arrow keys<br>
 3. Press enter to execute the shortcut
 <h4>Closing the application</h4>
-If you wish to close the launcher, you can right-click the launcher icon in the system tray and press on 'exit'
+1. right-click the launcher icon in the system tray
+2. select 'exit'
 </p></details>
 <details><summary><h3>Features</h3></summary><p>
 <h4>Themes</h4>
