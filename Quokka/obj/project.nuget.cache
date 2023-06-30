@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "oACjipyff8iZrLJ6qPz7W+XGtYtq1NiBNiyiMYMepSlOuozyzHJhEAi9F/1KFqGpVJCKVq6r9/zYzIHFizJxNQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
