@@ -1,3 +1,5 @@
+# Note; Quokka will be updating its codebase to WPF in C#
+Please see the new branch
 # Quokka
 A customisable keystroke launcher
 
