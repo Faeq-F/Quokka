@@ -48,7 +48,7 @@
                             <ColumnDefinition Width="64*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image x:Name="SearchIcon" Width="64" Source="/SearchIcon.png" Grid.Column="1"/>
+                        <Image x:Name="SearchIcon" Width="64" Source="/Resources/SearchIcon.png" Grid.Column="1"/>
 
                         <ui:TextBox
                             PlaceholderText="Enter Query"
