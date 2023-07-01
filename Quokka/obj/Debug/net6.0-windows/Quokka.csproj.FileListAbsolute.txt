@@ -31,3 +31,9 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.User32
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.Windows.Core.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.Windows.ShellScalingApi.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Validation.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\SettingsWindow.g.cs
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\SettingsWindow.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Interop.Shell32.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll

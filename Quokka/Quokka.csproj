@@ -18,13 +18,21 @@
 	  <None Remove="Resources\SearchIcon.png" />
 	</ItemGroup>
 
-	<!--System drawing and windows forms-->
 	<ItemGroup>
 	  <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
 	    <WrapperTool>tlbimp</WrapperTool>
 	    <VersionMinor>4</VersionMinor>
 	    <VersionMajor>2</VersionMajor>
 	    <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+	  </COMReference>
+	  <COMReference Include="Shell32">
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <VersionMinor>0</VersionMinor>
+	    <VersionMajor>1</VersionMajor>
+	    <Guid>50a7e9b0-70ef-11d1-b75a-00a0c90564fe</Guid>
+	    <Lcid>0</Lcid>
+	    <Isolated>false</Isolated>
+	    <EmbedInteropTypes>true</EmbedInteropTypes>
 	  </COMReference>
 	  <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
 	    <WrapperTool>tlbimp</WrapperTool>
@@ -36,7 +44,9 @@
 
   <ItemGroup>
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
     <PackageReference Include="PInvoke.User32" Version="0.7.124" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
@@ -47,6 +57,12 @@
     <Resource Include="Resources\SearchIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="SystemApp.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>

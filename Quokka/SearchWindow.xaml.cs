@@ -15,6 +15,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Drawing;
+using Microsoft.Win32;
+using Microsoft.WindowsAPICodePack.Shell;
+using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
+using System.ComponentModel;
+using System.Windows.Forms.Integration;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Quokka {
     /// <summary>
@@ -33,13 +39,25 @@ namespace Quokka {
             CommandBindings.Add(new CommandBinding(ExitWindow, Exit));
 
             InitializeComponent();
-            this.Width = System.Windows.SystemParameters.PrimaryScreenWidth;
-            this.Height = System.Windows.SystemParameters.PrimaryScreenHeight;
 
+            //Dynamic widths & hiding results box
             ResultsBox.Visibility = Visibility.Hidden;
             EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
 
+            //Setting source of results and adding filter
+            ResultsListView.ItemsSource = App.ListOfSystemApps;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource);
+            view.Filter = ResultsFilter;
+
+        }
+
+        private bool ResultsFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchTermTextBox.Text))
+                return true;
+            else
+                return ((item as SystemApp).name.IndexOf(SearchTermTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
@@ -48,9 +66,15 @@ namespace Quokka {
             if (query == "") {
                 ResultsBox.Visibility = Visibility.Hidden;
             }
-            else {
+            else if (query == "AllApps") {
+                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Filter = null;
+                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Refresh();
                 ResultsBox.Visibility = Visibility.Visible;
-                ResultsText.Text = "Typed: " + query;
+            }
+            else {
+                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Filter = ResultsFilter;
+                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Refresh();
+                ResultsBox.Visibility = Visibility.Visible;
             }
         }
 

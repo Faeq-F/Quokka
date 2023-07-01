@@ -48,6 +48,26 @@ namespace Quokka
             }
         }
 
+        /// <summary>
+        /// Shows the settings window
+        /// </summary>
+
+        public ICommand OpenSettingsWindow
+        {
+            get
+            {
+                return new DelegateCommand
+                {
+                    CanExecuteFunc = () => Application.Current.MainWindow == null,
+                    CommandAction = () =>
+                    {
+                        Application.Current.MainWindow = new SettingsWindow();
+                        Application.Current.MainWindow.Show();
+                    }
+                };
+            }
+        }
+
 
         /// <summary>
         /// Shuts down the application.

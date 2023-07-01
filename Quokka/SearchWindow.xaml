@@ -5,9 +5,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Quokka"
+        xmlns:local="clr-namespace:Quokka;assembly=Quokka"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-        xmlns:tb="http://www.hardcodet.net/taskbar" 
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         x:Class="Quokka.SearchWindow"
         mc:Ignorable="d"
         Title="Quokka"
@@ -100,6 +100,18 @@
                 Width="720"
                 >
 
+                <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single">
+                </ListView>
+
+                <!--<ListView ItemsSource="{Binding}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="dcwfcswewrffewefwefw"></TextBlock>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+
+                <!--
                 <TextBlock
                 x:Name="ResultsText"
                 IsHitTestVisible="False"
@@ -114,7 +126,7 @@
                 TextWrapping="Wrap"
                 Height="auto"
                 Width="710"
-                />
+                />-->
 
             </Border>
 

@@ -16,5 +16,6 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgWPF-UI Condition=" '$(PkgWPF-UI)' == '' ">C:\Users\Faeq\.nuget\packages\wpf-ui\2.0.3</PkgWPF-UI>
     <PkgValidation Condition=" '$(PkgValidation)' == '' ">C:\Users\Faeq\.nuget\packages\validation\2.4.15</PkgValidation>
+    <PkgMicrosoft_Xaml_Behaviors_Wpf Condition=" '$(PkgMicrosoft_Xaml_Behaviors_Wpf)' == '' ">C:\Users\Faeq\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.39</PkgMicrosoft_Xaml_Behaviors_Wpf>
   </PropertyGroup>
 </Project>
