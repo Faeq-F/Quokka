@@ -44,6 +44,14 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "Hardcodet.NotifyIcon.Wpf": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "PInvoke.User32": {
+              "target": "Package",
+              "version": "[0.7.124, )"
+            },
             "WPF-UI": {
               "target": "Package",
               "version": "[2.0.3, )"

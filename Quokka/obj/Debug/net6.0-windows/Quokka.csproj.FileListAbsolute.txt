@@ -4,11 +4,9 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Quokka.runtime
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Quokka.pdb
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.csproj.AssemblyReference.cache
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka_MarkupCompile.cache
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka_MarkupCompile.lref
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.g.resources
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.AssemblyInfoInputs.cache
@@ -22,3 +20,14 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\ref\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Wpf.Ui.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\App.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.csproj.CopyComplete
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Hardcodet.NotifyIcon.Wpf.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\SearchWindow.g.cs
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\SearchWindow.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\Quokka.csproj.ResolveComReference.cache
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\net6.0-windows\NotifyIconResources.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.Kernel32.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.User32.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.Windows.Core.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\PInvoke.Windows.ShellScalingApi.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Validation.dll

@@ -13,12 +13,40 @@
 		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\QuokkaTray.ico" />
+	  <None Remove="Resources\SearchIcon.png" />
+	</ItemGroup>
+
+	<!--System drawing and windows forms-->
+	<ItemGroup>
+	  <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <VersionMinor>4</VersionMinor>
+	    <VersionMajor>2</VersionMajor>
+	    <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+	  </COMReference>
+	  <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
+	    <WrapperTool>tlbimp</WrapperTool>
+	    <VersionMinor>4</VersionMinor>
+	    <VersionMajor>2</VersionMajor>
+	    <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
+	  </COMReference>
+	</ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="PInvoke.User32" Version="0.7.124" />
+    <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WPF-UI" Version="2.0.3" />
+    <Resource Include="Resources\QuokkaTray.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\SearchIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

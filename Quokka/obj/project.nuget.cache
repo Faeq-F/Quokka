@@ -1,11 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "oACjipyff8iZrLJ6qPz7W+XGtYtq1NiBNiyiMYMepSlOuozyzHJhEAi9F/1KFqGpVJCKVq6r9/zYzIHFizJxNQ==",
+  "dgSpecHash": "kixdIC8YihHHizeng66Kr7IpOXnmlVRFIdCHUYSUQa6JsNq7GBy3KcBNDnfGGPa3+B/WS1nyN+U7EYlNy9czGQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Faeq\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.kernel32\\0.7.124\\pinvoke.kernel32.0.7.124.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.user32\\0.7.124\\pinvoke.user32.0.7.124.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.windows.core\\0.7.124\\pinvoke.windows.core.0.7.124.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.windows.shellscalingapi\\0.7.124\\pinvoke.windows.shellscalingapi.0.7.124.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\validation\\2.4.15\\validation.2.4.15.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512"
   ],
   "logs": []
