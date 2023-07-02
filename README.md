@@ -27,74 +27,77 @@ This launcher is a way of running your portable and installed apps easily. It ha
 </p></details>
 <details><summary><h3>Features</h3></summary><p>
 <h4>Themes</h4>
-![DefaultTheme]()<br>
-![ExampleTheme1]()<br>
-![ExampleTheme2]()
-![ExampleTheme3]()
+ <img src="" alt="DefaultTheme"/><br>
+ <img src="" alt="ExampleTheme1"/><br>
+ <img src="" alt="ExampleTheme2"/><br>
+ <img src="" alt="ExampleTheme3"/><br>
+ <br>
 <h4>App Launcher</h4>
-![AppLauncher]()
-<img src="https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/AllAppsCommand.png" />
+<img src="" alt="AppLauncher"/><br>
+<img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/AllAppsCommand.png" /><br>
 <br>
 <h4>Portable Application launcher</h4>
-![PortableAppLauncher]()
+<img src="" alt="PortableAppLauncher"/><br>
 <br>
 <h4>File / Folder search</h4>
-![FileSearch]()
-![FileSearch]()
+ <img src="" alt="FileSearch"/><br>
+ <img src="" alt="FileSearch"/><br>
 <br>
 <h4>Color space conversion</h4>
- <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/colorHex.png" />
-<img src="https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/colorRgb1.png" />
-![ColorConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/colorRgb2.png)
-![ColorConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/colorRgb3.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/colorHex.png" alt="ColorConvert"/><br>
+<img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/colorRgb1.png" alt="ColorConvert"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/colorRgb2.png" alt="ColorConvert"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/colorRgb3.png" alt="ColorConvert"/><br>
 <br>
 <h4>Translation</h4>
-![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate1.png)
-![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate2.png)
-![Translation](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/translate3.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/translate1.png" alt="Translation"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/translate2.png" alt="Translation"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/translate3.png" alt="Translation"/><br>
 <br>
 <h4>Unit conversion</h4>
-![UnitConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/UnitConversion1.png)
-![UnitConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/unitConversion2.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/UnitConversion1.png" alt="UnitConvert"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/unitConversion2.png" alt="UnitConvert"/><br>
 <br>
 <h4>Currency conversion</h4>
-![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency1.png)
-![CurrencyConvert](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/currency2.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/currency1.png" alt="CurrencyConvert"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/currency2.png" alt="CurrencyConvert"/><br>
 <br>
 <h4>Unicode character lookup</h4>
-![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charTheta.png)
-![UnicodeLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/charAccent.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/charTheta.png" alt="UnicodeLookup"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/charTheta.png" alt="UnicodeLookup"/><br>
 <br>
 <h4>Emoji lookup</h4>
-![EmojiLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/EmojiSmile.png)
-![EmojiLookup](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/EmojiMoon.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/EmojiSmile.png" alt="EmojiLookup"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/EmojiMoon.png" alt="EmojiLookup"/><br>
 <br>
 <h4>Web search</h4>
-![WebSearch]()
+ <img src="" alt="WebSearch"/><br>
 <br>
 <h4>Calculator</h4>
-![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc1.png)
-![Calculator](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/calc2.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/calc1.png" alt="Calculator"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/calc2.png" alt="Calculator"/><br>
 <br>
 <h4>Power commands</h4>
-![PowerCommands]()
+ <img src="" alt="PowerCommands"/><br>
 <br>
 <h4>System IP & MAC address</h4>
-![IP&MAC]()
+ <img src="" alt="IP&MAC"/><br>
 <br>
 <h4>Powershell command launcher</h4>
-![Powershell]()
+ <img src="" alt="Powershell"/><br>
 <br>
 <h4>Wikipedia search</h4>
-![WikipediaSearch1](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki1.png)
-![WikipediaSearch2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/wiki2.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/wiki1.png" alt="WikipediaSearch1"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/wiki2.png" alt="WikipediaSearch2"/><br>
 <br>
 <h4>Dictionary</h4>
-![Dictionary](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/QuokkaPreview.png)
-![Dictionary2](https://raw.githubusercontent.com/Faeq-F/Quokka/main/docs/screenshots/dictionary2.png)
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/QuokkaPreview.png" alt="Dictionary"/><br>
+ <img src="https://raw.githubusercontent.com/Faeq-F/Quokka/oldCodebase/docs/screenshots/dictionary2.png" alt="Dictionary"/><br>
 </p></details>
 
 
 
 
 ## Customisation:
+
+You can edit the css files and modify the assets (the settings window does not currently work)
