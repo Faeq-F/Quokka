@@ -16,6 +16,12 @@ namespace Quokka
 {
     /// <summary>
     /// Interaction logic for App.xaml
+    /// 
+    /// Includes wpf-notifyicon - CPOL:
+    /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
+    /// 
+    /// Includes WPF UI - MIT:
+    /// https://github.com/lepoco/wpfui/blob/main/LICENSE
     /// </summary>
     public partial class App : System.Windows.Application
     {
@@ -28,6 +34,11 @@ namespace Quokka
 
             //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
+
+            //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
+            ToolTip tt = new ToolTip();
+            tt.Active = true;
+            tt.Active = false;
 
             //KeyboardHook EscapeHook = new KeyboardHook();
             // register the event that is fired after the key press.

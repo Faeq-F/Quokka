@@ -29,7 +29,8 @@ namespace Quokka {
     
     public partial class SearchWindow : Window {
 
-        String query;
+        private String query;
+        private static List<ListItem> ListOfResults { set; get; }
 
         public SearchWindow() {
 
@@ -50,49 +51,43 @@ namespace Quokka {
             WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
             SearchWindowGrid.Margin = WindowMarginThickness;
 
-            //Setting source of results and adding filter
-            ResultsListView.ItemsSource = App.ListOfSystemApps;
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource);
-            view.Filter = ResultsFilter;
-
             //Escape key to close window
             RoutedCommand ExecuteItemCommand = new RoutedCommand();
             ExitWindow.InputGestures.Add(new KeyGesture(Key.Enter));
             CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listView_Click));
 
+            SearchTermTextBox.Focus();
         }
 
         private void listView_Click(object sender, RoutedEventArgs e){
             if (ResultsListView != null){
-                (ResultsListView.SelectedItem as ListItem).execute();
-                this.Close();
+                if(ResultsListView.SelectedItem != null) {
+                    (ResultsListView.SelectedItem as ListItem).execute();
+                    this.Close();
+                }
             }
-        }
-
-        private bool ResultsFilter(object item)
-        {
-            if (String.IsNullOrEmpty(SearchTermTextBox.Text))
-                return true;
-            else
-                return ((item as ListItem).name.IndexOf(SearchTermTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
             System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
             query = textBox.Text;
+            ListOfResults = new List<ListItem>();
             if (query == "") {
-                ResultsBox.Visibility = Visibility.Hidden;
+                ResultsBox.Visibility = Visibility.Hidden; return;
+            } else if (query == "AllApps") {
+                ListOfResults = App.ListOfSystemApps;
+            } else {
+                //filtering apps
+                foreach (ListItem app in App.ListOfSystemApps) {
+                    if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)) ListOfResults.Add(app);
+                }
+                //filter other item types
+
+                //Check if items were shown
+                if(ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }
-            else if (query == "AllApps") {
-                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Filter = null;
-                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Refresh();
-                ResultsBox.Visibility = Visibility.Visible;
-            }
-            else {
-                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Filter = ResultsFilter;
-                CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource).Refresh();
-                ResultsBox.Visibility = Visibility.Visible;
-            }
+            ResultsListView.ItemsSource = ListOfResults;
+            ResultsBox.Visibility = Visibility.Visible;
         }
 
         private void Exit(object sender, ExecutedRoutedEventArgs e) {

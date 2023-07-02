@@ -24,10 +24,6 @@ namespace Quokka
             this.icon = app.Thumbnail.ExtraLargeBitmapSource;
         }
 
-        public override string ToString() {
-            return name;
-        }
-
         public override void execute() => System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\" + description);
     }
 }
