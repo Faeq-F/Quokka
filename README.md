@@ -9,3 +9,6 @@ Like the app per the old codebase, it will have additional features such as open
 <b>It is intended that this app will have a Plugin Architecture</b>
 
 Maybe using Wox plugins (though I currently have no idea how to develop that)
+
+## Developed Features
+Currently, only launching system apps works
