@@ -4,6 +4,7 @@
                     xmlns:local="clr-namespace:Quokka">
 
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
+        <MenuItem Header="Open Search Window" Command="{Binding ShowWindowCommand}"/>
         <MenuItem Header="Settings" Command="{Binding OpenSettingsWindow}"/>
         <!--<MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" />-->
         <Separator />

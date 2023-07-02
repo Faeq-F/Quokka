@@ -20,7 +20,7 @@
         Background="Transparent"
         WindowStartupLocation="CenterScreen">
 
-    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
@@ -100,16 +100,8 @@
                 Width="720"
                 >
 
-                <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single">
+                <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single" PreviewMouseLeftButtonUp="listView_Click">
                 </ListView>
-
-                <!--<ListView ItemsSource="{Binding}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="dcwfcswewrffewefwefw"></TextBlock>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>-->
 
                 <!--
                 <TextBlock

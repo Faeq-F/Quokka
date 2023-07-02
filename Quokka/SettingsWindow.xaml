@@ -45,7 +45,7 @@
                     <RowDefinition Height="9*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0" Cursor="SizeAll">
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="9*"/>

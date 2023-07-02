@@ -40,16 +40,33 @@ namespace Quokka {
 
             InitializeComponent();
 
-            //Dynamic widths & hiding results box
+            //Dynamic widths, heights and margins & hiding results box
             ResultsBox.Visibility = Visibility.Hidden;
             EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            ResultsBox.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight / 3;
+            //Window Margins
+            System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0; WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
+            WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
+            SearchWindowGrid.Margin = WindowMarginThickness;
 
             //Setting source of results and adding filter
             ResultsListView.ItemsSource = App.ListOfSystemApps;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ResultsListView.ItemsSource);
             view.Filter = ResultsFilter;
 
+            //Escape key to close window
+            RoutedCommand ExecuteItemCommand = new RoutedCommand();
+            ExitWindow.InputGestures.Add(new KeyGesture(Key.Enter));
+            CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listView_Click));
+
+        }
+
+        private void listView_Click(object sender, RoutedEventArgs e){
+            if (ResultsListView != null){
+                (ResultsListView.SelectedItem as ListItem).execute();
+                this.Close();
+            }
         }
 
         private bool ResultsFilter(object item)
@@ -57,7 +74,7 @@ namespace Quokka {
             if (String.IsNullOrEmpty(SearchTermTextBox.Text))
                 return true;
             else
-                return ((item as SystemApp).name.IndexOf(SearchTermTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as ListItem).name.IndexOf(SearchTermTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
