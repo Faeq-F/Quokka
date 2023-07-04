@@ -7,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using Hardcodet.Wpf.TaskbarNotification;
@@ -35,11 +36,6 @@ namespace Quokka
             //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
 
-            //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
-            ToolTip tt = new ToolTip();
-            tt.Active = true;
-            tt.Active = false;
-
             //KeyboardHook EscapeHook = new KeyboardHook();
             // register the event that is fired after the key press.
             //EscapeHook.KeyPressed += new EventHandler<KeyPressedEventArgs>(showWindow);
@@ -61,5 +57,9 @@ namespace Quokka
             base.OnExit(e);
         }
 
+        //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
+        private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+            this.notifyIcon.ToolTipText = "Quokka";
+        }
     }
 }

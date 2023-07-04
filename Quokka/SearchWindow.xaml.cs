@@ -21,6 +21,7 @@ using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.
 using System.ComponentModel;
 using System.Windows.Forms.Integration;
 using Microsoft.VisualBasic.ApplicationServices;
+using System.Diagnostics;
 
 namespace Quokka {
     /// <summary>
@@ -51,21 +52,13 @@ namespace Quokka {
             WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
             SearchWindowGrid.Margin = WindowMarginThickness;
 
-            //Escape key to close window
+            //Enter key to choose item
             RoutedCommand ExecuteItemCommand = new RoutedCommand();
-            ExitWindow.InputGestures.Add(new KeyGesture(Key.Enter));
-            CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listView_Click));
+            ExecuteItemCommand.InputGestures.Add(new KeyGesture(Key.Enter));
+            CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listItem_Click));
 
-            SearchTermTextBox.Focus();
-        }
-
-        private void listView_Click(object sender, RoutedEventArgs e){
-            if (ResultsListView != null){
-                if(ResultsListView.SelectedItem != null) {
-                    (ResultsListView.SelectedItem as ListItem).execute();
-                    this.Close();
-                }
-            }
+            //Focusing Search Bar
+            EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent, new RoutedEventHandler(WindowLoaded));
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
@@ -90,8 +83,54 @@ namespace Quokka {
             ResultsBox.Visibility = Visibility.Visible;
         }
 
+        //In search field, check if Down or Up so that ListView items can be selected
+        private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+            switch (e.Key) {
+                case Key.Down:
+                    if ((ResultsListView.SelectedIndex == -1)) {
+                        ResultsListView.SelectedIndex = 1;
+                    } else if (ResultsListView.SelectedIndex == ResultsListView.Items.Count - 1) {
+                        ResultsListView.SelectedIndex = 0;
+                    } else {
+                        ResultsListView.SelectedIndex++;
+                    }
+                    ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
+                    break;
+                case Key.Up:
+                    if ((ResultsListView.SelectedIndex == -1) || (ResultsListView.SelectedIndex == 0)) {
+                        ResultsListView.SelectedIndex = ResultsListView.Items.Count - 1;
+                    } else {
+                        ResultsListView.SelectedIndex--;
+                    }
+                    ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
+                    break;
+                default:
+                    return; //e is not handled - normal activity occurs (e.g. escape closes window, letters are typed, etc.)
+            }
+            e.Handled = true;
+        }
+
+        private void listItem_Click(object sender, RoutedEventArgs e) {
+            if (ResultsListView != null) {
+                if (ResultsListView.SelectedIndex > -1) (ResultsListView.SelectedItem as ListItem).execute();
+                else (ResultsListView.Items.GetItemAt(0) as ListItem).execute();
+                this.Close();
+            }
+        }
+
         private void Exit(object sender, ExecutedRoutedEventArgs e) {
             this.Close();
+        }
+
+        //Focuses search field
+        void WindowLoaded(object sender, RoutedEventArgs e) {
+            var window = e.Source as Window;
+            System.Threading.Thread.Sleep(100);
+            window.Dispatcher.Invoke(
+            new Action(() => {
+                window.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+
+            }));
         }
 
     }

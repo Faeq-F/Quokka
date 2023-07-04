@@ -31,7 +31,7 @@
                 x:Name="EntryField"
                 BorderBrush="#FF000000"
                 BorderThickness="1"
-                CornerRadius="32"
+                CornerRadius="15"
                 Background="White"
                 Height="600"
                 Width="600"
@@ -54,7 +54,7 @@
 
                     <TextBlock Text="Settings" Grid.Column="0" Margin="20" FontFamily="Cascadia Code" FontSize="22" VerticalAlignment="Center" Height="30"></TextBlock>
                     
-                    <ui:TitleBar Background="Transparent" ShowMaximize="False" ShowMinimize="False" Margin="0,9,9,0" Grid.Column="1"/>
+                    <ui:TitleBar Background="Transparent" ShowMaximize="False" ShowMinimize="False" Margin="0,9,9,0" Grid.Column="1" ButtonsBackground="Transparent" ButtonsForeground="Aqua"/>
                     
                 </Grid>
 
