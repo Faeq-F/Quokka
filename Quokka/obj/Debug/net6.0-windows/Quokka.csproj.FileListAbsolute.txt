@@ -52,3 +52,4 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\net6.0-windows\Validation.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\net6.0-windows\Microsoft.WindowsAPICodePack.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\net6.0-windows\Wpf.Ui.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\net6.0-windows\Quokka.dll.config

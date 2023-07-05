@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Product>Calci</Product>
+    <BaseOutputPath>..\PlugBoard\</BaseOutputPath>
+    <Title>ListItemPlug_ShowTypedText</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Quokka\Quokka.csproj" />
+  </ItemGroup>
+
+</Project>

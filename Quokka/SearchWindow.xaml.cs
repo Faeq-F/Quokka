@@ -22,6 +22,10 @@ using System.ComponentModel;
 using System.Windows.Forms.Integration;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
+using Quokka.Plugger.Contracts;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
 
 namespace Quokka {
     /// <summary>
@@ -32,6 +36,8 @@ namespace Quokka {
 
         private String query;
         private static List<ListItem> ListOfResults { set; get; }
+
+        //private static List<>
 
         public SearchWindow() {
 
@@ -74,13 +80,65 @@ namespace Quokka {
                 foreach (ListItem app in App.ListOfSystemApps) {
                     if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)) ListOfResults.Add(app);
                 }
-                //filter other item types
+                //grab other item types from plugins - already filtered
+
+
+
+
+
+
+
+
+
+                try {
+                    //Configure path of PlugBoard folder to access all ListItem libraries
+                    string plugName = ConfigurationSettings.AppSettings["Plugs"].ToString();
+                    //TabItem buttonA = new TabItem();
+
+                    //ListPlugs.Items.Add(a new listPlug?);
+
+                    var connectors = Directory.GetDirectories(plugName);
+                    foreach (var connect in connectors) {
+                        string dllPath = GetPluggerDll(connect);
+                        Assembly _Assembly = Assembly.LoadFile(dllPath);
+                        var types = _Assembly.GetTypes()?.ToList();
+                        var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
+                        var win = (IPlugger)Activator.CreateInstance(type);
+
+                        //win.GetPlugger() - array of list items (ListItem[])
+                        foreach (ListItem item in win.GetPlugger(query)) ListOfResults.Add(item);
+
+                        //tabPlugs.Items.Add(button);
+                    }
+                } catch (Exception ex) {
+                    System.Windows.MessageBox.Show(ex.Message+"\n"+ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+
+
+
+
+
+
+
+
+
 
                 //Check if items were shown
-                if(ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
+                if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }
             ResultsListView.ItemsSource = ListOfResults;
             ResultsBox.Visibility = Visibility.Visible;
+        }
+
+        private string GetPluggerDll(string connect) {
+            var files = Directory.GetFiles(connect, "*.dll");
+            foreach (var file in files) {
+                if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Calci"))
+                    return file;
+            }
+            //return string.Empty;
+            return connect;
         }
 
         //In search field, check if Down or Up so that ListView items can be selected
