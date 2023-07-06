@@ -82,47 +82,20 @@ namespace Quokka {
                 }
                 //grab other item types from plugins - already filtered
 
-
-
-
-
-
-
-
-
                 try {
-                    //Configure path of PlugBoard folder to access all ListItem libraries
                     string plugName = ConfigurationSettings.AppSettings["Plugs"].ToString();
-                    //TabItem buttonA = new TabItem();
-
-                    //ListPlugs.Items.Add(a new listPlug?);
-
                     var connectors = Directory.GetDirectories(plugName);
-                    foreach (var connect in connectors) {
+                    foreach (var connect in connectors) { //for every folder in PlugBoard
                         string dllPath = GetPluggerDll(connect);
                         Assembly _Assembly = Assembly.LoadFile(dllPath);
                         var types = _Assembly.GetTypes()?.ToList();
                         var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
                         var win = (IPlugger)Activator.CreateInstance(type);
-
-                        //win.GetPlugger() - array of list items (ListItem[])
                         foreach (ListItem item in win.GetPlugger(query)) ListOfResults.Add(item);
-
-                        //tabPlugs.Items.Add(button);
                     }
                 } catch (Exception ex) {
                     System.Windows.MessageBox.Show(ex.Message+"\n"+ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-
-
-
-
-
-
-
-
-
 
                 //Check if items were shown
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
@@ -132,13 +105,14 @@ namespace Quokka {
         }
 
         private string GetPluggerDll(string connect) {
-            var files = Directory.GetFiles(connect, "*.dll");
+            var files = Directory.GetFiles(System.IO.Path.GetFullPath(connect), "*.dll", SearchOption.AllDirectories);
             foreach (var file in files) {
-                if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Calci"))
+                if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_")) {
+                    Debug.WriteLine("giving "+file);
                     return file;
+                }
             }
-            //return string.Empty;
-            return connect;
+            return string.Empty;
         }
 
         //In search field, check if Down or Up so that ListView items can be selected
