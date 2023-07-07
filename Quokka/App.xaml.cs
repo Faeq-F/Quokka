@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.WindowsAPICodePack.Shell;
+using Quokka.Plugger.Contracts;
 
 namespace Quokka
 {
@@ -36,22 +40,33 @@ namespace Quokka
         private string detectedKeys = "";
         public static List<ListItem> ListOfSystemApps {private set; get; }
 
+        public static List<IPlugger> plugins { private set; get; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
-            notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
+            //creating needed folders for portability
+            Directory.CreateDirectory(Environment.CurrentDirectory + "\\PlugBoard");
+            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Config");
+            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Config\\Resources");
 
-            //KeyboardHook LaunchSearchWindowHook = new KeyboardHook();
-            // register the event that is fired after the key press.
-            //EscapeHook.KeyPressed += new EventHandler<KeyPressedEventArgs>(showWindow);
-            // register the hot key.- not working reliably
-            //EscapeHook.RegisterHotKey(ModifierKeys.Alt, Keys.Space);
+            // grab plugins
+            plugins = new List<IPlugger>();
+            try {
+                foreach (var connector in Directory.GetDirectories("PlugBoard/")) { //for every folder in PlugBoard
+                    string dllPath = GetPluggerDll(connector);
+                    Assembly _Assembly = Assembly.LoadFile(dllPath);
+                    var types = _Assembly.GetTypes()?.ToList();
+                    var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
+                    plugins.Add((IPlugger)Activator.CreateInstance(type));
+                }
+            } catch (Exception ex) {
+                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
             _listener = new LowLevelKeyboardListener();
             _listener.OnKeyPressed += _listener_OnKeyPressed;
-            _listener.HookKeyboard();
 
             ListOfSystemApps = new List<ListItem>();
             // GUID taken from https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid
@@ -59,9 +74,18 @@ namespace Quokka
             ShellObject appsFolder = (ShellObject)KnownFolderHelper.FromKnownFolderId(FOLDERID_AppsFolder);
 
             foreach (var app in (IKnownFolder)appsFolder) ListOfSystemApps.Add(new SystemApp(app));
-        }
 
-        //void showWindow(object sender, KeyPressedEventArgs e) {notifyIcon.LeftClickCommand.Execute(this);}
+            //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
+            notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
+            _listener.HookKeyboard();
+        }
+        private string GetPluggerDll(string connector) {
+            var files = Directory.GetFiles(System.IO.Path.GetFullPath(connector), "*.dll", SearchOption.AllDirectories);
+            foreach (var file in files) {
+                if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_")) return file;
+            }
+            return string.Empty;
+        }
 
         protected override void OnExit(ExitEventArgs e){
             _listener.UnHookKeyboard();

@@ -1,26 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.Win32;
-using Microsoft.WindowsAPICodePack.Shell;
-using static Microsoft.WindowsAPICodePack.Shell.PropertySystem.SystemProperties.System;
-using System.ComponentModel;
-using System.Windows.Forms.Integration;
-using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
 using Quokka.Plugger.Contracts;
 using System.Configuration;
@@ -81,38 +63,18 @@ namespace Quokka {
                     if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)) ListOfResults.Add(app);
                 }
                 //grab other item types from plugins - already filtered
-
                 try {
-                    string plugName = ConfigurationSettings.AppSettings["Plugs"].ToString();
-                    var connectors = Directory.GetDirectories(plugName);
-                    foreach (var connect in connectors) { //for every folder in PlugBoard
-                        string dllPath = GetPluggerDll(connect);
-                        Assembly _Assembly = Assembly.LoadFile(dllPath);
-                        var types = _Assembly.GetTypes()?.ToList();
-                        var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
-                        var win = (IPlugger)Activator.CreateInstance(type);
-                        foreach (ListItem item in win.GetPlugger(query)) ListOfResults.Add(item);
+                    foreach (IPlugger plugin in App.plugins) {
+                        foreach (ListItem item in plugin.GetPlugger(query)) ListOfResults.Add(item);
                     }
                 } catch (Exception ex) {
-                    System.Windows.MessageBox.Show(ex.Message+"\n"+ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
                 //Check if items were shown
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }
             ResultsListView.ItemsSource = ListOfResults;
             ResultsBox.Visibility = Visibility.Visible;
-        }
-
-        private string GetPluggerDll(string connect) {
-            var files = Directory.GetFiles(System.IO.Path.GetFullPath(connect), "*.dll", SearchOption.AllDirectories);
-            foreach (var file in files) {
-                if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_")) {
-                    Debug.WriteLine("giving "+file);
-                    return file;
-                }
-            }
-            return string.Empty;
         }
 
         //In search field, check if Down or Up so that ListView items can be selected

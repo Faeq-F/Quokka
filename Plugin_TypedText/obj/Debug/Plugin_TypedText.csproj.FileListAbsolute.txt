@@ -17,3 +17,9 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.dl
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\refint\Plugin_TypedText.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.pdb
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\ref\Plugin_TypedText.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Quokka.deps.json
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Quokka.runtimeconfig.json
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Quokka.exe
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Plugin_TypedText.deps.json
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Plugin_TypedText.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Plugin_TypedText.pdb
