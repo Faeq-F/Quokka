@@ -21,11 +21,12 @@ Currently, the settings window has not been developed.
 
 To use the app, run Quokka.exe
 
-> Left Win + Space launches the search bar<br>
-
-> arrow keys can be used to select items<br>
-
-> enter key executes an item<br>
+| Default Keyboard shortcut | Use |
+|-----:|-----------|
+| Left Win + Space | launches the search bar |
+| arrow keys | select items |
+| enter key | executes an item |
+| menu key | launches context pane for item |
 
 You can use the Tray task icon to Exit the app completely, or launch the search window
 <br>(The settings window has not been developed yet)
@@ -35,7 +36,46 @@ If you do not wish to use a plugin, simply delete the appropriate folder in Plug
 
 ### Special commands
 <b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
-> typing 'AllApps' will list all apps installed for your user on windows
+| Command (Case Sensitive) | Use |
+|-----:|-----------|
+| AllApps | list all installed apps |
+
+</details>
+
+<details>
+<summary>
+<h2>Planned plugins</h2>
+</summary>
+
+In order of priority:
+
+| Developed? | Plugin |
+|-----:|-----------|
+|     ✅| installed app launcher - (this is not a plugin but the core app function) |
+|     ▢| better ui & theming |
+|     ▢| portable app launcher |
+|     ▢| file/folder - everything - maybe with preview pane |
+|     ▢| sharex integration |
+|     ▢| calculator |
+|     ▢| os power commands (logout, lock, sleep, chutdown, etc.) |
+|     ▢| control panel shortcuts |
+|     ▢| Windows settings |
+|     ▢| IP & MAC address |
+|     ▢| cli commands - powershell |
+|     ▢| dictionary |
+|     ▢| unicode character lookup |
+|     ▢| color space conversion |
+|     ▢| unit conversion |
+|     ▢| currency conversion |
+|     ▢| translate |
+|     ▢| lorem ipsum generator |
+|     ▢| emoji lookup |
+|     ▢| url opener |
+|     ▢| wikipedia search |
+|     ▢| clipboard manager |
+|     ▢| keepass integration |
+|     ▢| Timezone converter |
+|     ▢| workflows - launch multiple shortcuts at once - see below |
 
 </details>
 
