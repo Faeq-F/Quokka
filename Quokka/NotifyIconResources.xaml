@@ -5,14 +5,14 @@
 
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
         <MenuItem Header="Open Search Window" Command="{Binding ShowWindowCommand}"/>
-        <MenuItem Header="Settings" Command="{Binding OpenSettingsWindow}"/>
+        <MenuItem Header="Settings" Command="{Binding OpenSettingsFile}"/>
         <!--<MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" />-->
         <Separator />
         <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />
     </ContextMenu>
 
     <!-- the application's NotifyIcon - started from App.xaml.cs. Declares its own view model. ToolTipText="Quokka" -->
-    <tb:TaskbarIcon x:Key="NotifyIcon" IconSource="/Resources/QuokkaTray.ico" LeftClickCommand="{Binding ShowWindowCommand}" ContextMenu="{StaticResource SysTrayMenu}">
+    <tb:TaskbarIcon x:Key="NotifyIcon" LeftClickCommand="{Binding ShowWindowCommand}" ContextMenu="{StaticResource SysTrayMenu}">
 
         <!-- self-assign a data context -->
         <tb:TaskbarIcon.DataContext>

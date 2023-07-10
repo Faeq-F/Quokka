@@ -8,6 +8,8 @@ using Quokka.Plugger.Contracts;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
+using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace Quokka {
     /// <summary>
@@ -23,22 +25,34 @@ namespace Quokka {
 
         public SearchWindow() {
 
-            //Escape key to close window
-            RoutedCommand ExitWindow = new RoutedCommand();
-            ExitWindow.InputGestures.Add(new KeyGesture(Key.Escape));
-            CommandBindings.Add(new CommandBinding(ExitWindow, Exit));
-
             InitializeComponent();
+            SearchIcon.Source = new BitmapImage(new Uri(
+                Environment.CurrentDirectory + "\\Config\\Resources\\SearchIcon.png"));
 
             //Dynamic widths, heights and margins & hiding results box
             ResultsBox.Visibility = Visibility.Hidden;
             EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight / 3;
+
             //Window Margins
             System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0; WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
             WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
             SearchWindowGrid.Margin = WindowMarginThickness;
+
+            //run anything needed for plugins on window startup
+            try {
+                foreach (IPlugger plugin in App.plugins) {
+                    plugin.OnSearchWindowStartup();
+                }
+            } catch (Exception ex) {
+                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            //Escape key to close window
+            RoutedCommand ExitWindow = new RoutedCommand();
+            ExitWindow.InputGestures.Add(new KeyGesture(Key.Escape));
+            CommandBindings.Add(new CommandBinding(ExitWindow, Exit));
 
             //Enter key to choose item
             RoutedCommand ExecuteItemCommand = new RoutedCommand();
@@ -53,23 +67,26 @@ namespace Quokka {
             System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
             query = textBox.Text;
             ListOfResults = new List<ListItem>();
+            //getting results for query
             if (query == "") {
                 ResultsBox.Visibility = Visibility.Hidden; return;
-            } else if (query == "AllApps") {
-                ListOfResults = App.ListOfSystemApps;
             } else {
-                //filtering apps
-                foreach (ListItem app in App.ListOfSystemApps) {
-                    if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)) ListOfResults.Add(app);
-                }
-                //grab other item types from plugins - already filtered
                 try {
                     foreach (IPlugger plugin in App.plugins) {
-                        foreach (ListItem item in plugin.GetPlugger(query)) ListOfResults.Add(item);
+                        //checking special commands
+                        foreach (string specialCommand in plugin.SpecialCommands()){
+                            if (specialCommand.Equals(query)) {
+                                ListOfResults = plugin.OnSpecialCommand(query);
+                                goto ResultsAreReady;
+                            }
+                        }
+                        //grab plugin items
+                        foreach (ListItem item in plugin.OnQueryChange(query)) ListOfResults.Add(item);
                     }
                 } catch (Exception ex) {
-                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                ResultsAreReady:
                 //Check if items were shown
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }

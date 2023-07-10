@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -32,53 +33,58 @@ namespace Quokka
     /// <br>
     /// Includes LowLevelKeyboardListener from Dylan's Web
     /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
+    /// <br>
+    /// Includes JSON.Net - MIT license
+    /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
     /// </summary>
-    public partial class App : System.Windows.Application
-    {
+    public partial class App : System.Windows.Application {
         private TaskbarIcon notifyIcon;
         private LowLevelKeyboardListener _listener;
         private string detectedKeys = "";
-        public static List<ListItem> ListOfSystemApps {private set; get; }
 
         public static List<IPlugger> plugins { private set; get; }
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
+        protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
-            //creating needed folders for portability
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\PlugBoard");
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Config");
-            Directory.CreateDirectory(Environment.CurrentDirectory + "\\Config\\Resources");
-
-            // grab plugins
+            // grab plugins and run startup
             plugins = new List<IPlugger>();
-            try {
-                foreach (var connector in Directory.GetDirectories("PlugBoard/")) { //for every folder in PlugBoard
-                    string dllPath = GetPluggerDll(connector);
-                    Assembly _Assembly = Assembly.LoadFile(dllPath);
-                    var types = _Assembly.GetTypes()?.ToList();
-                    var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
-                    plugins.Add((IPlugger)Activator.CreateInstance(type));
+            if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard")) {
+                try {
+                    foreach (var plugin in Directory.GetDirectories(Environment.CurrentDirectory + "\\PlugBoard\\")) {
+                        string dllPath = GetPluggerDll(plugin);
+                        Assembly _Assembly = Assembly.LoadFile(dllPath);
+                        var types = _Assembly.GetTypes()?.ToList();
+                        var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
+                        plugins.Add((IPlugger)Activator.CreateInstance(type));
+                    }
+                    //run anything needed for plugins on app startup
+                    foreach (IPlugger plugin in plugins) {
+                        plugin.OnAppStartup();
+                    }
+                } catch (Exception ex) {
+                    System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-            } catch (Exception ex) {
-                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
+            //keyboard listener for search window shortcut
             _listener = new LowLevelKeyboardListener();
             _listener.OnKeyPressed += _listener_OnKeyPressed;
-
-            ListOfSystemApps = new List<ListItem>();
-            // GUID taken from https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid
-            var FOLDERID_AppsFolder = new Guid("{1e87508d-89c2-42f0-8a7e-645a0f50ca58}");
-            ShellObject appsFolder = (ShellObject)KnownFolderHelper.FromKnownFolderId(FOLDERID_AppsFolder);
-
-            foreach (var app in (IKnownFolder)appsFolder) ListOfSystemApps.Add(new SystemApp(app));
+            _listener.HookKeyboard();
 
             //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
-            _listener.HookKeyboard();
+            notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
+
         }
+
+        public static void OpenSettingsFile(){
+            using Process fileopener = new Process();
+            fileopener.StartInfo.FileName = "notepad";
+            fileopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
+            fileopener.Start();
+        }
+
         private string GetPluggerDll(string connector) {
             var files = Directory.GetFiles(System.IO.Path.GetFullPath(connector), "*.dll", SearchOption.AllDirectories);
             foreach (var file in files) {
@@ -88,6 +94,14 @@ namespace Quokka
         }
 
         protected override void OnExit(ExitEventArgs e){
+            //run anything needed for plugins on app exit
+            try {
+                foreach (IPlugger plugin in plugins) {
+                    plugin.OnAppShutdown();
+                }
+            } catch (Exception ex) {
+                System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             _listener.UnHookKeyboard();
             notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
             base.OnExit(e);
@@ -98,6 +112,7 @@ namespace Quokka
             this.notifyIcon.ToolTipText = "Quokka";
         }
 
+        //launching search window
         void _listener_OnKeyPressed(object sender, KeyPressedArgs e) {
             //refresh hook to prevent app hanging
             _listener.UnHookKeyboard();

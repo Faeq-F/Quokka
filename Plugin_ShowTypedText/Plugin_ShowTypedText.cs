@@ -1,9 +1,9 @@
-using Quokka.Plugger.Contracts;
 using Quokka;
-using System.Text.RegularExpressions;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+using System;
+using System.Windows.Forms; //used for clipboard as System.Windows.Clipboard does not have a retry loop
+using Quokka.Plugger.Contracts;
+using System.Windows.Media.Imaging;
+using System.Collections.Generic;
 
 namespace Plugin_ShowTypedText {
     /// <summary>  
@@ -15,12 +15,22 @@ namespace Plugin_ShowTypedText {
             this.name = "Typed:" + query;
             this.query = query;
             this.description = "The search field contains the above text";
-            //this.icon = an ImageSource; 
+            this.icon = new BitmapImage(new Uri(
+                Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
         }
 
         //When item is selected, copy text
         public override void execute() {
-            //Clipboard.SetText(query);
+            // used for reliability with win api as System.Windows.Clipboard does not have retry
+            // and System.Windows.Forms.Clipboard does not work either
+            for (int i = 0; i < 10; i++) {
+                try {
+                    Clipboard.SetText(query);
+                    break;
+                } catch {
+                    System.Threading.Thread.Sleep(10);
+                }
+            }
             App.Current.MainWindow.Close();
         }
     }
@@ -31,7 +41,6 @@ namespace Plugin_ShowTypedText {
     /// </summary>
     public partial class ShowTypedText : IPlugger {
 
-        private string query;
         public ShowTypedText() {}
 
         /// <summary>  
@@ -43,10 +52,25 @@ namespace Plugin_ShowTypedText {
         /// This will get called when user types query into search field
         /// </summary>  
         /// <returns></returns>  
-        public ListItem[] GetPlugger(string query) {
-            ListItem item = new TypedTextItem(query);
-            return new ListItem[] {item};
+        public List<ListItem> OnQueryChange(string query) {
+            List<ListItem> ItemList = new List<ListItem>();
+            ItemList.Add(new TypedTextItem(query));
+            return ItemList;
         }
+
+        public List<String> SpecialCommands() {
+            return new List<String>();
+        }
+
+        public List<ListItem> OnSpecialCommand(string command) {
+            return new List<ListItem>();
+        }
+
+        public void OnAppStartup() { }
+
+        public void OnAppShutdown() { }
+
+        public void OnSearchWindowStartup() { }
 
     }
 }

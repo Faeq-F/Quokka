@@ -13,6 +13,8 @@ namespace Quokka {
         public string description { get; set; }
         public ImageSource icon { get; set; }
 
+        //add context pane
+
         public abstract void execute();
 
         public override string ToString() {

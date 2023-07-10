@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwnuKvKNGlkX090D37npCG9DeFeYk5VpSYNWRtNr/8uJEza5apJjKb2MBykOBmfV58Ii0mh/Iwsirjn5jPbvKA==",
+  "dgSpecHash": "bT5zoAJT2qRjSapCQBUyEqpeRSC3GclzFE6Vy8ntFq7qFAq8Fyx14deWdDE4NMrPtGhuOByw4dazU9yRFHj8tA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_TypedText\\Plugin_TypedText.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Faeq\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.kernel32\\0.7.124\\pinvoke.kernel32.0.7.124.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.user32\\0.7.124\\pinvoke.user32.0.7.124.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.windows.core\\0.7.124\\pinvoke.windows.core.0.7.124.nupkg.sha512",
@@ -17,7 +18,10 @@
     "C:\\Users\\Faeq\\.nuget\\packages\\validation\\2.4.15\\validation.2.4.15.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-core\\1.1.1\\windowsapicodepack-core.1.1.1.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-shell\\1.1.1\\windowsapicodepack-shell.1.1.1.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512"
+    "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.18\\microsoft.aspnetcore.app.runtime.win-x64.6.0.18.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.18\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.18.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.18\\microsoft.netcore.app.runtime.win-x64.6.0.18.nupkg.sha512"
   ],
   "logs": [
     {

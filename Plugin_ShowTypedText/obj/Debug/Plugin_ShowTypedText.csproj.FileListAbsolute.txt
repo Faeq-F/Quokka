@@ -15,7 +15,6 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowType
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowTypedText.csproj.CopyComplete
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowTypedText.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\refint\Plugin_ShowTypedText.dll
-C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowTypedText.pdb
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\ref\Plugin_ShowTypedText.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Debug\Quokka.deps.json
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Debug\Quokka.runtimeconfig.json
@@ -43,4 +42,7 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedTex
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Quokka.exe
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Plugin_ShowTypedText.deps.json
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Plugin_ShowTypedText.dll
-C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Plugin_ShowTypedText.pdb
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Config\Resources\QuokkaTray.ico
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Config\Resources\SearchIcon.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Config\settings.json
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Config\Resources\information.png

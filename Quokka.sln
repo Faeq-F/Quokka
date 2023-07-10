@@ -5,11 +5,23 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quokka", "Quokka\Quokka.csproj", "{5809B4C0-69A8-4C05-8503-56BCBE7930A7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlugBoard", "PlugBoard", "{6399938B-551E-4F09-9AD1-2F63B8262A71}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_ShowTypedText", "Plugin_ShowTypedText\Plugin_ShowTypedText.csproj", "{4FE48153-029C-4D01-9215-CEF2F761EAA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_TypedText", "Plugin_TypedText\Plugin_TypedText.csproj", "{F1F9798E-7017-49A8-A0E9-FB737E2090F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_TypedText", "Plugin_TypedText\Plugin_TypedText.csproj", "{F1F9798E-7017-49A8-A0E9-FB737E2090F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{1F15F35B-52DE-41B6-8AE1-B4F415147579}"
+	ProjectSection(SolutionItems) = preProject
+		Config\settings.json = Config\settings.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{A719644E-CEB5-4DC8-99D3-0ADFEAA562E8}"
+	ProjectSection(SolutionItems) = preProject
+		Config\Resources\information.png = Config\Resources\information.png
+		Config\Resources\QuokkaTray.ico = Config\Resources\QuokkaTray.ico
+		Config\Resources\SearchIcon.png = Config\Resources\SearchIcon.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_InstalledApps", "Plugin_InstalledApps\Plugin_InstalledApps.csproj", "{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,9 +41,16 @@ Global
 		{F1F9798E-7017-49A8-A0E9-FB737E2090F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1F9798E-7017-49A8-A0E9-FB737E2090F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1F9798E-7017-49A8-A0E9-FB737E2090F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A719644E-CEB5-4DC8-99D3-0ADFEAA562E8} = {1F15F35B-52DE-41B6-8AE1-B4F415147579}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7FDD8F8A-0EBE-4319-8360-0CE41C1B9FCA}

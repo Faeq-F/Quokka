@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Quokka.Plugger.Contracts {
     public interface IPlugger {
         /// <summary>  
@@ -6,9 +9,17 @@ namespace Quokka.Plugger.Contracts {
         string PluggerName { get; set; }
 
         /// <summary>  
-        /// It will return ListItem[] which will display on ResultsView
-        /// </summary>  
-        /// <returns></returns>  
-        public ListItem[] GetPlugger(string query);
+        /// It will return List<ListItem> which will display on ResultsView
+        /// </summary>
+        public List<ListItem> OnQueryChange(string query);
+
+        public List<String> SpecialCommands();
+
+        public List<ListItem> OnSpecialCommand(string command);
+
+        public void OnAppStartup();
+        public void OnAppShutdown();
+
+        public void OnSearchWindowStartup();
     }
 }

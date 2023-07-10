@@ -5,61 +5,81 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-	  <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
-	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-	  <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <UseWindowsForms>true</UseWindowsForms>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <DebugType>embedded</DebugType>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <ApplicationIcon>..\Config\Resources\QuokkaTray.ico</ApplicationIcon>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
   </PropertyGroup>
 
-	<PropertyGroup>
-		<TargetFramework>net6.0-windows</TargetFramework>
-		<UseWPF>true</UseWPF>
-		<UseWindowsForms>true</UseWindowsForms>
-	</PropertyGroup>
-
-	<ItemGroup>
-	  <None Remove="Resources\QuokkaTray.ico" />
-	  <None Remove="Resources\SearchIcon.png" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
-	    <WrapperTool>tlbimp</WrapperTool>
-	    <VersionMinor>4</VersionMinor>
-	    <VersionMajor>2</VersionMajor>
-	    <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
-	  </COMReference>
-	  <COMReference Include="Shell32">
-	    <WrapperTool>tlbimp</WrapperTool>
-	    <VersionMinor>0</VersionMinor>
-	    <VersionMajor>1</VersionMajor>
-	    <Guid>50a7e9b0-70ef-11d1-b75a-00a0c90564fe</Guid>
-	    <Lcid>0</Lcid>
-	    <Isolated>false</Isolated>
-	    <EmbedInteropTypes>true</EmbedInteropTypes>
-	  </COMReference>
-	  <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
-	    <WrapperTool>tlbimp</WrapperTool>
-	    <VersionMinor>4</VersionMinor>
-	    <VersionMajor>2</VersionMajor>
-	    <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
-	  </COMReference>
-	</ItemGroup>
+  <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+    <WrapperTool>tlbimp</WrapperTool>
+    <VersionMinor>4</VersionMinor>
+    <VersionMajor>2</VersionMajor>
+    <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+    <COMReference Include="Shell32">
+    <WrapperTool>tlbimp</WrapperTool>
+    <VersionMinor>0</VersionMinor>
+    <VersionMajor>1</VersionMajor>
+    <Guid>50a7e9b0-70ef-11d1-b75a-00a0c90564fe</Guid>
+    <Lcid>0</Lcid>
+    <Isolated>false</Isolated>
+    <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
+    <WrapperTool>tlbimp</WrapperTool>
+    <VersionMinor>4</VersionMinor>
+    <VersionMajor>2</VersionMajor>
+    <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
+    </COMReference>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PInvoke.User32" Version="0.7.124" />
     <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
     <PackageReference Include="WPF-UI" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\QuokkaTray.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\SearchIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <ContentWithTargetPath Include="..\Config\Resources\QuokkaTray.ico">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="..\Config\Resources\QuokkaTray.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\SearchIcon.png">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="..\Config\Resources\SearchIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\settings.json">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <TargetPath>Config\settings.json</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="..\Config\settings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\information.png">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <TargetPath>Config\Resources\information.png</TargetPath>
+    </ContentWithTargetPath>
+    <None Include="..\Config\Resources\information.png" />
   </ItemGroup>
 
 </Project>

@@ -23,8 +23,7 @@ namespace Quokka
             {
                 return new DelegateCommand
                 {
-                    //Had issues with canExecuteFunc so allowed user to open multiple windows - may change later
-                    //CanExecuteFunc = () => Application.Current.MainWindow == null,
+                    CanExecuteFunc = () => Application.Current.MainWindow == null,
                     CommandAction = () =>
                     {
                         Application.Current.MainWindow = new SearchWindow();
@@ -44,28 +43,18 @@ namespace Quokka
                 return new DelegateCommand
                 {
                     CommandAction = () => Application.Current.MainWindow.Close(),
-                    //CanExecuteFunc = () => Application.Current.MainWindow != null
+                    CanExecuteFunc = () => Application.Current.MainWindow != null
                 };
             }
         }
 
         /// <summary>
-        /// Shows the settings window
+        /// Shows the settings file
         /// </summary>
 
-        public ICommand OpenSettingsWindow
-        {
-            get
-            {
-                return new DelegateCommand
-                {
-                    //CanExecuteFunc = () => Application.Current.MainWindow == null,
-                    CommandAction = () =>
-                    {
-                        Application.Current.MainWindow = new SettingsWindow();
-                        Application.Current.MainWindow.Show();
-                    }
-                };
+        public ICommand OpenSettingsFile {
+            get {
+                return new DelegateCommand { CommandAction = () => App.OpenSettingsFile() };
             }
         }
 
