@@ -51,7 +51,7 @@ In order of priority:
 
 | Developed? | Plugin |
 |-----:|-----------|
-|     ✅| installed app launcher - (this is not a plugin but the core app function) |
+|     ✅| installed app launcher |
 |     ▢| better ui & theming |
 |     ▢| portable app launcher |
 |     ▢| file/folder - everything - maybe with preview pane |
@@ -91,8 +91,8 @@ In order of priority:
 3. copy Debug folder (in bin) for Quokka project to desired location (e.g. USB drive)
 
 > (You may rename the folder to, for e.g., 'Quokka')<br>
-4. (Download / Delete) any plugins you ( do / do not) wish to use<br>(In the PlugBoard folder)<br>
-> (2 plugins are included with the source code - ShowTypedText and TypedText)
+4. (Download / Delete) any plugins you (do / do not) wish to use<br>(In the PlugBoard folder)<br>
+> (3 plugins are included with the source code - InstalledAppLauncher, ShowTypedText and TypedText)
 
 </details>
 
