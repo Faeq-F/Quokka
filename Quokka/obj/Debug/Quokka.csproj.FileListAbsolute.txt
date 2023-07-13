@@ -303,7 +303,6 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\dbgshim.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\hostfxr.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\hostpolicy.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore.dll
-C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore_amd64_amd64_6.0.1823.26907.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordbi.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscorrc.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\msquic.dll
@@ -317,3 +316,4 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\QuokkaTray.i
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\SearchIcon.png
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\settings.json
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\information.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore_amd64_amd64_6.0.2023.32017.dll

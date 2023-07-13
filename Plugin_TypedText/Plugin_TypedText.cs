@@ -4,6 +4,7 @@ using System.Windows;
 using Quokka.Plugger.Contracts;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace Plugin_TypedText {
     /// <summary>  

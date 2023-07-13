@@ -1,0 +1,46 @@
+﻿<Page x:Class="Plugin_ShowTypedText.ContextPane"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:quokka="clr-namespace:Quokka;assembly=Quokka"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="800"
+    Title="ContextPane"
+    KeyDown="Page_KeyDown">
+
+    <Border
+    BorderBrush="#FF000000"
+    BorderThickness="1"
+    CornerRadius="15"
+    Background="White"
+    MinHeight="64"
+    Height="auto"
+    Width="auto"
+    >
+        <Grid Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*" />
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="5*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" x:Name="DetailsImage"/>
+                <TextBlock TextWrapping="Wrap" Text="You typed the text after 'Typed:'" Grid.Row="1" Padding="10"/>
+                <TextBlock TextWrapping="Wrap" Text="" Grid.Row="2" x:Name="text" Padding="10"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" x:Name="ButtonsListView">
+                    <ui:Button Content="Copy the text" Padding="10" Click="CopyText"/>
+                    <ui:Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText"/>
+                    <ui:Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText"/>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

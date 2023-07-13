@@ -10,6 +10,8 @@ using System.IO;
 using System.Reflection;
 using System.Drawing;
 using System.Windows.Media.Imaging;
+using System.Windows.Controls;
+using Wpf.Ui.Extensions;
 
 namespace Quokka {
     /// <summary>
@@ -21,7 +23,10 @@ namespace Quokka {
         private String query;
         private static List<ListItem> ListOfResults { set; get; }
 
-        //private static List<>
+        //needed for ContextPanes
+        public ListItem SelectedItem;
+        public TextBox searchBox;
+        public Frame contextPane;
 
         public SearchWindow() {
 
@@ -29,14 +34,17 @@ namespace Quokka {
             SearchIcon.Source = new BitmapImage(new Uri(
                 Environment.CurrentDirectory + "\\Config\\Resources\\SearchIcon.png"));
 
-            //Dynamic widths, heights and margins & hiding results box
+            //Dynamic widths, heights and margins & hiding results box & Context pane
             ResultsBox.Visibility = Visibility.Hidden;
+            ContextPane.Visibility = Visibility.Collapsed;
             EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            ContextPane.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             ResultsBox.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight / 3;
 
             //Window Margins
-            System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0; WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
+            System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0;
+            WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
             WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
             SearchWindowGrid.Margin = WindowMarginThickness;
 
@@ -59,11 +67,15 @@ namespace Quokka {
             ExecuteItemCommand.InputGestures.Add(new KeyGesture(Key.Enter));
             CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listItem_Click));
 
+            //fields needed for context pane
+            searchBox = SearchTermTextBox;
+            contextPane = ContextPane;
             //Focusing Search Bar
             EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent, new RoutedEventHandler(WindowLoaded));
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
+            if (ContextPane.Visibility == Visibility.Visible) ContextPane.Visibility = Visibility.Collapsed;
             System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
             query = textBox.Text;
             ListOfResults = new List<ListItem>();
@@ -94,8 +106,12 @@ namespace Quokka {
             ResultsBox.Visibility = Visibility.Visible;
         }
 
-        //In search field, check if Down or Up so that ListView items can be selected
+        //In search field, check if Down or Up so that ListView items can be selected & check menu key for ContextPane
         private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+            if (ContextPane.Visibility == Visibility.Visible){
+                ((Page)ContextPane.Content).MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+                return;
+            }
             switch (e.Key) {
                 case Key.Down:
                     if ((ResultsListView.SelectedIndex == -1)) {
@@ -114,6 +130,19 @@ namespace Quokka {
                         ResultsListView.SelectedIndex--;
                     }
                     ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
+                    break;
+                case Key.Apps: //This is the menu key
+                    if (ContextPane.Visibility == Visibility.Visible){
+                        ContextPane.Visibility = Visibility.Collapsed;
+                    } else {
+                        if ((ResultsListView.SelectedIndex == -1)) ResultsListView.SelectedIndex = 0;
+                        string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
+                        if (PluginName != "Quokka"){
+                            SelectedItem = (ResultsListView.SelectedItem as ListItem);
+                            ContextPane.Source = new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
+                            ContextPane.Visibility = Visibility.Visible;
+                        }
+                    }
                     break;
                 default:
                     return; //e is not handled - normal activity occurs (e.g. escape closes window, letters are typed, etc.)

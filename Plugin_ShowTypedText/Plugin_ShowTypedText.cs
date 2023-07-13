@@ -4,14 +4,15 @@ using System.Windows.Forms; //used for clipboard as System.Windows.Clipboard doe
 using Quokka.Plugger.Contracts;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
+using System.Windows.Controls;
 
 namespace Plugin_ShowTypedText {
     /// <summary>  
     /// Item class for plugin
     /// </summary>
-    class TypedTextItem : ListItem {
+    class ShowTypedTextItem : ListItem {
         public string query;
-        public TypedTextItem(string query) { 
+        public ShowTypedTextItem(string query) { 
             this.name = "Typed:" + query;
             this.query = query;
             this.description = "The search field contains the above text";
@@ -54,7 +55,7 @@ namespace Plugin_ShowTypedText {
         /// <returns></returns>  
         public List<ListItem> OnQueryChange(string query) {
             List<ListItem> ItemList = new List<ListItem>();
-            ItemList.Add(new TypedTextItem(query));
+            ItemList.Add(new ShowTypedTextItem(query));
             return ItemList;
         }
 

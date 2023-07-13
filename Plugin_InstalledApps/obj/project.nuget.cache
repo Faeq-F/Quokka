@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DHYHIOqJ859ZyBt2dHwQAMFGC4KZMYX3FJDnSvfTGlrqWj+pO5EfsJJreB20zbgwLeDtFmNqvKUgwDMJjijTzw==",
+  "dgSpecHash": "hsOA6wk/gHr8SEaEsnWfuYdvPSoxrzgw9xW6Sgiw7ew2cmWE3qFzKfIjh35gRCei5IIRNk6cxSb+r7qsluB/yA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj",
   "expectedPackageFiles": [
@@ -18,10 +18,7 @@
     "C:\\Users\\Faeq\\.nuget\\packages\\validation\\2.4.15\\validation.2.4.15.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-core\\1.1.1\\windowsapicodepack-core.1.1.1.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-shell\\1.1.1\\windowsapicodepack-shell.1.1.1.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.18\\microsoft.aspnetcore.app.runtime.win-x64.6.0.18.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.18\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.18.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.18\\microsoft.netcore.app.runtime.win-x64.6.0.18.nupkg.sha512"
+    "C:\\Users\\Faeq\\.nuget\\packages\\wpf-ui\\2.0.3\\wpf-ui.2.0.3.nupkg.sha512"
   ],
   "logs": [
     {

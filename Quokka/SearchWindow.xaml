@@ -111,6 +111,9 @@
                             BorderThickness="0"
                             PreviewKeyDown="SearchTermTextBox_KeyDown"
                             >
+                            <TextBox.ContextMenu>
+                                <ContextMenu Visibility="Hidden"/>
+                            </TextBox.ContextMenu>
                         </ui:TextBox>
 
                     </Grid>
@@ -137,7 +140,6 @@
                 Height="auto"
                 Width="720"
                 >
-
                 <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -146,7 +148,6 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="9*"/>
                                 </Grid.ColumnDefinitions>
-
                                 <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
                                 <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
                                     <Grid.RowDefinitions>
@@ -154,19 +155,16 @@
                                         <RowDefinition Height="3*"/>
                                     </Grid.RowDefinitions>
                                     <TextBlock Grid.Row="0" Text="{Binding name}"
-                                               FontFamily="Cascadia Code" FontSize="18" VerticalAlignment="Bottom"/>
+                                        FontFamily="Cascadia Code" FontSize="18" VerticalAlignment="Bottom"/>
                                     <TextBlock Grid.Row="1" Text="{Binding description}"
-                                               FontFamily="Cascadia Code" FontSize="12" VerticalAlignment="Top"/>
+                                        FontFamily="Cascadia Code" FontSize="12" VerticalAlignment="Top"/>
                                 </Grid>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
             </Border>
-
+            <Frame x:Name="ContextPane"></Frame>
         </Grid>
-
     </Grid>
-
 </Window>

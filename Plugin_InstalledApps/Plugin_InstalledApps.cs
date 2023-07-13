@@ -11,15 +11,15 @@ namespace Plugin_InstalledApps {
     /// <summary>  
     /// Item class for plugin
     /// </summary>
-    class SystemApp : ListItem {
+    class InstalledAppsItem : ListItem {
 
-        public SystemApp(string name, string appUserModelID, ImageSource icon) {
+        public InstalledAppsItem(string name, string appUserModelID, ImageSource icon) {
             this.name = name;
             this.description = appUserModelID;
             this.icon = icon;
         }
 
-        public SystemApp(ShellObject app) {
+        public InstalledAppsItem(ShellObject app) {
             this.name = app.Name;
             this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
             this.icon = app.Thumbnail.ExtraLargeBitmapSource;
@@ -29,6 +29,7 @@ namespace Plugin_InstalledApps {
             System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\" + description);
             App.Current.MainWindow.Close();
         }
+
     }
 
     /// <summary>  
@@ -73,7 +74,7 @@ namespace Plugin_InstalledApps {
             var FOLDERID_AppsFolder = new Guid("{1e87508d-89c2-42f0-8a7e-645a0f50ca58}");
             ShellObject appsFolder = (ShellObject)KnownFolderHelper.FromKnownFolderId(FOLDERID_AppsFolder);
 
-            foreach (var app in (IKnownFolder)appsFolder) ListOfSystemApps.Add(new SystemApp(app));
+            foreach (var app in (IKnownFolder)appsFolder) ListOfSystemApps.Add(new InstalledAppsItem(app));
         }
 
         public void OnAppShutdown() { }
