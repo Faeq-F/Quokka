@@ -63,6 +63,8 @@ namespace Plugin_ShowTypedText {
                 case Key.Apps: //This is the menu key
                     (Application.Current.MainWindow as SearchWindow).contextPane.Visibility = Visibility.Collapsed;
                     (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
+                    //makes showing a new pane more reliable
+                    (Application.Current.MainWindow as SearchWindow).contextPane.Source = null;
                     break;
                 default:
                     return;

@@ -139,6 +139,7 @@ namespace Quokka {
                         string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
                         if (PluginName != "Quokka"){
                             SelectedItem = (ResultsListView.SelectedItem as ListItem);
+                            contextPane.Source = null;
                             ContextPane.Source = new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
                             ContextPane.Visibility = Visibility.Visible;
                         }
