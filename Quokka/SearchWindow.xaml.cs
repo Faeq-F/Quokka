@@ -132,7 +132,7 @@ namespace Quokka {
                     ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
                     break;
                 case Key.Apps: //This is the menu key
-                    if (ContextPane.Visibility == Visibility.Visible){
+                    if (ContextPane.Visibility == Visibility.Visible){ //setting the frame visibility
                         ContextPane.Visibility = Visibility.Collapsed;
                     } else {
                         if ((ResultsListView.SelectedIndex == -1)) ResultsListView.SelectedIndex = 0;

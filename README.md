@@ -1,7 +1,5 @@
 # Quokka
-An extremely customizable keystroke launcher with plugins
-
-This launcher is a way of running your portable and installed apps easily.
+An extremely customizable, portable keystroke launcher with plugins
 
 ---
 
@@ -26,19 +24,22 @@ To use the app, run Quokka.exe
 | Left Win + Space | launches the search bar |
 | arrow keys | select items |
 | enter key | executes an item |
-| menu key | launches context pane for item |
+| menu key | shows context pane for item |
 
-You can use the Tray task icon to Exit the app completely, or launch the search window
-<br>(The settings window has not been developed yet)
+The Tray task icon can be used to:
+ - launch the search window
+ - open the settings file
+ - exit the app
+
 
 To add a plugin, download it to the PlugBoard folder<br>
-If you do not wish to use a plugin, simply delete the appropriate folder in PlugBoard
+If you do not wish to use a plugin, simply delete the appropriate folder in the PlugBoard
 
 ### Special commands
 <b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
-| Command (Case Sensitive) | Use |
-|-----:|-----------|
-| AllApps | list all installed apps |
+| Command (Case Sensitive) | Use | Plugin |
+|-----:|-----------|-----------|
+| AllApps | list all installed apps | InstalledApps |
 
 </details>
 
@@ -52,9 +53,8 @@ In order of priority:
 | Developed? | Plugin |
 |-----:|-----------|
 |     ✅| installed app launcher |
-|     ▢| better ui & theming |
 |     ▢| portable app launcher |
-|     ▢| file/folder - everything - maybe with preview pane |
+|     ▢| file/folder - everything - with preview pane |
 |     ▢| sharex integration |
 |     ▢| calculator |
 |     ▢| os power commands (logout, lock, sleep, chutdown, etc.) |
@@ -92,7 +92,9 @@ In order of priority:
 
 > (You may rename the folder to, for e.g., 'Quokka')<br>
 4. (Download / Delete) any plugins you (do / do not) wish to use<br>(In the PlugBoard folder)<br>
-> (3 plugins are included with the source code - InstalledAppLauncher, ShowTypedText and TypedText)
+> (3 plugins are included with the source code - InstalledApps, ShowTypedText and TypedText)
+
+> The TypedText and ShowTypedText plugins are meant as demos and examples of plugins and will not be included in the final release
 
 </details>
 
@@ -115,10 +117,19 @@ In order of priority:
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <Product>Plugin_ShowTypedText</Product> //Add this
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath> //Add this
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath> //Add this
-    <BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText</BaseOutputPath> //Add this
+
+    // add the following:
+
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+	<DebugType>embedded</DebugType>
+    <Product>Plugin_ShowTypedText</Product>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
+
+    // up to here
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -142,7 +153,8 @@ class TypedTextItem : ListItem {
             this.name = "Typed:" + query;
             this.query = query;
             this.description = "The search field contains the above text";
-            //this.icon = an ImageSource; 
+            this.icon = new BitmapImage(new Uri(
+                Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
         }
 
         //When item is selected, copy text
@@ -152,12 +164,11 @@ class TypedTextItem : ListItem {
         }
 }
 ```
-Then create a class that inherits from IPlugger<br> (this is in the same namespace and can go in the same file)<br>
+7. create a class that inherits from IPlugger<br> (this is in the same namespace and can go in the same file)<br>
 > e.g., The following is part of the ShowTypedText plugin:
 ```
 public partial class ShowTypedText : IPlugger {
 
-        private string query;
         public ShowTypedText() {}
  
         public string PluggerName { get; set; } = "ShowTypedText";
@@ -165,17 +176,149 @@ public partial class ShowTypedText : IPlugger {
         /// <summary>  
         /// This will get called when user types a query into the search field
         /// </summary>  
-        public ListItem[] GetPlugger(string query) {
-            ListItem item = new TypedTextItem(query);
-            return new ListItem[] {item};
+        public List<ListItem> OnQueryChange(string query) {
+            List<ListItem> ItemList = new List<ListItem>();
+            ItemList.Add(new ShowTypedTextItem(query));
+            return ItemList;
         }
+
+        public List<String> SpecialCommands() {
+            return new List<String>();
+        }
+
+        public List<ListItem> OnSpecialCommand(string command) {
+            return new List<ListItem>();
+        }
+
+        public void OnAppStartup() { }
+
+        public void OnAppShutdown() { }
+
+        public void OnSearchWindowStartup() { }
 
     }
 ```
-GetPlugger is the method that is called by the SearchWindow when a user types in a query<br>
+OnQueryChange is the method that is called by the SearchWindow when a user types in a query<br>
 In this method, you should create your list item objects, filter them (if needed), and return them in a list<br>
 
-7. Build the solution<br>
+8. Every plugin (for now) will need a context pane for its item type
+
+- In the project, add a WPF Page <b>called 'ContextPane'</b>
+- ensure ContextPane : Page (inherits page)
+- add information / extra actions to the pane
+> e.g., The following is part of the ShowTypedText plugin:
+```
+<Page x:Class="Plugin_ShowTypedText.ContextPane"
+    ...
+    d:DesignHeight="300" d:DesignWidth="800"
+    Title="ContextPane"
+    KeyDown="Page_KeyDown">
+
+    <Border ...>
+
+        <Grid Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+            ...
+
+            <Grid Grid.Column="0">
+
+                ...
+
+                <Image Grid.Row="0" x:Name="DetailsImage"/>
+                <TextBlock TextWrapping="Wrap"
+                    Text="You typed the text after 'Typed:'" Grid.Row="1" Padding="10"/>
+                <TextBlock TextWrapping="Wrap"
+                    Text="" Grid.Row="2" x:Name="text" Padding="10"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+
+                <ListView
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    HorizontalContentAlignment="Center" x:Name="ButtonsListView">
+
+                    <ui:Button Content="Copy the text" Padding="10" Click="CopyText"/>
+                    <ui:Button Content="Another 'Copy the text' button"
+                        Padding="10"  Click="CopyText"/>
+                    <ui:Button Content="Another 'Copy the text' button"
+                        Padding="10"  Click="CopyText"/>
+                </ListView>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
+```
+
+```
+using Quokka;
+...
+
+namespace Plugin_ShowTypedText {
+
+    public partial class ContextPane : Page{
+
+        private Quokka.ListItem Item;
+
+        public ContextPane() {
+            InitializeComponent();
+            this.Item = (Application.Current.MainWindow as SearchWindow).SelectedItem;
+            DetailsImage.Source = this.Item.icon;
+            text.Text = Item.name;
+        }
+
+        ...
+
+        private void Page_KeyDown(object sender, KeyEventArgs e) {
+            ButtonsListView.Focus();
+            switch (e.Key){
+                case Key.Enter:
+
+                    if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
+
+                    Wpf.Ui.Controls.Button currentButton = 
+                        (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
+                    currentButton.RaiseEvent(new 
+                        RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
+                    break;
+                case Key.Down:
+                    if ((ButtonsListView.SelectedIndex == -1)) {
+                        ButtonsListView.SelectedIndex = 1;
+                    } else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count - 1) {
+                        ButtonsListView.SelectedIndex = 0;
+                    } else {
+                        ButtonsListView.SelectedIndex++;
+                    }
+                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+                    break;
+                case Key.Up:
+                    if ((ButtonsListView.SelectedIndex == -1) ||
+                        (ButtonsListView.SelectedIndex == 0)) {
+
+                        ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
+
+                    } else {
+                        ButtonsListView.SelectedIndex--;
+                    }
+                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+                    break;
+                case Key.Apps: //This is the menu key
+                    (Application.Current.MainWindow as SearchWindow).contextPane.Visibility
+                        = Visibility.Collapsed;
+                    (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
+
+                    //makes showing a new pane more reliable
+                    (Application.Current.MainWindow as SearchWindow).contextPane.Source = null;
+                    break;
+                default:
+                    return;
+            }
+            e.Handled = true;
+        }
+    }
+}
+```
+9. Build the solution<br>
 
 <b>Done!</b> You have created a plugin for the app and can start using it.<br>
 To stop using it, delete the appropriate folder from the PlugBoard
