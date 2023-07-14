@@ -20,7 +20,7 @@ namespace Quokka {
     
     public partial class SearchWindow : Window {
 
-        private String query;
+        private String query = "";
         private static List<ListItem> ListOfResults { set; get; }
 
         //needed for ContextPanes
@@ -132,16 +132,18 @@ namespace Quokka {
                     ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
                     break;
                 case Key.Apps: //This is the menu key
-                    if (ContextPane.Visibility == Visibility.Visible){ //setting the frame visibility
-                        ContextPane.Visibility = Visibility.Collapsed;
-                    } else {
-                        if ((ResultsListView.SelectedIndex == -1)) ResultsListView.SelectedIndex = 0;
-                        string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
-                        if (PluginName != "Quokka"){
-                            SelectedItem = (ResultsListView.SelectedItem as ListItem);
-                            contextPane.Source = null;
-                            ContextPane.Source = new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
-                            ContextPane.Visibility = Visibility.Visible;
+                    if (query != "") {
+                        if (ContextPane.Visibility == Visibility.Visible) { //setting the frame visibility
+                            ContextPane.Visibility = Visibility.Collapsed;
+                        } else {
+                            if ((ResultsListView.SelectedIndex == -1)) ResultsListView.SelectedIndex = 0;
+                            string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
+                            if (PluginName != "Quokka") {
+                                SelectedItem = (ResultsListView.SelectedItem as ListItem);
+                                contextPane.Source = null;
+                                ContextPane.Source = new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
+                                ContextPane.Visibility = Visibility.Visible;
+                            }
                         }
                     }
                     break;

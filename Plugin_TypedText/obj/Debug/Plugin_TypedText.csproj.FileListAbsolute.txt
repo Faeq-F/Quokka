@@ -25,3 +25,7 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\De
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\SearchIcon.png
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\settings.json
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\information.png
+C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\ContextPane.baml
+C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\ContextPane.g.cs
+C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText_MarkupCompile.cache
+C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.g.resources
