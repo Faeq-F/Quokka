@@ -1,7 +1,8 @@
 # Quokka
 An extremely customizable, portable keystroke launcher with plugins
 
----
+```
+```
 
 ### Note - this codebase is a complete rewrite of the app
 
@@ -10,7 +11,8 @@ The app has a plugin architecture so that, like the app per the old codebase, it
 I intend to make the app extremely customizable.<br>
 Currently, the settings window has not been developed.
 
----
+```
+```
 
 <details>
 <summary>
@@ -26,22 +28,212 @@ To use the app, run Quokka.exe
 | enter key | executes an item |
 | menu key | shows context pane for item |
 
-The Tray task icon can be used to:
+The Tray task icon context menu can be used to:
  - launch the search window
  - open the settings file
+ - open the PlugBoard
  - exit the app
 
 
 To add a plugin, download it to the PlugBoard folder<br>
 If you do not wish to use a plugin, simply delete the appropriate folder in the PlugBoard
 
+---
+
 ### Special commands
 <b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
 | Command (Case Sensitive) | Use | Plugin |
 |-----:|-----------|-----------|
-| AllApps | list all installed apps | InstalledApps |
+| ```AllApps``` | list all installed apps | ```InstalledApps``` |
 
 </details>
+
+<details>
+<summary>
+<h2>App settings</h2>
+</summary>
+All settings are <b>loaded when the search window is created</b>, meaning that you can modify them and see how they look while the app is still running in the background.
+<br><br>
+The only exception to this is the 'icon for the tray task' setting
+<br><br>
+Plugins may have their <b>own, specific settings files</b> in their respective folders in the PlugBoard. You can open The PlugBoard using the Tray Task Icon context menu
+<br>
+
+---
+
+App settings (excluding plugins):
+<details>
+<summary>
+<h3>General settings</h3>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | ? | ? |
+</details>
+
+<details>
+<summary>
+<h3>Style settings</h3>
+</summary>
+
+<h4>Window</h4>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | top margin | screen height / 3 |
+
+
+<details>
+<summary>
+<h4>Search bar</h4>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | color | ? |
+| ? | corner radius | ? |
+| ? | border color | ? |
+| ? | border thickness | ? |
+| ? | height | 64 |
+| ? | width | screen width / 2 |
+| ? | icon width | 64 |
+| ? | icon file | ? |
+
+<h5>Entry field</h5>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | text color | ? |
+| ? | select color | ? |
+| ? | height | ? |
+| ? | margin | ? |
+| ? | font family | ? |
+| ? | font size | ? |
+| ? | placeholder text | ? |
+| ? | placeholder margin | ? |
+| ? | placeholder color | ? |
+| ? | placeholder font size | ? |
+| ? | placeholder font family | ? |
+</details>
+
+<details>
+<summary>
+<h4>Results List</h4>
+</summary>
+
+<details>
+<summary>
+<h5>Container</h5>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | margin | ? |
+| ? | border color | ? |
+| ? | border thickness | ? |
+| ? | corner radius | ? |
+| ? | background color | ? |
+| ? | Min Height | ? |
+| ? | width | ? |
+</details>
+
+<details>
+<summary>
+<h5>List</h5>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | margin | ? |
+
+<details>
+<summary>
+<h6>Scroll Bar Background</h4>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | visibility | ? |
+| ? | color | ? |
+| ? | corner radius | ? |
+| ? | border color | ? |
+| ? | border thickness | ? |
+| ? | width | ? |
+| ? | margin | ? |
+</details>
+
+<details>
+<summary>
+<h6>Scroll Bar Thumb Background</h6>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | visibility | ? |
+| ? | color | ? |
+| ? | corner radius | ? |
+| ? | border color | ? |
+| ? | border thickness | ? |
+| ? | width | ? |
+| ? | margin | ? |
+</details>
+
+<details>
+<summary>
+<h6>Scroll Bar Thumb</h6>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | visibility | ? |
+| ? | color | ? |
+| ? | corner radius | ? |
+| ? | border color | ? |
+| ? | border thickness | ? |
+| ? | width | ? |
+| ? | margin | ? |
+</details>
+</details>
+
+
+
+
+<details>
+<summary>
+<h4>List item</h4>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ? | border thickness | ? |
+| ? | hover border color | ? |
+| ? | hover background color | ? |
+| ? | selected border color | ? |
+| ? | selected background color | ? |
+| ? | corner radius | ? |
+| ? | margin | ? |
+| ? | icon size | ? |
+| ? | text margin (from icon) | ? |
+| ? | name font family | ? |
+| ? | name size | ? |
+| ? | name color | ? |
+| ? | description font family | ? |
+| ? | description size | ? |
+| ? | description color | ? |
+
+</details>
+</details>
+
+
+
+</details>
+
+---
+
+</details>
+
+
 
 <details>
 <summary>
@@ -79,6 +271,8 @@ In order of priority:
 
 </details>
 
+
+
 <details>
 <summary>
 <h2>Building the app (Portable)</h2>
@@ -97,6 +291,7 @@ In order of priority:
 > The TypedText and ShowTypedText plugins are meant as demos and examples of plugins and will not be included in the final release
 
 </details>
+
 
 
 <details>

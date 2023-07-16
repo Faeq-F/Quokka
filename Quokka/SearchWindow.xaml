@@ -19,6 +19,7 @@
         WindowStartupLocation="CenterScreen"
         FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}">
 
+    <!--User Editable styles in here-->
     <Window.Resources>
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
@@ -31,7 +32,6 @@
         <SolidColorBrush x:Key="NormalBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="HorizontalNormalBrush" Color="#FF686868" />
         <SolidColorBrush x:Key="HorizontalNormalBorderBrush" Color="#888" />
-
         <LinearGradientBrush x:Key="ListBoxBackgroundBrush" StartPoint="0,0" EndPoint="1,0.001">
             <GradientBrush.GradientStops>
                 <GradientStopCollection>
@@ -83,6 +83,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <!---
+            User editable styles:
+            Visibility
+            color
+            Corner Radius
+            border brush
+            border thickness
+            width
+            margin
+         -->
         <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
             <Setter Property="Visibility" Value="Visible"/>
             <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -92,14 +102,24 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Background="LightPink" CornerRadius="15" Width="20"/>
+                        <Border Background="LightPink" CornerRadius="15" Width="20" Margin="0, 0, -1, 0" BorderBrush="Yellow" BorderThickness="3"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <!--User Editable Styles for Scrollbar Thumb-->
+        <!--
+            User Editable Styles:
+            Visibility
+            color
+            Corner Radius
+            border brush
+            border thickness
+            width
+            margin
+        -->
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
+            <Setter Property="Visibility" Value="Visible"/>
             <Setter Property="SnapsToDevicePixels" Value="True"/>
             <Setter Property="OverridesDefaultStyle" Value="true"/>
             <Setter Property="IsTabStop" Value="false"/>
@@ -107,12 +127,22 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
-                        <Border CornerRadius="4" Background="HotPink" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0"  Width="8"/>
+                        <Border CornerRadius="4" Background="HotPink" BorderBrush="CadetBlue" BorderThickness="3"  Width="10" Margin="0, 0, -1, 0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
+        <!---
+            User editable styles:
+            Visibility
+            color
+            corner radius
+            border brush
+            border thickness
+            width
+            margin
+         -->
         <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
             <Grid>
                 <Grid.RowDefinitions>
@@ -120,7 +150,7 @@
                     <RowDefinition Height="0.00001*"/>
                     <RowDefinition MaxHeight="0"/>
                 </Grid.RowDefinitions>
-                <Border Grid.RowSpan="3" CornerRadius="15" Background="LightPink" Width="20"/>
+                <Border Grid.RowSpan="3" CornerRadius="15" Background="LightPink" Width="20" Margin="0, -1, -1, -1" Visibility="Visible" BorderBrush="Yellow" BorderThickness="4"/>
                 <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
                 <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
                     <Track.DecreaseRepeatButton>
@@ -136,6 +166,7 @@
                 <RepeatButton Grid.Row="3" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineDownCommand" Content="M 0 0 L 4 4 L 8 0 Z"/>
             </Grid>
         </ControlTemplate>
+
         <ControlTemplate x:Key="HorizontalScrollBar" TargetType="{x:Type ScrollBar}">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -175,7 +206,6 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-
         <Style x:Key="FavsScrollViewer" TargetType="{x:Type ScrollViewer}">
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Template">
@@ -201,6 +231,7 @@
 
     </Window.Resources>
 
+    <!--User editable style: margin (see cs file)-->
     <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
 
         <Grid.RowDefinitions>
@@ -208,30 +239,60 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
+        <!--User Editable styles in here-->
         <Grid Grid.Row="1">
 
+            <!--
+                User Editable Styles:
+                Border Brush
+                Border Thickness
+                Corner Radius
+                Background
+                Height
+                Width (default is dynamic - see cs file)
+            -->
             <Border
-                    x:Name="EntryField"
-                    BorderBrush="HotPink"
-                    BorderThickness="9"
-                    CornerRadius="32"
-                    Background="Green"
-                    Height="64"
-                    Width="720"
-                    VerticalAlignment="Top"
-                    >
+                x:Name="EntryField"
+                BorderBrush="HotPink"
+                BorderThickness="9"
+                CornerRadius="32"
+                Background="Green"
+                Height="64"
+                Width="720"
+                VerticalAlignment="Top"
+                >
 
                 <Grid>
 
                     <Grid Grid.Row="1">
 
+                        <!--
+                            User Editable styles:
+                            Column-0 width = Border width (above) - Image width (below)
+                            Column-1 width = Image width (below)
+                        -->
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="656*"/>
                             <ColumnDefinition Width="64*"/>
                         </Grid.ColumnDefinitions>
 
+                        <!--
+                            User Editable styles:
+                            Width
+                            Icon (see cs file)
+                        -->
                         <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
                         <Grid>
+                            <!--
+                                User Editable styles:
+                                Text color
+                                Select color
+                                Height
+                                MinWidth & width (same as border above)
+                                Margin
+                                Font Family
+                                Font size
+                            -->
                             <TextBox
                             Foreground="Aquamarine"
                             SelectionBrush="Black"
@@ -264,6 +325,14 @@
                                     </Style>
                                 </TextBox.Style>
                             </TextBox>
+                            <!--
+                                User Editable styles:
+                                PlaceHolder text
+                                Margin
+                                color
+                                fontsize
+                                font family
+                            -->
                             <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="HotPink" FontSize="24" FontFamily="Cascadia Code">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -286,12 +355,23 @@
 
         </Grid>
 
+        <!--
+            User editable styles in here
+
+            User editable styles:
+            Margin
+        -->
         <Grid Grid.Row="2" Margin="0,74,0,0" VerticalAlignment="Top" >
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="720*"/>
-            </Grid.ColumnDefinitions>
-
+            <!--
+                User editable styles:
+                Border Brush
+                Border thickness
+                Corner Radius
+                Background
+                MinHeight
+                Width (default is dynamic - see cs file)
+            -->
             <Border
                 x:Name="ResultsBox"
                 BorderBrush="HotPink"
@@ -302,6 +382,12 @@
                 Height="auto"
                 Width="720"
                 >
+                <!--
+                    User editable styles in here
+
+                    User editable styles:
+                    Margin
+                -->
                 <ListView x:Name="ResultsListView" Margin="10,0,0,0" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                     <ListView.Resources>
@@ -314,6 +400,16 @@
                                 </Setter.Value>
                             </Setter>
                         </Style>
+                        <!--
+                            User editable styles:
+                            Hover Border
+                            Hover bg
+                            Selected Border
+                            Selected Bg
+                            Item Corner Radius
+                            Margin
+                            Border Thickness
+                        -->
                         <SolidColorBrush x:Key="Item.MouseOver.Background" Color="DarkGoldenrod"/>
                         <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Orange"/>
                         <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="Red"/>
@@ -324,6 +420,7 @@
                             <Style.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="15"/>
+                                    <Setter Property="Margin" Value="0, 5, 10, 5"/>
                                 </Style>
                             </Style.Resources>
                             <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -380,6 +477,17 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="9*"/>
                                 </Grid.ColumnDefinitions>
+                                <!--
+                                    User Editable styles:
+                                    Image Height & Width (always square)
+                                    Text Margin from icon
+                                    Name font family
+                                    Name size
+                                    Name color
+                                    decription font family
+                                    decription fontsize
+                                    description color
+                                -->
                                 <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
                                 <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
                                     <Grid.RowDefinitions>
