@@ -69,7 +69,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | ? | ? |
+| ? | Open Search Window | Left Win + Space |
 </details>
 
 <details>
