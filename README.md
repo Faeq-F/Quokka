@@ -81,7 +81,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | top margin | screen height / 3 |
+| WindowTopMargin | top margin | screen height / 3 |
 
 
 <details>
