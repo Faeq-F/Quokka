@@ -91,30 +91,30 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | color | ? |
-| ? | corner radius | ? |
-| ? | border color | ? |
-| ? | border thickness | ? |
-| ? | height | 64 |
-| ? | width | screen width / 2 |
-| ? | icon width | 64 |
-| ? | icon file | ? |
+| SearchBarColor | color | ? |
+| SearchBarRounding | corner radius | ? |
+| SearchBarBorderColor | border color | ? |
+| SearchBarBorderSize | border thickness | ? |
+| SearchBarHeight | height | 64 |
+| SearchBarWidth | width | screen width / 2 |
+| SearchIconWidth | icon width | 64 |
+| SearchIcon | icon file | ? |
 
 <h5>Entry field</h5>
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | text color | ? |
-| ? | select color | ? |
-| ? | height | ? |
-| ? | margin | ? |
-| ? | font family | ? |
-| ? | font size | ? |
-| ? | placeholder text | ? |
-| ? | placeholder margin | ? |
-| ? | placeholder color | ? |
-| ? | placeholder font size | ? |
-| ? | placeholder font family | ? |
+| SearchFieldTxtColor | text color | ? |
+| SearchFieldTxtSelColor | select color | ? |
+| SearchFieldHeight | height | ? |
+| SearchFieldWidth | margin | ? |
+| SearchFieldFont | font family | ? |
+| SearchFieldTxtSize | font size | ? |
+| SearchFieldPlaceholder | placeholder text | ? |
+| SearchFieldPlaceholderMargin | placeholder margin | ? |
+| SearchFieldPlaceholderColor | placeholder color | ? |
+| SearchFieldPlaceholderSize | placeholder font size | ? |
+| SearchFieldPlaceholderFont | placeholder font family | ? |
 </details>
 
 <details>
@@ -129,13 +129,13 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | margin | ? |
-| ? | border color | ? |
-| ? | border thickness | ? |
-| ? | corner radius | ? |
-| ? | background color | ? |
-| ? | Min Height | ? |
-| ? | width | ? |
+| ListContainerMargin | margin | ? |
+| ListContainerBorderColor | border color | ? |
+| ListContainerBorderThickness | border thickness | ? |
+| ListContainerRounding | corner radius | ? |
+| ListContainerColor | background color | ? |
+| ListContainerMinHeight | Min Height | ? |
+| ListContainerWidth | width | ? |
 </details>
 
 <details>
@@ -145,7 +145,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | margin | ? |
+| ListMargin | margin | ? |
 
 <details>
 <summary>
@@ -154,13 +154,13 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | visibility | ? |
-| ? | color | ? |
-| ? | corner radius | ? |
-| ? | border color | ? |
-| ? | border thickness | ? |
-| ? | width | ? |
-| ? | margin | ? |
+| ScrollBarBgVisibility | visibility | ? |
+| ScrollBarBgColor | color | ? |
+| ScrollBarBgRounding | corner radius | ? |
+| ScrollBarBgBorderColor | border color | ? |
+| ScrollBarBgBorderThickness | border thickness | ? |
+| ScrollBarBgWidth | width | ? |
+| ScrollBarBgMargin | margin | ? |
 </details>
 
 <details>
@@ -170,13 +170,13 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | visibility | ? |
-| ? | color | ? |
-| ? | corner radius | ? |
-| ? | border color | ? |
-| ? | border thickness | ? |
-| ? | width | ? |
-| ? | margin | ? |
+| ScrollThumbBgVisibility | visibility | ? |
+| ScrollThumbBgColor | color | ? |
+| ScrollThumbBgRounding | corner radius | ? |
+| ScrollThumbBgBorderColor | border color | ? |
+| ScrollThumbBgBorderThickness | border thickness | ? |
+| ScrollThumbBgWidth | width | ? |
+| ScrollThumbBgMargin | margin | ? |
 </details>
 
 <details>
@@ -186,13 +186,13 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | visibility | ? |
-| ? | color | ? |
-| ? | corner radius | ? |
-| ? | border color | ? |
-| ? | border thickness | ? |
-| ? | width | ? |
-| ? | margin | ? |
+| ScrollThumbVisibility | visibility | ? |
+| ScrollThumbColor | color | ? |
+| ScrollThumbRounding | corner radius | ? |
+| ScrollThumbBorderColor | border color | ? |
+| ScrollThumbBorderThickness | border thickness | ? |
+| ScrollThumbWidth | width | ? |
+| ScrollThumbMargin | margin | ? |
 </details>
 </details>
 
@@ -206,21 +206,21 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ? | border thickness | ? |
-| ? | hover border color | ? |
-| ? | hover background color | ? |
-| ? | selected border color | ? |
-| ? | selected background color | ? |
-| ? | corner radius | ? |
-| ? | margin | ? |
-| ? | icon size | ? |
-| ? | text margin (from icon) | ? |
-| ? | name font family | ? |
-| ? | name size | ? |
-| ? | name color | ? |
-| ? | description font family | ? |
-| ? | description size | ? |
-| ? | description color | ? |
+| ListItemBorderThickness | border thickness | ? |
+| ListItemHoverBorderColor | hover border color | ? |
+| ListItemHoverBgColor | hover background color | ? |
+| ListItemSelectedBorderColor | selected border color | ? |
+| ListItemSelectedBgColor | selected background color | ? |
+| ListItemRounding | corner radius | ? |
+| ListItemMargin | margin | ? |
+| ListItemIconSize | icon size | ? |
+| ListItemTextMargin | text margin (from icon) | ? |
+| ListItemNameFont | name font family | ? |
+| ListItemNameSize | name size | ? |
+| ListItemNameColor | name color | ? |
+| ListItemDescFont | description font family | ? |
+| ListItemDescSize | description size | ? |
+| ListItemDescColor | description color | ? |
 
 </details>
 </details>
