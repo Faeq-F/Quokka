@@ -104,7 +104,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| SearchFieldTxtColor | text color | ? |
+| SearchFieldTxtColor | text color | Black |
 | SearchFieldTxtSelColor | select color | ? |
 | SearchFieldHeight | height | ? |
 | SearchFieldWidth | margin | ? |
@@ -132,7 +132,7 @@ App settings (excluding plugins):
 | ListContainerMargin | margin | ? |
 | ListContainerBorderColor | border color | ? |
 | ListContainerBorderThickness | border thickness | ? |
-| ListContainerRounding | corner radius | ? |
+| ListContainerRounding | corner radius | 15 |
 | ListContainerColor | background color | ? |
 | ListContainerMinHeight | Min Height | ? |
 | ListContainerWidth | width | ? |
@@ -211,7 +211,7 @@ App settings (excluding plugins):
 | ListItemHoverBgColor | hover background color | ? |
 | ListItemSelectedBorderColor | selected border color | ? |
 | ListItemSelectedBgColor | selected background color | ? |
-| ListItemRounding | corner radius | ? |
+| ListItemRounding | corner radius | 15 |
 | ListItemMargin | margin | ? |
 | ListItemIconSize | icon size | ? |
 | ListItemTextMargin | text margin (from icon) | ? |
