@@ -91,7 +91,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| SearchBarColor | color | ? |
+| SearchBarColor | color | White |
 | SearchBarRounding | corner radius | ? |
 | SearchBarBorderColor | border color | ? |
 | SearchBarBorderSize | border thickness | ? |
