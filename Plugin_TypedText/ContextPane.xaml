@@ -248,7 +248,14 @@
 
     </Page.Resources>
 
-
+    <!--
+        User editable styles:
+        Border color
+        Border thickness
+        Corner rounding
+        Bg
+        MinHeight
+    -->
     <Border
         BorderBrush="HotPink"
         BorderThickness="9"
@@ -258,6 +265,18 @@
         Height="auto"
         Width="auto"
         >
+
+        <!--
+            User editable styles:
+            Content margin
+            Vertical Alignment
+            Horizontal alignment
+            Image margin
+            Text color
+            text size
+            font family
+            
+        -->
         <Grid Margin="0, 0, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*"/>
@@ -278,14 +297,6 @@
             <Grid Grid.Column="1">
                 <ListView Margin="10,0,0,0" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" x:Name="ButtonsListView"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
-                    <!--<ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="Background" Value="Blue" />
-                            <Setter Property="BorderBrush" Value="Red" />
-                            <Setter Property="BorderThickness" Value="6" />
-                            <Setter Property="Margin" Value="10" />
-                        </Style>
-                    </ListView.ItemContainerStyle>-->
                     <ListView.Resources>
                         <Style x:Key="FocusVisual">
                             <Setter Property="Control.Template">

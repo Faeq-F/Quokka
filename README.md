@@ -201,7 +201,7 @@ App settings (excluding plugins):
 
 <details>
 <summary>
-<h4>List item</h4>
+<h5>List item</h5>
 </summary>
 
 | Setting name | Use | Default Value |
@@ -221,6 +221,82 @@ App settings (excluding plugins):
 | ListItemDescFont | description font family | ? |
 | ListItemDescSize | description size | ? |
 | ListItemDescColor | description color | ? |
+
+<details>
+<summary>
+<h6>Context Pane</h6>
+</summary>
+Context panes are implemented by plugins. If an item does not use these settings, it is due to how the plugin's author developed the context pane.
+<br><br>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ContextPaneBorderColor | ? | ? |
+| ContextPaneBorderThickness | ? | ? |
+| ContextPaneCornerRounding | ? | ? |
+| ContextPaneBackground | ? | ? |
+| ContextPaneMinHeight | ? | ? |
+
+<details>
+<summary>
+<h5>List</h5>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ContextPaneListMargin | margin | ? |
+| ContextButtonBackgroundOnHover | ? | ? |
+| ContextButtonContentMargin | ? | ? |
+
+<details>
+<summary>
+<h6>Scroll Bar Background</h4>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ContextPaneScrollBarBgVisibility | visibility | ? |
+| ContextPaneScrollBarBgColor | color | ? |
+| ContextPaneScrollBarBgRounding | corner radius | ? |
+| ContextPaneScrollBarBgBorderColor | border color | ? |
+| ContextPaneScrollBarBgBorderThickness | border thickness | ? |
+| ContextPaneScrollBarBgWidth | width | ? |
+| ContextPaneScrollBarBgMargin | margin | ? |
+</details>
+
+<details>
+<summary>
+<h6>Scroll Bar Thumb Background</h6>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ContextPaneScrollThumbBgVisibility | visibility | ? |
+| ContextPaneScrollThumbBgColor | color | ? |
+| ContextPaneScrollThumbBgRounding | corner radius | ? |
+| ContextPaneScrollThumbBgBorderColor | border color | ? |
+| ContextPaneScrollThumbBgBorderThickness | border thickness | ? |
+| ContextPaneScrollThumbBgWidth | width | ? |
+| ContextPaneScrollThumbBgMargin | margin | ? |
+</details>
+
+<details>
+<summary>
+<h6>Scroll Bar Thumb</h6>
+</summary>
+
+| Setting name | Use | Default Value |
+|-----:|-----------|-----------|
+| ContextPaneScrollThumbVisibility | visibility | ? |
+| ContextPaneScrollThumbColor | color | ? |
+| ContextPaneScrollThumbRounding | corner radius | ? |
+| ContextPaneScrollThumbBorderColor | border color | ? |
+| ContextPaneScrollThumbBorderThickness | border thickness | ? |
+| ContextPaneScrollThumbWidth | width | ? |
+| ContextPaneScrollThumbMargin | margin | ? |
+</details>
+
+</details>
 
 </details>
 </details>
