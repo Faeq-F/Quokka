@@ -1,0 +1,162 @@
+{
+    "GeneralSettings": {
+
+        "WindowHotKey": "LWinSpace"
+
+    },
+    "StyleSettings": {
+
+        "Window": {
+
+            "WindowTopMargin": "PrimaryScreenHeight/3"
+
+        },
+        "SearchBar": {
+
+            "SearchBarColor": "White",
+            "SearchBarRounding": null,
+            "SearchBarBorderColor": null,
+            "SearchBarBorderSize": null,
+            "SearchBarHeight": null,
+            "SearchBarWidth": null,
+            "SearchIconWidth": null,
+            "SearchIcon": null,
+
+            "EntryField": {
+
+                "SearchFieldTxtColor": null,
+                "SearchFieldTxtSelColor": null,
+                "SearchFieldHeight": null,
+                "SearchFieldWidth": null,
+                "SearchFieldFont": null,
+                "SearchFieldTxtSize": null,
+                "SearchFieldPlaceholder": null,
+                "SearchFieldPlaceholderMargin": null,
+                "SearchFieldPlaceholderColor": null,
+                "SearchFieldPlaceholderSize": null,
+                "SearchFieldPlaceholderFont": null
+            }
+        },
+
+        "ResultsList": {
+
+            "Container": {
+
+                "ListContainerMargin": null,
+                "ListContainerBorderColor": null,
+                "ListContainerBorderThickness": null,
+                "ListContainerRounding": null,
+                "ListContainerColor": null,
+                "ListContainerMinHeight": null,
+                "ListContainerWidth": null
+
+            },
+            "List": {
+
+                "ListMargin": null,
+
+                "ScrollBarBackground": {
+
+                    "ScrollBarBgVisibility": null,
+                    "ScrollBarBgColor": null,
+                    "ScrollBarBgRounding": null,
+                    "ScrollBarBgBorderColor": null,
+                    "ScrollBarBgBorderThickness": null,
+                    "ScrollBarBgWidth": null,
+                    "ScrollBarBgMargin": null
+                },
+
+                "ScrollBarThumbBackground": {
+
+                    "ScrollThumbBgVisibility": null,
+                    "ScrollThumbBgColor": null,
+                    "ScrollThumbBgRounding": null,
+                    "ScrollThumbBgBorderColor": null,
+                    "ScrollThumbBgBorderThickness": null,
+                    "ScrollThumbBgWidth": null,
+                    "ScrollThumbBgMargin": null
+
+                },
+
+                "ScrollBarThumb": {
+
+                    "ScrollThumbVisibility": null,
+                    "ScrollThumbColor": null,
+                    "ScrollThumbRounding": null,
+                    "ScrollThumbBorderColor": null,
+                    "ScrollThumbBorderThickness": null,
+                    "ScrollThumbWidth": null,
+                    "ScrollThumbMargin": null
+                }
+            },
+            "ListItem": {
+
+                "ListItemBorderThickness": null,
+                "ListItemHoverBorderColor": null,
+                "ListItemHoverBgColor": null,
+                "ListItemSelectedBorderColor": null,
+                "ListItemSelectedBgColor": null,
+                "ListItemRounding": null,
+                "ListItemMargin": null,
+                "ListItemIconSize": null,
+                "ListItemTextMargin": null,
+                "ListItemNameFont": null,
+                "ListItemNameSize": null,
+                "ListItemNameColor": null,
+                "ListItemDescFont": null,
+                "ListItemDescSize": null,
+                "ListItemDescColor": null,
+
+                "ContextPane": {
+
+                    "ContextPaneBorderColor": null,
+                    "ContextPaneBorderThickness": null,
+                    "ContextPaneCornerRounding": null,
+                    "ContextPaneBackground": null,
+                    "ContextPaneMinHeight": null,
+
+                    "List": {
+
+                        "ContextPaneListMargin": null,
+                        "ContextButtonBackgroundOnHover": null,
+                        "ContextButtonContentMargin": null,
+
+                        "ScrollBarBackground": {
+
+                            "ContextPaneScrollBarBgVisibility": null,
+                            "ContextPaneScrollBarBgColor": null,
+                            "ContextPaneScrollBarBgRounding": null,
+                            "ContextPaneScrollBarBgBorderColor": null,
+                            "ContextPaneScrollBarBgBorderThickness": null,
+                            "ContextPaneScrollBarBgWidth": null,
+                            "ContextPaneScrollBarBgMargin": null
+                        },
+
+                        "ScrollBarThumbBackground": {
+
+                            "ContextPaneScrollThumbBgVisibility": null,
+                            "ContextPaneScrollThumbBgColor": null,
+                            "ContextPaneScrollThumbBgRounding": null,
+                            "ContextPaneScrollThumbBgBorderColor": null,
+                            "ContextPaneScrollThumbBgBorderThickness": null,
+                            "ContextPaneScrollThumbBgWidth": null,
+                            "ContextPaneScrollThumbBgMargin": null
+                        },
+
+                        "ScrollBarThumb": {
+
+                            "ContextPaneScrollThumbVisibility": null,
+                            "ContextPaneScrollThumbColor": null,
+                            "ContextPaneScrollThumbRounding": null,
+                            "ContextPaneScrollThumbBorderColor": null,
+                            "ContextPaneScrollThumbBorderThickness": null,
+                            "ContextPaneScrollThumbWidth": null,
+                            "ContextPaneScrollThumbMargin": null
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

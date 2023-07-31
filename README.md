@@ -105,7 +105,7 @@ App settings (excluding plugins):
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
 | SearchFieldTxtColor | text color | Black |
-| SearchFieldTxtSelColor | select color | ? |
+| SearchFieldTxtSelColor | select color | Black |
 | SearchFieldHeight | height | ? |
 | SearchFieldWidth | margin | ? |
 | SearchFieldFont | font family | ? |
@@ -302,7 +302,7 @@ Context panes are implemented by plugins. If an item does not use these settings
 </details>
 
 
-
+</details>
 </details>
 
 ---
