@@ -1,6 +1,4 @@
-﻿<!--I am new to WPF & C# - any help or advice is welcome-->
-
-<Window
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,7 +17,6 @@
         WindowStartupLocation="CenterScreen"
         FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}">
 
-    <!--User Editable styles in here-->
     <Window.Resources>
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
@@ -85,7 +82,8 @@
         </Style>
         <!---
             User editable styles:
-            Visibility
+
+            ScrollBarBgVisibility: Visibility
             color
             Corner Radius
             border brush
@@ -102,7 +100,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Background="LightPink" CornerRadius="15" Width="20" Margin="0, 0, -1, 0" BorderBrush="Yellow" BorderThickness="3"/>
+                        <Border Background="White" CornerRadius="15" Width="20" Margin="0, 0, -1, 0" BorderBrush="White" BorderThickness="3"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -110,7 +108,7 @@
 
         <!--
             User Editable Styles:
-            Visibility
+            ScrollThumbVisibility: Visibility
             color
             Corner Radius
             border brush
@@ -127,7 +125,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
-                        <Border CornerRadius="4" Background="HotPink" BorderBrush="CadetBlue" BorderThickness="3"  Width="10" Margin="0, 0, -1, 0"/>
+                        <Border CornerRadius="4" Background="Black" BorderBrush="White" BorderThickness="0"  Width="10" Margin="0, 0, -1, 0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -135,7 +133,8 @@
 
         <!---
             User editable styles:
-            Visibility
+            ScrollThumbBgVisibility: Visibility
+
             color
             corner radius
             border brush
@@ -150,7 +149,7 @@
                     <RowDefinition Height="0.00001*"/>
                     <RowDefinition MaxHeight="0"/>
                 </Grid.RowDefinitions>
-                <Border Grid.RowSpan="3" CornerRadius="15" Background="LightPink" Width="20" Margin="0, -1, -1, -1" Visibility="Visible" BorderBrush="Yellow" BorderThickness="4"/>
+                <Border Grid.RowSpan="3" CornerRadius="15" Background="White" Width="20" Margin="0, -1, -1, -1" Visibility="Visible" BorderBrush="White" BorderThickness="0"/>
                 <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
                 <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
                     <Track.DecreaseRepeatButton>
@@ -231,7 +230,11 @@
 
     </Window.Resources>
 
-    <!--User editable style: margin (see cs file)-->
+    <!--
+        User editable style:
+
+        margin (see cs file)
+    -->
     <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
 
         <Grid.RowDefinitions>
@@ -239,24 +242,24 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
-        <!--User Editable styles in here-->
         <Grid Grid.Row="1">
 
             <!--
                 User Editable Styles:
-                Border Brush
-                Border Thickness
-                Corner Radius
-                Background
-                Height
-                Width (default is dynamic - see cs file)
+
+                SearchBarColor: Background
+                SearchBarRounding: CornerRadius
+                SearchBarBorderColor: BorderBrush
+                SearchBarBorderSize: BorderThickness
+                SearchBarHeight: Height
+                SearchBarWidth: Width (see cs file)
             -->
             <Border
                 x:Name="EntryField"
-                BorderBrush="HotPink"
-                BorderThickness="9"
+                BorderBrush="Black"
+                BorderThickness="2"
                 CornerRadius="32"
-                Background="Green"
+                Background="White"
                 Height="64"
                 Width="720"
                 VerticalAlignment="Top"
@@ -267,8 +270,8 @@
                     <Grid Grid.Row="1">
 
                         <!--
-                            User Editable styles:
-                            Column-0 width = Border width (above) - Image width (below)
+                            User Editable styles - not in settings.json:
+                            Column-0 width = x:Name=EntryField width (above) - Image width (below)
                             Column-1 width = Image width (below)
                         -->
                         <Grid.ColumnDefinitions>
@@ -278,23 +281,25 @@
 
                         <!--
                             User Editable styles:
-                            Width
+
+                            SearchIconWidth :Width
                             Icon (see cs file)
                         -->
                         <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
                         <Grid>
                             <!--
                                 User Editable styles:
-                                Text color
-                                Select color
-                                Height
-                                MinWidth & width (same as border above)
-                                Margin
-                                Font Family
-                                Font size
+
+                                SearchFieldTxtColor: Foreground
+                                SearchFieldTxtSelColor: SelectionBrush
+                                SearchFieldHeight: Height
+                                SearchFieldWidth: MinWidth & Width
+                                SearchFieldMargin: Margin
+                                SearchFieldFont: FontFamily
+                                SearchFieldTxtSize: FontSize
                             -->
                             <TextBox
-                            Foreground="Aquamarine"
+                            Foreground="Black"
                             SelectionBrush="Black"
                             Height="50"
                             MinWidth="720"
@@ -327,13 +332,14 @@
                             </TextBox>
                             <!--
                                 User Editable styles:
-                                PlaceHolder text
-                                Margin
-                                color
-                                fontsize
-                                font family
+
+                                SearchFieldPlaceholder: Text
+                                SearchFieldPlaceholderMargin: Margin
+                                SearchFieldPlaceholderColor: Foreground
+                                SearchFieldPlaceholderSize: FontSize
+                                SearchFieldPlaceholderFont: FontFamily
                             -->
-                            <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="HotPink" FontSize="24" FontFamily="Cascadia Code">
+                            <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code">
                                 <TextBlock.Style>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Setter Property="Visibility" Value="Collapsed"/>
@@ -356,37 +362,36 @@
         </Grid>
 
         <!--
-            User editable styles in here
-
             User editable styles:
-            Margin
+
+            ListContainerMargin: Margin
         -->
         <Grid Grid.Row="2" Margin="0,74,0,0" VerticalAlignment="Top" >
 
             <!--
                 User editable styles:
-                Border Brush
-                Border thickness
-                Corner Radius
-                Background
-                MinHeight
-                Width (default is dynamic - see cs file)
+
+                ListContainerBorderColor: BorderBrush
+                ListContainerBorderThickness: BorderThickness
+                ListContainerRounding: CornerRadius
+                ListContainerColor: Background
+                ListContainerMinHeight: MinHeight
+                ListContainerWidth: Width (see cs file)
             -->
             <Border
                 x:Name="ResultsBox"
-                BorderBrush="HotPink"
-                BorderThickness="9"
+                BorderBrush="Black"
+                BorderThickness="2"
                 CornerRadius="15"
-                Background="Green"
+                Background="White"
                 MinHeight="64"
                 Height="auto"
                 Width="720"
                 >
                 <!--
-                    User editable styles in here
-
                     User editable styles:
-                    Margin
+
+                    ListMargin: Margin
                 -->
                 <ListView x:Name="ResultsListView" Margin="10,0,0,0" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
@@ -402,6 +407,7 @@
                         </Style>
                         <!--
                             User editable styles:
+
                             Hover Border
                             Hover bg
                             Selected Border

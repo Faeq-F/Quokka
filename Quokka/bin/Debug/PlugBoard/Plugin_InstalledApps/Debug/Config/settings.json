@@ -14,27 +14,28 @@
         "SearchBar": {
 
             "SearchBarColor": "White",
-            "SearchBarRounding": null,
-            "SearchBarBorderColor": null,
-            "SearchBarBorderSize": null,
-            "SearchBarHeight": null,
-            "SearchBarWidth": null,
-            "SearchIconWidth": null,
-            "SearchIcon": null,
+            "SearchBarRounding": "32",
+            "SearchBarBorderColor": "Black",
+            "SearchBarBorderSize": "2",
+            "SearchBarHeight": "64",
+            "SearchBarWidth": "PrimaryScreenWidth/2",
+            "SearchIconWidth": "64",
+            "SearchIcon": "\\Config\\Resources\\SearchIcon.png",
 
             "EntryField": {
 
-                "SearchFieldTxtColor": null,
-                "SearchFieldTxtSelColor": null,
-                "SearchFieldHeight": null,
-                "SearchFieldWidth": null,
-                "SearchFieldFont": null,
-                "SearchFieldTxtSize": null,
-                "SearchFieldPlaceholder": null,
-                "SearchFieldPlaceholderMargin": null,
-                "SearchFieldPlaceholderColor": null,
-                "SearchFieldPlaceholderSize": null,
-                "SearchFieldPlaceholderFont": null
+                "SearchFieldTxtColor": "Black",
+                "SearchFieldTxtSelColor": "Black",
+                "SearchFieldHeight": "50",
+                "SearchFieldWidth": "720",
+                "SearchFieldMargin": "10",
+                "SearchFieldFont": "Cascadia Code",
+                "SearchFieldTxtSize": "24",
+                "SearchFieldPlaceholder": "Enter Query",
+                "SearchFieldPlaceholderMargin": "10",
+                "SearchFieldPlaceholderColor": "DarkGray",
+                "SearchFieldPlaceholderSize": "24",
+                "SearchFieldPlaceholderFont": "Cascadia Code"
             }
         },
 
@@ -42,18 +43,18 @@
 
             "Container": {
 
-                "ListContainerMargin": null,
-                "ListContainerBorderColor": null,
-                "ListContainerBorderThickness": null,
-                "ListContainerRounding": null,
-                "ListContainerColor": null,
-                "ListContainerMinHeight": null,
-                "ListContainerWidth": null
+                "ListContainerMargin": "0,74,0,0",
+                "ListContainerBorderColor": "Black",
+                "ListContainerBorderThickness": "2",
+                "ListContainerRounding": "15",
+                "ListContainerColor": "White",
+                "ListContainerMinHeight": "64",
+                "ListContainerWidth": "PrimaryScreenWidth/2"
 
             },
             "List": {
 
-                "ListMargin": null,
+                "ListMargin": "10,0,0,0",
 
                 "ScrollBarBackground": {
 

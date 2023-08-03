@@ -107,7 +107,8 @@ App settings (excluding plugins):
 | SearchFieldTxtColor | text color | Black |
 | SearchFieldTxtSelColor | select color | Black |
 | SearchFieldHeight | height | ? |
-| SearchFieldWidth | margin | ? |
+| SearchFieldWidth | ? | ? |
+| SearchFieldMargin | ? | ? |
 | SearchFieldFont | font family | ? |
 | SearchFieldTxtSize | font size | ? |
 | SearchFieldPlaceholder | placeholder text | ? |
