@@ -134,7 +134,7 @@ App settings (excluding plugins):
 | ListContainerBorderColor | border color | ? |
 | ListContainerBorderThickness | border thickness | ? |
 | ListContainerRounding | corner radius | 15 |
-| ListContainerColor | background color | ? |
+| ListContainerColor | background color | white |
 | ListContainerMinHeight | Min Height | ? |
 | ListContainerWidth | width | ? |
 </details>
