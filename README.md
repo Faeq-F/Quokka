@@ -110,7 +110,7 @@ App settings (excluding plugins):
 | SearchFieldWidth | ? | ? |
 | SearchFieldMargin | ? | ? |
 | SearchFieldFont | font family | ? |
-| SearchFieldTxtSize | font size | ? |
+| SearchFieldTxtSize | font size | 24 |
 | SearchFieldPlaceholder | placeholder text | ? |
 | SearchFieldPlaceholderMargin | placeholder margin | ? |
 | SearchFieldPlaceholderColor | placeholder color | ? |
