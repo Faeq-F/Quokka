@@ -94,7 +94,7 @@ App settings (excluding plugins):
 | SearchBarColor | color | White |
 | SearchBarRounding | corner radius | 32 |
 | SearchBarBorderColor | border color | Black |
-| SearchBarBorderSize | border thickness | ? |
+| SearchBarBorderSize | border thickness | 3 |
 | SearchBarHeight | height | 64 |
 | SearchBarWidth | width | screen width / 2 |
 | SearchIconWidth | icon width | 64 |
