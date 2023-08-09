@@ -85,6 +85,13 @@ namespace Quokka
             fileopener.Start();
         }
 
+        public static void OpenPlugBoard(){
+            using Process folderopener = new Process();
+            folderopener.StartInfo.FileName = "explorer";
+            folderopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+            folderopener.Start();
+        }
+
         private string GetPluggerDll(string connector) {
             var files = Directory.GetFiles(System.IO.Path.GetFullPath(connector), "*.dll", SearchOption.AllDirectories);
             foreach (var file in files) {

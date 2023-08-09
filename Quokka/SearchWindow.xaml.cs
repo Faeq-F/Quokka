@@ -12,6 +12,9 @@ using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using Wpf.Ui.Extensions;
+using System.Globalization;
+using System.Windows.Data;
+using System.ComponentModel;
 
 namespace Quokka {
     /// <summary>
@@ -35,18 +38,22 @@ namespace Quokka {
                 Environment.CurrentDirectory + "\\Config\\Resources\\SearchIcon.png"));
 
             //Dynamic widths, heights and margins & hiding results box & Context pane
-            ResultsBox.Visibility = Visibility.Hidden;
+            ResultsBox.Visibility = Visibility.Collapsed;
             ContextPane.Visibility = Visibility.Collapsed;
-            EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            ContextPane.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            ResultsBox.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight / 3;
+            //EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            //ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            Container.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            Container.Height = SearchWindowGrid.Height;// This will not be a setting
+            //ContextPane.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            //make sure this has a setting
+            ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
+            ContextPane.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
 
             //Window Margins
             System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0;
             WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
             WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
-            SearchWindowGrid.Margin = WindowMarginThickness;
+            Container.Margin = WindowMarginThickness;
 
             //run anything needed for plugins on window startup
             try {
@@ -80,8 +87,7 @@ namespace Quokka {
             query = textBox.Text;
             ListOfResults = new List<ListItem>();
             //getting results for query
-            if (query == "") {
-                ResultsBox.Visibility = Visibility.Hidden; return;
+            if (query == "") { ResultsBox.Visibility = Visibility.Collapsed; return;
             } else {
                 try {
                     foreach (IPlugger plugin in App.plugins) {
@@ -103,6 +109,7 @@ namespace Quokka {
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }
             ResultsListView.ItemsSource = ListOfResults;
+            ResultsListView.SelectedIndex = -1;
             ResultsBox.Visibility = Visibility.Visible;
         }
 
@@ -177,6 +184,5 @@ namespace Quokka {
         }
 
     }
-
 
 }

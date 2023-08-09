@@ -58,6 +58,12 @@ namespace Quokka
             }
         }
 
+        public ICommand OpenPlugBoard {
+            get {
+                return new DelegateCommand { CommandAction = () => App.OpenPlugBoard() };
+            }
+        }
+
 
         /// <summary>
         /// Shuts down the application.

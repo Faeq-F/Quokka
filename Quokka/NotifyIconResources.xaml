@@ -3,9 +3,11 @@
                     xmlns:tb="http://www.hardcodet.net/taskbar"
                     xmlns:local="clr-namespace:Quokka">
 
-    <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
+    <ContextMenu x:Shared="false" x:Key="SysTrayMenu" Background="White" BorderBrush="Black" BorderThickness="3">
         <MenuItem Header="Open Search Window" Command="{Binding ShowWindowCommand}"/>
+        <Separator />
         <MenuItem Header="Settings" Command="{Binding OpenSettingsFile}"/>
+        <MenuItem Header="PlugBoard" Command="{Binding OpenPlugBoard}"/>
         <!--<MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" />-->
         <Separator />
         <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />

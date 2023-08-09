@@ -43,7 +43,7 @@
 
             "Container": {
 
-                "ListContainerMargin": "0,74,0,0",
+                "ListContainerMargin": "0,10,0,0",
                 "ListContainerBorderColor": "Black",
                 "ListContainerBorderThickness": "2",
                 "ListContainerRounding": "15",

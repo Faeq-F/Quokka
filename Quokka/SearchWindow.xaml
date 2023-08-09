@@ -18,6 +18,7 @@
         FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}">
 
     <Window.Resources>
+
         <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
         <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
         <SolidColorBrush x:Key="HoverBorderBrush" Color="#DDD" />
@@ -100,7 +101,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type RepeatButton}">
-                        <Border Background="White" CornerRadius="15" Width="20" Margin="0, 0, -1, 0" BorderBrush="White" BorderThickness="3"/>
+                        <Border Background="Black" CornerRadius="5" Width="10" Margin="-10, 0, -1, 10" BorderBrush="Green" BorderThickness="0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -125,7 +126,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Thumb}">
-                        <Border CornerRadius="4" Background="Black" BorderBrush="White" BorderThickness="0"  Width="10" Margin="0, 0, -1, 0"/>
+                        <Border CornerRadius="3" Background="White" BorderBrush="Transparent" BorderThickness="3"  Width="10" Margin="-10,0,0,0"/>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -149,7 +150,7 @@
                     <RowDefinition Height="0.00001*"/>
                     <RowDefinition MaxHeight="0"/>
                 </Grid.RowDefinitions>
-                <Border Grid.RowSpan="3" CornerRadius="15" Background="White" Width="20" Margin="0, -1, -1, -1" Visibility="Visible" BorderBrush="White" BorderThickness="0"/>
+                <Border Grid.RowSpan="3" CornerRadius="5" Background="Black" Width="10" Margin="-10, -1, -1, 0" Visibility="Visible" BorderBrush="Green" BorderThickness="0"/>
                 <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
                 <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
                     <Track.DecreaseRepeatButton>
@@ -235,16 +236,182 @@
 
         margin (see cs file)
     -->
-    <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*" />
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
+    <!--Need to add to settings-->
+    <Border
+        x:Name="Container"
+        BorderBrush="Transparent"
+        BorderThickness="0"
+        CornerRadius="0"
+        Background="Transparent"
+        Height="auto"
+        VerticalAlignment="Top"
+        Padding="10"
+        >
 
-        <Grid Grid.Row="1">
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
             <!--
+            User editable styles:
+
+            ListContainerMargin: Margin
+        -->
+            <Grid Grid.Row="1" Margin="0,10,0,0" VerticalAlignment="Top" Panel.ZIndex="0">
+
+                <!--
+                User editable styles:
+
+                ListContainerBorderColor: BorderBrush
+                ListContainerBorderThickness: BorderThickness
+                ListContainerRounding: CornerRadius
+                ListContainerColor: Background
+                ListContainerMinHeight: MinHeight
+                ListContainerWidth: Width (see cs file)
+            -->
+                <Border
+                x:Name="ResultsBox"
+                BorderBrush="Black"
+                BorderThickness="2"
+                CornerRadius="15"
+                Background="White"
+                MinHeight="64"
+                Height="auto"
+                >
+                    <!--
+                    User editable styles:
+
+                    ListMargin: Margin
+                -->
+                    <ListView x:Name="ResultsListView" Margin="10,10,0,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
+                        <ListView.Resources>
+                            <Style x:Key="FocusVisual">
+                                <Setter Property="Control.Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                            <!--
+                            User editable styles:
+
+                            Hover Border
+                            Hover bg
+                            Selected Border
+                            Selected Bg
+                            Item Corner Radius
+                            Margin
+                            Border Thickness
+                        -->
+                            <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray"/>
+                            <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
+                            <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White"/>
+                            <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black"/>
+                            <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="White"/>
+                            <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Black"/>
+                            <Style TargetType="{x:Type ListViewItem}">
+                                <Style.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15"/>
+                                        <Setter Property="Margin" Value="0, 0, 10, 0"/>
+                                    </Style>
+                                </Style.Resources>
+                                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                <Setter Property="Padding" Value="4,1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="3"/>
+                                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="IsMouseOver" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.MouseOver.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>
+                                                </MultiTrigger>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                                                        <Condition Property="IsSelected" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
+                                                </MultiTrigger>
+                                                <MultiTrigger>
+                                                    <MultiTrigger.Conditions>
+                                                        <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                                                        <Condition Property="IsSelected" Value="True"/>
+                                                    </MultiTrigger.Conditions>
+                                                    <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Background}"/>
+                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Border}"/>
+                                                </MultiTrigger>
+                                                <Trigger Property="IsEnabled" Value="False">
+                                                    <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListView.Resources>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid PreviewMouseLeftButtonUp="listItem_Click">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="9*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--
+                                    User Editable styles:
+                                    Image Height & Width (always square)
+                                    Text Margin from icon
+                                    Name font family
+                                    Name size
+                                    Name color
+                                    decription font family
+                                    decription fontsize
+                                    description color
+                                -->
+                                    <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
+                                    <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="7*" />
+                                            <RowDefinition Height="3*"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" Text="{Binding name}"
+                                        FontFamily="Cascadia Code" FontSize="18" VerticalAlignment="Bottom"
+                                        Foreground="Black"/>
+                                        <TextBlock Grid.Row="1" Text="{Binding description}"
+                                        FontFamily="Cascadia Code" FontSize="12" VerticalAlignment="Top"
+                                        Foreground="Gray"/>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Border>
+                <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden"></Frame>
+            </Grid>
+
+            <Grid Grid.Row="0" Panel.ZIndex="999">
+
+                <!--
                 User Editable Styles:
 
                 SearchBarColor: Background
@@ -254,40 +421,39 @@
                 SearchBarHeight: Height
                 SearchBarWidth: Width (see cs file)
             -->
-            <Border
+                <Border
                 x:Name="EntryField"
                 BorderBrush="Black"
                 BorderThickness="2"
                 CornerRadius="32"
                 Background="White"
                 Height="64"
-                Width="720"
                 VerticalAlignment="Top"
                 >
 
-                <Grid>
+                    <Grid>
 
-                    <Grid Grid.Row="1">
+                        <Grid Grid.Row="1">
 
-                        <!--
+                            <!--
                             User Editable styles - not in settings.json:
                             Column-0 width = x:Name=EntryField width (above) - Image width (below)
                             Column-1 width = Image width (below)
                         -->
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="656*"/>
-                            <ColumnDefinition Width="64*"/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="656*"/>
+                                <ColumnDefinition Width="64*"/>
+                            </Grid.ColumnDefinitions>
 
-                        <!--
+                            <!--
                             User Editable styles:
 
                             SearchIconWidth :Width
                             Icon (see cs file)
                         -->
-                        <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
-                        <Grid>
-                            <!--
+                            <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
+                            <Grid>
+                                <!--
                                 User Editable styles:
 
                                 SearchFieldTxtColor: Foreground
@@ -298,7 +464,7 @@
                                 SearchFieldFont: FontFamily
                                 SearchFieldTxtSize: FontSize
                             -->
-                            <TextBox
+                                <TextBox
                             Foreground="Black"
                             SelectionBrush="Black"
                             Height="50"
@@ -321,16 +487,16 @@
                             BorderThickness="0"
                             BorderBrush="Transparent"
                             PreviewKeyDown="SearchTermTextBox_KeyDown">
-                                <TextBox.ContextMenu>
-                                    <ContextMenu Visibility="Hidden"/>
-                                </TextBox.ContextMenu>
-                                <TextBox.Style>
-                                    <Style>
-                                        
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                            <!--
+                                    <TextBox.ContextMenu>
+                                        <ContextMenu Visibility="Hidden"/>
+                                    </TextBox.ContextMenu>
+                                    <TextBox.Style>
+                                        <Style>
+
+                                        </Style>
+                                    </TextBox.Style>
+                                </TextBox>
+                                <!--
                                 User Editable styles:
 
                                 SearchFieldPlaceholder: Text
@@ -339,180 +505,27 @@
                                 SearchFieldPlaceholderSize: FontSize
                                 SearchFieldPlaceholderFont: FontFamily
                             -->
-                            <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code">
-                                <TextBlock.Style>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
+                                <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Grid>
+
                         </Grid>
 
                     </Grid>
 
-                </Grid>
+                </Border>
 
-            </Border>
-
+            </Grid>
         </Grid>
-
-        <!--
-            User editable styles:
-
-            ListContainerMargin: Margin
-        -->
-        <Grid Grid.Row="2" Margin="0,74,0,0" VerticalAlignment="Top" >
-
-            <!--
-                User editable styles:
-
-                ListContainerBorderColor: BorderBrush
-                ListContainerBorderThickness: BorderThickness
-                ListContainerRounding: CornerRadius
-                ListContainerColor: Background
-                ListContainerMinHeight: MinHeight
-                ListContainerWidth: Width (see cs file)
-            -->
-            <Border
-                x:Name="ResultsBox"
-                BorderBrush="Black"
-                BorderThickness="2"
-                CornerRadius="15"
-                Background="White"
-                MinHeight="64"
-                Height="auto"
-                Width="720"
-                >
-                <!--
-                    User editable styles:
-
-                    ListMargin: Margin
-                -->
-                <ListView x:Name="ResultsListView" Margin="10,0,0,0" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
-                    <ListView.Resources>
-                        <Style x:Key="FocusVisual">
-                            <Setter Property="Control.Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                        <!--
-                            User editable styles:
-
-                            Hover Border
-                            Hover bg
-                            Selected Border
-                            Selected Bg
-                            Item Corner Radius
-                            Margin
-                            Border Thickness
-                        -->
-                        <SolidColorBrush x:Key="Item.MouseOver.Background" Color="DarkGoldenrod"/>
-                        <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Orange"/>
-                        <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="Red"/>
-                        <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="RosyBrown"/>
-                        <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="Red"/>
-                        <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="RosyBrown"/>
-                        <Style TargetType="{x:Type ListViewItem}">
-                            <Style.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                    <Setter Property="Margin" Value="0, 5, 10, 5"/>
-                                </Style>
-                            </Style.Resources>
-                            <Setter Property="SnapsToDevicePixels" Value="True"/>
-                            <Setter Property="Padding" Value="4,1"/>
-                            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="BorderBrush" Value="Transparent"/>
-                            <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <MultiTrigger>
-                                                <MultiTrigger.Conditions>
-                                                    <Condition Property="IsMouseOver" Value="True"/>
-                                                </MultiTrigger.Conditions>
-                                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.MouseOver.Background}"/>
-                                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>
-                                            </MultiTrigger>
-                                            <MultiTrigger>
-                                                <MultiTrigger.Conditions>
-                                                    <Condition Property="Selector.IsSelectionActive" Value="False"/>
-                                                    <Condition Property="IsSelected" Value="True"/>
-                                                </MultiTrigger.Conditions>
-                                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
-                                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
-                                            </MultiTrigger>
-                                            <MultiTrigger>
-                                                <MultiTrigger.Conditions>
-                                                    <Condition Property="Selector.IsSelectionActive" Value="True"/>
-                                                    <Condition Property="IsSelected" Value="True"/>
-                                                </MultiTrigger.Conditions>
-                                                <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Background}"/>
-                                                <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Border}"/>
-                                            </MultiTrigger>
-                                            <Trigger Property="IsEnabled" Value="False">
-                                                <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListView.Resources>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid PreviewMouseLeftButtonUp="listItem_Click">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="9*"/>
-                                </Grid.ColumnDefinitions>
-                                <!--
-                                    User Editable styles:
-                                    Image Height & Width (always square)
-                                    Text Margin from icon
-                                    Name font family
-                                    Name size
-                                    Name color
-                                    decription font family
-                                    decription fontsize
-                                    description color
-                                -->
-                                <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
-                                <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="7*" />
-                                        <RowDefinition Height="3*"/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock Grid.Row="0" Text="{Binding name}"
-                                        FontFamily="Cascadia Code" FontSize="18" VerticalAlignment="Bottom"
-                                        Foreground="Aquamarine"/>
-                                    <TextBlock Grid.Row="1" Text="{Binding description}"
-                                        FontFamily="Cascadia Code" FontSize="12" VerticalAlignment="Top"
-                                        Foreground="Turquoise"/>
-                                </Grid>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Border>
-            <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden"></Frame>
-        </Grid>
-    </Grid>
+    </Border>
 </Window>
