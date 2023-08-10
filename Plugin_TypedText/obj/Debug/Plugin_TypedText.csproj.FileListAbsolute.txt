@@ -29,3 +29,4 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\ContextPane.baml
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\ContextPane.g.cs
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText_MarkupCompile.cache
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.g.resources
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\copy.png

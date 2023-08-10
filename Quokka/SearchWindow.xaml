@@ -85,12 +85,12 @@
             User editable styles:
 
             ScrollBarBgVisibility: Visibility
-            color
-            Corner Radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollBarBgColor: Background
+            ScrollBarBgRounding: CornerRadius
+            ScrollBarBgBorderColor: BorderBrush
+            ScrollBarBgBorderThickness: BorderThickness
+            ScrollBarBgWidth: Width
+            ScrollBarBgMargin: Margin
          -->
         <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
             <Setter Property="Visibility" Value="Visible"/>
@@ -109,13 +109,14 @@
 
         <!--
             User Editable Styles:
+
             ScrollThumbVisibility: Visibility
-            color
-            Corner Radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollThumbColor: Background
+            ScrollThumbRounding: CornerRadius
+            ScrollThumbBorderColor: BorderBrush
+            ScrollThumbBorderThickness: BorderThickness
+            ScrollThumbWidth: Width
+            ScrollThumbMargin: Margin
         -->
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
             <Setter Property="Visibility" Value="Visible"/>
@@ -134,14 +135,14 @@
 
         <!---
             User editable styles:
-            ScrollThumbBgVisibility: Visibility
 
-            color
-            corner radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollThumbBgVisibility: Visibility
+            ScrollThumbBgColor: Background
+            ScrollThumbBgRounding: CornerRadius
+            ScrollThumbBgBorderColor: BorderBrush
+            ScrollThumbBgBorderThickness: BorderThickness
+            ScrollThumbBgWidth: Width
+            ScrollThumbBgMargin: Margin
          -->
         <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
             <Grid>
@@ -150,7 +151,7 @@
                     <RowDefinition Height="0.00001*"/>
                     <RowDefinition MaxHeight="0"/>
                 </Grid.RowDefinitions>
-                <Border Grid.RowSpan="3" CornerRadius="5" Background="Black" Width="10" Margin="-10, -1, -1, 0" Visibility="Visible" BorderBrush="Green" BorderThickness="0"/>
+                <Border Grid.RowSpan="3" CornerRadius="5" Background="Black" Width="10" Margin="-10, -1, -1, 0" Visibility="Visible" BorderBrush="Pink" BorderThickness="0"/>
                 <RepeatButton Grid.Row="0" Style="{StaticResource ScrollBarLineButton}" Height="18" Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
                 <Track Name="PART_Track" Grid.Row="1" IsDirectionReversed="true">
                     <Track.DecreaseRepeatButton>
@@ -234,10 +235,15 @@
     <!--
         User editable style:
 
-        margin (see cs file)
+        WindowTopMargin: (see cs file)
+        WindowWidth: (see cs file)
+        WindowColor: Background
+        WindowBorderColor: BorderBrush
+        WindowBorderThickness: BorderThickness
+        WindowRounding: CornerRadius
+        WindowPadding: Padding
     -->
 
-    <!--Need to add to settings-->
     <Border
         x:Name="Container"
         BorderBrush="Transparent"
@@ -271,7 +277,7 @@
                 ListContainerRounding: CornerRadius
                 ListContainerColor: Background
                 ListContainerMinHeight: MinHeight
-                ListContainerWidth: Width (see cs file)
+                ListContainerMaxHeight: (see cs file)
             -->
                 <Border
                 x:Name="ResultsBox"
@@ -302,13 +308,13 @@
                             <!--
                             User editable styles:
 
-                            Hover Border
-                            Hover bg
-                            Selected Border
-                            Selected Bg
-                            Item Corner Radius
-                            Margin
-                            Border Thickness
+                            ListItemBorderThickness: BorderThickness
+                            ListItemHoverBorderColor: Item.MouseOver.Border
+                            ListItemHoverBgColor: Item.MouseOver.Background
+                            ListItemSelectedBorderColor: Item.SelectedInactive.Border & Item.SelectedActive.Border
+                            ListItemSelectedBgColor: Item.SelectedInactive.Background & Item.SelectedActive.Background
+                            ListItemRounding: CornerRadius
+                            ListItemMargin: Margin
                         -->
                             <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray"/>
                             <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
@@ -379,14 +385,15 @@
                                     </Grid.ColumnDefinitions>
                                     <!--
                                     User Editable styles:
-                                    Image Height & Width (always square)
-                                    Text Margin from icon
-                                    Name font family
-                                    Name size
-                                    Name color
-                                    decription font family
-                                    decription fontsize
-                                    description color
+
+                                    ListItemIconSize: Height & Width
+                                    ListItemTextMargin: Margin
+                                    ListItemNameFont: FontFamily
+                                    ListItemNameSize: FontSize
+                                    ListItemNameColor: Foreground
+                                    ListItemDescFont: FontFamily
+                                    ListItemDescSize: FontSize
+                                    ListItemDescColor: Foreground
                                 -->
                                     <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
                                     <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
@@ -419,8 +426,7 @@
                 SearchBarBorderColor: BorderBrush
                 SearchBarBorderSize: BorderThickness
                 SearchBarHeight: Height
-                SearchBarWidth: Width (see cs file)
-            -->
+                -->
                 <Border
                 x:Name="EntryField"
                 BorderBrush="Black"
@@ -436,21 +442,22 @@
                         <Grid Grid.Row="1">
 
                             <!--
-                            User Editable styles - not in settings.json:
-                            Column-0 width = x:Name=EntryField width (above) - Image width (below)
-                            Column-1 width = Image width (below)
-                        -->
+                                User Editable styles - not in settings.json:
+
+                                Column-0 width = Container width (above) - Image width (below)
+                                Column-1 width = Image width (below)
+                            -->
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="656*"/>
                                 <ColumnDefinition Width="64*"/>
                             </Grid.ColumnDefinitions>
 
                             <!--
-                            User Editable styles:
+                                User Editable styles:
 
-                            SearchIconWidth :Width
-                            Icon (see cs file)
-                        -->
+                                SearchIconWidth :Width
+                                Icon (see cs file)
+                            -->
                             <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
                             <Grid>
                                 <!--

@@ -22,7 +22,7 @@ namespace Plugin_InstalledApps {
         public InstalledAppsItem(ShellObject app) {
             this.name = app.Name;
             this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
-            this.icon = app.Thumbnail.ExtraLargeBitmapSource;
+            this.icon = app.Thumbnail.MediumBitmapSource;//plugin specific setting
         }
 
         public override void execute() {

@@ -28,9 +28,6 @@ namespace Quokka
     /// Includes wpf-notifyicon - CPOL:
     /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
     /// <br>
-    /// Includes WPF UI - MIT:
-    /// https://github.com/lepoco/wpfui/blob/main/LICENSE
-    /// <br>
     /// Includes LowLevelKeyboardListener from Dylan's Web
     /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
     /// <br>

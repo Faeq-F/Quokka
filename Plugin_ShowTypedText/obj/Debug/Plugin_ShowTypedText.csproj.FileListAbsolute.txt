@@ -50,3 +50,4 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\ContextPane.g.c
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowTypedText_MarkupCompile.cache
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\ContextPane.baml
 C:\Users\Faeq\source\repos\Quokka\Plugin_ShowTypedText\obj\Debug\Plugin_ShowTypedText.g.resources
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText\Debug\Config\Resources\copy.png

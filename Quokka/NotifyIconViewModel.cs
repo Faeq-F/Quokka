@@ -2,7 +2,6 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
-using Wpf.Ui.Common;
 
 namespace Quokka
 {

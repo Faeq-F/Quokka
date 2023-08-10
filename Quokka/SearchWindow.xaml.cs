@@ -11,7 +11,6 @@ using System.Reflection;
 using System.Drawing;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
-using Wpf.Ui.Extensions;
 using System.Globalization;
 using System.Windows.Data;
 using System.ComponentModel;
@@ -40,13 +39,10 @@ namespace Quokka {
             //Dynamic widths, heights and margins & hiding results box & Context pane
             ResultsBox.Visibility = Visibility.Collapsed;
             ContextPane.Visibility = Visibility.Collapsed;
-            //EntryField.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            //ResultsBox.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             Container.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
             Container.Height = SearchWindowGrid.Height;// This will not be a setting
-            //ContextPane.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            //make sure this has a setting
             ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
+            //set to same as above
             ContextPane.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
 
             //Window Margins

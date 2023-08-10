@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf.Ui.Controls;
 
 namespace Plugin_ShowTypedText {
     /// <summary>
@@ -39,8 +38,8 @@ namespace Plugin_ShowTypedText {
             switch (e.Key){
                 case Key.Enter:
                     if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
-                    Wpf.Ui.Controls.Button currentButton = (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
-                    currentButton.RaiseEvent(new RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
+                    Button currentButton = (ButtonsListView.SelectedItem as Button);
+                    currentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                     break;
                 case Key.Down:
                     if ((ButtonsListView.SelectedIndex == -1)) {

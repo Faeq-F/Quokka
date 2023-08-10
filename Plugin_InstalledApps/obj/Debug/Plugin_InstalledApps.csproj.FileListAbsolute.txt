@@ -16,3 +16,4 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Plugin_Installe
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Plugin_InstalledApps.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\refint\Plugin_InstalledApps.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\ref\Plugin_InstalledApps.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_InstalledApps\Debug\Config\Resources\copy.png

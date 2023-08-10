@@ -8,7 +8,13 @@
 
         "Window": {
 
-            "WindowTopMargin": "PrimaryScreenHeight/3"
+            "WindowTopMargin": "PrimaryScreenHeight/3",
+            "WindowWidth": "PrimaryScreenWidth / 2",
+            "WindowColor": "Transparent",
+            "WindowBorderColor": "Transparent",
+            "WindowBorderThickness": "0",
+            "WindowRounding": "0",
+            "WindowPadding": "10"
 
         },
         "SearchBar": {
@@ -18,7 +24,6 @@
             "SearchBarBorderColor": "Black",
             "SearchBarBorderSize": "2",
             "SearchBarHeight": "64",
-            "SearchBarWidth": "PrimaryScreenWidth/2",
             "SearchIconWidth": "64",
             "SearchIcon": "\\Config\\Resources\\SearchIcon.png",
 
@@ -49,64 +54,64 @@
                 "ListContainerRounding": "15",
                 "ListContainerColor": "White",
                 "ListContainerMinHeight": "64",
-                "ListContainerWidth": "PrimaryScreenWidth/2"
+                "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
 
             },
             "List": {
 
-                "ListMargin": "10,0,0,0",
+                "ListMargin": "10,10,0,10",
 
                 "ScrollBarBackground": {
 
-                    "ScrollBarBgVisibility": null,
-                    "ScrollBarBgColor": null,
-                    "ScrollBarBgRounding": null,
-                    "ScrollBarBgBorderColor": null,
-                    "ScrollBarBgBorderThickness": null,
-                    "ScrollBarBgWidth": null,
-                    "ScrollBarBgMargin": null
+                    "ScrollBarBgVisibility": "Visible",
+                    "ScrollBarBgColor": "Black",
+                    "ScrollBarBgRounding": "5",
+                    "ScrollBarBgBorderColor": "Green",
+                    "ScrollBarBgBorderThickness": "0",
+                    "ScrollBarBgWidth": "10",
+                    "ScrollBarBgMargin": "-10, 0, -1, 10"
                 },
 
                 "ScrollBarThumbBackground": {
 
-                    "ScrollThumbBgVisibility": null,
-                    "ScrollThumbBgColor": null,
-                    "ScrollThumbBgRounding": null,
-                    "ScrollThumbBgBorderColor": null,
-                    "ScrollThumbBgBorderThickness": null,
-                    "ScrollThumbBgWidth": null,
-                    "ScrollThumbBgMargin": null
+                    "ScrollThumbBgVisibility": "Visible",
+                    "ScrollThumbBgColor": "Black",
+                    "ScrollThumbBgRounding": "5",
+                    "ScrollThumbBgBorderColor": "Pink",
+                    "ScrollThumbBgBorderThickness": "0",
+                    "ScrollThumbBgWidth": "10",
+                    "ScrollThumbBgMargin": "-10, -1, -1, 0"
 
                 },
 
                 "ScrollBarThumb": {
 
-                    "ScrollThumbVisibility": null,
-                    "ScrollThumbColor": null,
-                    "ScrollThumbRounding": null,
-                    "ScrollThumbBorderColor": null,
-                    "ScrollThumbBorderThickness": null,
-                    "ScrollThumbWidth": null,
-                    "ScrollThumbMargin": null
+                    "ScrollThumbVisibility": "Visible",
+                    "ScrollThumbColor": "White",
+                    "ScrollThumbRounding": "3",
+                    "ScrollThumbBorderColor": "Transparent",
+                    "ScrollThumbBorderThickness": "3",
+                    "ScrollThumbWidth": "10",
+                    "ScrollThumbMargin": "-10,0,0,0"
                 }
             },
             "ListItem": {
 
-                "ListItemBorderThickness": null,
-                "ListItemHoverBorderColor": null,
-                "ListItemHoverBgColor": null,
-                "ListItemSelectedBorderColor": null,
-                "ListItemSelectedBgColor": null,
-                "ListItemRounding": null,
-                "ListItemMargin": null,
-                "ListItemIconSize": null,
-                "ListItemTextMargin": null,
-                "ListItemNameFont": null,
-                "ListItemNameSize": null,
-                "ListItemNameColor": null,
-                "ListItemDescFont": null,
-                "ListItemDescSize": null,
-                "ListItemDescColor": null,
+                "ListItemBorderThickness": "3",
+                "ListItemHoverBorderColor": "Black",
+                "ListItemHoverBgColor": "LightGray",
+                "ListItemSelectedBorderColor": "Black",
+                "ListItemSelectedBgColor": "White",
+                "ListItemRounding": "15",
+                "ListItemMargin": "0, 0, 10, 0",
+                "ListItemIconSize": "50",
+                "ListItemTextMargin": "10",
+                "ListItemNameFont": "Cascadia Code",
+                "ListItemNameSize": "18",
+                "ListItemNameColor": "Black",
+                "ListItemDescFont": "Cascadia Code",
+                "ListItemDescSize": "12",
+                "ListItemDescColor": "Gray",
 
                 "ContextPane": {
 

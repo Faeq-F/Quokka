@@ -17,7 +17,6 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PInvoke.Windows.ShellScalingA
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Validation.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
-C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Wpf.Ui.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Microsoft.CSharp.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Microsoft.VisualBasic.Core.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Microsoft.Win32.Primitives.dll
@@ -286,7 +285,6 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\dbgshim.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\hostfxr.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\hostpolicy.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore.dll
-C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore_amd64_amd64_6.0.2023.32017.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordbi.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscorrc.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\msquic.dll
@@ -317,3 +315,5 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\refint\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\Quokka.genruntimeconfig.cache
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\ref\Quokka.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore_amd64_amd64_6.0.2123.36311.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\copy.png

@@ -15,7 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="copy.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="copy.png" />
   </ItemGroup>
 
   <ItemGroup>
