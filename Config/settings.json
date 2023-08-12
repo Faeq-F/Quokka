@@ -6,7 +6,7 @@
     },
     "StyleSettings": {
 
-        "Window": {
+        "AppWindow": {
 
             "WindowTopMargin": "PrimaryScreenHeight/3",
             "WindowWidth": "PrimaryScreenWidth / 2",
@@ -95,7 +95,7 @@
                     "ScrollThumbMargin": "-10,0,0,0"
                 }
             },
-            "ListItem": {
+            "ListItems": {
 
                 "ListItemBorderThickness": "3",
                 "ListItemHoverBorderColor": "Black",
@@ -115,49 +115,80 @@
 
                 "ContextPane": {
 
-                    "ContextPaneBorderColor": null,
-                    "ContextPaneBorderThickness": null,
-                    "ContextPaneCornerRounding": null,
-                    "ContextPaneBackground": null,
-                    "ContextPaneMinHeight": null,
+                    "BorderColor": "Black",
+                    "BorderThickness": "2",
+                    "CornerRounding": "15",
+                    "Background": "White",
+                    "MinHeight": "64",
+
+                    "Details": {
+
+                        "ContentMargin": "0, 0, 0, 0",
+                        "ContentVerticalAlignment": "Center",
+                        "ContentHorizontalAlignment": "Center",
+                        "ImageMargin": "40,50,40,20",
+                        "TextColor": "Black",
+                        "TextSize": "16",
+                        "FontFamily": "Cascadia Code",
+                        "TextLineMargin": "0,0,0,0"
+
+                    },
 
                     "List": {
 
-                        "ContextPaneListMargin": null,
-                        "ContextButtonBackgroundOnHover": null,
-                        "ContextButtonContentMargin": null,
+                        "ListMargin": "10,10,0,10",
+                        "ContentHorizontalAlignment": "Left",
+                        "ButtonContentMargin": "10",
+
+                        "ListItems": {
+
+                            "ListItemBorderThickness": "3",
+                            "ListItemHoverBorderColor": "Black",
+                            "ListItemHoverBgColor": "LightGray",
+                            "ListItemSelectedBorderColor": "Black",
+                            "ListItemSelectedBgColor": "White",
+                            "ListItemRounding": "15",
+                            "ListItemMargin": "0, 0, 10, 0",
+
+                            "ListItemIconSize": "15",
+                            "ListItemIconMargin": "0,0,-5,0",
+                            "ListItemTextPadding": "10",
+                            "ListItemFont": "Cascadia Code",
+                            "ListItemSize": "12",
+                            "ListItemColor": "Black"
+                        },
 
                         "ScrollBarBackground": {
 
-                            "ContextPaneScrollBarBgVisibility": null,
-                            "ContextPaneScrollBarBgColor": null,
-                            "ContextPaneScrollBarBgRounding": null,
-                            "ContextPaneScrollBarBgBorderColor": null,
-                            "ContextPaneScrollBarBgBorderThickness": null,
-                            "ContextPaneScrollBarBgWidth": null,
-                            "ContextPaneScrollBarBgMargin": null
+                            "ScrollBarBgVisibility": "Visible",
+                            "ScrollBarBgColor": "Black",
+                            "ScrollBarBgRounding": "5",
+                            "ScrollBarBgBorderColor": "Green",
+                            "ScrollBarBgBorderThickness": "0",
+                            "ScrollBarBgWidth": "10",
+                            "ScrollBarBgMargin": "-10, 0, -1, 10"
                         },
 
                         "ScrollBarThumbBackground": {
 
-                            "ContextPaneScrollThumbBgVisibility": null,
-                            "ContextPaneScrollThumbBgColor": null,
-                            "ContextPaneScrollThumbBgRounding": null,
-                            "ContextPaneScrollThumbBgBorderColor": null,
-                            "ContextPaneScrollThumbBgBorderThickness": null,
-                            "ContextPaneScrollThumbBgWidth": null,
-                            "ContextPaneScrollThumbBgMargin": null
+                            "ScrollThumbBgVisibility": "Visible",
+                            "ScrollThumbBgColor": "Black",
+                            "ScrollThumbBgRounding": "5",
+                            "ScrollThumbBgBorderColor": "Pink",
+                            "ScrollThumbBgBorderThickness": "0",
+                            "ScrollThumbBgWidth": "10",
+                            "ScrollThumbBgMargin": "-10, 0, 0, 0"
                         },
 
                         "ScrollBarThumb": {
 
-                            "ContextPaneScrollThumbVisibility": null,
-                            "ContextPaneScrollThumbColor": null,
-                            "ContextPaneScrollThumbRounding": null,
-                            "ContextPaneScrollThumbBorderColor": null,
-                            "ContextPaneScrollThumbBorderThickness": null,
-                            "ContextPaneScrollThumbWidth": null,
-                            "ContextPaneScrollThumbMargin": null
+                            "ScrollThumbVisibility": "Visible",
+                            "ScrollThumbColor": "White",
+                            "ScrollThumbRounding": "3",
+                            "ScrollThumbBorderColor": "Transparent",
+                            "ScrollThumbBorderThickness": "3",
+                            "ScrollThumbWidth": "10",
+                            "ScrollThumbMargin": "-10,0,0,0"
 
                         }
                     }

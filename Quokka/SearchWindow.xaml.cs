@@ -17,9 +17,9 @@ using System.ComponentModel;
 
 namespace Quokka {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SearchWindow.xaml
     /// </summary>
-    
+
     public partial class SearchWindow : Window {
 
         private String query = "";

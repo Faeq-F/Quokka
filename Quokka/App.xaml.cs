@@ -19,6 +19,8 @@ using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
 using Microsoft.WindowsAPICodePack.Shell;
 using Quokka.Plugger.Contracts;
+using System.Text.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Quokka
 {
@@ -34,15 +36,22 @@ namespace Quokka
     /// Includes JSON.Net - MIT license
     /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
     /// </summary>
+
     public partial class App : System.Windows.Application {
         private TaskbarIcon notifyIcon;
         private LowLevelKeyboardListener _listener;
         private string detectedKeys = "";
 
+        public Settings AppSettings { get; set; }
+
         public static List<IPlugger> plugins { private set; get; }
 
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
+            //grab settings
+            string fileName = Environment.CurrentDirectory + "\\Config\\settings.json";
+            string jsonString = File.ReadAllText(fileName);
+            AppSettings = JsonSerializer.Deserialize<Settings>(jsonString)!;
 
             // grab plugins and run startup
             plugins = new List<IPlugger>();
@@ -127,10 +136,14 @@ namespace Quokka
 
             detectedKeys += e.KeyPressed.ToString();
 
-            if (detectedKeys.Contains("LWinSpace")){
-                App.Current.MainWindow = new SearchWindow();
-                App.Current.MainWindow.Show();
-                detectedKeys = "";
+            if (detectedKeys.Contains(AppSettings?.GeneralSettings.WindowHotKey)){
+                bool windowOpen = false;
+                foreach (var wnd in App.Current.Windows) { if (wnd is SearchWindow) { windowOpen = true; break; } }
+                if (!windowOpen){
+                    App.Current.MainWindow = new SearchWindow();
+                    App.Current.MainWindow.Show();
+                    detectedKeys = "";
+                }
             }
         }
     }

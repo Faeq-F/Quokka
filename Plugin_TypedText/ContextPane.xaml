@@ -17,7 +17,8 @@
                         <Border>
                         <!--
                             User editable Styles:
-                            Button Content Margin
+
+                            ButtonContentMargin: Margin
                         -->
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}">
@@ -101,13 +102,14 @@
         </Style>
         <!---
             User editable styles:
+
             ScrollBarBgVisibility: Visibility
-            color
-            Corner Radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollBarBgColor: Background
+            ScrollBarBgRounding: CornerRadius
+            ScrollBarBgBorderColor: BorderBrush
+            ScrollBarBgBorderThickness: BorderThickness
+            ScrollBarBgWidth: Width
+            ScrollBarBgMargin: Margin
          -->
         <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
             <Setter Property="Visibility" Value="Visible"/>
@@ -126,13 +128,14 @@
 
         <!--
             User Editable Styles:
+
             ScrollThumbVisibility: Visibility
-            color
-            Corner Radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollThumbColor: Background
+            ScrollThumbRounding: CornerRadius
+            ScrollThumbBorderColor: BorderBrush
+            ScrollThumbBorderThickness: BorderThickness
+            ScrollThumbWidth: Width
+            ScrollThumbMargin: Margin
         -->
         <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
             <Setter Property="Visibility" Value="Visible"/>
@@ -151,13 +154,14 @@
 
         <!---
             User editable styles:
+
             ScrollThumbBgVisibility: Visibility
-            color
-            corner radius
-            border brush
-            border thickness
-            width
-            margin
+            ScrollThumbBgColor: Background
+            ScrollThumbBgRounding: CornerRadius
+            ScrollThumbBgBorderColor: BorderBrush
+            ScrollThumbBgBorderThickness: BorderThickness
+            ScrollThumbBgWidth: Width
+            ScrollThumbBgMargin: Margin
          -->
         <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
             <Grid>
@@ -249,11 +253,12 @@
 
     <!--
         User editable styles:
-        Border color
-        Border thickness
-        Corner rounding
-        Bg
-        MinHeight
+
+        BorderColor: BorderBrush
+        BorderThickness: BorderThickness
+        CornerRounding: CornerRadius
+        Background: Background
+        MinHeight: MinHeight
     -->
     <Border
         BorderBrush="Black"
@@ -267,13 +272,15 @@
 
         <!--
             User editable styles:
-            Content margin
-            Vertical Alignment
-            Horizontal alignment
-            Image margin
-            Text color
-            text size
-            font family
+
+            ContentMargin: Margin
+            ContentVerticalAlignment: VerticalAlignment
+            ContentHorizontalAlignment: HorizontalAlignment
+            DetailsImageMargin: Margin
+            TextColor: Foreground
+            TextSize: FontSize
+            FontFamily: FontFamily
+            TextLineMargin: Margin
             
         -->
         <Grid Margin="0, 0, 0, 0" VerticalAlignment="Center" HorizontalAlignment="Stretch">
@@ -283,7 +290,7 @@
                 <ColumnDefinition Width="5*"/>
 
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" HorizontalAlignment="Center">
+            <Grid Grid.Column="0" HorizontalAlignment="Center"> <!--This is what is referred to by the setting-->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*" />
                     <RowDefinition Height="1*"/>
@@ -300,8 +307,13 @@
 
             </Grid>
             <Grid Grid.Column="1">
-                <!--ListView margin setting-->
-                <ListView Margin="10,10,0,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" x:Name="ButtonsListView"
+                <!--
+                    User editable styles:
+
+                    ListMargin: Margin
+                    ContentHorizontalAlignment: HorizontalContentAlignment
+                -->
+                <ListView Margin="10,10,0,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Left" x:Name="ButtonsListView"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                     <ListView.Resources>
                         <Style x:Key="FocusVisual">
@@ -315,13 +327,14 @@
                         </Style>
                         <!--
                             User editable styles:
-                            Hover Border
-                            Hover bg
-                            Selected Border
-                            Selected Bg
-                            Item Corner Radius
-                            Margin
-                            Border Thickness
+
+                            ListItemBorderThickness: BorderThickness
+                            ListItemHoverBorderColor: Item.MouseOver.Border
+                            ListItemHoverBgColor: Item.MouseOver.Background
+                            ListItemSelectedBorderColor: Item.SelectedInactive.Border & Item.SelectedActive.Border
+                            ListItemSelectedBgColor: Item.SelectedInactive.Background & Item.SelectedActive.Background
+                            ListItemRounding: CornerRadius
+                            ListItemMargin: Margin
                         -->
                         <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray"/>
                         <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
@@ -383,27 +396,137 @@
                             </Setter>
                         </Style>
                     </ListView.Resources>
+
+                    <!--
+                        User editable styles:
+
+                        ListItemIconSize: Height & Width
+                        ListItemIconMargin: Margin
+                        ListItemTextPadding: Padding
+                        ListItemFont: FontFamily
+                        ListItemSize: FontSize
+                        ListItemColor: Foreground
+                    -->
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Quokka;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Copy the text" Padding="10" Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
                         </Grid>
                     </Grid>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                    <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="Again, another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="This one also does the same thing" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="So does this one" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="Do you think there are too many of these?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="How about another?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="And another" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="more" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="9*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Button Content="Maybe that's it" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                        </Grid>
+                    </Grid>
                 </ListView>
             </Grid>
         </Grid>
