@@ -42,7 +42,7 @@ namespace Quokka
         private LowLevelKeyboardListener _listener;
         private string detectedKeys = "";
 
-        public Settings AppSettings { get; set; }
+        public static Settings AppSettings { get; set; }
 
         public static List<IPlugger> plugins { private set; get; }
 

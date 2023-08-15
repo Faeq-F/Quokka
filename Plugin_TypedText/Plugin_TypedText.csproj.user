@@ -5,5 +5,8 @@
     <Page Update="ContextPane.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Scrollbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

@@ -14,6 +14,7 @@ using System.Windows.Controls;
 using System.Globalization;
 using System.Windows.Data;
 using System.ComponentModel;
+using System.Xml.Schema;
 
 namespace Quokka {
     /// <summary>
@@ -30,9 +31,15 @@ namespace Quokka {
         public TextBox searchBox;
         public Frame contextPane;
 
+        public static string StyleSettingSearchFieldFont { get; set; }
+
         public SearchWindow() {
 
             InitializeComponent();
+
+            StyleSettingSearchFieldFont = App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
+            //SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
+
             SearchIcon.Source = new BitmapImage(new Uri(
                 Environment.CurrentDirectory + "\\Config\\Resources\\SearchIcon.png"));
 
@@ -44,7 +51,7 @@ namespace Quokka {
             ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
             //set to same as above
             ContextPane.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
-
+            
             //Window Margins
             System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0;
             WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
@@ -178,6 +185,9 @@ namespace Quokka {
 
             }));
         }
+
+        
+
 
     }
 
