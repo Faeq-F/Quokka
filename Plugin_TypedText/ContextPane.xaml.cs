@@ -1,6 +1,7 @@
 ﻿using Quokka;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Plugin_TypedText {
             this.Item = (Application.Current.MainWindow as SearchWindow).SelectedItem;
             DetailsImage.Source = this.Item.icon;
             text.Text = Item.name;
+            Debug.WriteLine(Item.path);
         }
 
         private void CopyText(object sender, RoutedEventArgs e) {

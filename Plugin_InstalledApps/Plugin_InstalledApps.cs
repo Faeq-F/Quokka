@@ -13,16 +13,14 @@ namespace Plugin_InstalledApps {
     /// </summary>
     class InstalledAppsItem : ListItem {
 
-        public InstalledAppsItem(string name, string appUserModelID, ImageSource icon) {
-            this.name = name;
-            this.description = appUserModelID;
-            this.icon = icon;
-        }
+        public string path { get; set; }
 
         public InstalledAppsItem(ShellObject app) {
             this.name = app.Name;
             this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
             this.icon = app.Thumbnail.MediumBitmapSource;//plugin specific setting
+            this.path = app.Properties.System.Link.TargetParsingPath.Value;
+
         }
 
         public override void execute() {

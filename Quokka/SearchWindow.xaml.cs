@@ -15,6 +15,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.ComponentModel;
 using System.Xml.Schema;
+using System.Windows.Controls.Primitives;
 
 namespace Quokka {
     /// <summary>
@@ -31,13 +32,20 @@ namespace Quokka {
         public TextBox searchBox;
         public Frame contextPane;
 
-        public static string StyleSettingSearchFieldFont { get; set; }
-
         public SearchWindow() {
 
             InitializeComponent();
 
-            StyleSettingSearchFieldFont = App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
+            Style st = new Style(typeof(RepeatButton));
+            st.Setters.Add(new Setter(Control.BackgroundProperty, "Blue"));
+            
+
+            //var ScrollBarResourceDictionary = new ResourceDictionary();
+            //ScrollBarResourceDictionary.Source = new Uri("Scrollbar.xaml", UriKind.RelativeOrAbsolute);
+            //Style ScrollBarPageButton = ScrollBarResourceDictionary["ScrollBarPageButton"] as Style;
+
+            //App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
+
             //SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
 
             SearchIcon.Source = new BitmapImage(new Uri(
