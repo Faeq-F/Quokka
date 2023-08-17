@@ -214,7 +214,7 @@ App settings (excluding plugins):
 | ListItemSelectedBgColor | selected background color | ? |
 | ListItemRounding | corner radius | 15 |
 | ListItemMargin | margin | ? |
-| ListItemIconSize | icon size | ? |
+| ListItemIconSize | icon size | 50 |
 | ListItemTextMargin | text margin (from icon) | ? |
 | ListItemNameFont | name font family | ? |
 | ListItemNameSize | name size | ? |
