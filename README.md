@@ -218,7 +218,7 @@ App settings (excluding plugins):
 | ListItemTextMargin | text margin (from icon) | ? |
 | ListItemNameFont | name font family | ? |
 | ListItemNameSize | name size | ? |
-| ListItemNameColor | name color | ? |
+| ListItemNameColor | name color | Black |
 | ListItemDescFont | description font family | ? |
 | ListItemDescSize | description size | ? |
 | ListItemDescColor | description color | ? |
