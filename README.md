@@ -171,7 +171,7 @@ App settings (excluding plugins):
 
 | Setting name | Use | Default Value |
 |-----:|-----------|-----------|
-| ScrollThumbBgVisibility | visibility | ? |
+| ScrollThumbBgVisibility | visibility | Visible |
 | ScrollThumbBgColor | color | ? |
 | ScrollThumbBgRounding | corner radius | ? |
 | ScrollThumbBgBorderColor | border color | ? |
