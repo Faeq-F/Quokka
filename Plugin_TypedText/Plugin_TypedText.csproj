@@ -14,12 +14,12 @@
 	<BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_TypedText</BaseOutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="copy.png" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Quokka\Quokka.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Quokka\Quokka.csproj" />
+    <ItemGroup>
+    <None Remove="copy.png" />
   </ItemGroup>
 
   <ItemGroup>

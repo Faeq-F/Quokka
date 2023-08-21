@@ -15,6 +15,7 @@
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <ApplicationIcon>..\Config\Resources\QuokkaTray.ico</ApplicationIcon>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
@@ -87,6 +88,14 @@
             <TargetPath>Config\Resources\copy.png</TargetPath>
         </ContentWithTargetPath>
         <None Include="..\Config\Resources\copy.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\3dObjectsFolder.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
+        </ContentWithTargetPath>
+        <None Include="..\Config\Resources\3dObjectsFolder.png" />
     </ItemGroup>
 
 </Project>

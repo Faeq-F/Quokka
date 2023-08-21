@@ -21,3 +21,6 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Scrollbar.baml
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\ContextPane.g.cs
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Plugin_InstalledApps_MarkupCompile.cache
 C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Plugin_InstalledApps_MarkupCompile.lref
+C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\Plugin_InstalledApps.g.resources
+C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Debug\ContextPane.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_InstalledApps\Debug\Config\Resources\3dObjectsFolder.png

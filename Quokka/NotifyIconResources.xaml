@@ -3,14 +3,87 @@
                     xmlns:tb="http://www.hardcodet.net/taskbar"
                     xmlns:local="clr-namespace:Quokka">
 
-    <ContextMenu x:Shared="false" x:Key="SysTrayMenu" Background="White" BorderBrush="Black" BorderThickness="3">
-        <MenuItem Header="Open Search Window" Command="{Binding ShowWindowCommand}"/>
-        <Separator />
-        <MenuItem Header="Settings" Command="{Binding OpenSettingsFile}"/>
-        <MenuItem Header="PlugBoard" Command="{Binding OpenPlugBoard}"/>
+    <LinearGradientBrush x:Key="MenuBackground"
+                         EndPoint="0.5,1"
+                         StartPoint="0.5,0">
+        <GradientStop Color="#FFFFFF"
+                      Offset="1" />
+        <GradientStop Color="#FFFFFF"
+                      Offset="0.259" />
+    </LinearGradientBrush>
+
+    <Style TargetType="{x:Type ContextMenu}">
+        <Setter Property="BorderThickness"
+                Value="1,1,1,1" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                    <Grid>
+                        <Border Background="{DynamicResource MenuBackground}"
+                                BorderBrush="Black"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ScrollViewer
+                                Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}"
+                                Uid="ScrollViewer_9"
+                                CanContentScroll="True">
+                                <ItemsPresenter Margin="{TemplateBinding Padding}"
+                                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                KeyboardNavigation.DirectionalNavigation="Cycle" />
+                            </ScrollViewer>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
+
+        <MenuItem Header="Open Search Window"
+                  Command="{Binding ShowWindowCommand}"
+                  CommandParameter="{Binding}">
+            <MenuItem.Icon>
+                <Image Width="16"
+                       Height="16"
+                       Source="{Binding Path=IconSource}" />
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Header="Settings"
+                  Command="{Binding OpenSettingsFile}"
+                  CommandParameter="{Binding}">
+            <MenuItem.Icon>
+                <Image Width="16"
+                       Height="16"
+                       Source="/Images/Add.png" />
+            </MenuItem.Icon>
+        </MenuItem>
+
+        <MenuItem Header="PlugBoard"
+                  Command="{Binding OpenPlugBoard}"
+                  CommandParameter="{Binding}">
+            <MenuItem.Icon>
+                <Image Width="16"
+                       Height="16"
+                       Source="/Images/Remove.png" />
+            </MenuItem.Icon>
+        </MenuItem>
+
         <!--<MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" />-->
+
         <Separator />
-        <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />
+
+        <MenuItem Header="Exit"
+          Command="{Binding ExitApplicationCommand}"
+          CommandParameter="{Binding}">
+            <MenuItem.Icon>
+                <Image Width="16"
+               Height="16"
+               Source="/Images/Remove.png" />
+            </MenuItem.Icon>
+        </MenuItem>
+
     </ContextMenu>
 
     <!-- the application's NotifyIcon - started from App.xaml.cs. Declares its own view model. ToolTipText="Quokka" -->
@@ -22,5 +95,6 @@
         </tb:TaskbarIcon.DataContext>
 
     </tb:TaskbarIcon>
+
 
 </ResourceDictionary>

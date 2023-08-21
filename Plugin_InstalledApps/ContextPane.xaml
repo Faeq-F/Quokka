@@ -65,15 +65,15 @@
                 </Grid.RowDefinitions>
 
 
-                <Image Grid.Row="0" x:Name="DetailsImage" Margin="40,50,40,20"/>
-                <TextBlock TextWrapping="Wrap" Text="You typed the text after 'You typed:'" Grid.Row="1"
-                    Foreground="Black" FontSize="16" FontFamily="Cascadia Code" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
-                <TextBlock TextWrapping="Wrap" Text="" Grid.Row="2" x:Name="text" 
-                    Foreground="Black" FontSize="16" FontFamily="Cascadia Code" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                <Image Grid.Row="0" x:Name="DetailsImage" Margin="40,20,40,60"/>
+                <TextBlock TextWrapping="Wrap" Text="" Grid.Row="1" x:Name="NameText" 
+                    Foreground="Black" FontSize="16" FontFamily="Cascadia Code" VerticalAlignment="Top" Margin="0,-20,0,0"/>
+                <TextBlock TextWrapping="Wrap" Text="" Grid.Row="2" x:Name="DescText"
+                    Foreground="Gray" FontSize="12" FontFamily="Cascadia Code" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
 
 
             </Grid>
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" VerticalAlignment="Center">
                 <!--
                     User editable styles:
 
@@ -180,10 +180,11 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Button Content="Copy the text" Padding="10" Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                            <Button Content="Open" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"
+                                Click="openApp"/>
                         </Grid>
                     </Grid>
                     <Grid>
@@ -192,10 +193,10 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                            <Button Content="Run as administrator" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}" Click="RunAsAdmin"/>
                         </Grid>
                     </Grid>
                     <Grid>
@@ -204,94 +205,10 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Button Content="Again, another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="This one also does the same thing" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="So does this one" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="Do you think there are too many of these?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="How about another?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="And another" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="more" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
-                        </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"/>
-                            <ColumnDefinition Width="9*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Content="Maybe that's it" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
+                            <Button Content="Open file location" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}" Click="openContainingFolder"/>
                         </Grid>
                     </Grid>
                 </ListView>

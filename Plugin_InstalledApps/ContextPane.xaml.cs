@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static PInvoke.Kernel32;
 
 namespace Plugin_InstalledApps {
     /// <summary>
@@ -25,16 +26,41 @@ namespace Plugin_InstalledApps {
 
         public ContextPane() {
             InitializeComponent();
-            this.Item = (InstalledAppsItem?)(Application.Current.MainWindow as SearchWindow).SelectedItem;
+            try{
+                this.Item = (InstalledAppsItem?)(Application.Current.MainWindow as SearchWindow).SelectedItem;
+            } catch(InvalidCastException ex){//Used to handle the AllAppsItem
+                (Application.Current.MainWindow as SearchWindow).contextPane.Visibility = Visibility.Collapsed;
+                (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
+                //makes showing a new pane more reliable
+                (Application.Current.MainWindow as SearchWindow).contextPane.Source = null;
+                
+                //Process.Start("ms-settings:appsfeatures");
+                App.Current.MainWindow.Close();
+                return;
+            }
             DetailsImage.Source = this.Item.icon;
-            text.Text = Item.name;
-            Debug.WriteLine(Item.path);
+            NameText.Text = Item.name;
+            DescText.Text = Item.description;
+        }
+
+        private void openApp(object sender, RoutedEventArgs e) {
+            Item.execute();
+        }
+
+        private void RunAsAdmin(object sender, RoutedEventArgs e) {
+            Process proc = new Process();
+            proc.StartInfo.FileName = "explorer";
+            proc.StartInfo.Arguments = @" shell:appsFolder\" + Item.description;
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.Verb = "runas";
+            proc.Start();
+            App.Current.MainWindow.Close();
         }
 
         private void openContainingFolder(object sender, RoutedEventArgs e) {
             using Process folderopener = new Process();
             folderopener.StartInfo.FileName = "explorer";
-            folderopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+            folderopener.StartInfo.Arguments = Item.path.Remove(Item.path.LastIndexOf('\\'));
             folderopener.Start();
         }
 

@@ -31,3 +31,4 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText_Ma
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.g.resources
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\copy.png
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Scrollbar.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\3dObjectsFolder.png

@@ -477,6 +477,20 @@ In this method, you should create your list item objects, filter them (if needed
 
 - In the project, add a WPF Page <b>called 'ContextPane'</b>
 - ensure ContextPane : Page (inherits page)
+- ensure the plugin's project file has
+```
+<ItemGroup>
+    <Compile Update="ContextPane.xaml.cs">
+        <SubType>Code</SubType>
+    </Compile>
+</ItemGroup>
+
+<ItemGroup>
+    <Page Update="ContextPane.xaml">
+        <SubType>Designer</SubType>
+    </Page>
+</ItemGroup>
+```
 - add information / extra actions to the pane
 > e.g., The following is part of the ShowTypedText plugin:
 ```

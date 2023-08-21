@@ -30,6 +30,22 @@ namespace Plugin_InstalledApps {
 
     }
 
+    class AllAppsItem : ListItem{
+        
+        public AllAppsItem(){
+            this.name = "Applications";
+            this.description = "Shortcut to shell:appsFolder. Menu key will open installed apps settings.";
+            this.icon = new BitmapImage(new Uri(
+                Environment.CurrentDirectory + "\\Config\\Resources\\3dObjectsFolder.png")); ;
+        }
+
+        public override void execute() {
+            System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\");
+            App.Current.MainWindow.Close();
+        }
+
+    }
+
     /// <summary>  
     /// Interaction logic for plugin
     /// </summary>
@@ -50,7 +66,9 @@ namespace Plugin_InstalledApps {
 
         public List<ListItem> OnSpecialCommand(string command) {
             //There is only 1 special command for this plugin so there is no need to check which it is
-            return ListOfSystemApps;
+            List<ListItem> AllList = new List<ListItem>(ListOfSystemApps);
+            AllList.Insert(0, new AllAppsItem());
+            return AllList;
         }
 
         /// <summary>  

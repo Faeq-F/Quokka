@@ -318,3 +318,4 @@ C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\ref\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\mscordaccore_amd64_amd64_6.0.2123.36311.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\copy.png
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Debug\Scrollbar.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\Config\Resources\3dObjectsFolder.png
