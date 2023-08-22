@@ -39,8 +39,9 @@ namespace Plugin_TypedText {
             switch (e.Key){
                 case Key.Enter:
                     if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
-                    Button currentButton = (ButtonsListView.SelectedItem as Button);
-                    currentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                    Grid CurrentItem = ButtonsListView.SelectedItem as Grid;
+                    Button CurrentButton = (CurrentItem.Children[1] as Grid).Children[0] as Button;
+                    CurrentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                     break;
                 case Key.Down:
                     if ((ButtonsListView.SelectedIndex == -1)) {

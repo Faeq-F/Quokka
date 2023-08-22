@@ -6,6 +6,11 @@ using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using Microsoft.WindowsAPICodePack.Shell;
 using System.Windows.Media;
+using System.Diagnostics;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Collections;
+
 
 namespace Plugin_InstalledApps {
     /// <summary>  
@@ -79,8 +84,12 @@ namespace Plugin_InstalledApps {
             List<ListItem> IdentifiedApps = new List<ListItem>();
             //filtering apps
             foreach (ListItem app in ListOfSystemApps) {
-                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)) IdentifiedApps.Add(app);}
+                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase) || (FuzzySearch.LD(app.name, query) < 5)) {
+                    IdentifiedApps.Add(app);
+                }
+            }
             //sort by relevance
+            IdentifiedApps.OrderByDescending(x => (x.StartsWith(query))).ThenByDescending(x => (x.Contains(query)));
             return IdentifiedApps;
         }
 

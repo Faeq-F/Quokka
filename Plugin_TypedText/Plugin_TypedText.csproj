@@ -18,14 +18,6 @@
         <ProjectReference Include="..\Quokka\Quokka.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-    <None Remove="copy.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="copy.png" />
-  </ItemGroup>
-
   <ItemGroup>
     <Compile Update="ContextPane.xaml.cs">
       <SubType>Code</SubType>

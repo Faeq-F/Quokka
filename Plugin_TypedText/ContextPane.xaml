@@ -179,7 +179,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Copy the text" Padding="10" Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -191,7 +191,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -203,7 +203,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Again, another 'Copy the text' button" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -215,7 +215,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="This one also does the same thing" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -227,7 +227,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="So does this one" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -239,7 +239,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Do you think there are too many of these?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -251,7 +251,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="How about another?" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -263,7 +263,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="And another" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -275,7 +275,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="more" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>
@@ -287,7 +287,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_TypedText;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/copy.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Maybe that's it" Padding="10"  Click="CopyText" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"/>

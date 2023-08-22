@@ -48,9 +48,6 @@ namespace Quokka {
 
             //SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
 
-            SearchIcon.Source = new BitmapImage(new Uri(
-                Environment.CurrentDirectory + "\\Config\\Resources\\SearchIcon.png"));
-
             //Dynamic widths, heights and margins & hiding results box & Context pane
             ResultsBox.Visibility = Visibility.Collapsed;
             ContextPane.Visibility = Visibility.Collapsed;

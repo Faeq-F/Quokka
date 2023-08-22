@@ -180,7 +180,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/open.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Open" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}"
@@ -193,7 +193,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/admin.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Run as administrator" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}" Click="RunAsAdmin"/>
@@ -205,7 +205,7 @@
                             <ColumnDefinition Width="9*"/>
                         </Grid.ColumnDefinitions>
                         <Grid Grid.Column="0">
-                            <Image Margin="0,0,-5,0" Source="/Plugin_InstalledApps;component/copy.png" Height="15" Width="15"/>
+                            <Image Margin="0,0,-5,0" Source="pack://siteoforigin:,,,/Config/Resources/openFolder.png" Height="15" Width="15"/>
                         </Grid>
                         <Grid Grid.Column="1">
                             <Button Content="Open file location" Padding="10" FontFamily="Cascadia Code" FontSize="12" Foreground="Black" Background="Transparent" BorderThickness="0" Style="{StaticResource TransparentStyle}" Click="openContainingFolder"/>

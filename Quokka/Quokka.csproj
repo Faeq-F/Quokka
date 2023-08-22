@@ -55,7 +55,6 @@
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
     </ContentWithTargetPath>
-    <None Include="..\Config\Resources\QuokkaTray.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,7 +62,6 @@
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
     </ContentWithTargetPath>
-    <None Include="..\Config\Resources\SearchIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -71,7 +69,6 @@
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     <TargetPath>Config\settings.json</TargetPath>
     </ContentWithTargetPath>
-    <None Include="..\Config\settings.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -79,7 +76,6 @@
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     <TargetPath>Config\Resources\information.png</TargetPath>
     </ContentWithTargetPath>
-    <None Include="..\Config\Resources\information.png" />
   </ItemGroup>
 
     <ItemGroup>
@@ -87,7 +83,6 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
             <TargetPath>Config\Resources\copy.png</TargetPath>
         </ContentWithTargetPath>
-        <None Include="..\Config\Resources\copy.png" />
     </ItemGroup>
 
     <ItemGroup>
@@ -95,7 +90,55 @@
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
             <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
         </ContentWithTargetPath>
-        <None Include="..\Config\Resources\3dObjectsFolder.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\search.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\search.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\settings.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\settings.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\plug.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\plug.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\exit.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\exit.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\admin.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\admin.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\open.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\open.png</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ContentWithTargetPath Include="..\Config\Resources\openFolder.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>Config\Resources\openFolder.png</TargetPath>
+        </ContentWithTargetPath>
     </ItemGroup>
 
 </Project>

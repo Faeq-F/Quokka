@@ -251,7 +251,7 @@
                                 SearchIconWidth :Width
                                 Icon (see cs file)
                             -->
-                            <Image x:Name="SearchIcon" Width="64" Grid.Column="1"/>
+                            <Image x:Name="SearchIcon" Width="64" Grid.Column="1" Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png"/>
                             <Grid>
                                 <!--
                                 User Editable styles:

@@ -32,3 +32,10 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Plugin_TypedText.g.
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\copy.png
 C:\Users\Faeq\source\repos\Quokka\Plugin_TypedText\obj\Debug\Scrollbar.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\3dObjectsFolder.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\search.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\settings.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\plug.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\exit.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\admin.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\open.png
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_TypedText\Debug\Config\Resources\openFolder.png

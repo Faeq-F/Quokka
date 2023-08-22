@@ -38,49 +38,125 @@
         </Setter>
     </Style>
 
+    <!-- Removes hover style from menu items-->
+    <Style TargetType="{x:Type MenuItem}">
+        <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Menu}}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <!--Border 1-->
+                    <Border x:Name="Border" Background="Transparent" BorderBrush="Transparent" 
+                                BorderThickness="1" SnapsToDevicePixels="False">
+                        <Grid x:Name="Grid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition x:Name="Col0" MinWidth="17" Width="Auto" 
+                                                      SharedSizeGroup="MenuItemIconColumnGroup"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuTextColumnGroup"/>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuItemIGTColumnGroup"/>
+                                
+                            </Grid.ColumnDefinitions>
+                            <ContentPresenter Grid.Column="0" x:Name="Icon" VerticalAlignment="Center" 
+                                                  ContentSource="Icon"/>
+                            <ContentPresenter Grid.Column="1" Margin="{TemplateBinding Padding}" 
+                                                  x:Name="HeaderHost" RecognizesAccessKey="True" 
+                                                  ContentSource="Header" VerticalAlignment="Center"/>
+                            <ContentPresenter Grid.Column="2" Margin="8,1,8,1" x:Name="IGTHost" 
+                                                  ContentSource="InputGestureText" VerticalAlignment="Center"/>
+                            <!--<Grid Grid.Column="3" Margin="4,0,6,0" x:Name="ArrowPanel" VerticalAlignment="Center">
+                                <Path x:Name="ArrowPanelPath" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                                          Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4 z"/>
+                            </Grid>
+                            <Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" 
+                                       Placement="Right" HorizontalOffset="-1" x:Name="SubMenuPopup" Focusable="false"
+                                       PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}"
+                                       AllowsTransparency="True">
+                                <Grid Margin="0,0,5,5">
+                                    <
+                            <Border x:Name="SubMenuBorder" 
+                                                BorderBrush="Red"
+                                                BorderThickness="1" Background="MediumVioletRed" 
+                                                SnapsToDevicePixels="True">
+                                <Grid x:Name="SubMenu" Grid.IsSharedSizeScope="True" Margin="2">
+                                    <StackPanel IsItemsHost="True" 
+                                                            KeyboardNavigation.DirectionalNavigation="Cycle"/>
+                                </Grid>
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="2" Color="Black"/>
+                                </Border.Effect>
+                            </Border>
+                            
+                            <Border Margin="1,0,0,0" x:Name="TransitionBorder" Width="0" Height="2" 
+                                                VerticalAlignment="Top" HorizontalAlignment="Left" 
+                                                Background="MediumVioletRed" SnapsToDevicePixels="False"
+                                                BorderThickness="1" BorderBrush="MediumVioletRed"/>
+                        </Grid>
+                        </Popup> -->
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
 
         <MenuItem Header="Open Search Window"
                   Command="{Binding ShowWindowCommand}"
                   CommandParameter="{Binding}">
             <MenuItem.Icon>
-                <Image Width="16"
-                       Height="16"
-                       Source="{Binding Path=IconSource}" />
+                <Image Width="20"
+                       Height="20"
+                       Source="pack://siteoforigin:,,,/Config/Resources/search.png"
+                       Margin="0,0,5,0"
+                />
             </MenuItem.Icon>
         </MenuItem>
+
+        <Separator Background="Transparent"/>
 
         <MenuItem Header="Settings"
                   Command="{Binding OpenSettingsFile}"
                   CommandParameter="{Binding}">
             <MenuItem.Icon>
-                <Image Width="16"
-                       Height="16"
-                       Source="/Images/Add.png" />
+                <Image Width="20"
+                       Height="20"
+                       Source="pack://siteoforigin:,,,/Config/Resources/settings.png"
+                        Margin="0,0,5,0"
+                />
             </MenuItem.Icon>
         </MenuItem>
+
+        <Separator Background="Transparent"/>
 
         <MenuItem Header="PlugBoard"
                   Command="{Binding OpenPlugBoard}"
                   CommandParameter="{Binding}">
             <MenuItem.Icon>
-                <Image Width="16"
-                       Height="16"
-                       Source="/Images/Remove.png" />
+                <Image Width="20"
+                       Height="20"
+                       Source="pack://siteoforigin:,,,/Config/Resources/plug.png"
+                        Margin="0,0,5,0"
+                />
             </MenuItem.Icon>
         </MenuItem>
 
         <!--<MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" />-->
 
-        <Separator />
+        <Separator Background="Transparent"/>
+        <Separator Background="Transparent"/>
+
 
         <MenuItem Header="Exit"
           Command="{Binding ExitApplicationCommand}"
           CommandParameter="{Binding}">
             <MenuItem.Icon>
                 <Image Width="16"
-               Height="16"
-               Source="/Images/Remove.png" />
+                       Height="16"
+                       Source="pack://siteoforigin:,,,/Config/Resources/exit.png"
+                       Margin="0,0,5,0"
+                />
             </MenuItem.Icon>
         </MenuItem>
 
