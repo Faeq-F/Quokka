@@ -78,7 +78,7 @@ namespace Plugin_TypedText {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Plugin_TypedText;component/contextpane.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Plugin_TypedText;V1.0.0.0;component/contextpane.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ContextPane.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

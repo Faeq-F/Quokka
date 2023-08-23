@@ -47,13 +47,22 @@ namespace Plugin_InstalledApps {
             Item.execute();
         }
 
+        //still does not work
         private void RunAsAdmin(object sender, RoutedEventArgs e) {
-            Process proc = new Process();
-            proc.StartInfo.FileName = "explorer";
-            proc.StartInfo.Arguments = @" shell:appsFolder\" + Item.description;
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.Verb = "runas";
-            proc.Start();
+
+            //Public domain; no attribution required.
+            const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
+
+            ProcessStartInfo info = new ProcessStartInfo("explorer");
+            info.Arguments = @" shell:appsFolder\" + Item.description;
+            info.UseShellExecute = true;
+            info.Verb = "runas";
+            info.CreateNoWindow = true;
+            try {
+                Process.Start(info);
+            } catch (System.ComponentModel.Win32Exception ex) {
+                if (!(ex.NativeErrorCode == ERROR_CANCELLED)) throw;
+            }
             App.Current.MainWindow.Close();
         }
 

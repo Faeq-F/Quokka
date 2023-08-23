@@ -472,6 +472,8 @@ public partial class ShowTypedText : IPlugger {
 ```
 OnQueryChange is the method that is called by the SearchWindow when a user types in a query<br>
 In this method, you should create your list item objects, filter them (if needed), and return them in a list<br>
+<br>
+If your plugin has a special command, then you will need to sort the list for that command yourself. Normal results (those returned in OnQueryChange) do not need to be sorted as Quokka will sort them once it has results from all of the plugins the program is using during runtime.
 
 8. Every plugin (for now) will need a context pane for its item type
 

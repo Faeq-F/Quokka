@@ -112,10 +112,12 @@ namespace Quokka {
                 } catch (Exception ex) {
                     System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                ResultsAreReady:
+                //sort by relevance
+                ListOfResults = ListOfResults.OrderByDescending(x => (x.name.ToLower().StartsWith(query.ToLower()))).ThenByDescending(x => (x.name.ToLower().Contains(query.ToLower()))).ToList();
                 //Check if items were shown
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
             }
+            ResultsAreReady:
             ResultsListView.ItemsSource = ListOfResults;
             ResultsListView.SelectedIndex = -1;
             ResultsBox.Visibility = Visibility.Visible;

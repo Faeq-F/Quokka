@@ -8,8 +8,9 @@ using Microsoft.WindowsAPICodePack.Shell;
 using System.Windows.Media;
 using System.Diagnostics;
 using System.Windows.Controls;
-using System.Windows.Documents;
+
 using System.Collections;
+using System.Linq;
 
 
 namespace Plugin_InstalledApps {
@@ -63,6 +64,14 @@ namespace Plugin_InstalledApps {
         /// </summary>  
         public string PluggerName { get; set; } = "InstalledApps";
 
+        public List<ListItem> RemoveBlacklistItems(List<ListItem> list){
+            string[] BlackList = { "Visual Studio Installer" }; //This will be a plugin specific setting
+            foreach (string i in BlackList){
+                list.RemoveAll(x => x.name.Equals(i));
+            }
+            return list;
+        }
+
         public List<String> SpecialCommands() {
             List<String> SpecialCommand = new List<String>();
             SpecialCommand.Add("AllApps");
@@ -72,14 +81,18 @@ namespace Plugin_InstalledApps {
         public List<ListItem> OnSpecialCommand(string command) {
             //There is only 1 special command for this plugin so there is no need to check which it is
             List<ListItem> AllList = new List<ListItem>(ListOfSystemApps);
+            //sort alphabetically
+            AllList = AllList.OrderBy(x => x.name).ToList();
             AllList.Insert(0, new AllAppsItem());
+            AllList = RemoveBlacklistItems(AllList);
             return AllList;
         }
 
         /// <summary>  
         /// This will get called when user types query into search field
         /// </summary>  
-        /// <returns></returns>  
+        /// <returns>List<ListItem> of InstalledApps that possibly match what is being searched for</returns>
+        // FuzzySearch threshold is a plugin specific setting
         public List<ListItem> OnQueryChange(string query) {
             List<ListItem> IdentifiedApps = new List<ListItem>();
             //filtering apps
@@ -88,8 +101,7 @@ namespace Plugin_InstalledApps {
                     IdentifiedApps.Add(app);
                 }
             }
-            //sort by relevance
-            IdentifiedApps.OrderByDescending(x => (x.StartsWith(query))).ThenByDescending(x => (x.Contains(query)));
+            IdentifiedApps = RemoveBlacklistItems(IdentifiedApps);
             return IdentifiedApps;
         }
 
