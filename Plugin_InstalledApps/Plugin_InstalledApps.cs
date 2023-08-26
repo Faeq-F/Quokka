@@ -20,13 +20,16 @@ namespace Plugin_InstalledApps {
     class InstalledAppsItem : ListItem {
 
         public string path { get; set; }
+        public string extraDetails { get; set; }
 
         public InstalledAppsItem(ShellObject app) {
             this.name = app.Name;
             this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
             this.icon = app.Thumbnail.MediumBitmapSource;//plugin specific setting
             this.path = app.Properties.System.Link.TargetParsingPath.Value;
-
+            try{
+                this.extraDetails = FileVersionInfo.GetVersionInfo(path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(path).FileVersion;
+            } catch { }
         }
 
         public override void execute() {

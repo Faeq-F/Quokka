@@ -6,9 +6,9 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Plugin_InstalledApps/1.0.0": {
+      "Plugin_InstalledApps/2.0.0.0": {
         "dependencies": {
-          "Quokka": "1.0.0"
+          "Quokka": "2.0.0"
         },
         "runtime": {
           "Plugin_InstalledApps.dll": {}
@@ -115,7 +115,7 @@
           }
         }
       },
-      "Quokka/1.0.0": {
+      "Quokka/2.0.0": {
         "dependencies": {
           "Hardcodet.NotifyIcon.Wpf": "1.1.0",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
@@ -130,7 +130,7 @@
     }
   },
   "libraries": {
-    "Plugin_InstalledApps/1.0.0": {
+    "Plugin_InstalledApps/2.0.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -219,7 +219,7 @@
       "path": "windowsapicodepack-shell/1.1.1",
       "hashPath": "windowsapicodepack-shell.1.1.1.nupkg.sha512"
     },
-    "Quokka/1.0.0": {
+    "Quokka/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

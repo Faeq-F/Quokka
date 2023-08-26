@@ -25,3 +25,9 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableA
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\refint\Plugin_PortableApps.dll
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\ref\Plugin_PortableApps.dll
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Scrollbar.baml
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\ContextPane.g.cs
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps_MarkupCompile.cache
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps_MarkupCompile.lref
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\ContextPane.baml
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps.g.resources

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Plugin_PortableApps {
 
@@ -20,16 +21,19 @@ namespace Plugin_PortableApps {
     /// </summary>
     class PortableAppsItem : ListItem {
 
+        public string exePath { get; set; }
+        public string extraDetails { get; set; }
+
         public PortableAppsItem(string exePath) {
+            this.exePath = exePath;
             this.name = System.IO.Path.GetFileNameWithoutExtension(exePath);
             this.description = exePath;
-            this.icon = Imaging.CreateBitmapSourceFromHIcon(Icon.ExtractAssociatedIcon(exePath).Handle,
-                            Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-
+            this.icon = Imaging.CreateBitmapSourceFromHIcon(Icon.ExtractAssociatedIcon(exePath).Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            this.extraDetails = FileVersionInfo.GetVersionInfo(exePath).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(exePath).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(exePath).FileVersion;
         }
 
         public override void execute() {
-            //execute item
+            Process.Start(this.description);
             App.Current.MainWindow.Close();
         }
 
@@ -117,18 +121,14 @@ namespace Plugin_PortableApps {
                     
                 }
             }
-
-            foreach (ListItem i in AllPortableApps){
-                Debug.WriteLine(i.name);
-            }
         }
 
         void IPlugger.OnAppShutdown() {
-            throw new NotImplementedException();
+            
         }
 
         void IPlugger.OnSearchWindowStartup() {
-            throw new NotImplementedException();
+            
         }
 
     }

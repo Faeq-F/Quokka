@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj": {
-      "version": "1.0.0",
+      "version": "2.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
         "projectName": "Plugin_PortableApps",
@@ -71,7 +71,7 @@
       }
     },
     "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj": {
-      "version": "1.0.0",
+      "version": "2.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj",
         "projectName": "Quokka",

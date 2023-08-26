@@ -167,7 +167,7 @@
           "lib/Microsoft.WindowsAPICodePack.Shell.dll": {}
         }
       },
-      "Quokka/1.0.0": {
+      "Quokka/2.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -461,7 +461,7 @@
         "windowsapicodepack-shell.nuspec"
       ]
     },
-    "Quokka/1.0.0": {
+    "Quokka/2.0.0": {
       "type": "project",
       "path": "../Quokka/Quokka.csproj",
       "msbuildProject": "../Quokka/Quokka.csproj"
@@ -469,7 +469,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "Quokka >= 1.0.0"
+      "Quokka >= 2.0.0"
     ]
   },
   "packageFolders": {
@@ -477,7 +477,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_TypedText\\Plugin_TypedText.csproj",
       "projectName": "Plugin_TypedText",

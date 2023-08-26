@@ -38,9 +38,10 @@ namespace Plugin_InstalledApps {
                 App.Current.MainWindow.Close();
                 return;
             }
-            DetailsImage.Source = this.Item.icon;
+            DetailsImage.Source = Item.icon;
             NameText.Text = Item.name;
             DescText.Text = Item.description;
+            ExtraDetails.Text = Item.extraDetails;
         }
 
         private void openApp(object sender, RoutedEventArgs e) {
@@ -71,6 +72,7 @@ namespace Plugin_InstalledApps {
             folderopener.StartInfo.FileName = "explorer";
             folderopener.StartInfo.Arguments = Item.path.Remove(Item.path.LastIndexOf('\\'));
             folderopener.Start();
+            App.Current.MainWindow.Close();
         }
 
         private void Page_KeyDown(object sender, KeyEventArgs e) {

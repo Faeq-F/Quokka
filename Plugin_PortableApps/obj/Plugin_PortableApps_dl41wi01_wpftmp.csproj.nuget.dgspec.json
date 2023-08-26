@@ -1,17 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj": {}
+    "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj": {
-      "version": "1.0.0",
+    "C:\\Users\\Faeq\\source\\repos\\Quokka\\IconPack\\IconPack.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj",
-        "projectName": "Plugin_InstalledApps",
-        "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj",
+        "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\IconPack\\IconPack.csproj",
+        "projectName": "IconPack",
+        "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\IconPack\\IconPack.csproj",
+        "frameworks": {
+          "net40": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net40": {}
+      }
+    },
+    "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj": {
+      "version": "2.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
+        "projectName": "Plugin_PortableApps",
+        "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
         "packagesPath": "C:\\Users\\Faeq\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\obj\\",
+        "outputPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,6 +47,9 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
+              "C:\\Users\\Faeq\\source\\repos\\Quokka\\IconPack\\IconPack.csproj": {
+                "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\IconPack\\IconPack.csproj"
+              },
               "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj": {
                 "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj"
               }
@@ -71,7 +89,7 @@
       }
     },
     "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj": {
-      "version": "1.0.0",
+      "version": "2.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj",
         "projectName": "Quokka",

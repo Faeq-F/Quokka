@@ -23,7 +23,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_InstalledApps", "Plugin_InstalledApps\Plugin_InstalledApps.csproj", "{A1C6FA86-1BA5-4211-9FCB-6931B0D80027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_PortableApps", "Plugin_PortableApps\Plugin_PortableApps.csproj", "{0AD3839D-EB48-4D74-AFED-EF357F8AB6E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_PortableApps", "Plugin_PortableApps\Plugin_PortableApps.csproj", "{0AD3839D-EB48-4D74-AFED-EF357F8AB6E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FE28C625-E3C6-44AA-841D-BEF9EBDC7555}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.Props = Directory.Build.Props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

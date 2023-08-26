@@ -322,7 +322,7 @@ In order of priority:
 | Developed? | Plugin |
 |-----:|-----------|
 |     ✅| installed app launcher |
-|     ▢| portable app launcher |
+|     ✅| portable app launcher |
 |     ▢| file/folder - everything - with preview pane |
 |     ▢| sharex integration |
 |     ▢| calculator |
@@ -390,8 +390,6 @@ In order of priority:
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 
-    // add the following:
-
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
 	<DebugType>embedded</DebugType>
@@ -400,18 +398,15 @@ In order of priority:
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
 
-    // up to here
-
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Quokka\Quokka.csproj" /> // this is added for you (see step 5)
+    <ProjectReference Include="..\Quokka\Quokka.csproj" />
   </ItemGroup>
 
 </Project>
 ```
-5. The project will need a reference to Quokka. To add this, right click on the project in the solution explorer, click on add project reference and tick Quokka.
-6. In the cs file add
+5. In the cs file add
 ```
 using Quokka.Plugger.Contracts;
 using Quokka;

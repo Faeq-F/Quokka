@@ -7,7 +7,7 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {},
     ".NETCoreApp,Version=v6.0/win-x64": {
-      "Quokka/1.0.0": {
+      "Quokka/2.0.0.0": {
         "dependencies": {
           "Hardcodet.NotifyIcon.Wpf": "1.1.0",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
@@ -1187,7 +1187,7 @@
     }
   },
   "libraries": {
-    "Quokka/1.0.0": {
+    "Quokka/2.0.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
