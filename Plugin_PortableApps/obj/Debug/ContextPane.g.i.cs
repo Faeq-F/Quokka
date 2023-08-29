@@ -95,7 +95,7 @@ namespace Plugin_PortableApps {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;component/contextpane.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;V2.0.0.0;component/contextpane.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ContextPane.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

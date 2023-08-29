@@ -25,11 +25,22 @@ namespace Plugin_InstalledApps {
         public InstalledAppsItem(ShellObject app) {
             this.name = app.Name;
             this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
-            this.icon = app.Thumbnail.MediumBitmapSource;//plugin specific setting
+
+            if(InstalledApps.PluginSettings.IconSize.Equals("Medium"))
+                this.icon = app.Thumbnail.MediumBitmapSource;
+            else if (InstalledApps.PluginSettings.IconSize.Equals("ExtraLarge"))
+                this.icon = app.Thumbnail.ExtraLargeBitmapSource;
+            else if (InstalledApps.PluginSettings.IconSize.Equals("Large"))
+                this.icon = app.Thumbnail.LargeBitmapSource;
+            else if (InstalledApps.PluginSettings.IconSize.Equals("Small"))
+                this.icon = app.Thumbnail.SmallBitmapSource;
+            else
+                this.icon = app.Thumbnail.MediumBitmapSource;
+
             this.path = app.Properties.System.Link.TargetParsingPath.Value;
             try{
                 this.extraDetails = FileVersionInfo.GetVersionInfo(path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(path).FileVersion;
-            } catch { }
+            } catch{ }
         }
 
         public override void execute() {
@@ -60,6 +71,7 @@ namespace Plugin_InstalledApps {
     /// </summary>
     public partial class InstalledApps : IPlugger {
         public static List<ListItem> ListOfSystemApps { private set; get; }
+        public static Plugin_InstalledApps.Settings PluginSettings { get; set; }
         public InstalledApps() { }
 
         /// <summary>  
@@ -68,8 +80,7 @@ namespace Plugin_InstalledApps {
         public string PluggerName { get; set; } = "InstalledApps";
 
         public List<ListItem> RemoveBlacklistItems(List<ListItem> list){
-            string[] BlackList = { "Visual Studio Installer" }; //This will be a plugin specific setting
-            foreach (string i in BlackList){
+            foreach (string i in PluginSettings.BlackList){
                 list.RemoveAll(x => x.name.Equals(i));
             }
             return list;
@@ -77,7 +88,7 @@ namespace Plugin_InstalledApps {
 
         public List<String> SpecialCommands() {
             List<String> SpecialCommand = new List<String>();
-            SpecialCommand.Add("AllApps");
+            SpecialCommand.Add(PluginSettings.AllAppsSpecialCommand);
             return SpecialCommand;
         }
 
@@ -100,7 +111,8 @@ namespace Plugin_InstalledApps {
             List<ListItem> IdentifiedApps = new List<ListItem>();
             //filtering apps
             foreach (ListItem app in ListOfSystemApps) {
-                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase) || (FuzzySearch.LD(app.name, query) < 5)) {
+                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase) 
+                        || (FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold)) {
                     IdentifiedApps.Add(app);
                 }
             }
@@ -109,6 +121,11 @@ namespace Plugin_InstalledApps {
         }
 
         public void OnAppStartup() {
+            //Get Plugin Specific settings
+            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_InstalledApps\\Debug\\settings.json";
+            string jsonString = System.IO.File.ReadAllText(fileName);
+            PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(jsonString)!;
+
             ListOfSystemApps = new List<ListItem>();
             // GUID taken from https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid
             var FOLDERID_AppsFolder = new Guid("{1e87508d-89c2-42f0-8a7e-645a0f50ca58}");
