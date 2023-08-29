@@ -21,12 +21,12 @@ Currently, the settings window has not been developed.
 
 To use the app, run Quokka.exe
 
-| Default Keyboard shortcut | Use |
-|-----:|-----------|
-| Left Win + Space | launches the search bar |
-| arrow keys | select items |
-| enter key | executes an item |
-| menu key | shows context pane for item |
+| Default Keyboard shortcut | Use | Notes |
+|-----:|-----------|-|
+| Left Win + Space | launches the search bar | This shortcut is modifiable; [see the WindowHotKey setting](https://github.com/Faeq-F/Quokka#general-settings)
+| arrow keys | select items | The keys used cannot be changed
+| enter key | executes an item |The key used cannot be changed
+| menu key | shows context pane for item |The key used cannot be changed
 
 The Tray task icon context menu can be used to:
  - launch the search window
@@ -42,9 +42,10 @@ If you do not wish to use a plugin, simply delete the appropriate folder in the 
 
 ### Special commands
 <b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
-| Command (Case Sensitive) | Use | Plugin |
-|-----:|-----------|-----------|
-| ```AllApps``` | list all installed apps | ```InstalledApps``` |
+| Command (Case Sensitive) | Use | Plugin | Notes
+|-----:|-----------|-----------|-|
+| ```AllApps``` | list all installed apps | InstalledApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open shell:appsFolder. This item can be blacklisted.
+| ```AllPortableApps``` | list all portable apps | PortableApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open the portable apps directory. This item can be blacklisted.
 
 </details>
 
@@ -52,24 +53,21 @@ If you do not wish to use a plugin, simply delete the appropriate folder in the 
 <summary>
 <h2>App settings</h2>
 </summary>
-All settings are <b>loaded when the search window is created</b>, meaning that you can modify them and see how they look while the app is still running in the background.
+All settings are <b>loaded when the application starts</b>, meaning that you will have to stop and start the app to see changes.
 <br><br>
-The only exception to this is the 'icon for the tray task' setting
-<br><br>
-Plugins may have their <b>own, specific settings files</b> in their respective folders in the PlugBoard. You can open The PlugBoard using the Tray Task Icon context menu
+Plugins may have their <b>own, specific settings files</b> in the root of their respective folders in the PlugBoard. You can open The PlugBoard using the Tray Task Icon context menu
 <br>
 
 ---
 
-App settings (excluding plugins):
 <details>
 <summary>
 <h3>General settings</h3>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
-| WindowHotKey | Open Search Window | Left Win + Space |
+| ```WindowHotKey``` | The default value is interpreted as 'Left Windows key + Spacebar' <br><br> The full list of keys that can be used in the setting can be found [here](https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields) (use the first column)| ```LWinSpace``` |
 </details>
 
 <details>
@@ -79,9 +77,9 @@ App settings (excluding plugins):
 
 <h4>Window</h4>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
-| WindowTopMargin | top margin | screen height / 3 |
+| ```WindowTopMargin``` | The window is centered horizontally but anchored to the top of the screen. This setting controls how far down it will appear. | ```ScreenHeight/3``` |
 
 
 <details>
@@ -89,7 +87,7 @@ App settings (excluding plugins):
 <h4>Search bar</h4>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | SearchBarColor | color | White |
 | SearchBarRounding | corner radius | 32 |
@@ -102,7 +100,7 @@ App settings (excluding plugins):
 
 <h5>Entry field</h5>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | SearchFieldTxtColor | text color | Black |
 | SearchFieldTxtSelColor | select color | Black |
@@ -128,7 +126,7 @@ App settings (excluding plugins):
 <h5>Container</h5>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ListContainerMargin | margin | ? |
 | ListContainerBorderColor | border color | ? |
@@ -144,7 +142,7 @@ App settings (excluding plugins):
 <h5>List</h5>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ListMargin | margin | ? |
 
@@ -153,7 +151,7 @@ App settings (excluding plugins):
 <h6>Scroll Bar Background</h4>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ScrollBarBgVisibility | visibility | ? |
 | ScrollBarBgColor | color | ? |
@@ -169,7 +167,7 @@ App settings (excluding plugins):
 <h6>Scroll Bar Thumb Background</h6>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ScrollThumbBgVisibility | visibility | Visible |
 | ScrollThumbBgColor | color | ? |
@@ -185,7 +183,7 @@ App settings (excluding plugins):
 <h6>Scroll Bar Thumb</h6>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ScrollThumbVisibility | visibility | ? |
 | ScrollThumbColor | color | ? |
@@ -205,7 +203,7 @@ App settings (excluding plugins):
 <h5>List item</h5>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ListItemBorderThickness | border thickness | ? |
 | ListItemHoverBorderColor | hover border color | ? |
@@ -230,7 +228,7 @@ App settings (excluding plugins):
 Context panes are implemented by plugins. If an item does not use these settings, it is due to how the plugin's author developed the context pane.
 <br><br>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ContextPaneBorderColor | ? | ? |
 | ContextPaneBorderThickness | ? | ? |
@@ -243,7 +241,7 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h5>List</h5>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ContextPaneListMargin | margin | ? |
 | ContextButtonBackgroundOnHover | ? | ? |
@@ -254,7 +252,7 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h6>Scroll Bar Background</h4>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ContextPaneScrollBarBgVisibility | visibility | ? |
 | ContextPaneScrollBarBgColor | color | ? |
@@ -270,7 +268,7 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h6>Scroll Bar Thumb Background</h6>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ContextPaneScrollThumbBgVisibility | visibility | ? |
 | ContextPaneScrollThumbBgColor | color | ? |
@@ -286,7 +284,7 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h6>Scroll Bar Thumb</h6>
 </summary>
 
-| Setting name | Use | Default Value |
+| Setting name | Notes | Default Value |
 |-----:|-----------|-----------|
 | ContextPaneScrollThumbVisibility | visibility | ? |
 | ContextPaneScrollThumbColor | color | ? |
