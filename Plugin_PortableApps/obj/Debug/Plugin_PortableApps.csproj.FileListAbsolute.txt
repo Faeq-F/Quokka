@@ -31,3 +31,4 @@ C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableA
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps_MarkupCompile.lref
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\ContextPane.baml
 C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Debug\Plugin_PortableApps.g.resources
+C:\Users\Faeq\source\repos\Quokka\Quokka\bin\Debug\PlugBoard\Plugin_PortableApps\Debug\settings.json

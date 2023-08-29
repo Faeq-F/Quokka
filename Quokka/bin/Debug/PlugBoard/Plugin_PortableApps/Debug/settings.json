@@ -1,0 +1,6 @@
+{
+    "PortableAppsDirectory": "G:\\PortableApps\\",
+    "AllAppsSpecialCommand": "AllPortableApps",
+    "BlackList": [ "git-bash" ],
+    "FuzzySearchThreshold": 5
+}

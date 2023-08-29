@@ -18,4 +18,11 @@
         <ProjectReference Include="..\Quokka\Quokka.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ContentWithTargetPath Include="settings.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <TargetPath>settings.json</TargetPath>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
 </Project>

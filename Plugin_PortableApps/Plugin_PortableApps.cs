@@ -49,8 +49,7 @@ namespace Plugin_PortableApps {
         }
 
         public override void execute() {
-            string portableAppsDir = "G:\\PortableApps\\";
-            System.Diagnostics.Process.Start("explorer.exe", portableAppsDir);
+            System.Diagnostics.Process.Start("explorer.exe", PortableApps.PluginSettings.PortableAppsDirectory);
             App.Current.MainWindow.Close();
         }
 
@@ -62,6 +61,7 @@ namespace Plugin_PortableApps {
     /// </summary>
     public partial class PortableApps : IPlugger {
         public static List<ListItem> ListOfSystemApps { private set; get; }
+        public static Plugin_PortableApps.Settings PluginSettings { get; set; }
 
         public PortableApps() { }
 
@@ -73,8 +73,7 @@ namespace Plugin_PortableApps {
         List<ListItem> AllPortableApps = new List<ListItem>();
 
         public List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
-            string[] BlackList = { }; //This will be a plugin specific setting
-            foreach (string i in BlackList) {
+            foreach (string i in PluginSettings.BlackList) {
                 list.RemoveAll(x => x.name.Equals(i));
             }
             return list;
@@ -84,7 +83,8 @@ namespace Plugin_PortableApps {
             List<ListItem> IdentifiedApps = new List<ListItem>();
             //filtering apps
             foreach (ListItem app in AllPortableApps) {
-                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase) || (FuzzySearch.LD(app.name, query) < 5)) {
+                if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)
+                        || (FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold)) {
                     IdentifiedApps.Add(app);
                 }
             }
@@ -94,7 +94,7 @@ namespace Plugin_PortableApps {
 
         List<string> IPlugger.SpecialCommands() {
             List<String> SpecialCommand = new List<String>();
-            SpecialCommand.Add("AllPortableApps");
+            SpecialCommand.Add(PluginSettings.AllAppsSpecialCommand);
             return SpecialCommand;
         }
 
@@ -109,16 +109,19 @@ namespace Plugin_PortableApps {
         }
 
         void IPlugger.OnAppStartup() {
-            string portableAppsDir = "G:\\PortableApps\\";
+            //Get Plugin Specific settings
+            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Debug\\settings.json";
+            string jsonString = System.IO.File.ReadAllText(fileName);
+            PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(jsonString)!;
+            PluginSettings.PortableAppsDirectory = Path.GetFullPath(PluginSettings.PortableAppsDirectory);
 
-            if (Directory.Exists(portableAppsDir)) {
-                var topLevelDirs = Directory.EnumerateDirectories(portableAppsDir, "*", SearchOption.TopDirectoryOnly);
+            if (Directory.Exists(PluginSettings.PortableAppsDirectory)) {
+                var topLevelDirs = Directory.EnumerateDirectories(PluginSettings.PortableAppsDirectory, "*", SearchOption.TopDirectoryOnly);
                 foreach (string dir in topLevelDirs){
                     foreach (string exe in 
                         Directory.EnumerateFiles(dir, "*", SearchOption.TopDirectoryOnly).Where(s => s.EndsWith(".exe"))){
                         AllPortableApps.Add(new PortableAppsItem(exe));
                     }
-                    
                 }
             }
         }
