@@ -11,8 +11,10 @@
     
     <DebugType>embedded</DebugType>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+
     <ApplicationIcon>..\Config\Resources\QuokkaTray.ico</ApplicationIcon>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -23,6 +25,18 @@
     <Copyright>Licensed under GNU General Public License v3.0 - Faeq Faisal</Copyright>
     <PackageProjectUrl>https://faeq-f.github.io/Quokka/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/faeq-F/Quokka</RepositoryUrl>
+
+    <BaseOutputPath>G:\Quokka</BaseOutputPath>
+
+    <Configurations>Debug;Release;Quokka</Configurations>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Quokka|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>
 
   <ItemGroup>

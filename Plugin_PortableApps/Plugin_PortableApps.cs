@@ -110,7 +110,7 @@ namespace Plugin_PortableApps {
 
         void IPlugger.OnAppStartup() {
             //Get Plugin Specific settings
-            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Debug\\settings.json";
+            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Plugin\\settings.json";
             string jsonString = System.IO.File.ReadAllText(fileName);
             PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(jsonString)!;
             PluginSettings.PortableAppsDirectory = Path.GetFullPath(PluginSettings.PortableAppsDirectory);

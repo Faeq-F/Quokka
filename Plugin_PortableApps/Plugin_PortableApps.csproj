@@ -11,7 +11,8 @@
       <DebugType>embedded</DebugType>
       <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
       <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-      <BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_PortableApps</BaseOutputPath>
+      <BaseOutputPath>G:\Quokka\Release\PlugBoard\Plugin_PortableApps</BaseOutputPath>
+      <Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
 
     <ItemGroup>

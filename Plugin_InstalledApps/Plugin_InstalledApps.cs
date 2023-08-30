@@ -122,7 +122,7 @@ namespace Plugin_InstalledApps {
 
         public void OnAppStartup() {
             //Get Plugin Specific settings
-            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_InstalledApps\\Debug\\settings.json";
+            string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_InstalledApps\\Plugin\\settings.json";
             string jsonString = System.IO.File.ReadAllText(fileName);
             PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(jsonString)!;
 

@@ -12,6 +12,7 @@
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
 	<BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
+	<Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
