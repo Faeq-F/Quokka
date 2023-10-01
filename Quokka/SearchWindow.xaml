@@ -86,7 +86,7 @@
 
                     ListMargin: Margin
                 -->
-                    <ListView x:Name="ResultsListView" Margin="10,10,0,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                         <ListView.Resources>
                             <Style x:Key="FocusVisual">
@@ -107,7 +107,7 @@
                             ListItemSelectedBorderColor: Item.SelectedInactive.Border & Item.SelectedActive.Border
                             ListItemSelectedBgColor: Item.SelectedInactive.Background & Item.SelectedActive.Background
                             ListItemRounding: CornerRadius
-                            ListItemMargin: Margin
+                            ListItemMargin: Margin (Edited to hide scrollbar - was "0, 0, 10, 0" (see scrollbar.xaml))
                         -->
                             <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray"/>
                             <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
@@ -119,7 +119,7 @@
                                 <Style.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="15"/>
-                                        <Setter Property="Margin" Value="0, 0, 10, 0"/>
+                                        <Setter Property="Margin" Value="0, 0, 0, 0"/>
                                     </Style>
                                 </Style.Resources>
                                 <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -305,7 +305,7 @@
                                 SearchFieldPlaceholderSize: FontSize
                                 SearchFieldPlaceholderFont: FontFamily
                             -->
-                                <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code">
+                                <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code" x:Name="SearchFieldPlaceholder">
                                     <TextBlock.Style>
                                         <Style TargetType="{x:Type TextBlock}">
                                             <Setter Property="Visibility" Value="Collapsed"/>

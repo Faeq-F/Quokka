@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace Quokka {
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    public class AppWindow {
+        public string WindowTopMargin { get; set; }
+        public string WindowWidth { get; set; }
+        public string WindowColor { get; set; }
+        public string WindowBorderColor { get; set; }
+        public string WindowBorderThickness { get; set; }
+        public string WindowRounding { get; set; }
+        public string WindowPadding { get; set; }
+    }
+
     public class Container {
         public string ListContainerMargin { get; set; }
         public string ListContainerBorderColor { get; set; }
@@ -54,13 +64,12 @@ namespace Quokka {
 
     public class GeneralSettings {
         public string WindowHotKey { get; set; }
+        public string MaxResults { get; set; }
+        public string IgnoreMaxResultsFlag { get; set; }
     }
 
     public class List {
         public string ListMargin { get; set; }
-        public ScrollBarBackground ScrollBarBackground { get; set; }
-        public ScrollBarThumbBackground ScrollBarThumbBackground { get; set; }
-        public ScrollBarThumb ScrollBarThumb { get; set; }
         public string ContentHorizontalAlignment { get; set; }
         public string ButtonContentMargin { get; set; }
         public ListItems ListItems { get; set; }
@@ -101,36 +110,6 @@ namespace Quokka {
         public StyleSettings StyleSettings { get; set; }
     }
 
-    public class ScrollBarBackground {
-        public string ScrollBarBgVisibility { get; set; }
-        public string ScrollBarBgColor { get; set; }
-        public string ScrollBarBgRounding { get; set; }
-        public string ScrollBarBgBorderColor { get; set; }
-        public string ScrollBarBgBorderThickness { get; set; }
-        public string ScrollBarBgWidth { get; set; }
-        public string ScrollBarBgMargin { get; set; }
-    }
-
-    public class ScrollBarThumb {
-        public string ScrollThumbVisibility { get; set; }
-        public string ScrollThumbColor { get; set; }
-        public string ScrollThumbRounding { get; set; }
-        public string ScrollThumbBorderColor { get; set; }
-        public string ScrollThumbBorderThickness { get; set; }
-        public string ScrollThumbWidth { get; set; }
-        public string ScrollThumbMargin { get; set; }
-    }
-
-    public class ScrollBarThumbBackground {
-        public string ScrollThumbBgVisibility { get; set; }
-        public string ScrollThumbBgColor { get; set; }
-        public string ScrollThumbBgRounding { get; set; }
-        public string ScrollThumbBgBorderColor { get; set; }
-        public string ScrollThumbBgBorderThickness { get; set; }
-        public string ScrollThumbBgWidth { get; set; }
-        public string ScrollThumbBgMargin { get; set; }
-    }
-
     public class SearchBar {
         public string SearchBarColor { get; set; }
         public string SearchBarRounding { get; set; }
@@ -146,16 +125,6 @@ namespace Quokka {
         public AppWindow AppWindow { get; set; }
         public SearchBar SearchBar { get; set; }
         public ResultsList ResultsList { get; set; }
-    }
-
-    public class AppWindow {
-        public string WindowTopMargin { get; set; }
-        public string WindowWidth { get; set; }
-        public string WindowColor { get; set; }
-        public string WindowBorderColor { get; set; }
-        public string WindowBorderThickness { get; set; }
-        public string WindowRounding { get; set; }
-        public string WindowPadding { get; set; }
     }
 
 

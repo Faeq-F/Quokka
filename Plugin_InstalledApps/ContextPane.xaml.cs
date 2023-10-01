@@ -26,6 +26,7 @@ namespace Plugin_InstalledApps {
 
         public ContextPane() {
             InitializeComponent();
+            ApplyAppSettings();
             try{
                 this.Item = (InstalledAppsItem?)(Application.Current.MainWindow as SearchWindow).SelectedItem;
             } catch(InvalidCastException ex){//Used to handle the AllAppsItem
@@ -112,6 +113,53 @@ namespace Plugin_InstalledApps {
                     return;
             }
             e.Handled = true;
+        }
+
+    private void ApplyAppSettings(){
+/*
+            "ContextPane": {
+
+                "BorderColor": "Black",
+                    "BorderThickness": "2",
+                    "CornerRounding": "15",
+                    "Background": "White",
+                    "MinHeight": "64",
+
+                    "Details": {
+
+                    "ContentMargin": "0, 0, 0, 0",
+                        "ContentVerticalAlignment": "Center",
+                        "ContentHorizontalAlignment": "Center",
+                        "ImageMargin": "40,50,40,20",
+                        "TextColor": "Black",
+                        "TextSize": "16",
+                        "FontFamily": "Cascadia Code",
+                        "TextLineMargin": "0,0,0,0"
+
+                    },
+
+                    "List": {
+
+                    "ListMargin": "10,10,0,10",
+                        "ContentHorizontalAlignment": "Left",
+                        "ButtonContentMargin": "10",
+
+                        "ListItems": {
+
+                        "ListItemBorderThickness": "3",
+                            "ListItemHoverBorderColor": "Black",
+                            "ListItemHoverBgColor": "LightGray",
+                            "ListItemSelectedBorderColor": "Black",
+                            "ListItemSelectedBgColor": "White",
+                            "ListItemRounding": "15",
+                            "ListItemMargin": "0, 0, 10, 0",
+
+                            "ListItemIconSize": "15",
+                            "ListItemIconMargin": "0,0,-5,0",
+                            "ListItemTextPadding": "10",
+                            "ListItemFont": "Cascadia Code",
+                            "ListItemSize": "12",
+                            "ListItemColor": "Black"*/
         }
     }
 }

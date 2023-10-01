@@ -1,7 +1,9 @@
 {
     "GeneralSettings": {
 
-        "WindowHotKey": "LWinSpace"
+        "WindowHotKey": "LWinSpace",
+        "MaxResults": "7",
+        "IgnoreMaxResultsFlag": " -ShowAll"
 
     },
     "StyleSettings": {
@@ -58,42 +60,7 @@
 
             },
             "List": {
-
-                "ListMargin": "10,10,0,10",
-
-                "ScrollBarBackground": {
-
-                    "ScrollBarBgVisibility": "Visible",
-                    "ScrollBarBgColor": "Black",
-                    "ScrollBarBgRounding": "5",
-                    "ScrollBarBgBorderColor": "Green",
-                    "ScrollBarBgBorderThickness": "0",
-                    "ScrollBarBgWidth": "10",
-                    "ScrollBarBgMargin": "-10, 0, -1, 10"
-                },
-
-                "ScrollBarThumbBackground": {
-
-                    "ScrollThumbBgVisibility": "Visible",
-                    "ScrollThumbBgColor": "Black",
-                    "ScrollThumbBgRounding": "5",
-                    "ScrollThumbBgBorderColor": "Pink",
-                    "ScrollThumbBgBorderThickness": "0",
-                    "ScrollThumbBgWidth": "10",
-                    "ScrollThumbBgMargin": "-10, -1, -1, 0"
-
-                },
-
-                "ScrollBarThumb": {
-
-                    "ScrollThumbVisibility": "Visible",
-                    "ScrollThumbColor": "White",
-                    "ScrollThumbRounding": "3",
-                    "ScrollThumbBorderColor": "Transparent",
-                    "ScrollThumbBorderThickness": "3",
-                    "ScrollThumbWidth": "10",
-                    "ScrollThumbMargin": "-10,0,0,0"
-                }
+                "ListMargin": "10,10,0,10"
             },
             "ListItems": {
 
@@ -156,40 +123,6 @@
                             "ListItemFont": "Cascadia Code",
                             "ListItemSize": "12",
                             "ListItemColor": "Black"
-                        },
-
-                        "ScrollBarBackground": {
-
-                            "ScrollBarBgVisibility": "Visible",
-                            "ScrollBarBgColor": "Black",
-                            "ScrollBarBgRounding": "5",
-                            "ScrollBarBgBorderColor": "Green",
-                            "ScrollBarBgBorderThickness": "0",
-                            "ScrollBarBgWidth": "10",
-                            "ScrollBarBgMargin": "-10, 0, -1, 10"
-                        },
-
-                        "ScrollBarThumbBackground": {
-
-                            "ScrollThumbBgVisibility": "Visible",
-                            "ScrollThumbBgColor": "Black",
-                            "ScrollThumbBgRounding": "5",
-                            "ScrollThumbBgBorderColor": "Pink",
-                            "ScrollThumbBgBorderThickness": "0",
-                            "ScrollThumbBgWidth": "10",
-                            "ScrollThumbBgMargin": "-10, 0, 0, 0"
-                        },
-
-                        "ScrollBarThumb": {
-
-                            "ScrollThumbVisibility": "Visible",
-                            "ScrollThumbColor": "White",
-                            "ScrollThumbRounding": "3",
-                            "ScrollThumbBorderColor": "Transparent",
-                            "ScrollThumbBorderThickness": "3",
-                            "ScrollThumbWidth": "10",
-                            "ScrollThumbMargin": "-10,0,0,0"
-
                         }
                     }
                 }

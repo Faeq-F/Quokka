@@ -16,6 +16,7 @@ using System.Windows.Data;
 using System.ComponentModel;
 using System.Xml.Schema;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace Quokka {
     /// <summary>
@@ -36,32 +37,7 @@ namespace Quokka {
 
             InitializeComponent();
 
-            Style st = new Style(typeof(RepeatButton));
-            st.Setters.Add(new Setter(Control.BackgroundProperty, "Blue"));
-            
-
-            //var ScrollBarResourceDictionary = new ResourceDictionary();
-            //ScrollBarResourceDictionary.Source = new Uri("Scrollbar.xaml", UriKind.RelativeOrAbsolute);
-            //Style ScrollBarPageButton = ScrollBarResourceDictionary["ScrollBarPageButton"] as Style;
-
-            //App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
-
-            //SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
-
-            //Dynamic widths, heights and margins & hiding results box & Context pane
-            ResultsBox.Visibility = Visibility.Collapsed;
-            ContextPane.Visibility = Visibility.Collapsed;
-            Container.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
-            Container.Height = SearchWindowGrid.Height;// This will not be a setting
-            ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
-            //set to same as above
-            ContextPane.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
-            
-            //Window Margins
-            System.Windows.Thickness WindowMarginThickness = new Thickness(); WindowMarginThickness.Bottom = 0;
-            WindowMarginThickness.Left = 0; WindowMarginThickness.Right = 0;
-            WindowMarginThickness.Top = (double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3);
-            Container.Margin = WindowMarginThickness;
+            ApplyAppSettings();
 
             //run anything needed for plugins on window startup
             try {
@@ -90,9 +66,19 @@ namespace Quokka {
         }
 
         private void onQueryChange(object sender, RoutedEventArgs e){
+            bool IgnoreMaxResults = false;
+            //reset view of list
+            ResultsListView.SelectedIndex = 0;
+            ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
+            // Close context pane if it was used
             if (ContextPane.Visibility == Visibility.Visible) ContextPane.Visibility = Visibility.Collapsed;
+            //get text from sender
             System.Windows.Controls.TextBox textBox = sender as System.Windows.Controls.TextBox;
             query = textBox.Text;
+            if (query.EndsWith(App.AppSettings.GeneralSettings.IgnoreMaxResultsFlag)){
+                query = query.Remove(query.Length - App.AppSettings.GeneralSettings.IgnoreMaxResultsFlag.Length);
+                IgnoreMaxResults = true;
+            }
             ListOfResults = new List<ListItem>();
             //getting results for query
             if (query == "") { ResultsBox.Visibility = Visibility.Collapsed; return;
@@ -103,6 +89,7 @@ namespace Quokka {
                         foreach (string specialCommand in plugin.SpecialCommands()){
                             if (specialCommand.Equals(query)) {
                                 ListOfResults = plugin.OnSpecialCommand(query);
+                                ResultsListView.ItemsSource = ListOfResults;
                                 goto ResultsAreReady;
                             }
                         }
@@ -116,15 +103,19 @@ namespace Quokka {
                 ListOfResults = ListOfResults.OrderByDescending(x => (x.name.ToLower().StartsWith(query.ToLower()))).ThenByDescending(x => (x.name.ToLower().Contains(query.ToLower()))).ToList();
                 //Check if items were shown
                 if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
+                //use MaxResults setting
+                if (!IgnoreMaxResults)
+                    ResultsListView.ItemsSource = ListOfResults.Take(int.Parse(App.AppSettings.GeneralSettings.MaxResults));
+                else ResultsListView.ItemsSource = ListOfResults;
             }
             ResultsAreReady:
-            ResultsListView.ItemsSource = ListOfResults;
             ResultsListView.SelectedIndex = -1;
             ResultsBox.Visibility = Visibility.Visible;
         }
 
         //In search field, check if Down or Up so that ListView items can be selected & check menu key for ContextPane
         private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
+            //If the ContextPane is showing - focus the actions list
             if (ContextPane.Visibility == Visibility.Visible){
                 ((Page)ContextPane.Content).MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
                 return;
@@ -193,9 +184,139 @@ namespace Quokka {
             }));
         }
 
-        
+        private void ApplyAppSettings(){
+            ResultsBox.Visibility = Visibility.Collapsed;
+            ContextPane.Visibility = Visibility.Collapsed;
+            //need to handle errors
 
 
+            //Style st = new Style(typeof(RepeatButton));
+            //st.Setters.Add(new Setter(Control.BackgroundProperty, "Blue"));
+
+            //var ScrollBarResourceDictionary = new ResourceDictionary();
+            //ScrollBarResourceDictionary.Source = new Uri("Scrollbar.xaml", UriKind.RelativeOrAbsolute);
+            //Style ScrollBarPageButton = ScrollBarResourceDictionary["ScrollBarPageButton"] as Style;
+
+            //App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
+
+
+            ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
+            //set to same as above
+            ContextPane.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
+
+
+            //StyleSettings:
+            //AppWindow:
+
+
+            //"WindowTopMargin": "PrimaryScreenHeight/3",
+            Container.Margin = new Thickness((double)(System.Windows.SystemParameters.PrimaryScreenHeight / 3));
+            //"WindowWidth": "PrimaryScreenWidth / 2",
+            Container.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+            Container.Height = SearchWindowGrid.Height;// This will not be a setting
+            //"WindowColor": "Transparent",
+            Container.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
+            //"WindowBorderColor": "Transparent",
+            Container.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
+            //"WindowBorderThickness": "0", - this could also be in the form number,number,number,number (edit to allow option)
+            Container.BorderThickness = new Thickness(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness));
+            //"WindowRounding": "0",
+            Container.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowRounding));
+            //"WindowPadding": "10"
+            Container.Padding = new Thickness(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowPadding));
+
+
+            //"SearchBar":
+
+
+            //"SearchBarColor": "White",
+            EntryField.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
+            //"SearchBarRounding": "32",
+            EntryField.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarRounding));
+            //"SearchBarBorderColor": "Black",
+            EntryField.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
+            //"SearchBarBorderSize": "2",
+            EntryField.BorderThickness = new Thickness(int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize));
+            //"SearchBarHeight": "64",
+            EntryField.Height = double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
+
+
+            //"SearchIconWidth": "64",
+            SearchIcon.Width = int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchIconWidth);
+            //"SearchIcon": "\\Config\\Resources\\SearchIcon.png",
+
+
+            //"EntryField":
+
+
+            //"SearchFieldTxtColor": "Black",
+            SearchTermTextBox.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtColor) as SolidColorBrush;
+            //"SearchFieldTxtSelColor": "Black",
+            SearchTermTextBox.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSelColor) as SolidColorBrush;
+            //"SearchFieldHeight": "50",
+            SearchTermTextBox.Height = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldHeight);
+            //"SearchFieldWidth": "720",
+            SearchTermTextBox.Width = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
+            SearchTermTextBox.MinWidth = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
+            //"SearchFieldMargin": "10",
+            SearchTermTextBox.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldMargin));
+            //"SearchFieldFont": "Cascadia Code",
+            SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
+            //"SearchFieldTxtSize": "24",
+            SearchTermTextBox.FontSize = double.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSize);
+
+
+            //"SearchFieldPlaceholder": "Enter Query",
+            SearchFieldPlaceholder.Text = App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholder;
+            //"SearchFieldPlaceholderMargin": "10",
+            SearchFieldPlaceholder.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderMargin));
+            //"SearchFieldPlaceholderColor": "DarkGray",
+            SearchFieldPlaceholder.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderColor) as SolidColorBrush;
+            //"SearchFieldPlaceholderSize": "24",
+            SearchFieldPlaceholder.FontSize = double.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderSize);
+            //"SearchFieldPlaceholderFont": "Cascadia Code"
+            SearchFieldPlaceholder.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderFont);
+
+
+            //"ResultsList":
+            //"ResultsList":
+            //"Container":
+
+
+            //"ListContainerMargin": "0,10,0,0",
+            //"ListContainerBorderColor": "Black",
+            //"ListContainerBorderThickness": "2",
+            //"ListContainerRounding": "15",
+            //"ListContainerColor": "White",
+            //"ListContainerMinHeight": "64",
+            //"ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+
+
+            //"List":
+
+
+            //"ListMargin": "10,10,0,10"
+
+
+            //"ListItems":
+
+
+            //"ListItemBorderThickness": "3",
+            //"ListItemHoverBorderColor": "Black",
+            //"ListItemHoverBgColor": "LightGray",
+            //"ListItemSelectedBorderColor": "Black",
+            //"ListItemSelectedBgColor": "White",
+            //"ListItemRounding": "15",
+            //"ListItemMargin": "0, 0, 10, 0",
+            //"ListItemIconSize": "50",
+            //"ListItemTextMargin": "10",
+            //"ListItemNameFont": "Cascadia Code",
+            //"ListItemNameSize": "18",
+            //"ListItemNameColor": "Black",
+            //"ListItemDescFont": "Cascadia Code",
+            //"ListItemDescSize": "12",
+            //"ListItemDescColor": "Gray",
+
+            }
     }
-
 }
