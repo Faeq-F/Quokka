@@ -185,6 +185,8 @@ namespace Quokka {
         }
 
         private void ApplyAppSettings(){
+            bool issueEncountered = false;
+
             ResultsBox.Visibility = Visibility.Collapsed;
             ContextPane.Visibility = Visibility.Collapsed;
             //need to handle errors
@@ -279,23 +281,32 @@ namespace Quokka {
 
 
             //"ResultsList":
-            //"ResultsList":
             //"Container":
 
 
             //"ListContainerMargin": "0,10,0,0",
+            ListContainer.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin));
+
+
             //"ListContainerBorderColor": "Black",
+            ResultsBox.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderColor) as SolidColorBrush;
             //"ListContainerBorderThickness": "2",
+            ResultsBox.BorderThickness = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderThickness));
             //"ListContainerRounding": "15",
+            ResultsBox.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerRounding));
             //"ListContainerColor": "White",
+            ResultsBox.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerColor) as SolidColorBrush;
             //"ListContainerMinHeight": "64",
+            ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMinHeight);
             //"ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+            ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMaxHeight);
 
 
             //"List":
 
 
             //"ListMargin": "10,10,0,10"
+            ResultsListView.Margin = new Thickness(int.Parse());
 
 
             //"ListItems":
@@ -316,6 +327,10 @@ namespace Quokka {
             //"ListItemDescFont": "Cascadia Code",
             //"ListItemDescSize": "12",
             //"ListItemDescColor": "Gray",
+
+            if (issueEncountered){
+                //show dialog - One or more of your settings did not apply correctly
+            }
 
             }
     }

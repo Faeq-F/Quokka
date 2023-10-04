@@ -1,8 +1,7 @@
 # Quokka
 An extremely customizable, portable keystroke launcher with plugins
 
-```
-```
+---
 
 ### Note - this codebase is a complete rewrite of the app
 
@@ -11,8 +10,7 @@ The app has a plugin architecture so that, like the app per the old codebase, it
 I intend to make the app extremely customizable.<br>
 Currently, the settings window has not been developed.
 
-```
-```
+---
 
 <details>
 <summary>
@@ -23,10 +21,10 @@ To use the app, run Quokka.exe
 
 | Default Keyboard shortcut | Use | Notes |
 |-----:|-----------|-|
-| Left Win + Space | launches the search bar | This shortcut is modifiable; [see the WindowHotKey setting](https://github.com/Faeq-F/Quokka#general-settings)
-| arrow keys | select items | The keys used cannot be changed
-| enter key | executes an item |The key used cannot be changed
-| menu key | shows context pane for item |The key used cannot be changed
+| <kbd>Left ⊞</kbd> + <kbd>Space</kbd> | launches the search bar | This shortcut is modifiable; [see the WindowHotKey setting](https://github.com/Faeq-F/Quokka#general-settings)
+| <kbd>🠙</kbd> & <kbd>🠛</kbd> | select items | The keys used cannot be changed
+| <kbd>↵</kbd> | executes an item |The key used cannot be changed
+| <kbd>☰</kbd> | shows context pane for item |The key used cannot be changed
 
 The Tray task icon context menu can be used to:
  - launch the search window
@@ -53,7 +51,7 @@ If you do not wish to use a plugin, simply delete the appropriate folder in the 
 <summary>
 <h2>App settings</h2>
 </summary>
-All settings are <b>loaded when the application starts</b>, meaning that you will have to stop and start the app to see changes.
+All settings are <b>loaded when the application starts</b>, meaning that you will have to exit and re-start the app to see changes.
 <br><br>
 Plugins may have their <b>own, specific settings files</b> in the root of their respective folders in the PlugBoard. You can open The PlugBoard using the Tray Task Icon context menu
 <br>
@@ -109,9 +107,9 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 | SearchFieldMargin | ? | ? |
 | SearchFieldFont | font family | ? |
 | SearchFieldTxtSize | font size | 24 |
-| SearchFieldPlaceholder | placeholder text | ? |
-| SearchFieldPlaceholderMargin | placeholder margin | ? |
-| SearchFieldPlaceholderColor | placeholder color | ? |
+| SearchFieldPlaceholder | This is the text in the search field when there is no input - a placeholder| Enter Query |
+| SearchFieldPlaceholderMargin | This is the margin (spacing) around the placeholder text| ? |
+| SearchFieldPlaceholderColor | This is the color of the placeholder in the search field | ? |
 | SearchFieldPlaceholderSize | placeholder font size | ? |
 | SearchFieldPlaceholderFont | placeholder font family | ? |
 </details>
@@ -321,8 +319,8 @@ In order of priority:
 |-----:|-----------|
 |     ✅| installed app launcher |
 |     ✅| portable app launcher |
-|     ▢| file/folder - everything - with preview pane |
-|     ▢| sharex integration |
+|In progress| file/folder launcher - everything integration|
+|     ▢| screen capture - sharex integration |
 |     ▢| calculator |
 |     ▢| os power commands (logout, lock, sleep, chutdown, etc.) |
 |     ▢| control panel shortcuts |
