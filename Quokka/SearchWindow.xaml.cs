@@ -306,13 +306,14 @@ namespace Quokka {
 
 
             //"ListMargin": "10,10,0,10"
-            ResultsListView.Margin = new Thickness(int.Parse());
+            ResultsListView.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.List.ListMargin));
 
 
             //"ListItems":
 
 
             //"ListItemBorderThickness": "3",
+            //ListItemBorderThickness
             //"ListItemHoverBorderColor": "Black",
             //"ListItemHoverBgColor": "LightGray",
             //"ListItemSelectedBorderColor": "Black",
