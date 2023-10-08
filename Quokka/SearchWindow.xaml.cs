@@ -17,6 +17,8 @@ using System.ComponentModel;
 using System.Xml.Schema;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Security.Cryptography;
+using System.Security.Policy;
 
 namespace Quokka {
     /// <summary>
@@ -200,7 +202,9 @@ namespace Quokka {
             //Style ScrollBarPageButton = ScrollBarResourceDictionary["ScrollBarPageButton"] as Style;
 
             //App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont;
+            try{
 
+            } catch (Exception) { issueEncountered = true;}
 
             ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
             //set to same as above
@@ -285,7 +289,17 @@ namespace Quokka {
 
 
             //"ListContainerMargin": "0,10,0,0",
-            ListContainer.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin));
+            if (App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin.Contains(",")) {
+                string[] margins = App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin.Split(",");
+                Thickness TheMargin = new Thickness();
+                TheMargin.Left = int.Parse(margins[0]);
+                TheMargin.Top = int.Parse(margins[1]);
+                TheMargin.Right = int.Parse(margins[2]);
+                TheMargin.Bottom = int.Parse(margins[3]);
+                ListContainer.Margin = TheMargin;
+            } else {
+                ListContainer.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin));
+            }
 
 
             //"ListContainerBorderColor": "Black",
@@ -299,23 +313,41 @@ namespace Quokka {
             //"ListContainerMinHeight": "64",
             ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMinHeight);
             //"ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
-            ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMaxHeight);
+            //ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMaxHeight);
+            ResultsBox.MinHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
 
 
             //"List":
 
 
             //"ListMargin": "10,10,0,10"
-            ResultsListView.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.List.ListMargin));
+            if (App.AppSettings.StyleSettings.ResultsList.List.ListMargin.Contains(",")) {
+                string[] margins = App.AppSettings.StyleSettings.ResultsList.List.ListMargin.Split(",");
+                Thickness TheMargin = new Thickness();
+                TheMargin.Left = int.Parse(margins[0]);
+                TheMargin.Top = int.Parse(margins[1]);
+                TheMargin.Right = int.Parse(margins[2]);
+                TheMargin.Bottom = int.Parse(margins[3]);
+                ResultsListView.Margin = TheMargin;
+            } else {
+                ResultsListView.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.List.ListMargin));
+            }
 
 
             //"ListItems":
 
 
             //"ListItemBorderThickness": "3",
+            try {
+                Application.Current.Resources["ListItemBorderThickness"] = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness));
+            } catch (Exception) { issueEncountered = true; }
+
             //ListItemBorderThickness
             //"ListItemHoverBorderColor": "Black",
             //"ListItemHoverBgColor": "LightGray",
+            try {
+                Application.Current.Resources["ListItemHoverBgColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor) as SolidColorBrush;
+            } catch (Exception) { issueEncountered = true; }
             //"ListItemSelectedBorderColor": "Black",
             //"ListItemSelectedBgColor": "White",
             //"ListItemRounding": "15",
@@ -331,8 +363,9 @@ namespace Quokka {
 
             if (issueEncountered){
                 //show dialog - One or more of your settings did not apply correctly
+                MessageBox.Show("One or more of your settings did not apply correctly");
             }
 
-            }
+        }
     }
 }

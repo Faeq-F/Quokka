@@ -109,7 +109,7 @@
                             ListItemRounding: CornerRadius
                             ListItemMargin: Margin (Edited to hide scrollbar - was "0, 0, 10, 0" (see scrollbar.xaml))
                         -->
-                            <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray"/>
+                            <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray" x:Name="ListItemHoverBgColor"/>
                             <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
                             <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White"/>
                             <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black"/>
