@@ -346,8 +346,9 @@ namespace Quokka {
             //"ListItemHoverBorderColor": "Black",
             //"ListItemHoverBgColor": "LightGray",
             try {
-                Application.Current.Resources["ListItemHoverBgColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor) as SolidColorBrush;
+                Application.Current.Resources["ListItemHoverBgColorAgain"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor) as SolidColorBrush;
             } catch (Exception) { issueEncountered = true; }
+            
             //"ListItemSelectedBorderColor": "Black",
             //"ListItemSelectedBgColor": "White",
             //"ListItemRounding": "15",
@@ -362,7 +363,6 @@ namespace Quokka {
             //"ListItemDescColor": "Gray",
 
             if (issueEncountered){
-                //show dialog - One or more of your settings did not apply correctly
                 MessageBox.Show("One or more of your settings did not apply correctly");
             }
 

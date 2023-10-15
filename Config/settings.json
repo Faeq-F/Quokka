@@ -64,7 +64,7 @@
             },
             "ListItems": {
 
-                "ListItemBorderThickness": "3",
+                "ListItemBorderThickness": "0",
                 "ListItemHoverBorderColor": "Black",
                 "ListItemHoverBgColor": "LightGray",
                 "ListItemSelectedBorderColor": "Black",
