@@ -321,17 +321,18 @@ namespace Quokka {
 
 
             //"ListMargin": "10,10,0,10"
+            Thickness TheMargin = new Thickness();
             if (App.AppSettings.StyleSettings.ResultsList.List.ListMargin.Contains(",")) {
                 string[] margins = App.AppSettings.StyleSettings.ResultsList.List.ListMargin.Split(",");
-                Thickness TheMargin = new Thickness();
                 TheMargin.Left = int.Parse(margins[0]);
                 TheMargin.Top = int.Parse(margins[1]);
                 TheMargin.Right = int.Parse(margins[2]);
                 TheMargin.Bottom = int.Parse(margins[3]);
-                ResultsListView.Margin = TheMargin;
             } else {
-                ResultsListView.Margin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.List.ListMargin));
+                TheMargin = new Thickness(int.Parse(App.AppSettings.StyleSettings.ResultsList.List.ListMargin));
             }
+            Application.Current.Resources["ListMargin"] = TheMargin;
+
 
 
             //"ListItems":
@@ -349,6 +350,8 @@ namespace Quokka {
                 Application.Current.Resources["ListItemHoverBgColorAgain"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor) as SolidColorBrush;
             } catch (Exception) { issueEncountered = true; }
             
+
+            for ()  
             //"ListItemSelectedBorderColor": "Black",
             //"ListItemSelectedBgColor": "White",
             //"ListItemRounding": "15",
