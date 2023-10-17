@@ -43,6 +43,7 @@ namespace Quokka
         private string detectedKeys = "";
 
         public static Settings AppSettings { get; set; }
+        public static dynamic StyleSettings{ get; set; }
 
         public static List<IPlugger> plugins { private set; get; }
 
@@ -52,6 +53,7 @@ namespace Quokka
             string fileName = Environment.CurrentDirectory + "\\Config\\settings.json";
             string jsonString = File.ReadAllText(fileName);
             AppSettings = JsonSerializer.Deserialize<Settings>(jsonString)!;
+            dynamic StyleSettings = JsonSerializer.Deserialize<dynamic>(jsonString)!;
 
             // grab plugins and run startup
             plugins = new List<IPlugger>();

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Quokka {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class AppWindow {
         public string WindowTopMargin { get; set; }
         public string WindowWidth { get; set; }
