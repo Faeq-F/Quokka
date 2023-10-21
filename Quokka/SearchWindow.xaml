@@ -39,8 +39,8 @@
 
     <Border
         x:Name="Container"
-        BorderBrush="Transparent"
-        BorderThickness="0"
+        BorderBrush="Pink"
+        BorderThickness="{DynamicResource WindowBorderThickness}"
         CornerRadius="0"
         Background="Transparent"
         Height="auto"
@@ -70,7 +70,7 @@
                 ListContainerRounding: CornerRadius
                 ListContainerColor: Background
                 ListContainerMinHeight: MinHeight
-                ListContainerMaxHeight: (see cs file)
+                ListContainerMaxHeight: (see cs file) - no change!?
             -->
                 <Border
                 x:Name="ResultsBox"
@@ -125,8 +125,8 @@
 
                                 <Setter Property="SnapsToDevicePixels" Value="True"/>
                                 <Setter Property="Padding" Value="4,1"/>
-                                <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <!--<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>-->
                                 <Setter Property="Background" Value="Transparent"/>
                                 <Setter Property="BorderBrush" Value="Transparent"/>
                                 <Setter Property="BorderThickness" Value="3" x:Name="ListItemBorderThickness"/>

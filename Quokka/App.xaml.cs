@@ -1,29 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using Hardcodet.Wpf.TaskbarNotification;
-using Microsoft.WindowsAPICodePack.Shell;
 using Quokka.Plugger.Contracts;
 using System.Text.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Quokka
-{
+namespace Quokka {
     /// <summary>
     /// Interaction logic for App.xaml
     /// <br>
