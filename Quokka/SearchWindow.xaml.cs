@@ -370,24 +370,28 @@ namespace Quokka {
             } else if (settingValue.Contains("PrimaryScreenWidth")) {
                 settingValue.Replace("PrimaryScreenWidth", "");
                 output = SystemParameters.PrimaryScreenWidth;
+            } else { 
+                output = double.Parse(settingValue);
+                return output;
             }
-            //need to account for no op or systemParam
-            char op = settingValue[0];
-            double optionalValue = Convert.ToDouble(settingValue.Substring(1));
-            switch (op){
-                case '/':
-                    output = output / optionalValue;
-                    break;
-                case '*':
-                output = output * optionalValue;
-                    break;
-                case '+':
-            output = output + optionalValue;
-                    break;
-                case '-':
-            output = output - optionalValue;
-                    break;
-            }
+            try {
+                char op = settingValue[0];
+                double optionalValue = Convert.ToDouble(settingValue.Substring(1));
+                switch (op) {
+                    case '/':
+                        output = output / optionalValue;
+                        break;
+                    case '*':
+                        output = output * optionalValue;
+                        break;
+                    case '+':
+                        output = output + optionalValue;
+                        break;
+                    case '-':
+                        output = output - optionalValue;
+                        break;
+                }
+            } catch {} // There is no operator
             return output;
         }
     }
