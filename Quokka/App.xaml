@@ -4,16 +4,16 @@
              
              ShutdownMode="OnExplicitShutdown"
              LoadCompleted="Application_LoadCompleted">
-    <Application.Resources>
-        <!--
+  <Application.Resources>
+    <!--
             Note that this application does not have a StartupUri declared, so no Window is automatically loaded.
             Also, the ShutdownMode was set to explicit, so we have to close the application programmatically
         -->
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
-                <ResourceDictionary Source="NotifyIconResources.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="NotifyIconResources.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
 </Application>

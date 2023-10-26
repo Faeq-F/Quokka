@@ -4,11 +4,11 @@
     "frameworks": [
       {
         "name": "Microsoft.NETCore.App",
-        "version": "6.0.22"
+        "version": "6.0.23"
       },
       {
         "name": "Microsoft.WindowsDesktop.App",
-        "version": "6.0.22"
+        "version": "6.0.23"
       }
     ],
     "additionalProbingPaths": [

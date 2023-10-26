@@ -17,15 +17,15 @@
         WindowStartupLocation="CenterScreen"
         FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}">
 
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Scrollbar.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Scrollbar.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
 
-    <!--
+  <!--
         User editable style:
 
         WindowTopMargin: (see cs file)
@@ -37,7 +37,7 @@
         WindowPadding: Padding
     -->
 
-    <Border
+  <Border
         x:Name="Container"
         BorderBrush="Pink"
         BorderThickness="{DynamicResource WindowBorderThickness}"
@@ -48,21 +48,21 @@
         Padding="10"
         >
 
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
 
-            <!--
+      <!--
             User editable styles:
 
             ListContainerMargin: Margin
         -->
-            <Grid Grid.Row="1" Margin="0,10,0,0" VerticalAlignment="Top" Panel.ZIndex="0" x:Name="ListContainer">
+      <Grid Grid.Row="1" Margin="0,10,0,0" VerticalAlignment="Top" Panel.ZIndex="0" x:Name="ListContainer">
 
-                <!--
+        <!--
                 User editable styles:
 
                 ListContainerBorderColor: BorderBrush
@@ -72,7 +72,7 @@
                 ListContainerMinHeight: MinHeight
                 ListContainerMaxHeight: (see cs file) - no change!?
             -->
-                <Border
+        <Border
                 x:Name="ResultsBox"
                 BorderBrush="Black"
                 BorderThickness="2"
@@ -81,24 +81,24 @@
                 MinHeight="64"
                 Height="auto"
                 >
-                    <!--
+          <!--
                     User editable styles:
 
                     ListMargin: Margin
                 -->
-                    <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+          <ListView x:Name="ResultsListView" Margin="10,10,10,10" SelectionMode="Single"  KeyboardNavigation.DirectionalNavigation="Cycle" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
-                        <ListView.Resources>
-                            <Style x:Key="FocusVisual">
-                                <Setter Property="Control.Template">
-                                    <Setter.Value>
-                                        <ControlTemplate>
-                                            <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                            <!--
+            <ListView.Resources>
+              <Style x:Key="FocusVisual">
+                <Setter Property="Control.Template">
+                  <Setter.Value>
+                    <ControlTemplate>
+                      <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                  </Setter.Value>
+                </Setter>
+              </Style>
+              <!--
                             User editable styles:
 
                             ListItemBorderThickness: BorderThickness
@@ -109,76 +109,76 @@
                             ListItemRounding: CornerRadius
                             ListItemMargin: Margin (Edited to hide scrollbar - was "0, 0, 10, 0" (see scrollbar.xaml))
                         -->
-                            <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray" x:Name="ListItemHoverBgColor"/>
-                            <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
-                            <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White"/>
-                            <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black"/>
-                            <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="White"/>
-                            <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Black"/>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Style.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="15"/>
-                                        <Setter Property="Margin" Value="0, 0, 0, 0"/>
-                                    </Style>
-                                </Style.Resources>
+              <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray" x:Name="ListItemHoverBgColor"/>
+              <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black"/>
+              <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White"/>
+              <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black"/>
+              <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="White"/>
+              <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Black"/>
+              <Style TargetType="{x:Type ListViewItem}">
+                <Style.Resources>
+                  <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="Margin" Value="0, 0, 0, 0"/>
+                  </Style>
+                </Style.Resources>
 
-                                <Setter Property="SnapsToDevicePixels" Value="True"/>
-                                <Setter Property="Padding" Value="4,1"/>
-                                <!--<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Padding" Value="4,1"/>
+                <!--<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
                                 <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>-->
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="3" x:Name="ListItemBorderThickness"/>
-                                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="3" x:Name="ListItemBorderThickness"/>
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
 
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="IsMouseOver" Value="True"/>
-                                                    </MultiTrigger.Conditions>
-                                                    <Setter Property="Background" TargetName="Bd" Value="{DynamicResource ListItemHoverBgColorAgain}"/>
-                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>
-                                                </MultiTrigger>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="Selector.IsSelectionActive" Value="False"/>
-                                                        <Condition Property="IsSelected" Value="True"/>
-                                                    </MultiTrigger.Conditions>
-                                                    <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
-                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
-                                                </MultiTrigger>
-                                                <MultiTrigger>
-                                                    <MultiTrigger.Conditions>
-                                                        <Condition Property="Selector.IsSelectionActive" Value="True"/>
-                                                        <Condition Property="IsSelected" Value="True"/>
-                                                    </MultiTrigger.Conditions>
-                                                    <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Background}"/>
-                                                    <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Border}"/>
-                                                </MultiTrigger>
-                                                <Trigger Property="IsEnabled" Value="False">
-                                                    <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.Resources>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid PreviewMouseLeftButtonUp="listItem_Click">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="9*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <!--
+                <Setter Property="Template">
+                  <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                      <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                      </Border>
+                      <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                          <MultiTrigger.Conditions>
+                            <Condition Property="IsMouseOver" Value="True"/>
+                          </MultiTrigger.Conditions>
+                          <Setter Property="Background" TargetName="Bd" Value="{DynamicResource ListItemHoverBgColorAgain}"/>
+                          <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.MouseOver.Border}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                          <MultiTrigger.Conditions>
+                            <Condition Property="Selector.IsSelectionActive" Value="False"/>
+                            <Condition Property="IsSelected" Value="True"/>
+                          </MultiTrigger.Conditions>
+                          <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Background}"/>
+                          <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedInactive.Border}"/>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                          <MultiTrigger.Conditions>
+                            <Condition Property="Selector.IsSelectionActive" Value="True"/>
+                            <Condition Property="IsSelected" Value="True"/>
+                          </MultiTrigger.Conditions>
+                          <Setter Property="Background" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Background}"/>
+                          <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource Item.SelectedActive.Border}"/>
+                        </MultiTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                          <Setter Property="TextElement.Foreground" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                      </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                  </Setter.Value>
+                </Setter>
+              </Style>
+            </ListView.Resources>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <Grid PreviewMouseLeftButtonUp="listItem_Click">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="9*"/>
+                  </Grid.ColumnDefinitions>
+                  <!--
                                     User Editable styles:
 
                                     ListItemIconSize: Height & Width
@@ -190,30 +190,30 @@
                                     ListItemDescSize: FontSize
                                     ListItemDescColor: Foreground
                                 -->
-                                    <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
-                                    <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="7*" />
-                                            <RowDefinition Height="3*"/>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" Text="{Binding name}"
+                  <Image Height="50" Width="50" Grid.Column="0" Source="{Binding icon}"/>
+                  <Grid Grid.Column="1" VerticalAlignment="Center" Margin="10">
+                    <Grid.RowDefinitions>
+                      <RowDefinition Height="7*" />
+                      <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding name}"
                                         FontFamily="Cascadia Code" FontSize="18" VerticalAlignment="Bottom"
                                         Foreground="Black"/>
-                                        <TextBlock Grid.Row="1" Text="{Binding description}"
+                    <TextBlock Grid.Row="1" Text="{Binding description}"
                                         FontFamily="Cascadia Code" FontSize="12" VerticalAlignment="Top"
                                         Foreground="Gray"/>
-                                    </Grid>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Border>
-                <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden"></Frame>
-            </Grid>
+                  </Grid>
+                </Grid>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </Border>
+        <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden"></Frame>
+      </Grid>
 
-            <Grid Grid.Row="0" Panel.ZIndex="999">
+      <Grid Grid.Row="0" Panel.ZIndex="999">
 
-                <!--
+        <!--
                 User Editable Styles:
 
                 SearchBarColor: Background
@@ -222,7 +222,7 @@
                 SearchBarBorderSize: BorderThickness
                 SearchBarHeight: Height
                 -->
-                <Border
+        <Border
                 x:Name="EntryField"
                 BorderBrush="Black"
                 BorderThickness="2"
@@ -232,30 +232,30 @@
                 VerticalAlignment="Top"
                 >
 
-                    <Grid>
+          <Grid>
 
-                        <Grid Grid.Row="1">
+            <Grid Grid.Row="1">
 
-                            <!--
+              <!--
                                 User Editable styles - not in settings.json:
 
                                 Column-0 width = Container width (above) - Image width (below)
                                 Column-1 width = Image width (below)
                             -->
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="656*"/>
-                                <ColumnDefinition Width="64*"/>
-                            </Grid.ColumnDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="656*"/>
+                <ColumnDefinition Width="64*"/>
+              </Grid.ColumnDefinitions>
 
-                            <!--
+              <!--
                                 User Editable styles:
 
                                 SearchIconWidth :Width
                                 Icon (see cs file)
                             -->
-                            <Image x:Name="SearchIcon" Width="64" Grid.Column="1" Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png"/>
-                            <Grid>
-                                <!--
+              <Image x:Name="SearchIcon" Width="64" Grid.Column="1" Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png"/>
+              <Grid>
+                <!--
                                 User Editable styles:
 
                                 SearchFieldTxtColor: Foreground
@@ -266,7 +266,7 @@
                                 SearchFieldFont: FontFamily
                                 SearchFieldTxtSize: FontSize
                             -->
-                                <TextBox
+                <TextBox
                             Foreground="Black"
                             SelectionBrush="Black"
                             Height="50"
@@ -289,16 +289,16 @@
                             BorderThickness="0"
                             BorderBrush="Transparent"
                             PreviewKeyDown="SearchTermTextBox_KeyDown">
-                                    <TextBox.ContextMenu>
-                                        <ContextMenu Visibility="Hidden"/>
-                                    </TextBox.ContextMenu>
-                                    <TextBox.Style>
-                                        <Style>
+                  <TextBox.ContextMenu>
+                    <ContextMenu Visibility="Hidden"/>
+                  </TextBox.ContextMenu>
+                  <TextBox.Style>
+                    <Style>
 
-                                        </Style>
-                                    </TextBox.Style>
-                                </TextBox>
-                                <!--
+                    </Style>
+                  </TextBox.Style>
+                </TextBox>
+                <!--
                                 User Editable styles:
 
                                 SearchFieldPlaceholder: Text
@@ -307,27 +307,27 @@
                                 SearchFieldPlaceholderSize: FontSize
                                 SearchFieldPlaceholderFont: FontFamily
                             -->
-                                <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code" x:Name="SearchFieldPlaceholder">
-                                    <TextBlock.Style>
-                                        <Style TargetType="{x:Type TextBlock}">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                            </Grid>
-
-                        </Grid>
-
-                    </Grid>
-
-                </Border>
+                <TextBlock IsHitTestVisible="False" Text="Enter Query" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Foreground="DarkGray" FontSize="24" FontFamily="Cascadia Code" x:Name="SearchFieldPlaceholder">
+                  <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                      <Setter Property="Visibility" Value="Collapsed"/>
+                      <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
+                          <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                      </Style.Triggers>
+                    </Style>
+                  </TextBlock.Style>
+                </TextBlock>
+              </Grid>
 
             </Grid>
-        </Grid>
-    </Border>
+
+          </Grid>
+
+        </Border>
+
+      </Grid>
+    </Grid>
+  </Border>
 </Window>

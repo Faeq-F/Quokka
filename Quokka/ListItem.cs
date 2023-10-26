@@ -2,16 +2,16 @@
 using System.Windows.Media;
 
 namespace Quokka {
-    public abstract class ListItem {
+  public abstract class ListItem {
 
-        public string name { get; set; }
-        public string description { get; set; }
-        public ImageSource icon { get; set; }
+    public string name { get; set; }
+    public string description { get; set; }
+    public ImageSource icon { get; set; }
 
-        public abstract void execute();
+    public abstract void execute();
 
-        public override string ToString() {
-            return name;
-        }
+    public override string ToString() {
+      return name;
     }
+  }
 }

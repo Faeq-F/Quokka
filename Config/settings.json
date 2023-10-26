@@ -1,132 +1,132 @@
 {
-    "GeneralSettings": {
+  "GeneralSettings": {
 
-        "WindowHotKey": "LWinSpace",
-        "MaxResults": "7",
-        "IgnoreMaxResultsFlag": " -ShowAll"
+    "WindowHotKey": "LWinSpace",
+    "MaxResults": "7",
+    "IgnoreMaxResultsFlag": " -ShowAll"
+
+  },
+  "StyleSettings": {
+
+    "AppWindow": {
+
+      "WindowTopMargin": "PrimaryScreenHeight/3",
+      "WindowWidth": "PrimaryScreenWidth / 2",
+      "WindowColor": "Transparent",
+      "WindowBorderColor": "Transparent",
+      "WindowBorderThickness": "0",
+      "WindowRounding": "0",
+      "WindowPadding": "10"
 
     },
-    "StyleSettings": {
+    "SearchBar": {
 
-        "AppWindow": {
+      "SearchBarColor": "White",
+      "SearchBarRounding": "32",
+      "SearchBarBorderColor": "Black",
+      "SearchBarBorderSize": "2",
+      "SearchBarHeight": "64",
+      "SearchIconWidth": "64",
+      "SearchIcon": "\\Config\\Resources\\SearchIcon.png",
 
-            "WindowTopMargin": "PrimaryScreenHeight/3",
-            "WindowWidth": "PrimaryScreenWidth / 2",
-            "WindowColor": "Transparent",
-            "WindowBorderColor": "Transparent",
-            "WindowBorderThickness": "0",
-            "WindowRounding": "0",
-            "WindowPadding": "10"
+      "EntryField": {
 
-        },
-        "SearchBar": {
+        "SearchFieldTxtColor": "Black",
+        "SearchFieldTxtSelColor": "Black",
+        "SearchFieldHeight": "50",
+        "SearchFieldWidth": "720",
+        "SearchFieldMargin": "10",
+        "SearchFieldFont": "Cascadia Code",
+        "SearchFieldTxtSize": "24",
+        "SearchFieldPlaceholder": "Enter Query",
+        "SearchFieldPlaceholderMargin": "10",
+        "SearchFieldPlaceholderColor": "DarkGray",
+        "SearchFieldPlaceholderSize": "24",
+        "SearchFieldPlaceholderFont": "Cascadia Code"
+      }
+    },
 
-            "SearchBarColor": "White",
-            "SearchBarRounding": "32",
-            "SearchBarBorderColor": "Black",
-            "SearchBarBorderSize": "2",
-            "SearchBarHeight": "64",
-            "SearchIconWidth": "64",
-            "SearchIcon": "\\Config\\Resources\\SearchIcon.png",
+    "ResultsList": {
 
-            "EntryField": {
+      "Container": {
 
-                "SearchFieldTxtColor": "Black",
-                "SearchFieldTxtSelColor": "Black",
-                "SearchFieldHeight": "50",
-                "SearchFieldWidth": "720",
-                "SearchFieldMargin": "10",
-                "SearchFieldFont": "Cascadia Code",
-                "SearchFieldTxtSize": "24",
-                "SearchFieldPlaceholder": "Enter Query",
-                "SearchFieldPlaceholderMargin": "10",
-                "SearchFieldPlaceholderColor": "DarkGray",
-                "SearchFieldPlaceholderSize": "24",
-                "SearchFieldPlaceholderFont": "Cascadia Code"
-            }
-        },
+        "ListContainerMargin": "0,10,0,0",
+        "ListContainerBorderColor": "Black",
+        "ListContainerBorderThickness": "2",
+        "ListContainerRounding": "15",
+        "ListContainerColor": "White",
+        "ListContainerMinHeight": "64",
+        "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
 
-        "ResultsList": {
+      },
+      "List": {
+        "ListMargin": "10,10,0,10"
+      },
+      "ListItems": {
 
-            "Container": {
+        "ListItemBorderThickness": "0",
+        "ListItemHoverBorderColor": "Black",
+        "ListItemHoverBgColor": "LightGray",
+        "ListItemSelectedBorderColor": "Black",
+        "ListItemSelectedBgColor": "White",
+        "ListItemRounding": "15",
+        "ListItemMargin": "0, 0, 10, 0",
+        "ListItemIconSize": "50",
+        "ListItemTextMargin": "10",
+        "ListItemNameFont": "Cascadia Code",
+        "ListItemNameSize": "18",
+        "ListItemNameColor": "Black",
+        "ListItemDescFont": "Cascadia Code",
+        "ListItemDescSize": "12",
+        "ListItemDescColor": "Gray",
 
-                "ListContainerMargin": "0,10,0,0",
-                "ListContainerBorderColor": "Black",
-                "ListContainerBorderThickness": "2",
-                "ListContainerRounding": "15",
-                "ListContainerColor": "White",
-                "ListContainerMinHeight": "64",
-                "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+        "ContextPane": {
 
-            },
-            "List": {
-                "ListMargin": "10,10,0,10"
-            },
+          "BorderColor": "Black",
+          "BorderThickness": "2",
+          "CornerRounding": "15",
+          "Background": "White",
+          "MinHeight": "64",
+
+          "Details": {
+
+            "ContentMargin": "0, 0, 0, 0",
+            "ContentVerticalAlignment": "Center",
+            "ContentHorizontalAlignment": "Center",
+            "ImageMargin": "40,50,40,20",
+            "TextColor": "Black",
+            "TextSize": "16",
+            "FontFamily": "Cascadia Code",
+            "TextLineMargin": "0,0,0,0"
+
+          },
+
+          "List": {
+
+            "ListMargin": "10,10,0,10",
+            "ContentHorizontalAlignment": "Left",
+            "ButtonContentMargin": "10",
+
             "ListItems": {
 
-                "ListItemBorderThickness": "0",
-                "ListItemHoverBorderColor": "Black",
-                "ListItemHoverBgColor": "LightGray",
-                "ListItemSelectedBorderColor": "Black",
-                "ListItemSelectedBgColor": "White",
-                "ListItemRounding": "15",
-                "ListItemMargin": "0, 0, 10, 0",
-                "ListItemIconSize": "50",
-                "ListItemTextMargin": "10",
-                "ListItemNameFont": "Cascadia Code",
-                "ListItemNameSize": "18",
-                "ListItemNameColor": "Black",
-                "ListItemDescFont": "Cascadia Code",
-                "ListItemDescSize": "12",
-                "ListItemDescColor": "Gray",
+              "ListItemBorderThickness": "3",
+              "ListItemHoverBorderColor": "Black",
+              "ListItemHoverBgColor": "LightGray",
+              "ListItemSelectedBorderColor": "Black",
+              "ListItemSelectedBgColor": "White",
+              "ListItemRounding": "15",
+              "ListItemMargin": "0, 0, 10, 0",
 
-                "ContextPane": {
-
-                    "BorderColor": "Black",
-                    "BorderThickness": "2",
-                    "CornerRounding": "15",
-                    "Background": "White",
-                    "MinHeight": "64",
-
-                    "Details": {
-
-                        "ContentMargin": "0, 0, 0, 0",
-                        "ContentVerticalAlignment": "Center",
-                        "ContentHorizontalAlignment": "Center",
-                        "ImageMargin": "40,50,40,20",
-                        "TextColor": "Black",
-                        "TextSize": "16",
-                        "FontFamily": "Cascadia Code",
-                        "TextLineMargin": "0,0,0,0"
-
-                    },
-
-                    "List": {
-
-                        "ListMargin": "10,10,0,10",
-                        "ContentHorizontalAlignment": "Left",
-                        "ButtonContentMargin": "10",
-
-                        "ListItems": {
-
-                            "ListItemBorderThickness": "3",
-                            "ListItemHoverBorderColor": "Black",
-                            "ListItemHoverBgColor": "LightGray",
-                            "ListItemSelectedBorderColor": "Black",
-                            "ListItemSelectedBgColor": "White",
-                            "ListItemRounding": "15",
-                            "ListItemMargin": "0, 0, 10, 0",
-
-                            "ListItemIconSize": "15",
-                            "ListItemIconMargin": "0,0,-5,0",
-                            "ListItemTextPadding": "10",
-                            "ListItemFont": "Cascadia Code",
-                            "ListItemSize": "12",
-                            "ListItemColor": "Black"
-                        }
-                    }
-                }
+              "ListItemIconSize": "15",
+              "ListItemIconMargin": "0,0,-5,0",
+              "ListItemTextPadding": "10",
+              "ListItemFont": "Cascadia Code",
+              "ListItemSize": "12",
+              "ListItemColor": "Black"
             }
+          }
         }
+      }
     }
+  }
 }
