@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.Props = Directory.Build.Props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,14 @@ Global
 		{0AD3839D-EB48-4D74-AFED-EF357F8AB6E7}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
 		{0AD3839D-EB48-4D74-AFED-EF357F8AB6E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AD3839D-EB48-4D74-AFED-EF357F8AB6E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Quokka|Any CPU.ActiveCfg = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Quokka|Any CPU.Build.0 = Debug|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

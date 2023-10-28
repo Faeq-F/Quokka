@@ -214,13 +214,13 @@ namespace Quokka {
       Container.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
 
       //"WindowBorderThickness": "0",
-      Application.Current.Resources["WindowBorderThickness"] = parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness);
+      Application.Current.Resources["WindowBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness);
 
       //"WindowRounding": "0",
       Container.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowRounding));
 
       //"WindowPadding": "10"
-      Application.Current.Resources["WindowPadding"] = parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowPadding);
+      Application.Current.Resources["WindowPadding"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowPadding);
 
 
       //"SearchBar":
@@ -234,7 +234,7 @@ namespace Quokka {
       EntryField.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
 
       //"SearchBarBorderSize": "2",
-      Application.Current.Resources["SearchBarBorderSize"] = parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
+      Application.Current.Resources["SearchBarBorderSize"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
 
       //"SearchBarHeight": "64",
       EntryField.Height = double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
@@ -259,7 +259,7 @@ namespace Quokka {
       SearchTermTextBox.MinWidth = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
 
       //"SearchFieldMargin": "10",
-      Application.Current.Resources["SearchFieldMargin"] = parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldMargin);
+      Application.Current.Resources["SearchFieldMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldMargin);
 
       //"SearchFieldFont": "Cascadia Code",
       SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
@@ -271,7 +271,7 @@ namespace Quokka {
       SearchFieldPlaceholder.Text = App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholder;
 
       //"SearchFieldPlaceholderMargin": "10",
-      Application.Current.Resources["SearchFieldPlaceholderMargin"] = parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderMargin);
+      Application.Current.Resources["SearchFieldPlaceholderMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderMargin);
 
       //"SearchFieldPlaceholderColor": "DarkGray",
       SearchFieldPlaceholder.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderColor) as SolidColorBrush;
@@ -287,14 +287,14 @@ namespace Quokka {
 
 
       //"ListContainerMargin": "0,10,0,0",
-      Application.Current.Resources["ListContainerMargin"] = parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin);
+      Application.Current.Resources["ListContainerMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin);
 
 
       //"ListContainerBorderColor": "Black",
       ResultsBox.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderColor) as SolidColorBrush;
 
       //"ListContainerBorderThickness": "2",
-      Application.Current.Resources["ListContainerBorderThickness"] = parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderThickness);
+      Application.Current.Resources["ListContainerBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderThickness);
 
       //"ListContainerRounding": "15",
       ResultsBox.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerRounding));
@@ -308,12 +308,12 @@ namespace Quokka {
 
       //"List":
       //"ListMargin": "10,10,0,10"
-      Application.Current.Resources["ListMargin"] = parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.List.ListMargin);
+      Application.Current.Resources["ListMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.List.ListMargin);
 
 
       //"ListItems":
       //"ListItemBorderThickness": "3",
-      Application.Current.Resources["ListItemBorderThickness"] = parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
+      Application.Current.Resources["ListItemBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
 
 
       //ListItemBorderThickness
@@ -344,56 +344,6 @@ namespace Quokka {
       if (issueEncountered) {
         MessageBox.Show("One or more of your settings did not apply correctly");
       }
-
-    }
-
-    private Thickness parseThicknessSetting(string settingValue) {
-      Thickness thickness;
-      if (settingValue.Contains(",")) {
-        string[] thicknesses = settingValue.Split(",");
-        thickness = new Thickness();
-        thickness.Left = int.Parse(thicknesses[0]);
-        thickness.Top = int.Parse(thicknesses[1]);
-        thickness.Right = int.Parse(thicknesses[2]);
-        thickness.Bottom = int.Parse(thicknesses[3]);
-      } else {
-        thickness = new Thickness(int.Parse(settingValue));
-      }
-      return thickness;
-    }
-
-    private double parseScreenDimensionsSetting(string settingValue) {
-      settingValue = "PrimaryScreenHeight/3";
-      double output = -1;
-      if (settingValue.Contains("PrimaryScreenHeight")) {
-        settingValue.Replace("PrimaryScreenHeight", "");
-        output = SystemParameters.PrimaryScreenHeight;
-      } else if (settingValue.Contains("PrimaryScreenWidth")) {
-        settingValue.Replace("PrimaryScreenWidth", "");
-        output = SystemParameters.PrimaryScreenWidth;
-      } else {
-        output = double.Parse(settingValue);
-        return output;
-      }
-      try {
-        char op = settingValue[0];
-        double optionalValue = Convert.ToDouble(settingValue.Substring(1));
-        switch (op) {
-          case '/':
-            output = output / optionalValue;
-            break;
-          case '*':
-            output = output * optionalValue;
-            break;
-          case '+':
-            output = output + optionalValue;
-            break;
-          case '-':
-            output = output - optionalValue;
-            break;
-        }
-      } catch { } // There is no operator
-      return output;
     }
   }
 }
