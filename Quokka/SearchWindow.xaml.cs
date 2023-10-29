@@ -203,10 +203,10 @@ namespace Quokka {
       //AppWindow:
 
 
-      //"WindowTopMargin": "PrimaryScreenHeight/3", - need seperate parsing method
-      Container.Margin = new Thickness((double) ( System.Windows.SystemParameters.PrimaryScreenHeight / 3 ));
+      //"WindowTopMargin": "PrimaryScreenHeight/3",
+      Container.Margin = new Thickness(SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin));
       //"WindowWidth": "PrimaryScreenWidth / 2",
-      Container.Width = System.Windows.SystemParameters.PrimaryScreenWidth / 2;
+      Container.Width = SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowWidth);
 
       //"WindowColor": "Transparent",
       Container.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
