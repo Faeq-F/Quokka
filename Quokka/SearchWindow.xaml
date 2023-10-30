@@ -25,27 +25,17 @@
     </ResourceDictionary>
   </Window.Resources>
 
-  <!--
-        User editable style:
-
-        WindowTopMargin: (see cs file)
-        WindowWidth: (see cs file)
-        WindowColor: Background
-        WindowBorderColor: BorderBrush
-        WindowBorderThickness: BorderThickness
-        WindowRounding: CornerRadius
-        WindowPadding: Padding
-    -->
-
   <Border
         x:Name="Container"
-        BorderBrush="Pink"
+        BorderBrush="{DynamicResource WindowBorderColor}"
         BorderThickness="{DynamicResource WindowBorderThickness}"
-        CornerRadius="0"
-        Background="Transparent"
+        CornerRadius="{DynamicResource WindowRounding}"
+        Background="{DynamicResource WindowColor}"
         Height="auto"
         VerticalAlignment="Top"
-        Padding="10"
+        Padding="{DynamicResource WindowPadding}"
+        Margin="{DynamicResource WindowTopMargin}"
+        Width="{DynamicResource WindowWidth}"
         >
 
     <Grid VerticalAlignment="Top" HorizontalAlignment="Center" x:Name="SearchWindowGrid">

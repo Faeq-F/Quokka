@@ -200,32 +200,18 @@ namespace Quokka {
 
 
       //StyleSettings:
+
       //AppWindow:
-
-
-      //"WindowTopMargin": "PrimaryScreenHeight/3",
-      Container.Margin = new Thickness(SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin));
-      //"WindowWidth": "PrimaryScreenWidth / 2",
-      Container.Width = SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowWidth);
-
-      //"WindowColor": "Transparent",
-      Container.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
-      //"WindowBorderColor": "Transparent",
-      Container.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
-
-      //"WindowBorderThickness": "0",
+      Application.Current.Resources["WindowTopMargin"] = SettingParsers.parseThicknessSetting("0,"+SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin+",0,0"));
+      Application.Current.Resources["WindowWidth"] = SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowWidth);
+      Application.Current.Resources["WindowColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
+      Application.Current.Resources["WindowBorderColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
       Application.Current.Resources["WindowBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness);
-
-      //"WindowRounding": "0",
-      Container.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowRounding));
-
-      //"WindowPadding": "10"
+      Application.Current.Resources["WindowRounding"] = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.AppWindow.WindowRounding));
       Application.Current.Resources["WindowPadding"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.AppWindow.WindowPadding);
 
 
       //"SearchBar":
-
-
       //"SearchBarColor": "White",
       EntryField.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
       //"SearchBarRounding": "32",

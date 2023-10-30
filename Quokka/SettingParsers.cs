@@ -10,12 +10,12 @@ namespace Quokka {
       if (settingValue.Contains(",")) {
         string[] thicknesses = settingValue.Split(",");
         thickness = new Thickness();
-        thickness.Left = int.Parse(thicknesses[0]);
-        thickness.Top = int.Parse(thicknesses[1]);
-        thickness.Right = int.Parse(thicknesses[2]);
-        thickness.Bottom = int.Parse(thicknesses[3]);
+        thickness.Left = double.Parse(thicknesses[0]);
+        thickness.Top = double.Parse(thicknesses[1]);
+        thickness.Right = double.Parse(thicknesses[2]);
+        thickness.Bottom = double.Parse(thicknesses[3]);
       } else {
-        thickness = new Thickness(int.Parse(settingValue));
+        thickness = new Thickness(double.Parse(settingValue));
       }
       return thickness;
     }
