@@ -9,27 +9,29 @@ using System.Windows;
 using Hardcodet.Wpf.TaskbarNotification;
 using Quokka.Plugger.Contracts;
 using System.Text.Json;
+using Quokka.Settings;
 
-namespace Quokka {
-  /// <summary>
-  /// Interaction logic for App.xaml
-  /// <br>
-  /// Includes wpf-notifyicon - CPOL:
-  /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
-  /// <br>
-  /// Includes LowLevelKeyboardListener from Dylan's Web
-  /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
-  /// <br>
-  /// Includes JSON.Net - MIT license
-  /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-  /// </summary>
+namespace Quokka
+{
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// <br>
+    /// Includes wpf-notifyicon - CPOL:
+    /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
+    /// <br>
+    /// Includes LowLevelKeyboardListener from Dylan's Web
+    /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
+    /// <br>
+    /// Includes JSON.Net - MIT license
+    /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+    /// </summary>
 
-  public partial class App : System.Windows.Application {
+    public partial class App : System.Windows.Application {
     private TaskbarIcon notifyIcon;
     private LowLevelKeyboardListener _listener;
     private string detectedKeys = "";
 
-    public static Settings AppSettings { get; set; }
+    public static Settings.Settings AppSettings { get; set; }
     public static dynamic StyleSettings { get; set; }
 
     public static List<IPlugger> plugins { private set; get; }
@@ -39,7 +41,7 @@ namespace Quokka {
       //grab settings
       string fileName = Environment.CurrentDirectory + "\\Config\\settings.json";
       string jsonString = File.ReadAllText(fileName);
-      AppSettings = JsonSerializer.Deserialize<Settings>(jsonString)!;
+      AppSettings = JsonSerializer.Deserialize<Settings.Settings>(jsonString)!;
       dynamic StyleSettings = JsonSerializer.Deserialize<dynamic>(jsonString)!;
 
       // grab plugins and run startup

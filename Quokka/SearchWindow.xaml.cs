@@ -6,14 +6,15 @@ using System.Windows.Input;
 using Quokka.Plugger.Contracts;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Quokka.Settings;
 
+namespace Quokka
+{
+    /// <summary>
+    /// Interaction logic for SearchWindow.xaml
+    /// </summary>
 
-namespace Quokka {
-  /// <summary>
-  /// Interaction logic for SearchWindow.xaml
-  /// </summary>
-
-  public partial class SearchWindow : Window {
+    public partial class SearchWindow : Window {
 
     private String query = "";
     private static List<ListItem> ListOfResults { set; get; }
