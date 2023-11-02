@@ -7,9 +7,9 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using Hardcodet.Wpf.TaskbarNotification;
-using Quokka.Plugger.Contracts;
 using System.Text.Json;
 using Quokka.Settings;
+using Quokka.PluginArch;
 
 namespace Quokka
 {

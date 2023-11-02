@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Quokka.Plugger.Contracts;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Quokka.Settings;
+using Quokka.PluginArch;
 
 namespace Quokka
 {

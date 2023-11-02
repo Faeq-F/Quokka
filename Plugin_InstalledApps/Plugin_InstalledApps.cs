@@ -1,7 +1,6 @@
 using Quokka;
 using System;
 using System.Windows;
-using Quokka.Plugger.Contracts;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using Microsoft.WindowsAPICodePack.Shell;
@@ -11,13 +10,14 @@ using System.Windows.Controls;
 
 using System.Collections;
 using System.Linq;
+using Quokka.PluginArch;
 
-
-namespace Plugin_InstalledApps {
-  /// <summary>  
-  /// Item class for plugin
-  /// </summary>
-  class InstalledAppsItem : ListItem {
+namespace Plugin_InstalledApps
+{
+    /// <summary>  
+    /// Item class for plugin
+    /// </summary>
+    class InstalledAppsItem : ListItem {
 
     public string path { get; set; }
     public string extraDetails { get; set; }

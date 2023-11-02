@@ -1,5 +1,4 @@
 using System;
-using Quokka.Plugger.Contracts;
 using Quokka;
 using Microsoft.WindowsAPICodePack.Shell;
 using System.IO;
@@ -13,13 +12,15 @@ using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Xml.Linq;
+using Quokka.PluginArch;
 
-namespace Plugin_PortableApps {
+namespace Plugin_PortableApps
+{
 
-  /// <summary>  
-  /// Item class for plugin
-  /// </summary>
-  class PortableAppsItem : ListItem {
+    /// <summary>  
+    /// Item class for plugin
+    /// </summary>
+    class PortableAppsItem : ListItem {
 
     public string exePath { get; set; }
     public string extraDetails { get; set; }
