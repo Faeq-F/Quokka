@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Collections;
 using System.Linq;
 using Quokka.PluginArch;
+using Quokka.ListItems;
 
 namespace Plugin_InstalledApps
 {

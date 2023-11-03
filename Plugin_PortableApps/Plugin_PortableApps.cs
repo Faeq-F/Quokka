@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows;
 using System.Xml.Linq;
 using Quokka.PluginArch;
+using Quokka.ListItems;
 
 namespace Plugin_PortableApps
 {

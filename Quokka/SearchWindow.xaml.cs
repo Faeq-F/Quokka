@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Quokka.Settings;
 using Quokka.PluginArch;
+using Quokka.ListItems;
 
 namespace Quokka
 {
