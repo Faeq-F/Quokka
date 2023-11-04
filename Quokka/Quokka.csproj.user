@@ -7,10 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Scrollbar.xaml">
+    <Page Update="SearchWindow\Scrollbar.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SearchWindow.xaml">
+    <Page Update="SearchWindow\SearchWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

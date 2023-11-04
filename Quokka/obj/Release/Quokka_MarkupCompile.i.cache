@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\Faeq\source\repos\Quokka\Quokka\App.xaml
-3-959022821
+3-929366154
 
-13336346425
+13425545454
 2141553399548
-NotifyIconResources.xaml;Scrollbar.xaml;SearchWindow.xaml;
+NotifyIconResources.xaml;SearchWindow\Scrollbar.xaml;SearchWindow\SearchWindow.xaml;
 
 False
 
