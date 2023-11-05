@@ -20,7 +20,7 @@
   <Window.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Scrollbar.xaml" />
+        <!--<ResourceDictionary Source="Scrollbar.xaml" />-->
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>

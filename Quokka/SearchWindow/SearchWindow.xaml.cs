@@ -204,7 +204,9 @@ namespace Quokka
       //StyleSettings:
 
       //AppWindow:
-      Application.Current.Resources["WindowTopMargin"] = SettingParsers.parseThicknessSetting("0,"+SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin+",0,0"));
+      try {
+        Application.Current.Resources["WindowTopMargin"] = SettingParsers.parseThicknessSetting("0,"+SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin)+",0,0");
+      } catch (Exception) { issueEncountered = true; }
       Application.Current.Resources["WindowWidth"] = SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowWidth);
       Application.Current.Resources["WindowColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
       Application.Current.Resources["WindowBorderColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;

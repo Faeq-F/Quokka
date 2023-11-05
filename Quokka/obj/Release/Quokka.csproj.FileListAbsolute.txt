@@ -19,10 +19,7 @@ G:\Release\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Quokka.csproj.AssemblyReference.cache
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Interop.Shell32.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Quokka.csproj.ResolveComReference.cache
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Scrollbar.baml
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\App.baml
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow.g.cs
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\App.g.cs
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\GeneratedInternalTypeHelper.g.cs
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Quokka_MarkupCompile.cache
@@ -56,3 +53,6 @@ G:\Quokka\Release\Quokka.dll.config
 G:\Quokka\Release\Quokka.deps.json
 G:\Quokka\Release\Quokka.runtimeconfig.json
 G:\Quokka\Release\Quokka.dll
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\Scrollbar.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\SearchWindow.baml
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\SearchWindow.g.cs

@@ -1,17 +1,13 @@
 using Quokka;
 using System;
-using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using Microsoft.WindowsAPICodePack.Shell;
-using System.Windows.Media;
 using System.Diagnostics;
-using System.Windows.Controls;
-
-using System.Collections;
 using System.Linq;
 using Quokka.PluginArch;
 using Quokka.ListItems;
+using System.IO;
 
 namespace Plugin_InstalledApps
 {
@@ -124,8 +120,7 @@ namespace Plugin_InstalledApps
     public void OnAppStartup() {
       //Get Plugin Specific settings
       string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_InstalledApps\\Plugin\\settings.json";
-      string jsonString = System.IO.File.ReadAllText(fileName);
-      PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(jsonString)!;
+      PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(File.ReadAllText(fileName))!;
 
       ListOfSystemApps = new List<ListItem>();
       // GUID taken from https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid

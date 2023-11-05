@@ -1,27 +1,19 @@
-﻿using Quokka;
+﻿using Plugin_PortableApps.PluginArch;
+using Quokka;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Plugin_PortableApps {
-  /// <summary>
-  /// Interaction logic for ContextPane.xaml
-  /// </summary>
-  /// 
+namespace Plugin_PortableApps
+{
+    /// <summary>
+    /// Interaction logic for ContextPane.xaml
+    /// </summary>
+    /// 
 
-  public partial class ContextPane : Page {
+    public partial class ContextPane : Page {
 
     private PortableAppsItem Item;
     public ContextPane() {
