@@ -1,5 +1,4 @@
-﻿using Plugin_PortableApps.PluginArch;
-using Quokka;
+﻿using Quokka;
 using System;
 using System.Diagnostics;
 using System.Windows;
