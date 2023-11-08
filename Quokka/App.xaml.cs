@@ -16,7 +16,7 @@ namespace Quokka
     /// <summary>
     /// Interaction logic for App.xaml
     /// <br>
-    /// Includes wpf-notifyicon - CPOL:
+    /// Includes wpf-notifyIcon - CPOL:
     /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
     /// <br>
     /// Includes LowLevelKeyboardListener from Dylan's Web
@@ -27,14 +27,14 @@ namespace Quokka
     /// </summary>
 
     public partial class App : System.Windows.Application {
-    private TaskbarIcon notifyIcon;
-    private LowLevelKeyboardListener _listener;
+    private TaskbarIcon? notifyIcon;
+    private LowLevelKeyboardListener? _listener;
     private string detectedKeys = "";
 
-    public static Settings.Settings AppSettings { get; set; }
-    public static dynamic StyleSettings { get; set; }
+    public static Settings.Settings? AppSettings { get; set; }
+    public static dynamic? StyleSettings { get; set; }
 
-    public static List<IPlugger> plugins { private set; get; }
+    public static List<IPlugger>? plugins { private set; get; }
 
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
@@ -69,24 +69,24 @@ namespace Quokka
       _listener.OnKeyPressed += _listener_OnKeyPressed;
       _listener.HookKeyboard();
 
-      //create the notifyicon (it's a resource declared in NotifyIconResources.xaml
+      //create the notifyIcon (it's a resource declared in NotifyIconResources.xaml
       notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
       notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
 
     }
 
     public static void OpenSettingsFile() {
-      using Process fileopener = new Process();
-      fileopener.StartInfo.FileName = "notepad";
-      fileopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
-      fileopener.Start();
+      using Process fileOpener = new Process();
+      fileOpener.StartInfo.FileName = "notepad";
+      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
+      fileOpener.Start();
     }
 
     public static void OpenPlugBoard() {
-      using Process folderopener = new Process();
-      folderopener.StartInfo.FileName = "explorer";
-      folderopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
-      folderopener.Start();
+      using Process folderOpener = new Process();
+      folderOpener.StartInfo.FileName = "explorer";
+      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+      folderOpener.Start();
     }
 
     private string GetPluggerDll(string connector) {
