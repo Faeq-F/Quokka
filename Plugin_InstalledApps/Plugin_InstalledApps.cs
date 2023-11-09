@@ -9,12 +9,11 @@ using Quokka.PluginArch;
 using Quokka.ListItems;
 using System.IO;
 
-namespace Plugin_InstalledApps
-{
-    /// <summary>  
-    /// Item class for plugin
-    /// </summary>
-    class InstalledAppsItem : ListItem {
+namespace Plugin_InstalledApps {
+  /// <summary>  
+  /// Item class for plugin
+  /// </summary>
+  class InstalledAppsItem : ListItem {
 
     public string path { get; set; }
     public string extraDetails { get; set; }

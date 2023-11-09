@@ -9,13 +9,12 @@ using Quokka.Settings;
 using Quokka.PluginArch;
 using Quokka.ListItems;
 
-namespace Quokka
-{
-    /// <summary>
-    /// Interaction logic for SearchWindow.xaml
-    /// </summary>
+namespace Quokka {
+  /// <summary>
+  /// Interaction logic for SearchWindow.xaml
+  /// </summary>
 
-    public partial class SearchWindow : Window {
+  public partial class SearchWindow : Window {
 
     private String query = "";
     private static List<ListItem> ListOfResults { set; get; }
@@ -205,7 +204,7 @@ namespace Quokka
 
       //AppWindow:
       try {
-        Application.Current.Resources["WindowTopMargin"] = SettingParsers.parseThicknessSetting("0,"+SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin)+",0,0");
+        Application.Current.Resources["WindowTopMargin"] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowTopMargin) + ",0,0");
       } catch (Exception) { issueEncountered = true; }
       Application.Current.Resources["WindowWidth"] = SettingParsers.parseScreenDimensionsSetting(App.AppSettings.StyleSettings.AppWindow.WindowWidth);
       Application.Current.Resources["WindowColor"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;

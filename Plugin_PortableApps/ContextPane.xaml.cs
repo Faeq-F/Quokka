@@ -5,14 +5,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Plugin_PortableApps
-{
-    /// <summary>
-    /// Interaction logic for ContextPane.xaml
-    /// </summary>
-    /// 
+namespace Plugin_PortableApps {
+  /// <summary>
+  /// Interaction logic for ContextPane.xaml
+  /// </summary>
+  /// 
 
-    public partial class ContextPane : Page {
+  public partial class ContextPane : Page {
 
     private PortableAppsItem Item;
     public ContextPane() {

@@ -11,22 +11,21 @@ using System.Text.Json;
 using Quokka.Settings;
 using Quokka.PluginArch;
 
-namespace Quokka
-{
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// <br>
-    /// Includes wpf-notifyIcon - CPOL:
-    /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
-    /// <br>
-    /// Includes LowLevelKeyboardListener from Dylan's Web
-    /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
-    /// <br>
-    /// Includes JSON.Net - MIT license
-    /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-    /// </summary>
+namespace Quokka {
+  /// <summary>
+  /// Interaction logic for App.xaml
+  /// <br>
+  /// Includes wpf-notifyIcon - CPOL:
+  /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
+  /// <br>
+  /// Includes LowLevelKeyboardListener from Dylan's Web
+  /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
+  /// <br>
+  /// Includes JSON.Net - MIT license
+  /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+  /// </summary>
 
-    public partial class App : System.Windows.Application {
+  public partial class App : System.Windows.Application {
     private TaskbarIcon? notifyIcon;
     private LowLevelKeyboardListener? _listener;
     private string detectedKeys = "";

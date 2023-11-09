@@ -2,27 +2,25 @@ using System;
 using System.Collections.Generic;
 using Quokka.ListItems;
 
-namespace Quokka.PluginArch
-{
-    public interface IPlugger
-    {
-        /// <summary>  
-        /// Name of plugger  
-        /// </summary>  
-        string PluggerName { get; set; }
+namespace Quokka.PluginArch {
+  public interface IPlugger {
+    /// <summary>  
+    /// Name of plugger  
+    /// </summary>  
+    string PluggerName { get; set; }
 
-        /// <summary>  
-        /// It will return List<ListItem> which will display on ResultsView
-        /// </summary>
-        public List<ListItem> OnQueryChange(string query);
+    /// <summary>  
+    /// It will return List<ListItem> which will display on ResultsView
+    /// </summary>
+    public List<ListItem> OnQueryChange(string query);
 
-        public List<string> SpecialCommands();
+    public List<string> SpecialCommands();
 
-        public List<ListItem> OnSpecialCommand(string command);
+    public List<ListItem> OnSpecialCommand(string command);
 
-        public void OnAppStartup();
-        public void OnAppShutdown();
+    public void OnAppStartup();
+    public void OnAppShutdown();
 
-        public void OnSearchWindowStartup();
-    }
+    public void OnSearchWindowStartup();
+  }
 }
