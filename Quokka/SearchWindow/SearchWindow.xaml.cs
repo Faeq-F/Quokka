@@ -225,30 +225,25 @@ namespace Quokka {
           SettingParsers.parseThicknessSetting(
             App.AppSettings.StyleSettings.AppWindow.WindowPadding);
 
-
         //"SearchBar":
-        //"SearchBarColor": "White",
-        EntryField.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
-        //"SearchBarRounding": "32",
-        EntryField.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarRounding));
-        //"SearchBarBorderColor": "Black",
-        EntryField.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
-
-        //"SearchBarBorderSize": "2",
-        Application.Current.Resources["SearchBarBorderSize"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
-
-        //"SearchBarHeight": "64",
-        EntryField.Height = double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
-
-
-        //"SearchIconWidth": "64",
-        SearchIcon.Width = int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchIconWidth);
-        //"SearchIcon": "\\Config\\Resources\\SearchIcon.png",
-
+        Application.Current.Resources["SearchBarColor"] =
+          new BrushConverter().ConvertFromString(
+            App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
+        Application.Current.Resources["SearchBarRounding"] =
+          new CornerRadius(int.Parse(
+            App.AppSettings.StyleSettings.SearchBar.SearchBarRounding));
+        Application.Current.Resources["SearchBarBorderColor"] =
+          new BrushConverter().ConvertFromString(
+            App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
+        Application.Current.Resources["SearchBarBorderSize"] =
+          SettingParsers.parseThicknessSetting(
+            App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
+        Application.Current.Resources["SearchBarHeight"] =
+          double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
+        Application.Current.Resources["SearchIconWidth"] =
+          int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchIconWidth);
 
         //"EntryField":
-
-
         //"SearchFieldTxtColor": "Black",
         SearchTermTextBox.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtColor) as SolidColorBrush;
         //"SearchFieldTxtSelColor": "Black",

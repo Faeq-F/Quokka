@@ -248,23 +248,14 @@
 
       <Grid Grid.Row="0" Panel.ZIndex="999">
 
-        <!--
-          User Editable Styles:
-          
-          SearchBarColor: Background
-          SearchBarRounding: CornerRadius
-          SearchBarBorderColor: BorderBrush
-          SearchBarBorderSize: BorderThickness
-          SearchBarHeight: Height
-        -->
         <Border
           x:Name="EntryField"
-          Height="64"
+          Height="{DynamicResource SearchBarHeight}"
           VerticalAlignment="Top"
-          Background="White"
-          BorderBrush="Black"
-          BorderThickness="2"
-          CornerRadius="32">
+          Background="{DynamicResource SearchBarColor}"
+          BorderBrush="{DynamicResource SearchBarBorderColor}"
+          BorderThickness="{DynamicResource SearchBarBorderSize}"
+          CornerRadius="{DynamicResource SearchBarRounding}">
 
           <Grid>
 
@@ -281,16 +272,10 @@
                 <ColumnDefinition Width="64*" />
               </Grid.ColumnDefinitions>
 
-              <!--
-                User Editable styles:
-                
-                SearchIconWidth :Width
-                Icon (see cs file)
-              -->
               <Image
                 x:Name="SearchIcon"
                 Grid.Column="1"
-                Width="64"
+                Width="{DynamicResource SearchIconWidth}"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid>
                 <!--
