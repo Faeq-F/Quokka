@@ -47,44 +47,25 @@
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
 
-      <!--
-        User editable styles:
-        
-        ListContainerMargin: Margin
-      -->
       <Grid
         x:Name="ListContainer"
         Grid.Row="1"
-        Margin="0,10,0,0"
+        Margin="{DynamicResource ListContainerMargin}"
         VerticalAlignment="Top"
         Panel.ZIndex="0">
 
-        <!--
-          User editable styles:
-          
-          ListContainerBorderColor: BorderBrush
-          ListContainerBorderThickness: BorderThickness
-          ListContainerRounding: CornerRadius
-          ListContainerColor: Background
-          ListContainerMinHeight: MinHeight
-          ListContainerMaxHeight: (see cs file) - no change!?
-        -->
+        <!--  ListContainerMaxHeight: (see cs file) -no change!?- maybe num of items dicatates  -->
         <Border
           x:Name="ResultsBox"
           Height="auto"
-          MinHeight="64"
-          Background="White"
-          BorderBrush="Black"
-          BorderThickness="2"
-          CornerRadius="15">
-          <!--
-            User editable styles:
-            
-            ListMargin: Margin
-          -->
+          MinHeight="{DynamicResource ListContainerMinHeight}"
+          Background="{DynamicResource ListContainerColor}"
+          BorderBrush="{DynamicResource ListContainerBorderColor}"
+          BorderThickness="{DynamicResource ListContainerBorderThickness}"
+          CornerRadius="{DynamicResource ListContainerRounding}">
           <ListView
             x:Name="ResultsListView"
-            Margin="10,10,10,10"
+            Margin="{DynamicResource ListMargin}"
             Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="0"
@@ -106,41 +87,31 @@
                   </Setter.Value>
                 </Setter>
               </Style>
-              <!--
-                User editable styles:
-                
-                ListItemBorderThickness: BorderThickness
-                ListItemHoverBorderColor: Item.MouseOver.Border
-                ListItemHoverBgColor: Item.MouseOver.Background
-                ListItemSelectedBorderColor: Item.SelectedInactive.Border & Item.SelectedActive.Border
-                ListItemSelectedBgColor: Item.SelectedInactive.Background & Item.SelectedActive.Background
-                ListItemRounding: CornerRadius
-                ListItemMargin: Margin (Edited to hide scrollbar - was "0, 0, 10, 0" (see scrollbar.xaml))
-              -->
-              <SolidColorBrush
-                x:Key="Item.MouseOver.Background"
-                x:Name="ListItemHoverBgColor"
-                Color="LightGray" />
-              <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black" />
-              <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White" />
-              <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black" />
-              <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="White" />
-              <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Black" />
+              <!--  should refactor to use less definitions  -->
+              <SolidColorBrush x:Key="Item.MouseOver.Background" Color="{DynamicResource ListItemHoverBgColor}" />
+              <SolidColorBrush x:Key="Item.MouseOver.Border" Color="{DynamicResource ListItemHoverBorderColor}" />
+              <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="{DynamicResource ListItemSelectedBgColor}" />
+              <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="{DynamicResource ListItemSelectedBorderColor}" />
+              <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="{DynamicResource ListItemSelectedBgColor}" />
+              <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="{DynamicResource ListItemSelectedBorderColor}" />
+
               <Style TargetType="{x:Type ListViewItem}">
                 <Style.Resources>
                   <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15" />
-                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Setter Property="CornerRadius" Value="{DynamicResource ListItemRounding}" />
+                    <Setter Property="Margin" Value="{DynamicResource ListItemMargin}" />
                   </Style>
                 </Style.Resources>
 
                 <Setter Property="SnapsToDevicePixels" Value="True" />
                 <Setter Property="Padding" Value="4,1" />
-                <!--<Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>-->
+                <!--
+                <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                -->
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter x:Name="ListItemBorderThickness" Property="BorderThickness" Value="3" />
+                <Setter Property="BorderThickness" Value="{DynamicResource ListItemBorderThickness}" />
                 <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
 
                 <Setter Property="Template">
@@ -198,26 +169,14 @@
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="9*" />
                   </Grid.ColumnDefinitions>
-                  <!--
-                    User Editable styles:
-                    
-                    ListItemIconSize: Height & Width
-                    ListItemTextMargin: Margin
-                    ListItemNameFont: FontFamily
-                    ListItemNameSize: FontSize
-                    ListItemNameColor: Foreground
-                    ListItemDescFont: FontFamily
-                    ListItemDescSize: FontSize
-                    ListItemDescColor: Foreground
-                  -->
                   <Image
                     Grid.Column="0"
-                    Width="50"
-                    Height="50"
+                    Width="{DynamicResource ListItemIconSize}"
+                    Height="{DynamicResource ListItemIconSize}"
                     Source="{Binding icon}" />
                   <Grid
                     Grid.Column="1"
-                    Margin="10"
+                    Margin="{DynamicResource ListItemTextMargin}"
                     VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                       <RowDefinition Height="7*" />
@@ -226,16 +185,16 @@
                     <TextBlock
                       Grid.Row="0"
                       VerticalAlignment="Bottom"
-                      FontFamily="Cascadia Code"
-                      FontSize="18"
-                      Foreground="Black"
+                      FontFamily="{DynamicResource ListItemNameFont}"
+                      FontSize="{DynamicResource ListItemNameSize}"
+                      Foreground="{DynamicResource ListItemNameColor}"
                       Text="{Binding name}" />
                     <TextBlock
                       Grid.Row="1"
                       VerticalAlignment="Top"
-                      FontFamily="Cascadia Code"
-                      FontSize="12"
-                      Foreground="Gray"
+                      FontFamily="{DynamicResource ListItemDescFont}"
+                      FontSize="{DynamicResource ListItemDescSize}"
+                      Foreground="{DynamicResource ListItemDescColor}"
                       Text="{Binding description}" />
                   </Grid>
                 </Grid>
@@ -278,23 +237,12 @@
                 Width="{DynamicResource SearchIconWidth}"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid>
-                <!--
-                  User Editable styles:
-                  
-                  SearchFieldTxtColor: Foreground
-                  SearchFieldTxtSelColor: SelectionBrush
-                  SearchFieldHeight: Height
-                  SearchFieldWidth: MinWidth & Width
-                  SearchFieldMargin: Margin
-                  SearchFieldFont: FontFamily
-                  SearchFieldTxtSize: FontSize
-                -->
                 <TextBox
                   x:Name="SearchTermTextBox"
-                  Width="720"
-                  Height="50"
-                  MinWidth="720"
-                  Margin="10"
+                  Width="{DynamicResource SearchFieldWidth}"
+                  Height="{DynamicResource SearchFieldHeight}"
+                  MinWidth="{DynamicResource SearchFieldWidth}"
+                  Margin="{DynamicResource SearchFieldMargin}"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
@@ -303,12 +251,13 @@
                   BorderBrush="Transparent"
                   BorderThickness="0"
                   Cursor="IBeam"
-                  FontSize="24"
-                  Foreground="Black"
+                  FontFamily="{DynamicResource SearchFieldFont}"
+                  FontSize="{DynamicResource SearchFieldTxtSize}"
+                  Foreground="{DynamicResource SearchFieldTxtColor}"
                   Language="en-US"
                   MaxLines="1"
                   PreviewKeyDown="SearchTermTextBox_KeyDown"
-                  SelectionBrush="Black"
+                  SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
                   SpellCheck.IsEnabled="True"
                   TextChanged="onQueryChange">
                   <TextBox.ContextMenu>
@@ -318,25 +267,16 @@
                     <Style />
                   </TextBox.Style>
                 </TextBox>
-                <!--
-                  User Editable styles:
-                  
-                  SearchFieldPlaceholder: Text
-                  SearchFieldPlaceholderMargin: Margin
-                  SearchFieldPlaceholderColor: Foreground
-                  SearchFieldPlaceholderSize: FontSize
-                  SearchFieldPlaceholderFont: FontFamily
-                -->
                 <TextBlock
                   x:Name="SearchFieldPlaceholder"
-                  Margin="10"
+                  Margin="{DynamicResource SearchFieldPlaceholderMargin}"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
-                  FontFamily="Cascadia Code"
-                  FontSize="24"
-                  Foreground="DarkGray"
+                  FontFamily="{DynamicResource SearchFieldPlaceholderFont}"
+                  FontSize="{DynamicResource SearchFieldPlaceholderSize}"
+                  Foreground="{DynamicResource SearchFieldPlaceholderColor}"
                   IsHitTestVisible="False"
-                  Text="Enter Query">
+                  Text="{DynamicResource SearchFieldPlaceholder}">
                   <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                       <Setter Property="Visibility" Value="Collapsed" />

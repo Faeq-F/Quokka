@@ -198,148 +198,165 @@ namespace Quokka {
       //ResultsBox.MaxHeight = (System.Windows.SystemParameters.PrimaryScreenHeight / 2) - 234;
       //ContextPane.MaxHeight = ResultsBox.MaxHeight;
 
+      //Container.Height = ResultsBox.MaxHeight + EntryField.Height;// This will not be a setting
+
+      //Might move style settings to App startup
 
       //StyleSettings:
 
       //AppWindow:
-      try {
-        Application.Current.Resources["WindowTopMargin"] =
-          SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(
-            App.AppSettings.StyleSettings.AppWindow.WindowTopMargin) + ",0,0");
-        Application.Current.Resources["WindowWidth"] =
-          SettingParsers.parseScreenDimensionsSetting(
-            App.AppSettings.StyleSettings.AppWindow.WindowWidth);
-        Application.Current.Resources["WindowColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
-        Application.Current.Resources["WindowBorderColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
-        Application.Current.Resources["WindowBorderThickness"] =
-          SettingParsers.parseThicknessSetting(
-            App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness);
-        Application.Current.Resources["WindowRounding"] =
-          new CornerRadius(int.Parse(
-            App.AppSettings.StyleSettings.AppWindow.WindowRounding));
-        Application.Current.Resources["WindowPadding"] =
-          SettingParsers.parseThicknessSetting(
-            App.AppSettings.StyleSettings.AppWindow.WindowPadding);
+      //try {
+      Application.Current.Resources["WindowTopMargin"] =
+        SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(
+          App.AppSettings.StyleSettings.AppWindow.WindowTopMargin) + ",0,0");
+      Application.Current.Resources["WindowWidth"] =
+        SettingParsers.parseScreenDimensionsSetting(
+          App.AppSettings.StyleSettings.AppWindow.WindowWidth);
+      Application.Current.Resources["WindowColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.AppWindow.WindowColor) as SolidColorBrush;
+      Application.Current.Resources["WindowBorderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.AppWindow.WindowBorderColor) as SolidColorBrush;
+      Application.Current.Resources["WindowBorderThickness"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.AppWindow.WindowBorderThickness);
+      Application.Current.Resources["WindowRounding"] =
+        new CornerRadius(int.Parse(
+          App.AppSettings.StyleSettings.AppWindow.WindowRounding));
+      Application.Current.Resources["WindowPadding"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.AppWindow.WindowPadding);
 
-        //"SearchBar":
-        Application.Current.Resources["SearchBarColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
-        Application.Current.Resources["SearchBarRounding"] =
-          new CornerRadius(int.Parse(
-            App.AppSettings.StyleSettings.SearchBar.SearchBarRounding));
-        Application.Current.Resources["SearchBarBorderColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
-        Application.Current.Resources["SearchBarBorderSize"] =
-          SettingParsers.parseThicknessSetting(
-            App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
-        Application.Current.Resources["SearchBarHeight"] =
-          double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
-        Application.Current.Resources["SearchIconWidth"] =
-          int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchIconWidth);
+      //"SearchBar":
+      Application.Current.Resources["SearchBarColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.SearchBar.SearchBarColor) as SolidColorBrush;
+      Application.Current.Resources["SearchBarRounding"] =
+        new CornerRadius(int.Parse(
+          App.AppSettings.StyleSettings.SearchBar.SearchBarRounding));
+      Application.Current.Resources["SearchBarBorderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.SearchBar.SearchBarBorderColor) as SolidColorBrush;
+      Application.Current.Resources["SearchBarBorderSize"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.SearchBar.SearchBarBorderSize);
+      Application.Current.Resources["SearchBarHeight"] =
+        double.Parse(App.AppSettings.StyleSettings.SearchBar.SearchBarHeight);
+      Application.Current.Resources["SearchIconWidth"] =
+        int.Parse(App.AppSettings.StyleSettings.SearchBar.SearchIconWidth);
 
-        //"EntryField":
-        //"SearchFieldTxtColor": "Black",
-        SearchTermTextBox.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtColor) as SolidColorBrush;
-        //"SearchFieldTxtSelColor": "Black",
-        SearchTermTextBox.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSelColor) as SolidColorBrush;
-        //"SearchFieldHeight": "50",
-        SearchTermTextBox.Height = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldHeight);
-        //"SearchFieldWidth": "720",
-        SearchTermTextBox.Width = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
-        SearchTermTextBox.MinWidth = int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
+      //"EntryField":
+      Application.Current.Resources["SearchFieldTxtColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtColor
+          ) as SolidColorBrush;
+      Application.Current.Resources["SearchFieldTxtSelColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSelColor
+          ) as SolidColorBrush;
+      Application.Current.Resources["SearchFieldHeight"] =
+        int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldHeight);
+      Application.Current.Resources["SearchFieldWidth"] =
+        int.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldWidth);
+      Application.Current.Resources["SearchFieldMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldMargin);
+      Application.Current.Resources["SearchFieldFont"] =
+        new FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
+      Application.Current.Resources["SearchFieldTxtSize"] =
+        double.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSize);
+      Application.Current.Resources["SearchFieldPlaceholder"] =
+        App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholder;
+      Application.Current.Resources["SearchFieldPlaceholderMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderMargin);
+      Application.Current.Resources["SearchFieldPlaceholderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderColor
+          ) as SolidColorBrush;
+      Application.Current.Resources["SearchFieldPlaceholderSize"] =
+        double.Parse(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderSize);
+      Application.Current.Resources["SearchFieldPlaceholderFont"] =
+        new FontFamily(
+          App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderFont);
 
-        //"SearchFieldMargin": "10",
-        Application.Current.Resources["SearchFieldMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldMargin);
+      //"ResultsList":
 
-        //"SearchFieldFont": "Cascadia Code",
-        SearchTermTextBox.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldFont);
-        //"SearchFieldTxtSize": "24",
-        SearchTermTextBox.FontSize = double.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldTxtSize);
+      //"Container":
+      Application.Current.Resources["ListContainerMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin);
+      Application.Current.Resources["ListContainerBorderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderColor
+          ) as SolidColorBrush;
+      Application.Current.Resources["ListContainerBorderThickness"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderThickness);
+      Application.Current.Resources["ListContainerRounding"] =
+        new CornerRadius(int.Parse(
+          App.AppSettings.StyleSettings.ResultsList.Container.ListContainerRounding));
+      Application.Current.Resources["ListContainerColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.Container.ListContainerColor
+          ) as SolidColorBrush;
+      //Application.Current.Resources["ListContainerMinHeight"] =
+      //int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMinHeight);
 
+      //"List": (10,10,0,10)
+      Application.Current.Resources["ListMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.List.ListMargin);
 
-        //"SearchFieldPlaceholder": "Enter Query",
-        SearchFieldPlaceholder.Text = App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholder;
+      //"ListItems":
+      Application.Current.Resources["ListItemBorderThickness"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
+      Application.Current.Resources["ListItemHoverBorderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBorderColor);
+      Application.Current.Resources["ListItemHoverBgColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor
+          ) as SolidColorBrush;
+      Application.Current.Resources["ListItemSelectedBorderColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBorderColor);
+      Application.Current.Resources["ListItemSelectedBgColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBgColor);
+      Application.Current.Resources["ListItemRounding"] =
+        new CornerRadius(int.Parse(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemRounding));
+      Application.Current.Resources["ListItemMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemMargin);
+      //Application.Current.Resources["ListItemIconSize"] =
+      //double.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemIconSize);
+      Application.Current.Resources["ListItemTextMargin"] =
+        SettingParsers.parseThicknessSetting(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemTextMargin);
+      Application.Current.Resources["ListItemNameFont"] =
+        new FontFamily(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemNameFont);
+      Application.Current.Resources["ListItemNameSize"] =
+        double.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemNameSize);
+      Application.Current.Resources["ListItemNameColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemNameColor);
+      Application.Current.Resources["ListItemDescFont"] =
+        new FontFamily(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemDescFont);
+      Application.Current.Resources["ListItemDescSize"] =
+        double.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemDescSize);
+      Application.Current.Resources["ListItemDescColor"] =
+        new BrushConverter().ConvertFromString(
+          App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemDescColor);
 
-        //"SearchFieldPlaceholderMargin": "10",
-        Application.Current.Resources["SearchFieldPlaceholderMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderMargin);
-
-        //"SearchFieldPlaceholderColor": "DarkGray",
-        SearchFieldPlaceholder.Foreground = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderColor) as SolidColorBrush;
-        //"SearchFieldPlaceholderSize": "24",
-        SearchFieldPlaceholder.FontSize = double.Parse(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderSize);
-        //"SearchFieldPlaceholderFont": "Cascadia Code"
-        SearchFieldPlaceholder.FontFamily = new System.Windows.Media.FontFamily(App.AppSettings.StyleSettings.SearchBar.EntryField.SearchFieldPlaceholderFont);
-
-
-
-        //"ResultsList":
-        //"Container":
-
-
-        //"ListContainerMargin": "0,10,0,0",
-        Application.Current.Resources["ListContainerMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMargin);
-
-
-        //"ListContainerBorderColor": "Black",
-        ResultsBox.BorderBrush = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderColor) as SolidColorBrush;
-
-        //"ListContainerBorderThickness": "2",
-        Application.Current.Resources["ListContainerBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerBorderThickness);
-
-        //"ListContainerRounding": "15",
-        ResultsBox.CornerRadius = new CornerRadius(int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerRounding));
-        //"ListContainerColor": "White",
-        ResultsBox.Background = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerColor) as SolidColorBrush;
-
-        //"ListContainerMinHeight": "64",
-        ResultsBox.MinHeight = int.Parse(App.AppSettings.StyleSettings.ResultsList.Container.ListContainerMinHeight);
-
-
-
-        //"List":
-        //"ListMargin": "10,10,0,10"
-        Application.Current.Resources["ListMargin"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.List.ListMargin);
-
-
-        //"ListItems":
-        //"ListItemBorderThickness": "3",
-        Application.Current.Resources["ListItemBorderThickness"] = SettingParsers.parseThicknessSetting(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
-
-
-        //ListItemBorderThickness
-        //"ListItemHoverBorderColor": "Black",
-
-        //"ListItemHoverBgColor": "LightGray",
-
-        Application.Current.Resources["ListItemHoverBgColorAgain"] = new BrushConverter().ConvertFromString(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor) as SolidColorBrush;
-
-
-
-
-        //"ListItemSelectedBorderColor": "Black",
-        //"ListItemSelectedBgColor": "White",
-        //"ListItemRounding": "15",
-        //"ListItemMargin": "0, 0, 10, 0",
-        //"ListItemIconSize": "50",
-        //"ListItemTextMargin": "10",
-        //"ListItemNameFont": "Cascadia Code",
-        //"ListItemNameSize": "18",
-        //"ListItemNameColor": "Black",
-        //"ListItemDescFont": "Cascadia Code",
-        //"ListItemDescSize": "12",
-        //"ListItemDescColor": "Gray",
-
-        //Container.Height = ResultsBox.MaxHeight + EntryField.Height;// This will not be a setting
-      } catch (Exception) { issueEncountered = true; }
+      /*} catch (Exception) { issueEncountered = true; }
       if (issueEncountered) {
         MessageBox.Show("One or more of your settings did not apply correctly");
-      }
+      }*/
     }
   }
 }
