@@ -95,7 +95,7 @@ namespace Plugin_PortableApps {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;component/contextpane.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;V2.0.0.0;component/contextpane.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\ContextPane.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -139,7 +139,7 @@ namespace Plugin_PortableApps {
             case 7:
             
             #line 250 "..\..\ContextPane.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.openApp);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenApp);
             
             #line default
             #line hidden
@@ -155,7 +155,7 @@ namespace Plugin_PortableApps {
             case 9:
             
             #line 300 "..\..\ContextPane.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.openContainingFolder);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenContainingFolder);
             
             #line default
             #line hidden

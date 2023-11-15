@@ -1,13 +1,13 @@
-using Quokka;
-using System;
-using System.Windows.Media.Imaging;
-using System.Collections.Generic;
 using Microsoft.WindowsAPICodePack.Shell;
-using System.Diagnostics;
-using System.Linq;
-using Quokka.PluginArch;
+using Quokka;
 using Quokka.ListItems;
+using Quokka.PluginArch;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace Plugin_InstalledApps {
   /// <summary>  
@@ -15,8 +15,8 @@ namespace Plugin_InstalledApps {
   /// </summary>
   class InstalledAppsItem : ListItem {
 
-    public string path { get; set; }
-    public string extraDetails { get; set; }
+    public string Path { get; set; }
+    public string ExtraDetails { get; set; }
 
     public InstalledAppsItem(ShellObject app) {
       this.name = app.Name;
@@ -33,9 +33,9 @@ namespace Plugin_InstalledApps {
       else
         this.icon = app.Thumbnail.MediumBitmapSource;
 
-      this.path = app.Properties.System.Link.TargetParsingPath.Value;
+      this.Path = app.Properties.System.Link.TargetParsingPath.Value;
       try {
-        this.extraDetails = FileVersionInfo.GetVersionInfo(path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(path).FileVersion;
+        this.ExtraDetails = FileVersionInfo.GetVersionInfo(Path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(Path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(Path).FileVersion;
       } catch { }
     }
 
@@ -75,7 +75,7 @@ namespace Plugin_InstalledApps {
     /// </summary>  
     public string PluggerName { get; set; } = "InstalledApps";
 
-    public List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
+    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
       foreach (string i in PluginSettings.BlackList) {
         list.RemoveAll(x => x.name.Equals(i));
       }
@@ -83,14 +83,15 @@ namespace Plugin_InstalledApps {
     }
 
     public List<String> SpecialCommands() {
-      List<String> SpecialCommand = new List<String>();
-      SpecialCommand.Add(PluginSettings.AllAppsSpecialCommand);
+      List<String> SpecialCommand = new() {
+        PluginSettings.AllAppsSpecialCommand
+      };
       return SpecialCommand;
     }
 
     public List<ListItem> OnSpecialCommand(string command) {
       //There is only 1 special command for this plugin so there is no need to check which it is
-      List<ListItem> AllList = new List<ListItem>(ListOfSystemApps);
+      List<ListItem> AllList = new(ListOfSystemApps);
       //sort alphabetically
       AllList = AllList.OrderBy(x => x.name).ToList();
       AllList.Insert(0, new AllAppsItem());
@@ -104,7 +105,7 @@ namespace Plugin_InstalledApps {
     /// <returns>List<ListItem> of InstalledApps that possibly match what is being searched for</returns>
     // FuzzySearch threshold is a plugin specific setting
     public List<ListItem> OnQueryChange(string query) {
-      List<ListItem> IdentifiedApps = new List<ListItem>();
+      List<ListItem> IdentifiedApps = new();
       //filtering apps
       foreach (ListItem app in ListOfSystemApps) {
         if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)

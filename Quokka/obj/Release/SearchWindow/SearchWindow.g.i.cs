@@ -134,7 +134,7 @@ namespace Quokka {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Quokka;component/searchwindow/searchwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Quokka;V2.0.0.0;component/searchwindow/searchwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SearchWindow\SearchWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -186,7 +186,7 @@ namespace Quokka {
             #line hidden
             
             #line 262 "..\..\..\SearchWindow\SearchWindow.xaml"
-            this.SearchTermTextBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.onQueryChange);
+            this.SearchTermTextBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.OnQueryChange);
             
             #line default
             #line hidden
@@ -210,7 +210,7 @@ namespace Quokka {
             case 6:
             
             #line 167 "..\..\..\SearchWindow\SearchWindow.xaml"
-            ((System.Windows.Controls.Grid)(target)).PreviewMouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.listItem_Click);
+            ((System.Windows.Controls.Grid)(target)).PreviewMouseLeftButtonUp += new System.Windows.Input.MouseButtonEventHandler(this.ListItem_Click);
             
             #line default
             #line hidden

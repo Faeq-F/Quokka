@@ -31,7 +31,7 @@ namespace Plugin_InstalledApps {
       DetailsImage.Source = Item.icon;
       NameText.Text = Item.name;
       DescText.Text = Item.description;
-      ExtraDetails.Text = Item.extraDetails;
+      ExtraDetails.Text = Item.ExtraDetails;
     }
 
     private void openApp(object sender, RoutedEventArgs e) {
@@ -60,7 +60,7 @@ namespace Plugin_InstalledApps {
     private void openContainingFolder(object sender, RoutedEventArgs e) {
       using Process folderopener = new Process();
       folderopener.StartInfo.FileName = "explorer";
-      folderopener.StartInfo.Arguments = Item.path.Remove(Item.path.LastIndexOf('\\'));
+      folderopener.StartInfo.Arguments = Item.Path.Remove(Item.Path.LastIndexOf('\\'));
       folderopener.Start();
       App.Current.MainWindow.Close();
     }

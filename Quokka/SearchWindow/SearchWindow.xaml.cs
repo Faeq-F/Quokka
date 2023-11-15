@@ -41,24 +41,25 @@ namespace Quokka {
       }
 
       //Escape key to close window
-      RoutedCommand ExitWindow = new RoutedCommand();
+      RoutedCommand ExitWindow = new();
       ExitWindow.InputGestures.Add(new KeyGesture(Key.Escape));
       CommandBindings.Add(new CommandBinding(ExitWindow, Exit));
 
       //Enter key to choose item
-      RoutedCommand ExecuteItemCommand = new RoutedCommand();
+      RoutedCommand ExecuteItemCommand = new();
       ExecuteItemCommand.InputGestures.Add(new KeyGesture(Key.Enter));
-      CommandBindings.Add(new CommandBinding(ExecuteItemCommand, listItem_Click));
+      CommandBindings.Add(new CommandBinding(ExecuteItemCommand, ListItem_Click));
 
       //fields needed for context pane
       searchBox = SearchTermTextBox;
       contextPane = ContextPane;
+
       //Focusing Search Bar
       EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent,
         new RoutedEventHandler(WindowLoaded));
     }
 
-    private void onQueryChange(object sender, RoutedEventArgs e) {
+    private void OnQueryChange(object sender, RoutedEventArgs e) {
       bool IgnoreMaxResults = false;
       //reset view of list
       ResultsListView.SelectedIndex = 0;
@@ -165,7 +166,7 @@ namespace Quokka {
       e.Handled = true;
     }
 
-    private void listItem_Click(object sender, RoutedEventArgs e) {
+    private void ListItem_Click(object sender, RoutedEventArgs e) {
       if (ResultsListView != null) {
         if (ResultsListView.SelectedIndex > -1) {
           ( ResultsListView.SelectedItem as ListItem ).execute();

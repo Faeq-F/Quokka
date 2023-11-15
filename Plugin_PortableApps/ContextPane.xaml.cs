@@ -13,12 +13,12 @@ namespace Plugin_PortableApps {
 
   public partial class ContextPane : Page {
 
-    private PortableAppsItem Item;
+    private readonly PortableAppsItem Item;
     public ContextPane() {
       InitializeComponent();
       try {
         this.Item = (PortableAppsItem?) ( Application.Current.MainWindow as SearchWindow ).SelectedItem;
-      } catch (InvalidCastException ex) {//Used to handle the AllAppsItem
+      } catch (InvalidCastException) {//Used to handle the AllAppsItem
         ( Application.Current.MainWindow as SearchWindow ).contextPane.Visibility = Visibility.Collapsed;
         ( Application.Current.MainWindow as SearchWindow ).searchBox.Focus();
         //makes showing a new pane more reliable
@@ -31,10 +31,10 @@ namespace Plugin_PortableApps {
       DetailsImage.Source = Item.icon;
       NameText.Text = Item.name;
       DescText.Text = Item.description;
-      ExtraDetails.Text = Item.extraDetails;
+      ExtraDetails.Text = Item.ExtraDetails;
     }
 
-    private void openApp(object sender, RoutedEventArgs e) {
+    private void OpenApp(object sender, RoutedEventArgs e) {
       Item.execute();
     }
 
@@ -44,10 +44,11 @@ namespace Plugin_PortableApps {
       //Public domain; no attribution required.
       const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
 
-      ProcessStartInfo info = new ProcessStartInfo(Item.description);
-      info.UseShellExecute = true;
-      info.Verb = "runas";
-      info.CreateNoWindow = true;
+      ProcessStartInfo info = new(Item.description) {
+        UseShellExecute = true,
+        Verb = "runas",
+        CreateNoWindow = true
+      };
       try {
         Process.Start(info);
       } catch (System.ComponentModel.Win32Exception ex) {
@@ -56,10 +57,10 @@ namespace Plugin_PortableApps {
       App.Current.MainWindow.Close();
     }
 
-    private void openContainingFolder(object sender, RoutedEventArgs e) {
-      using Process folderopener = new Process();
+    private void OpenContainingFolder(object sender, RoutedEventArgs e) {
+      using Process folderopener = new();
       folderopener.StartInfo.FileName = "explorer";
-      folderopener.StartInfo.Arguments = System.IO.Path.GetDirectoryName(Item.exePath);
+      folderopener.StartInfo.Arguments = System.IO.Path.GetDirectoryName(Item.ExePath);
       folderopener.Start();
       App.Current.MainWindow.Close();
     }

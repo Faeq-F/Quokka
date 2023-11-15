@@ -164,7 +164,7 @@
             </ListView.Resources>
             <ListView.ItemTemplate>
               <DataTemplate>
-                <Grid PreviewMouseLeftButtonUp="listItem_Click">
+                <Grid PreviewMouseLeftButtonUp="ListItem_Click">
                   <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="9*" />
@@ -259,7 +259,7 @@
                   PreviewKeyDown="SearchTermTextBox_KeyDown"
                   SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
                   SpellCheck.IsEnabled="True"
-                  TextChanged="onQueryChange">
+                  TextChanged="OnQueryChange">
                   <TextBox.ContextMenu>
                     <ContextMenu Visibility="Hidden" />
                   </TextBox.ContextMenu>

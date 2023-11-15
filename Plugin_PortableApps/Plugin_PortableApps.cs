@@ -1,15 +1,14 @@
+using Quokka.ListItems;
+using Quokka.PluginArch;
 using System;
-using Quokka;
-using System.IO;
 using System.Collections.Generic;
-using System.Linq;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using System.Windows;
-using Quokka.PluginArch;
-using Quokka.ListItems;
 
 namespace Plugin_PortableApps {
 
@@ -18,15 +17,15 @@ namespace Plugin_PortableApps {
   /// </summary>
   class PortableAppsItem : ListItem {
 
-    public string exePath { get; set; }
-    public string extraDetails { get; set; }
+    public string ExePath { get; set; }
+    public string ExtraDetails { get; set; }
 
     public PortableAppsItem(string exePath) {
-      this.exePath = exePath;
+      this.ExePath = exePath;
       name = Path.GetFileNameWithoutExtension(exePath);
       description = exePath;
       icon = Imaging.CreateBitmapSourceFromHIcon(Icon.ExtractAssociatedIcon(exePath).Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-      extraDetails = FileVersionInfo.GetVersionInfo(exePath).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(exePath).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(exePath).FileVersion;
+      ExtraDetails = FileVersionInfo.GetVersionInfo(exePath).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(exePath).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(exePath).FileVersion;
     }
 
     public override void execute() {
@@ -66,9 +65,9 @@ namespace Plugin_PortableApps {
     /// </summary>  
     public string PluggerName { get; set; } = "PortableApps";
 
-    List<ListItem> AllPortableApps = new List<ListItem>();
+    readonly List<ListItem> AllPortableApps = new();
 
-    public List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
+    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
       foreach (string i in PluginSettings.BlackList) {
         list.RemoveAll(x => x.name.Equals(i));
       }
@@ -76,7 +75,7 @@ namespace Plugin_PortableApps {
     }
 
     List<ListItem> IPlugger.OnQueryChange(string query) {
-      List<ListItem> IdentifiedApps = new List<ListItem>();
+      List<ListItem> IdentifiedApps = new();
       //filtering apps
       foreach (ListItem app in AllPortableApps) {
         if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)
@@ -89,14 +88,15 @@ namespace Plugin_PortableApps {
     }
 
     List<string> IPlugger.SpecialCommands() {
-      List<string> SpecialCommand = new List<string>();
-      SpecialCommand.Add(PluginSettings.AllAppsSpecialCommand);
+      List<string> SpecialCommand = new() {
+        PluginSettings.AllAppsSpecialCommand
+      };
       return SpecialCommand;
     }
 
     List<ListItem> IPlugger.OnSpecialCommand(string command) {
       //There is only 1 special command for this plugin so there is no need to check which it is
-      List<ListItem> AllList = new List<ListItem>(AllPortableApps);
+      List<ListItem> AllList = new(AllPortableApps);
       //sort alphabetically
       AllList = AllList.OrderBy(x => x.name).ToList();
       AllList.Insert(0, new PortableAppsFolderItem());
