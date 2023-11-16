@@ -56,3 +56,4 @@ G:\Quokka\Release\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\Scrollbar.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\SearchWindow.baml
 C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\SearchWindow\SearchWindow.g.cs
+C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\Quokka.sourcelink.json

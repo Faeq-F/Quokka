@@ -51,3 +51,4 @@ G:\Quokka\Release\PlugBoard\Plugin_PortableApps\Plugin\Config\Resources\openFold
 G:\Quokka\Release\PlugBoard\Plugin_PortableApps\Plugin\settings.json
 G:\Quokka\Release\PlugBoard\Plugin_PortableApps\Plugin\Plugin_PortableApps.deps.json
 G:\Quokka\Release\PlugBoard\Plugin_PortableApps\Plugin\Plugin_PortableApps.dll
+C:\Users\Faeq\source\repos\Quokka\Plugin_PortableApps\obj\Plugin\Plugin_PortableApps.sourcelink.json

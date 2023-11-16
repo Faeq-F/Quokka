@@ -51,3 +51,4 @@ G:\Quokka\Release\PlugBoard\Plugin_InstalledApps\Plugin\Config\Resources\openFol
 G:\Quokka\Release\PlugBoard\Plugin_InstalledApps\Plugin\settings.json
 G:\Quokka\Release\PlugBoard\Plugin_InstalledApps\Plugin\Plugin_InstalledApps.deps.json
 G:\Quokka\Release\PlugBoard\Plugin_InstalledApps\Plugin\Plugin_InstalledApps.dll
+C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Plugin\Plugin_InstalledApps.sourcelink.json

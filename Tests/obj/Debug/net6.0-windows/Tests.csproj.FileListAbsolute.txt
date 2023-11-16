@@ -125,3 +125,4 @@ C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Microsoft.Windo
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Quokka.dll.config
+C:\Users\Faeq\source\repos\Quokka\Tests\obj\Debug\net6.0-windows\Tests.sourcelink.json

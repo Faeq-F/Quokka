@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Q4lvSNZC1MyR25wxnXVRrGG0qt1lvlbn5ZjkpAOe2h6FybS/ufUjsSSzi/xtj7vjHqO7Hz6EVa6JyPrU/2wUwg==",
+  "dgSpecHash": "q4hOvkOvD1xKMj22bXU9kH7vrYOXHeEgSwsJ/U38/J7SNUOFcXpoxn0A8WXkaxdr5M5ft7KvJJFYaM1lHFReYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_InstalledApps\\Plugin_InstalledApps.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Faeq\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.net.illink.tasks\\7.0.100-1.23211.1\\microsoft.net.illink.tasks.7.0.100-1.23211.1.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\pinvoke.kernel32\\0.7.124\\pinvoke.kernel32.0.7.124.nupkg.sha512",
