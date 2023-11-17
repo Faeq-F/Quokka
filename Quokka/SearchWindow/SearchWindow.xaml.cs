@@ -32,7 +32,7 @@ namespace Quokka {
 
       //run anything needed for plugins on window startup
       try {
-        foreach (IPlugger plugin in App.plugins) {
+        foreach (IPlugger plugin in App.plugins!) {
           plugin.OnSearchWindowStartup();
         }
       } catch (Exception ex) {
@@ -69,7 +69,7 @@ namespace Quokka {
         ContextPane.Visibility = Visibility.Collapsed;
       }
       //get text from sender
-      TextBox textBox = sender as TextBox;
+      TextBox textBox = ( sender as TextBox )!;
       query = textBox.Text;
       if (query.EndsWith(App.AppSettings.GeneralSettings.IgnoreMaxResultsFlag)) {
         query = query.Remove(
@@ -151,7 +151,7 @@ namespace Quokka {
               if (( ResultsListView.SelectedIndex == -1 )) ResultsListView.SelectedIndex = 0;
               string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
               if (PluginName != "Quokka") {
-                SelectedItem = ( ResultsListView.SelectedItem as ListItem );
+                SelectedItem = ( ResultsListView.SelectedItem as ListItem )!;
                 contextPane.Source = null;
                 ContextPane.Source =
                   new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
@@ -183,7 +183,7 @@ namespace Quokka {
     void WindowLoaded(object sender, RoutedEventArgs e) {
       var window = e.Source as Window;
       System.Threading.Thread.Sleep(100);
-      window.Dispatcher.Invoke(
+      window!.Dispatcher.Invoke(
       new Action(() => {
         window.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
 
