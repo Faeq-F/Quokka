@@ -313,32 +313,32 @@ namespace Quokka {
 
         //"ListItems":
         Application.Current.Resources["ListItemBorderThickness"] =
-          SettingParsers.parseThicknessSetting(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
+              SettingParsers.parseThicknessSetting(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemBorderThickness);
         Application.Current.Resources["ListItemHoverBorderColor"] =
           new BrushConverter().ConvertFromString(
             App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBorderColor);
         Application.Current.Resources["ListItemHoverBgColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor
-            ) as SolidColorBrush;
+              new BrushConverter().ConvertFromString(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemHoverBgColor
+                ) as SolidColorBrush;
         Application.Current.Resources["ListItemSelectedBorderColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBorderColor);
+              new BrushConverter().ConvertFromString(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBorderColor);
         Application.Current.Resources["ListItemSelectedBgColor"] =
-          new BrushConverter().ConvertFromString(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBgColor);
+              new BrushConverter().ConvertFromString(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemSelectedBgColor);
         Application.Current.Resources["ListItemRounding"] =
-          new CornerRadius(int.Parse(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemRounding));
+              new CornerRadius(int.Parse(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemRounding));
         Application.Current.Resources["ListItemMargin"] =
           SettingParsers.parseThicknessSetting(
             App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemMargin);
         Application.Current.Resources["ListItemIconSize"] =
-          double.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemIconSize);
+              double.Parse(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemIconSize);
         Application.Current.Resources["ListItemTextMargin"] =
-          SettingParsers.parseThicknessSetting(
-            App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemTextMargin);
+              SettingParsers.parseThicknessSetting(
+                App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemTextMargin);
         Application.Current.Resources["ListItemNameFont"] =
           new FontFamily(App.AppSettings.StyleSettings.ResultsList.ListItems.ListItemNameFont);
         Application.Current.Resources["ListItemNameSize"] =

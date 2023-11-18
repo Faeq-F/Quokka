@@ -86,13 +86,6 @@
                   </Setter.Value>
                 </Setter>
               </Style>
-              <!--  should refactor to use less definitions  -->
-              <SolidColorBrush x:Key="Item.MouseOver.Background" Color="{DynamicResource ListItemHoverBgColor}" />
-              <SolidColorBrush x:Key="Item.MouseOver.Border" Color="{DynamicResource ListItemHoverBorderColor}" />
-              <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="{DynamicResource ListItemSelectedBgColor}" />
-              <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="{DynamicResource ListItemSelectedBorderColor}" />
-              <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="{DynamicResource ListItemSelectedBgColor}" />
-              <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="{DynamicResource ListItemSelectedBorderColor}" />
 
               <Style TargetType="{x:Type ListViewItem}">
                 <Style.Resources>
@@ -133,24 +126,24 @@
                           <MultiTrigger.Conditions>
                             <Condition Property="IsMouseOver" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemHoverBgColorAgain}" />
-                          <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.MouseOver.Border}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemHoverBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemHoverBorderColor}" />
                         </MultiTrigger>
                         <MultiTrigger>
                           <MultiTrigger.Conditions>
                             <Condition Property="Selector.IsSelectionActive" Value="False" />
                             <Condition Property="IsSelected" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedInactive.Background}" />
-                          <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedInactive.Border}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemSelectedBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemSelectedBorderColor}" />
                         </MultiTrigger>
                         <MultiTrigger>
                           <MultiTrigger.Conditions>
                             <Condition Property="Selector.IsSelectionActive" Value="True" />
                             <Condition Property="IsSelected" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedActive.Background}" />
-                          <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedActive.Border}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemSelectedBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemSelectedBorderColor}" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                           <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
