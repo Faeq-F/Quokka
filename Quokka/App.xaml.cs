@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Hardcodet.Wpf.TaskbarNotification;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Quokka.PluginArch;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -6,10 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using Hardcodet.Wpf.TaskbarNotification;
-using System.Text.Json;
-using Quokka.Settings;
-using Quokka.PluginArch;
 
 namespace Quokka {
   /// <summary>
@@ -30,8 +30,8 @@ namespace Quokka {
     private LowLevelKeyboardListener? _listener;
     private string detectedKeys = "";
 
-    public static Settings.Settings? AppSettings { get; set; }
-    public static dynamic? StyleSettings { get; set; }
+    public static Settings.Settings AppSettings { get; set; }
+    public static dynamic StyleSettings { get; set; }
 
     public static List<IPlugger>? plugins { private set; get; }
 
@@ -40,19 +40,23 @@ namespace Quokka {
       //grab settings
       string fileName = Environment.CurrentDirectory + "\\Config\\settings.json";
       string jsonString = File.ReadAllText(fileName);
-      AppSettings = JsonSerializer.Deserialize<Settings.Settings>(jsonString)!;
-      dynamic StyleSettings = JsonSerializer.Deserialize<dynamic>(jsonString)!;
+      AppSettings = JsonConvert.DeserializeObject<Settings.Settings>(jsonString)!;
+      //dynamic StyleSettings = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
+
+      applyAppSettings();
 
       // grab plugins and run startup
       plugins = new List<IPlugger>();
       if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard")) {
         try {
           foreach (var plugin in Directory.GetDirectories(Environment.CurrentDirectory + "\\PlugBoard\\")) {
-            string dllPath = GetPluggerDll(plugin);
-            Assembly _Assembly = Assembly.LoadFile(dllPath);
-            var types = _Assembly.GetTypes()?.ToList();
-            var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
-            plugins.Add((IPlugger) Activator.CreateInstance(type));
+            if (plugin != "") {
+              string dllPath = GetPluggerDll(plugin);
+              Assembly _Assembly = Assembly.LoadFile(dllPath);
+              var types = _Assembly.GetTypes()?.ToList();
+              var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
+              plugins.Add((IPlugger) Activator.CreateInstance(type));
+            }
           }
           //run anything needed for plugins on app startup
           foreach (IPlugger plugin in plugins) {
@@ -72,6 +76,32 @@ namespace Quokka {
       notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
       notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
 
+    }
+
+    private void applyAppSettings() {
+      String[] specialCases = { "WindowTopMargin" };
+      String[] screenDimensionSettings = { };
+      String[] thicknessIndicators = { };
+      String[] brushIndicators = { };
+
+      string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
+      Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
+
+      JObject obj = JObject.Parse(JsonString);
+
+      loop:
+      foreach (var entry in obj) {
+        if (entry.Value.ToString().Contains("{")) {
+          try {
+            obj = JObject.Parse(entry.Value.ToString()); //cannot go through other settings once obj changes
+          } catch (Exception e) {
+            System.Windows.MessageBox.Show(entry.Value.ToString(), "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
+          }
+          goto loop;
+        } else {
+          System.Windows.MessageBox.Show(entry.Key + "\n\n" + entry.Value, "", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+      }
     }
 
     public static void OpenSettingsFile() {

@@ -28,7 +28,7 @@ namespace Quokka {
 
       InitializeComponent();
 
-      ApplyAppSettings();
+      //ApplyAppSettings();
 
       //run anything needed for plugins on window startup
       try {
