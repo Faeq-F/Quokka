@@ -82,7 +82,7 @@ namespace Quokka {
       String[] specialCases = { "WindowTopMargin" };
       String[] screenDimensionSettings = { };
       String[] thicknessIndicators = { };
-      String[] brushIndicators = { };
+      String[] brushIndicators = { "Color" };
 
       string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
       Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
