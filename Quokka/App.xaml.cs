@@ -42,8 +42,8 @@ namespace Quokka {
       string jsonString = File.ReadAllText(fileName);
       AppSettings = JsonConvert.DeserializeObject<Settings.Settings>(jsonString)!;
       //dynamic StyleSettings = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
-
-      applyAppSettings();
+      Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
+      applyAppSettings(JObject.Parse(JsonString));
 
       // grab plugins and run startup
       plugins = new List<IPlugger>();
@@ -78,26 +78,20 @@ namespace Quokka {
 
     }
 
-    private void applyAppSettings() {
-      String[] specialCases = { "WindowTopMargin" };
-      String[] screenDimensionSettings = { "WindowWidth" };
-      String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
-      String[] brushIndicators = { "color" };
+    String[] specialCases = { "WindowTopMargin" };
+    String[] screenDimensionSettings = { "WindowWidth" };
+    String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
+    String[] brushIndicators = { "color" };
+    string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
 
-      string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
-      Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
-
-      JObject obj = JObject.Parse(JsonString);
-
-      loop:
+    private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
         if (entry.Value.ToString().Contains("{")) {
           try {
-            obj = JObject.Parse(entry.Value.ToString()); //cannot go through other settings once obj changes
+            applyAppSettings(JObject.Parse(entry.Value.ToString()));
           } catch (Exception e) {
             System.Windows.MessageBox.Show(entry.Value.ToString(), "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
           }
-          goto loop;
         } else {
           System.Windows.MessageBox.Show(entry.Key + "\n\n" + entry.Value, "", MessageBoxButton.OK, MessageBoxImage.Information);
         }
