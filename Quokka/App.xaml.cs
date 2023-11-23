@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quokka.PluginArch;
+using Quokka.Settings;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Quokka {
   /// <summary>
@@ -93,7 +95,24 @@ namespace Quokka {
             System.Windows.MessageBox.Show(entry.Value.ToString(), "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
           }
         } else {
-          System.Windows.MessageBox.Show(entry.Key + "\n\n" + entry.Value, "", MessageBoxButton.OK, MessageBoxImage.Information);
+          if (specialCases.Contains(entry.Key)) {
+            if (entry.Key == "WindowTopMargin") {
+              Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
+            }
+          } else if (screenDimensionSettings.Contains(entry.Key)) {
+            Application.Current.Resources[entry.Key] = SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString());
+          } else {
+            foreach (String i in thicknessIndicators) {
+              if (entry.Key.ToString().Contains(i)) {
+                Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting(entry.Value.ToString());
+              }
+            }
+            foreach (String i in brushIndicators) {
+              if (entry.Key.ToString().Contains(i)) {
+                Application.Current.Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
+              }
+            }
+          }
         }
       }
     }
