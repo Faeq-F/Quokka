@@ -80,8 +80,9 @@ namespace Quokka {
 
     }
 
-    String[] specialCases = { "WindowTopMargin" };
+    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder" };
     String[] screenDimensionSettings = { "WindowWidth" };
+    String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize" };
     String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
     String[] brushIndicators = { "color" };
     string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
@@ -98,17 +99,27 @@ namespace Quokka {
           if (specialCases.Contains(entry.Key)) {
             if (entry.Key == "WindowTopMargin") {
               Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
+            } else if (entry.Key == "SearchFieldPlaceholder") {
+              Application.Current.Resources[entry.Key] = entry.Value.ToString();
             }
           } else if (screenDimensionSettings.Contains(entry.Key)) {
             Application.Current.Resources[entry.Key] = SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString());
+          } else if (txtSize.Contains(entry.Key)) {
+            Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
+          } else if (entry.Key.ToString().Contains("Height") || entry.Key.ToString().Contains("Width")) {
+            Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
+          } else if (entry.Key.ToString().Contains("Font")) {
+            Application.Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(entry.Value.ToString());
+          } else if (entry.Key.ToString().Contains("Rounding")) {
+            Application.Current.Resources[entry.Key] = new CornerRadius(int.Parse(entry.Value.ToString()));
           } else {
             foreach (String i in thicknessIndicators) {
-              if (entry.Key.ToString().Contains(i)) {
+              if (entry.Key.ToString().ToLower().Contains(i)) {
                 Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting(entry.Value.ToString());
               }
             }
             foreach (String i in brushIndicators) {
-              if (entry.Key.ToString().Contains(i)) {
+              if (entry.Key.ToString().ToLower().Contains(i)) {
                 Application.Current.Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
               }
             }
