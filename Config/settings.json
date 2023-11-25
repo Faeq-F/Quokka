@@ -54,8 +54,7 @@
         "ListContainerBorderThickness": "2",
         "ListContainerRounding": "15",
         "ListContainerColor": "White",
-        "ListContainerMinHeight": "64",
-        "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+        "ListContainerMinHeight": "64"
 
       },
       "List": {

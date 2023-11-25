@@ -29,6 +29,8 @@ namespace Quokka {
       InitializeComponent();
 
       //ApplyAppSettings();
+      ResultsBox.Visibility = Visibility.Collapsed;
+      ContextPane.Visibility = Visibility.Collapsed;
 
       //run anything needed for plugins on window startup
       try {

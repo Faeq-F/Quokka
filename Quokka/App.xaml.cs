@@ -86,14 +86,14 @@ namespace Quokka {
     String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
     String[] brushIndicators = { "color" };
     string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
-
+    //removed "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
         if (entry.Value.ToString().Contains("{")) {
           try {
             applyAppSettings(JObject.Parse(entry.Value.ToString()));
           } catch (Exception e) {
-            System.Windows.MessageBox.Show(entry.Value.ToString(), "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
+            System.Windows.MessageBox.Show(entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace, "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
           }
         } else {
           if (specialCases.Contains(entry.Key)) {
