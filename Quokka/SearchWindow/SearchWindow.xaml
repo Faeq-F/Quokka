@@ -53,11 +53,11 @@
         VerticalAlignment="Top"
         Panel.ZIndex="0">
 
-        <!--  ListContainerMaxHeight: (see cs file) -no change!?- maybe num of items dicatates  -->
         <Border
           x:Name="ResultsBox"
           Height="auto"
           MinHeight="{DynamicResource ListContainerMinHeight}"
+          MaxHeight="{DynamicResource ListContainerMaxHeight}"
           Background="{DynamicResource ListContainerColor}"
           BorderBrush="{DynamicResource ListContainerBorderColor}"
           BorderThickness="{DynamicResource ListContainerBorderThickness}"

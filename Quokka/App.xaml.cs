@@ -81,12 +81,12 @@ namespace Quokka {
     }
 
     String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder" };
-    String[] screenDimensionSettings = { "WindowWidth" };
+    String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
     String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize" };
     String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
     String[] brushIndicators = { "color" };
     string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
-    //removed "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
         if (entry.Value.ToString().Contains("{")) {
