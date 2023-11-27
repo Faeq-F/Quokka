@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Licensed under GNU General Public License v3.0 - Faeq Faisal")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("A keystroke launcher")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0.0+6cb20b3734f7e48ffb1f2de1e86f40f0d65c06b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quokka")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quokka")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]

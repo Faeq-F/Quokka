@@ -80,6 +80,7 @@ namespace Quokka {
 
     }
 
+    //Fields for Settings
     String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder" };
     String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
     String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize" };
