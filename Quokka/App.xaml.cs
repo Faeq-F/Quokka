@@ -71,7 +71,7 @@ namespace Quokka {
 
       //keyboard listener for search window shortcut
       _listener = new LowLevelKeyboardListener();
-      _listener.OnKeyPressed += _listener_OnKeyPressed;
+      _listener.OnKeyPressed += _listener_OnKeyPressed!;
       _listener.HookKeyboard();
 
       //create the notifyIcon (it's a resource declared in NotifyIconResources.xaml
