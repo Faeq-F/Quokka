@@ -55,7 +55,7 @@
         "ListContainerRounding": "15",
         "ListContainerColor": "White",
         "ListContainerMinHeight": "64",
-        "ListContainerMaxHeight": "(PrimaryScreenHeight / 2) - 234"
+        "ListContainerMaxHeight": "PrimaryScreenHeight"
 
       },
       "List": {
@@ -116,7 +116,7 @@
               "ListItemRounding": "15",
               "ListItemMargin": "0, 0, 10, 0",
 
-              "ListItemIconSize": "15",
+              "ListItemIconSize": "30",
               "ListItemIconMargin": "0,0,-5,0",
               "ListItemTextPadding": "10",
               "ListItemFont": "Cascadia Code",

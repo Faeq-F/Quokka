@@ -121,8 +121,12 @@ C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\PInvoke.User32.
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\PInvoke.Windows.Core.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\PInvoke.Windows.ShellScalingApi.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Validation.dll
-C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.dll
-C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Quokka.dll
 C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\Quokka.dll.config
 C:\Users\Faeq\source\repos\Quokka\Tests\obj\Debug\net6.0-windows\Tests.sourcelink.json
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.Util.dll
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.WindowsAPICodePack.dll
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.WindowsAPICodePack.COMNative.dll
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.WindowsAPICodePack.Consts.dll
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.WindowsAPICodePack.Shell.dll
+C:\Users\Faeq\source\repos\Quokka\Tests\bin\Debug\net6.0-windows\WinCopies.WindowsAPICodePack.Win32Native.dll

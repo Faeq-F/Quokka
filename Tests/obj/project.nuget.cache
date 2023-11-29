@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CF6E9T+tuYZlXtFY6c61XbYmW/oBh/MTik2tePfBTz8/3/j5vfAJHyzBuI5dGCEkKTQyozbR15HKIlRTPNEN/g==",
+  "dgSpecHash": "mgb5yArQoQZWFUVWESvIU+imvjxKkr5EpdamPJh/vVOACE4dF4dCF1gzWJdvjDeYolfctXw//smOYmsKdbqz/w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Tests\\Tests.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,7 @@
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.5.0\\microsoft.testplatform.objectmodel.17.5.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.testplatform.testhost\\17.5.0\\microsoft.testplatform.testhost.17.5.0.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\mstest.testadapter\\2.2.10\\mstest.testadapter.2.2.10.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\mstest.testframework\\2.2.10\\mstest.testframework.2.2.10.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
@@ -40,29 +40,12 @@
     "C:\\Users\\Faeq\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\validation\\2.4.15\\validation.2.4.15.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-core\\1.1.1\\windowsapicodepack-core.1.1.1.nupkg.sha512",
-    "C:\\Users\\Faeq\\.nuget\\packages\\windowsapicodepack-shell\\1.1.1\\windowsapicodepack-shell.1.1.1.nupkg.sha512"
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.util\\2.19.0\\wincopies.util.2.19.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.windowsapicodepack\\2.12.0\\wincopies.windowsapicodepack.2.12.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.windowsapicodepack.comnative\\2.12.0\\wincopies.windowsapicodepack.comnative.2.12.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.windowsapicodepack.consts\\2.12.0\\wincopies.windowsapicodepack.consts.2.12.0.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.windowsapicodepack.shell\\2.12.0.2\\wincopies.windowsapicodepack.shell.2.12.0.2.nupkg.sha512",
+    "C:\\Users\\Faeq\\.nuget\\packages\\wincopies.windowsapicodepack.win32native\\2.12.0\\wincopies.windowsapicodepack.win32native.2.12.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WindowsAPICodePack-Core 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WindowsAPICodePack-Core",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WindowsAPICodePack-Shell 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WindowsAPICodePack-Shell",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -291,11 +291,11 @@
           }
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
         "runtime": {
-          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.39.4716"
+            "fileVersion": "1.1.77.27830"
           }
         }
       },
@@ -505,32 +505,77 @@
           }
         }
       },
-      "WindowsAPICodePack-Core/1.1.1": {
+      "WinCopies.Util/2.19.0": {
         "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0/WinCopies.Util.dll": {
+            "assemblyVersion": "2.19.0.0",
+            "fileVersion": "2.19.0.0"
           }
         }
       },
-      "WindowsAPICodePack-Shell/1.1.1": {
+      "WinCopies.WindowsAPICodePack/2.12.0": {
         "dependencies": {
-          "WindowsAPICodePack-Core": "1.1.1"
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.COMNative": "2.12.0"
         },
         "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.Shell.dll": {
-            "assemblyVersion": "1.1.0.0",
-            "fileVersion": "1.1.0.0"
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.dll": {
+            "assemblyVersion": "2.12.0.0",
+            "fileVersion": "2.12.0.0"
+          }
+        }
+      },
+      "WinCopies.WindowsAPICodePack.COMNative/2.12.0": {
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.Win32Native": "2.12.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll": {
+            "assemblyVersion": "2.12.0.0",
+            "fileVersion": "2.12.0.0"
+          }
+        }
+      },
+      "WinCopies.WindowsAPICodePack.Consts/2.12.0": {
+        "runtime": {
+          "lib/net6.0/WinCopies.WindowsAPICodePack.Consts.dll": {
+            "assemblyVersion": "2.12.0.0",
+            "fileVersion": "2.12.0.0"
+          }
+        }
+      },
+      "WinCopies.WindowsAPICodePack.Shell/2.12.0.2": {
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack": "2.12.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll": {
+            "assemblyVersion": "2.12.0.2",
+            "fileVersion": "2.12.0.2"
+          }
+        }
+      },
+      "WinCopies.WindowsAPICodePack.Win32Native/2.12.0": {
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.Consts": "2.12.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll": {
+            "assemblyVersion": "2.12.0.0",
+            "fileVersion": "2.12.0.0"
           }
         }
       },
       "Quokka/2.0.0": {
         "dependencies": {
           "Hardcodet.NotifyIcon.Wpf": "1.1.0",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.77",
           "Newtonsoft.Json": "13.0.3",
           "PInvoke.User32": "0.7.124",
-          "WindowsAPICodePack-Shell": "1.1.1"
+          "WinCopies.WindowsAPICodePack.Shell": "2.12.0.2"
         },
         "runtime": {
           "Quokka.dll": {}
@@ -608,12 +653,12 @@
       "path": "microsoft.testplatform.testhost/17.5.0",
       "hashPath": "microsoft.testplatform.testhost.17.5.0.nupkg.sha512"
     },
-    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
-      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
-      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+      "sha512": "sha512-MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.77",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512"
     },
     "MSTest.TestAdapter/2.2.10": {
       "type": "package",
@@ -804,19 +849,47 @@
       "path": "validation/2.4.15",
       "hashPath": "validation.2.4.15.nupkg.sha512"
     },
-    "WindowsAPICodePack-Core/1.1.1": {
+    "WinCopies.Util/2.19.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GoURoQuE7ea7B7q24YRTBfZbsNO7ZtwSyBHbM8zO0ynwfjAGC0bbAmVrDvZ6HbWtqqOt6QTzdmYnj2WJglb5JQ==",
-      "path": "windowsapicodepack-core/1.1.1",
-      "hashPath": "windowsapicodepack-core.1.1.1.nupkg.sha512"
+      "sha512": "sha512-izmjO4SH15Qlxb87FJdMOWu6V8mCETRp93tJnq77dSptAvLMio0WT2nS30KimCiQ3z4chXzGcUQSIak8jxGiBQ==",
+      "path": "wincopies.util/2.19.0",
+      "hashPath": "wincopies.util.2.19.0.nupkg.sha512"
     },
-    "WindowsAPICodePack-Shell/1.1.1": {
+    "WinCopies.WindowsAPICodePack/2.12.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CPFamhL3jPo8O6+ErGsLS4LK3DWP5ncxqhbzpPnYkIW9rjatunUij35iTjprbr9mlYR/5Pbguw21MwSmTOKR4g==",
-      "path": "windowsapicodepack-shell/1.1.1",
-      "hashPath": "windowsapicodepack-shell.1.1.1.nupkg.sha512"
+      "sha512": "sha512-B+hixaqwKnaZqnazZmD0MftuEFHDy7gSOk862v3vRDgXx1oC7AQC/HG1ON2DU7j/tj+BJgTklUGhymmSwPoO0g==",
+      "path": "wincopies.windowsapicodepack/2.12.0",
+      "hashPath": "wincopies.windowsapicodepack.2.12.0.nupkg.sha512"
+    },
+    "WinCopies.WindowsAPICodePack.COMNative/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uY2Q6btlOZXBg5dr/zM2aipuoDs/scwFCDMLrJyAiikZksZjtwMB4wFpurgM4akQHpQb79PPdSYc8sIgw/kYag==",
+      "path": "wincopies.windowsapicodepack.comnative/2.12.0",
+      "hashPath": "wincopies.windowsapicodepack.comnative.2.12.0.nupkg.sha512"
+    },
+    "WinCopies.WindowsAPICodePack.Consts/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XMg9eNqGcbSM8u+jhg4uWkcX/3qAUAjqf7RuIOvCfHP0WuEmC4lX+5Ma6gH9FCH+217sd2cNYaWI89Vp6QKUew==",
+      "path": "wincopies.windowsapicodepack.consts/2.12.0",
+      "hashPath": "wincopies.windowsapicodepack.consts.2.12.0.nupkg.sha512"
+    },
+    "WinCopies.WindowsAPICodePack.Shell/2.12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cmIznTShzcjdWjybphCtsjBX+E23yCWj1zAbcPyoBmKdDWWJ/0Hxaoop8wccDi+3vC6hjKkIoehTkuvnHQN5ow==",
+      "path": "wincopies.windowsapicodepack.shell/2.12.0.2",
+      "hashPath": "wincopies.windowsapicodepack.shell.2.12.0.2.nupkg.sha512"
+    },
+    "WinCopies.WindowsAPICodePack.Win32Native/2.12.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cBMl0Ze1pIPY8jqBNIFm9+4pmadB3A6eOzbY7QsYFf6WSd/GHAJNeGVs0Y670e5s9YAZkZbX/EkaMdcNTJd/YQ==",
+      "path": "wincopies.windowsapicodepack.win32native/2.12.0",
+      "hashPath": "wincopies.windowsapicodepack.win32native.2.12.0.nupkg.sha512"
     },
     "Quokka/2.0.0": {
       "type": "project",

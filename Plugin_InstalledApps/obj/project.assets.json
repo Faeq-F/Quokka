@@ -30,15 +30,15 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
         "type": "package",
         "compile": {
-          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+          "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -158,36 +158,121 @@
           }
         }
       },
-      "WindowsAPICodePack-Core/1.1.1": {
+      "WinCopies.Util/2.19.0": {
         "type": "package",
         "compile": {
-          "lib/Microsoft.WindowsAPICodePack.dll": {}
+          "lib/net6.0/WinCopies.Util.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.dll": {}
+          "lib/net6.0/WinCopies.Util.dll": {
+            "related": ".xml"
+          }
         }
       },
-      "WindowsAPICodePack-Shell/1.1.1": {
+      "WinCopies.WindowsAPICodePack/2.12.0": {
         "type": "package",
         "dependencies": {
-          "WindowsAPICodePack-Core": "1.1.1"
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.COMNative": "2.12.0"
         },
         "compile": {
-          "lib/Microsoft.WindowsAPICodePack.Shell.dll": {}
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/Microsoft.WindowsAPICodePack.Shell.dll": {}
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
+      "WinCopies.WindowsAPICodePack.COMNative/2.12.0": {
+        "type": "package",
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.Win32Native": "2.12.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "WinCopies.WindowsAPICodePack.Consts/2.12.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/WinCopies.WindowsAPICodePack.Consts.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/WinCopies.WindowsAPICodePack.Consts.dll": {
+            "related": ".xml"
+          }
         }
+      },
+      "WinCopies.WindowsAPICodePack.Shell/2.12.0.2": {
+        "type": "package",
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack": "2.12.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "WinCopies.WindowsAPICodePack.Win32Native/2.12.0": {
+        "type": "package",
+        "dependencies": {
+          "WinCopies.Util": "2.19.0",
+          "WinCopies.WindowsAPICodePack.Consts": "2.12.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
       },
       "Quokka/2.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Hardcodet.NotifyIcon.Wpf": "1.1.0",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.77",
           "Newtonsoft.Json": "13.0.3",
           "PInvoke.User32": "0.7.124",
-          "WindowsAPICodePack-Shell": "1.1.1"
+          "WinCopies.WindowsAPICodePack.Shell": "2.12.0.2"
         },
         "compile": {
           "bin/placeholder/Quokka.dll": {}
@@ -272,27 +357,24 @@
         "tools/net7.0/illink.runtimeconfig.json"
       ]
     },
-    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
-      "sha512": "8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
+      "sha512": "MCu674ZETgU18EbxfwIlRpUPJ02YbZenLsMCXTkpeA7KUBpXfFaOUDlEO+7UWu5AFnUoydg+aQENJkuaZPheMQ==",
       "type": "package",
-      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.77",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net45/Design/Microsoft.Xaml.Behaviors.Design.dll",
-        "lib/net45/Microsoft.Xaml.Behaviors.dll",
-        "lib/net45/Microsoft.Xaml.Behaviors.pdb",
-        "lib/net45/Microsoft.Xaml.Behaviors.xml",
-        "lib/net5.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
-        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
-        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
-        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
-        "lib/netcoreapp3.1/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
-        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll",
-        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.pdb",
-        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.xml",
-        "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+        "lib/net462/Design/Microsoft.Xaml.Behaviors.Design.dll",
+        "lib/net462/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net462/Microsoft.Xaml.Behaviors.dll",
+        "lib/net462/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net462/Microsoft.Xaml.Behaviors.xml",
+        "lib/net6.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512",
         "microsoft.xaml.behaviors.wpf.nuspec",
         "tools/Install.ps1"
       ]
@@ -494,30 +576,191 @@
         "validation.nuspec"
       ]
     },
-    "WindowsAPICodePack-Core/1.1.1": {
-      "sha512": "GoURoQuE7ea7B7q24YRTBfZbsNO7ZtwSyBHbM8zO0ynwfjAGC0bbAmVrDvZ6HbWtqqOt6QTzdmYnj2WJglb5JQ==",
+    "WinCopies.Util/2.19.0": {
+      "sha512": "izmjO4SH15Qlxb87FJdMOWu6V8mCETRp93tJnq77dSptAvLMio0WT2nS30KimCiQ3z4chXzGcUQSIak8jxGiBQ==",
       "type": "package",
-      "path": "windowsapicodepack-core/1.1.1",
+      "path": "wincopies.util/2.19.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/Microsoft.WindowsAPICodePack.dll",
-        "lib/Microsoft.WindowsAPICodePack.xml",
-        "windowsapicodepack-core.1.1.1.nupkg.sha512",
-        "windowsapicodepack-core.nuspec"
+        "LICENSE",
+        "README.md",
+        "WinCopies.png",
+        "lib/net35/WinCopies.Util.dll",
+        "lib/net35/WinCopies.Util.xml",
+        "lib/net472/WinCopies.Util.dll",
+        "lib/net472/WinCopies.Util.xml",
+        "lib/net48/WinCopies.Util.dll",
+        "lib/net48/WinCopies.Util.xml",
+        "lib/net5.0/WinCopies.Util.dll",
+        "lib/net5.0/WinCopies.Util.xml",
+        "lib/net6.0/WinCopies.Util.dll",
+        "lib/net6.0/WinCopies.Util.xml",
+        "lib/net7.0/WinCopies.Util.dll",
+        "lib/net7.0/WinCopies.Util.xml",
+        "lib/netcoreapp3.0/WinCopies.Util.dll",
+        "lib/netcoreapp3.0/WinCopies.Util.xml",
+        "lib/netcoreapp3.1/WinCopies.Util.dll",
+        "lib/netcoreapp3.1/WinCopies.Util.xml",
+        "lib/netstandard2.0/WinCopies.Util.dll",
+        "lib/netstandard2.0/WinCopies.Util.xml",
+        "lib/netstandard2.1/WinCopies.Util.dll",
+        "lib/netstandard2.1/WinCopies.Util.xml",
+        "wincopies.util.2.19.0.nupkg.sha512",
+        "wincopies.util.nuspec"
       ]
     },
-    "WindowsAPICodePack-Shell/1.1.1": {
-      "sha512": "CPFamhL3jPo8O6+ErGsLS4LK3DWP5ncxqhbzpPnYkIW9rjatunUij35iTjprbr9mlYR/5Pbguw21MwSmTOKR4g==",
+    "WinCopies.WindowsAPICodePack/2.12.0": {
+      "sha512": "B+hixaqwKnaZqnazZmD0MftuEFHDy7gSOk862v3vRDgXx1oC7AQC/HG1ON2DU7j/tj+BJgTklUGhymmSwPoO0g==",
       "type": "package",
-      "path": "windowsapicodepack-shell/1.1.1",
+      "path": "wincopies.windowsapicodepack/2.12.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/Microsoft.WindowsAPICodePack.Shell.dll",
-        "lib/Microsoft.WindowsAPICodePack.Shell.xml",
-        "windowsapicodepack-shell.1.1.1.nupkg.sha512",
-        "windowsapicodepack-shell.nuspec"
+        "LICENSE",
+        "README.md",
+        "lib/net35/WinCopies.WindowsAPICodePack.dll",
+        "lib/net35/WinCopies.WindowsAPICodePack.xml",
+        "lib/net472/WinCopies.WindowsAPICodePack.dll",
+        "lib/net472/WinCopies.WindowsAPICodePack.xml",
+        "lib/net48/WinCopies.WindowsAPICodePack.dll",
+        "lib/net48/WinCopies.WindowsAPICodePack.xml",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.dll",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.xml",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.dll",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.xml",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.dll",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.xml",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.dll",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.xml",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.dll",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.xml",
+        "wincopies.windowsapicodepack.2.12.0.nupkg.sha512",
+        "wincopies.windowsapicodepack.nuspec"
+      ]
+    },
+    "WinCopies.WindowsAPICodePack.COMNative/2.12.0": {
+      "sha512": "uY2Q6btlOZXBg5dr/zM2aipuoDs/scwFCDMLrJyAiikZksZjtwMB4wFpurgM4akQHpQb79PPdSYc8sIgw/kYag==",
+      "type": "package",
+      "path": "wincopies.windowsapicodepack.comnative/2.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net35/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net35/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/net472/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net472/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/net48/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net48/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.COMNative.dll",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.COMNative.xml",
+        "wincopies.windowsapicodepack.comnative.2.12.0.nupkg.sha512",
+        "wincopies.windowsapicodepack.comnative.nuspec"
+      ]
+    },
+    "WinCopies.WindowsAPICodePack.Consts/2.12.0": {
+      "sha512": "XMg9eNqGcbSM8u+jhg4uWkcX/3qAUAjqf7RuIOvCfHP0WuEmC4lX+5Ma6gH9FCH+217sd2cNYaWI89Vp6QKUew==",
+      "type": "package",
+      "path": "wincopies.windowsapicodepack.consts/2.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net35/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net35/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/net472/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net472/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/net48/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net48/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/net5.0/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net5.0/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/net6.0/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net6.0/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/net7.0/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/net7.0/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/netstandard2.0/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/netstandard2.0/WinCopies.WindowsAPICodePack.Consts.xml",
+        "lib/netstandard2.1/WinCopies.WindowsAPICodePack.Consts.dll",
+        "lib/netstandard2.1/WinCopies.WindowsAPICodePack.Consts.xml",
+        "wincopies.windowsapicodepack.consts.2.12.0.nupkg.sha512",
+        "wincopies.windowsapicodepack.consts.nuspec"
+      ]
+    },
+    "WinCopies.WindowsAPICodePack.Shell/2.12.0.2": {
+      "sha512": "cmIznTShzcjdWjybphCtsjBX+E23yCWj1zAbcPyoBmKdDWWJ/0Hxaoop8wccDi+3vC6hjKkIoehTkuvnHQN5ow==",
+      "type": "package",
+      "path": "wincopies.windowsapicodepack.shell/2.12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net35/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net35/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/net472/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net472/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/net48/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net48/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Shell.xml",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Shell.dll",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Shell.xml",
+        "wincopies.windowsapicodepack.shell.2.12.0.2.nupkg.sha512",
+        "wincopies.windowsapicodepack.shell.nuspec"
+      ]
+    },
+    "WinCopies.WindowsAPICodePack.Win32Native/2.12.0": {
+      "sha512": "cBMl0Ze1pIPY8jqBNIFm9+4pmadB3A6eOzbY7QsYFf6WSd/GHAJNeGVs0Y670e5s9YAZkZbX/EkaMdcNTJd/YQ==",
+      "type": "package",
+      "path": "wincopies.windowsapicodepack.win32native/2.12.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net35/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net35/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/net472/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net472/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/net48/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net48/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net5.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net6.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/net7.0-windows7.0/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/netcoreapp3.0/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/netcoreapp3.1/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/netstandard2.0/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/netstandard2.0/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "lib/netstandard2.1/WinCopies.WindowsAPICodePack.Win32Native.dll",
+        "lib/netstandard2.1/WinCopies.WindowsAPICodePack.Win32Native.xml",
+        "wincopies.windowsapicodepack.win32native.2.12.0.nupkg.sha512",
+        "wincopies.windowsapicodepack.win32native.nuspec"
       ]
     },
     "Quokka/2.0.0": {
@@ -616,27 +859,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WindowsAPICodePack-Core 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WindowsAPICodePack-Core",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'WindowsAPICodePack-Shell 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "WindowsAPICodePack-Shell",
-      "targetGraphs": [
-        "net6.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }
