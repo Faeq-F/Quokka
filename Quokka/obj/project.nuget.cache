@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SST6LPZUxWgkEzhP0SsG9OUluvy9bHrXR/WhggEO+1uBKPmX5goApdyp08ddUawtU7bNQyBcSKVsMgZpjZZmSw==",
+  "dgSpecHash": "B2fcVzsa+ShNPYC5qdv0KZ07npJ58i4nXU7imHUk0cjGeyJTSs0exiwBkINwKYeldeNz69KQBn1AX2zKE6rtnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj",
+  "projectFilePath": "G:\\Documents\\dev\\Quokka\\Quokka\\Quokka.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Faeq\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",

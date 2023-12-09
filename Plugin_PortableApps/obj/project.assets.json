@@ -783,11 +783,11 @@
   "project": {
     "version": "2.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
+      "projectUniqueName": "G:\\Documents\\dev\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
       "projectName": "Plugin_PortableApps",
-      "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
+      "projectPath": "G:\\Documents\\dev\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
       "packagesPath": "C:\\Users\\Faeq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\obj\\",
+      "outputPath": "G:\\Documents\\dev\\Quokka\\Plugin_PortableApps\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -808,8 +808,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj": {
-              "projectPath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Quokka\\Quokka.csproj"
+            "G:\\Documents\\dev\\Quokka\\Quokka\\Quokka.csproj": {
+              "projectPath": "G:\\Documents\\dev\\Quokka\\Quokka\\Quokka.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9lMHF8WpbA6UO692TESnh+u9ro7egiXoWpDp1aqj5oW/hzE9c9tsv/E3ZqhcjP9kOaoiJyrIVH32WqM7agDwjA==",
+  "dgSpecHash": "OFl2IyYWLTQa19JIOxpnm6tukz3DF4+9/TFpa2wOtEuNrkcY7ZrDIw762ZRyCEUQSiA4G2gaJtNRNy+eiGD2Vg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Faeq\\source\\repos\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
+  "projectFilePath": "G:\\Documents\\dev\\Quokka\\Plugin_PortableApps\\Plugin_PortableApps.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Faeq\\.nuget\\packages\\hardcodet.notifyicon.wpf\\1.1.0\\hardcodet.notifyicon.wpf.1.1.0.nupkg.sha512",
     "C:\\Users\\Faeq\\.nuget\\packages\\microsoft.net.illink.analyzers\\7.0.100-1.23211.1\\microsoft.net.illink.analyzers.7.0.100-1.23211.1.nupkg.sha512",

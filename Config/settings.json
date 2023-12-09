@@ -59,7 +59,42 @@
 
       },
       "List": {
-        "ListMargin": "10,10,10,10"
+        "ListMargin": "10,10,10,10",
+        "ScrollBarWidth": "18",
+
+        "ScrollBarBackground": {
+
+          "ScrollBarBgVisibility": "Visible",
+          "ScrollBarBgColor": "Black",
+          "ScrollBarBgRounding": "3",
+          "ScrollBarBgBorderColor": "Black",
+          "ScrollBarBgBorderThickness": "0",
+          "ScrollBarBgWidth": "10",
+          "ScrollBarBgMargin": "-10,0,-1,10"
+        },
+
+        "ScrollBarThumbBackground": {
+
+          "ScrollThumbBgVisibility": "Visible",
+          "ScrollThumbBgColor": "Black",
+          "ScrollThumbBgRounding": "7",
+          "ScrollThumbBgBorderColor": "Black",
+          "ScrollThumbBgBorderThickness": "0",
+          "ScrollThumbBgWidth": "11",
+          "ScrollThumbBgMargin": "-10,-1,-1,-1"
+
+        },
+
+        "ScrollBarThumb": {
+
+          "ScrollThumbVisibility": "Visible",
+          "ScrollThumbColor": "White",
+          "ScrollThumbRounding": "2",
+          "ScrollThumbBorderColor": "Transparent",
+          "ScrollThumbBorderThickness": "0",
+          "ScrollThumbWidth": "5",
+          "ScrollThumbMargin": "-10,2,-1,2"
+        }
       },
       "ListItems": {
 
@@ -122,6 +157,40 @@
               "ListItemFont": "Cascadia Code",
               "ListItemSize": "12",
               "ListItemColor": "Black"
+            },
+
+            "ScrollBarBackground": {
+
+              "ScrollBarBgVisibility": null,
+              "BarBgColor": null,
+              "BarBgRounding": null,
+              "BarBgBorderColor": null,
+              "BarBgBorderThickness": null,
+              "BarBgWidth": null,
+              "BarBgMargin": null
+            },
+
+            "ScrollBarThumbBackground": {
+
+              "ScrollThumbBgVisibility": null,
+              "ScrollThumbBgColor": null,
+              "ScrollThumbBgRounding": null,
+              "ScrollThumbBgBorderColor": null,
+              "ScrollThumbBgBorderThickness": null,
+              "ScrollThumbBgWidth": null,
+              "ScrollThumbBgMargin": null
+            },
+
+            "ScrollBarThumb": {
+
+              "ScrollThumbVisibility": null,
+              "ScrollThumbColor": null,
+              "ScrollThumbRounding": null,
+              "ScrollThumbBorderColor": null,
+              "ScrollThumbBorderThickness": null,
+              "ScrollThumbWidth": null,
+              "ScrollThumbMargin": null
+
             }
           }
         }
