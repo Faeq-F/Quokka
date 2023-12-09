@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\Users\Faeq\source\repos\Quokka\Plugin_InstalledApps\obj\Plugin\
+G:\Documents\dev\Quokka\Plugin_InstalledApps\obj\Plugin\
 Plugin_InstalledApps
 none
 false
@@ -16,5 +16,5 @@ TRACE;PLUGIN;NET;NET6_0;NETCOREAPP
 218-1335772961
 ContextPane.xaml;Scrollbar.xaml;
 
-False
+True
 

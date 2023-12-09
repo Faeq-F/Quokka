@@ -18,6 +18,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Quokka
-build_property.ProjectDir = C:\Users\Faeq\source\repos\Quokka\Quokka\
+build_property.ProjectDir = G:\Documents\dev\Quokka\Quokka\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

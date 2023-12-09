@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Faeq\source\repos\Quokka\Quokka\obj\Release\
+G:\Documents\dev\Quokka\Quokka\obj\Release\
 Quokka
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\Faeq\source\repos\Quokka\Quokka\App.xaml
+G:\Documents\dev\Quokka\Quokka\App.xaml
 3-929366154
 
 13425545454
 218-618024903
 NotifyIconResources.xaml;SearchWindow\Scrollbar.xaml;SearchWindow\SearchWindow.xaml;
 
-False
+True
 
