@@ -1,5 +1,4 @@
-﻿using Quokka;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -16,13 +15,10 @@ namespace Quokka {
 
     public ICommand ShowWindowCommand {
       get {
-        return new DelegateCommand {
-          CanExecuteFunc = () => Application.Current.MainWindow == null,
-          CommandAction = () => {
-            Application.Current.MainWindow = new SearchWindow();
-            Application.Current.MainWindow.Show();
-          }
-        };
+        return new DelegateCommand(() => {
+          Application.Current.MainWindow = new SearchWindow();
+          Application.Current.MainWindow.Show();
+        }, () => Application.Current.MainWindow == null);
       }
     }
 
@@ -31,10 +27,8 @@ namespace Quokka {
     /// </summary>
     public ICommand HideWindowCommand {
       get {
-        return new DelegateCommand {
-          CommandAction = () => Application.Current.MainWindow.Close(),
-          CanExecuteFunc = () => Application.Current.MainWindow != null
-        };
+        return new DelegateCommand(
+          () => Application.Current.MainWindow.Close(), () => Application.Current.MainWindow != null);
       }
     }
 
@@ -44,13 +38,13 @@ namespace Quokka {
 
     public ICommand OpenSettingsFile {
       get {
-        return new DelegateCommand { CommandAction = () => App.OpenSettingsFile() };
+        return new DelegateCommand(() => App.OpenSettingsFile());
       }
     }
 
     public ICommand OpenPlugBoard {
       get {
-        return new DelegateCommand { CommandAction = () => App.OpenPlugBoard() };
+        return new DelegateCommand(() => App.OpenPlugBoard());
       }
     }
 
@@ -60,7 +54,7 @@ namespace Quokka {
     /// </summary>
     public ICommand ExitApplicationCommand {
       get {
-        return new DelegateCommand { CommandAction = () => Application.Current.Shutdown() };
+        return new DelegateCommand(() => Application.Current.Shutdown());
       }
     }
   }
@@ -70,18 +64,28 @@ namespace Quokka {
   /// Simplistic delegate command for the demo.
   /// </summary>
   public class DelegateCommand : ICommand {
-    public Action CommandAction { get; set; }
-    public Func<bool> CanExecuteFunc { get; set; }
 
-    public void Execute(object parameter) {
+    public DelegateCommand(Action CommandAction) {
+      this.CommandAction = CommandAction;
+    }
+
+    public DelegateCommand(Action CommandAction, Func<bool> CanExecuteFunc) {
+      this.CommandAction = CommandAction;
+      this.CanExecuteFunc = CanExecuteFunc;
+    }
+
+    public Action CommandAction { get; set; }
+    public Func<bool>? CanExecuteFunc { get; set; }
+
+    public void Execute(object? parameter) {
       CommandAction();
     }
 
-    public bool CanExecute(object parameter) {
+    public bool CanExecute(object? parameter) {
       return CanExecuteFunc == null || CanExecuteFunc();
     }
 
-    public event EventHandler CanExecuteChanged {
+    public event EventHandler? CanExecuteChanged {
       add { CommandManager.RequerySuggested += value; }
       remove { CommandManager.RequerySuggested -= value; }
     }

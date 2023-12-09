@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 #Added in manually
-/obj/**
+obj/**
 
 # User-specific files
 *.rsuser
