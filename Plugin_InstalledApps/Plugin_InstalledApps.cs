@@ -15,12 +15,12 @@ namespace Plugin_InstalledApps {
   /// </summary>
   class InstalledAppsItem : ListItem {
 
-    public string Path { get; set; }
+    public string? Path { get; set; }
     public string ExtraDetails { get; set; }
 
     public InstalledAppsItem(ShellObject app) {
-      this.name = app.Name;
-      this.description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
+      name = app.Name;
+      description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
 
       if (InstalledApps.PluginSettings.IconSize.Equals("Medium"))
         this.icon = app.Thumbnail.MediumBitmapSource;
@@ -33,9 +33,9 @@ namespace Plugin_InstalledApps {
       else
         this.icon = app.Thumbnail.MediumBitmapSource;
 
-      this.Path = app.Properties.System.Link.TargetParsingPath.Value;
+      Path = app.Properties.System.Link.TargetParsingPath.Value;
       try {
-        this.ExtraDetails = FileVersionInfo.GetVersionInfo(Path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(Path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(Path).FileVersion;
+        ExtraDetails = FileVersionInfo.GetVersionInfo(Path).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(Path).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(Path).FileVersion;
       } catch { }
     }
 

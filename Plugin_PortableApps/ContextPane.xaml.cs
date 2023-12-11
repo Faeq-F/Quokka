@@ -19,10 +19,10 @@ namespace Plugin_PortableApps {
       try {
         this.Item = (PortableAppsItem?) ( Application.Current.MainWindow as SearchWindow ).SelectedItem;
       } catch (InvalidCastException) {//Used to handle the AllAppsItem
-        ( Application.Current.MainWindow as SearchWindow ).contextPane.Visibility = Visibility.Collapsed;
-        ( Application.Current.MainWindow as SearchWindow ).searchBox.Focus();
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+        ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
         //makes showing a new pane more reliable
-        ( Application.Current.MainWindow as SearchWindow ).contextPane.Source = null;
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
 
         //Process.Start("ms-settings:appsfeatures");
         App.Current.MainWindow.Close();
@@ -93,10 +93,10 @@ namespace Plugin_PortableApps {
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
         case Key.Apps: //This is the menu key
-          ( Application.Current.MainWindow as SearchWindow ).contextPane.Visibility = Visibility.Collapsed;
-          ( Application.Current.MainWindow as SearchWindow ).searchBox.Focus();
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+          ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
           //makes showing a new pane more reliable
-          ( Application.Current.MainWindow as SearchWindow ).contextPane.Source = null;
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
           break;
         default:
           return;

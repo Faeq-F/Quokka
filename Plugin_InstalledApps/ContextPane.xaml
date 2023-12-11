@@ -19,48 +19,26 @@
     </ResourceDictionary>
   </Page.Resources>
 
-  <!--
-    User editable styles:
-    
-    BorderColor: BorderBrush
-    BorderThickness: BorderThickness
-    CornerRounding: CornerRadius
-    Background: Background
-    MinHeight: MinHeight
-  -->
   <Border
     Width="auto"
     Height="auto"
-    MinHeight="64"
-    Background="White"
-    BorderBrush="Black"
-    BorderThickness="2"
-    CornerRadius="15">
+    MinHeight="{DynamicResource ContextPaneMinHeight}"
+    Background="{DynamicResource ContextPaneBackground}"
+    BorderBrush="{DynamicResource ContextPaneBorderColor}"
+    BorderThickness="{DynamicResource ContextPaneBorderThickness}"
+    CornerRadius="{DynamicResource ContextPaneCornerRounding}">
 
-    <!--
-      User editable styles:
-      
-      ContentMargin: Margin
-      ContentVerticalAlignment: VerticalAlignment
-      ContentHorizontalAlignment: HorizontalAlignment
-      DetailsImageMargin: Margin
-      TextColor: Foreground
-      TextSize: FontSize
-      FontFamily: FontFamily
-      TextLineMargin: Margin
-    -->
     <Grid
-      Margin="0,0,0,0"
+      Margin="{DynamicResource ContextPaneContentMargin}"
       HorizontalAlignment="Stretch"
-      VerticalAlignment="Center">
+      VerticalAlignment="{DynamicResource ContextPaneContentVerticalAlignment}">
       <Grid.ColumnDefinitions>
 
         <ColumnDefinition Width="5*" />
         <ColumnDefinition Width="5*" />
 
       </Grid.ColumnDefinitions>
-      <Grid Grid.Column="0" HorizontalAlignment="Center">
-        <!--  This is what is referred to by the setting  -->
+      <Grid Grid.Column="0" HorizontalAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}">
         <Grid.RowDefinitions>
           <RowDefinition Height="4*" />
           <RowDefinition Height="1*" />
@@ -72,51 +50,45 @@
         <Image
           x:Name="DetailsImage"
           Grid.Row="0"
-          Margin="0,0,0,0" />
+          Margin="{DynamicResource ContextPaneImageMargin}" />
         <TextBlock
           x:Name="NameText"
           Grid.Row="1"
-          Margin="0,0,0,0"
+          Margin="{DynamicResource NameTextMargin}"
           VerticalAlignment="Top"
-          FontFamily="Cascadia Code"
-          FontSize="16"
-          Foreground="Black"
+          FontFamily="{DynamicResource NameTextFontFamily}"
+          FontSize="{DynamicResource NameTextSize}"
+          Foreground="{DynamicResource NameTextColor}"
           Text=""
           TextWrapping="Wrap" />
         <TextBlock
           x:Name="DescText"
           Grid.Row="2"
-          Margin="0,0,0,0"
+          Margin="{DynamicResource DescTextMargin}"
           VerticalAlignment="Bottom"
-          FontFamily="Cascadia Code"
-          FontSize="12"
-          Foreground="Gray"
+          FontFamily="{DynamicResource DescTextFontFamily}"
+          FontSize="{DynamicResource DescTextSize}"
+          Foreground="{DynamicResource DescTextColor}"
           Text=""
           TextWrapping="Wrap" />
         <TextBlock
           x:Name="ExtraDetails"
           Grid.Row="3"
-          Margin="0,0,0,0"
+          Margin="{DynamicResource ExtraDetailsTextMargin}"
           VerticalAlignment="Bottom"
-          FontFamily="Cascadia Code"
-          FontSize="12"
-          Foreground="Gray"
+          FontFamily="{DynamicResource ExtraDetailsTextFontFamily}"
+          FontSize="{DynamicResource ExtraDetailsTextSize}"
+          Foreground="{DynamicResource ExtraDetailsTextColor}"
           Text=""
           TextWrapping="Wrap" />
 
 
       </Grid>
       <Grid Grid.Column="1" VerticalAlignment="Center">
-        <!--
-          User editable styles:
-          
-          ListMargin: Margin
-          ContentHorizontalAlignment: HorizontalContentAlignment
-        -->
         <ListView
           x:Name="ButtonsListView"
-          Margin="10,10,0,10"
-          HorizontalContentAlignment="Left"
+          Margin="{DynamicResource ContextPaneListMargin}"
+          HorizontalContentAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}"
           Background="Transparent"
           BorderBrush="Transparent"
           BorderThickness="0"
@@ -138,33 +110,17 @@
                 </Setter.Value>
               </Setter>
             </Style>
-            <!--
-              User editable styles:
-              
-              ListItemBorderThickness: BorderThickness
-              ListItemHoverBorderColor: Item.MouseOver.Border
-              ListItemHoverBgColor: Item.MouseOver.Background
-              ListItemSelectedBorderColor: Item.SelectedInactive.Border & Item.SelectedActive.Border
-              ListItemSelectedBgColor: Item.SelectedInactive.Background & Item.SelectedActive.Background
-              ListItemRounding: CornerRadius
-              ListItemMargin: Margin
-            -->
-            <SolidColorBrush x:Key="Item.MouseOver.Background" Color="LightGray" />
-            <SolidColorBrush x:Key="Item.MouseOver.Border" Color="Black" />
-            <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="White" />
-            <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="Black" />
-            <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="White" />
-            <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="Black" />
+
             <Style TargetType="{x:Type ListViewItem}">
               <Style.Resources>
                 <Style TargetType="Border">
-                  <Setter Property="CornerRadius" Value="15" />
-                  <Setter Property="Margin" Value="0,0,10,0" />
+                  <Setter Property="CornerRadius" Value="{DynamicResource ContextPaneListItemRounding}" />
+                  <Setter Property="Margin" Value="{DynamicResource ContextPaneListItemMargin}" />
                 </Style>
               </Style.Resources>
               <Setter Property="Background" Value="Transparent" />
               <Setter Property="BorderBrush" Value="Transparent" />
-              <Setter Property="BorderThickness" Value="3" />
+              <Setter Property="BorderThickness" Value="{DynamicResource ContextPaneListItemBorderThickness}" />
               <Setter Property="SnapsToDevicePixels" Value="True" />
               <Setter Property="Padding" Value="4,1" />
               <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
@@ -190,24 +146,24 @@
                         <MultiTrigger.Conditions>
                           <Condition Property="IsMouseOver" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.MouseOver.Background}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.MouseOver.Border}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemHoverBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemHoverBorderColor}" />
                       </MultiTrigger>
                       <MultiTrigger>
                         <MultiTrigger.Conditions>
                           <Condition Property="Selector.IsSelectionActive" Value="False" />
                           <Condition Property="IsSelected" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedInactive.Background}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedInactive.Border}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
                       </MultiTrigger>
                       <MultiTrigger>
                         <MultiTrigger.Conditions>
                           <Condition Property="Selector.IsSelectionActive" Value="True" />
                           <Condition Property="IsSelected" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{StaticResource Item.SelectedActive.Background}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource Item.SelectedActive.Border}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
                       </MultiTrigger>
                       <Trigger Property="IsEnabled" Value="False">
                         <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
@@ -219,16 +175,6 @@
             </Style>
           </ListView.Resources>
 
-          <!--
-            User editable styles:
-            
-            ListItemIconSize: Height & Width
-            ListItemIconMargin: Margin
-            ListItemTextPadding: Padding
-            ListItemFont: FontFamily
-            ListItemSize: FontSize
-            ListItemColor: Foreground
-          -->
           <Grid>
             <Grid.ColumnDefinitions>
               <ColumnDefinition Width="1*" />
@@ -236,21 +182,21 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
               <Image
-                Width="15"
-                Height="15"
-                Margin="0,0,-5,0"
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
                 Source="pack://siteoforigin:,,,/Config/Resources/open.png" />
             </Grid>
             <Grid Grid.Column="1">
               <Button
-                Padding="10"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
                 Background="Transparent"
                 BorderThickness="0"
-                Click="openApp"
+                Click="OpenApp"
                 Content="Open"
-                FontFamily="Cascadia Code"
-                FontSize="12"
-                Foreground="Black"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
@@ -261,21 +207,21 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
               <Image
-                Width="15"
-                Height="15"
-                Margin="0,0,-5,0"
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
                 Source="pack://siteoforigin:,,,/Config/Resources/admin.png" />
             </Grid>
             <Grid Grid.Column="1">
               <Button
-                Padding="10"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
                 Background="Transparent"
                 BorderThickness="0"
                 Click="RunAsAdmin"
                 Content="Run as administrator"
-                FontFamily="Cascadia Code"
-                FontSize="12"
-                Foreground="Black"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
@@ -286,21 +232,21 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
               <Image
-                Width="15"
-                Height="15"
-                Margin="0,0,-5,0"
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
                 Source="pack://siteoforigin:,,,/Config/Resources/openFolder.png" />
             </Grid>
             <Grid Grid.Column="1">
               <Button
-                Padding="10"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
                 Background="Transparent"
                 BorderThickness="0"
-                Click="openContainingFolder"
+                Click="OpenContainingFolder"
                 Content="Open file location"
-                FontFamily="Cascadia Code"
-                FontSize="12"
-                Foreground="Black"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>

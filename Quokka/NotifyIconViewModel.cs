@@ -13,7 +13,7 @@ namespace Quokka {
     /// Shows a window, if none is already open.
     /// </summary>
 
-    public ICommand ShowWindowCommand {
+    public static ICommand ShowWindowCommand {
       get {
         return new DelegateCommand(() => {
           Application.Current.MainWindow = new SearchWindow();
@@ -25,7 +25,7 @@ namespace Quokka {
     /// <summary>
     /// Hides the main window. This command is only enabled if a window is open.
     /// </summary>
-    public ICommand HideWindowCommand {
+    public static ICommand HideWindowCommand {
       get {
         return new DelegateCommand(
           () => Application.Current.MainWindow.Close(), () => Application.Current.MainWindow != null);
@@ -36,13 +36,13 @@ namespace Quokka {
     /// Shows the settings file
     /// </summary>
 
-    public ICommand OpenSettingsFile {
+    public static ICommand OpenSettingsFile {
       get {
         return new DelegateCommand(() => App.OpenSettingsFile());
       }
     }
 
-    public ICommand OpenPlugBoard {
+    public static ICommand OpenPlugBoard {
       get {
         return new DelegateCommand(() => App.OpenPlugBoard());
       }
@@ -52,7 +52,7 @@ namespace Quokka {
     /// <summary>
     /// Shuts down the application.
     /// </summary>
-    public ICommand ExitApplicationCommand {
+    public static ICommand ExitApplicationCommand {
       get {
         return new DelegateCommand(() => Application.Current.Shutdown());
       }

@@ -9,11 +9,6 @@
       <Setter.Value>
         <ControlTemplate TargetType="Button">
           <Border>
-            <!--
-              User editable Styles:
-              
-              ButtonContentMargin: Margin
-            -->
             <Border.Style>
               <Style TargetType="{x:Type Border}">
                 <Style.Triggers>
@@ -24,27 +19,14 @@
               </Style>
             </Border.Style>
             <Grid Background="Transparent">
-              <ContentPresenter Margin="10" />
+              <ContentPresenter Margin="{DynamicResource ContextPaneListItemContentMargin}" />
             </Grid>
           </Border>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
-
-
-
-
-
-
-
-
-  <!--  Scrollbar Styles settings have not been implemented into the program (Quokka v2.0) - The scrollbar has been hidden  -->
-
-
-
-
-
+  <!--  End button style  -->
 
   <SolidColorBrush x:Key="StandardBorderBrush" Color="#888" />
   <SolidColorBrush x:Key="StandardBackgroundBrush" Color="Black" />
@@ -118,20 +100,9 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <!--
-    -
-    User editable styles:
-    
-    ScrollBarBgVisibility: Visibility
-    ScrollBarBgColor: Background
-    ScrollBarBgRounding: CornerRadius
-    ScrollBarBgBorderColor: BorderBrush
-    ScrollBarBgBorderThickness: BorderThickness
-    ScrollBarBgWidth: Width
-    ScrollBarBgMargin: Margin
-  -->
+
   <Style x:Key="ScrollBarPageButton" TargetType="{x:Type RepeatButton}">
-    <Setter Property="Visibility" Value="Hidden" />
+    <Setter Property="Visibility" Value="{DynamicResource ScrollBarBgVisibility}" />
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="IsTabStop" Value="false" />
@@ -140,30 +111,19 @@
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type RepeatButton}">
           <Border
-            Width="10"
-            Margin="-10,0,-1,10"
-            Background="Black"
-            BorderBrush="Green"
-            BorderThickness="0"
-            CornerRadius="5" />
+            Width="{DynamicResource ScrollBarBgWidth}"
+            Margin="{DynamicResource ScrollBarBgMargin}"
+            Background="{DynamicResource ScrollBarBgColor}"
+            BorderBrush="{DynamicResource ScrollBarBgBorderColor}"
+            BorderThickness="{DynamicResource ScrollBarBgBorderThickness}"
+            CornerRadius="{DynamicResource ScrollBarBgRounding}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <!--
-    User Editable Styles:
-    
-    ScrollThumbVisibility: Visibility
-    ScrollThumbColor: Background
-    ScrollThumbRounding: CornerRadius
-    ScrollThumbBorderColor: BorderBrush
-    ScrollThumbBorderThickness: BorderThickness
-    ScrollThumbWidth: Width
-    ScrollThumbMargin: Margin
-  -->
   <Style x:Key="ScrollBarThumb" TargetType="{x:Type Thumb}">
-    <Setter Property="Visibility" Value="Hidden" />
+    <Setter Property="Visibility" Value="{DynamicResource ScrollThumbVisibility}" />
     <Setter Property="SnapsToDevicePixels" Value="True" />
     <Setter Property="OverridesDefaultStyle" Value="true" />
     <Setter Property="IsTabStop" Value="false" />
@@ -172,29 +132,17 @@
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Thumb}">
           <Border
-            Width="10"
-            Margin="-10,0,0,0"
-            Background="White"
-            BorderBrush="Transparent"
-            BorderThickness="3"
-            CornerRadius="3" />
+            Width="{DynamicResource ScrollThumbWidth}"
+            Margin="{DynamicResource ScrollThumbMargin}"
+            Background="{DynamicResource ScrollThumbColor}"
+            BorderBrush="{DynamicResource ScrollThumbBorderColor}"
+            BorderThickness="{DynamicResource ScrollThumbBorderThickness}"
+            CornerRadius="{DynamicResource ScrollThumbRounding}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
 
-  <!--
-    -
-    User editable styles:
-    
-    ScrollThumbBgVisibility: Visibility
-    ScrollThumbBgColor: Background
-    ScrollThumbBgRounding: CornerRadius
-    ScrollThumbBgBorderColor: BorderBrush
-    ScrollThumbBgBorderThickness: BorderThickness
-    ScrollThumbBgWidth: Width
-    ScrollThumbBgMargin: Margin
-  -->
   <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
     <Grid>
       <Grid.RowDefinitions>
@@ -204,13 +152,13 @@
       </Grid.RowDefinitions>
       <Border
         Grid.RowSpan="3"
-        Width="10"
-        Margin="-10,-1,-1,0"
-        Background="Black"
-        BorderBrush="Pink"
-        BorderThickness="0"
-        CornerRadius="5"
-        Visibility="Hidden" />
+        Width="{DynamicResource ScrollThumbBgWidth}"
+        Margin="{DynamicResource ScrollThumbBgMargin}"
+        Background="{DynamicResource ScrollThumbBgColor}"
+        BorderBrush="{DynamicResource ScrollThumbBgBorderColor}"
+        BorderThickness="{DynamicResource ScrollThumbBgBorderThickness}"
+        CornerRadius="{DynamicResource ScrollThumbBgRounding}"
+        Visibility="{DynamicResource ScrollThumbBgVisibility}" />
       <RepeatButton
         Grid.Row="0"
         Height="18"
@@ -297,7 +245,7 @@
         <Setter Property="Template" Value="{StaticResource HorizontalScrollBar}" />
       </Trigger>
       <Trigger Property="Orientation" Value="Vertical">
-        <Setter Property="Width" Value="18" />
+        <Setter Property="Width" Value="{DynamicResource ScrollBarWidth}" />
         <Setter Property="Height" Value="Auto" />
         <Setter Property="Template" Value="{StaticResource VerticalScrollBar}" />
       </Trigger>

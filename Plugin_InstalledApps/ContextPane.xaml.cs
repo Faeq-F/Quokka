@@ -11,18 +11,18 @@ namespace Plugin_InstalledApps {
   /// </summary>
   public partial class ContextPane : Page {
 
-    private InstalledAppsItem Item;
+    private readonly InstalledAppsItem Item;
 
     public ContextPane() {
       InitializeComponent();
-      ApplyAppSettings();
+
       try {
-        this.Item = (InstalledAppsItem?) ( Application.Current.MainWindow as SearchWindow ).SelectedItem;
-      } catch (InvalidCastException ex) {//Used to handle the AllAppsItem
-        ( Application.Current.MainWindow as SearchWindow ).contextPane.Visibility = Visibility.Collapsed;
-        ( Application.Current.MainWindow as SearchWindow ).searchBox.Focus();
+        Item = (InstalledAppsItem) ( (SearchWindow) Application.Current.MainWindow ).SelectedItem;
+      } catch (InvalidCastException) {//Used to handle the AllAppsItem
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+        _ = ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
         //makes showing a new pane more reliable
-        ( Application.Current.MainWindow as SearchWindow ).contextPane.Source = null;
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
 
         //Process.Start("ms-settings:appsfeatures");
         App.Current.MainWindow.Close();
@@ -34,7 +34,7 @@ namespace Plugin_InstalledApps {
       ExtraDetails.Text = Item.ExtraDetails;
     }
 
-    private void openApp(object sender, RoutedEventArgs e) {
+    private void OpenApp(object sender, RoutedEventArgs e) {
       Item.execute();
     }
 
@@ -44,11 +44,12 @@ namespace Plugin_InstalledApps {
       //Public domain; no attribution required.
       const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
 
-      ProcessStartInfo info = new ProcessStartInfo("explorer");
-      info.Arguments = @" shell:appsFolder\" + Item.description;
-      info.UseShellExecute = true;
-      info.Verb = "runas";
-      info.CreateNoWindow = true;
+      ProcessStartInfo info = new("explorer") {
+        Arguments = @" shell:appsFolder\" + Item.description,
+        UseShellExecute = true,
+        Verb = "runas",
+        CreateNoWindow = true
+      };
       try {
         Process.Start(info);
       } catch (System.ComponentModel.Win32Exception ex) {
@@ -57,8 +58,8 @@ namespace Plugin_InstalledApps {
       App.Current.MainWindow.Close();
     }
 
-    private void openContainingFolder(object sender, RoutedEventArgs e) {
-      using Process folderopener = new Process();
+    private void OpenContainingFolder(object sender, RoutedEventArgs e) {
+      using Process folderopener = new();
       folderopener.StartInfo.FileName = "explorer";
       folderopener.StartInfo.Arguments = Item.Path.Remove(Item.Path.LastIndexOf('\\'));
       folderopener.Start();
@@ -93,62 +94,15 @@ namespace Plugin_InstalledApps {
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
         case Key.Apps: //This is the menu key
-          ( Application.Current.MainWindow as SearchWindow ).contextPane.Visibility = Visibility.Collapsed;
-          ( Application.Current.MainWindow as SearchWindow ).searchBox.Focus();
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+          ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
           //makes showing a new pane more reliable
-          ( Application.Current.MainWindow as SearchWindow ).contextPane.Source = null;
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
           break;
         default:
           return;
       }
       e.Handled = true;
-    }
-
-    private void ApplyAppSettings() {
-      /*
-                  "ContextPane": {
-
-                      "BorderColor": "Black",
-                          "BorderThickness": "2",
-                          "CornerRounding": "15",
-                          "Background": "White",
-                          "MinHeight": "64",
-
-                          "Details": {
-
-                          "ContentMargin": "0, 0, 0, 0",
-                              "ContentVerticalAlignment": "Center",
-                              "ContentHorizontalAlignment": "Center",
-                              "ImageMargin": "40,50,40,20",
-                              "TextColor": "Black",
-                              "TextSize": "16",
-                              "FontFamily": "Cascadia Code",
-                              "TextLineMargin": "0,0,0,0"
-
-                          },
-
-                          "List": {
-
-                          "ListMargin": "10,10,0,10",
-                              "ContentHorizontalAlignment": "Left",
-                              "ButtonContentMargin": "10",
-
-                              "ListItems": {
-
-                              "ListItemBorderThickness": "3",
-                                  "ListItemHoverBorderColor": "Black",
-                                  "ListItemHoverBgColor": "LightGray",
-                                  "ListItemSelectedBorderColor": "Black",
-                                  "ListItemSelectedBgColor": "White",
-                                  "ListItemRounding": "15",
-                                  "ListItemMargin": "0, 0, 10, 0",
-
-                                  "ListItemIconSize": "15",
-                                  "ListItemIconMargin": "0,0,-5,0",
-                                  "ListItemTextPadding": "10",
-                                  "ListItemFont": "Cascadia Code",
-                                  "ListItemSize": "12",
-                                  "ListItemColor": "Black"*/
     }
   }
 }

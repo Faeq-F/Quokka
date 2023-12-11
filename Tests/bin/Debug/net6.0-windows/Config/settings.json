@@ -59,7 +59,42 @@
 
       },
       "List": {
-        "ListMargin": "10,10,10,10"
+        "ListMargin": "10,10,10,10",
+        "ScrollBarWidth": "18",
+
+        "ScrollBarBackground": {
+
+          "ScrollBarBgVisibility": "Visible",
+          "ScrollBarBgColor": "Black",
+          "ScrollBarBgRounding": "3",
+          "ScrollBarBgBorderColor": "Black",
+          "ScrollBarBgBorderThickness": "0",
+          "ScrollBarBgWidth": "10",
+          "ScrollBarBgMargin": "-10,0,-1,10"
+        },
+
+        "ScrollBarThumbBackground": {
+
+          "ScrollThumbBgVisibility": "Visible",
+          "ScrollThumbBgColor": "Black",
+          "ScrollThumbBgRounding": "7",
+          "ScrollThumbBgBorderColor": "Black",
+          "ScrollThumbBgBorderThickness": "0",
+          "ScrollThumbBgWidth": "11",
+          "ScrollThumbBgMargin": "-10,-1,-1,-1"
+
+        },
+
+        "ScrollBarThumb": {
+
+          "ScrollThumbVisibility": "Visible",
+          "ScrollThumbColor": "White",
+          "ScrollThumbRounding": "2",
+          "ScrollThumbBorderColor": "Transparent",
+          "ScrollThumbBorderThickness": "0",
+          "ScrollThumbWidth": "5",
+          "ScrollThumbMargin": "-10,2,-1,2"
+        }
       },
       "ListItems": {
 
@@ -81,47 +116,59 @@
 
         "ContextPane": {
 
-          "BorderColor": "Black",
-          "BorderThickness": "2",
-          "CornerRounding": "15",
-          "Background": "White",
-          "MinHeight": "64",
+          "ContextPaneBorderColor": "Black",
+          "ContextPaneBorderThickness": "2",
+          "ContextPaneCornerRounding": "15",
+          "ContextPaneBackground": "White",
+          "ContextPaneMinHeight": "64",
 
           "Details": {
 
-            "ContentMargin": "0, 0, 0, 0",
-            "ContentVerticalAlignment": "Center",
-            "ContentHorizontalAlignment": "Center",
-            "ImageMargin": "40,50,40,20",
-            "TextColor": "Black",
-            "TextSize": "16",
-            "FontFamily": "Cascadia Code",
-            "TextLineMargin": "0,0,0,0"
+            "ContextPaneContentMargin": "0, 0, 0, 0",
+            "ContextPaneContentVerticalAlignment": "Center",
+            "ContextPaneContentHorizontalAlignment": "Center",
+            "ContextPaneImageMargin": "40,50,40,20",
+
+            "NameTextMargin": "0,-20,0,0",
+            "NameTextFontFamily": "Cascadia Code",
+            "NameTextSize": "16",
+            "NameTextColor": "Black",
+
+            "DescTextMargin": "0,0,0,0",
+            "DescTextFontFamily": "Cascadia Code",
+            "DescTextSize": "12",
+            "DescTextColor": "Gray",
+
+            "ExtraDetailsTextMargin": "0,0,0,0",
+            "ExtraDetailsTextFontFamily": "Cascadia Code",
+            "ExtraDetailsTextSize": "12",
+            "ExtraDetailsTextColor": "Gray"
 
           },
 
           "List": {
 
-            "ListMargin": "10,10,0,10",
-            "ContentHorizontalAlignment": "Left",
-            "ButtonContentMargin": "10",
+            "ContextPaneListMargin": "10,10,0,10",
+            "ContextPaneContentHorizontalAlignment": "Left",
 
             "ListItems": {
 
-              "ListItemBorderThickness": "3",
-              "ListItemHoverBorderColor": "Black",
-              "ListItemHoverBgColor": "LightGray",
-              "ListItemSelectedBorderColor": "Black",
-              "ListItemSelectedBgColor": "White",
-              "ListItemRounding": "15",
-              "ListItemMargin": "0, 0, 10, 0",
+              "ContextPaneListItemBorderThickness": "3",
+              "ContextPaneListItemHoverBorderColor": "Black",
+              "ContextPaneListItemHoverBgColor": "LightGray",
+              "ContextPaneListItemSelectedBorderColor": "Black",
+              "ContextPaneListItemSelectedBgColor": "White",
+              "ContextPaneListItemRounding": "15",
+              "ContextPaneListItemMargin": "0, 0, 10, 0",
 
-              "ListItemIconSize": "30",
-              "ListItemIconMargin": "0,0,-5,0",
-              "ListItemTextPadding": "10",
-              "ListItemFont": "Cascadia Code",
-              "ListItemSize": "12",
-              "ListItemColor": "Black"
+              "ContextPaneListItemIconSize": "30",
+              "ContextPaneListItemIconMargin": "0,0,-5,0",
+              "ContextPaneListItemTextPadding": "10",
+              "ContextPaneListItemFont": "Cascadia Code",
+              "ContextPaneListItemSize": "12",
+              "ContextPaneListItemColor": "Black",
+
+              "ContextPaneListItemContentMargin": "10"
             }
           }
         }
