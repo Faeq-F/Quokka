@@ -36,6 +36,14 @@
     BorderThickness="{DynamicResource WindowBorderThickness}"
     CornerRadius="{DynamicResource WindowRounding}">
 
+    <Border.Effect>
+      <DropShadowEffect
+        BlurRadius="{DynamicResource DropShadowBlurRadius}"
+        Opacity="{DynamicResource DropShadowOpacity}"
+        RenderingBias="{DynamicResource DropShadowRenderingBias}"
+        ShadowDepth="{DynamicResource DropShadowShadowDepth}" />
+    </Border.Effect>
+
     <Grid
       x:Name="SearchWindowGrid"
       HorizontalAlignment="Center"
@@ -62,6 +70,7 @@
           BorderBrush="{DynamicResource ListContainerBorderColor}"
           BorderThickness="{DynamicResource ListContainerBorderThickness}"
           CornerRadius="{DynamicResource ListContainerRounding}">
+
           <ListView
             x:Name="ResultsListView"
             Margin="{DynamicResource ListMargin}"

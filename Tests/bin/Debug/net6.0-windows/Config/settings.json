@@ -154,7 +154,7 @@
             "ListItems": {
 
               "ContextPaneListItemBorderThickness": "3",
-              "ContextPaneListItemHoverBorderColor": "Black",
+              "ContextPaneListItemHoverBorderColor": "White",
               "ContextPaneListItemHoverBgColor": "LightGray",
               "ContextPaneListItemSelectedBorderColor": "Black",
               "ContextPaneListItemSelectedBgColor": "White",

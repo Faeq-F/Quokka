@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Plugin")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Licensed under GNU General Public License v3.0 - Faeq Faisal")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0.0+d12c212d30d1e08b73b95a9851fb765c45fb58f1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0.0+59d6afdb5b36f66802767d1e393fc044d3b43af7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Plugin_PortableApps")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Plugin_PortableApps")]
 [assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]

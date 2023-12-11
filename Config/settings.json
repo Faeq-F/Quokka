@@ -16,7 +16,12 @@
       "WindowBorderColor": "Transparent",
       "WindowBorderThickness": "0",
       "WindowRounding": "0",
-      "WindowPadding": "10"
+      "WindowPadding": "10",
+
+      "DropShadowBlurRadius": "10",
+      "DropShadowOpacity": "10",
+      "DropShadowShadowDepth": "3",
+      "DropShadowRenderingBias": "Quality"
 
     },
     "SearchBar": {

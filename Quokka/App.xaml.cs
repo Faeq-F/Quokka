@@ -81,7 +81,7 @@ namespace Quokka {
     }
 
     //Fields for Settings
-    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder" };
+    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias" };
     String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
     String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize" };
     String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
@@ -102,12 +102,18 @@ namespace Quokka {
               Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
             } else if (entry.Key == "SearchFieldPlaceholder") {
               Application.Current.Resources[entry.Key] = entry.Value.ToString();
+            } else if (entry.Key == "DropShadowRenderingBias") {
+              if (entry.Value.ToString() == "Quality") {
+                Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Quality;
+              } else if (entry.Value.ToString() == "Quality") {
+                Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Performance;
+              }
+            } else if (entry.Key == "DropShadowBlurRadius" || entry.Key == "DropShadowOpacity" || entry.Key == "DropShadowShadowDepth") {
+              Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
             }
           } else if (screenDimensionSettings.Contains(entry.Key)) {
             Application.Current.Resources[entry.Key] = SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString());
-          } else if (txtSize.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
-          } else if (entry.Key.ToString().Contains("Height") || entry.Key.ToString().Contains("Width")) {
+          } else if (txtSize.Contains(entry.Key) || entry.Key.ToString().Contains("Height") || entry.Key.ToString().Contains("Width")) {
             Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
           } else if (entry.Key.ToString().Contains("Font")) {
             Application.Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(entry.Value.ToString());
