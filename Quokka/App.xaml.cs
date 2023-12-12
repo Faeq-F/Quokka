@@ -44,7 +44,7 @@ namespace Quokka {
       string jsonString = File.ReadAllText(fileName);
       AppSettings = JsonConvert.DeserializeObject<Settings.Settings>(jsonString)!;
       //dynamic StyleSettings = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
-      Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
+      //Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
       applyAppSettings(JObject.Parse(JsonString));
 
       // grab plugins and run startup

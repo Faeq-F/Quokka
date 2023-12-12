@@ -219,31 +219,22 @@
 
           <Grid>
 
-            <Grid Grid.Row="1">
-
-              <!--
-                User Editable styles - not in settings.json:
-                
-                Column-0 width = Container width (above) - Image width (below)
-                Column-1 width = Image width (below)
-              -->
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="656*" />
-                <ColumnDefinition Width="64*" />
-              </Grid.ColumnDefinitions>
+            <Grid x:Name="SearchBoxGrid" Grid.Row="1">
 
               <Image
                 x:Name="SearchIcon"
-                Grid.Column="1"
+                Grid.Column="0"
                 Width="{DynamicResource SearchIconWidth}"
+                Margin="10,0,0,0"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
-              <Grid>
+              <Grid Grid.Column="1">
                 <TextBox
                   x:Name="SearchTermTextBox"
                   Width="{DynamicResource SearchFieldWidth}"
                   Height="{DynamicResource SearchFieldHeight}"
                   MinWidth="{DynamicResource SearchFieldWidth}"
                   Margin="{DynamicResource SearchFieldMargin}"
+                  Padding="5,0,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
@@ -271,6 +262,7 @@
                 <TextBlock
                   x:Name="SearchFieldPlaceholder"
                   Margin="{DynamicResource SearchFieldPlaceholderMargin}"
+                  Padding="10,0,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   FontFamily="{DynamicResource SearchFieldPlaceholderFont}"

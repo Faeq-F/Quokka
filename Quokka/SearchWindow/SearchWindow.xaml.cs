@@ -30,6 +30,13 @@ namespace Quokka {
       ResultsBox.Visibility = Visibility.Collapsed;
       ContextPane.Visibility = Visibility.Collapsed;
 
+      ColumnDefinition c1 = new ColumnDefinition();
+      c1.Width = new GridLength((double) Application.Current.Resources["SearchIconWidth"], GridUnitType.Star);
+      ColumnDefinition c2 = new ColumnDefinition();
+      c2.Width = new GridLength((double) Application.Current.Resources["WindowWidth"] - (double) Application.Current.Resources["SearchIconWidth"], GridUnitType.Star);
+      SearchBoxGrid.ColumnDefinitions.Add(c1);
+      SearchBoxGrid.ColumnDefinitions.Add(c2);
+
       //run anything needed for plugins on window startup
       try {
         foreach (IPlugger plugin in App.plugins!) {
