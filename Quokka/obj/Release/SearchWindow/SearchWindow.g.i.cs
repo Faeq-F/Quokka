@@ -141,7 +141,7 @@ namespace Quokka {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Quokka;component/searchwindow/searchwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Quokka;V2.0.0.0;component/searchwindow/searchwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\SearchWindow\SearchWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

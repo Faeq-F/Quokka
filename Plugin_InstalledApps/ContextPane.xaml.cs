@@ -29,9 +29,9 @@ namespace Plugin_InstalledApps {
         return;
       }
       DetailsImage.Source = Item.icon;
-      NameText.Text = Item.name;
-      DescText.Text = Item.description;
-      ExtraDetails.Text = Item.ExtraDetails;
+      NameText.Text = "Name:\n" + Item.name;
+      DescText.Text = "Description:\n" + Item.description;
+      ExtraDetails.Text = "Extra Details:\n" + Item.ExtraDetails;
     }
 
     private void OpenApp(object sender, RoutedEventArgs e) {

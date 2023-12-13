@@ -121,10 +121,10 @@
 
         "ContextPane": {
 
-          "ContextPaneBorderColor": "Black",
-          "ContextPaneBorderThickness": "2",
+          "ContextPaneBorderColor": "#e5e5e5",
+          "ContextPaneBorderThickness": "1",
           "ContextPaneCornerRounding": "15",
-          "ContextPaneBackground": "White",
+          "ContextPaneBackground": "#f3f3f3",
           "ContextPaneMinHeight": "64",
 
           "Details": {
