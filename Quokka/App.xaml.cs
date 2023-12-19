@@ -128,6 +128,7 @@ namespace Quokka {
             foreach (String i in brushIndicators) {
               if (entry.Key.ToString().ToLower().Contains(i)) {
                 Application.Current.Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
+                Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
               }
             }
           }

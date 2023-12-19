@@ -23,7 +23,7 @@
     Width="auto"
     Height="auto"
     MinHeight="{DynamicResource ContextPaneMinHeight}"
-    Background="{DynamicResource ContextPaneBackground}"
+    Background="{DynamicResource ContextPaneBgColor}"
     BorderBrush="{DynamicResource ContextPaneBorderColor}"
     BorderThickness="{DynamicResource ContextPaneBorderThickness}"
     CornerRadius="{DynamicResource ContextPaneCornerRounding}">

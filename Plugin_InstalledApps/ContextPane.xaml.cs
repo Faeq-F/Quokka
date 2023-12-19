@@ -13,7 +13,12 @@ namespace Plugin_InstalledApps {
 
     private readonly InstalledAppsItem Item;
 
+
+
+
+
     public ContextPane() {
+
       InitializeComponent();
 
       try {

@@ -13,5 +13,8 @@
     <Page Update="SearchWindow\SearchWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Settings\ContextPaneSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>
