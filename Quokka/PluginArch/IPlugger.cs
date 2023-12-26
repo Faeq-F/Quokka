@@ -2,14 +2,16 @@ using System;
 using System.Collections.Generic;
 using Quokka.ListItems;
 
-namespace Quokka.PluginArch {
-  public interface IPlugger {
-    /// <summary>  
-    /// Name of plugger  
-    /// </summary>  
+namespace Quokka.PluginArch
+{
+  public interface IPlugger
+  {
+    /// <summary>
+    /// Name of plugger
+    /// </summary>
     string PluggerName { get; set; }
 
-    /// <summary>  
+    /// <summary>
     /// It will return List<ListItem> which will display on ResultsView
     /// </summary>
     public List<ListItem> OnQueryChange(string query);

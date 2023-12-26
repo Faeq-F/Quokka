@@ -1,15 +1,11 @@
 {
   "GeneralSettings": {
-
     "WindowHotKey": "LWinSpace",
     "MaxResults": "7",
     "IgnoreMaxResultsFlag": " -ShowAll"
-
   },
   "StyleSettings": {
-
     "AppWindow": {
-
       "WindowTopMargin": "PrimaryScreenHeight/3",
       "WindowWidth": "PrimaryScreenWidth / 2",
       "WindowColor": "Transparent",
@@ -22,10 +18,8 @@
       "DropShadowOpacity": "10",
       "DropShadowShadowDepth": "3",
       "DropShadowRenderingBias": "Quality"
-
     },
     "SearchBar": {
-
       "SearchBarColor": "#f3f3f3",
       "SearchBarRounding": "32",
       "SearchBarBorderColor": "#e5e5e5",
@@ -34,7 +28,6 @@
       "SearchIconWidth": "64",
 
       "EntryField": {
-
         "SearchFieldTxtColor": "Black",
         "SearchFieldTxtSelColor": "Black",
         "SearchFieldHeight": "50",
@@ -51,9 +44,7 @@
     },
 
     "ResultsList": {
-
       "Container": {
-
         "ListContainerMargin": "0,10,0,0",
         "ListContainerBorderColor": "#e5e5e5",
         "ListContainerBorderThickness": "1",
@@ -61,14 +52,12 @@
         "ListContainerColor": "#f3f3f3",
         "ListContainerMinHeight": "64",
         "ListContainerMaxHeight": "PrimaryScreenHeight"
-
       },
       "List": {
         "ListMargin": "10,10,10,10",
         "ScrollBarWidth": "18",
 
         "ScrollBarBackground": {
-
           "ScrollBarBgVisibility": "Visible",
           "ScrollBarBgColor": "#f9f9f9",
           "ScrollBarBgRounding": "3",
@@ -79,7 +68,6 @@
         },
 
         "ScrollBarThumbBackground": {
-
           "ScrollThumbBgVisibility": "Visible",
           "ScrollThumbBgColor": "#f9f9f9",
           "ScrollThumbBgRounding": "7",
@@ -87,11 +75,9 @@
           "ScrollThumbBgBorderThickness": "1",
           "ScrollThumbBgWidth": "11",
           "ScrollThumbBgMargin": "-10,-1,-1,-1"
-
         },
 
         "ScrollBarThumb": {
-
           "ScrollThumbVisibility": "Visible",
           "ScrollThumbColor": "#8a8a8a",
           "ScrollThumbRounding": "2",
@@ -102,7 +88,6 @@
         }
       },
       "ListItems": {
-
         "ListItemBorderThickness": "1",
         "ListItemHoverBorderColor": "#e5e5e5",
         "ListItemHoverBgColor": "#f6f6f6",
@@ -120,7 +105,6 @@
         "ListItemDescColor": "Gray",
 
         "ContextPane": {
-
           "ContextPaneBorderColor": "#e5e5e5",
           "ContextPaneBorderThickness": "1",
           "ContextPaneCornerRounding": "15",
@@ -128,7 +112,6 @@
           "ContextPaneMinHeight": "64",
 
           "Details": {
-
             "ContextPaneContentMargin": "0, 0, 0, 0",
             "ContextPaneContentVerticalAlignment": "Center",
             "ContextPaneContentHorizontalAlignment": "Center",
@@ -148,16 +131,13 @@
             "ExtraDetailsTextFontFamily": "Cascadia Code",
             "ExtraDetailsTextSize": "12",
             "ExtraDetailsTextColor": "Gray"
-
           },
 
           "List": {
-
             "ContextPaneListMargin": "10,10,0,10",
             "ContextPaneContentHorizontalAlignment": "Left",
 
             "ListItems": {
-
               "ContextPaneListItemBorderThickness": "3",
               "ContextPaneListItemHoverBorderColor": "White",
               "ContextPaneListItemHoverBgColor": "LightGray",

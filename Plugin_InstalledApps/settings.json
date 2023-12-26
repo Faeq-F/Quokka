@@ -1,6 +1,6 @@
 {
   "AllAppsSpecialCommand": "AllApps",
   "IconSize": "Medium",
-  "BlackList": [ "Visual Studio Installer" ],
+  "BlackList": ["Visual Studio Installer"],
   "FuzzySearchThreshold": 5
 }

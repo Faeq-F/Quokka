@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 
-namespace Plugin_InstalledApps {
+namespace Plugin_InstalledApps
+{
   // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-  public class Settings {
-    public string AllAppsSpecialCommand { get; set; }
-    public string IconSize { get; set; }
-    public List<string> BlackList { get; set; }
-    public int FuzzySearchThreshold { get; set; }
+  public class Settings
+  {
+    public string AllAppsSpecialCommand { get; set; } = "AllApps";
+    public string IconSize { get; set; } = "Medium";
+    public List<string> BlackList { get; set; } =
+    new List<string>(new string[] { "Visual Studio Installer" });
+    public int FuzzySearchThreshold { get; set; } = 5;
   }
 
 }

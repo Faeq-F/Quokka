@@ -33,52 +33,56 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace Quokka {
-    
-    
-    /// <summary>
-    /// App
-    /// </summary>
-    public partial class App : System.Windows.Application {
-        
-        private bool _contentLoaded;
-        
-        /// <summary>
-        /// InitializeComponent
-        /// </summary>
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
-        public void InitializeComponent() {
-            if (_contentLoaded) {
-                return;
-            }
-            _contentLoaded = true;
-            
-            #line 5 "..\..\App.xaml"
-            this.LoadCompleted += new System.Windows.Navigation.LoadCompletedEventHandler(this.Application_LoadCompleted);
-            
-            #line default
-            #line hidden
-            System.Uri resourceLocater = new System.Uri("/Quokka;V2.0.0.0;component/app.xaml", System.UriKind.Relative);
-            
-            #line 1 "..\..\App.xaml"
-            System.Windows.Application.LoadComponent(this, resourceLocater);
-            
-            #line default
-            #line hidden
-        }
-        
-        /// <summary>
-        /// Application Entry Point.
-        /// </summary>
-        [System.STAThreadAttribute()]
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
-        public static void Main() {
-            Quokka.App app = new Quokka.App();
-            app.InitializeComponent();
-            app.Run();
-        }
-    }
-}
+namespace Quokka
+{
 
+
+  /// <summary>
+  /// App
+  /// </summary>
+  public partial class App : System.Windows.Application
+  {
+
+    private bool _contentLoaded;
+
+    /// <summary>
+    /// InitializeComponent
+    /// </summary>
+    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
+    public void InitializeComponent()
+    {
+      if (_contentLoaded)
+      {
+        return;
+      }
+      _contentLoaded = true;
+
+#line 5 "..\..\App.xaml"
+      this.LoadCompleted += new System.Windows.Navigation.LoadCompletedEventHandler(this.Application_LoadCompleted);
+
+#line default
+#line hidden
+      System.Uri resourceLocater = new System.Uri("/Quokka;component/app.xaml", System.UriKind.Relative);
+
+#line 1 "..\..\App.xaml"
+      System.Windows.Application.LoadComponent(this, resourceLocater);
+
+#line default
+#line hidden
+    }
+
+    /// <summary>
+    /// Application Entry Point.
+    /// </summary>
+    [System.STAThreadAttribute()]
+    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
+    public static void Main()
+    {
+      Quokka.App app = new Quokka.App();
+      app.InitializeComponent();
+      app.Run();
+    }
+  }
+}

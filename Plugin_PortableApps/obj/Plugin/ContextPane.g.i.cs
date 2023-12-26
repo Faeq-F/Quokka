@@ -35,134 +35,138 @@ using System.Windows.Shapes;
 using System.Windows.Shell;
 
 
-namespace Plugin_PortableApps {
-    
-    
-    /// <summary>
-    /// ContextPane
-    /// </summary>
-    public partial class ContextPane : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
-        
-        
-        #line 52 "..\..\ContextPane.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Image DetailsImage;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 56 "..\..\ContextPane.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock NameText;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 66 "..\..\ContextPane.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock DescText;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 76 "..\..\ContextPane.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock ExtraDetails;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 90 "..\..\ContextPane.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.ListView ButtonsListView;
-        
-        #line default
-        #line hidden
-        
-        private bool _contentLoaded;
-        
-        /// <summary>
-        /// InitializeComponent
-        /// </summary>
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
-        public void InitializeComponent() {
-            if (_contentLoaded) {
-                return;
-            }
-            _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;component/contextpane.xaml", System.UriKind.Relative);
-            
-            #line 1 "..\..\ContextPane.xaml"
-            System.Windows.Application.LoadComponent(this, resourceLocater);
-            
-            #line default
-            #line hidden
-        }
-        
-        [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
-        void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
-            switch (connectionId)
-            {
-            case 1:
-            
-            #line 12 "..\..\ContextPane.xaml"
-            ((Plugin_PortableApps.ContextPane)(target)).KeyDown += new System.Windows.Input.KeyEventHandler(this.Page_KeyDown);
-            
-            #line default
-            #line hidden
-            return;
-            case 2:
-            this.DetailsImage = ((System.Windows.Controls.Image)(target));
-            return;
-            case 3:
-            this.NameText = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 4:
-            this.DescText = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 5:
-            this.ExtraDetails = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 6:
-            this.ButtonsListView = ((System.Windows.Controls.ListView)(target));
-            return;
-            case 7:
-            
-            #line 196 "..\..\ContextPane.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenApp);
-            
-            #line default
-            #line hidden
-            return;
-            case 8:
-            
-            #line 221 "..\..\ContextPane.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.RunAsAdmin);
-            
-            #line default
-            #line hidden
-            return;
-            case 9:
-            
-            #line 246 "..\..\ContextPane.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenContainingFolder);
-            
-            #line default
-            #line hidden
-            return;
-            }
-            this._contentLoaded = true;
-        }
-    }
-}
+namespace Plugin_PortableApps
+{
 
+
+  /// <summary>
+  /// ContextPane
+  /// </summary>
+  public partial class ContextPane : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector
+  {
+
+
+#line 52 "..\..\ContextPane.xaml"
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+    internal System.Windows.Controls.Image DetailsImage;
+
+#line default
+#line hidden
+
+
+#line 56 "..\..\ContextPane.xaml"
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+    internal System.Windows.Controls.TextBlock NameText;
+
+#line default
+#line hidden
+
+
+#line 66 "..\..\ContextPane.xaml"
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+    internal System.Windows.Controls.TextBlock DescText;
+
+#line default
+#line hidden
+
+
+#line 76 "..\..\ContextPane.xaml"
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+    internal System.Windows.Controls.TextBlock ExtraDetails;
+
+#line default
+#line hidden
+
+
+#line 90 "..\..\ContextPane.xaml"
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+    internal System.Windows.Controls.ListView ButtonsListView;
+
+#line default
+#line hidden
+
+    private bool _contentLoaded;
+
+    /// <summary>
+    /// InitializeComponent
+    /// </summary>
+    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
+    public void InitializeComponent()
+    {
+      if (_contentLoaded)
+      {
+        return;
+      }
+      _contentLoaded = true;
+      System.Uri resourceLocater = new System.Uri("/Plugin_PortableApps;component/contextpane.xaml", System.UriKind.Relative);
+
+#line 1 "..\..\ContextPane.xaml"
+      System.Windows.Application.LoadComponent(this, resourceLocater);
+
+#line default
+#line hidden
+    }
+
+    [System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
+    void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target)
+    {
+      switch (connectionId)
+      {
+        case 1:
+
+#line 12 "..\..\ContextPane.xaml"
+          ((Plugin_PortableApps.ContextPane)(target)).KeyDown += new System.Windows.Input.KeyEventHandler(this.Page_KeyDown);
+
+#line default
+#line hidden
+          return;
+        case 2:
+          this.DetailsImage = ((System.Windows.Controls.Image)(target));
+          return;
+        case 3:
+          this.NameText = ((System.Windows.Controls.TextBlock)(target));
+          return;
+        case 4:
+          this.DescText = ((System.Windows.Controls.TextBlock)(target));
+          return;
+        case 5:
+          this.ExtraDetails = ((System.Windows.Controls.TextBlock)(target));
+          return;
+        case 6:
+          this.ButtonsListView = ((System.Windows.Controls.ListView)(target));
+          return;
+        case 7:
+
+#line 196 "..\..\ContextPane.xaml"
+          ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenApp);
+
+#line default
+#line hidden
+          return;
+        case 8:
+
+#line 221 "..\..\ContextPane.xaml"
+          ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.RunAsAdmin);
+
+#line default
+#line hidden
+          return;
+        case 9:
+
+#line 246 "..\..\ContextPane.xaml"
+          ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.OpenContainingFolder);
+
+#line default
+#line hidden
+          return;
+      }
+      this._contentLoaded = true;
+    }
+  }
+}

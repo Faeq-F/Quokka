@@ -10,17 +10,20 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace Plugin_PortableApps {
+namespace Plugin_PortableApps
+{
 
-  /// <summary>  
+  /// <summary>
   /// Item class for plugin
   /// </summary>
-  class PortableAppsItem : ListItem {
+  class PortableAppsItem : ListItem
+  {
 
     public string ExePath { get; set; }
     public string ExtraDetails { get; set; }
 
-    public PortableAppsItem(string exePath) {
+    public PortableAppsItem(string exePath)
+    {
       this.ExePath = exePath;
       name = Path.GetFileNameWithoutExtension(exePath);
       description = exePath;
@@ -28,22 +31,26 @@ namespace Plugin_PortableApps {
       ExtraDetails = FileVersionInfo.GetVersionInfo(exePath).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(exePath).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(exePath).FileVersion;
     }
 
-    public override void execute() {
+    public override void execute()
+    {
       Process.Start(description);
       Application.Current.MainWindow.Close();
     }
 
   }
 
-  class PortableAppsFolderItem : ListItem {
+  class PortableAppsFolderItem : ListItem
+  {
 
-    public PortableAppsFolderItem() {
+    public PortableAppsFolderItem()
+    {
       name = "Portable Apps Folder";
       description = "Shortcut to the folder containing your portable apps";
       icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\3dObjectsFolder.png")); ;
     }
 
-    public override void execute() {
+    public override void execute()
+    {
       Process.Start("explorer.exe", PortableApps.PluginSettings.PortableAppsDirectory);
       Application.Current.MainWindow.Close();
     }
@@ -51,35 +58,41 @@ namespace Plugin_PortableApps {
   }
 
 
-  /// <summary>  
+  /// <summary>
   /// Interaction logic for plugin
   /// </summary>
-  public partial class PortableApps : IPlugger {
+  public partial class PortableApps : IPlugger
+  {
     public static List<ListItem> ListOfSystemApps { private set; get; }
     public static Settings PluginSettings { get; set; }
 
     public PortableApps() { }
 
-    /// <summary>  
-    /// This is name will display in main plug board  
-    /// </summary>  
+    /// <summary>
+    /// This is name will display in main plug board
+    /// </summary>
     public string PluggerName { get; set; } = "PortableApps";
 
     readonly List<ListItem> AllPortableApps = new();
 
-    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
-      foreach (string i in PluginSettings.BlackList) {
+    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list)
+    {
+      foreach (string i in PluginSettings.BlackList)
+      {
         list.RemoveAll(x => x.name.Equals(i));
       }
       return list;
     }
 
-    List<ListItem> IPlugger.OnQueryChange(string query) {
+    List<ListItem> IPlugger.OnQueryChange(string query)
+    {
       List<ListItem> IdentifiedApps = new();
       //filtering apps
-      foreach (ListItem app in AllPortableApps) {
+      foreach (ListItem app in AllPortableApps)
+      {
         if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)
-                || FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold) {
+                || FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold)
+        {
           IdentifiedApps.Add(app);
         }
       }
@@ -87,14 +100,16 @@ namespace Plugin_PortableApps {
       return IdentifiedApps;
     }
 
-    List<string> IPlugger.SpecialCommands() {
+    List<string> IPlugger.SpecialCommands()
+    {
       List<string> SpecialCommand = new() {
         PluginSettings.AllAppsSpecialCommand
       };
       return SpecialCommand;
     }
 
-    List<ListItem> IPlugger.OnSpecialCommand(string command) {
+    List<ListItem> IPlugger.OnSpecialCommand(string command)
+    {
       //There is only 1 special command for this plugin so there is no need to check which it is
       List<ListItem> AllList = new(AllPortableApps);
       //sort alphabetically
@@ -104,27 +119,33 @@ namespace Plugin_PortableApps {
       return AllList;
     }
 
-    void IPlugger.OnAppStartup() {
-      //Get Plugin Specific settings
+    void IPlugger.OnAppStartup()
+    {
+      //Get Plugin Specific settings (was in \PluginName\Plugin\ but has changed)
       string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Plugin\\settings.json";
       PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(File.ReadAllText(fileName))!;
       PluginSettings.PortableAppsDirectory = Path.GetFullPath(PluginSettings.PortableAppsDirectory);
 
-      if (Directory.Exists(PluginSettings.PortableAppsDirectory)) {
+      if (Directory.Exists(PluginSettings.PortableAppsDirectory))
+      {
         var topLevelDirs = Directory.EnumerateDirectories(PluginSettings.PortableAppsDirectory, "*", SearchOption.TopDirectoryOnly);
-        foreach (string dir in topLevelDirs) {
-          foreach (string exe in Directory.EnumerateFiles(dir, "*", SearchOption.TopDirectoryOnly).Where(s => s.EndsWith(".exe"))) {
+        foreach (string dir in topLevelDirs)
+        {
+          foreach (string exe in Directory.EnumerateFiles(dir, "*", SearchOption.TopDirectoryOnly).Where(s => s.EndsWith(".exe")))
+          {
             AllPortableApps.Add(new PortableAppsItem(exe));
           }
         }
       }
     }
 
-    void IPlugger.OnAppShutdown() {
+    void IPlugger.OnAppShutdown()
+    {
 
     }
 
-    void IPlugger.OnSearchWindowStartup() {
+    void IPlugger.OnSearchWindowStartup()
+    {
 
     }
 

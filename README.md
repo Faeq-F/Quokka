@@ -1,4 +1,5 @@
 # Quokka
+
 An extremely customizable, portable keystroke launcher with plugins
 
 ---
@@ -18,19 +19,19 @@ I intend to make the app extremely customizable.<br>
 
 To use the app, run Quokka.exe
 
-| Default Keyboard shortcut | Use | Notes |
-|-----:|-----------|-|
-| <kbd>Left ⊞</kbd> + <kbd>Space</kbd> | launches the search bar | This shortcut is modifiable; [see the WindowHotKey setting](https://github.com/Faeq-F/Quokka#general-settings)
-| <kbd>🠙</kbd> & <kbd>🠛</kbd> | select items | The keys used cannot be changed
-| <kbd>↵</kbd> | executes an item |The key used cannot be changed
-| <kbd>☰</kbd> | shows context pane for item |The key used cannot be changed
+|            Default Keyboard shortcut | Use                         | Notes                                                                                                          |
+| -----------------------------------: | --------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| <kbd>Left ⊞</kbd> + <kbd>Space</kbd> | launches the search bar     | This shortcut is modifiable; [see the WindowHotKey setting](https://github.com/Faeq-F/Quokka#general-settings) |
+|          <kbd>🠙</kbd> & <kbd>🠛</kbd> | select items                | The keys used cannot be changed                                                                                |
+|                         <kbd>↵</kbd> | executes an item            | The key used cannot be changed                                                                                 |
+|                         <kbd>☰</kbd> | shows context pane for item | The key used cannot be changed                                                                                 |
 
 The Tray task icon context menu can be used to:
- - launch the search window
- - open the settings file
- - open the PlugBoard
- - exit the app
 
+- launch the search window
+- open the settings file
+- open the PlugBoard
+- exit the app
 
 To add a plugin, download it to the PlugBoard folder<br>
 If you do not wish to use a plugin, simply delete the appropriate folder in the PlugBoard
@@ -38,11 +39,12 @@ If you do not wish to use a plugin, simply delete the appropriate folder in the 
 ---
 
 ### Special commands
+
 <b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
 | Command (Case Sensitive) | Use | Plugin | Notes
 |-----:|-----------|-----------|-|
-| ```AllApps``` | list all installed apps | InstalledApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open shell:appsFolder. This item can be blacklisted.
-| ```AllPortableApps``` | list all portable apps | PortableApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open the portable apps directory. This item can be blacklisted.
+| `AllApps` | list all installed apps | InstalledApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open shell:appsFolder. This item can be blacklisted.
+| `AllPortableApps` | list all portable apps | PortableApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open the portable apps directory. This item can be blacklisted.
 
 </details>
 
@@ -62,9 +64,10 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 <h3>General settings</h3>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ```WindowHotKey``` | The default value is interpreted as 'Left Windows key + Spacebar' <br><br> The full list of keys that can be used in the setting can be found [here](https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields) (use the first column)| ```LWinSpace``` |
+|   Setting name | Notes                                                                                                                                                                                                                                                                             | Default Value |
+| -------------: | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `WindowHotKey` | The default value is interpreted as 'Left Windows key + Spacebar' <br><br> The full list of keys that can be used in the setting can be found [here](https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields) (use the first column) | `LWinSpace`   |
+
 </details>
 
 <details>
@@ -74,43 +77,43 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 
 <h4>Window</h4>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ```WindowTopMargin``` | The window is centered horizontally but anchored to the top of the screen. This setting controls how far down it will appear. | ```ScreenHeight/3``` |
-
+|      Setting name | Notes                                                                                                                         | Default Value    |
+| ----------------: | ----------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `WindowTopMargin` | The window is centered horizontally but anchored to the top of the screen. This setting controls how far down it will appear. | `ScreenHeight/3` |
 
 <details>
 <summary>
 <h4>Search bar</h4>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| SearchBarColor | color | White |
-| SearchBarRounding | corner radius | 32 |
-| SearchBarBorderColor | border color | Black |
-| SearchBarBorderSize | border thickness | 3 |
-| SearchBarHeight | height | 64 |
-| SearchBarWidth | width | screen width / 2 |
-| SearchIconWidth | icon width | 64 |
-| SearchIcon | icon file | ? |
+|         Setting name | Notes            | Default Value    |
+| -------------------: | ---------------- | ---------------- |
+|       SearchBarColor | color            | White            |
+|    SearchBarRounding | corner radius    | 32               |
+| SearchBarBorderColor | border color     | Black            |
+|  SearchBarBorderSize | border thickness | 3                |
+|      SearchBarHeight | height           | 64               |
+|       SearchBarWidth | width            | screen width / 2 |
+|      SearchIconWidth | icon width       | 64               |
+|           SearchIcon | icon file        | ?                |
 
 <h5>Entry field</h5>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| SearchFieldTxtColor | text color | Black |
-| SearchFieldTxtSelColor | select color | Black |
-| SearchFieldHeight | height | ? |
-| SearchFieldWidth | ? | ? |
-| SearchFieldMargin | ? | ? |
-| SearchFieldFont | font family | ? |
-| SearchFieldTxtSize | font size | 24 |
-| SearchFieldPlaceholder | This is the text in the search field when there is no input - a placeholder| Enter Query |
-| SearchFieldPlaceholderMargin | This is the margin (spacing) around the placeholder text| ? |
-| SearchFieldPlaceholderColor | This is the color of the placeholder in the search field | ? |
-| SearchFieldPlaceholderSize | placeholder font size | ? |
-| SearchFieldPlaceholderFont | placeholder font family | ? |
+|                 Setting name | Notes                                                                       | Default Value |
+| ---------------------------: | --------------------------------------------------------------------------- | ------------- |
+|          SearchFieldTxtColor | text color                                                                  | Black         |
+|       SearchFieldTxtSelColor | select color                                                                | Black         |
+|            SearchFieldHeight | height                                                                      | ?             |
+|             SearchFieldWidth | ?                                                                           | ?             |
+|            SearchFieldMargin | ?                                                                           | ?             |
+|              SearchFieldFont | font family                                                                 | ?             |
+|           SearchFieldTxtSize | font size                                                                   | 24            |
+|       SearchFieldPlaceholder | This is the text in the search field when there is no input - a placeholder | Enter Query   |
+| SearchFieldPlaceholderMargin | This is the margin (spacing) around the placeholder text                    | ?             |
+|  SearchFieldPlaceholderColor | This is the color of the placeholder in the search field                    | ?             |
+|   SearchFieldPlaceholderSize | placeholder font size                                                       | ?             |
+|   SearchFieldPlaceholderFont | placeholder font family                                                     | ?             |
+
 </details>
 
 <details>
@@ -123,15 +126,16 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 <h5>Container</h5>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ListContainerMargin | margin | ? |
-| ListContainerBorderColor | border color | ? |
-| ListContainerBorderThickness | border thickness | ? |
-| ListContainerRounding | corner radius | 15 |
-| ListContainerColor | background color | white |
-| ListContainerMinHeight | Min Height | ? |
-| ListContainerWidth | width | ? |
+|                 Setting name | Notes            | Default Value |
+| ---------------------------: | ---------------- | ------------- |
+|          ListContainerMargin | margin           | ?             |
+|     ListContainerBorderColor | border color     | ?             |
+| ListContainerBorderThickness | border thickness | ?             |
+|        ListContainerRounding | corner radius    | 15            |
+|           ListContainerColor | background color | white         |
+|       ListContainerMinHeight | Min Height       | ?             |
+|           ListContainerWidth | width            | ?             |
+
 </details>
 
 <details>
@@ -139,24 +143,25 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 <h5>List</h5>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ListMargin | margin | ? |
+| Setting name | Notes  | Default Value |
+| -----------: | ------ | ------------- |
+|   ListMargin | margin | ?             |
 
 <details>
 <summary>
 <h6>Scroll Bar Background</h4>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ScrollBarBgVisibility | visibility | ? |
-| ScrollBarBgColor | color | ? |
-| ScrollBarBgRounding | corner radius | ? |
-| ScrollBarBgBorderColor | border color | ? |
-| ScrollBarBgBorderThickness | border thickness | ? |
-| ScrollBarBgWidth | width | ? |
-| ScrollBarBgMargin | margin | ? |
+|               Setting name | Notes            | Default Value |
+| -------------------------: | ---------------- | ------------- |
+|      ScrollBarBgVisibility | visibility       | ?             |
+|           ScrollBarBgColor | color            | ?             |
+|        ScrollBarBgRounding | corner radius    | ?             |
+|     ScrollBarBgBorderColor | border color     | ?             |
+| ScrollBarBgBorderThickness | border thickness | ?             |
+|           ScrollBarBgWidth | width            | ?             |
+|          ScrollBarBgMargin | margin           | ?             |
+
 </details>
 
 <details>
@@ -164,15 +169,16 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 <h6>Scroll Bar Thumb Background</h6>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ScrollThumbBgVisibility | visibility | Visible |
-| ScrollThumbBgColor | color | ? |
-| ScrollThumbBgRounding | corner radius | ? |
-| ScrollThumbBgBorderColor | border color | ? |
-| ScrollThumbBgBorderThickness | border thickness | ? |
-| ScrollThumbBgWidth | width | ? |
-| ScrollThumbBgMargin | margin | ? |
+|                 Setting name | Notes            | Default Value |
+| ---------------------------: | ---------------- | ------------- |
+|      ScrollThumbBgVisibility | visibility       | Visible       |
+|           ScrollThumbBgColor | color            | ?             |
+|        ScrollThumbBgRounding | corner radius    | ?             |
+|     ScrollThumbBgBorderColor | border color     | ?             |
+| ScrollThumbBgBorderThickness | border thickness | ?             |
+|           ScrollThumbBgWidth | width            | ?             |
+|          ScrollThumbBgMargin | margin           | ?             |
+
 </details>
 
 <details>
@@ -180,43 +186,41 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 <h6>Scroll Bar Thumb</h6>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ScrollThumbVisibility | visibility | ? |
-| ScrollThumbColor | color | ? |
-| ScrollThumbRounding | corner radius | ? |
-| ScrollThumbBorderColor | border color | ? |
-| ScrollThumbBorderThickness | border thickness | ? |
-| ScrollThumbWidth | width | ? |
-| ScrollThumbMargin | margin | ? |
+|               Setting name | Notes            | Default Value |
+| -------------------------: | ---------------- | ------------- |
+|      ScrollThumbVisibility | visibility       | ?             |
+|           ScrollThumbColor | color            | ?             |
+|        ScrollThumbRounding | corner radius    | ?             |
+|     ScrollThumbBorderColor | border color     | ?             |
+| ScrollThumbBorderThickness | border thickness | ?             |
+|           ScrollThumbWidth | width            | ?             |
+|          ScrollThumbMargin | margin           | ?             |
+
 </details>
 </details>
-
-
-
 
 <details>
 <summary>
 <h5>List item</h5>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ListItemBorderThickness | border thickness | ? |
-| ListItemHoverBorderColor | hover border color | ? |
-| ListItemHoverBgColor | hover background color | ? |
-| ListItemSelectedBorderColor | selected border color | ? |
-| ListItemSelectedBgColor | selected background color | ? |
-| ListItemRounding | corner radius | 15 |
-| ListItemMargin | margin | ? |
-| ListItemIconSize | icon size | 50 |
-| ListItemTextMargin | text margin (from icon) | ? |
-| ListItemNameFont | name font family | ? |
-| ListItemNameSize | name size | ? |
-| ListItemNameColor | name color | Black |
-| ListItemDescFont | description font family | ? |
-| ListItemDescSize | description size | ? |
-| ListItemDescColor | description color | ? |
+|                Setting name | Notes                     | Default Value |
+| --------------------------: | ------------------------- | ------------- |
+|     ListItemBorderThickness | border thickness          | ?             |
+|    ListItemHoverBorderColor | hover border color        | ?             |
+|        ListItemHoverBgColor | hover background color    | ?             |
+| ListItemSelectedBorderColor | selected border color     | ?             |
+|     ListItemSelectedBgColor | selected background color | ?             |
+|            ListItemRounding | corner radius             | 15            |
+|              ListItemMargin | margin                    | ?             |
+|            ListItemIconSize | icon size                 | 50            |
+|          ListItemTextMargin | text margin (from icon)   | ?             |
+|            ListItemNameFont | name font family          | ?             |
+|            ListItemNameSize | name size                 | ?             |
+|           ListItemNameColor | name color                | Black         |
+|            ListItemDescFont | description font family   | ?             |
+|            ListItemDescSize | description size          | ?             |
+|           ListItemDescColor | description color         | ?             |
 
 <details>
 <summary>
@@ -225,39 +229,40 @@ Plugins may have their <b>own, specific settings files</b> in the root of their 
 Context panes are implemented by plugins. If an item does not use these settings, it is due to how the plugin's author developed the context pane.
 <br><br>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ContextPaneBorderColor | ? | ? |
-| ContextPaneBorderThickness | ? | ? |
-| ContextPaneCornerRounding | ? | ? |
-| ContextPaneBackground | ? | ? |
-| ContextPaneMinHeight | ? | ? |
+|               Setting name | Notes | Default Value |
+| -------------------------: | ----- | ------------- |
+|     ContextPaneBorderColor | ?     | ?             |
+| ContextPaneBorderThickness | ?     | ?             |
+|  ContextPaneCornerRounding | ?     | ?             |
+|      ContextPaneBackground | ?     | ?             |
+|       ContextPaneMinHeight | ?     | ?             |
 
 <details>
 <summary>
 <h5>List</h5>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ContextPaneListMargin | margin | ? |
-| ContextButtonBackgroundOnHover | ? | ? |
-| ContextButtonContentMargin | ? | ? |
+|                   Setting name | Notes  | Default Value |
+| -----------------------------: | ------ | ------------- |
+|          ContextPaneListMargin | margin | ?             |
+| ContextButtonBackgroundOnHover | ?      | ?             |
+|     ContextButtonContentMargin | ?      | ?             |
 
 <details>
 <summary>
 <h6>Scroll Bar Background</h4>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ContextPaneScrollBarBgVisibility | visibility | ? |
-| ContextPaneScrollBarBgColor | color | ? |
-| ContextPaneScrollBarBgRounding | corner radius | ? |
-| ContextPaneScrollBarBgBorderColor | border color | ? |
-| ContextPaneScrollBarBgBorderThickness | border thickness | ? |
-| ContextPaneScrollBarBgWidth | width | ? |
-| ContextPaneScrollBarBgMargin | margin | ? |
+|                          Setting name | Notes            | Default Value |
+| ------------------------------------: | ---------------- | ------------- |
+|      ContextPaneScrollBarBgVisibility | visibility       | ?             |
+|           ContextPaneScrollBarBgColor | color            | ?             |
+|        ContextPaneScrollBarBgRounding | corner radius    | ?             |
+|     ContextPaneScrollBarBgBorderColor | border color     | ?             |
+| ContextPaneScrollBarBgBorderThickness | border thickness | ?             |
+|           ContextPaneScrollBarBgWidth | width            | ?             |
+|          ContextPaneScrollBarBgMargin | margin           | ?             |
+
 </details>
 
 <details>
@@ -265,15 +270,16 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h6>Scroll Bar Thumb Background</h6>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ContextPaneScrollThumbBgVisibility | visibility | ? |
-| ContextPaneScrollThumbBgColor | color | ? |
-| ContextPaneScrollThumbBgRounding | corner radius | ? |
-| ContextPaneScrollThumbBgBorderColor | border color | ? |
-| ContextPaneScrollThumbBgBorderThickness | border thickness | ? |
-| ContextPaneScrollThumbBgWidth | width | ? |
-| ContextPaneScrollThumbBgMargin | margin | ? |
+|                            Setting name | Notes            | Default Value |
+| --------------------------------------: | ---------------- | ------------- |
+|      ContextPaneScrollThumbBgVisibility | visibility       | ?             |
+|           ContextPaneScrollThumbBgColor | color            | ?             |
+|        ContextPaneScrollThumbBgRounding | corner radius    | ?             |
+|     ContextPaneScrollThumbBgBorderColor | border color     | ?             |
+| ContextPaneScrollThumbBgBorderThickness | border thickness | ?             |
+|           ContextPaneScrollThumbBgWidth | width            | ?             |
+|          ContextPaneScrollThumbBgMargin | margin           | ?             |
+
 </details>
 
 <details>
@@ -281,22 +287,22 @@ Context panes are implemented by plugins. If an item does not use these settings
 <h6>Scroll Bar Thumb</h6>
 </summary>
 
-| Setting name | Notes | Default Value |
-|-----:|-----------|-----------|
-| ContextPaneScrollThumbVisibility | visibility | ? |
-| ContextPaneScrollThumbColor | color | ? |
-| ContextPaneScrollThumbRounding | corner radius | ? |
-| ContextPaneScrollThumbBorderColor | border color | ? |
-| ContextPaneScrollThumbBorderThickness | border thickness | ? |
-| ContextPaneScrollThumbWidth | width | ? |
-| ContextPaneScrollThumbMargin | margin | ? |
-</details>
+|                          Setting name | Notes            | Default Value |
+| ------------------------------------: | ---------------- | ------------- |
+|      ContextPaneScrollThumbVisibility | visibility       | ?             |
+|           ContextPaneScrollThumbColor | color            | ?             |
+|        ContextPaneScrollThumbRounding | corner radius    | ?             |
+|     ContextPaneScrollThumbBorderColor | border color     | ?             |
+| ContextPaneScrollThumbBorderThickness | border thickness | ?             |
+|           ContextPaneScrollThumbWidth | width            | ?             |
+|          ContextPaneScrollThumbMargin | margin           | ?             |
 
 </details>
 
 </details>
-</details>
 
+</details>
+</details>
 
 </details>
 </details>
@@ -305,8 +311,6 @@ Context panes are implemented by plugins. If an item does not use these settings
 
 </details>
 
-
-
 <details>
 <summary>
 <h2>Planned plugins</h2>
@@ -314,36 +318,34 @@ Context panes are implemented by plugins. If an item does not use these settings
 
 In order of priority:
 
-| Developed? | Plugin |
-|-----:|-----------|
-|     ✅| installed app launcher |
-|     ✅| portable app launcher |
-|In progress| file/folder launcher - everything integration|
-|     ▢| screen capture - sharex integration |
-|     ▢| calculator |
-|     ▢| os power commands (logout, lock, sleep, chutdown, etc.) |
-|     ▢| control panel shortcuts |
-|     ▢| Windows settings |
-|     ▢| IP & MAC address |
-|     ▢| cli commands - powershell |
-|     ▢| dictionary |
-|     ▢| unicode character lookup |
-|     ▢| color space conversion |
-|     ▢| unit conversion |
-|     ▢| currency conversion |
-|     ▢| translate |
-|     ▢| lorem ipsum generator |
-|     ▢| emoji lookup |
-|     ▢| url opener |
-|     ▢| wikipedia search |
-|     ▢| clipboard manager |
-|     ▢| keepass integration |
-|     ▢| Timezone converter |
-|     ▢| workflows - launch multiple shortcuts at once - see below |
+|  Developed? | Plugin                                                    |
+| ----------: | --------------------------------------------------------- |
+|          ✅ | installed app launcher                                    |
+|          ✅ | portable app launcher                                     |
+| In progress | file/folder launcher - everything integration             |
+|           ▢ | screen capture - sharex integration                       |
+|           ▢ | calculator                                                |
+|           ▢ | os power commands (logout, lock, sleep, chutdown, etc.)   |
+|           ▢ | control panel shortcuts                                   |
+|           ▢ | Windows settings                                          |
+|           ▢ | IP & MAC address                                          |
+|           ▢ | cli commands - powershell                                 |
+|           ▢ | dictionary                                                |
+|           ▢ | unicode character lookup                                  |
+|           ▢ | color space conversion                                    |
+|           ▢ | unit conversion                                           |
+|           ▢ | currency conversion                                       |
+|           ▢ | translate                                                 |
+|           ▢ | lorem ipsum generator                                     |
+|           ▢ | emoji lookup                                              |
+|           ▢ | url opener                                                |
+|           ▢ | wikipedia search                                          |
+|           ▢ | clipboard manager                                         |
+|           ▢ | keepass integration                                       |
+|           ▢ | Timezone converter                                        |
+|           ▢ | workflows - launch multiple shortcuts at once - see below |
 
 </details>
-
-
 
 <details>
 <summary>
@@ -356,27 +358,24 @@ In order of priority:
 
 3. copy Debug folder (in bin) for Quokka project to desired location (e.g. USB drive)
 
-> (You may rename the folder to, for e.g., 'Quokka')<br>
-4. (Download / Delete) any plugins you (do / do not) wish to use<br>(In the PlugBoard folder)<br>
+> (You may rename the folder to, for e.g., 'Quokka')<br> 4. (Download / Delete) any plugins you (do / do not) wish to use<br>(In the PlugBoard folder)<br>
 > (3 plugins are included with the source code - InstalledApps, ShowTypedText and TypedText)
 
 > The TypedText and ShowTypedText plugins are meant as demos and examples of plugins and will not be included in the final release
 
 </details>
 
-
-
 <details>
 <summary>
 <h2>Creating a plugin</h2>
 </summary>
 
-
 1. open Visual Studio & clone Quokka
-2. in the solution, create a project of type WPF class library, naming it "Plugin_*YourPluginNameHere*"<br>
-3. rename the cs file to "Plugin_*YourPluginNameHere*"
+2. in the solution, create a project of type WPF class library, naming it "Plugin\__YourPluginNameHere_"<br>
+3. rename the cs file to "Plugin\__YourPluginNameHere_"
 4. edit the project file to look like the following:<br>
    > The following is part of the ShowTypedText plugin:<br>
+
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 
@@ -401,17 +400,22 @@ In order of priority:
 
 </Project>
 ```
+
 5. In the cs file add
+
 ```
 using Quokka.Plugger.Contracts;
 using Quokka;
 ```
+
 and create a ListItem class for your item type.<br>
+
 > e.g., the following is part of the ShowTypedText plugin:
+
 ```
 class TypedTextItem : ListItem {
         public string query;
-        public TypedTextItem(string query) { 
+        public TypedTextItem(string query) {
             this.name = "Typed:" + query;
             this.query = query;
             this.description = "The search field contains the above text";
@@ -426,18 +430,20 @@ class TypedTextItem : ListItem {
         }
 }
 ```
+
 7. create a class that inherits from IPlugger<br> (this is in the same namespace and can go in the same file)<br>
-> e.g., The following is part of the ShowTypedText plugin:
+   > e.g., The following is part of the ShowTypedText plugin:
+
 ```
 public partial class ShowTypedText : IPlugger {
 
         public ShowTypedText() {}
- 
+
         public string PluggerName { get; set; } = "ShowTypedText";
 
-        /// <summary>  
+        /// <summary>
         /// This will get called when user types a query into the search field
-        /// </summary>  
+        /// </summary>
         public List<ListItem> OnQueryChange(string query) {
             List<ListItem> ItemList = new List<ListItem>();
             ItemList.Add(new ShowTypedTextItem(query));
@@ -460,6 +466,7 @@ public partial class ShowTypedText : IPlugger {
 
     }
 ```
+
 OnQueryChange is the method that is called by the SearchWindow when a user types in a query<br>
 In this method, you should create your list item objects, filter them (if needed), and return them in a list<br>
 <br>
@@ -470,6 +477,7 @@ If your plugin has a special command, then you will need to sort the list for th
 - In the project, add a WPF Page <b>called 'ContextPane'</b>
 - ensure ContextPane : Page (inherits page)
 - ensure the plugin's project file has
+
 ```
 <ItemGroup>
     <Compile Update="ContextPane.xaml.cs">
@@ -483,8 +491,10 @@ If your plugin has a special command, then you will need to sort the list for th
     </Page>
 </ItemGroup>
 ```
+
 - add information / extra actions to the pane
-> e.g., The following is part of the ShowTypedText plugin:
+  > e.g., The following is part of the ShowTypedText plugin:
+
 ```
 <Page x:Class="Plugin_ShowTypedText.ContextPane"
     ...
@@ -554,9 +564,9 @@ namespace Plugin_ShowTypedText {
 
                     if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
 
-                    Wpf.Ui.Controls.Button currentButton = 
+                    Wpf.Ui.Controls.Button currentButton =
                         (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
-                    currentButton.RaiseEvent(new 
+                    currentButton.RaiseEvent(new
                         RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
                     break;
                 case Key.Down:
@@ -596,8 +606,10 @@ namespace Plugin_ShowTypedText {
     }
 }
 ```
+
 9. Build the solution<br>
 
 <b>Done!</b> You have created a plugin for the app and can start using it.<br>
 To stop using it, delete the appropriate folder from the PlugBoard
+
 </details>

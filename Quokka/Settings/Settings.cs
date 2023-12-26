@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quokka.Settings {
-  public class AppWindow {
+namespace Quokka.Settings
+{
+  public class AppWindow
+  {
     public string WindowTopMargin { get; set; }
     public string WindowWidth { get; set; }
     public string WindowColor { get; set; }
@@ -15,7 +17,8 @@ namespace Quokka.Settings {
     public string WindowPadding { get; set; }
   }
 
-  public class Container {
+  public class Container
+  {
     public string ListContainerMargin { get; set; }
     public string ListContainerBorderColor { get; set; }
     public string ListContainerBorderThickness { get; set; }
@@ -25,7 +28,8 @@ namespace Quokka.Settings {
     public string ListContainerMaxHeight { get; set; }
   }
 
-  public class ContextPane {
+  public class ContextPane
+  {
     public string BorderColor { get; set; }
     public string BorderThickness { get; set; }
     public string CornerRounding { get; set; }
@@ -35,7 +39,8 @@ namespace Quokka.Settings {
     public List List { get; set; }
   }
 
-  public class Details {
+  public class Details
+  {
     public string ContentMargin { get; set; }
     public string ContentVerticalAlignment { get; set; }
     public string ContentHorizontalAlignment { get; set; }
@@ -46,7 +51,8 @@ namespace Quokka.Settings {
     public string TextLineMargin { get; set; }
   }
 
-  public class EntryField {
+  public class EntryField
+  {
     public string SearchFieldTxtColor { get; set; }
     public string SearchFieldTxtSelColor { get; set; }
     public string SearchFieldHeight { get; set; }
@@ -61,20 +67,23 @@ namespace Quokka.Settings {
     public string SearchFieldPlaceholderFont { get; set; }
   }
 
-  public class GeneralSettings {
+  public class GeneralSettings
+  {
     public string WindowHotKey { get; set; }
     public string MaxResults { get; set; }
     public string IgnoreMaxResultsFlag { get; set; }
   }
 
-  public class List {
+  public class List
+  {
     public string ListMargin { get; set; }
     public string ContentHorizontalAlignment { get; set; }
     public string ButtonContentMargin { get; set; }
     public ListItems ListItems { get; set; }
   }
 
-  public class ListItems {
+  public class ListItems
+  {
     public string ListItemBorderThickness { get; set; }
     public string ListItemHoverBorderColor { get; set; }
     public string ListItemHoverBgColor { get; set; }
@@ -98,18 +107,21 @@ namespace Quokka.Settings {
     public string ListItemColor { get; set; }
   }
 
-  public class ResultsList {
+  public class ResultsList
+  {
     public Container Container { get; set; }
     public List List { get; set; }
     public ListItems ListItems { get; set; }
   }
 
-  public class Settings {
+  public class Settings
+  {
     public GeneralSettings GeneralSettings { get; set; }
     public StyleSettings StyleSettings { get; set; }
   }
 
-  public class SearchBar {
+  public class SearchBar
+  {
     public string SearchBarColor { get; set; }
     public string SearchBarRounding { get; set; }
     public string SearchBarBorderColor { get; set; }
@@ -120,7 +132,8 @@ namespace Quokka.Settings {
     public EntryField EntryField { get; set; }
   }
 
-  public class StyleSettings {
+  public class StyleSettings
+  {
     public AppWindow AppWindow { get; set; }
     public SearchBar SearchBar { get; set; }
     public ResultsList ResultsList { get; set; }

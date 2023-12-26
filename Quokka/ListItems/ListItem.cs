@@ -1,8 +1,10 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Quokka.ListItems {
-  public abstract class ListItem {
+namespace Quokka.ListItems
+{
+  public abstract class ListItem
+  {
 
     public string name { get; set; }
     public string description { get; set; }
@@ -10,7 +12,8 @@ namespace Quokka.ListItems {
 
     public abstract void execute();
 
-    public override string ToString() {
+    public override string ToString()
+    {
       return name;
     }
   }

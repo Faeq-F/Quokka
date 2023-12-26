@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
@@ -8,13 +7,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
-    
     <DebugType>embedded</DebugType>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-
     <ApplicationIcon>..\Config\Resources\QuokkaTray.ico</ApplicationIcon>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -25,130 +22,111 @@
     <Copyright>Licensed under GNU General Public License v3.0 - Faeq Faisal</Copyright>
     <PackageProjectUrl>https://faeq-f.github.io/Quokka/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/faeq-F/Quokka</RepositoryUrl>
-
     <BaseOutputPath>G:\Quokka</BaseOutputPath>
-
-    <Configurations>Debug;Release;Quokka</Configurations>
+    <Configurations>Quokka</Configurations>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Quokka|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>True</Optimize>
-  </PropertyGroup>
-
   <ItemGroup>
     <COMReference Include="Shell32">
-    <WrapperTool>tlbimp</WrapperTool>
-    <VersionMinor>0</VersionMinor>
-    <VersionMajor>1</VersionMajor>
-    <Guid>50a7e9b0-70ef-11d1-b75a-00a0c90564fe</Guid>
-    <Lcid>0</Lcid>
-    <Isolated>false</Isolated>
-    <EmbedInteropTypes>true</EmbedInteropTypes>
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>50a7e9b0-70ef-11d1-b75a-00a0c90564fe</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="PInvoke.User32" Version="0.7.124" />
-    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.12.0.2" />
-
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf"
+                      Version="1.1.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf"
+                      Version="1.1.77" />
+    <PackageReference Include="Newtonsoft.Json"
+                      Version="13.0.3" />
+    <PackageReference Include="PInvoke.User32"
+                      Version="0.7.124" />
+    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell"
+                      Version="2.12.0.2" />
   </ItemGroup>
-
   <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\QuokkaTray.ico">
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
-
   <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\SearchIcon.png">
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
-
   <ItemGroup>
     <ContentWithTargetPath Include="..\Config\settings.json">
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    <TargetPath>Config\settings.json</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\settings.json</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
-
   <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\information.png">
-    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    <TargetPath>Config\Resources\information.png</TargetPath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\information.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\copy.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\copy.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\3dObjectsFolder.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\search.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\search.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\settings.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\settings.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\plug.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\plug.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\exit.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\exit.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\admin.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\admin.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\open.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\open.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="..\Config\Resources\openFolder.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>Config\Resources\openFolder.png</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\copy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\copy.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\3dObjectsFolder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\search.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\search.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\settings.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\plug.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\plug.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\exit.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\admin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\admin.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\open.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\openFolder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\openFolder.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 </Project>

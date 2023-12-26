@@ -1,50 +1,44 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <!--
-    "ContextPane": {
-    
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- "ContextPane": {
+
     "ContextPaneBorderColor": "#e5e5e5",
     "ContextPaneBorderThickness": "1",
     "ContextPaneCornerRounding": "15",
     "ContextPaneBackground": "#f3f3f3",
-    "ContextPaneMinHeight": "64",
-  -->
-  <SolidColorBrush x:Key="RS-ContextPaneBorderColor" Color="{DynamicResource ContextPaneBorderColor}" />
+    "ContextPaneMinHeight": "64", -->
+  <SolidColorBrush x:Key="RS-ContextPaneBorderColor"
+                   Color="{DynamicResource ContextPaneBorderColor}" />
+  <!-- "Details": {
 
-
-
-  <!--
-    "Details": {
-    
     "ContextPaneContentMargin": "0, 0, 0, 0",
     "ContextPaneContentVerticalAlignment": "Center",
     "ContextPaneContentHorizontalAlignment": "Center",
     "ContextPaneImageMargin": "40,50,40,20",
-    
+
     "NameTextMargin": "0,-20,0,0",
     "NameTextFontFamily": "Cascadia Code",
     "NameTextSize": "16",
     "NameTextColor": "Black",
-    
+
     "DescTextMargin": "0,0,0,0",
     "DescTextFontFamily": "Cascadia Code",
     "DescTextSize": "12",
     "DescTextColor": "Gray",
-    
+
     "ExtraDetailsTextMargin": "0,0,0,0",
     "ExtraDetailsTextFontFamily": "Cascadia Code",
     "ExtraDetailsTextSize": "12",
     "ExtraDetailsTextColor": "Gray"
-    
-    },
-  -->
-  <!--
-    "List": {
-    
+
+    }, -->
+  <!-- "List": {
+
     "ContextPaneListMargin": "10,10,0,10",
     "ContextPaneContentHorizontalAlignment": "Left",
-    
+
     "ListItems": {
-    
+
     "ContextPaneListItemBorderThickness": "3",
     "ContextPaneListItemHoverBorderColor": "White",
     "ContextPaneListItemHoverBgColor": "LightGray",
@@ -52,19 +46,16 @@
     "ContextPaneListItemSelectedBgColor": "White",
     "ContextPaneListItemRounding": "15",
     "ContextPaneListItemMargin": "0, 0, 10, 0",
-    
+
     "ContextPaneListItemIconSize": "30",
     "ContextPaneListItemIconMargin": "0,0,-5,0",
     "ContextPaneListItemTextPadding": "10",
     "ContextPaneListItemFont": "Cascadia Code",
     "ContextPaneListItemSize": "12",
     "ContextPaneListItemColor": "Black",
-    
+
     "ContextPaneListItemContentMargin": "10"
     }
     }
-    }
-  -->
-
-
+    } -->
 </ResourceDictionary>

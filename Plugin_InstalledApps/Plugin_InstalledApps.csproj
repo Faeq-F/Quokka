@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
@@ -7,36 +6,32 @@
     <Product>Plugin_InstalledApps</Product>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
-
     <DebugType>embedded</DebugType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <BaseOutputPath>G:\Quokka\Release\PlugBoard\Plugin_InstalledApps</BaseOutputPath>
+    <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_InstalledApps</BaseOutputPath>
     <Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
+    <Reference Include="..\Quokka\Quokka.csproj">
+      <HintPath>..\Quokka\obj\Release\Quokka.dll</HintPath>
+    </Reference>
   </ItemGroup>
-
-    <ItemGroup>
-        <Compile Update="ContextPane.xaml.cs">
-            <SubType>Code</SubType>
-        </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Page Update="ContextPane.xaml">
-            <SubType>Designer</SubType>
-        </Page>
-    </ItemGroup>
-
-    <ItemGroup>
-        <ContentWithTargetPath Include="settings.json">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-            <TargetPath>settings.json</TargetPath>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
-
+  <ItemGroup>
+    <Compile Update="ContextPane.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ContextPane.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>settings.json</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
 </Project>
