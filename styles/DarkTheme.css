@@ -1,0 +1,149 @@
+body:has(.switch__input:checked) {
+  background: rgb(13, 11, 7);
+}
+
+body:has(.switch__input:checked) header.sticky {
+  background-color: #111;
+  box-shadow: rgba(60, 60, 60, 0.363) 0px 30px 80px -40px,
+    rgba(60, 60, 60, 0.3) 0px 10px 40px -50px,
+    rgba(60, 60, 60, 0.35) 0px -2px 6px 0px inset
+}
+
+body:has(.switch__input:checked) #LetsConnectButton,
+body:has(.switch__input:checked) #header>nav>ul>li>a>span {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #HomeView #title {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #Portfolio section div #PortfolioScrollImg,
+body:has(.switch__input:checked) #HomeScrollImg {
+  filter: invert(1);
+}
+
+body:has(.switch__input:checked) #HomeView #title>span>a>button {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #HomeView #title>span>a>button span {
+  background-color: rgb(13, 11, 7);
+}
+
+body:has(.switch__input:checked) #Portfolio section aside div.card,
+body:has(.switch__input:checked) div>div.card {
+  color: #ddd;
+  background-color: #1a1a1a;
+}
+
+body:has(.switch__input:checked) #Portfolio section div p.PortfolioWorkHeader,
+body:has(.switch__input:checked) #Portfolio section aside div p.PortfolioWorkHeader {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Used for fixing light theme when fixed timeleine animation in dark theme */
+body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
+  background-color: #fff;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
+  background-color: #1a1a1a;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_inner div.ag-timeline-card_info div.ag-timeline-card_desc {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div {
+  color: #1a1a1a;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div.mobileAge {
+  color: #a97ef4;
+}
+
+/* Used for fixing light theme when fixed timeleine animation in dark theme */
+body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
+  background-color: #fff;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
+  background-color: #1a1a1a;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::before {
+  border: 6px solid #1a1a1a;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1 {
+  color: #ddd;
+}
+
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::after {
+  border: 2px solid #ddd;
+  border-bottom: none;
+  border-left: none;
+}
+
+body:has(.switch__input:checked) footer {
+  filter: brightness(0.8);
+}
+
+body:has(.switch__input:checked) #Portfolio>section>div>div>a.ProjectCard {
+  background-color: #1a1a1a;
+}
+
+body:has(.switch__input:checked) div.cursor {
+  border: 1px solid #ddd;
+}
+
+body:has(.switch__input:checked) div.cursor2 {
+  background-color: #ddd;
+}
+
+body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .modal-overlay {
+  background: rgb(13, 11, 7);
+}
+
+body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .modal-window,
+body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .grid-container .grid-item,
+body:has(.switch__input:checked) #Portfolio section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
+body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_img-box>img {
+  filter: brightness(0.8);
+}
+
+body:has(.switch__input:checked) #Contact .ContactCard .ConnectTitleBox .ConnectTitle,
+body:has(.switch__input:checked) #Contact .ContactCard .ConnectTitleBox .ConnectTagline {
+  color: #212121 !important;
+}
+
+body:has(.switch__input:checked) #Contact .ContactCard .SocialButtons .SocialBtn .SocialLink strong {
+  color: #212121;
+}
+
+
+
+
+body:has(.switch__input:checked) #IDE {
+  box-shadow: rgba(50, 50, 93, 0.25) 5px 5px 5px -1px,
+    rgba(0, 0, 0, 0.3) 5px 5px 5px -5px;
+}
+
+body:has(.switch__input:checked) #IDEmenu {
+  background: rgba(2, 2, 2, 0.6);
+}
+
+body:has(.switch__input:checked) #IDEmenu::after,
+body:has(.switch__input:checked) #IDEbody::before,
+body:has(.switch__input:checked) #IDEmenu::before {
+  color: #696969a3;
+}
+
+body:has(.switch__input:checked) #IDEbody {
+  background: rgba(9, 9, 9, 0.8);
+}

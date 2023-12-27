@@ -1,0 +1,162 @@
+/* Links & text */
+.headerLink {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headerLink a {
+  line-height: 30px;
+  height: 100%;
+  text-decoration: none;
+  float: left !important;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.headerText {
+  vertical-align: middle;
+  line-height: 70px;
+  color: #2c2c2cd5;
+  font-size: larger;
+  font-weight: bold;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.right-li {
+  float: right !important;
+}
+
+nav {
+  padding: 10px 0;
+}
+
+.navbar {
+  list-style: none;
+  height: 70px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.connectButton {
+  margin-left: auto;
+  font-size: larger;
+  align-self: center;
+}
+
+
+.navbar {
+  padding-inline-start: 40px;
+  padding-inline-end: 40px;
+}
+
+/* Header box */
+
+header {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: calc(100% - 81px);
+  left: 0;
+  color: #000;
+  position: fixed;
+  top: 2.5%;
+  z-index: 500;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 30px;
+  transition: 300ms ease;
+  height: 10vh;
+  display: block;
+}
+
+.header {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+header.sticky {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  margin: 10px 2.5%;
+  width: 95%;
+  background-color: #f2f4f8;
+}
+
+@media (max-width: 661px) {
+  /*
+  .connectButton {
+    display: none;
+  }*/
+
+  nav {
+    display: block;
+    height: auto;
+  }
+
+  .headerText {
+    line-height: 20px;
+    font-size: small;
+    /*Center font*/
+  }
+
+  .headerLink a {
+    line-height: 20px;
+    padding: 0 5px;
+  }
+
+  header {
+    display: none;
+  }
+}
+
+@media (min-width: 660px) {
+  .headerText {
+    line-height: 70px;
+    font-size: larger;
+  }
+
+  .headerLink a {
+    line-height: 30px;
+    padding: 0 24px;
+  }
+}
+
+/* progress bar
+
+.progress-container {
+    width: 95%;
+    height: 8px;
+    background: transparent;
+    border-radius: 360px;
+    margin: 0 2.5% 10px 2.5%;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #bb7fff;
+    width: 0%;
+    border-radius: 360px;
+}
+
+header.sticky .progress-container {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+<div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+*/

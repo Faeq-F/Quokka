@@ -1,0 +1,213 @@
+/* latin-ext */
+@font-face {
+    font-family: 'Abril Fatface';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/abrilfatface/v23/zOL64pLDlL1D99S8g8PtiKchq-lmjdLh.woff2') format('woff2');
+    unicode-range: U + 100-02AF, U + 304, U + 308, U + 329, U + 1E00-1E9F, U + 1EF2-1EFF, U + 2020, U + 20A0-20AB, U + 20AD-20CF, U + 2113, U + 2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Abril Fatface';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/abrilfatface/v23/zOL64pLDlL1D99S8g8PtiKchq-dmjQ.woff2') format('woff2');
+    unicode-range: U + 0-00FF, U + 131, U + 152-0153, U + 2BB-02BC, U + 2C6, U + 2 DA, U + 2 DC, U + 304, U + 308, U + 329, U + 2000-206F, U + 2074, U + 20 AC, U + 2122, U + 2191, U + 2193, U + 2212, U + 2215, U+FEFF, U+FFFD;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj11HzhKg.woff2') format('woff2');
+    unicode-range: U + 102-0103, U + 110-0111, U + 128-0129, U + 168-0169, U + 1A0-01A1, U + 1AF-01B0, U + 300-0301, U + 303-0304, U + 308-0309, U + 323, U + 329, U + 1EA0-1EF9, U + 20 AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj1lHzhKg.woff2') format('woff2');
+    unicode-range: U + 100-02AF, U + 304, U + 308, U + 329, U + 1E00-1E9F, U + 1EF2-1EFF, U + 2020, U + 20A0-20AB, U + 20AD-20CF, U + 2113, U + 2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xTj2FHz.woff2') format('woff2');
+    unicode-range: U + 0-00FF, U + 131, U + 152-0153, U + 2BB-02BC, U + 2C6, U + 2 DA, U + 2 DC, U + 304, U + 308, U + 329, U + 2000-206F, U + 2074, U + 20 AC, U + 2122, U + 2191, U + 2193, U + 2212, U + 2215, U+FEFF, U+FFFD;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3TmtIkGUrs.woff2') format('woff2');
+    unicode-range: U + 102-0103, U + 110-0111, U + 128-0129, U + 168-0169, U + 1A0-01A1, U + 1AF-01B0, U + 300-0301, U + 303-0304, U + 308-0309, U + 323, U + 329, U + 1EA0-1EF9, U + 20 AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3TmtYkGUrs.woff2') format('woff2');
+    unicode-range: U + 100-02AF, U + 304, U + 308, U + 329, U + 1E00-1E9F, U + 1EF2-1EFF, U + 2020, U + 20A0-20AB, U + 20AD-20CF, U + 2113, U + 2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxyL3I-JCGChYJ8VI-L6OO_au7B6xTrY3Tmu4kG.woff2') format('woff2');
+    unicode-range: U + 0-00FF, U + 131, U + 152-0153, U + 2BB-02BC, U + 2C6, U + 2 DA, U + 2 DC, U + 304, U + 308, U + 329, U + 2000-206F, U + 2074, U + 20 AC, U + 2122, U + 2191, U + 2193, U + 2212, U + 2215, U+FEFF, U+FFFD;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTx3L3I-JCGChYJ8VI-L6OO_au7B6x7T2kn3.woff2') format('woff2');
+    unicode-range: U + 102-0103, U + 110-0111, U + 128-0129, U + 168-0169, U + 1A0-01A1, U + 1AF-01B0, U + 300-0301, U + 303-0304, U + 308-0309, U + 323, U + 329, U + 1EA0-1EF9, U + 20 AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTx3L3I-JCGChYJ8VI-L6OO_au7B6x_T2kn3.woff2') format('woff2');
+    unicode-range: U + 100-02AF, U + 304, U + 308, U + 329, U + 1E00-1E9F, U + 1EF2-1EFF, U + 2020, U + 20A0-20AB, U + 20AD-20CF, U + 2113, U + 2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTx3L3I-JCGChYJ8VI-L6OO_au7B6xHT2g.woff2') format('woff2');
+    unicode-range: U + 0-00FF, U + 131, U + 152-0153, U + 2BB-02BC, U + 2C6, U + 2 DA, U + 2 DC, U + 304, U + 308, U + 329, U + 2000-206F, U + 2074, U + 20 AC, U + 2122, U + 2191, U + 2193, U + 2212, U + 2215, U+FEFF, U+FFFD;
+}
+
+/* vietnamese */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3nWuZEC.woff2') format('woff2');
+    unicode-range: U + 102-0103, U + 110-0111, U + 128-0129, U + 168-0169, U + 1A0-01A1, U + 1AF-01B0, U + 300-0301, U + 303-0304, U + 308-0309, U + 323, U + 329, U + 1EA0-1EF9, U + 20 AB;
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3jWuZEC.woff2') format('woff2');
+    unicode-range: U + 100-02AF, U + 304, U + 308, U + 329, U + 1E00-1E9F, U + 1EF2-1EFF, U + 2020, U + 20A0-20AB, U + 20AD-20CF, U + 2113, U + 2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/barlowcondensed/v12/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2') format('woff2');
+    unicode-range: U + 0-00FF, U + 131, U + 152-0153, U + 2BB-02BC, U + 2C6, U + 2 DA, U + 2 DC, U + 304, U + 308, U + 329, U + 2000-206F, U + 2074, U + 20 AC, U + 2122, U + 2191, U + 2193, U + 2212, U + 2215, U+FEFF, U+FFFD;
+}
+
+
+/* center the blockquote in the page */
+.blockquote-wrapper {
+    display: flex;
+}
+
+/* Blockquote main style */
+.blockquote {
+    position: relative;
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: 20px auto;
+    align-self: center;
+}
+
+/* Blockquote header */
+.blockquote .h1 {
+    font-family: 'Abril Fatface', cursive;
+    position: relative;
+    /* for pseudos */
+    color: #2c2c2cbe;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    line-height: 1;
+    margin: 0;
+    border: 2px solid transparent;
+    border: solid 2px;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.blockquote .h1 span {
+    font-family: 'Abril Fatface', cursive;
+    font-weight: bolder;
+}
+
+/* Blockquote right double quotes */
+.blockquote .h1:after {
+    content: "";
+    position: absolute;
+    border: 2px solid #2c2c2cbe;
+    border-radius: 0 50px 0 0;
+    width: 60px;
+    height: 60px;
+    bottom: -62px;
+    left: 50px;
+    border-bottom: none;
+    border-left: none;
+    z-index: 3;
+}
+
+.blockquote .h1:before {
+    content: "";
+    position: absolute;
+    width: 80px;
+    border: 6px solid #fff;
+    bottom: -3px;
+    left: 50px;
+    z-index: 2;
+}
+
+/* increase header size after 600px */
+@media all and(min-width: 600px) {
+    .blockquote .h1 {
+
+        line-height: 1.2;
+    }
+
+}
+
+/* Blockquote subheader */
+.blockquote .h4 {
+    position: relative;
+    color: oklch(80% 0.2 var(--hue) / 0.7);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 0 150px;
+    padding-top: 15px;
+    z-index: 1;
+    padding-left: 12px;
+    text-align: left;
+}
+
+
+.blockquote .h4:first-letter {
+    margin-left: -12px;
+}

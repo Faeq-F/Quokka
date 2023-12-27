@@ -1,49 +1,44 @@
 # Site
-title:              "Quokka"
-remote_theme: TaylanTatli/Moon
-bio:                'A customisable keystroke launcher'
-description:        "A customisable keystroke launcher"
-logo:               'https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/_layouts/Quokka.png'
-background:         'https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/QuokkaWebsiteBG.png'
-tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
-locale:             en_GB
-url:                https://faeq-f.github.io/Quokka/
+title: "Quokka"
+email: faeqfaisal@hotmail.co.uk
+bio: "A customisable keystroke launcher with plugins"
+description: "A customisable keystroke launcher with plugins"
+logo: "https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/_layouts/Quokka.png"
+locale: en_GB
+url: https://faeq-f.github.io/Quokka/
+github_username: faeq-f
 
 # Jekyll
-permalink:          /:title/
-markdown:           kramdown
-highlighter:        rouge
+permalink: /:title/
+markdown: kramdown
+highlighter: white
 kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-mathjax:            true
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+mathjax: true
 sass:
-  sass_dir:         _sass
-  style:            compressed
+  sass_dir: _sass
+  style: compressed
 
 # Comments
-disqus_shortname:   taylantatli
 
 # Social
 # if you don't have any of social below, comment the line.
 #google:
-  #plus:            #username
-  #analytics:
-  #verify:
-  #ad-client:
-  #ad-slot:
+#plus:            #username
+#analytics:
+#verify:
+#ad-client:
+#ad-slot:
 #bing-verify:
-#email:              faeqfaisal@hotmail.co.uk
-#twitter:            Mx_Faeq
-#facebook:           username
-github-url:         faeq-F/Quokka
-#stackoverflow:      13165763/faeq
-#linkedin:          faeq
+email:              faeqfaisal@hotmail.co.uk
+github-url: faeq-F/Quokka
+stackoverflow:      13165763/faeq
+linkedin:          faeq
 #xing:              username
-#instagram:          faeq._
 #lastfm:            username
 #tumblr:            username
 #medium:            '@username'
@@ -69,7 +64,21 @@ gems:
   - jekyll-gist
 
 jekyll-mentions:
-    base_url: https://github.com
+  base_url: https://github.com
 
 # Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
+exclude:
+  [
+    README.md,
+    Gemfile,
+    Gemfile.lock,
+    node_modules,
+    gulpfile.js,
+    package.json,
+    _site,
+    src,
+    vendor,
+    CNAME,
+    LICENSE,
+    Rakefile,
+  ]

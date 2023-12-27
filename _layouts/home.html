@@ -1,50 +1,666 @@
----
-layout: compress
----
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
-<head>
-    {% include head.html %}
-	
-</head>
-<body>
-    <!-- Header -->
-    <header class="header flex" role="banner">
-        <div class="container animated fadeIn">
-            <div class="row">
-                    <a href="{{ site.url }}">
-                        <img src="{{ site.logo }}" class="img-circle zoombtn animated rotateIn">
-                    </a>
-                    <h3 class="title">
-                        <a class="zoombtn" href="{{ site.url }}">
-                        	<p style="font-size:1.2rem;font-weight:300; display:inline">Quokka</p>
-			            </a>
-                    </h3>
-                    <hr class="hr-line">
-                    <h3 class="title">
-                        <a href="{{ site.url }}">
-                        	<p style="font-size:1rem;font-weight:300">A keystroke launcher for Windows</p>
-			            </a>
-                    </h3>
-                    {% include social-links.html %}
-                  <hr class="hr-line">
-                  <h3 class="title">
-                         <a class="btn zoombtn" href="{{ site.url }}/about">
-                         About
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/FAQ">
-                         FAQ
-                         </a>
-                         <a class="btn zoombtn" href="{{ site.url }}/Releases">
-                         Releases
-                         </a>
-                 </h3>
-            </div>
-        </div>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html lang="en">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1" />
+    <title>Quokka</title>
+    <meta
+      name="description"
+      content="A customizable keystroke launcher with plugins" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://raw.githubusercontent.com/Faeq-F/Quokka/main/Config/Resources/SearchIcon.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--Scroll library-->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <!-- nanogallery2 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/nanogallery2/dist/css/nanogallery2.min.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/nanogallery2/dist/jquery.nanogallery2.min.js"></script>
+    <link
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/Main.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/About.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/Portfolio.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/Connect.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/header.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/home.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/gradButtons.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/timeline.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/quotes.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/DarkTheme.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/FAQ.css" />
+    <link
+      rel="stylesheet"
+      href="../styles/Documentation.css" />
+  </head>
+  <body>
+    <div id="top">
+      <p style="color: transparent">.</p>
+    </div>
+
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <header
+      id="header"
+      class="hidemee">
+      <nav>
+        <ul class="navbar">
+          <li class="headerLink">
+            <a
+              href="#top"
+              onclick="lenis.scrollTo('#top')">
+              <span class="headerText">Home</span>
+            </a>
+          </li>
+          <li class="headerLink">
+            <a
+              href="#About"
+              onclick="lenis.scrollTo('#About')">
+              <span class="headerText">About</span>
+            </a>
+          </li>
+          <li class="headerLink">
+            <a
+              href="#Plugins"
+              onclick="lenis.scrollTo('#Plugins')">
+              <span class="headerText">Plugins</span>
+            </a>
+          </li>
+          <li class="headerLink">
+            <a
+              href="#FAQ"
+              onclick="lenis.scrollTo('#FAQ')">
+              <span class="headerText">FAQ</span>
+            </a>
+          </li>
+          <li class="headerLink right-li connectButton">
+            <a
+              href="#Documentation"
+              onclick="lenis.scrollTo('#Documentation')">
+              <span class="headerText">Documentation</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    {% include scripts.html %}
-</body>
+    <div
+      id="HomeView"
+      class="hidemee">
+      <p id="title">
+        <strong>Quokka</strong
+        ><br style="display: block; content: ''; margin-top: -4%" />
+        <span style="font-size: medium; font-weight: bold"
+          >A customizable keystroke launcher with plugins<br
+        /></span>
+        <span style="display: inline-block">
+          <a href="https://github.com/Faeq-F/Quokka/releases/latest">
+            <button
+              class="button-64"
+              role="button">
+              <span class="text">Download Latest Release</span>
+            </button>
+          </a>
+        </span>
+        <span style="display: inline-block">
+          <a href="https://github.com/Faeq-F/Quokka">
+            <button
+              class="button-64"
+              role="button">
+              <span class="text">View Repository</span>
+            </button>
+          </a> </span
+        ><br />
+        <span style="position: inherit">
+          <input
+            id="themeSlider"
+            class="slider__input"
+            type="range"
+            role="slider"
+            value="288"
+            min="0"
+            max="360"
+            id="hue" />
+          <input
+            id="themeSwitch"
+            class="switch__input"
+            type="checkbox"
+            role="switch" />
+        </span>
+      </p>
+    </div>
+    <img
+      src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
+      id="HomeScrollImg" />
+    <div id="About">
+      <div
+        class="ag-timeline_title-box"
+        data-aos="fade-down">
+        <div class="ag-timeline_tagline">What is Quokka?</div>
+        <div class="ag-timeline_title">About Quokka</div>
+      </div>
+      <div
+        class="card aboutCard"
+        data-aos="fade-down">
+        <p>
+          Quokka is an extremely customizable keystroke launcher for Windows. It
+          has a plugin-architecture, open to third parties.
+          <br />
+          <br />
+          This launcher is a way of running your portable and installed apps
+          easily. It will have additional features such as opening files &
+          folders, color conversion, translation and much more.
+          <br />
+          <br />
+          Quokka requires the following:
+          <br />
+          A computer running Windows 7 or higher
+          <br />
+          A Windows defender exclusion for the location of the exe
+          <br />
+          <br />
+          (Add exclusions to any other anti-malware software that is installed
+          on your computer;<br />you do not want the software to mistake the app
+          for viruses or other malware.)
+          <br />
+          <br />
+          Suggestions:
+          <br />
+          Setting up a task to run the launcher at startup in Task Scheduler
+          <br />
+        </p>
+        <br />
+        <hr />
+        <br />
+        <div
+          id="PortfolioGrid"
+          data-lenis-prevent
+          style="height: 70vh">
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-0" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-1" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-2" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-3" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-4" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-5" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-6" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-7" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-8" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-9" />
+          <input
+            type="checkbox"
+            class="modal-launcher"
+            id="img-10" />
+
+          <div class="grid-container">
+            <div class="grid-item wide">
+              <label for="img-0"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-1"><span></span></label>
+            </div>
+            <div class="grid-item tall">
+              <label for="img-2"><span></span></label>
+            </div>
+            <div class="grid-item tall">
+              <label for="img-3"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-4"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-5"><span></span></label>
+            </div>
+            <div class="grid-item tall">
+              <label for="img-6"><span></span></label>
+            </div>
+            <div class="grid-item tall">
+              <label for="img-7"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-8"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-9"><span></span></label>
+            </div>
+            <div class="grid-item wide">
+              <label for="img-10"><span></span></label>
+            </div>
+          </div>
+
+          <div class="modal-window"></div>
+          <div class="modal-overlay"></div>
+        </div>
+        <img
+          src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
+          id="PortfolioScrollImg" />
+
+        <br />
+        <hr />
+        <br />
+        <div style="display: flex">
+          <div style="flex: 1">
+            <a href="https://github.com">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&amp;message=GitHub&amp;color=181717&amp;logo=GitHub&amp;logoColor=FFFFFF"
+                alt="Github" />
+            </a>
+            <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=UML&color=FABD14&logo=uml&logoColor=FFFFFF"
+                alt="UML" />
+            </a>
+            <br />
+            <br />
+            <a href="https://dotnet.microsoft.com/en-us/">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=.NET&color=512BD4&logo=dotnet&logoColor=FFFFFF"
+                alt="dotnet" />
+            </a>
+            <a
+              href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=WPF&color=0078D4&logo=windows&logoColor=FFFFFF"
+                alt="WPF" />
+            </a>
+            <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=C%23&color=512BD4&logo=csharp&logoColor=FFFFFF"
+                alt="C&#35;" />
+            </a>
+            <a
+              href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=xaml&color=0C54C2&logo=xaml&logoColor=FFFFFF"
+                alt="xaml" />
+            </a>
+            <br />
+            <a href="https://docs.microsoft.com/en-gb/powershell/">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&amp;message=PowerShell&amp;color=5391FE&amp;logo=PowerShell&amp;logoColor=FFFFFF"
+                alt="Powershell" />
+            </a>
+            <a href="https://www.json.org/json-en.html">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&amp;message=JSON&amp;color=000000&amp;logo=JSON&amp;logoColor=FFFFFF"
+                alt="JSON" />
+            </a>
+            <br />
+            <br />
+            <a href="https://code.visualstudio.com/">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&amp;message=Visual Studio Code&amp;color=007ACC&amp;logo=Visual Studio Code&amp;logoColor=FFFFFF"
+                alt="visula studio code" />
+            </a>
+            <a href="https://visualstudio.microsoft.com">
+              <img
+                align="center"
+                margin="10px auto"
+                src="https://img.shields.io/static/v1?label=&message=Visual%20Studio&color=5C2D91&logo=visualstudio&logoColor=FFFFFF"
+                alt="visualstudio" />
+            </a>
+          </div>
+          <div style="flex: 1">
+            <a href="https://github.com/Faeq-F/Quokka">
+              <img
+                class="HueRotateImage"
+                align="center"
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&repo=Quokka&theme=buefy&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Plugins">
+      <section>
+        <aside>
+          <div
+            class="ag-timeline_title-box"
+            data-aos="fade-up-right">
+            <div class="ag-timeline_tagline">What features?</div>
+            <div class="ag-timeline_title">Plugins</div>
+          </div>
+          <div
+            class="card"
+            data-aos="fade-up-right">
+            <p
+              class="PortfolioWorkHeader"
+              style="font-size: 1.17em">
+              Screenshots for selected plugin:
+            </p>
+            <div
+              id="PortfolioGrid"
+              data-lenis-prevent>
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-0" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-1" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-2" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-3" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-4" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-5" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-6" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-7" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-8" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-9" />
+              <input
+                type="checkbox"
+                class="modal-launcher"
+                id="img-10" />
+
+              <div class="grid-container">
+                <div class="grid-item wide">
+                  <label for="img-0"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-1"><span></span></label>
+                </div>
+                <div class="grid-item tall">
+                  <label for="img-2"><span></span></label>
+                </div>
+                <div class="grid-item tall">
+                  <label for="img-3"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-4"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-5"><span></span></label>
+                </div>
+                <div class="grid-item tall">
+                  <label for="img-6"><span></span></label>
+                </div>
+                <div class="grid-item tall">
+                  <label for="img-7"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-8"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-9"><span></span></label>
+                </div>
+                <div class="grid-item wide">
+                  <label for="img-10"><span></span></label>
+                </div>
+              </div>
+
+              <div class="modal-window"></div>
+              <div class="modal-overlay"></div>
+            </div>
+            <img
+              src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
+              id="PortfolioScrollImg" />
+          </div>
+        </aside>
+
+        <div
+          class="content"
+          data-aos="fade-up-left">
+          <p class="PortfolioWorkHeader">Recognized plugins:</p>
+          <div style="text-align: center">
+            <a
+              href="#g"
+              class="ProjectCard">
+              <p>Installed Apps</p>
+              <p>
+                Description:<br />Allows the launching of apps installed to the
+                system
+              </p>
+              <p>Site</p>
+              <p>Developer: Faeq</p>
+            </a>
+            <br />
+            <a
+              href="https://github.com/Faeq-F/Portable-Application-Launcher"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=Portable-Application-Launcher&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a
+              href="https://github.com/Faeq-F/Gideon"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=Gideon&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a
+              href="https://github.com/Faeq-F/MinimalBrowser"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=MinimalBrowser&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a
+              href="https://github.com/Faeq-F/Browser-Home-Page"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=Browser-Home-Page&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a
+              href="https://github.com/Faeq-F/WRDSRCH"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=WRDSRCH&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a
+              href="https://github.com/Faeq-F/ASCII-art-viewer"
+              class="ProjectCard">
+              <img
+                src="https://github-readme-stats-xi-five-41.vercel.app/api/pin/?username=Faeq-F&amp;repo=ASCII-art-viewer&bg_color=00000000&hide_border=true&text_color=ff9bba&title_color=ff9bba&icon_color=ff9bba"
+                alt="Readme Card" />
+            </a>
+            <a href="https://github.com/Faeq-F?tab=repositories">
+              <p>View More</p>
+            </a>
+          </div>
+
+          <h2 style="color: transparent">Title 1</h2>
+          <h4 style="color: transparent">Subheading</h4>
+          <p style="color: transparent">Text</p>
+          <h4 style="color: transparent">Subheading</h4>
+          <p style="color: transparent">Text</p>
+          <h4 style="color: transparent">Subheading</h4>
+          <p style="color: transparent">Text</p>
+        </div>
+      </section>
+    </div>
+
+    <div id="FAQ">
+      <div
+        class="ag-timeline_title-box"
+        data-aos="fade-down">
+        <div class="ag-timeline_tagline">I have a question!</div>
+        <div class="ag-timeline_title">Frequently asked Questions</div>
+      </div>
+      <div
+        class="card aboutCard"
+        data-aos="fade-down">
+        <p>
+          Quokka is an extremely customizable keystroke launcher for Windows. It
+          has a plugin-architecture, open to third parties.
+        </p>
+      </div>
+    </div>
+
+    <footer id="Documentation">
+      <div
+        id="DocumentationCard"
+        class="ContactCard"
+        data-aos="fade-down">
+        <div
+          id="container-stars"
+          style="top: 0; left: 0">
+          <div id="stars"></div>
+        </div>
+        <div class="ag-timeline_title-box ConnectTitleBox">
+          <div
+            class="ag-timeline_tagline ConnectTagline"
+            style="font-weight: bold">
+            Documentation
+          </div>
+        </div>
+        <iframe
+          src="./Documentation.html"
+          id="Docs"></iframe>
+        <button>Fill page</button>
+        <button>Fullscreen</button>
+      </div>
+    </footer>
+
+    <div id="bottom">
+      <p style="color: transparent">.</p>
+    </div>
+
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <script src="../scripts/cursor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="../scripts/type.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script src="../scripts/PortfolioGallery.js"></script>
+    <script src="../scripts/header.js"></script>
+    <script src="../scripts/timeline.js"></script>
+    <script src="../scripts/ScrollFade.js"></script>
+    <script src="../scripts/HueRotate.js"></script>
+    <script>
+      function themeChangeHandler() {
+        var queryString = "?reload=" + new Date().getTime();
+        $('link[rel="stylesheet"]').each(function () {
+          this.href = this.href.replace(/\?.*|$/, queryString);
+        });
+      }
+      document
+        .querySelector("#themeSwitch")
+        .addEventListener("change", themeChangeHandler);
+    </script>
+  </body>
 </html>

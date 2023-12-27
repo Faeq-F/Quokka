@@ -1,0 +1,695 @@
+#Portfolio {
+  width: 100vw;
+  margin-bottom: 10vh;
+}
+
+aside {
+  height: 90vh;
+  width: 60vw;
+  margin-left: -0.5em;
+  position: sticky;
+  z-index: 9;
+  top: 12em;
+  left: 0;
+  background-color: transparent;
+}
+
+.current-menu-item {
+  background-color: white;
+  font-weight: bold;
+}
+
+
+/* scroll content styling */
+
+.content {
+  position: relative;
+  margin-left: 50vw;
+  font-size: 28px;
+  padding: 0em 0.5em;
+  margin-top: -50%;
+}
+
+.ProjectCard {
+  display: inline-grid;
+  margin: 10px;
+  background-color: #ffffff;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: -webkit-transform .5s, opacity .5s;
+  -moz-transition: -moz-transform .5s, opacity .5s;
+  -o-transition: -o-transform .5s, opacity .5s;
+  transition: transform .5s, opacity .5s;
+}
+
+/*
+@media (max-height: 720px) {
+  aside {
+    margin-top: 120vh;
+  }
+}
+*/
+
+
+@media (max-width: 661px) {
+  aside {
+    height: 90vh;
+    width: 100vw;
+    margin-left: 0;
+    position: relative;
+    background-color: transparent;
+    overflow: visible;
+  }
+
+  .content {
+    margin-left: 0;
+    font-size: 28px;
+    padding: 0em 0em;
+    overflow: hidden;
+    margin-top: 30%;
+    margin-bottom: -70%;
+  }
+}
+
+.PortfolioWorkHeader {
+  font-size: 0.7em;
+  color: #2c2c2cd5;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.45;
+}
+
+/*
+
+.nGY2ViewerAreaPrevious.ngy2viewerToolAction {
+  display: none;
+}
+
+.nGY2ViewerAreaNext.ngy2viewerToolAction {
+  display: none;
+}
+
+.nGEvent div i {
+  color: black;
+  text-shadow: 0 0 transparent !important;
+}
+
+.toolbar.nGEvent.toolbarBackground {
+  background: #00000000 !important;
+}
+
+.title.nGEvent {
+  color: black !important;
+}
+
+.nGY2NavigationbarItem.nGY2NavPagination {
+  background-color: #2c2c2cd5 !important;
+}
+
+#CertificationsGallery {
+  height: calc(100% - 300px);
+  width: 100%;
+}
+
+.nGY2paginationRectangleCurrentPage,
+.nGY2paginationRectangle {
+  border-radius: 15px;
+}
+
+.nGY2GThumbnailTitle {
+  border-radius: 15px !important;
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+#PortfolioScrollImg {
+  width: 3vw;
+  margin-top: -1vh;
+}
+
+
+
+
+/* new Grid */
+:root {
+  --pri: #ffffff;
+  --sec: #212121;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sec);
+  border-radius: 4px;
+  transition: transform 0.3s ease-in-out;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: 1px 1px 3px 0 #0009;
+}
+
+.grid-item:hover {
+  transform: scale(1.02);
+}
+
+.grid-container {
+  display: grid;
+  /*grid-template-columns: repeat(2, 20vh);*/
+  grid-template-rows: repeat(18, 12vw);
+  gap: 23px;
+  padding: 0px;
+  margin: 20px;
+  grid-auto-flow: dense;
+}
+
+@media(max-width: 661px) {
+  .grid-container {
+    grid-template-rows: repeat(11, 42vw);
+  }
+
+  #PortfolioGrid {
+    height: 77% !important;
+  }
+}
+
+@media (min-width: 600px) {
+  .wide {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .tall {
+    grid-row: span 2;
+  }
+}
+
+/*
+0: C#
+1: Cisco (wide)
+2: Web Dev (tall)
+3: RI Masterclasses (tall)
+4: Siemens (wide)
+5: science (wide)
+6: hacker (tall)
+7: website (tall)
+8: tech the future experience (wide)
+9: tech the future insight (wide)
+10: careers (wide)
+*/
+
+.grid-item:nth-child(1),
+input#img-0:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Microsoft-FoundationalCsharp.png);
+}
+
+.grid-item:nth-child(2),
+input#img-1:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Cisco-Work_Experience.png);
+}
+
+.grid-item:nth-child(3),
+input#img-2:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-web_development.png);
+  background-position: 55% center;
+}
+
+
+.grid-item:nth-child(4),
+input#img-3:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-RI-Masterclasses.png);
+}
+
+.grid-item:nth-child(5),
+input#img-4:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Siemens-work_experience.png);
+}
+
+.grid-item:nth-child(6),
+input#img-5:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-science\,_engineering_&_IT_work_experience.png);
+}
+
+.grid-item:nth-child(7),
+input#img-6:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-become_a_hacker.png);
+}
+
+.grid-item:nth-child(8),
+input#img-7:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-make_a_website.png);
+  background-position: 85% center;
+}
+
+.grid-item:nth-child(9),
+input#img-8:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-tech_the_future_work_experience.png);
+}
+
+.grid-item:nth-child(10),
+input#img-9:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-tech_the_future_insight_evening.png);
+}
+
+.grid-item:nth-child(11),
+input#img-10:checked~.modal-window {
+  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-careers_in_technology.png);
+}
+
+/*
+.grid-item:nth-child(11),
+input#img-11:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/rapel-sarcofago.jpg);
+}
+
+.grid-item:nth-child(12),
+input#img-12:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/mira-un-buho-principiantes.jpg);
+}
+
+.grid-item:nth-child(13),
+input#img-13:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/me-pesa-hasta-el-aire-dehesilla.jpg);
+  background-position: 20% 50%;
+}
+
+.grid-item:nth-child(14),
+input#img-14:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/rosario-cueva-mora.jpg);
+}
+
+.grid-item:nth-child(15),
+input#img-15:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/oscar-raul-hueco-hoces.jpg);
+}
+
+.grid-item:nth-child(16),
+input#img-16:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/espiral-cinco-cestos.jpg);
+}
+
+.grid-item:nth-child(17),
+input#img-17:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/diedro-contrafuerte-muertos.jpg);
+}
+
+.grid-item:nth-child(18),
+input#img-18:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/fisura-ines-rodriguez-tres-coronas.jpg);
+}
+
+.grid-item:nth-child(19),
+input#img-19:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/lucas-hueso.jpg);
+}
+
+.grid-item:nth-child(20),
+input#img-20:checked~.modal-window {
+  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/capuchon-sarcofago.jpg);
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+}
+
+/* MODAL */
+input.modal-launcher {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  opacity: 0;
+  display: none;
+}
+
+input.modal-launcher:checked {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  left: inherit;
+  display: block;
+}
+
+.modal-window {
+  position: fixed;
+  z-index: 700;
+  border-radius: 5px;
+  display: none;
+  top: 50%;
+  transform: translate(0vw, -60%);
+  width: 80vw;
+  height: 80vh;
+  /*overflow: hidden;*/
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
+
+#PortfolioGrid {
+
+  height: 87%;
+  overflow-y: scroll;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.modal-overlay {
+  background: #f2f4f8;
+  position: absolute;
+  left: -5vw;
+  top: -38vh;
+  z-index: 600;
+  width: 100vw;
+  height: 110vh;
+  display: none;
+}
+
+.modal-overlay:before {
+  content: "";
+  position: fixed;
+  width: 1em;
+  height: 1em;
+  right: 30px;
+  top: 30px;
+  border-radius: 2px;
+}
+
+/*/002B*/
+.modal-overlay:after {
+  content: "";
+  position: fixed;
+  width: 0.8em;
+  height: 0.8em;
+  right: 30px;
+  top: 30px;
+  color: #333;
+  font-size: 1.25em;
+  line-height: 0.85em;
+  text-align: center;
+  transform: rotate(45deg);
+
+}
+
+input.modal-launcher:checked~.modal-window,
+input.modal-launcher:checked~.modal-window+.modal-overlay {
+  display: block;
+}
+
+
+
+
+
+
+
+
+.grid-item label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+
+.grid-item label span {
+  padding: 2px 8px;
+  border-radius: 2px;
+  color: var(--sec);
+  background: var(--pri);
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+
+.grid-item label:hover span {
+  transition: all 0.35s ease 0s;
+  opacity: 1;
+}
+
+
+
+
+
+/*
+
+.modal-window:before,
+.modal-window:after {
+  content: "";
+  font-size: 22px;
+  padding: 8px 18px 8px 55px;
+  border-radius: 2px;
+  color: var(--sec);
+  opacity: 0.85;
+  margin-left: -25px;
+}
+
+input#img-1:checked~.modal-window:before {
+  content: "Toñin (7b)";
+}
+
+input#img-2:checked~.modal-window:before {
+  content: "Biafra (6a+/A2)";
+}
+
+input#img-3:checked~.modal-window:before {
+  content: "El clan de los osos (A2)";
+}
+
+input#img-4:checked~.modal-window:before {
+  content: "Gallego (V+)";
+}
+
+input#img-5:checked~.modal-window:before {
+  content: "Guirles-Campos (6b) y Gálvez-Pascual (6c)";
+}
+
+
+input#img-6:checked~.modal-window:before {
+  content: "Espolón Suroeste (6a+)";
+}
+
+input#img-7:checked~.modal-window:before {
+  content: "El blues de los ojos bonitos (V+/6a)";
+}
+
+input#img-8:checked~.modal-window:before {
+  content: "Oscar y Raúl (V+/6a)";
+}
+
+input#img-9:checked~.modal-window:before {
+  content: "Chimenea (Vº)";
+}
+
+input#img-10:checked~.modal-window:before {
+  content: "Normal (Ae)";
+}
+
+
+input#img-11:checked~.modal-window:before {
+  content: "Rápel";
+}
+
+input#img-12:checked~.modal-window:before {
+  content: "Mira un buho (V+)";
+}
+
+input#img-13:checked~.modal-window:before {
+  content: "Me pesa hasta el aire (A2?)";
+}
+
+input#img-14:checked~.modal-window:before {
+  content: "Rosario (V+)";
+}
+
+input#img-15:checked~.modal-window:before {
+  content: "Oscar y Raúl I (V+/6a)";
+}
+
+
+input#img-16:checked~.modal-window:before {
+  content: "Espiral (C1)";
+}
+
+input#img-17:checked~.modal-window:before {
+  content: "Diedro (V+)";
+}
+
+input#img-18:checked~.modal-window:before {
+  content: "Fisura Inés Rodriguez (6b)";
+}
+
+input#img-19:checked~.modal-window:before {
+  content: "Lucas (A2/6b)";
+}
+
+input#img-20:checked~.modal-window:before {
+  content: "El Capuchón (A1/6a)";
+}
+
+
+
+
+
+
+
+
+.modal-window:before {
+  --icon: var(--sec);
+  --dot: var(--icon) 0px 1px, #fff0 2px 100%;
+  background:
+    radial-gradient(circle at 26px 15px, var(--dot)),
+    radial-gradient(circle at 13px 12px, var(--dot)),
+    radial-gradient(circle at 22px 12px, var(--dot)),
+    radial-gradient(circle at 30px 14px, var(--dot)),
+
+    radial-gradient(circle at 17px 10px, var(--dot)),
+    radial-gradient(circle at 13px 17px, var(--dot)),
+    radial-gradient(circle at 18px 20px, var(--dot)),
+
+    radial-gradient(circle at 23px 22px, var(--dot)),
+    radial-gradient(circle at 21px 27px, var(--dot)),
+    radial-gradient(circle at 17px 30px, var(--dot)),
+
+    radial-gradient(circle at 10px 32px, var(--icon) 0px 3px, #fff0 4px 100%),
+    radial-gradient(circle at 32px 8px, #fff0 0 1px, var(--icon) 2px 3px, #fff0 4px 100%),
+    linear-gradient(90deg, var(--pri) 41px, #fff0 0 44px, var(--pri) 45px);
+}
+
+
+.modal-window:after {
+  --icon: var(--sec);
+  content: "Photo";
+  --line: linear-gradient(90deg, var(--icon) 0 100%);
+  position: absolute;
+  right: 25%;
+  bottom: 20px;
+  padding: 8px 55px 8px 10px;
+  background: radial-gradient(black 1.5px, #fff0 2.5px), radial-gradient(circle at 50% 50%, #fff0 3px, var(--icon) 4px 5px, #fff0 6px 100%), var(--line), var(--line), var(--line), var(--line), linear-gradient(-90deg, var(--pri) 41px, #fff0 0 44px, var(--pri) 45px);
+  background-repeat: no-repeat;
+  background-size: 10px 10px, 20px 20px, 23px 2px, 23px 2px, 2px 24px, 2px 24px, 100% 100%;
+  background-position: calc(100% - 8px) 10px, calc(100% - 11px) 12px, calc(100% - 9px) 9px, calc(100% - 9px) 31px, calc(100% - 7px) 9px, calc(100% - 32px) 9px, 0 0;
+}
+
+
+input#img-1:checked~.modal-window:after,
+input#img-2:checked~.modal-window:after,
+input#img-3:checked~.modal-window:after,
+input#img-6:checked~.modal-window:after,
+input#img-7:checked~.modal-window:after,
+input#img-9:checked~.modal-window:after,
+input#img-14:checked~.modal-window:after,
+input#img-17:checked~.modal-window:after,
+input#img-18:checked~.modal-window:after,
+input#img-19:checked~.modal-window:after {
+  content: "Josetxu López";
+}
+
+input#img-4:checked~.modal-window:after {
+  content: "Fernando Bulnes";
+}
+
+input#img-5:checked~.modal-window:after,
+input#img-12:checked~.modal-window:after,
+input#img-13:checked~.modal-window:after,
+input#img-15:checked~.modal-window:after,
+input#img-20:checked~.modal-window:after {
+  content: "Jara Mora";
+}
+
+input#img-8:checked~.modal-window:after {
+  content: "Tximo";
+}
+
+input#img-10:checked~.modal-window:after {
+  content: "Uge García";
+}
+
+input#img-11:checked~.modal-window:after,
+input#img-16:checked~.modal-window:after {
+  content: "Antonio Montes";
+}
+
+
+
+
+
+
+
+.modal-window:hover:before,
+.modal-window:hover:after {
+  filter: invert(1);
+}*/
