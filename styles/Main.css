@@ -409,3 +409,50 @@ body:has(.switch__input:checked) #themeDiv #themeSlider {
 body:has(.switch__input:checked) #themeDiv #themeSlider:before {
   background-image: linear-gradient(to bottom, #6b6b6b, #0f0f0d);
 }
+
+
+
+
+
+/*Headers*/
+
+
+
+img {
+  max-width: 100%;
+}
+
+.ag-timeline_title-box {
+  padding: 0 0 30px;
+
+  text-align: center;
+}
+
+.ag-timeline_tagline {
+  font-size: 40px;
+  color: rgb(84, 89, 95);
+}
+
+@media(max-width: 661px) {
+  .ag-timeline_tagline {
+    font-size: large;
+  }
+}
+
+.ag-timeline_title {
+  background-image: linear-gradient(125deg, var(--primary), var(--primaryOther));
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 80px;
+  filter: hue-rotate(var(--hue) deg);
+}
+
+@media only screen and (max-width: 639px) {
+  .ag-timeline_title {
+    font-size: 14vw;
+  }
+}

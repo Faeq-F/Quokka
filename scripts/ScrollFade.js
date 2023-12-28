@@ -28,17 +28,3 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
-
-/* Zoom for Documentation  */
-
-const demoDiv = document.querySelector("#DocumentationCard");
-window.addEventListener("scroll", function () {
-  if (pageYOffset * 0.0001 > 1 || pageYOffset * 0.0001 < 0.2) {
-    return;
-  } else {
-    DocumentationCard.setAttribute(
-      "style",
-      "transform: scale(" + pageYOffset * 0.00019 + ");"
-    );
-  }
-});

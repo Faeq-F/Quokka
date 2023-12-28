@@ -24,14 +24,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <!--Scroll library-->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <!-- nanogallery2 -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/nanogallery2/dist/css/nanogallery2.min.css"
-      rel="stylesheet"
-      type="text/css" />
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/nanogallery2/dist/jquery.nanogallery2.min.js"></script>
     <link
       href="https://unpkg.com/aos@2.3.1/dist/aos.css"
       rel="stylesheet" />
@@ -46,10 +38,7 @@
       href="../styles/About.css" />
     <link
       rel="stylesheet"
-      href="../styles/Portfolio.css" />
-    <link
-      rel="stylesheet"
-      href="../styles/Connect.css" />
+      href="../styles/Plugins.css" />
     <link
       rel="stylesheet"
       href="../styles/header.css" />
@@ -59,12 +48,6 @@
     <link
       rel="stylesheet"
       href="../styles/gradButtons.css" />
-    <link
-      rel="stylesheet"
-      href="../styles/timeline.css" />
-    <link
-      rel="stylesheet"
-      href="../styles/quotes.css" />
     <link
       rel="stylesheet"
       href="../styles/DarkTheme.css" />
@@ -620,15 +603,48 @@
         <div class="ag-timeline_title-box ConnectTitleBox">
           <div
             class="ag-timeline_tagline ConnectTagline"
-            style="font-weight: bold">
-            Documentation
+            style="font-weight: bold; font-size: x-large !important">
+            <div id="DocsHeader">
+              <button
+                id="FillPageButton"
+                title="Fill Page"></button>
+              <button
+                id="FullscreenButton"
+                title="Fullscreen"></button>
+              Documentation
+            </div>
+            <div
+              id="DocsNav"
+              data-lenis-prevent>
+              <ul>
+                <li>Installation</li>
+                <li>How to use</li>
+                <ul>
+                  <li>Tray task</li>
+                  <li>Plugins</li>
+                  <li>Special commands</li>
+                </ul>
+                <li>Settings</li>
+                <ul>
+                  <li>Themes</li>
+                  <li>Defaults</li>
+                </ul>
+                <li>Building the app</li>
+                <li>Writing a plugin</li>
+                <ul>
+                  <li>Creating a new item type</li>
+                  <li>Creating a context pane</li>
+                  <li>Creating the plugin</li>
+                </ul>
+                <li>FAQ by Developers</li>
+              </ul>
+            </div>
+          </div>
+          <div id="DocsContent">
+            <div id="DefaultDocsContentCard1">Click on an item on the left</div>
+            <div id="DefaultDocsContentCard2">Quokka Docs</div>
           </div>
         </div>
-        <iframe
-          src="./Documentation.html"
-          id="Docs"></iframe>
-        <button>Fill page</button>
-        <button>Fullscreen</button>
       </div>
     </footer>
 
@@ -640,17 +656,15 @@
     <div class="cursor2"></div>
 
     <script src="../scripts/cursor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="../scripts/type.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
     </script>
-    <script src="../scripts/PortfolioGallery.js"></script>
+    <script src="../scripts/Gallery.js"></script>
     <script src="../scripts/header.js"></script>
-    <script src="../scripts/timeline.js"></script>
     <script src="../scripts/ScrollFade.js"></script>
     <script src="../scripts/HueRotate.js"></script>
+    <script src="../scripts/Docs.js"></script>
     <script>
       function themeChangeHandler() {
         var queryString = "?reload=" + new Date().getTime();
