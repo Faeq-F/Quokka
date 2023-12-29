@@ -13,9 +13,6 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1" />
-    <!--Used to fix github pages dns cache issues-->
-    <link rel="stylesheet" href="{{ "public/css/style.css" | prepend:
-    site.baseurl }}?{{site.time | date: '%s%N'}}">
     <title>Quokka</title>
     <meta
       name="description"
@@ -33,33 +30,34 @@
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!--Used to fix github pages dns cache issues-->
     <link
       rel="stylesheet"
-      href="../styles/Main.css" />
+      href="../styles/Main.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/About.css" />
+      href="../styles/About.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/Plugins.css" />
+      href="../styles/Plugins.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/header.css" />
+      href="../styles/header.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/home.css" />
+      href="../styles/home.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/gradButtons.css" />
+      href="../styles/gradButtons.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/DarkTheme.css" />
+      href="../styles/DarkTheme.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/FAQ.css" />
+      href="../styles/FAQ.css?{{site.time | date: '%s%N'}}" />
     <link
       rel="stylesheet"
-      href="../styles/Documentation.css" />
+      href="../styles/Documentation.css?{{site.time | date: '%s%N'}}" />
   </head>
   <body>
     <div id="top">
@@ -369,7 +367,7 @@
                 align="center"
                 margin="10px auto"
                 src="https://img.shields.io/static/v1?label=&amp;message=Visual Studio Code&amp;color=007ACC&amp;logo=Visual Studio Code&amp;logoColor=FFFFFF"
-                alt="visula studio code" />
+                alt="visual studio code" />
             </a>
             <a href="https://visualstudio.microsoft.com">
               <img
