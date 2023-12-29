@@ -181,23 +181,6 @@
           easily. It will have additional features such as opening files &
           folders, color conversion, translation and much more.
           <br />
-          <br />
-          Quokka requires the following:
-          <br />
-          A computer running Windows 7 or higher
-          <br />
-          A Windows defender exclusion for the location of the exe
-          <br />
-          <br />
-          (Add exclusions to any other anti-malware software that is installed
-          on your computer;<br />you do not want the software to mistake the app
-          for viruses or other malware.)
-          <br />
-          <br />
-          Suggestions:
-          <br />
-          Setting up a task to run the launcher at startup in Task Scheduler
-          <br />
         </p>
         <br />
         <hr />
@@ -612,39 +595,38 @@
               <button
                 id="FullscreenButton"
                 title="Fullscreen"></button>
-              Documentation
+              <button id="DocsHeaderButton">Documentation</button>
             </div>
             <div
               id="DocsNav"
               data-lenis-prevent>
               <ul>
-                <li>Installation</li>
-                <li>How to use</li>
+                <li><button>Installation</button></li>
+                <li><button>How to use</button></li>
                 <ul>
-                  <li>Tray task</li>
-                  <li>Plugins</li>
-                  <li>Special commands</li>
+                  <li><button>Tray task</button></li>
+                  <li><button>Plugins</button></li>
+                  <li><button>Special commands</button></li>
                 </ul>
-                <li>Settings</li>
+                <li><button>Settings</button></li>
                 <ul>
-                  <li>Themes</li>
-                  <li>Defaults</li>
+                  <li><button>Themes</button></li>
+                  <li><button>Defaults</button></li>
                 </ul>
-                <li>Building the app</li>
-                <li>Writing a plugin</li>
+                <li><button>Building the app</button></li>
+                <li><button>Writing a plugin</button></li>
                 <ul>
-                  <li>Creating a new item type</li>
-                  <li>Creating a context pane</li>
-                  <li>Creating the plugin</li>
+                  <li><button>Creating a new item type</button></li>
+                  <li><button>Creating a context pane</button></li>
+                  <li><button>Creating the plugin</button></li>
                 </ul>
-                <li>FAQ by Developers</li>
+                <li><button>FAQ by Developers</button></li>
               </ul>
             </div>
           </div>
-          <div id="DocsContent">
-            <div id="DefaultDocsContentCard1">Click on an item on the left</div>
-            <div id="DefaultDocsContentCard2">Quokka Docs</div>
-          </div>
+          <div
+            id="DocsContent"
+            data-lenis-prevent></div>
         </div>
       </div>
     </footer>

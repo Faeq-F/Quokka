@@ -349,6 +349,7 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   height: 100%;
   width: 100%;
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
 }
 
 #DocsNav {
@@ -362,12 +363,12 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   height: 82%;
 }
 
-#DefaultDocsContentCard2,
-#DefaultDocsContentCard1 {
+.DocsCard {
   background: white;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
+  text-align: left;
 }
 
 #DefaultDocsContentCard2 {
@@ -380,11 +381,28 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
 
 #DocsNav ul li {
   list-style: none;
+}
+
+#DocsNav ul li button {
   background: #ffffff;
   border-radius: 10px;
-  color: black;
-  mix-blend-mode: screen;
+  color: var(--primary);
+  border: 0;
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
   font-weight: 500;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 15px 30px -5px;
+}
+
+#DocsNav ul li button:active {
+  box-shadow: rgba(255, 255, 255, 0.2) 0 15px 30px -5px;
+}
+
+#DocsHeaderButton {
+  background: transparent;
+  border: 0;
+  color: #f2f4f8 !important;
+  text-align: left;
+  font-weight: bold;
+  font-size: x-large !important;
 }
