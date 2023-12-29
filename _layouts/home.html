@@ -13,6 +13,9 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1" />
+    <!--Used to fix github pages dns cache issues-->
+    <link rel="stylesheet" href="{{ "public/css/style.css" | prepend:
+    site.baseurl }}?{{site.time | date: '%s%N'}}">
     <title>Quokka</title>
     <meta
       name="description"
