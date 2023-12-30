@@ -88,7 +88,7 @@ var buttons_array = [...buttons]; // converts NodeList to Array
 
 function loadDocsContent(buttonText) {
   var button = buttonText.replace(/ /g, "_");
-  $("#DocsContent").load("../_layouts/" + button + "Cards.html");
+  $("#DocsContent").load("../DocumentationCards/" + button + ".html");
 }
 function attachButtonListeners() {
   buttons_array.forEach(function (item, idx) {
@@ -105,7 +105,7 @@ var buttons_array = [...buttons]; // converts NodeList to Array
 attachButtonListeners();
 
 function loadDefaultDocsContent() {
-  $("#DocsContent").load("../_layouts/defaultCards.html");
+  $("#DocsContent").load("../DocumentationCards/InitialCards.html");
 }
 
 document.getElementById("DocsHeaderButton").onclick = loadDefaultDocsContent;
