@@ -42,8 +42,63 @@ aside {
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
   transition: transform .5s, opacity .5s;
+  border: 0;
+  width: 27vw;
+  height: 16vh;
 }
 
+
+.PluginName {
+  font-size: larger;
+  color: var(--primary);
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  line-height: 1.45;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.PluginDesc {
+  font-size: small;
+  color: var(--primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: left;
+  line-height: 1.45;
+  margin-left: 20px;
+  margin-top: -1%;
+}
+
+.SiteButton {
+  flex: 0;
+  background: #ffffff55;
+  border: 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 5px;
+  padding: 5px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-left: 20px;
+
+}
+
+.PluginButtonGroup {
+  display: flex;
+  margin-top: -7px;
+}
+
+.DeveloperName {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  font-size: 70%;
+  text-align: start;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: var(--primary);
+}
 
 @media (max-width: 661px) {
   aside {
@@ -116,7 +171,7 @@ aside {
     grid-template-rows: repeat(11, 42vw);
   }
 
-  #PortfolioGrid {
+  #PluginScreenshotsGrid {
     height: 77% !important;
   }
 }
@@ -131,132 +186,6 @@ aside {
     grid-row: span 2;
   }
 }
-
-/*
-0: C#
-1: Cisco (wide)
-2: Web Dev (tall)
-3: RI Masterclasses (tall)
-4: Siemens (wide)
-5: science (wide)
-6: hacker (tall)
-7: website (tall)
-8: tech the future experience (wide)
-9: tech the future insight (wide)
-10: careers (wide)
-*/
-
-.grid-item:nth-child(1),
-input#img-0:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Microsoft-FoundationalCsharp.png);
-}
-
-.grid-item:nth-child(2),
-input#img-1:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Cisco-Work_Experience.png);
-}
-
-.grid-item:nth-child(3),
-input#img-2:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-web_development.png);
-  background-position: 55% center;
-}
-
-
-.grid-item:nth-child(4),
-input#img-3:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-RI-Masterclasses.png);
-}
-
-.grid-item:nth-child(5),
-input#img-4:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-Siemens-work_experience.png);
-}
-
-.grid-item:nth-child(6),
-input#img-5:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-science\,_engineering_&_IT_work_experience.png);
-}
-
-.grid-item:nth-child(7),
-input#img-6:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-become_a_hacker.png);
-}
-
-.grid-item:nth-child(8),
-input#img-7:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-mimo-certificates-make_a_website.png);
-  background-position: 85% center;
-}
-
-.grid-item:nth-child(9),
-input#img-8:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-tech_the_future_work_experience.png);
-}
-
-.grid-item:nth-child(10),
-input#img-9:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-tech_the_future_insight_evening.png);
-}
-
-.grid-item:nth-child(11),
-input#img-10:checked~.modal-window {
-  background-image: url(../Resources/PortfolioCertifications/FaeqFaisal-YP-careers_in_technology.png);
-}
-
-/*
-.grid-item:nth-child(11),
-input#img-11:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/rapel-sarcofago.jpg);
-}
-
-.grid-item:nth-child(12),
-input#img-12:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/mira-un-buho-principiantes.jpg);
-}
-
-.grid-item:nth-child(13),
-input#img-13:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/me-pesa-hasta-el-aire-dehesilla.jpg);
-  background-position: 20% 50%;
-}
-
-.grid-item:nth-child(14),
-input#img-14:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/rosario-cueva-mora.jpg);
-}
-
-.grid-item:nth-child(15),
-input#img-15:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/oscar-raul-hueco-hoces.jpg);
-}
-
-.grid-item:nth-child(16),
-input#img-16:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/espiral-cinco-cestos.jpg);
-}
-
-.grid-item:nth-child(17),
-input#img-17:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/diedro-contrafuerte-muertos.jpg);
-}
-
-.grid-item:nth-child(18),
-input#img-18:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/fisura-ines-rodriguez-tres-coronas.jpg);
-}
-
-.grid-item:nth-child(19),
-input#img-19:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/lucas-hueso.jpg);
-}
-
-.grid-item:nth-child(20),
-input#img-20:checked~.modal-window {
-  background-image: url(https://josetxu.com/beta/galerias/escalada/pedriza/images/capuchon-sarcofago.jpg);
-}
-
-*/
 
 @keyframes fadeIn {
   0% {
@@ -335,7 +264,7 @@ input.modal-launcher:checked {
 
 }
 
-#PortfolioGrid {
+#PluginScreenshotsGrid {
 
   height: 87%;
   overflow-y: scroll;

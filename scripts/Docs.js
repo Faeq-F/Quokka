@@ -1,20 +1,3 @@
-/* Zoom for Documentation  */
-
-const demoDiv = document.querySelector("#DocumentationCard");
-
-function zoomCard() {
-  if (pageYOffset * 0.0001 > 1 || pageYOffset * 0.0001 < 0.2) {
-    return;
-  } else {
-    DocumentationCard.setAttribute(
-      "style",
-      "transform: scale(" + pageYOffset * 0.00019 + ");"
-    );
-  }
-}
-
-window.addEventListener("scroll", zoomCard);
-
 /* Get the documentElement (<html>) to display the page in fullscreen */
 var elem = document.documentElement;
 

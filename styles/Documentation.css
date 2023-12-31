@@ -298,7 +298,7 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
 /*Page fill button*/
 
 .pageFill {
-  width: 100vw !important;
+  width: 95vw !important;
   height: 100vh !important;
   margin: 0 auto !important;
   border-radius: 0 !important;
@@ -404,5 +404,5 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   color: #f2f4f8 !important;
   text-align: left;
   font-weight: bold;
-  font-size: x-large !important;
+  font-size: 90% !important;
 }

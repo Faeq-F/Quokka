@@ -42,7 +42,7 @@ body:has(.switch__input:checked) #Portfolio section aside div p.PortfolioWorkHea
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid {
+body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
@@ -106,12 +106,12 @@ body:has(.switch__input:checked) div.cursor2 {
   background-color: #ddd;
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .modal-overlay {
+body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .modal-overlay {
   background: rgb(13, 11, 7);
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .modal-window,
-body:has(.switch__input:checked) #Portfolio section div #PortfolioGrid .grid-container .grid-item,
+body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .modal-window,
+body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .grid-container .grid-item,
 body:has(.switch__input:checked) #Portfolio section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
 body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_img-box>img {
   filter: brightness(0.8);

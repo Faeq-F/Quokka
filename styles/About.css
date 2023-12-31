@@ -7,6 +7,7 @@
 .aboutCard {
   min-height: 50vh;
   height: fit-content;
+  min-height: 37vh !important;
 }
 
 @media(max-width: 661px) {

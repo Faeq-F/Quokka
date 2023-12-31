@@ -1,3 +1,11 @@
+function loadDefaultPluginsScreenshots() {
+  $("#PluginScreenshotsGrid").load(
+    "../PluginScreenshots/InitialScreenshots.html"
+  );
+}
+
+loadDefaultPluginsScreenshots();
+
 const vw = Math.max(
   document.documentElement.clientWidth || 0,
   window.innerWidth || 0
