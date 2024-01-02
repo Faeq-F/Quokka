@@ -5,74 +5,61 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Plugin_InstalledApps
-{
+namespace Plugin_InstalledApps {
   /// <summary>
   /// Interaction logic for ContextPane.xaml
   /// </summary>
-  public partial class ContextPane : Page
-  {
+  public partial class ContextPane : Page {
 
     private readonly InstalledAppsItem? Item;
 
-    public ContextPane()
-    {
+    public ContextPane() {
 
       InitializeComponent();
 
-      try
-      {
-        Item = (InstalledAppsItem)((SearchWindow)Application.Current.MainWindow).SelectedItem;
-      }
-      catch (InvalidCastException)
-      {//Used to handle the AllAppsItem
-        ((SearchWindow)Application.Current.MainWindow).contextPane.Visibility = Visibility.Collapsed;
-        _ = ((SearchWindow)Application.Current.MainWindow).searchBox.Focus();
+      try {
+        Item = (InstalledAppsItem) ( (SearchWindow) Application.Current.MainWindow ).SelectedItem;
+      } catch (InvalidCastException) {//Used to handle the AllAppsItem
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+        _ = ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
         //makes showing a new pane more reliable
-        ((SearchWindow)Application.Current.MainWindow).contextPane.Source = null;
+        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
 
         //Process.Start("ms-settings:appsfeatures");
         App.Current.MainWindow.Close();
         return;
       }
-      DetailsImage.Source = Item.icon;
-      NameText.Text = "Name:\n" + Item.name;
-      DescText.Text = "Description:\n" + Item.description;
+      DetailsImage.Source = Item.Icon;
+      NameText.Text = "Name:\n" + Item.Name;
+      DescText.Text = "Description:\n" + Item.Description;
       ExtraDetails.Text = "Extra Details:\n" + Item.ExtraDetails;
     }
 
-    private void OpenApp(object sender, RoutedEventArgs e)
-    {
-      Item.execute();
+    private void OpenApp(object sender, RoutedEventArgs e) {
+      Item.Execute();
     }
 
     //still does not work
-    private void RunAsAdmin(object sender, RoutedEventArgs e)
-    {
+    private void RunAsAdmin(object sender, RoutedEventArgs e) {
 
       //Public domain; no attribution required.
       const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
 
-      ProcessStartInfo info = new("explorer")
-      {
-        Arguments = @" shell:appsFolder\" + Item.description,
+      ProcessStartInfo info = new("explorer") {
+        Arguments = @" shell:appsFolder\" + Item.Description,
         UseShellExecute = true,
         Verb = "runas",
         CreateNoWindow = true
       };
-      try
-      {
+      try {
         Process.Start(info);
-      }
-      catch (System.ComponentModel.Win32Exception ex)
-      {
-        if (!(ex.NativeErrorCode == ERROR_CANCELLED)) throw;
+      } catch (System.ComponentModel.Win32Exception ex) {
+        if (!( ex.NativeErrorCode == ERROR_CANCELLED )) throw;
       }
       App.Current.MainWindow.Close();
     }
 
-    private void OpenContainingFolder(object sender, RoutedEventArgs e)
-    {
+    private void OpenContainingFolder(object sender, RoutedEventArgs e) {
       using Process folderopener = new();
       folderopener.StartInfo.FileName = "explorer";
       folderopener.StartInfo.Arguments = Item.Path.Remove(Item.Path.LastIndexOf('\\'));
@@ -80,48 +67,38 @@ namespace Plugin_InstalledApps
       App.Current.MainWindow.Close();
     }
 
-    private void Page_KeyDown(object sender, KeyEventArgs e)
-    {
+    private void Page_KeyDown(object sender, KeyEventArgs e) {
       ButtonsListView.Focus();
-      switch (e.Key)
-      {
+      switch (e.Key) {
         case Key.Enter:
-          if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
+          if (( ButtonsListView.SelectedIndex == -1 )) ButtonsListView.SelectedIndex = 0;
           Grid CurrentItem = ButtonsListView.SelectedItem as Grid;
-          Button CurrentButton = (CurrentItem.Children[1] as Grid).Children[0] as Button;
+          Button CurrentButton = ( CurrentItem.Children[1] as Grid ).Children[0] as Button;
           CurrentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
           break;
         case Key.Down:
-          if ((ButtonsListView.SelectedIndex == -1))
-          {
+          if (( ButtonsListView.SelectedIndex == -1 )) {
             ButtonsListView.SelectedIndex = 1;
-          }
-          else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count - 1)
-          {
+          } else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count - 1) {
             ButtonsListView.SelectedIndex = 0;
-          }
-          else
-          {
+          } else {
             ButtonsListView.SelectedIndex++;
           }
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
         case Key.Up:
-          if ((ButtonsListView.SelectedIndex == -1) || (ButtonsListView.SelectedIndex == 0))
-          {
+          if (( ButtonsListView.SelectedIndex == -1 ) || ( ButtonsListView.SelectedIndex == 0 )) {
             ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
-          }
-          else
-          {
+          } else {
             ButtonsListView.SelectedIndex--;
           }
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
         case Key.Apps: //This is the menu key
-          ((SearchWindow)Application.Current.MainWindow).contextPane.Visibility = Visibility.Collapsed;
-          ((SearchWindow)Application.Current.MainWindow).searchBox.Focus();
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
+          ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
           //makes showing a new pane more reliable
-          ((SearchWindow)Application.Current.MainWindow).contextPane.Source = null;
+          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
           break;
         default:
           return;

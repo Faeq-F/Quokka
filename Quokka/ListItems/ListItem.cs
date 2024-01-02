@@ -1,20 +1,16 @@
-﻿using System.Windows.Controls;
-using System.Windows.Media;
+﻿using System.Windows.Media;
 
-namespace Quokka.ListItems
-{
-  public abstract class ListItem
-  {
+namespace Quokka.ListItems {
+  public abstract class ListItem {
 
-    public string name { get; set; }
-    public string description { get; set; }
-    public ImageSource icon { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public ImageSource Icon { get; set; }
 
-    public abstract void execute();
+    public abstract void Execute();
 
-    public override string ToString()
-    {
-      return name;
+    public override string ToString() {
+      return Name;
     }
   }
 }

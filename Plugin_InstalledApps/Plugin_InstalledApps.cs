@@ -1,77 +1,68 @@
+using Microsoft.WindowsAPICodePack.Shell;
+using Quokka;
+using Quokka.ListItems;
+using Quokka.PluginArch;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
-using Microsoft.WindowsAPICodePack.Shell;
-using Quokka;
-using Quokka.ListItems;
-using Quokka.PluginArch;
 
-namespace Plugin_InstalledApps
-{
+namespace Plugin_InstalledApps {
   /// <summary>
   /// Item class for plugin
   /// </summary>
-  class InstalledAppsItem : ListItem
-  {
+  class InstalledAppsItem : ListItem {
     public string? Path { get; set; }
     public string? ExtraDetails { get; set; }
 
-    public InstalledAppsItem(ShellObject app)
-    {
-      name = app.Name!;
-      description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
+    public InstalledAppsItem(ShellObject app) {
+      Name = app.Name!;
+      Description = app.ParsingName; // or app.Properties.System.AppUserModel.ID
 
       if (InstalledApps.PluginSettings.IconSize.Equals("Medium"))
-        this.icon = app.Thumbnail.MediumBitmapSource;
+        this.Icon = app.Thumbnail.MediumBitmapSource;
       else if (InstalledApps.PluginSettings.IconSize.Equals("ExtraLarge"))
-        this.icon = app.Thumbnail.ExtraLargeBitmapSource;
+        this.Icon = app.Thumbnail.ExtraLargeBitmapSource;
       else if (InstalledApps.PluginSettings.IconSize.Equals("Large"))
-        this.icon = app.Thumbnail.LargeBitmapSource;
+        this.Icon = app.Thumbnail.LargeBitmapSource;
       else if (InstalledApps.PluginSettings.IconSize.Equals("Small"))
-        this.icon = app.Thumbnail.SmallBitmapSource;
+        this.Icon = app.Thumbnail.SmallBitmapSource;
       else
-        this.icon = app.Thumbnail.MediumBitmapSource;
+        this.Icon = app.Thumbnail.MediumBitmapSource;
 
       Path = app.Properties.System.Link.TargetParsingPath.Value;
-      try
-      {
+      try {
         ExtraDetails =
                             FileVersionInfo.GetVersionInfo(Path).LegalCopyright
                             + "\n"
                             + FileVersionInfo.GetVersionInfo(Path).CompanyName
                             + "\n"
                             + FileVersionInfo.GetVersionInfo(Path).FileVersion;
-      }
-      catch (Exception) { }
+      } catch (Exception) { }
 
 
     }
 
-    public override void execute()
-    {
-      System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\" + description);
+    public override void Execute() {
+      System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\" + Description);
       App.Current.MainWindow.Close();
     }
   }
 
-  class AllAppsItem : ListItem
-  {
-    public AllAppsItem()
-    {
-      this.name = "Applications";
-      this.description =
+  class AllAppsItem : ListItem {
+    public AllAppsItem() {
+      this.Name = "Applications";
+      this.Description =
           "Shortcut to shell:appsFolder. Menu key will open installed apps settings.";
-      this.icon = new BitmapImage(
+      this.Icon = new BitmapImage(
           new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\3dObjectsFolder.png")
       );
       ;
     }
 
-    public override void execute()
-    {
+    public override void Execute() {
       System.Diagnostics.Process.Start("explorer.exe", @" shell:appsFolder\");
       App.Current.MainWindow.Close();
     }
@@ -80,8 +71,7 @@ namespace Plugin_InstalledApps
   /// <summary>
   /// Interaction logic for plugin
   /// </summary>
-  public partial class InstalledApps : IPlugger
-  {
+  public partial class InstalledApps : IPlugger {
     public static List<ListItem> ListOfSystemApps { private set; get; } = new List<ListItem>();
 
     //Get Plugin Specific settings (was in \PluginName\Plugin\ but has changed)
@@ -97,27 +87,23 @@ namespace Plugin_InstalledApps
     /// </summary>
     public string PluggerName { get; set; } = "InstalledApps";
 
-    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list)
-    {
-      foreach (string i in PluginSettings.BlackList)
-      {
-        list.RemoveAll(x => x.name.Equals(i));
+    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
+      foreach (string i in PluginSettings.BlackList) {
+        list.RemoveAll(x => x.Name.Equals(i));
       }
       return list;
     }
 
-    public List<String> SpecialCommands()
-    {
+    public List<String> SpecialCommands() {
       List<String> SpecialCommand = new() { PluginSettings.AllAppsSpecialCommand };
       return SpecialCommand;
     }
 
-    public List<ListItem> OnSpecialCommand(string command)
-    {
+    public List<ListItem> OnSpecialCommand(string command) {
       //There is only 1 special command for this plugin so there is no need to check which it is
       List<ListItem> AllList = new(ListOfSystemApps);
       //sort alphabetically
-      AllList = AllList.OrderBy(x => x.name).ToList();
+      AllList = AllList.OrderBy(x => x.Name).ToList();
       AllList.Insert(0, new AllAppsItem());
       AllList = RemoveBlacklistItems(AllList);
       return AllList;
@@ -128,17 +114,14 @@ namespace Plugin_InstalledApps
     /// </summary>
     /// <returns>List<ListItem> of InstalledApps that possibly match what is being searched for</returns>
     // FuzzySearch threshold is a plugin specific setting
-    public List<ListItem> OnQueryChange(string query)
-    {
+    public List<ListItem> OnQueryChange(string query) {
       List<ListItem> IdentifiedApps = new();
       //filtering apps
-      foreach (ListItem app in ListOfSystemApps)
-      {
+      foreach (ListItem app in ListOfSystemApps) {
         if (
-            app.name.Contains(query, StringComparison.OrdinalIgnoreCase)
-            || (FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold)
-        )
-        {
+            app.Name.Contains(query, StringComparison.OrdinalIgnoreCase)
+            || ( FuzzySearch.LD(app.Name, query) < PluginSettings.FuzzySearchThreshold )
+        ) {
           IdentifiedApps.Add(app);
         }
       }
@@ -146,14 +129,13 @@ namespace Plugin_InstalledApps
       return IdentifiedApps;
     }
 
-    public void OnAppStartup()
-    {
+    public void OnAppStartup() {
       // GUID taken from https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid
       var FOLDERID_AppsFolder = new Guid("{1e87508d-89c2-42f0-8a7e-645a0f50ca58}");
       ShellObject appsFolder = (ShellObject)
           KnownFolderHelper.FromKnownFolderId(FOLDERID_AppsFolder);
 
-      foreach (var app in (IKnownFolder)appsFolder)
+      foreach (var app in (IKnownFolder) appsFolder)
         ListOfSystemApps.Add(new InstalledAppsItem(app));
     }
 

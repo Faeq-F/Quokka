@@ -1,19 +1,20 @@
-﻿<Window x:Class="Quokka.SearchWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        Title="Quokka"
-        AllowsTransparency="True"
-        Background="Transparent"
-        FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}"
-        ResizeMode="NoResize"
-        ShowInTaskbar="False"
-        Topmost="True"
-        WindowStartupLocation="CenterScreen"
-        WindowState="Maximized"
-        WindowStyle="None"
-        mc:Ignorable="d">
+﻿<Window
+  x:Class="Quokka.SearchWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  Title="Quokka"
+  AllowsTransparency="True"
+  Background="Transparent"
+  FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}"
+  ResizeMode="NoResize"
+  ShowInTaskbar="False"
+  Topmost="True"
+  WindowStartupLocation="CenterScreen"
+  WindowState="Maximized"
+  WindowStyle="None"
+  mc:Ignorable="d">
   <Window.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
@@ -21,60 +22,67 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Border x:Name="Container"
-          Width="{DynamicResource WindowWidth}"
-          Height="auto"
-          Margin="{DynamicResource WindowTopMargin}"
-          Padding="{DynamicResource WindowPadding}"
-          VerticalAlignment="Top"
-          Background="{DynamicResource WindowColor}"
-          BorderBrush="{DynamicResource WindowBorderColor}"
-          BorderThickness="{DynamicResource WindowBorderThickness}"
-          CornerRadius="{DynamicResource WindowRounding}">
+  <Border
+    x:Name="Container"
+    Width="{DynamicResource WindowWidth}"
+    Height="auto"
+    Margin="{DynamicResource WindowTopMargin}"
+    Padding="{DynamicResource WindowPadding}"
+    VerticalAlignment="Top"
+    Background="{DynamicResource WindowColor}"
+    BorderBrush="{DynamicResource WindowBorderColor}"
+    BorderThickness="{DynamicResource WindowBorderThickness}"
+    CornerRadius="{DynamicResource WindowRounding}">
     <Border.Effect>
-      <DropShadowEffect BlurRadius="{DynamicResource DropShadowBlurRadius}"
-                        Opacity="{DynamicResource DropShadowOpacity}"
-                        RenderingBias="{DynamicResource DropShadowRenderingBias}"
-                        ShadowDepth="{DynamicResource DropShadowShadowDepth}" />
+      <DropShadowEffect
+        BlurRadius="{DynamicResource DropShadowBlurRadius}"
+        Opacity="{DynamicResource DropShadowOpacity}"
+        RenderingBias="{DynamicResource DropShadowRenderingBias}"
+        ShadowDepth="{DynamicResource DropShadowShadowDepth}" />
     </Border.Effect>
-    <Grid x:Name="SearchWindowGrid"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Top">
+    <Grid
+      x:Name="SearchWindowGrid"
+      HorizontalAlignment="Center"
+      VerticalAlignment="Top">
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
-      <Grid x:Name="ListContainer"
-            Grid.Row="1"
-            Margin="{DynamicResource ListContainerMargin}"
-            VerticalAlignment="Top"
-            Panel.ZIndex="0">
-        <Border x:Name="ResultsBox"
-                Height="auto"
-                MinHeight="{DynamicResource ListContainerMinHeight}"
-                MaxHeight="{DynamicResource ListContainerMaxHeight}"
-                Background="{DynamicResource ListContainerColor}"
-                BorderBrush="{DynamicResource ListContainerBorderColor}"
-                BorderThickness="{DynamicResource ListContainerBorderThickness}"
-                CornerRadius="{DynamicResource ListContainerRounding}">
-          <ListView x:Name="ResultsListView"
-                    Margin="{DynamicResource ListMargin}"
-                    Background="Transparent"
-                    BorderBrush="Transparent"
-                    BorderThickness="0"
-                    KeyboardNavigation.DirectionalNavigation="Cycle"
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    SelectionMode="Single">
+      <Grid
+        x:Name="ListContainer"
+        Grid.Row="1"
+        Margin="{DynamicResource ListContainerMargin}"
+        VerticalAlignment="Top"
+        Panel.ZIndex="0">
+        <Border
+          x:Name="ResultsBox"
+          Height="auto"
+          MinHeight="{DynamicResource ListContainerMinHeight}"
+          MaxHeight="{DynamicResource ListContainerMaxHeight}"
+          Background="{DynamicResource ListContainerColor}"
+          BorderBrush="{DynamicResource ListContainerBorderColor}"
+          BorderThickness="{DynamicResource ListContainerBorderThickness}"
+          CornerRadius="{DynamicResource ListContainerRounding}">
+          <ListView
+            x:Name="ResultsListView"
+            Margin="{DynamicResource ListMargin}"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            BorderThickness="0"
+            KeyboardNavigation.DirectionalNavigation="Cycle"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            SelectionMode="Single">
             <ListView.Resources>
               <Style x:Key="FocusVisual">
                 <Setter Property="Control.Template">
                   <Setter.Value>
                     <ControlTemplate>
-                      <Rectangle Margin="2"
-                                 SnapsToDevicePixels="true"
-                                 Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                                 StrokeDashArray="1 2"
-                                 StrokeThickness="1" />
+                      <Rectangle
+                        Margin="2"
+                        SnapsToDevicePixels="true"
+                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                        StrokeDashArray="1 2"
+                        StrokeThickness="1" />
                     </ControlTemplate>
                   </Setter.Value>
                 </Setter>
@@ -82,85 +90,59 @@
               <Style TargetType="{x:Type ListViewItem}">
                 <Style.Resources>
                   <Style TargetType="Border">
-                    <Setter Property="CornerRadius"
-                            Value="{DynamicResource ListItemRounding}" />
-                    <Setter Property="Margin"
-                            Value="{DynamicResource ListItemMargin}" />
+                    <Setter Property="CornerRadius" Value="{DynamicResource ListItemRounding}" />
+                    <Setter Property="Margin" Value="{DynamicResource ListItemMargin}" />
                   </Style>
                 </Style.Resources>
-                <Setter Property="SnapsToDevicePixels"
-                        Value="True" />
-                <Setter Property="Padding"
-                        Value="4,1" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="Padding" Value="4,1" />
                 <!-- <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/> -->
-                <Setter Property="Background"
-                        Value="Transparent" />
-                <Setter Property="BorderBrush"
-                        Value="Transparent" />
-                <Setter Property="BorderThickness"
-                        Value="{DynamicResource ListItemBorderThickness}" />
-                <Setter Property="FocusVisualStyle"
-                        Value="{StaticResource FocusVisual}" />
+                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>-->
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="{DynamicResource ListItemBorderThickness}" />
+                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
                 <Setter Property="Template">
                   <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
-                      <Border x:Name="Bd"
-                              Padding="{TemplateBinding Padding}"
-                              Background="{TemplateBinding Background}"
-                              BorderBrush="{TemplateBinding BorderBrush}"
-                              BorderThickness="{TemplateBinding BorderThickness}"
-                              SnapsToDevicePixels="true">
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                      <Border
+                        x:Name="Bd"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="true">
+                        <ContentPresenter
+                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                       </Border>
                       <ControlTemplate.Triggers>
                         <MultiTrigger>
                           <MultiTrigger.Conditions>
-                            <Condition Property="IsMouseOver"
-                                       Value="True" />
+                            <Condition Property="IsMouseOver" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd"
-                                  Property="Background"
-                                  Value="{DynamicResource ListItemHoverBgColor}" />
-                          <Setter TargetName="Bd"
-                                  Property="BorderBrush"
-                                  Value="{DynamicResource ListItemHoverBorderColor}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemHoverBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemHoverBorderColor}" />
                         </MultiTrigger>
                         <MultiTrigger>
                           <MultiTrigger.Conditions>
-                            <Condition Property="Selector.IsSelectionActive"
-                                       Value="False" />
-                            <Condition Property="IsSelected"
-                                       Value="True" />
+                            <Condition Property="Selector.IsSelectionActive" Value="False" />
+                            <Condition Property="IsSelected" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd"
-                                  Property="Background"
-                                  Value="{DynamicResource ListItemSelectedBgColor}" />
-                          <Setter TargetName="Bd"
-                                  Property="BorderBrush"
-                                  Value="{DynamicResource ListItemSelectedBorderColor}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemSelectedBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemSelectedBorderColor}" />
                         </MultiTrigger>
                         <MultiTrigger>
                           <MultiTrigger.Conditions>
-                            <Condition Property="Selector.IsSelectionActive"
-                                       Value="True" />
-                            <Condition Property="IsSelected"
-                                       Value="True" />
+                            <Condition Property="Selector.IsSelectionActive" Value="True" />
+                            <Condition Property="IsSelected" Value="True" />
                           </MultiTrigger.Conditions>
-                          <Setter TargetName="Bd"
-                                  Property="Background"
-                                  Value="{DynamicResource ListItemSelectedBgColor}" />
-                          <Setter TargetName="Bd"
-                                  Property="BorderBrush"
-                                  Value="{DynamicResource ListItemSelectedBorderColor}" />
+                          <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ListItemSelectedBgColor}" />
+                          <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ListItemSelectedBorderColor}" />
                         </MultiTrigger>
-                        <Trigger Property="IsEnabled"
-                                 Value="False">
-                          <Setter TargetName="Bd"
-                                  Property="TextElement.Foreground"
-                                  Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        <Trigger Property="IsEnabled" Value="False">
+                          <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                         </Trigger>
                       </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -175,79 +157,83 @@
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="9*" />
                   </Grid.ColumnDefinitions>
-                  <Image Grid.Column="0"
-                         Width="{DynamicResource ListItemIconSize}"
-                         Height="{DynamicResource ListItemIconSize}"
-                         Source="{Binding icon}" />
-                  <Grid Grid.Column="1"
-                        Margin="{DynamicResource ListItemTextMargin}"
-                        VerticalAlignment="Center">
+                  <Image
+                    Grid.Column="0"
+                    Width="{DynamicResource ListItemIconSize}"
+                    Height="{DynamicResource ListItemIconSize}"
+                    Source="{Binding Icon}" />
+                  <Grid
+                    Grid.Column="1"
+                    Margin="{DynamicResource ListItemTextMargin}"
+                    VerticalAlignment="Center">
                     <Grid.RowDefinitions>
                       <RowDefinition Height="7*" />
                       <RowDefinition Height="3*" />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0"
-                               VerticalAlignment="Bottom"
-                               FontFamily="{DynamicResource ListItemNameFont}"
-                               FontSize="{DynamicResource ListItemNameSize}"
-                               Foreground="{DynamicResource ListItemNameColor}"
-                               Text="{Binding name}" />
-                    <TextBlock Grid.Row="1"
-                               VerticalAlignment="Top"
-                               FontFamily="{DynamicResource ListItemDescFont}"
-                               FontSize="{DynamicResource ListItemDescSize}"
-                               Foreground="{DynamicResource ListItemDescColor}"
-                               Text="{Binding description}" />
+                    <TextBlock
+                      Grid.Row="0"
+                      VerticalAlignment="Bottom"
+                      FontFamily="{DynamicResource ListItemNameFont}"
+                      FontSize="{DynamicResource ListItemNameSize}"
+                      Foreground="{DynamicResource ListItemNameColor}"
+                      Text="{Binding Name}" />
+                    <TextBlock
+                      Grid.Row="1"
+                      VerticalAlignment="Top"
+                      FontFamily="{DynamicResource ListItemDescFont}"
+                      FontSize="{DynamicResource ListItemDescSize}"
+                      Foreground="{DynamicResource ListItemDescColor}"
+                      Text="{Binding Description}" />
                   </Grid>
                 </Grid>
               </DataTemplate>
             </ListView.ItemTemplate>
           </ListView>
         </Border>
-        <Frame x:Name="ContextPane"
-               NavigationUIVisibility="Hidden" />
+        <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden" />
       </Grid>
-      <Grid Grid.Row="0"
-            Panel.ZIndex="999">
-        <Border x:Name="EntryField"
-                Height="{DynamicResource SearchBarHeight}"
-                VerticalAlignment="Top"
-                Background="{DynamicResource SearchBarColor}"
-                BorderBrush="{DynamicResource SearchBarBorderColor}"
-                BorderThickness="{DynamicResource SearchBarBorderSize}"
-                CornerRadius="{DynamicResource SearchBarRounding}">
+      <Grid Grid.Row="0" Panel.ZIndex="999">
+        <Border
+          x:Name="EntryField"
+          Height="{DynamicResource SearchBarHeight}"
+          VerticalAlignment="Top"
+          Background="{DynamicResource SearchBarColor}"
+          BorderBrush="{DynamicResource SearchBarBorderColor}"
+          BorderThickness="{DynamicResource SearchBarBorderSize}"
+          CornerRadius="{DynamicResource SearchBarRounding}">
           <Grid>
-            <Grid x:Name="SearchBoxGrid"
-                  Grid.Row="1">
-              <Image x:Name="SearchIcon"
-                     Grid.Column="0"
-                     Width="{DynamicResource SearchIconWidth}"
-                     Margin="10,0,0,0"
-                     Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
+            <Grid x:Name="SearchBoxGrid" Grid.Row="1">
+              <Image
+                x:Name="SearchIcon"
+                Grid.Column="0"
+                Width="{DynamicResource SearchIconWidth}"
+                Margin="10,0,0,0"
+                Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid Grid.Column="1">
-                <TextBox x:Name="SearchTermTextBox"
-                         Width="{DynamicResource SearchFieldWidth}"
-                         Height="{DynamicResource SearchFieldHeight}"
-                         MinWidth="{DynamicResource SearchFieldWidth}"
-                         Margin="{DynamicResource SearchFieldMargin}"
-                         Padding="5,0,0,0"
-                         HorizontalAlignment="Left"
-                         VerticalAlignment="Center"
-                         VerticalContentAlignment="Center"
-                         AutoWordSelection="True"
-                         Background="Transparent"
-                         BorderBrush="Transparent"
-                         BorderThickness="0"
-                         Cursor="IBeam"
-                         FontFamily="{DynamicResource SearchFieldFont}"
-                         FontSize="{DynamicResource SearchFieldTxtSize}"
-                         Foreground="{DynamicResource SearchFieldTxtColor}"
-                         Language="en-US"
-                         MaxLines="1"
-                         PreviewKeyDown="SearchTermTextBox_KeyDown"
-                         SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
-                         SpellCheck.IsEnabled="True"
-                         TextChanged="OnQueryChange">
+                <TextBox
+                  x:Name="SearchTermTextBox"
+                  Width="{DynamicResource SearchFieldWidth}"
+                  Height="{DynamicResource SearchFieldHeight}"
+                  MinWidth="{DynamicResource SearchFieldWidth}"
+                  Margin="{DynamicResource SearchFieldMargin}"
+                  Padding="5,0,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  AutoWordSelection="True"
+                  Background="Transparent"
+                  BorderBrush="Transparent"
+                  BorderThickness="0"
+                  Cursor="IBeam"
+                  FontFamily="{DynamicResource SearchFieldFont}"
+                  FontSize="{DynamicResource SearchFieldTxtSize}"
+                  Foreground="{DynamicResource SearchFieldTxtColor}"
+                  Language="en-US"
+                  MaxLines="1"
+                  PreviewKeyDown="SearchTermTextBox_KeyDown"
+                  SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
+                  SpellCheck.IsEnabled="True"
+                  TextChanged="OnQueryChange">
                   <TextBox.ContextMenu>
                     <ContextMenu Visibility="Hidden" />
                   </TextBox.ContextMenu>
@@ -255,25 +241,23 @@
                     <Style />
                   </TextBox.Style>
                 </TextBox>
-                <TextBlock x:Name="SearchFieldPlaceholder"
-                           Margin="{DynamicResource SearchFieldPlaceholderMargin}"
-                           Padding="10,0,0,0"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Center"
-                           FontFamily="{DynamicResource SearchFieldPlaceholderFont}"
-                           FontSize="{DynamicResource SearchFieldPlaceholderSize}"
-                           Foreground="{DynamicResource SearchFieldPlaceholderColor}"
-                           IsHitTestVisible="False"
-                           Text="{DynamicResource SearchFieldPlaceholder}">
+                <TextBlock
+                  x:Name="SearchFieldPlaceholder"
+                  Margin="{DynamicResource SearchFieldPlaceholderMargin}"
+                  Padding="10,0,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  FontFamily="{DynamicResource SearchFieldPlaceholderFont}"
+                  FontSize="{DynamicResource SearchFieldPlaceholderSize}"
+                  Foreground="{DynamicResource SearchFieldPlaceholderColor}"
+                  IsHitTestVisible="False"
+                  Text="{DynamicResource SearchFieldPlaceholder}">
                   <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
-                      <Setter Property="Visibility"
-                              Value="Collapsed" />
+                      <Setter Property="Visibility" Value="Collapsed" />
                       <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}"
-                                     Value="">
-                          <Setter Property="Visibility"
-                                  Value="Visible" />
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
+                          <Setter Property="Visibility" Value="Visible" />
                         </DataTrigger>
                       </Style.Triggers>
                     </Style>
