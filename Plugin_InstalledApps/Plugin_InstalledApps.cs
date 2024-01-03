@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows;
 using System.Windows.Media.Imaging;
 
 namespace Plugin_InstalledApps {
@@ -32,15 +33,17 @@ namespace Plugin_InstalledApps {
       else
         this.Icon = app.Thumbnail.MediumBitmapSource;
 
-      Path = app.Properties.System.Link.TargetParsingPath.Value;
       try {
+        Path = app.Properties.System.Link.TargetParsingPath.Value;
         ExtraDetails =
-                            FileVersionInfo.GetVersionInfo(Path).LegalCopyright
-                            + "\n"
-                            + FileVersionInfo.GetVersionInfo(Path).CompanyName
-                            + "\n"
-                            + FileVersionInfo.GetVersionInfo(Path).FileVersion;
-      } catch (Exception) { }
+          FileVersionInfo.GetVersionInfo(Path).LegalCopyright
+          + "\n"
+          + FileVersionInfo.GetVersionInfo(Path).CompanyName
+          + "\n"
+          + FileVersionInfo.GetVersionInfo(Path).FileVersion;
+      } catch (System.IO.FileNotFoundException e) {
+        System.Windows.MessageBox.Show(e.Message + "\n\n" + e.StackTrace, "Likely caused by invalid shortcut", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
 
 
     }
@@ -74,7 +77,7 @@ namespace Plugin_InstalledApps {
   public partial class InstalledApps : IPlugger {
     public static List<ListItem> ListOfSystemApps { private set; get; } = new List<ListItem>();
 
-    //Get Plugin Specific settings (was in \PluginName\Plugin\ but has changed)
+
     public static Plugin_InstalledApps.Settings PluginSettings { get; set; } = System.Text.Json.JsonSerializer.Deserialize<Settings>(
           File.ReadAllText(Environment.CurrentDirectory
           + "\\PlugBoard\\Plugin_InstalledApps\\Plugin\\settings.json")

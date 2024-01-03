@@ -135,13 +135,13 @@
 
           "List": {
             "ContextPaneListMargin": "10,10,0,10",
-            "ContextPaneContentHorizontalAlignment": "Left",
+            "ContextPaneListContentHorizontalAlignment": "Left",
 
             "ListItems": {
               "ContextPaneListItemBorderThickness": "3",
-              "ContextPaneListItemHoverBorderColor": "White",
+              "ContextPaneListItemHoverBorderColor": "#e5e5e5",
               "ContextPaneListItemHoverBgColor": "LightGray",
-              "ContextPaneListItemSelectedBorderColor": "Black",
+              "ContextPaneListItemSelectedBorderColor": "#e5e5e5",
               "ContextPaneListItemSelectedBgColor": "White",
               "ContextPaneListItemRounding": "15",
               "ContextPaneListItemMargin": "0, 0, 10, 0",

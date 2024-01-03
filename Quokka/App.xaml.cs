@@ -81,7 +81,7 @@ namespace Quokka {
     }
 
     //Fields for Settings
-    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias" };
+    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias", "ContextPaneContentVerticalAlignment", "ContextPaneListContentHorizontalAlignment", "ContextPaneContentHorizontalAlignment" };
     String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
     String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "NameTextSize", "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize" };
     String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
@@ -104,6 +104,39 @@ namespace Quokka {
                 break;
               case "SearchFieldPlaceholder":
                 Application.Current.Resources[entry.Key] = entry.Value.ToString();
+                break;
+              case "ContextPaneContentVerticalAlignment":
+                switch (entry.Key) {
+                  case "Top":
+                    Application.Current.Resources[entry.Key] = VerticalAlignment.Top;
+                    break;
+                  case "Bottom":
+                    Application.Current.Resources[entry.Key] = VerticalAlignment.Bottom;
+                    break;
+                  case "Center":
+                    Application.Current.Resources[entry.Key] = VerticalAlignment.Center;
+                    break;
+                  case "Stretch":
+                    Application.Current.Resources[entry.Key] = VerticalAlignment.Stretch;
+                    break;
+                }
+                break;
+              case "ContextPaneListContentHorizontalAlignment":
+              case "ContextPaneContentHorizontalAlignment":
+                switch (entry.Key) {
+                  case "Center":
+                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Center;
+                    break;
+                  case "Left":
+                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Left;
+                    break;
+                  case "Right":
+                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Right;
+                    break;
+                  case "Stretch":
+                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Stretch;
+                    break;
+                }
                 break;
               case "DropShadowRenderingBias":
                 switch (entry.Value.ToString()) {

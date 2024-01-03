@@ -81,7 +81,7 @@
         <ListView
           x:Name="ButtonsListView"
           Margin="{DynamicResource ContextPaneListMargin}"
-          HorizontalContentAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}"
+          HorizontalContentAlignment="{DynamicResource ContextPaneListContentHorizontalAlignment}"
           Background="Transparent"
           BorderBrush="Transparent"
           BorderThickness="0"
