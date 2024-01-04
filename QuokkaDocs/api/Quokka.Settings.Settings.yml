@@ -1,0 +1,384 @@
+### YamlMime:ManagedReference
+items:
+- uid: Quokka.Settings.Settings
+  commentId: T:Quokka.Settings.Settings
+  id: Settings
+  parent: Quokka.Settings
+  children:
+  - Quokka.Settings.Settings.GeneralSettings
+  - Quokka.Settings.Settings.StyleSettings
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: Settings
+  fullName: Quokka.Settings.Settings
+  type: Class
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: Settings
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 116
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public class Settings
+    content.vb: Public Class Settings
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Quokka.Settings.Settings.GeneralSettings
+  commentId: P:Quokka.Settings.Settings.GeneralSettings
+  id: GeneralSettings
+  parent: Quokka.Settings.Settings
+  langs:
+  - csharp
+  - vb
+  name: GeneralSettings
+  nameWithType: Settings.GeneralSettings
+  fullName: Quokka.Settings.Settings.GeneralSettings
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: GeneralSettings
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 118
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public GeneralSettings GeneralSettings { get; set; }
+    parameters: []
+    return:
+      type: Quokka.Settings.GeneralSettings
+    content.vb: Public Property GeneralSettings As GeneralSettings
+  overload: Quokka.Settings.Settings.GeneralSettings*
+- uid: Quokka.Settings.Settings.StyleSettings
+  commentId: P:Quokka.Settings.Settings.StyleSettings
+  id: StyleSettings
+  parent: Quokka.Settings.Settings
+  langs:
+  - csharp
+  - vb
+  name: StyleSettings
+  nameWithType: Settings.StyleSettings
+  fullName: Quokka.Settings.Settings.StyleSettings
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: StyleSettings
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 119
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public StyleSettings StyleSettings { get; set; }
+    parameters: []
+    return:
+      type: Quokka.Settings.StyleSettings
+    content.vb: Public Property StyleSettings As StyleSettings
+  overload: Quokka.Settings.Settings.StyleSettings*
+references:
+- uid: Quokka.Settings
+  commentId: N:Quokka.Settings
+  href: Quokka.html
+  name: Quokka.Settings
+  nameWithType: Quokka.Settings
+  fullName: Quokka.Settings
+  spec.csharp:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.Settings
+    name: Settings
+    href: Quokka.Settings.html
+  spec.vb:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.Settings
+    name: Settings
+    href: Quokka.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Quokka.Settings.Settings.GeneralSettings*
+  commentId: Overload:Quokka.Settings.Settings.GeneralSettings
+  href: Quokka.Settings.Settings.html#Quokka_Settings_Settings_GeneralSettings
+  name: GeneralSettings
+  nameWithType: Settings.GeneralSettings
+  fullName: Quokka.Settings.Settings.GeneralSettings
+- uid: Quokka.Settings.GeneralSettings
+  commentId: T:Quokka.Settings.GeneralSettings
+  parent: Quokka.Settings
+  href: Quokka.Settings.GeneralSettings.html
+  name: GeneralSettings
+  nameWithType: GeneralSettings
+  fullName: Quokka.Settings.GeneralSettings
+- uid: Quokka.Settings.Settings.StyleSettings*
+  commentId: Overload:Quokka.Settings.Settings.StyleSettings
+  href: Quokka.Settings.Settings.html#Quokka_Settings_Settings_StyleSettings
+  name: StyleSettings
+  nameWithType: Settings.StyleSettings
+  fullName: Quokka.Settings.Settings.StyleSettings
+- uid: Quokka.Settings.StyleSettings
+  commentId: T:Quokka.Settings.StyleSettings
+  parent: Quokka.Settings
+  href: Quokka.Settings.StyleSettings.html
+  name: StyleSettings
+  nameWithType: StyleSettings
+  fullName: Quokka.Settings.StyleSettings

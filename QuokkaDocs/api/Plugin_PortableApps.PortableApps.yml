@@ -1,0 +1,630 @@
+### YamlMime:ManagedReference
+items:
+- uid: Plugin_PortableApps.PortableApps
+  commentId: T:Plugin_PortableApps.PortableApps
+  id: PortableApps
+  parent: Plugin_PortableApps
+  children:
+  - Plugin_PortableApps.PortableApps.#ctor
+  - Plugin_PortableApps.PortableApps.ListOfSystemApps
+  - Plugin_PortableApps.PortableApps.PluggerName
+  - Plugin_PortableApps.PortableApps.PluginSettings
+  - Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
+  langs:
+  - csharp
+  - vb
+  name: PortableApps
+  nameWithType: PortableApps
+  fullName: Plugin_PortableApps.PortableApps
+  type: Class
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: PortableApps
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 55
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  summary: Interaction logic for plugin
+  example: []
+  syntax:
+    content: 'public class PortableApps : IPlugger'
+    content.vb: Public Class PortableApps Implements IPlugger
+  inheritance:
+  - System.Object
+  implements:
+  - Quokka.PluginArch.IPlugger
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Plugin_PortableApps.PortableApps.ListOfSystemApps
+  commentId: P:Plugin_PortableApps.PortableApps.ListOfSystemApps
+  id: ListOfSystemApps
+  parent: Plugin_PortableApps.PortableApps
+  langs:
+  - csharp
+  - vb
+  name: ListOfSystemApps
+  nameWithType: PortableApps.ListOfSystemApps
+  fullName: Plugin_PortableApps.PortableApps.ListOfSystemApps
+  type: Property
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: ListOfSystemApps
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 56
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  syntax:
+    content: public static List<ListItem> ListOfSystemApps { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Quokka.ListItems.ListItem}
+    content.vb: Public Shared Property ListOfSystemApps As List(Of ListItem)
+  overload: Plugin_PortableApps.PortableApps.ListOfSystemApps*
+- uid: Plugin_PortableApps.PortableApps.PluginSettings
+  commentId: P:Plugin_PortableApps.PortableApps.PluginSettings
+  id: PluginSettings
+  parent: Plugin_PortableApps.PortableApps
+  langs:
+  - csharp
+  - vb
+  name: PluginSettings
+  nameWithType: PortableApps.PluginSettings
+  fullName: Plugin_PortableApps.PortableApps.PluginSettings
+  type: Property
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: PluginSettings
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 57
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  syntax:
+    content: public static Settings PluginSettings { get; set; }
+    parameters: []
+    return:
+      type: Plugin_PortableApps.Settings
+    content.vb: Public Shared Property PluginSettings As Settings
+  overload: Plugin_PortableApps.PortableApps.PluginSettings*
+- uid: Plugin_PortableApps.PortableApps.#ctor
+  commentId: M:Plugin_PortableApps.PortableApps.#ctor
+  id: '#ctor'
+  parent: Plugin_PortableApps.PortableApps
+  langs:
+  - csharp
+  - vb
+  name: PortableApps()
+  nameWithType: PortableApps.PortableApps()
+  fullName: Plugin_PortableApps.PortableApps.PortableApps()
+  type: Constructor
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: .ctor
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 59
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  syntax:
+    content: public PortableApps()
+    content.vb: Public Sub New()
+  overload: Plugin_PortableApps.PortableApps.#ctor*
+  nameWithType.vb: PortableApps.New()
+  fullName.vb: Plugin_PortableApps.PortableApps.New()
+  name.vb: New()
+- uid: Plugin_PortableApps.PortableApps.PluggerName
+  commentId: P:Plugin_PortableApps.PortableApps.PluggerName
+  id: PluggerName
+  parent: Plugin_PortableApps.PortableApps
+  langs:
+  - csharp
+  - vb
+  name: PluggerName
+  nameWithType: PortableApps.PluggerName
+  fullName: Plugin_PortableApps.PortableApps.PluggerName
+  type: Property
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: PluggerName
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 64
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  summary: This is name will display in main plug board
+  example: []
+  syntax:
+    content: public string PluggerName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PluggerName As String
+  overload: Plugin_PortableApps.PortableApps.PluggerName*
+  implements:
+  - Quokka.PluginArch.IPlugger.PluggerName
+- uid: Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
+  commentId: M:Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
+  id: RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
+  parent: Plugin_PortableApps.PortableApps
+  langs:
+  - csharp
+  - vb
+  name: RemoveBlacklistItems(List<ListItem>)
+  nameWithType: PortableApps.RemoveBlacklistItems(List<ListItem>)
+  fullName: Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List<Quokka.ListItems.ListItem>)
+  type: Method
+  source:
+    remote:
+      path: Plugin_PortableApps/Plugin_PortableApps.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: RemoveBlacklistItems
+    path: ../Plugin_PortableApps/Plugin_PortableApps.cs
+    startLine: 68
+  assemblies:
+  - Plugin_PortableApps
+  namespace: Plugin_PortableApps
+  syntax:
+    content: public static List<ListItem> RemoveBlacklistItems(List<ListItem> list)
+    parameters:
+    - id: list
+      type: System.Collections.Generic.List{Quokka.ListItems.ListItem}
+    return:
+      type: System.Collections.Generic.List{Quokka.ListItems.ListItem}
+    content.vb: Public Shared Function RemoveBlacklistItems(list As List(Of ListItem)) As List(Of ListItem)
+  overload: Plugin_PortableApps.PortableApps.RemoveBlacklistItems*
+  nameWithType.vb: PortableApps.RemoveBlacklistItems(List(Of ListItem))
+  fullName.vb: Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List(Of Quokka.ListItems.ListItem))
+  name.vb: RemoveBlacklistItems(List(Of ListItem))
+references:
+- uid: Plugin_PortableApps
+  commentId: N:Plugin_PortableApps
+  href: Plugin_PortableApps.html
+  name: Plugin_PortableApps
+  nameWithType: Plugin_PortableApps
+  fullName: Plugin_PortableApps
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Quokka.PluginArch.IPlugger
+  commentId: T:Quokka.PluginArch.IPlugger
+  parent: Quokka.PluginArch
+  href: Quokka.PluginArch.IPlugger.html
+  name: IPlugger
+  nameWithType: IPlugger
+  fullName: Quokka.PluginArch.IPlugger
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Quokka.PluginArch
+  commentId: N:Quokka.PluginArch
+  href: Quokka.html
+  name: Quokka.PluginArch
+  nameWithType: Quokka.PluginArch
+  fullName: Quokka.PluginArch
+  spec.csharp:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.PluginArch
+    name: PluginArch
+    href: Quokka.PluginArch.html
+  spec.vb:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.PluginArch
+    name: PluginArch
+    href: Quokka.PluginArch.html
+- uid: Plugin_PortableApps.PortableApps.ListOfSystemApps*
+  commentId: Overload:Plugin_PortableApps.PortableApps.ListOfSystemApps
+  href: Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_ListOfSystemApps
+  name: ListOfSystemApps
+  nameWithType: PortableApps.ListOfSystemApps
+  fullName: Plugin_PortableApps.PortableApps.ListOfSystemApps
+- uid: System.Collections.Generic.List{Quokka.ListItems.ListItem}
+  commentId: T:System.Collections.Generic.List{Quokka.ListItems.ListItem}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<ListItem>
+  nameWithType: List<ListItem>
+  fullName: System.Collections.Generic.List<Quokka.ListItems.ListItem>
+  nameWithType.vb: List(Of ListItem)
+  fullName.vb: System.Collections.Generic.List(Of Quokka.ListItems.ListItem)
+  name.vb: List(Of ListItem)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Quokka.ListItems.ListItem
+    name: ListItem
+    href: Quokka.ListItems.ListItem.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Quokka.ListItems.ListItem
+    name: ListItem
+    href: Quokka.ListItems.ListItem.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Plugin_PortableApps.PortableApps.PluginSettings*
+  commentId: Overload:Plugin_PortableApps.PortableApps.PluginSettings
+  href: Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_PluginSettings
+  name: PluginSettings
+  nameWithType: PortableApps.PluginSettings
+  fullName: Plugin_PortableApps.PortableApps.PluginSettings
+- uid: Plugin_PortableApps.Settings
+  commentId: T:Plugin_PortableApps.Settings
+  parent: Plugin_PortableApps
+  href: Plugin_PortableApps.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: Plugin_PortableApps.Settings
+- uid: Plugin_PortableApps.PortableApps.#ctor*
+  commentId: Overload:Plugin_PortableApps.PortableApps.#ctor
+  href: Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps__ctor
+  name: PortableApps
+  nameWithType: PortableApps.PortableApps
+  fullName: Plugin_PortableApps.PortableApps.PortableApps
+  nameWithType.vb: PortableApps.New
+  fullName.vb: Plugin_PortableApps.PortableApps.New
+  name.vb: New
+- uid: Plugin_PortableApps.PortableApps.PluggerName*
+  commentId: Overload:Plugin_PortableApps.PortableApps.PluggerName
+  href: Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_PluggerName
+  name: PluggerName
+  nameWithType: PortableApps.PluggerName
+  fullName: Plugin_PortableApps.PortableApps.PluggerName
+- uid: Quokka.PluginArch.IPlugger.PluggerName
+  commentId: P:Quokka.PluginArch.IPlugger.PluggerName
+  parent: Quokka.PluginArch.IPlugger
+  href: Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_PluggerName
+  name: PluggerName
+  nameWithType: IPlugger.PluggerName
+  fullName: Quokka.PluginArch.IPlugger.PluggerName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Plugin_PortableApps.PortableApps.RemoveBlacklistItems*
+  commentId: Overload:Plugin_PortableApps.PortableApps.RemoveBlacklistItems
+  href: Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_RemoveBlacklistItems_System_Collections_Generic_List_Quokka_ListItems_ListItem__
+  name: RemoveBlacklistItems
+  nameWithType: PortableApps.RemoveBlacklistItems
+  fullName: Plugin_PortableApps.PortableApps.RemoveBlacklistItems

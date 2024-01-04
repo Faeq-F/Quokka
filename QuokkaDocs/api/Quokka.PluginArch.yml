@@ -1,0 +1,53 @@
+### YamlMime:ManagedReference
+items:
+- uid: Quokka.PluginArch
+  commentId: N:Quokka.PluginArch
+  id: Quokka.PluginArch
+  children:
+  - Quokka.PluginArch.FuzzySearch
+  - Quokka.PluginArch.IPlugger
+  langs:
+  - csharp
+  - vb
+  name: Quokka.PluginArch
+  nameWithType: Quokka.PluginArch
+  fullName: Quokka.PluginArch
+  type: Namespace
+  assemblies:
+  - Quokka
+references:
+- uid: Quokka.PluginArch.FuzzySearch
+  commentId: T:Quokka.PluginArch.FuzzySearch
+  href: Quokka.PluginArch.FuzzySearch.html
+  name: FuzzySearch
+  nameWithType: FuzzySearch
+  fullName: Quokka.PluginArch.FuzzySearch
+- uid: Quokka.PluginArch.IPlugger
+  commentId: T:Quokka.PluginArch.IPlugger
+  parent: Quokka.PluginArch
+  href: Quokka.PluginArch.IPlugger.html
+  name: IPlugger
+  nameWithType: IPlugger
+  fullName: Quokka.PluginArch.IPlugger
+- uid: Quokka.PluginArch
+  commentId: N:Quokka.PluginArch
+  href: Quokka.html
+  name: Quokka.PluginArch
+  nameWithType: Quokka.PluginArch
+  fullName: Quokka.PluginArch
+  spec.csharp:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.PluginArch
+    name: PluginArch
+    href: Quokka.PluginArch.html
+  spec.vb:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.PluginArch
+    name: PluginArch
+    href: Quokka.PluginArch.html

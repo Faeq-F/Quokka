@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
+  commentId: T:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
+  id: LowLevelKeyboardListener.LowLevelKeyboardProc
+  parent: Quokka
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: LowLevelKeyboardListener.LowLevelKeyboardProc
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
+  type: Delegate
+  source:
+    remote:
+      path: Quokka/LowLevelKeyboardListener.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: LowLevelKeyboardProc
+    path: ../Quokka/LowLevelKeyboardListener.cs
+    startLine: 45
+  assemblies:
+  - Quokka
+  namespace: Quokka
+  syntax:
+    content: public delegate IntPtr LowLevelKeyboardListener.LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam)
+    parameters:
+    - id: nCode
+      type: System.Int32
+    - id: wParam
+      type: System.IntPtr
+    - id: lParam
+      type: System.IntPtr
+    return:
+      type: System.IntPtr
+    content.vb: Public Delegate Function LowLevelKeyboardListener.LowLevelKeyboardProc(nCode As Integer, wParam As IntPtr, lParam As IntPtr) As IntPtr
+references:
+- uid: Quokka
+  commentId: N:Quokka
+  href: Quokka.html
+  name: Quokka
+  nameWithType: Quokka
+  fullName: Quokka
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.IntPtr
+  commentId: T:System.IntPtr
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.intptr
+  name: IntPtr
+  nameWithType: IntPtr
+  fullName: System.IntPtr
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

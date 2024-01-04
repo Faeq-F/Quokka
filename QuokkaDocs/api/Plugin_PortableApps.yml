@@ -1,0 +1,44 @@
+### YamlMime:ManagedReference
+items:
+- uid: Plugin_PortableApps
+  commentId: N:Plugin_PortableApps
+  id: Plugin_PortableApps
+  children:
+  - Plugin_PortableApps.ContextPane
+  - Plugin_PortableApps.PortableApps
+  - Plugin_PortableApps.Settings
+  langs:
+  - csharp
+  - vb
+  name: Plugin_PortableApps
+  nameWithType: Plugin_PortableApps
+  fullName: Plugin_PortableApps
+  type: Namespace
+  assemblies:
+  - Plugin_PortableApps
+references:
+- uid: Plugin_PortableApps.ContextPane
+  commentId: T:Plugin_PortableApps.ContextPane
+  href: Plugin_PortableApps.ContextPane.html
+  name: ContextPane
+  nameWithType: ContextPane
+  fullName: Plugin_PortableApps.ContextPane
+- uid: Plugin_PortableApps.PortableApps
+  commentId: T:Plugin_PortableApps.PortableApps
+  href: Plugin_PortableApps.PortableApps.html
+  name: PortableApps
+  nameWithType: PortableApps
+  fullName: Plugin_PortableApps.PortableApps
+- uid: Plugin_PortableApps.Settings
+  commentId: T:Plugin_PortableApps.Settings
+  parent: Plugin_PortableApps
+  href: Plugin_PortableApps.Settings.html
+  name: Settings
+  nameWithType: Settings
+  fullName: Plugin_PortableApps.Settings
+- uid: Plugin_PortableApps
+  commentId: N:Plugin_PortableApps
+  href: Plugin_PortableApps.html
+  name: Plugin_PortableApps
+  nameWithType: Plugin_PortableApps
+  fullName: Plugin_PortableApps

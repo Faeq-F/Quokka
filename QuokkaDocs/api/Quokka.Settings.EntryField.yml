@@ -1,0 +1,741 @@
+### YamlMime:ManagedReference
+items:
+- uid: Quokka.Settings.EntryField
+  commentId: T:Quokka.Settings.EntryField
+  id: EntryField
+  parent: Quokka.Settings
+  children:
+  - Quokka.Settings.EntryField.SearchFieldFont
+  - Quokka.Settings.EntryField.SearchFieldHeight
+  - Quokka.Settings.EntryField.SearchFieldMargin
+  - Quokka.Settings.EntryField.SearchFieldPlaceholder
+  - Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+  - Quokka.Settings.EntryField.SearchFieldPlaceholderFont
+  - Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+  - Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+  - Quokka.Settings.EntryField.SearchFieldTxtColor
+  - Quokka.Settings.EntryField.SearchFieldTxtSelColor
+  - Quokka.Settings.EntryField.SearchFieldTxtSize
+  - Quokka.Settings.EntryField.SearchFieldWidth
+  langs:
+  - csharp
+  - vb
+  name: EntryField
+  nameWithType: EntryField
+  fullName: Quokka.Settings.EntryField
+  type: Class
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: EntryField
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 53
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public class EntryField
+    content.vb: Public Class EntryField
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Quokka.Settings.EntryField.SearchFieldTxtColor
+  commentId: P:Quokka.Settings.EntryField.SearchFieldTxtColor
+  id: SearchFieldTxtColor
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldTxtColor
+  nameWithType: EntryField.SearchFieldTxtColor
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtColor
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldTxtColor
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 55
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldTxtColor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldTxtColor As String
+  overload: Quokka.Settings.EntryField.SearchFieldTxtColor*
+- uid: Quokka.Settings.EntryField.SearchFieldTxtSelColor
+  commentId: P:Quokka.Settings.EntryField.SearchFieldTxtSelColor
+  id: SearchFieldTxtSelColor
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldTxtSelColor
+  nameWithType: EntryField.SearchFieldTxtSelColor
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtSelColor
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldTxtSelColor
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 56
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldTxtSelColor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldTxtSelColor As String
+  overload: Quokka.Settings.EntryField.SearchFieldTxtSelColor*
+- uid: Quokka.Settings.EntryField.SearchFieldHeight
+  commentId: P:Quokka.Settings.EntryField.SearchFieldHeight
+  id: SearchFieldHeight
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldHeight
+  nameWithType: EntryField.SearchFieldHeight
+  fullName: Quokka.Settings.EntryField.SearchFieldHeight
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldHeight
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 57
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldHeight { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldHeight As String
+  overload: Quokka.Settings.EntryField.SearchFieldHeight*
+- uid: Quokka.Settings.EntryField.SearchFieldWidth
+  commentId: P:Quokka.Settings.EntryField.SearchFieldWidth
+  id: SearchFieldWidth
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldWidth
+  nameWithType: EntryField.SearchFieldWidth
+  fullName: Quokka.Settings.EntryField.SearchFieldWidth
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldWidth
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 58
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldWidth { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldWidth As String
+  overload: Quokka.Settings.EntryField.SearchFieldWidth*
+- uid: Quokka.Settings.EntryField.SearchFieldMargin
+  commentId: P:Quokka.Settings.EntryField.SearchFieldMargin
+  id: SearchFieldMargin
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldMargin
+  nameWithType: EntryField.SearchFieldMargin
+  fullName: Quokka.Settings.EntryField.SearchFieldMargin
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldMargin
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 59
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldMargin { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldMargin As String
+  overload: Quokka.Settings.EntryField.SearchFieldMargin*
+- uid: Quokka.Settings.EntryField.SearchFieldFont
+  commentId: P:Quokka.Settings.EntryField.SearchFieldFont
+  id: SearchFieldFont
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldFont
+  nameWithType: EntryField.SearchFieldFont
+  fullName: Quokka.Settings.EntryField.SearchFieldFont
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldFont
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 60
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldFont { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldFont As String
+  overload: Quokka.Settings.EntryField.SearchFieldFont*
+- uid: Quokka.Settings.EntryField.SearchFieldTxtSize
+  commentId: P:Quokka.Settings.EntryField.SearchFieldTxtSize
+  id: SearchFieldTxtSize
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldTxtSize
+  nameWithType: EntryField.SearchFieldTxtSize
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtSize
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldTxtSize
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 61
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldTxtSize { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldTxtSize As String
+  overload: Quokka.Settings.EntryField.SearchFieldTxtSize*
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholder
+  commentId: P:Quokka.Settings.EntryField.SearchFieldPlaceholder
+  id: SearchFieldPlaceholder
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldPlaceholder
+  nameWithType: EntryField.SearchFieldPlaceholder
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholder
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldPlaceholder
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 62
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldPlaceholder { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldPlaceholder As String
+  overload: Quokka.Settings.EntryField.SearchFieldPlaceholder*
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+  commentId: P:Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+  id: SearchFieldPlaceholderMargin
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldPlaceholderMargin
+  nameWithType: EntryField.SearchFieldPlaceholderMargin
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldPlaceholderMargin
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 63
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldPlaceholderMargin { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldPlaceholderMargin As String
+  overload: Quokka.Settings.EntryField.SearchFieldPlaceholderMargin*
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+  commentId: P:Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+  id: SearchFieldPlaceholderColor
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldPlaceholderColor
+  nameWithType: EntryField.SearchFieldPlaceholderColor
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldPlaceholderColor
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 64
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldPlaceholderColor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldPlaceholderColor As String
+  overload: Quokka.Settings.EntryField.SearchFieldPlaceholderColor*
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+  commentId: P:Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+  id: SearchFieldPlaceholderSize
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldPlaceholderSize
+  nameWithType: EntryField.SearchFieldPlaceholderSize
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldPlaceholderSize
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 65
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldPlaceholderSize { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldPlaceholderSize As String
+  overload: Quokka.Settings.EntryField.SearchFieldPlaceholderSize*
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderFont
+  commentId: P:Quokka.Settings.EntryField.SearchFieldPlaceholderFont
+  id: SearchFieldPlaceholderFont
+  parent: Quokka.Settings.EntryField
+  langs:
+  - csharp
+  - vb
+  name: SearchFieldPlaceholderFont
+  nameWithType: EntryField.SearchFieldPlaceholderFont
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderFont
+  type: Property
+  source:
+    remote:
+      path: Quokka/Settings/Settings.cs
+      branch: feature-ContextPanes
+      repo: git@github.com:Faeq-F/Quokka.git
+    id: SearchFieldPlaceholderFont
+    path: ../Quokka/Settings/Settings.cs
+    startLine: 66
+  assemblies:
+  - Quokka
+  namespace: Quokka.Settings
+  syntax:
+    content: public string SearchFieldPlaceholderFont { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SearchFieldPlaceholderFont As String
+  overload: Quokka.Settings.EntryField.SearchFieldPlaceholderFont*
+references:
+- uid: Quokka.Settings
+  commentId: N:Quokka.Settings
+  href: Quokka.html
+  name: Quokka.Settings
+  nameWithType: Quokka.Settings
+  fullName: Quokka.Settings
+  spec.csharp:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.Settings
+    name: Settings
+    href: Quokka.Settings.html
+  spec.vb:
+  - uid: Quokka
+    name: Quokka
+    href: Quokka.html
+  - name: .
+  - uid: Quokka.Settings
+    name: Settings
+    href: Quokka.Settings.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Quokka.Settings.EntryField.SearchFieldTxtColor*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldTxtColor
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldTxtColor
+  name: SearchFieldTxtColor
+  nameWithType: EntryField.SearchFieldTxtColor
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtColor
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Quokka.Settings.EntryField.SearchFieldTxtSelColor*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldTxtSelColor
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldTxtSelColor
+  name: SearchFieldTxtSelColor
+  nameWithType: EntryField.SearchFieldTxtSelColor
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtSelColor
+- uid: Quokka.Settings.EntryField.SearchFieldHeight*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldHeight
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldHeight
+  name: SearchFieldHeight
+  nameWithType: EntryField.SearchFieldHeight
+  fullName: Quokka.Settings.EntryField.SearchFieldHeight
+- uid: Quokka.Settings.EntryField.SearchFieldWidth*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldWidth
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldWidth
+  name: SearchFieldWidth
+  nameWithType: EntryField.SearchFieldWidth
+  fullName: Quokka.Settings.EntryField.SearchFieldWidth
+- uid: Quokka.Settings.EntryField.SearchFieldMargin*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldMargin
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldMargin
+  name: SearchFieldMargin
+  nameWithType: EntryField.SearchFieldMargin
+  fullName: Quokka.Settings.EntryField.SearchFieldMargin
+- uid: Quokka.Settings.EntryField.SearchFieldFont*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldFont
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldFont
+  name: SearchFieldFont
+  nameWithType: EntryField.SearchFieldFont
+  fullName: Quokka.Settings.EntryField.SearchFieldFont
+- uid: Quokka.Settings.EntryField.SearchFieldTxtSize*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldTxtSize
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldTxtSize
+  name: SearchFieldTxtSize
+  nameWithType: EntryField.SearchFieldTxtSize
+  fullName: Quokka.Settings.EntryField.SearchFieldTxtSize
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholder*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldPlaceholder
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldPlaceholder
+  name: SearchFieldPlaceholder
+  nameWithType: EntryField.SearchFieldPlaceholder
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholder
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderMargin*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldPlaceholderMargin
+  name: SearchFieldPlaceholderMargin
+  nameWithType: EntryField.SearchFieldPlaceholderMargin
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderMargin
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderColor*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldPlaceholderColor
+  name: SearchFieldPlaceholderColor
+  nameWithType: EntryField.SearchFieldPlaceholderColor
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderColor
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderSize*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldPlaceholderSize
+  name: SearchFieldPlaceholderSize
+  nameWithType: EntryField.SearchFieldPlaceholderSize
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderSize
+- uid: Quokka.Settings.EntryField.SearchFieldPlaceholderFont*
+  commentId: Overload:Quokka.Settings.EntryField.SearchFieldPlaceholderFont
+  href: Quokka.Settings.EntryField.html#Quokka_Settings_EntryField_SearchFieldPlaceholderFont
+  name: SearchFieldPlaceholderFont
+  nameWithType: EntryField.SearchFieldPlaceholderFont
+  fullName: Quokka.Settings.EntryField.SearchFieldPlaceholderFont
