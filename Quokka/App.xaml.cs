@@ -14,28 +14,59 @@ using System.Windows;
 using System.Windows.Media;
 
 namespace Quokka {
-  /// <summary>
-  /// Interaction logic for App.xaml
-  /// <br>
-  /// Includes wpf-notifyIcon - CPOL:
+  /// <summary> Interaction logic for App.xaml <br> Includes
+  /// wpf-notifyIcon - CPOL:
   /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
-  /// <br>
-  /// Includes LowLevelKeyboardListener from Dylan's Web
-  /// License is in class file & at http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
-  /// <br>
-  /// Includes JSON.Net - MIT license
-  /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-  /// </summary>
+  /// <br> Includes LowLevelKeyboardListener from Dylan's
+  /// Web License is in class file & at
+  /// http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
+  /// <br> Includes JSON.Net - MIT license
+  /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md </summary>
 
   public partial class App : System.Windows.Application {
-    private TaskbarIcon? notifyIcon;
     private LowLevelKeyboardListener? _listener;
+    private String[] brushIndicators = { "color" };
     private string detectedKeys = "";
+    private string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
+    private TaskbarIcon? notifyIcon;
+    private String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
 
+    //Fields for Settings
+    private String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias", "ContextPaneContentVerticalAlignment", "ContextPaneListContentHorizontalAlignment", "ContextPaneContentHorizontalAlignment" };
+
+    private String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
+    private String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "NameTextSize", "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize" };
     public static Settings.Settings AppSettings { get; set; }
+    public static List<IPlugger>? plugins { private set; get; }
     public static dynamic StyleSettings { get; set; }
 
-    public static List<IPlugger>? plugins { private set; get; }
+    public static void OpenPlugBoard() {
+      using Process folderOpener = new Process();
+      folderOpener.StartInfo.FileName = "explorer";
+      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+      folderOpener.Start();
+    }
+
+    public static void OpenSettingsFile() {
+      using Process fileOpener = new Process();
+      fileOpener.StartInfo.FileName = "notepad";
+      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
+      fileOpener.Start();
+    }
+
+    protected override void OnExit(ExitEventArgs e) {
+      //run anything needed for plugins on app exit
+      try {
+        foreach (IPlugger plugin in plugins) {
+          plugin.OnAppShutdown();
+        }
+      } catch (Exception ex) {
+        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
+      _listener.UnHookKeyboard();
+      notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+      base.OnExit(e);
+    }
 
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
@@ -77,16 +108,34 @@ namespace Quokka {
       //create the notifyIcon (it's a resource declared in NotifyIconResources.xaml
       notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
       notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
-
     }
 
-    //Fields for Settings
-    String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias", "ContextPaneContentVerticalAlignment", "ContextPaneListContentHorizontalAlignment", "ContextPaneContentHorizontalAlignment" };
-    String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "NameTextSize", "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize" };
-    String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
-    String[] brushIndicators = { "color" };
-    string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
+    //launching search window
+    private void _listener_OnKeyPressed(object sender, KeyPressedArgs e) {
+      //refresh hook to prevent app hanging
+      _listener.UnHookKeyboard();
+      _listener.HookKeyboard();
+
+      //save memory - sometimes requires pressing the shortcut twice
+      if (detectedKeys.Length > 20) detectedKeys = "";
+
+      detectedKeys += e.KeyPressed.ToString();
+
+      if (detectedKeys.Contains(AppSettings?.GeneralSettings.WindowHotKey)) {
+        bool windowOpen = false;
+        foreach (var wnd in App.Current.Windows) { if (wnd is SearchWindow) { windowOpen = true; break; } }
+        if (!windowOpen) {
+          App.Current.MainWindow = new SearchWindow();
+          App.Current.MainWindow.Show();
+          detectedKeys = "";
+        }
+      }
+    }
+
+    //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
+    private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+      this.notifyIcon.ToolTipText = "Quokka";
+    }
 
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
@@ -102,52 +151,64 @@ namespace Quokka {
               case "WindowTopMargin":
                 Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
                 break;
+
               case "SearchFieldPlaceholder":
                 Application.Current.Resources[entry.Key] = entry.Value.ToString();
                 break;
+
               case "ContextPaneContentVerticalAlignment":
                 switch (entry.Key) {
                   case "Top":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Top;
                     break;
+
                   case "Bottom":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Bottom;
                     break;
+
                   case "Center":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Center;
                     break;
+
                   case "Stretch":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Stretch;
                     break;
                 }
                 break;
+
               case "ContextPaneListContentHorizontalAlignment":
               case "ContextPaneContentHorizontalAlignment":
                 switch (entry.Key) {
                   case "Center":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Center;
                     break;
+
                   case "Left":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Left;
                     break;
+
                   case "Right":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Right;
                     break;
+
                   case "Stretch":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Stretch;
                     break;
                 }
                 break;
+
               case "DropShadowRenderingBias":
                 switch (entry.Value.ToString()) {
                   case "Quality":
                     Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Quality;
                     break;
+
                   case "Performance":
                     Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Performance;
                     break;
                 }
                 break;
+
               case "DropShadowBlurRadius":
               case "DropShadowOpacity":
               case "DropShadowShadowDepth":
@@ -179,19 +240,9 @@ namespace Quokka {
       }
     }
 
-    public static void OpenSettingsFile() {
-      using Process fileOpener = new Process();
-      fileOpener.StartInfo.FileName = "notepad";
-      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
-      fileOpener.Start();
-    }
-
-    public static void OpenPlugBoard() {
-      using Process folderOpener = new Process();
-      folderOpener.StartInfo.FileName = "explorer";
-      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
-      folderOpener.Start();
-    }
+    /**
+     * <returns>The absolute path to the plugin's DLL</returns>
+     */
 
     private string GetPluggerDll(string connector) {
       var files = Directory.GetFiles(System.IO.Path.GetFullPath(connector), "*.dll", SearchOption.AllDirectories);
@@ -199,47 +250,6 @@ namespace Quokka {
         if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_")) return file;
       }
       return string.Empty;
-    }
-
-    protected override void OnExit(ExitEventArgs e) {
-      //run anything needed for plugins on app exit
-      try {
-        foreach (IPlugger plugin in plugins) {
-          plugin.OnAppShutdown();
-        }
-      } catch (Exception ex) {
-        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
-      }
-      _listener.UnHookKeyboard();
-      notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
-      base.OnExit(e);
-    }
-
-    //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
-    private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
-      this.notifyIcon.ToolTipText = "Quokka";
-    }
-
-    //launching search window
-    void _listener_OnKeyPressed(object sender, KeyPressedArgs e) {
-      //refresh hook to prevent app hanging
-      _listener.UnHookKeyboard();
-      _listener.HookKeyboard();
-
-      //save memory - sometimes requires pressing the shortcut twice
-      if (detectedKeys.Length > 20) detectedKeys = "";
-
-      detectedKeys += e.KeyPressed.ToString();
-
-      if (detectedKeys.Contains(AppSettings?.GeneralSettings.WindowHotKey)) {
-        bool windowOpen = false;
-        foreach (var wnd in App.Current.Windows) { if (wnd is SearchWindow) { windowOpen = true; break; } }
-        if (!windowOpen) {
-          App.Current.MainWindow = new SearchWindow();
-          App.Current.MainWindow.Show();
-          detectedKeys = "";
-        }
-      }
     }
   }
 }

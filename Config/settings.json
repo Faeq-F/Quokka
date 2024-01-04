@@ -33,13 +33,13 @@
         "SearchFieldHeight": "50",
         "SearchFieldWidth": "720",
         "SearchFieldMargin": "15, 10, 10, 10",
-        "SearchFieldFont": "Cascadia Code",
+        "SearchFieldFont": "Segoe UI",
         "SearchFieldTxtSize": "24",
         "SearchFieldPlaceholder": "Enter Query",
         "SearchFieldPlaceholderMargin": "10",
         "SearchFieldPlaceholderColor": "#8e8e8e",
         "SearchFieldPlaceholderSize": "24",
-        "SearchFieldPlaceholderFont": "Cascadia Code"
+        "SearchFieldPlaceholderFont": "Segoe UI"
       }
     },
 
@@ -97,10 +97,10 @@
         "ListItemMargin": "0, 0, 10, 0",
         "ListItemIconSize": "50",
         "ListItemTextMargin": "10",
-        "ListItemNameFont": "Cascadia Code",
+        "ListItemNameFont": "Segoe UI",
         "ListItemNameSize": "18",
         "ListItemNameColor": "Black",
-        "ListItemDescFont": "Cascadia Code",
+        "ListItemDescFont": "Segoe UI",
         "ListItemDescSize": "12",
         "ListItemDescColor": "Gray",
 
@@ -118,17 +118,17 @@
             "ContextPaneImageMargin": "40,50,40,20",
 
             "NameTextMargin": "0,-20,0,0",
-            "NameTextFontFamily": "Cascadia Code",
+            "NameTextFontFamily": "Segoe UI",
             "NameTextSize": "16",
             "NameTextColor": "Black",
 
             "DescTextMargin": "0,0,0,0",
-            "DescTextFontFamily": "Cascadia Code",
+            "DescTextFontFamily": "Segoe UI",
             "DescTextSize": "12",
             "DescTextColor": "Gray",
 
             "ExtraDetailsTextMargin": "0,0,0,0",
-            "ExtraDetailsTextFontFamily": "Cascadia Code",
+            "ExtraDetailsTextFontFamily": "Segoe UI",
             "ExtraDetailsTextSize": "12",
             "ExtraDetailsTextColor": "Gray"
           },
@@ -138,18 +138,18 @@
             "ContextPaneListContentHorizontalAlignment": "Left",
 
             "ListItems": {
-              "ContextPaneListItemBorderThickness": "3",
+              "ContextPaneListItemBorderThickness": "1",
               "ContextPaneListItemHoverBorderColor": "#e5e5e5",
-              "ContextPaneListItemHoverBgColor": "LightGray",
+              "ContextPaneListItemHoverBgColor": "#f6f6f6",
               "ContextPaneListItemSelectedBorderColor": "#e5e5e5",
-              "ContextPaneListItemSelectedBgColor": "White",
+              "ContextPaneListItemSelectedBgColor": "#fbfbfb",
               "ContextPaneListItemRounding": "15",
               "ContextPaneListItemMargin": "0, 0, 10, 0",
 
-              "ContextPaneListItemIconSize": "30",
+              "ContextPaneListItemIconSize": "50",
               "ContextPaneListItemIconMargin": "0,0,-5,0",
               "ContextPaneListItemTextPadding": "10",
-              "ContextPaneListItemFont": "Cascadia Code",
+              "ContextPaneListItemFont": "Segoe UI",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",
 

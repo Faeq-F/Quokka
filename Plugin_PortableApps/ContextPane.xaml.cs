@@ -7,10 +7,11 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Plugin_PortableApps {
-  /// <summary>
-  /// Interaction logic for ContextPane.xaml
-  /// </summary>
-  ///
+  /**
+   * <summary>
+   * Interaction logic for ContextPane.xaml
+   * </summary>
+   */
 
   public partial class ContextPane : ItemContextPane {
 

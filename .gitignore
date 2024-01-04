@@ -12,6 +12,7 @@ _ReSharper.*
 bin
 obj
 packages
+QuokkaDocs/api
 
 # User-specific files
 *.rsuser

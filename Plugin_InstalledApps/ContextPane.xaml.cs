@@ -1,4 +1,5 @@
 ﻿using Quokka;
+using Quokka.ListItems;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -7,26 +8,23 @@ using System.Windows.Input;
 
 namespace Plugin_InstalledApps {
   /// <summary>
-  /// Interaction logic for ContextPane.xaml
+  ///   Interaction logic for ContextPane.xaml
   /// </summary>
-  public partial class ContextPane : Page {
 
+  public partial class ContextPane : ItemContextPane {
     private readonly InstalledAppsItem? Item;
 
     public ContextPane() {
-
       InitializeComponent();
 
       try {
         Item = (InstalledAppsItem) ( (SearchWindow) Application.Current.MainWindow ).SelectedItem;
       } catch (InvalidCastException) {//Used to handle the AllAppsItem
-        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
-        _ = ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
-        //makes showing a new pane more reliable
-        ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
+        base.ReturnToSearch();
 
         //Process.Start("ms-settings:appsfeatures");
-        App.Current.MainWindow.Close();
+        //App.Current.MainWindow.Close();
+
         return;
       }
       DetailsImage.Source = Item.Icon;
@@ -37,26 +35,6 @@ namespace Plugin_InstalledApps {
 
     private void OpenApp(object sender, RoutedEventArgs e) {
       Item.Execute();
-    }
-
-    //still does not work
-    private void RunAsAdmin(object sender, RoutedEventArgs e) {
-
-      //Public domain; no attribution required.
-      const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
-
-      ProcessStartInfo info = new("explorer") {
-        Arguments = @" shell:appsFolder\" + Item.Description,
-        UseShellExecute = true,
-        Verb = "runas",
-        CreateNoWindow = true
-      };
-      try {
-        Process.Start(info);
-      } catch (System.ComponentModel.Win32Exception ex) {
-        if (!( ex.NativeErrorCode == ERROR_CANCELLED )) throw;
-      }
-      App.Current.MainWindow.Close();
     }
 
     private void OpenContainingFolder(object sender, RoutedEventArgs e) {
@@ -76,6 +54,7 @@ namespace Plugin_InstalledApps {
           Button CurrentButton = ( CurrentItem.Children[1] as Grid ).Children[0] as Button;
           CurrentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
           break;
+
         case Key.Down:
           if (( ButtonsListView.SelectedIndex == -1 )) {
             ButtonsListView.SelectedIndex = 1;
@@ -86,6 +65,7 @@ namespace Plugin_InstalledApps {
           }
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
+
         case Key.Up:
           if (( ButtonsListView.SelectedIndex == -1 ) || ( ButtonsListView.SelectedIndex == 0 )) {
             ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
@@ -94,16 +74,34 @@ namespace Plugin_InstalledApps {
           }
           ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
           break;
+
         case Key.Apps: //This is the menu key
-          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Visibility = Visibility.Collapsed;
-          ( (SearchWindow) Application.Current.MainWindow ).searchBox.Focus();
-          //makes showing a new pane more reliable
-          ( (SearchWindow) Application.Current.MainWindow ).contextPane.Source = null;
+          base.ReturnToSearch();
           break;
+
         default:
           return;
       }
       e.Handled = true;
+    }
+
+    //still does not work
+    private void RunAsAdmin(object sender, RoutedEventArgs e) {
+      //Public domain; no attribution required.
+      const int ERROR_CANCELLED = 1223; //The operation was canceled by the user.
+
+      ProcessStartInfo info = new("explorer") {
+        Arguments = @" shell:appsFolder\" + Item.Description,
+        UseShellExecute = true,
+        Verb = "runas",
+        CreateNoWindow = true
+      };
+      try {
+        Process.Start(info);
+      } catch (System.ComponentModel.Win32Exception ex) {
+        if (!( ex.NativeErrorCode == ERROR_CANCELLED )) throw;
+      }
+      App.Current.MainWindow.Close();
     }
   }
 }
