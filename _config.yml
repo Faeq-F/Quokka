@@ -5,7 +5,8 @@ bio: "A customisable keystroke launcher with plugins"
 description: "A customisable keystroke launcher with plugins"
 logo: "https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/_layouts/Quokka.png"
 locale: en_GB
-url: https://faeq-f.github.io/Quokka/
+url: https://faeq-f.github.io
+baseurl: /Quokka
 github_username: faeq-f
 
 # Jekyll
@@ -23,10 +24,8 @@ sass:
   sass_dir: _sass
   style: compressed
 
-# Comments
 
 # Social
-# if you don't have any of social below, comment the line.
 #google:
 #plus:            #username
 #analytics:
@@ -57,7 +56,7 @@ linkedin:          faeq
 #hackernews:        username
 
 # Gems
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-feed
   - jekyll-sitemap
@@ -66,7 +65,7 @@ gems:
 jekyll-mentions:
   base_url: https://github.com
 
-# Exclude list
+
 exclude:
   [
     README.md,
