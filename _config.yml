@@ -5,9 +5,10 @@ bio: "A customisable keystroke launcher with plugins"
 description: "A customisable keystroke launcher with plugins"
 logo: "https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/_layouts/Quokka.png"
 locale: en_GB
-url: https://faeq-f.github.io
-baseurl: /Quokka
+url: https://faeq-f.github.io/Quokka
+#baseurl: https://faeq-f.github.io/Quokka
 github_username: faeq-f
+github: [metadata]
 
 # Jekyll
 permalink: /:title/
