@@ -26,6 +26,7 @@
       "SearchBarBorderSize": "1",
       "SearchBarHeight": "64",
       "SearchIconWidth": "64",
+      "SearchIconMargin": "10, 0, -5, 0",
 
       "EntryField": {
         "SearchFieldTxtColor": "Black",
@@ -115,7 +116,7 @@
             "ContextPaneContentMargin": "0, 0, 0, 0",
             "ContextPaneContentVerticalAlignment": "Center",
             "ContextPaneContentHorizontalAlignment": "Center",
-            "ContextPaneImageMargin": "40,50,40,20",
+            "ContextPaneImageMargin": "40,30,40,30",
 
             "NameTextMargin": "0,-20,0,0",
             "NameTextFontFamily": "Segoe UI",
@@ -134,8 +135,9 @@
           },
 
           "List": {
-            "ContextPaneListMargin": "10,10,0,10",
-            "ContextPaneListContentHorizontalAlignment": "Left",
+            "ContextPaneListMargin": "-50,0,0,0",
+            "ContextPaneListHorizontalAlignment": "Center",
+            "ContextPaneListContentHorizontalAlignment": "Stretch",
 
             "ListItems": {
               "ContextPaneListItemBorderThickness": "1",
@@ -146,9 +148,9 @@
               "ContextPaneListItemRounding": "15",
               "ContextPaneListItemMargin": "0, 0, 10, 0",
 
-              "ContextPaneListItemIconSize": "50",
-              "ContextPaneListItemIconMargin": "0,0,-5,0",
-              "ContextPaneListItemTextPadding": "10",
+              "ContextPaneListItemIconSize": "20",
+              "ContextPaneListItemIconMargin": "20,0,0,0",
+              "ContextPaneListItemTextPadding": "0,10,10,10",
               "ContextPaneListItemFont": "Segoe UI",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",

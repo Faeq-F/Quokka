@@ -9,22 +9,20 @@ using System.Windows.Input;
 
 namespace Quokka {
   /// <summary>
-  /// Interaction logic for SearchWindow.xaml
+  ///   Interaction logic for SearchWindow.xaml
   /// </summary>
 
   public partial class SearchWindow : Window {
-
-    private String query = "";
-    private static List<ListItem> ListOfResults { set; get; }
+    public Frame contextPane;
+    public ResourceDictionary ContextPaneSettingsDict = Application.Current.Resources;
+    public TextBox searchBox;
 
     //needed for ContextPanes
     public ListItem SelectedItem;
-    public TextBox searchBox;
-    public Frame contextPane;
-    public ResourceDictionary ContextPaneSettingsDict = Application.Current.Resources;
+
+    private String query = "";
 
     public SearchWindow() {
-
       InitializeComponent();
 
       //ApplyAppSettings();
@@ -69,6 +67,21 @@ namespace Quokka {
         new RoutedEventHandler(WindowLoaded));
     }
 
+    private static List<ListItem> ListOfResults { set; get; }
+
+    private void Exit(object sender, ExecutedRoutedEventArgs e) {
+      this.Close();
+    }
+
+    private void ListItem_Click(object sender, RoutedEventArgs e) {
+      if (ResultsListView != null) {
+        if (ResultsListView.SelectedIndex > -1) {
+          ( ResultsListView.SelectedItem as ListItem ).Execute();
+        } else ( ResultsListView.Items.GetItemAt(0) as ListItem ).Execute();
+        this.Close();
+      }
+    }
+
     private void OnQueryChange(object sender, RoutedEventArgs e) {
       bool IgnoreMaxResults = false;
       //reset view of list
@@ -81,9 +94,9 @@ namespace Quokka {
       //get text from sender
       TextBox textBox = ( sender as TextBox )!;
       query = textBox.Text;
-      if (query.EndsWith(App.AppSettings.GeneralSettings.IgnoreMaxResultsFlag)) {
+      if (query.EndsWith((string) Application.Current.Resources["IgnoreMaxResultsFlag"])) {
         query = query.Remove(
-          query.Length - App.AppSettings.GeneralSettings.IgnoreMaxResultsFlag.Length);
+          query.Length - ( (string) Application.Current.Resources["IgnoreMaxResultsFlag"] ).Length);
         IgnoreMaxResults = true;
       }
       ListOfResults = new List<ListItem>();
@@ -119,8 +132,7 @@ namespace Quokka {
         if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
         //use MaxResults setting
         if (!IgnoreMaxResults)
-          ResultsListView.ItemsSource = ListOfResults.Take(
-            int.Parse(App.AppSettings.GeneralSettings.MaxResults));
+          ResultsListView.ItemsSource = ListOfResults.Take((int) Application.Current.Resources["MaxResults"]);
         else ResultsListView.ItemsSource = ListOfResults;
       }
       ResultsAreReady:
@@ -145,6 +157,7 @@ namespace Quokka {
           }
           ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
           break;
+
         case Key.Up:
           if (( ResultsListView.SelectedIndex == -1 ) || ( ResultsListView.SelectedIndex == 0 )) {
             ResultsListView.SelectedIndex = ResultsListView.Items.Count - 1;
@@ -153,6 +166,7 @@ namespace Quokka {
           }
           ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
           break;
+
         case Key.Apps: //This is the menu key
           if (query != "") {
             if (ContextPane.Visibility == Visibility.Visible) { //setting the frame visibility
@@ -170,33 +184,20 @@ namespace Quokka {
             }
           }
           break;
+
         default:
           return; //e is not handled - normal activity occurs
       }
       e.Handled = true;
     }
 
-    private void ListItem_Click(object sender, RoutedEventArgs e) {
-      if (ResultsListView != null) {
-        if (ResultsListView.SelectedIndex > -1) {
-          ( ResultsListView.SelectedItem as ListItem ).Execute();
-        } else ( ResultsListView.Items.GetItemAt(0) as ListItem ).Execute();
-        this.Close();
-      }
-    }
-
-    private void Exit(object sender, ExecutedRoutedEventArgs e) {
-      this.Close();
-    }
-
     //Focuses search field
-    void WindowLoaded(object sender, RoutedEventArgs e) {
+    private void WindowLoaded(object sender, RoutedEventArgs e) {
       var window = e.Source as Window;
       System.Threading.Thread.Sleep(100);
       window!.Dispatcher.Invoke(
       new Action(() => {
         window.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-
       }));
     }
   }

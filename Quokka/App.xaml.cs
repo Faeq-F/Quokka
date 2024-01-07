@@ -1,5 +1,4 @@
 ﻿using Hardcodet.Wpf.TaskbarNotification;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quokka.PluginArch;
 using Quokka.Settings;
@@ -14,14 +13,19 @@ using System.Windows;
 using System.Windows.Media;
 
 namespace Quokka {
-  /// <summary> Interaction logic for App.xaml <br> Includes
-  /// wpf-notifyIcon - CPOL:
-  /// https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE
-  /// <br> Includes LowLevelKeyboardListener from Dylan's
-  /// Web License is in class file & at
-  /// http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/
-  /// <br> Includes JSON.Net - MIT license
-  /// https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md </summary>
+  /**
+     * <summary>
+     * Interaction logic for App.xaml
+     * <br /><br />
+     * Includes:<br />
+     * wpf-notifyIcon - CPOL:<br />
+     * https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE<br />
+     * LowLevelKeyboardListener from Dylan's Web - License is in class file & at<br />
+     * http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/<br />
+     * JSON.Net - MIT license<br />
+     * https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+     * </summary>
+     */
 
   public partial class App : System.Windows.Application {
     private LowLevelKeyboardListener? _listener;
@@ -29,16 +33,19 @@ namespace Quokka {
     private string detectedKeys = "";
     private string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
     private TaskbarIcon? notifyIcon;
+
     private String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
 
-    //Fields for Settings
-    private String[] specialCases = { "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity", "DropShadowShadowDepth", "DropShadowRenderingBias", "ContextPaneContentVerticalAlignment", "ContextPaneListContentHorizontalAlignment", "ContextPaneContentHorizontalAlignment" };
+    private String[] specialCases = { "MaxResults", "WindowHotKey", "IgnoreMaxResultsFlag",
+      "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity",
+      "DropShadowShadowDepth", "DropShadowRenderingBias",
+      "ContextPaneContentVerticalAlignment", "ContextPaneContentHorizontalAlignment",
+      "ContextPaneListHorizontalAlignment", "ContextPaneListContentHorizontalAlignment" };
 
     private String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
     private String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "NameTextSize", "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize" };
-    public static Settings.Settings AppSettings { get; set; }
+
     public static List<IPlugger>? plugins { private set; get; }
-    public static dynamic StyleSettings { get; set; }
 
     public static void OpenPlugBoard() {
       using Process folderOpener = new Process();
@@ -70,12 +77,7 @@ namespace Quokka {
 
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
-      //grab settings
-      string fileName = Environment.CurrentDirectory + "\\Config\\settings.json";
-      string jsonString = File.ReadAllText(fileName);
-      AppSettings = JsonConvert.DeserializeObject<Settings.Settings>(jsonString)!;
-      //dynamic StyleSettings = JsonConvert.DeserializeObject<dynamic>(jsonString)!;
-      //Settings.Settings appSettings = JsonConvert.DeserializeObject<Settings.Settings>(JsonString);
+
       applyAppSettings(JObject.Parse(JsonString));
 
       // grab plugins and run startup
@@ -121,7 +123,7 @@ namespace Quokka {
 
       detectedKeys += e.KeyPressed.ToString();
 
-      if (detectedKeys.Contains(AppSettings?.GeneralSettings.WindowHotKey)) {
+      if (detectedKeys.Contains((string) Application.Current.Resources["WindowHotKey"])) {
         bool windowOpen = false;
         foreach (var wnd in App.Current.Windows) { if (wnd is SearchWindow) { windowOpen = true; break; } }
         if (!windowOpen) {
@@ -148,50 +150,57 @@ namespace Quokka {
         } else {
           if (specialCases.Contains(entry.Key)) {
             switch (entry.Key) {
+              case "MaxResults":
+                Application.Current.Resources[entry.Key] = int.Parse(entry.Value.ToString());
+                break;
+
               case "WindowTopMargin":
                 Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
                 break;
 
+              case "IgnoreMaxResultsFlag":
+              case "WindowHotKey":
               case "SearchFieldPlaceholder":
                 Application.Current.Resources[entry.Key] = entry.Value.ToString();
                 break;
 
               case "ContextPaneContentVerticalAlignment":
-                switch (entry.Key) {
-                  case "Top":
+                switch (entry.Value.ToString().ToLower()) {
+                  case "top":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Top;
                     break;
 
-                  case "Bottom":
+                  case "bottom":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Bottom;
                     break;
 
-                  case "Center":
+                  case "center":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Center;
                     break;
 
-                  case "Stretch":
+                  case "stretch":
                     Application.Current.Resources[entry.Key] = VerticalAlignment.Stretch;
                     break;
                 }
                 break;
 
+              case "ContextPaneListHorizontalAlignment":
               case "ContextPaneListContentHorizontalAlignment":
               case "ContextPaneContentHorizontalAlignment":
-                switch (entry.Key) {
-                  case "Center":
+                switch (entry.Value.ToString().ToLower()) {
+                  case "center":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Center;
                     break;
 
-                  case "Left":
+                  case "left":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Left;
                     break;
 
-                  case "Right":
+                  case "right":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Right;
                     break;
 
-                  case "Stretch":
+                  case "stretch":
                     Application.Current.Resources[entry.Key] = HorizontalAlignment.Stretch;
                     break;
                 }
