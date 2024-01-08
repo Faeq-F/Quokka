@@ -1,0 +1,1283 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Quokka | QuokkaDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Quokka | QuokkaDocs ">
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/Faeq-F/Quokka/blob/feature-ContextPanes/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+  </head>
+
+  <script type="module" src="./public/docfx.min.js"></script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="QuokkaDocs">
+            QuokkaDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="quokka">Quokka</h1>
+
+<p>An extremely customizable, portable keystroke launcher with plugins</p>
+<hr>
+<h3 id="note---this-codebase-is-a-complete-rewrite-of-the-app">Note - this codebase is a complete rewrite of the app</h3>
+<p>The app has a plugin architecture so that, like the app per the old codebase, it can / will have additional features such as opening files &amp; folders, color conversion, translation and much more.</p>
+<p>I intend to make the app extremely customizable.<br></p>
+<hr>
+<details>
+<summary>
+<h2>Instructions to use app</h2>
+</summary>
+<p>To use the app, run Quokka.exe</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Default Keyboard shortcut</th>
+<th>Use</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><kbd>Left ⊞</kbd> + <kbd>Space</kbd></td>
+<td>launches the search bar</td>
+<td>This shortcut is modifiable; <a href="https://github.com/Faeq-F/Quokka#general-settings">see the WindowHotKey setting</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><kbd>🠙</kbd> &amp; <kbd>🠛</kbd></td>
+<td>select items</td>
+<td>The keys used cannot be changed</td>
+</tr>
+<tr>
+<td style="text-align: right;"><kbd>↵</kbd></td>
+<td>executes an item</td>
+<td>The key used cannot be changed</td>
+</tr>
+<tr>
+<td style="text-align: right;"><kbd>☰</kbd></td>
+<td>shows context pane for item</td>
+<td>The key used cannot be changed</td>
+</tr>
+</tbody>
+</table>
+<p>The Tray task icon context menu can be used to:</p>
+<ul>
+<li>launch the search window</li>
+<li>open the settings file</li>
+<li>open the PlugBoard</li>
+<li>exit the app</li>
+</ul>
+<p>To add a plugin, download it to the PlugBoard folder<br>
+If you do not wish to use a plugin, simply delete the appropriate folder in the PlugBoard</p>
+<hr>
+<h3 id="special-commands">Special commands</h3>
+<p><b>special commands are case-sensitive</b> to ensure they do not interfere with other functions of the app or plugins<br><br>
+| Command (Case Sensitive) | Use | Plugin | Notes
+|-----:|-----------|-----------|-|
+| <code>AllApps</code> | list all installed apps | InstalledApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open shell:appsFolder. This item can be blacklisted.
+| <code>AllPortableApps</code> | list all portable apps | PortableApps | This command is modifiable within the plugin specific settings <br><br>Along with the list of apps, an extra item is added to the start, allowing users to open the portable apps directory. This item can be blacklisted.</p>
+</details>
+<details>
+<summary>
+<h2>App settings</h2>
+</summary>
+All settings are <b>loaded when the application starts</b>, meaning that you will have to exit and re-start the app to see changes.
+<br><br>
+Plugins may have their <b>own, specific settings files</b> in the root of their respective folders in the PlugBoard. You can open The PlugBoard using the Tray Task Icon context menu
+<br>
+<hr>
+<details>
+<summary>
+<h3>General settings</h3>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>WindowHotKey</code></td>
+<td>The default value is interpreted as 'Left Windows key + Spacebar' <br><br> The full list of keys that can be used in the setting can be found <a href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields">here</a> (use the first column)</td>
+<td><code>LWinSpace</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h3>Style settings</h3>
+</summary>
+<h4>Window</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><code>WindowTopMargin</code></td>
+<td>The window is centered horizontally but anchored to the top of the screen. This setting controls how far down it will appear.</td>
+<td><code>ScreenHeight/3</code></td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<h4>Search bar</h4>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">SearchBarColor</td>
+<td>color</td>
+<td>White</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchBarRounding</td>
+<td>corner radius</td>
+<td>32</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchBarBorderColor</td>
+<td>border color</td>
+<td>Black</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchBarBorderSize</td>
+<td>border thickness</td>
+<td>3</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchBarHeight</td>
+<td>height</td>
+<td>64</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchBarWidth</td>
+<td>width</td>
+<td>screen width / 2</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchIconWidth</td>
+<td>icon width</td>
+<td>64</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchIcon</td>
+<td>icon file</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<h5>Entry field</h5>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">SearchFieldTxtColor</td>
+<td>text color</td>
+<td>Black</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldTxtSelColor</td>
+<td>select color</td>
+<td>Black</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldHeight</td>
+<td>height</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldWidth</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldMargin</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldFont</td>
+<td>font family</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldTxtSize</td>
+<td>font size</td>
+<td>24</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldPlaceholder</td>
+<td>This is the text in the search field when there is no input - a placeholder</td>
+<td>Enter Query</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldPlaceholderMargin</td>
+<td>This is the margin (spacing) around the placeholder text</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldPlaceholderColor</td>
+<td>This is the color of the placeholder in the search field</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldPlaceholderSize</td>
+<td>placeholder font size</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">SearchFieldPlaceholderFont</td>
+<td>placeholder font family</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h4>Results List</h4>
+</summary>
+<details>
+<summary>
+<h5>Container</h5>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ListContainerMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerRounding</td>
+<td>corner radius</td>
+<td>15</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerColor</td>
+<td>background color</td>
+<td>white</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerMinHeight</td>
+<td>Min Height</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListContainerWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h5>List</h5>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ListMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<h6>Scroll Bar Background
+</h6></summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ScrollBarBgVisibility</td>
+<td>visibility</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollBarBgMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h6>Scroll Bar Thumb Background</h6>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ScrollThumbBgVisibility</td>
+<td>visibility</td>
+<td>Visible</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBgMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h6>Scroll Bar Thumb</h6>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ScrollThumbVisibility</td>
+<td>visibility</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ScrollThumbMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+<details>
+<summary>
+<h5>List item</h5>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ListItemBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemHoverBorderColor</td>
+<td>hover border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemHoverBgColor</td>
+<td>hover background color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemSelectedBorderColor</td>
+<td>selected border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemSelectedBgColor</td>
+<td>selected background color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemRounding</td>
+<td>corner radius</td>
+<td>15</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemIconSize</td>
+<td>icon size</td>
+<td>50</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemTextMargin</td>
+<td>text margin (from icon)</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemNameFont</td>
+<td>name font family</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemNameSize</td>
+<td>name size</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemNameColor</td>
+<td>name color</td>
+<td>Black</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemDescFont</td>
+<td>description font family</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemDescSize</td>
+<td>description size</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ListItemDescColor</td>
+<td>description color</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<h6>Context Pane</h6>
+</summary>
+Context panes are implemented by plugins. If an item does not use these settings, it is due to how the plugin's author developed the context pane.
+<br><br>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ContextPaneBorderColor</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneBorderThickness</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneCornerRounding</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneBackground</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneMinHeight</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<h5>List</h5>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ContextPaneListMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextButtonBackgroundOnHover</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextButtonContentMargin</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<details>
+<summary>
+<h6>Scroll Bar Background
+</h6></summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgVisibility</td>
+<td>visibility</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollBarBgMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h6>Scroll Bar Thumb Background</h6>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgVisibility</td>
+<td>visibility</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBgMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h6>Scroll Bar Thumb</h6>
+</summary>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Setting name</th>
+<th>Notes</th>
+<th>Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbVisibility</td>
+<td>visibility</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbColor</td>
+<td>color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbRounding</td>
+<td>corner radius</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBorderColor</td>
+<td>border color</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbBorderThickness</td>
+<td>border thickness</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbWidth</td>
+<td>width</td>
+<td>?</td>
+</tr>
+<tr>
+<td style="text-align: right;">ContextPaneScrollThumbMargin</td>
+<td>margin</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+</details>
+</details>
+</details>
+</details>
+</details>
+</details>
+<hr>
+</details>
+<details>
+<summary>
+<h2>Planned plugins</h2>
+</summary>
+<p>In order of priority:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Developed?</th>
+<th>Plugin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">✅</td>
+<td>installed app launcher</td>
+</tr>
+<tr>
+<td style="text-align: right;">✅</td>
+<td>portable app launcher</td>
+</tr>
+<tr>
+<td style="text-align: right;">In progress</td>
+<td>file/folder launcher - everything integration</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>screen capture - sharex integration</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>calculator</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>os power commands (logout, lock, sleep, chutdown, etc.)</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>control panel shortcuts</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>Windows settings</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>IP &amp; MAC address</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>cli commands - powershell</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>dictionary</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>unicode character lookup</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>color space conversion</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>unit conversion</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>currency conversion</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>translate</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>lorem ipsum generator</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>emoji lookup</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>url opener</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>wikipedia search</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>clipboard manager</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>keepass integration</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>Timezone converter</td>
+</tr>
+<tr>
+<td style="text-align: right;">▢</td>
+<td>workflows - launch multiple shortcuts at once - see below</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details>
+<summary>
+<h2>Building the app (Portable)</h2>
+</summary>
+<ol>
+<li><p>open Visual Studio &amp; clone Quokka<br></p>
+</li>
+<li><p>Build solution<br></p>
+</li>
+<li><p>copy Debug folder (in bin) for Quokka project to desired location (e.g. USB drive)</p>
+</li>
+</ol>
+<blockquote>
+<p>(You may rename the folder to, for e.g., 'Quokka')<br> 4. (Download / Delete) any plugins you (do / do not) wish to use<br>(In the PlugBoard folder)<br>
+(3 plugins are included with the source code - InstalledApps, ShowTypedText and TypedText)</p>
+</blockquote>
+<blockquote>
+<p>The TypedText and ShowTypedText plugins are meant as demos and examples of plugins and will not be included in the final release</p>
+</blockquote>
+</details>
+<details>
+<summary>
+<h2>Creating a plugin</h2>
+</summary>
+<ol>
+<li>open Visual Studio &amp; clone Quokka</li>
+<li>in the solution, create a project of type WPF class library, naming it &quot;Plugin_<em>YourPluginNameHere</em>&quot;<br></li>
+<li>rename the cs file to &quot;Plugin_<em>YourPluginNameHere</em>&quot;</li>
+<li>edit the project file to look like the following:<br>
+<blockquote>
+<p>The following is part of the ShowTypedText plugin:<br></p>
+</blockquote>
+</li>
+</ol>
+<pre><code>&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;net6.0-windows&lt;/TargetFramework&gt;
+    &lt;Nullable&gt;enable&lt;/Nullable&gt;
+    &lt;UseWPF&gt;true&lt;/UseWPF&gt;
+
+    &lt;PublishSingleFile&gt;true&lt;/PublishSingleFile&gt;
+    &lt;SelfContained&gt;true&lt;/SelfContained&gt;
+	&lt;DebugType&gt;embedded&lt;/DebugType&gt;
+    &lt;Product&gt;Plugin_ShowTypedText&lt;/Product&gt;
+    &lt;AppendTargetFrameworkToOutputPath&gt;false&lt;/AppendTargetFrameworkToOutputPath&gt;
+    &lt;AppendRuntimeIdentifierToOutputPath&gt;false&lt;/AppendRuntimeIdentifierToOutputPath&gt;
+    &lt;BaseOutputPath&gt;..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText&lt;/BaseOutputPath&gt;
+
+  &lt;/PropertyGroup&gt;
+
+  &lt;ItemGroup&gt;
+    &lt;ProjectReference Include=&quot;..\Quokka\Quokka.csproj&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+&lt;/Project&gt;
+</code></pre>
+<ol start="5">
+<li>In the cs file add</li>
+</ol>
+<pre><code>using Quokka.Plugger.Contracts;
+using Quokka;
+</code></pre>
+<p>and create a ListItem class for your item type.<br></p>
+<blockquote>
+<p>e.g., the following is part of the ShowTypedText plugin:</p>
+</blockquote>
+<pre><code>class TypedTextItem : ListItem {
+        public string query;
+        public TypedTextItem(string query) {
+            this.name = &quot;Typed:&quot; + query;
+            this.query = query;
+            this.description = &quot;The search field contains the above text&quot;;
+            this.icon = new BitmapImage(new Uri(
+                Environment.CurrentDirectory + &quot;\\Config\\Resources\\information.png&quot;));
+        }
+
+        //When item is selected, copy text
+        public override void execute() {
+            Clipboard.SetText(query);
+            App.Current.MainWindow.Close();
+        }
+}
+</code></pre>
+<ol start="7">
+<li>create a class that inherits from IPlugger<br> (this is in the same namespace and can go in the same file)<br>
+<blockquote>
+<p>e.g., The following is part of the ShowTypedText plugin:</p>
+</blockquote>
+</li>
+</ol>
+<pre><code>public partial class ShowTypedText : IPlugger {
+
+        public ShowTypedText() {}
+
+        public string PluggerName { get; set; } = &quot;ShowTypedText&quot;;
+
+        /// &lt;summary&gt;
+        /// This will get called when user types a query into the search field
+        /// &lt;/summary&gt;
+        public List&lt;ListItem&gt; OnQueryChange(string query) {
+            List&lt;ListItem&gt; ItemList = new List&lt;ListItem&gt;();
+            ItemList.Add(new ShowTypedTextItem(query));
+            return ItemList;
+        }
+
+        public List&lt;String&gt; SpecialCommands() {
+            return new List&lt;String&gt;();
+        }
+
+        public List&lt;ListItem&gt; OnSpecialCommand(string command) {
+            return new List&lt;ListItem&gt;();
+        }
+
+        public void OnAppStartup() { }
+
+        public void OnAppShutdown() { }
+
+        public void OnSearchWindowStartup() { }
+
+    }
+</code></pre>
+<p>OnQueryChange is the method that is called by the SearchWindow when a user types in a query<br>
+In this method, you should create your list item objects, filter them (if needed), and return them in a list<br>
+<br>
+If your plugin has a special command, then you will need to sort the list for that command yourself. Normal results (those returned in OnQueryChange) do not need to be sorted as Quokka will sort them once it has results from all of the plugins the program is using during runtime.</p>
+<ol start="8">
+<li>Every plugin (for now) will need a context pane for its item type</li>
+</ol>
+<ul>
+<li>In the project, add a WPF Page <b>called 'ContextPane'</b></li>
+<li>ensure ContextPane : Page (inherits page)</li>
+<li>ensure the plugin's project file has</li>
+</ul>
+<pre><code>&lt;ItemGroup&gt;
+    &lt;Compile Update=&quot;ContextPane.xaml.cs&quot;&gt;
+        &lt;SubType&gt;Code&lt;/SubType&gt;
+    &lt;/Compile&gt;
+&lt;/ItemGroup&gt;
+
+&lt;ItemGroup&gt;
+    &lt;Page Update=&quot;ContextPane.xaml&quot;&gt;
+        &lt;SubType&gt;Designer&lt;/SubType&gt;
+    &lt;/Page&gt;
+&lt;/ItemGroup&gt;
+</code></pre>
+<ul>
+<li>add information / extra actions to the pane
+<blockquote>
+<p>e.g., The following is part of the ShowTypedText plugin:</p>
+</blockquote>
+</li>
+</ul>
+<pre><code>&lt;Page x:Class=&quot;Plugin_ShowTypedText.ContextPane&quot;
+    ...
+    d:DesignHeight=&quot;300&quot; d:DesignWidth=&quot;800&quot;
+    Title=&quot;ContextPane&quot;
+    KeyDown=&quot;Page_KeyDown&quot;&gt;
+
+    &lt;Border ...&gt;
+
+        &lt;Grid Margin=&quot;10&quot; VerticalAlignment=&quot;Center&quot; HorizontalAlignment=&quot;Center&quot;&gt;
+
+            ...
+
+            &lt;Grid Grid.Column=&quot;0&quot;&gt;
+
+                ...
+
+                &lt;Image Grid.Row=&quot;0&quot; x:Name=&quot;DetailsImage&quot;/&gt;
+                &lt;TextBlock TextWrapping=&quot;Wrap&quot;
+                    Text=&quot;You typed the text after 'Typed:'&quot; Grid.Row=&quot;1&quot; Padding=&quot;10&quot;/&gt;
+                &lt;TextBlock TextWrapping=&quot;Wrap&quot;
+                    Text=&quot;&quot; Grid.Row=&quot;2&quot; x:Name=&quot;text&quot; Padding=&quot;10&quot;/&gt;
+            &lt;/Grid&gt;
+
+            &lt;Grid Grid.Column=&quot;1&quot;&gt;
+
+                &lt;ListView
+                    ScrollViewer.HorizontalScrollBarVisibility=&quot;Disabled&quot;
+                    HorizontalContentAlignment=&quot;Center&quot; x:Name=&quot;ButtonsListView&quot;&gt;
+
+                    &lt;ui:Button Content=&quot;Copy the text&quot; Padding=&quot;10&quot; Click=&quot;CopyText&quot;/&gt;
+                    &lt;ui:Button Content=&quot;Another 'Copy the text' button&quot;
+                        Padding=&quot;10&quot;  Click=&quot;CopyText&quot;/&gt;
+                    &lt;ui:Button Content=&quot;Another 'Copy the text' button&quot;
+                        Padding=&quot;10&quot;  Click=&quot;CopyText&quot;/&gt;
+                &lt;/ListView&gt;
+
+            &lt;/Grid&gt;
+        &lt;/Grid&gt;
+    &lt;/Border&gt;
+&lt;/Page&gt;
+</code></pre>
+<pre><code>using Quokka;
+...
+
+namespace Plugin_ShowTypedText {
+
+    public partial class ContextPane : Page{
+
+        private Quokka.ListItem Item;
+
+        public ContextPane() {
+            InitializeComponent();
+            this.Item = (Application.Current.MainWindow as SearchWindow).SelectedItem;
+            DetailsImage.Source = this.Item.icon;
+            text.Text = Item.name;
+        }
+
+        ...
+
+        private void Page_KeyDown(object sender, KeyEventArgs e) {
+            ButtonsListView.Focus();
+            switch (e.Key){
+                case Key.Enter:
+
+                    if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
+
+                    Wpf.Ui.Controls.Button currentButton =
+                        (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
+                    currentButton.RaiseEvent(new
+                        RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
+                    break;
+                case Key.Down:
+                    if ((ButtonsListView.SelectedIndex == -1)) {
+                        ButtonsListView.SelectedIndex = 1;
+                    } else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count - 1) {
+                        ButtonsListView.SelectedIndex = 0;
+                    } else {
+                        ButtonsListView.SelectedIndex++;
+                    }
+                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+                    break;
+                case Key.Up:
+                    if ((ButtonsListView.SelectedIndex == -1) ||
+                        (ButtonsListView.SelectedIndex == 0)) {
+
+                        ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
+
+                    } else {
+                        ButtonsListView.SelectedIndex--;
+                    }
+                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+                    break;
+                case Key.Apps: //This is the menu key
+                    (Application.Current.MainWindow as SearchWindow).contextPane.Visibility
+                        = Visibility.Collapsed;
+                    (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
+
+                    //makes showing a new pane more reliable
+                    (Application.Current.MainWindow as SearchWindow).contextPane.Source = null;
+                    break;
+                default:
+                    return;
+            }
+            e.Handled = true;
+        }
+    }
+}
+</code></pre>
+<ol start="9">
+<li>Build the solution<br></li>
+</ol>
+<p><b>Done!</b> You have created a plugin for the app and can start using it.<br>
+To stop using it, delete the appropriate folder from the PlugBoard</p>
+</details>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/Faeq-F/Quokka/blob/feature-ContextPanes/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

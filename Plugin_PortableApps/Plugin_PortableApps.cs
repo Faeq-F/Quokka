@@ -3,54 +3,46 @@ using Quokka.PluginArch;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace Plugin_PortableApps
-{
+namespace Plugin_PortableApps {
 
   /// <summary>
   /// Item class for plugin
   /// </summary>
-  class PortableAppsItem : ListItem
-  {
+  class PortableAppsItem : ListItem {
 
     public string ExePath { get; set; }
     public string ExtraDetails { get; set; }
 
-    public PortableAppsItem(string exePath)
-    {
+    public PortableAppsItem(string exePath) {
       this.ExePath = exePath;
-      name = Path.GetFileNameWithoutExtension(exePath);
-      description = exePath;
-      icon = Imaging.CreateBitmapSourceFromHIcon(Icon.ExtractAssociatedIcon(exePath).Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+      Name = Path.GetFileNameWithoutExtension(exePath);
+      Description = exePath;
+      Icon = Imaging.CreateBitmapSourceFromHIcon(System.Drawing.Icon.ExtractAssociatedIcon(exePath).Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
       ExtraDetails = FileVersionInfo.GetVersionInfo(exePath).LegalCopyright + "\n" + FileVersionInfo.GetVersionInfo(exePath).CompanyName + "\n" + FileVersionInfo.GetVersionInfo(exePath).FileVersion;
     }
 
-    public override void execute()
-    {
-      Process.Start(description);
+    public override void Execute() {
+      Process.Start(Description);
       Application.Current.MainWindow.Close();
     }
 
   }
 
-  class PortableAppsFolderItem : ListItem
-  {
+  class PortableAppsFolderItem : ListItem {
 
-    public PortableAppsFolderItem()
-    {
-      name = "Portable Apps Folder";
-      description = "Shortcut to the folder containing your portable apps";
-      icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\3dObjectsFolder.png")); ;
+    public PortableAppsFolderItem() {
+      Name = "Portable Apps Folder";
+      Description = "Shortcut to the folder containing your portable apps";
+      Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\3dObjectsFolder.png")); ;
     }
 
-    public override void execute()
-    {
+    public override void Execute() {
       Process.Start("explorer.exe", PortableApps.PluginSettings.PortableAppsDirectory);
       Application.Current.MainWindow.Close();
     }
@@ -61,8 +53,7 @@ namespace Plugin_PortableApps
   /// <summary>
   /// Interaction logic for plugin
   /// </summary>
-  public partial class PortableApps : IPlugger
-  {
+  public partial class PortableApps : IPlugger {
     public static List<ListItem> ListOfSystemApps { private set; get; }
     public static Settings PluginSettings { get; set; }
 
@@ -75,24 +66,19 @@ namespace Plugin_PortableApps
 
     readonly List<ListItem> AllPortableApps = new();
 
-    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list)
-    {
-      foreach (string i in PluginSettings.BlackList)
-      {
-        list.RemoveAll(x => x.name.Equals(i));
+    public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
+      foreach (string i in PluginSettings.BlackList) {
+        list.RemoveAll(x => x.Name.Equals(i));
       }
       return list;
     }
 
-    List<ListItem> IPlugger.OnQueryChange(string query)
-    {
+    List<ListItem> IPlugger.OnQueryChange(string query) {
       List<ListItem> IdentifiedApps = new();
       //filtering apps
-      foreach (ListItem app in AllPortableApps)
-      {
-        if (app.name.Contains(query, StringComparison.OrdinalIgnoreCase)
-                || FuzzySearch.LD(app.name, query) < PluginSettings.FuzzySearchThreshold)
-        {
+      foreach (ListItem app in AllPortableApps) {
+        if (app.Name.Contains(query, StringComparison.OrdinalIgnoreCase)
+                || FuzzySearch.LD(app.Name, query) < PluginSettings.FuzzySearchThreshold) {
           IdentifiedApps.Add(app);
         }
       }
@@ -100,52 +86,44 @@ namespace Plugin_PortableApps
       return IdentifiedApps;
     }
 
-    List<string> IPlugger.SpecialCommands()
-    {
+    List<string> IPlugger.SpecialCommands() {
       List<string> SpecialCommand = new() {
         PluginSettings.AllAppsSpecialCommand
       };
       return SpecialCommand;
     }
 
-    List<ListItem> IPlugger.OnSpecialCommand(string command)
-    {
+    List<ListItem> IPlugger.OnSpecialCommand(string command) {
       //There is only 1 special command for this plugin so there is no need to check which it is
       List<ListItem> AllList = new(AllPortableApps);
       //sort alphabetically
-      AllList = AllList.OrderBy(x => x.name).ToList();
+      AllList = AllList.OrderBy(x => x.Name).ToList();
       AllList.Insert(0, new PortableAppsFolderItem());
       AllList = RemoveBlacklistItems(AllList);
       return AllList;
     }
 
-    void IPlugger.OnAppStartup()
-    {
+    void IPlugger.OnAppStartup() {
       //Get Plugin Specific settings (was in \PluginName\Plugin\ but has changed)
       string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Plugin\\settings.json";
       PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(File.ReadAllText(fileName))!;
       PluginSettings.PortableAppsDirectory = Path.GetFullPath(PluginSettings.PortableAppsDirectory);
 
-      if (Directory.Exists(PluginSettings.PortableAppsDirectory))
-      {
+      if (Directory.Exists(PluginSettings.PortableAppsDirectory)) {
         var topLevelDirs = Directory.EnumerateDirectories(PluginSettings.PortableAppsDirectory, "*", SearchOption.TopDirectoryOnly);
-        foreach (string dir in topLevelDirs)
-        {
-          foreach (string exe in Directory.EnumerateFiles(dir, "*", SearchOption.TopDirectoryOnly).Where(s => s.EndsWith(".exe")))
-          {
+        foreach (string dir in topLevelDirs) {
+          foreach (string exe in Directory.EnumerateFiles(dir, "*", SearchOption.TopDirectoryOnly).Where(s => s.EndsWith(".exe"))) {
             AllPortableApps.Add(new PortableAppsItem(exe));
           }
         }
       }
     }
 
-    void IPlugger.OnAppShutdown()
-    {
+    void IPlugger.OnAppShutdown() {
 
     }
 
-    void IPlugger.OnSearchWindowStartup()
-    {
+    void IPlugger.OnSearchWindowStartup() {
 
     }
 

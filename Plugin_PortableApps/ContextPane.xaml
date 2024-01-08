@@ -1,15 +1,15 @@
-﻿<Page x:Class="Plugin_PortableApps.ContextPane"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Plugin_PortableApps"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:quokka="clr-namespace:Quokka;assembly=Quokka"
-      Title="ContextPane"
-      d:DesignHeight="300"
-      d:DesignWidth="800"
-      KeyDown="Page_KeyDown"
-      mc:Ignorable="d">
+﻿<src:ItemContextPane
+  x:Class="Plugin_PortableApps.ContextPane"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
+  Title="ContextPane"
+  d:DesignHeight="300"
+  d:DesignWidth="800"
+  KeyDown="Page_KeyDown"
+  mc:Ignorable="d">
   <Page.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
@@ -17,80 +17,107 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Page.Resources>
-  <Border Width="auto"
-          Height="auto"
-          MinHeight="{DynamicResource ContextPaneMinHeight}"
-          Background="{DynamicResource ContextPaneBgColor}"
-          BorderBrush="{DynamicResource ContextPaneBorderColor}"
-          BorderThickness="{DynamicResource ContextPaneBorderThickness}"
-          CornerRadius="{DynamicResource ContextPaneCornerRounding}">
-    <Grid Margin="{DynamicResource ContextPaneContentMargin}"
-          HorizontalAlignment="Stretch"
-          VerticalAlignment="{DynamicResource ContextPaneContentVerticalAlignment}">
+  <Border
+    Width="auto"
+    Height="auto"
+    MinHeight="{DynamicResource ContextPaneMinHeight}"
+    d:Background="#f3f3f3"
+    d:BorderBrush="#e5e5e5"
+    d:BorderThickness="1"
+    d:CornerRadius="15"
+    d:MinHeight="64"
+    Background="{DynamicResource ContextPaneBgColor}"
+    BorderBrush="{DynamicResource ContextPaneBorderColor}"
+    BorderThickness="{DynamicResource ContextPaneBorderThickness}"
+    CornerRadius="{DynamicResource ContextPaneCornerRounding}">
+    <Grid
+      Margin="{DynamicResource ContextPaneContentMargin}"
+      HorizontalAlignment="Stretch"
+      VerticalAlignment="{DynamicResource ContextPaneContentVerticalAlignment}"
+      d:Margin="0,0,0,0"
+      d:VerticalAlignment="Center">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="5*" />
         <ColumnDefinition Width="5*" />
       </Grid.ColumnDefinitions>
-      <Grid Grid.Column="0"
-            HorizontalAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}">
+      <Grid
+        Grid.Column="0"
+        HorizontalAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}"
+        d:HorizontalAlignment="Center">
         <Grid.RowDefinitions>
           <RowDefinition Height="4*" />
           <RowDefinition Height="1*" />
           <RowDefinition Height="1*" />
           <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
-        <Image x:Name="DetailsImage"
-               Grid.Row="0"
-               Margin="{DynamicResource ContextPaneImageMargin}" />
-        <TextBlock x:Name="NameText"
-                   Grid.Row="1"
-                   Margin="{DynamicResource NameTextMargin}"
-                   VerticalAlignment="Top"
-                   FontFamily="{DynamicResource NameTextFontFamily}"
-                   FontSize="{DynamicResource NameTextSize}"
-                   Foreground="{DynamicResource NameTextColor}"
-                   Text=""
-                   TextWrapping="Wrap" />
-        <TextBlock x:Name="DescText"
-                   Grid.Row="2"
-                   Margin="{DynamicResource DescTextMargin}"
-                   VerticalAlignment="Bottom"
-                   FontFamily="{DynamicResource DescTextFontFamily}"
-                   FontSize="{DynamicResource DescTextSize}"
-                   Foreground="{DynamicResource DescTextColor}"
-                   Text=""
-                   TextWrapping="Wrap" />
-        <TextBlock x:Name="ExtraDetails"
-                   Grid.Row="3"
-                   Margin="{DynamicResource ExtraDetailsTextMargin}"
-                   VerticalAlignment="Bottom"
-                   FontFamily="{DynamicResource ExtraDetailsTextFontFamily}"
-                   FontSize="{DynamicResource ExtraDetailsTextSize}"
-                   Foreground="{DynamicResource ExtraDetailsTextColor}"
-                   Text=""
-                   TextWrapping="Wrap" />
+        <Image
+          x:Name="DetailsImage"
+          Grid.Row="0"
+          Margin="{DynamicResource ContextPaneImageMargin}"
+          d:Margin="40,30,40,30" />
+        <TextBlock
+          x:Name="NameText"
+          Grid.Row="1"
+          Margin="{DynamicResource NameTextMargin}"
+          d:FontSize="16"
+          d:Margin="0,-20,0,0"
+          d:Text="AppName"
+          FontFamily="{DynamicResource NameTextFontFamily}"
+          FontSize="{DynamicResource NameTextSize}"
+          Foreground="{DynamicResource NameTextColor}"
+          Text=""
+          TextWrapping="Wrap" />
+        <TextBlock
+          x:Name="DescText"
+          Grid.Row="2"
+          Margin="{DynamicResource DescTextMargin}"
+          d:FontSize="12"
+          d:Margin="0"
+          d:Text="Made for you specifically and with love"
+          FontFamily="{DynamicResource DescTextFontFamily}"
+          FontSize="{DynamicResource DescTextSize}"
+          Foreground="{DynamicResource DescTextColor}"
+          Text=""
+          TextWrapping="Wrap" />
+        <TextBlock
+          x:Name="ExtraDetails"
+          Grid.Row="3"
+          Margin="{DynamicResource ExtraDetailsTextMargin}"
+          d:FontSize="12"
+          d:Margin="0"
+          d:Text="Copyright by Faeq Faisal, blah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blahblah blah, made in 2023 / 24 / 5 years ago ..."
+          FontFamily="{DynamicResource ExtraDetailsTextFontFamily}"
+          FontSize="{DynamicResource ExtraDetailsTextSize}"
+          Foreground="{DynamicResource ExtraDetailsTextColor}"
+          Text=""
+          TextWrapping="Wrap" />
       </Grid>
-      <Grid Grid.Column="1"
-            VerticalAlignment="Center">
-        <ListView x:Name="ButtonsListView"
-                  Margin="{DynamicResource ContextPaneListMargin}"
-                  HorizontalContentAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}"
-                  Background="Transparent"
-                  BorderBrush="Transparent"
-                  BorderThickness="0"
-                  KeyboardNavigation.DirectionalNavigation="Cycle"
-                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                  SelectionMode="Single">
+      <Grid Grid.Column="1" VerticalAlignment="Center">
+        <ListView
+          x:Name="ButtonsListView"
+          Margin="{DynamicResource ContextPaneListMargin}"
+          HorizontalAlignment="{DynamicResource ContextPaneListHorizontalAlignment}"
+          HorizontalContentAlignment="{DynamicResource ContextPaneListContentHorizontalAlignment}"
+          d:HorizontalAlignment="Center"
+          d:HorizontalContentAlignment="Stretch"
+          d:Margin="-50,0,0,0"
+          Background="Transparent"
+          BorderBrush="Transparent"
+          BorderThickness="0"
+          KeyboardNavigation.DirectionalNavigation="Cycle"
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+          SelectionMode="Single">
           <ListView.Resources>
             <Style x:Key="FocusVisual">
               <Setter Property="Control.Template">
                 <Setter.Value>
                   <ControlTemplate>
-                    <Rectangle Margin="2"
-                               SnapsToDevicePixels="true"
-                               Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                               StrokeDashArray="1 2"
-                               StrokeThickness="0" />
+                    <Rectangle
+                      Margin="2"
+                      SnapsToDevicePixels="true"
+                      Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                      StrokeDashArray="1 2"
+                      StrokeThickness="0" />
                   </ControlTemplate>
                 </Setter.Value>
               </Setter>
@@ -98,87 +125,59 @@
             <Style TargetType="{x:Type ListViewItem}">
               <Style.Resources>
                 <Style TargetType="Border">
-                  <Setter Property="CornerRadius"
-                          Value="{DynamicResource ContextPaneListItemRounding}" />
-                  <Setter Property="Margin"
-                          Value="{DynamicResource ContextPaneListItemMargin}" />
+                  <Setter Property="CornerRadius" Value="{DynamicResource ContextPaneListItemRounding}" />
+                  <Setter d:Value="0, 0, 10, 0" Property="Margin" Value="{DynamicResource ContextPaneListItemMargin}" />
                 </Style>
               </Style.Resources>
-              <Setter Property="Background"
-                      Value="Transparent" />
-              <Setter Property="BorderBrush"
-                      Value="Transparent" />
-              <Setter Property="BorderThickness"
-                      Value="{DynamicResource ContextPaneListItemBorderThickness}" />
-              <Setter Property="SnapsToDevicePixels"
-                      Value="True" />
-              <Setter Property="Padding"
-                      Value="4,1" />
-              <Setter Property="HorizontalContentAlignment"
-                      Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-              <Setter Property="VerticalContentAlignment"
-                      Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-              <Setter Property="FocusVisualStyle"
-                      Value="{StaticResource FocusVisual}" />
+              <Setter Property="Background" Value="Transparent" />
+              <Setter Property="BorderBrush" Value="Transparent" />
+              <Setter Property="BorderThickness" Value="{DynamicResource ContextPaneListItemBorderThickness}" />
+              <Setter Property="SnapsToDevicePixels" Value="True" />
+              <Setter Property="Padding" Value="4,1" />
+              <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+              <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+              <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
               <Setter Property="Template">
                 <Setter.Value>
                   <ControlTemplate TargetType="{x:Type ListViewItem}">
-                    <Border x:Name="Bd"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            SnapsToDevicePixels="true">
-                      <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    <Border
+                      x:Name="Bd"
+                      Padding="{TemplateBinding Padding}"
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      SnapsToDevicePixels="true">
+                      <ContentPresenter
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Border>
                     <ControlTemplate.Triggers>
                       <MultiTrigger>
                         <MultiTrigger.Conditions>
-                          <Condition Property="IsMouseOver"
-                                     Value="True" />
+                          <Condition Property="IsMouseOver" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd"
-                                Property="Background"
-                                Value="{DynamicResource ContextPaneListItemHoverBgColor}" />
-                        <Setter TargetName="Bd"
-                                Property="BorderBrush"
-                                Value="{DynamicResource ContextPaneListItemHoverBorderColor}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemHoverBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemHoverBorderColor}" />
                       </MultiTrigger>
                       <MultiTrigger>
                         <MultiTrigger.Conditions>
-                          <Condition Property="Selector.IsSelectionActive"
-                                     Value="False" />
-                          <Condition Property="IsSelected"
-                                     Value="True" />
+                          <Condition Property="Selector.IsSelectionActive" Value="False" />
+                          <Condition Property="IsSelected" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd"
-                                Property="Background"
-                                Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
-                        <Setter TargetName="Bd"
-                                Property="BorderBrush"
-                                Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
                       </MultiTrigger>
                       <MultiTrigger>
                         <MultiTrigger.Conditions>
-                          <Condition Property="Selector.IsSelectionActive"
-                                     Value="True" />
-                          <Condition Property="IsSelected"
-                                     Value="True" />
+                          <Condition Property="Selector.IsSelectionActive" Value="True" />
+                          <Condition Property="IsSelected" Value="True" />
                         </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd"
-                                Property="Background"
-                                Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
-                        <Setter TargetName="Bd"
-                                Property="BorderBrush"
-                                Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
+                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
                       </MultiTrigger>
-                      <Trigger Property="IsEnabled"
-                               Value="False">
-                        <Setter TargetName="Bd"
-                                Property="TextElement.Foreground"
-                                Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                      <Trigger Property="IsEnabled" Value="False">
+                        <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
                       </Trigger>
                     </ControlTemplate.Triggers>
                   </ControlTemplate>
@@ -192,21 +191,30 @@
               <ColumnDefinition Width="9*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-              <Image Width="{DynamicResource ContextPaneListItemIconSize}"
-                     Height="{DynamicResource ContextPaneListItemIconSize}"
-                     Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                     Source="pack://siteoforigin:,,,/Config/Resources/open.png" />
+              <Image
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
+                d:Height="20"
+                d:Margin="0,0,0,0"
+                d:Width="20"
+                Source="pack://siteoforigin:,,,/Config/Resources/open.png" />
             </Grid>
             <Grid Grid.Column="1">
-              <Button Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                      Background="Transparent"
-                      BorderThickness="0"
-                      Click="OpenApp"
-                      Content="Open"
-                      FontFamily="{DynamicResource ContextPaneListItemFont}"
-                      FontSize="{DynamicResource ContextPaneListItemSize}"
-                      Foreground="{DynamicResource ContextPaneListItemColor}"
-                      Style="{StaticResource TransparentStyle}" />
+              <Button
+                Margin="{DynamicResource ContextPaneListItemContentMargin}"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
+                d:FontSize="12"
+                d:Margin="10"
+                d:Padding="10"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="OpenApp"
+                Content="Open"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
+                Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
           <Grid>
@@ -215,21 +223,29 @@
               <ColumnDefinition Width="9*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-              <Image Width="{DynamicResource ContextPaneListItemIconSize}"
-                     Height="{DynamicResource ContextPaneListItemIconSize}"
-                     Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                     Source="pack://siteoforigin:,,,/Config/Resources/admin.png" />
+              <Image
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
+                d:Height="20"
+                d:Margin="0,0,0,0"
+                d:Width="20"
+                Source="pack://siteoforigin:,,,/Config/Resources/admin.png" />
             </Grid>
             <Grid Grid.Column="1">
-              <Button Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                      Background="Transparent"
-                      BorderThickness="0"
-                      Click="RunAsAdmin"
-                      Content="Run as administrator"
-                      FontFamily="{DynamicResource ContextPaneListItemFont}"
-                      FontSize="{DynamicResource ContextPaneListItemSize}"
-                      Foreground="{DynamicResource ContextPaneListItemColor}"
-                      Style="{StaticResource TransparentStyle}" />
+              <Button
+                Margin="{DynamicResource ContextPaneListItemContentMargin}"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
+                d:Margin="10"
+                d:Padding="10"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="RunAsAdmin"
+                Content="Run as administrator"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
+                Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
           <Grid>
@@ -238,25 +254,33 @@
               <ColumnDefinition Width="9*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-              <Image Width="{DynamicResource ContextPaneListItemIconSize}"
-                     Height="{DynamicResource ContextPaneListItemIconSize}"
-                     Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                     Source="pack://siteoforigin:,,,/Config/Resources/openFolder.png" />
+              <Image
+                Width="{DynamicResource ContextPaneListItemIconSize}"
+                Height="{DynamicResource ContextPaneListItemIconSize}"
+                Margin="{DynamicResource ContextPaneListItemIconMargin}"
+                d:Height="20"
+                d:Margin="0,0,0,0"
+                d:Width="20"
+                Source="pack://siteoforigin:,,,/Config/Resources/openFolder.png" />
             </Grid>
             <Grid Grid.Column="1">
-              <Button Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                      Background="Transparent"
-                      BorderThickness="0"
-                      Click="OpenContainingFolder"
-                      Content="Open file location"
-                      FontFamily="{DynamicResource ContextPaneListItemFont}"
-                      FontSize="{DynamicResource ContextPaneListItemSize}"
-                      Foreground="{DynamicResource ContextPaneListItemColor}"
-                      Style="{StaticResource TransparentStyle}" />
+              <Button
+                Margin="{DynamicResource ContextPaneListItemContentMargin}"
+                Padding="{DynamicResource ContextPaneListItemTextPadding}"
+                d:Margin="10"
+                d:Padding="10"
+                Background="Transparent"
+                BorderThickness="0"
+                Click="OpenContainingFolder"
+                Content="Open file location"
+                FontFamily="{DynamicResource ContextPaneListItemFont}"
+                FontSize="{DynamicResource ContextPaneListItemSize}"
+                Foreground="{DynamicResource ContextPaneListItemColor}"
+                Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
         </ListView>
       </Grid>
     </Grid>
   </Border>
-</Page>
+</src:ItemContextPane>

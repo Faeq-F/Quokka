@@ -13,6 +13,9 @@
     <Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="information.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
     <Reference Include="..\Quokka\Quokka.csproj">
       <HintPath>..\Quokka\obj\Release\Quokka.dll</HintPath>
@@ -33,5 +36,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>settings.json</TargetPath>
     </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="information.png" />
   </ItemGroup>
 </Project>
