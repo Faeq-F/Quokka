@@ -52,57 +52,15 @@
                       Version="2.12.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\QuokkaTray.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\SearchIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\settings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\settings.json</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\information.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\information.png</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\copy.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\copy.png</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\3dObjectsFolder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\search.png">
+    <ContentWithTargetPath Include="..\Config\Resources\admin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\search.png</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\settings.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\settings.png</TargetPath>
-    </ContentWithTargetPath>
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\plug.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\plug.png</TargetPath>
+      <TargetPath>Config\Resources\admin.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -112,9 +70,9 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\admin.png">
+    <ContentWithTargetPath Include="..\Config\Resources\information.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\admin.png</TargetPath>
+      <TargetPath>Config\Resources\information.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +85,42 @@
     <ContentWithTargetPath Include="..\Config\Resources\openFolder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\openFolder.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\plug.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\plug.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\QuokkaTray.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\SearchIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\SearchIcon.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\TraySearch.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\TraySearch.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\settings.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\settings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\settings.json</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
 </Project>

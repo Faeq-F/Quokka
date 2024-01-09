@@ -36,6 +36,7 @@
     <Border.Effect>
       <DropShadowEffect
         BlurRadius="{DynamicResource DropShadowBlurRadius}"
+        Direction="{DynamicResource DropShadowDirection}"
         Opacity="{DynamicResource DropShadowOpacity}"
         RenderingBias="{DynamicResource DropShadowRenderingBias}"
         ShadowDepth="{DynamicResource DropShadowShadowDepth}" />
@@ -161,6 +162,7 @@
                     Grid.Column="0"
                     Width="{DynamicResource ListItemIconSize}"
                     Height="{DynamicResource ListItemIconSize}"
+                    SnapsToDevicePixels="True"
                     Source="{Binding Icon}" />
                   <Grid
                     Grid.Column="1"
@@ -176,6 +178,7 @@
                       FontFamily="{DynamicResource ListItemNameFont}"
                       FontSize="{DynamicResource ListItemNameSize}"
                       Foreground="{DynamicResource ListItemNameColor}"
+                      SnapsToDevicePixels="True"
                       Text="{Binding Name}" />
                     <TextBlock
                       Grid.Row="1"
@@ -183,6 +186,7 @@
                       FontFamily="{DynamicResource ListItemDescFont}"
                       FontSize="{DynamicResource ListItemDescSize}"
                       Foreground="{DynamicResource ListItemDescColor}"
+                      SnapsToDevicePixels="True"
                       Text="{Binding Description}" />
                   </Grid>
                 </Grid>
@@ -208,6 +212,7 @@
                 Grid.Column="0"
                 Width="{DynamicResource SearchIconWidth}"
                 Margin="{DynamicResource SearchIconMargin}"
+                SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid Grid.Column="1">
                 <TextBox
@@ -232,6 +237,7 @@
                   MaxLines="1"
                   PreviewKeyDown="SearchTermTextBox_KeyDown"
                   SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
+                  SnapsToDevicePixels="True"
                   SpellCheck.IsEnabled="True"
                   TextChanged="OnQueryChange">
                   <TextBox.ContextMenu>
@@ -251,6 +257,7 @@
                   FontSize="{DynamicResource SearchFieldPlaceholderSize}"
                   Foreground="{DynamicResource SearchFieldPlaceholderColor}"
                   IsHitTestVisible="False"
+                  SnapsToDevicePixels="True"
                   Text="{DynamicResource SearchFieldPlaceholder}">
                   <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">

@@ -3,26 +3,30 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:local="clr-namespace:Quokka"
   xmlns:tb="http://www.hardcodet.net/taskbar">
-  <LinearGradientBrush x:Key="MenuBackground" StartPoint="0.5,0" EndPoint="0.5,1">
-    <GradientStop Offset="1" Color="#FFFFFF" />
-    <GradientStop Offset="0.259" Color="#FFFFFF" />
-  </LinearGradientBrush>
+  <!--  Context Menu style  -->
   <Style TargetType="{x:Type ContextMenu}">
-    <Setter Property="BorderThickness" Value="1,1,1,1" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type ContextMenu}">
           <Grid>
             <Border
-              Background="{DynamicResource MenuBackground}"
-              BorderBrush="Black"
-              BorderThickness="{TemplateBinding BorderThickness}"
-              CornerRadius="5">
+              Background="{DynamicResource TrayTaskContextMenuColor}"
+              BorderBrush="{DynamicResource TrayTaskContextMenuBorderColor}"
+              BorderThickness="{DynamicResource TrayTaskContextMenuBorderSize}"
+              CornerRadius="{DynamicResource TrayTaskContextMenuRounding}">
+              <Border.Effect>
+                <DropShadowEffect
+                  BlurRadius="{DynamicResource TrayTaskContextMenuDropShadowBlurRadius}"
+                  Direction="{DynamicResource TrayTaskContextMenuDropShadowDirection}"
+                  Opacity="{DynamicResource TrayTaskContextMenuDropShadowOpacity}"
+                  RenderingBias="{DynamicResource TrayTaskContextMenuDropShadowRenderingBias}"
+                  ShadowDepth="{DynamicResource TrayTaskContextMenuDropShadowShadowDepth}" />
+              </Border.Effect>
               <ScrollViewer
                 Uid="ScrollViewer_9"
                 CanContentScroll="True"
                 Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,
-                                                              &#xA;&#xA;                                                              TypeInTargetAssembly={x:Type FrameworkElement}}}">
+                                                              TypeInTargetAssembly={x:Type FrameworkElement}}}">
                 <ItemsPresenter
                   Margin="{TemplateBinding Padding}"
                   KeyboardNavigation.DirectionalNavigation="Cycle"
@@ -39,7 +43,6 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type MenuItem}">
-          <!--  Border 1  -->
           <Border
             x:Name="Border"
             Background="Transparent"
@@ -81,29 +84,36 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <!--  The Context Menu  -->
   <ContextMenu x:Key="SysTrayMenu" x:Shared="false">
     <MenuItem
       Command="{Binding ShowWindowCommand}"
       CommandParameter="{Binding}"
-      Header="Open Search Window">
+      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Header="Open Search Window"
+      SnapsToDevicePixels="True">
       <MenuItem.Icon>
         <Image
-          Width="20"
-          Height="20"
-          Margin="0,0,5,0"
-          Source="pack://siteoforigin:,,,/Config/Resources/search.png" />
+          Width="{DynamicResource TrayTaskContextMenuIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          SnapsToDevicePixels="True"
+          Source="pack://siteoforigin:,,,/Config/Resources/TraySearch.png" />
       </MenuItem.Icon>
     </MenuItem>
     <Separator Background="Transparent" />
     <MenuItem
       Command="{Binding OpenSettingsFile}"
       CommandParameter="{Binding}"
-      Header="Settings">
+      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Header="Settings"
+      SnapsToDevicePixels="True">
       <MenuItem.Icon>
         <Image
-          Width="20"
-          Height="20"
-          Margin="0,0,5,0"
+          Width="{DynamicResource TrayTaskContextMenuIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/settings.png" />
       </MenuItem.Icon>
     </MenuItem>
@@ -111,32 +121,36 @@
     <MenuItem
       Command="{Binding OpenPlugBoard}"
       CommandParameter="{Binding}"
-      Header="PlugBoard">
+      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Header="PlugBoard"
+      SnapsToDevicePixels="True">
       <MenuItem.Icon>
         <Image
-          Width="20"
-          Height="20"
-          Margin="0,0,5,0"
+          Width="{DynamicResource TrayTaskContextMenuIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/plug.png" />
       </MenuItem.Icon>
     </MenuItem>
-    <!-- <MenuItem Header="Hide Window" Command="{Binding HideWindowCommand}" /> -->
-    <Separator Background="Transparent" />
-    <Separator Background="Transparent" />
+    <Separator Background="{DynamicResource TrayTaskContextMenuSeperatorColor}" />
     <MenuItem
       Command="{Binding ExitApplicationCommand}"
       CommandParameter="{Binding}"
-      Header="Exit">
+      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Header="Exit"
+      SnapsToDevicePixels="True">
       <MenuItem.Icon>
         <Image
-          Width="16"
-          Height="16"
-          Margin="0,0,5,0"
+          Width="{DynamicResource TrayTaskContextMenuIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/exit.png" />
       </MenuItem.Icon>
     </MenuItem>
   </ContextMenu>
-  <!--  the application's NotifyIcon - started from App.xaml.cs. Declares its own view model. ToolTipText="Quokka"  -->
+  <!--  the applications tray task - tool-tip in code  -->
   <tb:TaskbarIcon
     x:Key="NotifyIcon"
     ContextMenu="{StaticResource SysTrayMenu}"

@@ -1,7 +1,6 @@
 ﻿using Hardcodet.Wpf.TaskbarNotification;
 using Newtonsoft.Json.Linq;
 using Quokka.PluginArch;
-using Quokka.Settings;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Media;
+using static Quokka.Settings.SettingParsers;
 
 namespace Quokka {
   /**
@@ -24,61 +23,20 @@ namespace Quokka {
      * http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/<br />
      * JSON.Net - MIT license<br />
      * https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+     * Fluent UI Icons<br />
+     * https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE
      * </summary>
      */
 
   public partial class App : System.Windows.Application {
     private LowLevelKeyboardListener? _listener;
-    private String[] brushIndicators = { "color" };
     private string detectedKeys = "";
-    private string JsonString = File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json");
     private TaskbarIcon? notifyIcon;
-
-    private String[] screenDimensionSettings = { "WindowWidth", "ListContainerMaxHeight" };
-
-    private String[] specialCases = { "MaxResults", "WindowHotKey", "IgnoreMaxResultsFlag",
-      "WindowTopMargin", "SearchFieldPlaceholder", "DropShadowBlurRadius", "DropShadowOpacity",
-      "DropShadowShadowDepth", "DropShadowRenderingBias",
-      "ContextPaneContentVerticalAlignment", "ContextPaneContentHorizontalAlignment",
-      "ContextPaneListHorizontalAlignment", "ContextPaneListContentHorizontalAlignment" };
-
-    private String[] thicknessIndicators = { "thickness", "padding", "size", "margin" };
-    private String[] txtSize = { "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "NameTextSize", "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize" };
-
     public static List<IPlugger>? plugins { private set; get; }
-
-    public static void OpenPlugBoard() {
-      using Process folderOpener = new Process();
-      folderOpener.StartInfo.FileName = "explorer";
-      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
-      folderOpener.Start();
-    }
-
-    public static void OpenSettingsFile() {
-      using Process fileOpener = new Process();
-      fileOpener.StartInfo.FileName = "notepad";
-      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
-      fileOpener.Start();
-    }
-
-    protected override void OnExit(ExitEventArgs e) {
-      //run anything needed for plugins on app exit
-      try {
-        foreach (IPlugger plugin in plugins) {
-          plugin.OnAppShutdown();
-        }
-      } catch (Exception ex) {
-        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
-      }
-      _listener.UnHookKeyboard();
-      notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
-      base.OnExit(e);
-    }
 
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
-
-      applyAppSettings(JObject.Parse(JsonString));
+      applyAppSettings(JObject.Parse(File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")));
 
       // grab plugins and run startup
       plugins = new List<IPlugger>();
@@ -134,13 +92,97 @@ namespace Quokka {
       }
     }
 
-    //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
-    private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
-      this.notifyIcon.ToolTipText = "Quokka";
-    }
-
     private void applyAppSettings(JObject obj) {
+      //Nothing special
+      String[] SpecialSettings = { "WindowTopMargin" };
+
+      //Nothing special
+      String[] StringSettings = { "WindowHotKey", "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
+
+      //They all either have Opacity, Direction, Radius, Depth, Size, Height or Width
+      String[] DoubleSettings = {
+        "DropShadowOpacity", "DropShadowDirection", "DropShadowBlurRadius", "DropShadowShadowDepth", "TrayTaskContextMenuIconSize",
+        "TrayTaskContextMenuDropShadowBlurRadius", "TrayTaskContextMenuDropShadowOpacity", "TrayTaskContextMenuDropShadowDirection",
+        "TrayTaskContextMenuDropShadowShadowDepth", "SearchBarHeight", "SearchIconWidth", "SearchFieldHeight", "SearchFieldWidth",
+        "SearchFieldTxtSize", "SearchFieldPlaceholderSize", "ListContainerMinHeight", "ScrollBarBgWidth", "ScrollThumbBgWidth",
+        "ScrollThumbWidth", "ListItemIconSize", "ListItemNameSize", "ListItemDescSize", "ContextPaneMinHeight", "NameTextSize",
+        "DescTextSize", "ExtraDetailsTextSize", "ContextPaneListItemIconSize", "ContextPaneListItemSize"
+        };
+
+      //Nothing special
+      String[] IntSettings = { "MaxResults" };
+
+      //Nothing special
+      String[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
+
+      //They all have Color
+      String[] BrushSettings = {
+        "WindowColor", "WindowBorderColor", "TrayTaskContextMenuColor", "TrayTaskContextMenuBorderColor", "TrayTaskContextMenuTxtColor",
+        "TrayTaskContextMenuSeperatorColor", "SearchBarColor", "SearchBarBorderColor", "SearchFieldTxtColor", "SearchFieldTxtSelColor",
+        "SearchFieldPlaceholderColor", "ListContainerBorderColor", "ListContainerColor", "ScrollBarBgColor", "ScrollBarBgBorderColor",
+        "ScrollThumbBgColor", "ScrollThumbBgBorderColor", "ScrollThumbColor", "ScrollThumbBorderColor", "ListItemHoverBorderColor",
+        "ListItemHoverBgColor", "ListItemSelectedBorderColor", "ListItemSelectedBgColor", "ListItemNameColor", "ListItemDescColor",
+        "ContextPaneBorderColor", "ContextPaneBgColor", "NameTextColor", "DescTextColor", "ExtraDetailsTextColor",
+        "ContextPaneListItemHoverBorderColor", "ContextPaneListItemHoverBgColor", "ContextPaneListItemSelectedBorderColor",
+        "ContextPaneListItemSelectedBgColor", "ContextPaneListItemColor"
+        };
+
+      //They all either have Padding, Margin, BorderSize, Thickness or Margin - replace borderSize
+      String[] ThicknessSettings = {
+        "WindowBorderThickness", "WindowPadding", "TrayTaskContextMenuBorderSize", "TrayTaskContextMenuIconMargin", "SearchBarBorderSize",
+        "SearchIconMargin", "SearchFieldMargin", "SearchFieldPlaceholderMargin", "ListContainerMargin", "ListContainerBorderThickness",
+        "ScrollBarBgBorderThickness", "ScrollBarBgMargin", "ScrollThumbBgBorderThickness", "ScrollThumbBgMargin",
+        "ScrollThumbBorderThickness", "ScrollThumbMargin", "ListItemBorderThickness", "ListItemMargin", "ListItemTextMargin",
+        "ContextPaneBorderThickness", "ContextPaneContentMargin", "ContextPaneImageMargin", "NameTextMargin", "DescTextMargin",
+        "ExtraDetailsTextMargin", "ContextPaneListMargin", "ContextPaneListItemBorderThickness", "ContextPaneListItemMargin",
+        "ContextPaneListItemIconMargin", "ContextPaneListItemTextPadding", "ContextPaneListItemContentMargin"
+        };
+
+      //These all have rounding
+      String[] CornerRadiusSettings = {
+        "WindowRounding", "TrayTaskContextMenuRounding", "SearchBarRounding", "ListContainerRounding", "ScrollBarBgRounding",
+          "ScrollThumbBgRounding", "ScrollThumbRounding", "ListItemRounding", "ContextPaneCornerRounding", "ContextPaneListItemRounding"
+        };
+
+      //These all have RenderingBias
+      String[] RenderingBiasSettings = { "DropShadowRenderingBias", "TrayTaskContextMenuDropShadowRenderingBias" };
+
+      //These all have Font
+      String[] FontFamilySettings = {
+        "SearchFieldFont", "SearchFieldPlaceholderFont", "ListItemNameFont", "ListItemDescFont", "NameTextFontFamily",
+          "DescTextFontFamily", "ExtraDetailsTextFontFamily", "ContextPaneListItemFont"
+        };
+
+      //These all have Visibility
+      String[] VisibilitySettings = { "ScrollBarBgVisibility", "ScrollThumbBgVisibility", "ScrollThumbVisibility" };
+
+      //These all have VerticalAlignment
+      String[] VerticalAlignmentSettings = { "ContextPaneContentVerticalAlignment" };
+
+      //These all have HorizontalAlignment
+      String[] HorizontalAlignmentSettings = {
+        "ContextPaneContentHorizontalAlignment", "ContextPaneListHorizontalAlignment", "ContextPaneListContentHorizontalAlignment"
+        };
+
       foreach (var entry in obj) {
+        if (entry.Value.ToString().Contains("{")) {
+          try {
+            applyAppSettings(JObject.Parse(entry.Value.ToString()));
+          } catch (Exception e) {
+            System.Windows.MessageBox.Show(entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace, "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
+          }
+        } else {
+          if (SpecialSettings.Contains(entry.Key)) {
+            switch (entry.Key) {
+              case "WindowTopMargin":
+                Application.Current.Resources[entry.Key] = parseThicknessSetting("0," + parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
+                break;
+            }
+          }
+        }
+      }
+
+      /*foreach (var entry in obj) {
         if (entry.Value.ToString().Contains("{")) {
           try {
             applyAppSettings(JObject.Parse(entry.Value.ToString()));
@@ -155,7 +197,7 @@ namespace Quokka {
                 break;
 
               case "WindowTopMargin":
-                Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting("0," + SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
+                Application.Current.Resources[entry.Key] = parseThicknessSetting("0," + parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
                 break;
 
               case "IgnoreMaxResultsFlag":
@@ -165,67 +207,33 @@ namespace Quokka {
                 break;
 
               case "ContextPaneContentVerticalAlignment":
-                switch (entry.Value.ToString().ToLower()) {
-                  case "top":
-                    Application.Current.Resources[entry.Key] = VerticalAlignment.Top;
-                    break;
-
-                  case "bottom":
-                    Application.Current.Resources[entry.Key] = VerticalAlignment.Bottom;
-                    break;
-
-                  case "center":
-                    Application.Current.Resources[entry.Key] = VerticalAlignment.Center;
-                    break;
-
-                  case "stretch":
-                    Application.Current.Resources[entry.Key] = VerticalAlignment.Stretch;
-                    break;
-                }
+                Application.Current.Resources[entry.Key] = parseVerticalAlignmentSetting(entry.Value.ToString());
                 break;
 
               case "ContextPaneListHorizontalAlignment":
               case "ContextPaneListContentHorizontalAlignment":
               case "ContextPaneContentHorizontalAlignment":
-                switch (entry.Value.ToString().ToLower()) {
-                  case "center":
-                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Center;
-                    break;
-
-                  case "left":
-                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Left;
-                    break;
-
-                  case "right":
-                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Right;
-                    break;
-
-                  case "stretch":
-                    Application.Current.Resources[entry.Key] = HorizontalAlignment.Stretch;
-                    break;
-                }
+                Application.Current.Resources[entry.Key] = parseHorizontalAlignmentSetting(entry.Value.ToString());
                 break;
 
+              case "TrayTaskContextMenuDropShadowRenderingBias":
               case "DropShadowRenderingBias":
-                switch (entry.Value.ToString()) {
-                  case "Quality":
-                    Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Quality;
-                    break;
-
-                  case "Performance":
-                    Application.Current.Resources[entry.Key] = System.Windows.Media.Effects.RenderingBias.Performance;
-                    break;
-                }
+                Application.Current.Resources[entry.Key] = parseRenderingBiasSetting(entry.Value.ToString());
                 break;
 
+              case "DropShadowDirection":
+              case "TrayTaskContextMenuDropShadowDirection":
               case "DropShadowBlurRadius":
+              case "TrayTaskContextMenuDropShadowBlurRadius":
               case "DropShadowOpacity":
+              case "TrayTaskContextMenuDropShadowOpacity":
               case "DropShadowShadowDepth":
+              case "TrayTaskContextMenuDropShadowShadowDepth":
                 Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
                 break;
             }
           } else if (screenDimensionSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = SettingParsers.parseScreenDimensionsSetting(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseScreenDimensionsSetting(entry.Value.ToString());
           } else if (txtSize.Contains(entry.Key) || entry.Key.ToString().Contains("Height") || entry.Key.ToString().Contains("Width")) {
             Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
           } else if (entry.Key.ToString().Contains("Font")) {
@@ -235,7 +243,7 @@ namespace Quokka {
           } else {
             foreach (String i in thicknessIndicators) {
               if (entry.Key.ToString().ToLower().Contains(i)) {
-                Application.Current.Resources[entry.Key] = SettingParsers.parseThicknessSetting(entry.Value.ToString());
+                Application.Current.Resources[entry.Key] = parseThicknessSetting(entry.Value.ToString());
               }
             }
             foreach (String i in brushIndicators) {
@@ -246,7 +254,7 @@ namespace Quokka {
             }
           }
         }
-      }
+      }*/
     }
 
     /**
@@ -260,5 +268,42 @@ namespace Quokka {
       }
       return string.Empty;
     }
+
+    #region trayTask
+
+    public static void OpenPlugBoard() {
+      using Process folderOpener = new Process();
+      folderOpener.StartInfo.FileName = "explorer";
+      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+      folderOpener.Start();
+    }
+
+    public static void OpenSettingsFile() {
+      using Process fileOpener = new Process();
+      fileOpener.StartInfo.FileName = "notepad";
+      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
+      fileOpener.Start();
+    }
+
+    protected override void OnExit(ExitEventArgs e) {
+      //run anything needed for plugins on app exit
+      try {
+        foreach (IPlugger plugin in plugins) {
+          plugin.OnAppShutdown();
+        }
+      } catch (Exception ex) {
+        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+      }
+      _listener.UnHookKeyboard();
+      notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+      base.OnExit(e);
+    }
+
+    //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
+    private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+      this.notifyIcon.ToolTipText = "Quokka";
+    }
+
+    #endregion trayTask
   }
 }

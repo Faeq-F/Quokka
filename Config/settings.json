@@ -15,9 +15,26 @@
       "WindowPadding": "10",
 
       "DropShadowBlurRadius": "10",
-      "DropShadowOpacity": "10",
+      "DropShadowOpacity": "0.35",
+      "DropShadowDirection": "315",
       "DropShadowShadowDepth": "3",
       "DropShadowRenderingBias": "Quality"
+    },
+    "TrayTask": {
+      "TrayTaskContextMenuColor": "#f3f3f3",
+      "TrayTaskContextMenuBorderColor": "#e5e5e5",
+      "TrayTaskContextMenuBorderSize": "2",
+      "TrayTaskContextMenuRounding": "5",
+      "TrayTaskContextMenuIconSize": "20",
+      "TrayTaskContextMenuIconMargin": "0,0,5,0",
+      "TrayTaskContextMenuTxtColor": "Black",
+      "TrayTaskContextMenuSeperatorColor": "#e5e5e5",
+
+      "TrayTaskContextMenuDropShadowBlurRadius": "0",
+      "TrayTaskContextMenuDropShadowOpacity": "0",
+      "TrayTaskContextMenuDropShadowDirection": "315",
+      "TrayTaskContextMenuDropShadowShadowDepth": "0",
+      "TrayTaskContextMenuDropShadowRenderingBias": "Performance"
     },
     "SearchBar": {
       "SearchBarColor": "#f3f3f3",
@@ -25,7 +42,7 @@
       "SearchBarBorderColor": "#e5e5e5",
       "SearchBarBorderSize": "1",
       "SearchBarHeight": "64",
-      "SearchIconWidth": "64",
+      "SearchIconWidth": "40",
       "SearchIconMargin": "10, 0, -5, 0",
 
       "EntryField": {
@@ -148,8 +165,8 @@
               "ContextPaneListItemRounding": "15",
               "ContextPaneListItemMargin": "0, 0, 10, 0",
 
-              "ContextPaneListItemIconSize": "20",
-              "ContextPaneListItemIconMargin": "20,0,0,0",
+              "ContextPaneListItemIconSize": "26",
+              "ContextPaneListItemIconMargin": "10,0,0,0",
               "ContextPaneListItemTextPadding": "0,10,10,10",
               "ContextPaneListItemFont": "Segoe UI",
               "ContextPaneListItemSize": "12",

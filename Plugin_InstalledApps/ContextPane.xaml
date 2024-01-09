@@ -55,7 +55,8 @@
           Grid.Row="0"
           Margin="{DynamicResource ContextPaneImageMargin}"
           d:Margin="40,30,40,30"
-          d:Source="/Plugin_InstalledApps;component/information.png" />
+          d:Source="/Plugin_InstalledApps;component/information.png"
+          SnapsToDevicePixels="True" />
         <TextBlock
           x:Name="NameText"
           Grid.Row="1"
@@ -66,6 +67,7 @@
           FontFamily="{DynamicResource NameTextFontFamily}"
           FontSize="{DynamicResource NameTextSize}"
           Foreground="{DynamicResource NameTextColor}"
+          SnapsToDevicePixels="True"
           Text=""
           TextWrapping="Wrap" />
         <TextBlock
@@ -78,6 +80,7 @@
           FontFamily="{DynamicResource DescTextFontFamily}"
           FontSize="{DynamicResource DescTextSize}"
           Foreground="{DynamicResource DescTextColor}"
+          SnapsToDevicePixels="True"
           Text=""
           TextWrapping="Wrap" />
         <TextBlock
@@ -90,6 +93,7 @@
           FontFamily="{DynamicResource ExtraDetailsTextFontFamily}"
           FontSize="{DynamicResource ExtraDetailsTextSize}"
           Foreground="{DynamicResource ExtraDetailsTextColor}"
+          SnapsToDevicePixels="True"
           Text=""
           TextWrapping="Wrap" />
       </Grid>
@@ -196,9 +200,10 @@
                 Width="{DynamicResource ContextPaneListItemIconSize}"
                 Height="{DynamicResource ContextPaneListItemIconSize}"
                 Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
+                d:Height="25"
+                d:Margin="10,0,0,0"
+                d:Width="25"
+                SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/open.png" />
             </Grid>
             <Grid Grid.Column="1">
@@ -215,6 +220,7 @@
                 FontFamily="{DynamicResource ContextPaneListItemFont}"
                 FontSize="{DynamicResource ContextPaneListItemSize}"
                 Foreground="{DynamicResource ContextPaneListItemColor}"
+                SnapsToDevicePixels="True"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
@@ -228,9 +234,10 @@
                 Width="{DynamicResource ContextPaneListItemIconSize}"
                 Height="{DynamicResource ContextPaneListItemIconSize}"
                 Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
+                d:Height="26"
+                d:Margin="10,0,0,0"
+                d:Width="25"
+                SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/admin.png" />
             </Grid>
             <Grid Grid.Column="1">
@@ -246,6 +253,7 @@
                 FontFamily="{DynamicResource ContextPaneListItemFont}"
                 FontSize="{DynamicResource ContextPaneListItemSize}"
                 Foreground="{DynamicResource ContextPaneListItemColor}"
+                SnapsToDevicePixels="True"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
@@ -259,9 +267,10 @@
                 Width="{DynamicResource ContextPaneListItemIconSize}"
                 Height="{DynamicResource ContextPaneListItemIconSize}"
                 Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
+                d:Height="26"
+                d:Margin="10,0,0,0"
+                d:Width="26"
+                SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/openFolder.png" />
             </Grid>
             <Grid Grid.Column="1">
@@ -277,6 +286,7 @@
                 FontFamily="{DynamicResource ContextPaneListItemFont}"
                 FontSize="{DynamicResource ContextPaneListItemSize}"
                 Foreground="{DynamicResource ContextPaneListItemColor}"
+                SnapsToDevicePixels="True"
                 Style="{StaticResource TransparentStyle}" />
             </Grid>
           </Grid>
