@@ -93,13 +93,6 @@ namespace Quokka.Settings {
     }
 
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
-      //int
-      //double
-      //string
-      //fointfamily
-      //corner rad
-      //thickness
-      //brush
       switch (settingValue.ToLower()) {
         case "top":
           return VerticalAlignment.Top;
@@ -115,6 +108,22 @@ namespace Quokka.Settings {
 
         default:
           return VerticalAlignment.Center;
+      }
+    }
+
+    public static Visibility parseVisibilitySettings(string settingValue) {
+      switch (settingValue.ToLower()) {
+        case "collapsed":
+          return Visibility.Collapsed;
+
+        case "hidden":
+          return Visibility.Hidden;
+
+        case "visible":
+          return Visibility.Visible;
+
+        default:
+          return Visibility.Visible;
       }
     }
   }

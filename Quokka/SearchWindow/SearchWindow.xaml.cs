@@ -174,7 +174,7 @@ namespace Quokka {
             } else {
               if (( ResultsListView.SelectedIndex == -1 )) ResultsListView.SelectedIndex = 0;
               string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
-              if (PluginName != "Quokka") {
+              if (PluginName != "Quokka.ListItems") {
                 SelectedItem = ( ResultsListView.SelectedItem as ListItem )!;
                 ContextPane.Source = null;
                 ContextPane.Source =

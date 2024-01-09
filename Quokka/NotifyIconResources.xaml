@@ -12,7 +12,7 @@
             <Border
               Background="{DynamicResource TrayTaskContextMenuColor}"
               BorderBrush="{DynamicResource TrayTaskContextMenuBorderColor}"
-              BorderThickness="{DynamicResource TrayTaskContextMenuBorderSize}"
+              BorderThickness="{DynamicResource TrayTaskContextMenuBorderThickness}"
               CornerRadius="{DynamicResource TrayTaskContextMenuRounding}">
               <Border.Effect>
                 <DropShadowEffect

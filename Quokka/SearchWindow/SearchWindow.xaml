@@ -29,12 +29,20 @@
     Margin="{DynamicResource WindowTopMargin}"
     Padding="{DynamicResource WindowPadding}"
     VerticalAlignment="Top"
+    d:Background="Transparent"
+    d:BorderThickness="0"
+    d:Padding="10"
     Background="{DynamicResource WindowColor}"
     BorderBrush="{DynamicResource WindowBorderColor}"
     BorderThickness="{DynamicResource WindowBorderThickness}"
     CornerRadius="{DynamicResource WindowRounding}">
     <Border.Effect>
       <DropShadowEffect
+        d:BlurRadius="10"
+        d:Direction="315"
+        d:Opacity="0.35"
+        d:RenderingBias="Quality"
+        d:ShadowDepth="3"
         BlurRadius="{DynamicResource DropShadowBlurRadius}"
         Direction="{DynamicResource DropShadowDirection}"
         Opacity="{DynamicResource DropShadowOpacity}"
@@ -97,8 +105,6 @@
                 </Style.Resources>
                 <Setter Property="SnapsToDevicePixels" Value="True" />
                 <Setter Property="Padding" Value="4,1" />
-                <!-- <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-                <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />-->
                 <Setter Property="Background" Value="Transparent" />
                 <Setter Property="BorderBrush" Value="Transparent" />
                 <Setter Property="BorderThickness" Value="{DynamicResource ListItemBorderThickness}" />
@@ -113,10 +119,7 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         SnapsToDevicePixels="true">
-                        <ContentPresenter
-                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                       </Border>
                       <ControlTemplate.Triggers>
                         <MultiTrigger>
@@ -201,9 +204,14 @@
           x:Name="EntryField"
           Height="{DynamicResource SearchBarHeight}"
           VerticalAlignment="Top"
+          d:Background="#f3f3f3"
+          d:BorderBrush="#e5e5e5"
+          d:BorderThickness="1"
+          d:CornerRadius="32"
+          d:Height="64"
           Background="{DynamicResource SearchBarColor}"
           BorderBrush="{DynamicResource SearchBarBorderColor}"
-          BorderThickness="{DynamicResource SearchBarBorderSize}"
+          BorderThickness="{DynamicResource SearchBarBorderThickness}"
           CornerRadius="{DynamicResource SearchBarRounding}">
           <Grid>
             <Grid x:Name="SearchBoxGrid" Grid.Row="1">
@@ -212,6 +220,8 @@
                 Grid.Column="0"
                 Width="{DynamicResource SearchIconWidth}"
                 Margin="{DynamicResource SearchIconMargin}"
+                d:Margin="10,0,-5,0"
+                d:Width="40"
                 SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid Grid.Column="1">
@@ -225,6 +235,10 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
+                  d:FontSize="24"
+                  d:Height="50"
+                  d:Margin="15,10,10,10"
+                  d:Width="720"
                   AutoWordSelection="True"
                   Background="Transparent"
                   BorderBrush="Transparent"
@@ -253,6 +267,10 @@
                   Padding="10,0,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
+                  d:FontSize="24"
+                  d:Foreground="#8e8e8e"
+                  d:Margin="10"
+                  d:Text="Enter Query"
                   FontFamily="{DynamicResource SearchFieldPlaceholderFont}"
                   FontSize="{DynamicResource SearchFieldPlaceholderSize}"
                   Foreground="{DynamicResource SearchFieldPlaceholderColor}"

@@ -23,7 +23,7 @@
     "TrayTask": {
       "TrayTaskContextMenuColor": "#f3f3f3",
       "TrayTaskContextMenuBorderColor": "#e5e5e5",
-      "TrayTaskContextMenuBorderSize": "2",
+      "TrayTaskContextMenuBorderThickness": "2",
       "TrayTaskContextMenuRounding": "5",
       "TrayTaskContextMenuIconSize": "20",
       "TrayTaskContextMenuIconMargin": "0,0,5,0",
@@ -40,7 +40,7 @@
       "SearchBarColor": "#f3f3f3",
       "SearchBarRounding": "32",
       "SearchBarBorderColor": "#e5e5e5",
-      "SearchBarBorderSize": "1",
+      "SearchBarBorderThickness": "1",
       "SearchBarHeight": "64",
       "SearchIconWidth": "40",
       "SearchIconMargin": "10, 0, -5, 0",
@@ -136,17 +136,17 @@
             "ContextPaneImageMargin": "40,30,40,30",
 
             "NameTextMargin": "0,-20,0,0",
-            "NameTextFontFamily": "Segoe UI",
+            "NameTextFont": "Segoe UI",
             "NameTextSize": "16",
             "NameTextColor": "Black",
 
             "DescTextMargin": "0,0,0,0",
-            "DescTextFontFamily": "Segoe UI",
+            "DescTextFont": "Segoe UI",
             "DescTextSize": "12",
             "DescTextColor": "Gray",
 
             "ExtraDetailsTextMargin": "0,0,0,0",
-            "ExtraDetailsTextFontFamily": "Segoe UI",
+            "ExtraDetailsTextFont": "Segoe UI",
             "ExtraDetailsTextSize": "12",
             "ExtraDetailsTextColor": "Gray"
           },
