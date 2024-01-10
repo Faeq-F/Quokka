@@ -8,27 +8,57 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Quokka {
-  /// <summary>
-  ///   Interaction logic for SearchWindow.xaml
-  /// </summary>
+  /**
+    * <summary>
+    * The search window - interaction logic for SearchWindow.xaml.
+    * </summary>
+    */
 
   public partial class SearchWindow : Window {
+    /**
+      * <summary>
+      * Used by ContextPanes (Pages) - the frame on which context panes are displayed.
+      * </summary>
+      */
     public Frame contextPane;
+    /**
+      * <summary>
+      * Used by ContextPanes (Pages) - the app settings.
+      * </summary>
+      */
     public ResourceDictionary ContextPaneSettingsDict = Application.Current.Resources;
+    /**
+      * <summary>
+      * Used by ContextPanes (Pages) - the TextBox in which the user enters their query.
+      * </summary>
+      */
     public TextBox searchBox;
 
-    //needed for ContextPanes
+    /**
+      * <summary>
+      * Used by ContextPanes (Pages) - the currently selected ListItem.
+      * </summary>
+      */
     public ListItem SelectedItem;
 
     private String query = "";
 
+    /**
+      * <summary>
+      * Constructs the search window, applies the relevant app settings that were previously loaded on AppStartup,
+      * runs the OnSearchWindowStartup method for plugins, binds the relevant keyboard shortcuts for the window
+      * and tries to set focus on the TextBox in which the user enters their query.
+      * </summary>
+      */
+
     public SearchWindow() {
       InitializeComponent();
 
-      //ApplyAppSettings();
+      // initial look
       ResultsBox.Visibility = Visibility.Collapsed;
       ContextPane.Visibility = Visibility.Collapsed;
 
+      //settings indirectly available to the user
       ColumnDefinition c1 = new() {
         Width = new GridLength((double) Application.Current.Resources["SearchIconWidth"], GridUnitType.Star)
       };
@@ -58,11 +88,11 @@ namespace Quokka {
       ExecuteItemCommand.InputGestures.Add(new KeyGesture(Key.Enter));
       CommandBindings.Add(new CommandBinding(ExecuteItemCommand, ListItem_Click));
 
-      //fields needed for context pane
+      //fields needed for context panes
       searchBox = SearchTermTextBox;
       contextPane = ContextPane;
 
-      //Focusing Search Bar
+      //Focusing Search Bar (not guaranteed every time)
       EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent,
         new RoutedEventHandler(WindowLoaded));
     }
@@ -73,6 +103,15 @@ namespace Quokka {
       this.Close();
     }
 
+    /**
+      * <summary>
+      * Execute the currently selected ListItem.
+      * If a ListItem is not selected yet, the first item in the results list is executed.
+      * </summary>
+      * <param name="e">The arguments for the event.</param>
+      * <param name="sender">The element from which the event is triggered.</param>
+      */
+
     private void ListItem_Click(object sender, RoutedEventArgs e) {
       if (ResultsListView != null) {
         if (ResultsListView.SelectedIndex > -1) {
@@ -81,6 +120,17 @@ namespace Quokka {
         this.Close();
       }
     }
+
+    /**
+      * <summary>
+      * Loads the relevant ListItems into the results list when the user changes the query
+      * entered in the search bar. The maximum number of results loaded is dependent upon the
+      * MaxResults setting, though this can be overridden by the IgnoreMaxResultsFlag setting
+      * and plugin SpecialCommands.
+      * </summary>
+      * <param name="e">The arguments for the event.</param>
+      * <param name="sender">The element from which the event is triggered.</param>
+      */
 
     private void OnQueryChange(object sender, RoutedEventArgs e) {
       bool IgnoreMaxResults = false;

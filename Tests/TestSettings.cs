@@ -1,8 +1,21 @@
 using Quokka.Settings;
 using static System.Windows.SystemParameters;
+
 namespace Tests {
+  /**
+    * <summary>
+    * Testing for Quokka settings, i.e., if they apply correctly, are parsed correctly, etc..
+    * </summary>
+    */
+
   [TestClass]
   public class TestSettings {
+    /**
+      * <summary>
+      * Testing parsing of Screen Dimensions settings,<br />
+      * i.e., whether settings that can have screen dimensions values in them, are read and evaluated correctly.
+      * </summary>
+      */
 
     [TestMethod]
     public void TestScreenDimensionsParsing() {

@@ -2,8 +2,22 @@
 using System.Windows.Media.Effects;
 
 namespace Quokka.Settings {
+  /**
+    * <summary>
+    * All of the methods for parsing and evaluating different types of app settings.
+    * </summary>
+    */
 
   public static class SettingParsers {
+    /**
+      * <summary>
+      * Parses and evaluates HorizontalAlignment settings.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.
+      * </returns>
+      */
 
     public static HorizontalAlignment parseHorizontalAlignmentSetting(string settingValue) {
       switch (settingValue.ToLower()) {
@@ -24,6 +38,16 @@ namespace Quokka.Settings {
       }
     }
 
+    /**
+      * <summary>
+      * Parses and evaluates RenderingBias settings.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned.
+      * </returns>
+      */
+
     public static RenderingBias parseRenderingBiasSetting(string settingValue) {
       switch (settingValue.ToLower()) {
         case "quality":
@@ -36,6 +60,16 @@ namespace Quokka.Settings {
           return RenderingBias.Quality;
       }
     }
+
+    /**
+      * <summary>
+      * Parses and evaluates settings that can have ScreenHeight & ScreenWidth values in them.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated. If the setting cannot be evaluated correctly, -1 is returned.
+      * </returns>
+      */
 
     public static double parseScreenDimensionsSetting(string settingValue) {
       settingValue = settingValue.Trim().Replace(" ", "");
@@ -77,6 +111,16 @@ namespace Quokka.Settings {
       return output;
     }
 
+    /**
+      * <summary>
+      * Parses and evaluates Thickness settings.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated.
+      * </returns>
+      */
+
     public static Thickness parseThicknessSetting(string settingValue) {
       Thickness thickness;
       if (settingValue.Contains(",")) {
@@ -91,6 +135,16 @@ namespace Quokka.Settings {
       }
       return thickness;
     }
+
+    /**
+      * <summary>
+      * Parses and evaluates VerticalAlignment settings.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned.
+      * </returns>
+      */
 
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
       switch (settingValue.ToLower()) {
@@ -110,6 +164,16 @@ namespace Quokka.Settings {
           return VerticalAlignment.Center;
       }
     }
+
+    /**
+      * <summary>
+      * Parses and evaluates Visibility settings.
+      * </summary>
+      * <param name="settingValue">The value of a setting to be evaluated.</param>
+      * <returns>
+      * The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned.
+      * </returns>
+      */
 
     public static Visibility parseVisibilitySettings(string settingValue) {
       switch (settingValue.ToLower()) {
