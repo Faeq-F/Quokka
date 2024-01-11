@@ -1,7 +1,5 @@
 function loadDefaultPluginsScreenshots() {
-  $("#PluginScreenshotsGrid").load(
-    "../PluginScreenshots/InitialScreenshots.html"
-  );
+  $("#PluginScreenshotsGrid").load("PluginScreenshots/InitialScreenshots.html");
 }
 
 loadDefaultPluginsScreenshots();
