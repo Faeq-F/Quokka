@@ -12,6 +12,9 @@
     <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_PortableApps</BaseOutputPath>
     <Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
     <Reference Include="..\Quokka\Quokka.csproj">

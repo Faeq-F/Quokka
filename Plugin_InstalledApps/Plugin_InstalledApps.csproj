@@ -12,6 +12,9 @@
     <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_InstalledApps</BaseOutputPath>
     <Configurations>Debug;Release;Plugin</Configurations>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="information.png" />
   </ItemGroup>

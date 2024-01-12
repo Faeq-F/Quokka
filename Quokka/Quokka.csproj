@@ -28,6 +28,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Quokka|AnyCPU'">
     <Optimize>True</Optimize>
   </PropertyGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <COMReference Include="Shell32">
       <WrapperTool>tlbimp</WrapperTool>
