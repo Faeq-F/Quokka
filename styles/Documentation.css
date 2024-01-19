@@ -37,9 +37,13 @@ footer {
 }
 
 .ContactCard {
+  resize: both;
+  overflow: auto;
+  z-index: 999;
+
   height: 60vh;
   min-width: 80%;
-  max-width: 90%;
+  max-width: 95%;
   width: 80%;
   margin: 20vh auto 0;
   text-align: center;
@@ -59,6 +63,18 @@ footer {
   -moz-transition: -moz-transform 0.5s, opacity 0.5s;
   -o-transition: -o-transform 0.5s, opacity 0.5s;
   transition: transform 0.5s, opacity 0.5s;
+
+
+}
+
+#DocsContent::-webkit-scrollbar-thumb,
+#DocsNav::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 10px 10px #fff;
+}
+
+#DocsContent,
+#DocsNav {
+  scrollbar-color: #fff transparent !important;
 }
 
 .ConnectTagline {
