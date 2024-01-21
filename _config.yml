@@ -1,6 +1,5 @@
 # Site
 title: "Quokka"
-email: faeqfaisal@hotmail.co.uk
 bio: "A customisable keystroke launcher with plugins"
 description: "A customisable keystroke launcher with plugins"
 logo: "https://raw.githubusercontent.com/Faeq-F/Quokka/gh-pages/_layouts/Quokka.png"
@@ -28,7 +27,6 @@ sass:
   sass_dir: _sass
   style: compressed
 
-
 # Social
 #google:
 #plus:            #username
@@ -37,10 +35,10 @@ sass:
 #ad-client:
 #ad-slot:
 #bing-verify:
-email:              faeqfaisal@hotmail.co.uk
+email: faeqfaisal@hotmail.co.uk
 github-url: faeq-F/Quokka
-stackoverflow:      13165763/faeq
-linkedin:          faeq
+stackoverflow: 13165763/faeq
+linkedin: faeq
 #xing:              username
 #lastfm:            username
 #tumblr:            username
@@ -62,13 +60,11 @@ linkedin:          faeq
 # Gems
 plugins:
   - jekyll-mentions
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
 
 jekyll-mentions:
   base_url: https://github.com
-
 
 exclude:
   [
