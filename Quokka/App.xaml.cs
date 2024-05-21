@@ -1,4 +1,5 @@
 ﻿using Hardcodet.Wpf.TaskbarNotification;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Quokka.PluginArch;
 using System;
@@ -20,7 +21,7 @@ namespace Quokka {
     * Includes:<br />
     * wpf-notifyIcon - CPOL:<br />
     * https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE<br />
-    * LowLevelKeyboardListener from Dylan's Web - License is in class file & at<br />
+    * LowLevelKeyboardListener from Dylan's Web - License is in class file and at<br />
     * http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/<br />
     * JSON.Net - MIT license<br />
     * https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
@@ -29,7 +30,7 @@ namespace Quokka {
     * </summary>
     */
 
-  public partial class App : System.Windows.Application {
+  public partial class App : Application {
     /**
       * <summary>
       * The entry point for the app. Loads all of the settings in the app settings file,
@@ -63,8 +64,8 @@ namespace Quokka {
     //launching search window
     private void _listener_OnKeyPressed(object sender, KeyPressedArgs e) {
       //refresh hook to prevent app hanging
-      _listener.UnHookKeyboard();
-      _listener.HookKeyboard();
+      _listener!.UnHookKeyboard();
+      _listener!.HookKeyboard();
 
       //save memory - sometimes requires pressing the shortcut twice
       if (detectedKeys.Length > 20) detectedKeys = "";
@@ -86,20 +87,22 @@ namespace Quokka {
 
     #region AppsSettings
 
-    private String[] IntSettings = { "MaxResults" };
-    private String[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private String[] SpecialSettings = { "WindowTopMargin" };
-    private String[] StringSettings = { "WindowHotKey", "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
+    private string[] IntSettings = { "MaxResults" };
+    private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
+    private string[] SpecialSettings = { "WindowTopMargin" };
+    private string[] StringSettings = { "WindowHotKey", "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
 
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
-        if (entry.Value.ToString().Contains("{")) {
+        // recurse until attribute-value pairs obtained
+        if (entry.Value!.ToString().Contains("{")) {
           try {
             applyAppSettings(JObject.Parse(entry.Value.ToString()));
-          } catch (Exception e) {
-            System.Windows.MessageBox.Show(entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace, "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
+          } catch (JsonReaderException e) {
+            MessageBox.Show(entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace, "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
           }
         } else {
+          // applying settings based on type
           if (SpecialSettings.Contains(entry.Key)) {
             switch (entry.Key) {
               case "WindowTopMargin":
