@@ -21,7 +21,7 @@ namespace Plugin_InstalledApps {
 
     public static List<ListItem> ListOfSystemApps { private set; get; } = new List<ListItem>();
 
-    public static Plugin_InstalledApps.Settings PluginSettings { get; set; } = System.Text.Json.JsonSerializer.Deserialize<Settings>(
+    public static Settings PluginSettings { get; set; } = System.Text.Json.JsonSerializer.Deserialize<Settings>(
           File.ReadAllText(Environment.CurrentDirectory
           + "\\PlugBoard\\Plugin_InstalledApps\\Plugin\\settings.json")
       )!;
@@ -51,10 +51,14 @@ namespace Plugin_InstalledApps {
         ListOfSystemApps.Add(new InstalledAppsItem(app));
     }
 
-    /// <summary> This will get called when user types query
-    /// into search field </summary> <returns>List<ListItem>
-    /// of InstalledApps that possibly match what is being
-    /// searched for</returns>
+    /// <summary>
+    ///   This will get called when user types query into
+    ///   search field
+    /// </summary>
+    /// <returns>
+    ///   List of ListItems - of InstalledApps that possibly
+    ///   match what is being searched for
+    /// </returns>
     // FuzzySearch threshold is a plugin specific setting
     public List<ListItem> OnQueryChange(string query) {
       List<ListItem> IdentifiedApps = new();

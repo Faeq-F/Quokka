@@ -8,49 +8,47 @@ using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Quokka {
-  /**
-    * <summary>
-    * The search window - interaction logic for SearchWindow.xaml.
-    * </summary>
-    */
 
+  /// <summary>
+  ///   The search window - interaction logic for SearchWindow.xaml.
+  /// </summary>
   public partial class SearchWindow : Window {
-    /**
-      * <summary>
-      * Used by ContextPanes (Pages) - the frame on which context panes are displayed.
-      * </summary>
-      */
+
+    /// <summary>
+    ///   Used by ContextPanes (Pages) - the frame on which
+    ///   context panes are displayed.
+    /// </summary>
     public Frame contextPane;
-    /**
-      * <summary>
-      * Used by ContextPanes (Pages) - the app settings.
-      * </summary>
-      */
+
+    /// <summary>
+    ///   Used by ContextPanes (Pages) - the app settings.
+    /// </summary>
     public ResourceDictionary ContextPaneSettingsDict = Application.Current.Resources;
-    /**
-      * <summary>
-      * Used by ContextPanes (Pages) - the TextBox in which the user enters their query.
-      * </summary>
-      */
+
+    /// <summary>
+    ///   Used by ContextPanes (Pages) - the TextBox in
+    ///   which the user enters their query.
+    /// </summary>
     public TextBox searchBox;
 
-    /**
-      * <summary>
-      * Used by ContextPanes (Pages) - the currently selected ListItem.
-      * </summary>
-      */
-    public ListItem SelectedItem;
+    private static List<ListItem>? ListOfResults { set; get; }
 
-    private String query = "";
+    /// <summary>
+    ///   Used by ContextPanes (Pages) - the currently
+    ///   selected ListItem.
+    /// </summary>
+    public ListItem? SelectedItem;
 
-    /**
-      * <summary>
-      * Constructs the search window, applies the relevant app settings that were previously loaded on AppStartup,
-      * runs the OnSearchWindowStartup method for plugins, binds the relevant keyboard shortcuts for the window
-      * and tries to set focus on the TextBox in which the user enters their query.
-      * </summary>
-      */
+    private string query = "";
 
+    /// <summary>
+    ///   Constructs the search window, applies the relevant
+    ///   app settings that were previously loaded on
+    ///   AppStartup, runs the OnSearchWindowStartup method
+    ///   for plugins, binds the relevant keyboard shortcuts
+    ///   for the window and tries to set focus on the
+    ///   TextBox in which the user enters their query.
+    /// </summary>
     public SearchWindow() {
       InitializeComponent();
 
@@ -74,7 +72,7 @@ namespace Quokka {
           plugin.OnSearchWindowStartup();
         }
       } catch (Exception ex) {
-        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
+        MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
           "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
       }
 
@@ -92,52 +90,55 @@ namespace Quokka {
       searchBox = SearchTermTextBox;
       contextPane = ContextPane;
 
-      //Focusing Search Bar (not guaranteed every time)
-      EventManager.RegisterClassHandler(typeof(Window), Window.LoadedEvent,
+      //Focusing Search Bar (not guaranteed every time - same issue as ms power-toys)
+      EventManager.RegisterClassHandler(typeof(Window), LoadedEvent,
         new RoutedEventHandler(WindowLoaded));
     }
 
-    private static List<ListItem> ListOfResults { set; get; }
-
     private void Exit(object sender, ExecutedRoutedEventArgs e) {
-      this.Close();
+      Close();
     }
 
-    /**
-      * <summary>
-      * Execute the currently selected ListItem.
-      * If a ListItem is not selected yet, the first item in the results list is executed.
-      * </summary>
-      * <param name="e">The arguments for the event.</param>
-      * <param name="sender">The element from which the event is triggered.</param>
-      */
-
+    /// <summary>
+    ///   Execute the currently selected ListItem. If a
+    ///   ListItem is not selected yet, the first item in
+    ///   the results list is executed.
+    /// </summary>
+    /// <param name="e">
+    ///   The arguments for the event.
+    /// </param>
+    /// <param name="sender">
+    ///   The element from which the event is triggered.
+    /// </param>
     private void ListItem_Click(object sender, RoutedEventArgs e) {
       if (ResultsListView != null) {
         if (ResultsListView.SelectedIndex > -1) {
-          ( ResultsListView.SelectedItem as ListItem ).Execute();
-        } else ( ResultsListView.Items.GetItemAt(0) as ListItem ).Execute();
-        this.Close();
+          ( (ListItem) ResultsListView.SelectedItem ).Execute();
+        } else ( (ListItem) ResultsListView.Items.GetItemAt(0) ).Execute();
+        Close();
       }
     }
 
-    /**
-      * <summary>
-      * Loads the relevant ListItems into the results list when the user changes the query
-      * entered in the search bar. The maximum number of results loaded is dependent upon the
-      * MaxResults setting, though this can be overridden by the IgnoreMaxResultsFlag setting
-      * and plugin SpecialCommands.
-      * </summary>
-      * <param name="e">The arguments for the event.</param>
-      * <param name="sender">The element from which the event is triggered.</param>
-      */
-
+    /// <summary>
+    ///   Loads the relevant ListItems into the results list
+    ///   when the user changes the query entered in the
+    ///   search bar. The maximum number of results loaded
+    ///   is dependent upon the MaxResults setting, though
+    ///   this can be overridden by the IgnoreMaxResultsFlag
+    ///   setting and plugin SpecialCommands.
+    /// </summary>
+    /// <param name="e">
+    ///   The arguments for the event.
+    /// </param>
+    /// <param name="sender">
+    ///   The element from which the event is triggered.
+    /// </param>
     private void OnQueryChange(object sender, RoutedEventArgs e) {
       bool IgnoreMaxResults = false;
       //reset view of list
       ResultsListView.SelectedIndex = 0;
       ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
-      // Close context pane if it was used
+      // Close context pane if it was open
       if (ContextPane.Visibility == Visibility.Visible) {
         ContextPane.Visibility = Visibility.Collapsed;
       }
@@ -170,7 +171,7 @@ namespace Quokka {
             }
           }
         } catch (Exception ex) {
-          System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
+          MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
             "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         //sort by relevance
@@ -191,7 +192,7 @@ namespace Quokka {
     }
 
     private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {
-      //If the ContextPane is showing - focus the actions list
+      //If the ContextPane is open - focus the actions list
       if (ContextPane.Visibility == Visibility.Visible) {
         ( (Page) ContextPane.Content ).MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
         return;

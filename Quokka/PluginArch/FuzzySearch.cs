@@ -2,18 +2,24 @@
 
 namespace Quokka.PluginArch {
 
+  /// <summary>
+  ///   Contains methods for implementing Fuzzy Search
+  /// </summary>
   public class FuzzySearch {
-    /**
-     * <summary>
-     * Computes the Levenshtein distance between two given strings.
-     * </summary>
-     * <param name = "s" > one of the strings to compare</param>
-     * <param name = "t" > one of the strings to compare</param>
-     * <returns>
-     * The Levenshtein distance between the two strings.
-     * The larger the number, the bigger the difference.
-     * </returns>
-     */
+    /// <summary>
+    ///   Computes the Levenshtein distance between two
+    ///   given strings.
+    /// </summary>
+    /// <param name="s">
+    ///   one of the strings to compare
+    /// </param>
+    /// <param name="t">
+    ///   one of the strings to compare
+    /// </param>
+    /// <returns>
+    ///   The Levenshtein distance between the two strings.
+    ///   The larger the number, the bigger the difference.
+    /// </returns>
 
     public static int LD(string s, string t) {
       int n = s.Length;

@@ -12,10 +12,9 @@ using System.Windows.Media.Imaging;
 namespace Plugin_PortableApps {
 
   /// <summary>
-  /// Item class for plugin
+  ///   Item class for plugin
   /// </summary>
-  class PortableAppsItem : ListItem {
-
+  internal class PortableAppsItem : ListItem {
     public string ExePath { get; set; }
     public string ExtraDetails { get; set; }
 
@@ -31,10 +30,9 @@ namespace Plugin_PortableApps {
       Process.Start(Description);
       Application.Current.MainWindow.Close();
     }
-
   }
 
-  class PortableAppsFolderItem : ListItem {
+  internal class PortableAppsFolderItem : ListItem {
 
     public PortableAppsFolderItem() {
       Name = "Portable Apps Folder";
@@ -46,25 +44,24 @@ namespace Plugin_PortableApps {
       Process.Start("explorer.exe", PortableApps.PluginSettings.PortableAppsDirectory);
       Application.Current.MainWindow.Close();
     }
-
   }
 
-
   /// <summary>
-  /// Interaction logic for plugin
+  ///   Interaction logic for plugin
   /// </summary>
   public partial class PortableApps : IPlugger {
     public static List<ListItem> ListOfSystemApps { private set; get; }
     public static Settings PluginSettings { get; set; }
 
-    public PortableApps() { }
+    public PortableApps() {
+    }
 
     /// <summary>
-    /// This is name will display in main plug board
+    ///   This is name will display in main plug board
     /// </summary>
     public string PluggerName { get; set; } = "PortableApps";
 
-    readonly List<ListItem> AllPortableApps = new();
+    private readonly List<ListItem> AllPortableApps = new();
 
     public static List<ListItem> RemoveBlacklistItems(List<ListItem> list) {
       foreach (string i in PluginSettings.BlackList) {
@@ -104,7 +101,7 @@ namespace Plugin_PortableApps {
     }
 
     void IPlugger.OnAppStartup() {
-      //Get Plugin Specific settings (was in \PluginName\Plugin\ but has changed)
+      //Get Plugin Specific settings
       string fileName = Environment.CurrentDirectory + "\\PlugBoard\\Plugin_PortableApps\\Plugin\\settings.json";
       PluginSettings = System.Text.Json.JsonSerializer.Deserialize<Settings>(File.ReadAllText(fileName))!;
       PluginSettings.PortableAppsDirectory = Path.GetFullPath(PluginSettings.PortableAppsDirectory);
@@ -120,13 +117,9 @@ namespace Plugin_PortableApps {
     }
 
     void IPlugger.OnAppShutdown() {
-
     }
 
     void IPlugger.OnSearchWindowStartup() {
-
     }
-
   }
-
 }
