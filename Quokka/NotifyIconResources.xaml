@@ -85,7 +85,10 @@
     </Setter>
   </Style>
   <!--  The Context Menu  -->
-  <ContextMenu x:Key="SysTrayMenu" x:Shared="false">
+  <ContextMenu
+    x:Key="SysTrayMenu"
+    x:Shared="false"
+    UseLayoutRounding="True">
     <MenuItem
       Command="{Binding ShowWindowCommand}"
       CommandParameter="{Binding}"
@@ -97,6 +100,7 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          RenderOptions.BitmapScalingMode="NearestNeighbor"
           SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/TraySearch.png" />
       </MenuItem.Icon>
@@ -113,6 +117,7 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          RenderOptions.BitmapScalingMode="NearestNeighbor"
           SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/settings.png" />
       </MenuItem.Icon>
@@ -129,6 +134,7 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          RenderOptions.BitmapScalingMode="NearestNeighbor"
           SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/plug.png" />
       </MenuItem.Icon>
@@ -145,6 +151,7 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          RenderOptions.BitmapScalingMode="NearestNeighbor"
           SnapsToDevicePixels="True"
           Source="pack://siteoforigin:,,,/Config/Resources/exit.png" />
       </MenuItem.Icon>

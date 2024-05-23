@@ -19,7 +19,7 @@ namespace Plugin_PortableApps {
     public string ExtraDetails { get; set; }
 
     public PortableAppsItem(string exePath) {
-      this.ExePath = exePath;
+      ExePath = exePath;
       Name = Path.GetFileNameWithoutExtension(exePath);
       Description = exePath;
       Icon = Imaging.CreateBitmapSourceFromHIcon(System.Drawing.Icon.ExtractAssociatedIcon(exePath).Handle, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());

@@ -10,7 +10,9 @@
   FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}"
   ResizeMode="NoResize"
   ShowInTaskbar="False"
+  SnapsToDevicePixels="True"
   Topmost="True"
+  UseLayoutRounding="True"
   WindowStartupLocation="CenterScreen"
   WindowState="Maximized"
   WindowStyle="None"
@@ -165,6 +167,7 @@
                     Grid.Column="0"
                     Width="{DynamicResource ListItemIconSize}"
                     Height="{DynamicResource ListItemIconSize}"
+                    RenderOptions.BitmapScalingMode="NearestNeighbor"
                     SnapsToDevicePixels="True"
                     Source="{Binding Icon}" />
                   <Grid
@@ -222,6 +225,7 @@
                 Margin="{DynamicResource SearchIconMargin}"
                 d:Margin="10,0,-5,0"
                 d:Width="40"
+                RenderOptions.BitmapScalingMode="NearestNeighbor"
                 SnapsToDevicePixels="True"
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
               <Grid Grid.Column="1">
