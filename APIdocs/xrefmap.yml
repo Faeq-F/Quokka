@@ -26,12 +26,23 @@ references:
   name: ContextPane
   href: api/Plugin_InstalledApps.ContextPane.html#Plugin_InstalledApps_ContextPane__ctor_
   commentId: Overload:Plugin_InstalledApps.ContextPane.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Plugin_InstalledApps.ContextPane.ContextPane
   fullName.vb: Plugin_InstalledApps.ContextPane.New
   nameWithType: ContextPane.ContextPane
   nameWithType.vb: ContextPane.New
+- uid: Plugin_InstalledApps.ContextPane.InitializeComponent
+  name: InitializeComponent()
+  href: api/Plugin_InstalledApps.ContextPane.html#Plugin_InstalledApps_ContextPane_InitializeComponent
+  commentId: M:Plugin_InstalledApps.ContextPane.InitializeComponent
+  fullName: Plugin_InstalledApps.ContextPane.InitializeComponent()
+  nameWithType: ContextPane.InitializeComponent()
+- uid: Plugin_InstalledApps.ContextPane.InitializeComponent*
+  name: InitializeComponent
+  href: api/Plugin_InstalledApps.ContextPane.html#Plugin_InstalledApps_ContextPane_InitializeComponent_
+  commentId: Overload:Plugin_InstalledApps.ContextPane.InitializeComponent
+  fullName: Plugin_InstalledApps.ContextPane.InitializeComponent
+  nameWithType: ContextPane.InitializeComponent
 - uid: Plugin_InstalledApps.InstalledApps
   name: InstalledApps
   href: api/Plugin_InstalledApps.InstalledApps.html
@@ -51,7 +62,6 @@ references:
   name: InstalledApps
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps__ctor_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Plugin_InstalledApps.InstalledApps.InstalledApps
   fullName.vb: Plugin_InstalledApps.InstalledApps.New
@@ -67,7 +77,6 @@ references:
   name: ListOfSystemApps
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_ListOfSystemApps_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.ListOfSystemApps
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.ListOfSystemApps
   nameWithType: InstalledApps.ListOfSystemApps
 - uid: Plugin_InstalledApps.InstalledApps.OnAppShutdown
@@ -80,7 +89,6 @@ references:
   name: OnAppShutdown
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_OnAppShutdown_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.OnAppShutdown
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.OnAppShutdown
   nameWithType: InstalledApps.OnAppShutdown
 - uid: Plugin_InstalledApps.InstalledApps.OnAppStartup
@@ -93,7 +101,6 @@ references:
   name: OnAppStartup
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_OnAppStartup_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.OnAppStartup
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.OnAppStartup
   nameWithType: InstalledApps.OnAppStartup
 - uid: Plugin_InstalledApps.InstalledApps.OnQueryChange(System.String)
@@ -109,7 +116,6 @@ references:
   name: OnQueryChange
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_OnQueryChange_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.OnQueryChange
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.OnQueryChange
   nameWithType: InstalledApps.OnQueryChange
 - uid: Plugin_InstalledApps.InstalledApps.OnSearchWindowStartup
@@ -122,7 +128,6 @@ references:
   name: OnSearchWindowStartup
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_OnSearchWindowStartup_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.OnSearchWindowStartup
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.OnSearchWindowStartup
   nameWithType: InstalledApps.OnSearchWindowStartup
 - uid: Plugin_InstalledApps.InstalledApps.OnSpecialCommand(System.String)
@@ -138,7 +143,6 @@ references:
   name: OnSpecialCommand
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_OnSpecialCommand_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.OnSpecialCommand
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.OnSpecialCommand
   nameWithType: InstalledApps.OnSpecialCommand
 - uid: Plugin_InstalledApps.InstalledApps.PluggerName
@@ -151,7 +155,6 @@ references:
   name: PluggerName
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_PluggerName_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.PluggerName
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.PluggerName
   nameWithType: InstalledApps.PluggerName
 - uid: Plugin_InstalledApps.InstalledApps.PluginSettings
@@ -164,7 +167,6 @@ references:
   name: PluginSettings
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_PluginSettings_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.PluginSettings
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.PluginSettings
   nameWithType: InstalledApps.PluginSettings
 - uid: Plugin_InstalledApps.InstalledApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
@@ -180,7 +182,6 @@ references:
   name: RemoveBlacklistItems
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_RemoveBlacklistItems_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.RemoveBlacklistItems
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.RemoveBlacklistItems
   nameWithType: InstalledApps.RemoveBlacklistItems
 - uid: Plugin_InstalledApps.InstalledApps.SpecialCommands
@@ -193,7 +194,6 @@ references:
   name: SpecialCommands
   href: api/Plugin_InstalledApps.InstalledApps.html#Plugin_InstalledApps_InstalledApps_SpecialCommands_
   commentId: Overload:Plugin_InstalledApps.InstalledApps.SpecialCommands
-  isSpec: "True"
   fullName: Plugin_InstalledApps.InstalledApps.SpecialCommands
   nameWithType: InstalledApps.SpecialCommands
 - uid: Plugin_InstalledApps.Settings
@@ -202,6 +202,24 @@ references:
   commentId: T:Plugin_InstalledApps.Settings
   fullName: Plugin_InstalledApps.Settings
   nameWithType: Settings
+- uid: Plugin_InstalledApps.Settings.#ctor
+  name: Settings()
+  href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings__ctor
+  commentId: M:Plugin_InstalledApps.Settings.#ctor
+  name.vb: New()
+  fullName: Plugin_InstalledApps.Settings.Settings()
+  fullName.vb: Plugin_InstalledApps.Settings.New()
+  nameWithType: Settings.Settings()
+  nameWithType.vb: Settings.New()
+- uid: Plugin_InstalledApps.Settings.#ctor*
+  name: Settings
+  href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings__ctor_
+  commentId: Overload:Plugin_InstalledApps.Settings.#ctor
+  name.vb: New
+  fullName: Plugin_InstalledApps.Settings.Settings
+  fullName.vb: Plugin_InstalledApps.Settings.New
+  nameWithType: Settings.Settings
+  nameWithType.vb: Settings.New
 - uid: Plugin_InstalledApps.Settings.AllAppsSpecialCommand
   name: AllAppsSpecialCommand
   href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings_AllAppsSpecialCommand
@@ -212,7 +230,6 @@ references:
   name: AllAppsSpecialCommand
   href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings_AllAppsSpecialCommand_
   commentId: Overload:Plugin_InstalledApps.Settings.AllAppsSpecialCommand
-  isSpec: "True"
   fullName: Plugin_InstalledApps.Settings.AllAppsSpecialCommand
   nameWithType: Settings.AllAppsSpecialCommand
 - uid: Plugin_InstalledApps.Settings.BlackList
@@ -225,7 +242,6 @@ references:
   name: BlackList
   href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings_BlackList_
   commentId: Overload:Plugin_InstalledApps.Settings.BlackList
-  isSpec: "True"
   fullName: Plugin_InstalledApps.Settings.BlackList
   nameWithType: Settings.BlackList
 - uid: Plugin_InstalledApps.Settings.FuzzySearchThreshold
@@ -238,7 +254,6 @@ references:
   name: FuzzySearchThreshold
   href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings_FuzzySearchThreshold_
   commentId: Overload:Plugin_InstalledApps.Settings.FuzzySearchThreshold
-  isSpec: "True"
   fullName: Plugin_InstalledApps.Settings.FuzzySearchThreshold
   nameWithType: Settings.FuzzySearchThreshold
 - uid: Plugin_InstalledApps.Settings.IconSize
@@ -251,7 +266,6 @@ references:
   name: IconSize
   href: api/Plugin_InstalledApps.Settings.html#Plugin_InstalledApps_Settings_IconSize_
   commentId: Overload:Plugin_InstalledApps.Settings.IconSize
-  isSpec: "True"
   fullName: Plugin_InstalledApps.Settings.IconSize
   nameWithType: Settings.IconSize
 - uid: Plugin_PortableApps
@@ -279,12 +293,23 @@ references:
   name: ContextPane
   href: api/Plugin_PortableApps.ContextPane.html#Plugin_PortableApps_ContextPane__ctor_
   commentId: Overload:Plugin_PortableApps.ContextPane.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Plugin_PortableApps.ContextPane.ContextPane
   fullName.vb: Plugin_PortableApps.ContextPane.New
   nameWithType: ContextPane.ContextPane
   nameWithType.vb: ContextPane.New
+- uid: Plugin_PortableApps.ContextPane.InitializeComponent
+  name: InitializeComponent()
+  href: api/Plugin_PortableApps.ContextPane.html#Plugin_PortableApps_ContextPane_InitializeComponent
+  commentId: M:Plugin_PortableApps.ContextPane.InitializeComponent
+  fullName: Plugin_PortableApps.ContextPane.InitializeComponent()
+  nameWithType: ContextPane.InitializeComponent()
+- uid: Plugin_PortableApps.ContextPane.InitializeComponent*
+  name: InitializeComponent
+  href: api/Plugin_PortableApps.ContextPane.html#Plugin_PortableApps_ContextPane_InitializeComponent_
+  commentId: Overload:Plugin_PortableApps.ContextPane.InitializeComponent
+  fullName: Plugin_PortableApps.ContextPane.InitializeComponent
+  nameWithType: ContextPane.InitializeComponent
 - uid: Plugin_PortableApps.ContextPane.Page_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)
   name: Page_KeyDown(object, KeyEventArgs)
   href: api/Plugin_PortableApps.ContextPane.html#Plugin_PortableApps_ContextPane_Page_KeyDown_System_Object_System_Windows_Input_KeyEventArgs_
@@ -298,7 +323,6 @@ references:
   name: Page_KeyDown
   href: api/Plugin_PortableApps.ContextPane.html#Plugin_PortableApps_ContextPane_Page_KeyDown_
   commentId: Overload:Plugin_PortableApps.ContextPane.Page_KeyDown
-  isSpec: "True"
   fullName: Plugin_PortableApps.ContextPane.Page_KeyDown
   nameWithType: ContextPane.Page_KeyDown
 - uid: Plugin_PortableApps.PortableApps
@@ -320,7 +344,6 @@ references:
   name: PortableApps
   href: api/Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps__ctor_
   commentId: Overload:Plugin_PortableApps.PortableApps.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Plugin_PortableApps.PortableApps.PortableApps
   fullName.vb: Plugin_PortableApps.PortableApps.New
@@ -336,7 +359,6 @@ references:
   name: ListOfSystemApps
   href: api/Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_ListOfSystemApps_
   commentId: Overload:Plugin_PortableApps.PortableApps.ListOfSystemApps
-  isSpec: "True"
   fullName: Plugin_PortableApps.PortableApps.ListOfSystemApps
   nameWithType: PortableApps.ListOfSystemApps
 - uid: Plugin_PortableApps.PortableApps.PluggerName
@@ -349,7 +371,6 @@ references:
   name: PluggerName
   href: api/Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_PluggerName_
   commentId: Overload:Plugin_PortableApps.PortableApps.PluggerName
-  isSpec: "True"
   fullName: Plugin_PortableApps.PortableApps.PluggerName
   nameWithType: PortableApps.PluggerName
 - uid: Plugin_PortableApps.PortableApps.PluginSettings
@@ -362,7 +383,6 @@ references:
   name: PluginSettings
   href: api/Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_PluginSettings_
   commentId: Overload:Plugin_PortableApps.PortableApps.PluginSettings
-  isSpec: "True"
   fullName: Plugin_PortableApps.PortableApps.PluginSettings
   nameWithType: PortableApps.PluginSettings
 - uid: Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})
@@ -378,7 +398,6 @@ references:
   name: RemoveBlacklistItems
   href: api/Plugin_PortableApps.PortableApps.html#Plugin_PortableApps_PortableApps_RemoveBlacklistItems_
   commentId: Overload:Plugin_PortableApps.PortableApps.RemoveBlacklistItems
-  isSpec: "True"
   fullName: Plugin_PortableApps.PortableApps.RemoveBlacklistItems
   nameWithType: PortableApps.RemoveBlacklistItems
 - uid: Plugin_PortableApps.Settings
@@ -387,6 +406,24 @@ references:
   commentId: T:Plugin_PortableApps.Settings
   fullName: Plugin_PortableApps.Settings
   nameWithType: Settings
+- uid: Plugin_PortableApps.Settings.#ctor
+  name: Settings()
+  href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings__ctor
+  commentId: M:Plugin_PortableApps.Settings.#ctor
+  name.vb: New()
+  fullName: Plugin_PortableApps.Settings.Settings()
+  fullName.vb: Plugin_PortableApps.Settings.New()
+  nameWithType: Settings.Settings()
+  nameWithType.vb: Settings.New()
+- uid: Plugin_PortableApps.Settings.#ctor*
+  name: Settings
+  href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings__ctor_
+  commentId: Overload:Plugin_PortableApps.Settings.#ctor
+  name.vb: New
+  fullName: Plugin_PortableApps.Settings.Settings
+  fullName.vb: Plugin_PortableApps.Settings.New
+  nameWithType: Settings.Settings
+  nameWithType.vb: Settings.New
 - uid: Plugin_PortableApps.Settings.AllAppsSpecialCommand
   name: AllAppsSpecialCommand
   href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings_AllAppsSpecialCommand
@@ -397,7 +434,6 @@ references:
   name: AllAppsSpecialCommand
   href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings_AllAppsSpecialCommand_
   commentId: Overload:Plugin_PortableApps.Settings.AllAppsSpecialCommand
-  isSpec: "True"
   fullName: Plugin_PortableApps.Settings.AllAppsSpecialCommand
   nameWithType: Settings.AllAppsSpecialCommand
 - uid: Plugin_PortableApps.Settings.BlackList
@@ -410,7 +446,6 @@ references:
   name: BlackList
   href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings_BlackList_
   commentId: Overload:Plugin_PortableApps.Settings.BlackList
-  isSpec: "True"
   fullName: Plugin_PortableApps.Settings.BlackList
   nameWithType: Settings.BlackList
 - uid: Plugin_PortableApps.Settings.FuzzySearchThreshold
@@ -423,7 +458,6 @@ references:
   name: FuzzySearchThreshold
   href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings_FuzzySearchThreshold_
   commentId: Overload:Plugin_PortableApps.Settings.FuzzySearchThreshold
-  isSpec: "True"
   fullName: Plugin_PortableApps.Settings.FuzzySearchThreshold
   nameWithType: Settings.FuzzySearchThreshold
 - uid: Plugin_PortableApps.Settings.PortableAppsDirectory
@@ -436,7 +470,6 @@ references:
   name: PortableAppsDirectory
   href: api/Plugin_PortableApps.Settings.html#Plugin_PortableApps_Settings_PortableAppsDirectory_
   commentId: Overload:Plugin_PortableApps.Settings.PortableAppsDirectory
-  isSpec: "True"
   fullName: Plugin_PortableApps.Settings.PortableAppsDirectory
   nameWithType: Settings.PortableAppsDirectory
 - uid: Quokka
@@ -451,6 +484,48 @@ references:
   commentId: T:Quokka.App
   fullName: Quokka.App
   nameWithType: App
+- uid: Quokka.App.#ctor
+  name: App()
+  href: api/Quokka.App.html#Quokka_App__ctor
+  commentId: M:Quokka.App.#ctor
+  name.vb: New()
+  fullName: Quokka.App.App()
+  fullName.vb: Quokka.App.New()
+  nameWithType: App.App()
+  nameWithType.vb: App.New()
+- uid: Quokka.App.#ctor*
+  name: App
+  href: api/Quokka.App.html#Quokka_App__ctor_
+  commentId: Overload:Quokka.App.#ctor
+  name.vb: New
+  fullName: Quokka.App.App
+  fullName.vb: Quokka.App.New
+  nameWithType: App.App
+  nameWithType.vb: App.New
+- uid: Quokka.App.InitializeComponent
+  name: InitializeComponent()
+  href: api/Quokka.App.html#Quokka_App_InitializeComponent
+  commentId: M:Quokka.App.InitializeComponent
+  fullName: Quokka.App.InitializeComponent()
+  nameWithType: App.InitializeComponent()
+- uid: Quokka.App.InitializeComponent*
+  name: InitializeComponent
+  href: api/Quokka.App.html#Quokka_App_InitializeComponent_
+  commentId: Overload:Quokka.App.InitializeComponent
+  fullName: Quokka.App.InitializeComponent
+  nameWithType: App.InitializeComponent
+- uid: Quokka.App.Main
+  name: Main()
+  href: api/Quokka.App.html#Quokka_App_Main
+  commentId: M:Quokka.App.Main
+  fullName: Quokka.App.Main()
+  nameWithType: App.Main()
+- uid: Quokka.App.Main*
+  name: Main
+  href: api/Quokka.App.html#Quokka_App_Main_
+  commentId: Overload:Quokka.App.Main
+  fullName: Quokka.App.Main
+  nameWithType: App.Main
 - uid: Quokka.App.OnExit(System.Windows.ExitEventArgs)
   name: OnExit(ExitEventArgs)
   href: api/Quokka.App.html#Quokka_App_OnExit_System_Windows_ExitEventArgs_
@@ -461,7 +536,6 @@ references:
   name: OnExit
   href: api/Quokka.App.html#Quokka_App_OnExit_
   commentId: Overload:Quokka.App.OnExit
-  isSpec: "True"
   fullName: Quokka.App.OnExit
   nameWithType: App.OnExit
 - uid: Quokka.App.OnStartup(System.Windows.StartupEventArgs)
@@ -474,7 +548,6 @@ references:
   name: OnStartup
   href: api/Quokka.App.html#Quokka_App_OnStartup_
   commentId: Overload:Quokka.App.OnStartup
-  isSpec: "True"
   fullName: Quokka.App.OnStartup
   nameWithType: App.OnStartup
 - uid: Quokka.App.OpenPlugBoard
@@ -487,7 +560,6 @@ references:
   name: OpenPlugBoard
   href: api/Quokka.App.html#Quokka_App_OpenPlugBoard_
   commentId: Overload:Quokka.App.OpenPlugBoard
-  isSpec: "True"
   fullName: Quokka.App.OpenPlugBoard
   nameWithType: App.OpenPlugBoard
 - uid: Quokka.App.OpenSettingsFile
@@ -500,7 +572,6 @@ references:
   name: OpenSettingsFile
   href: api/Quokka.App.html#Quokka_App_OpenSettingsFile_
   commentId: Overload:Quokka.App.OpenSettingsFile
-  isSpec: "True"
   fullName: Quokka.App.OpenSettingsFile
   nameWithType: App.OpenSettingsFile
 - uid: Quokka.App.plugins
@@ -513,7 +584,6 @@ references:
   name: plugins
   href: api/Quokka.App.html#Quokka_App_plugins_
   commentId: Overload:Quokka.App.plugins
-  isSpec: "True"
   fullName: Quokka.App.plugins
   nameWithType: App.plugins
 - uid: Quokka.DelegateCommand
@@ -544,7 +614,6 @@ references:
   name: DelegateCommand
   href: api/Quokka.DelegateCommand.html#Quokka_DelegateCommand__ctor_
   commentId: Overload:Quokka.DelegateCommand.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Quokka.DelegateCommand.DelegateCommand
   fullName.vb: Quokka.DelegateCommand.New
@@ -563,7 +632,6 @@ references:
   name: CanExecute
   href: api/Quokka.DelegateCommand.html#Quokka_DelegateCommand_CanExecute_
   commentId: Overload:Quokka.DelegateCommand.CanExecute
-  isSpec: "True"
   fullName: Quokka.DelegateCommand.CanExecute
   nameWithType: DelegateCommand.CanExecute
 - uid: Quokka.DelegateCommand.CanExecuteChanged
@@ -585,7 +653,6 @@ references:
   name: Execute
   href: api/Quokka.DelegateCommand.html#Quokka_DelegateCommand_Execute_
   commentId: Overload:Quokka.DelegateCommand.Execute
-  isSpec: "True"
   fullName: Quokka.DelegateCommand.Execute
   nameWithType: DelegateCommand.Execute
 - uid: Quokka.KeyPressedArgs
@@ -607,7 +674,6 @@ references:
   name: KeyPressedArgs
   href: api/Quokka.KeyPressedArgs.html#Quokka_KeyPressedArgs__ctor_
   commentId: Overload:Quokka.KeyPressedArgs.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Quokka.KeyPressedArgs.KeyPressedArgs
   fullName.vb: Quokka.KeyPressedArgs.New
@@ -623,7 +689,6 @@ references:
   name: KeyPressed
   href: api/Quokka.KeyPressedArgs.html#Quokka_KeyPressedArgs_KeyPressed_
   commentId: Overload:Quokka.KeyPressedArgs.KeyPressed
-  isSpec: "True"
   fullName: Quokka.KeyPressedArgs.KeyPressed
   nameWithType: KeyPressedArgs.KeyPressed
 - uid: Quokka.ListItems
@@ -638,6 +703,24 @@ references:
   commentId: T:Quokka.ListItems.ItemContextPane
   fullName: Quokka.ListItems.ItemContextPane
   nameWithType: ItemContextPane
+- uid: Quokka.ListItems.ItemContextPane.#ctor
+  name: ItemContextPane()
+  href: api/Quokka.ListItems.ItemContextPane.html#Quokka_ListItems_ItemContextPane__ctor
+  commentId: M:Quokka.ListItems.ItemContextPane.#ctor
+  name.vb: New()
+  fullName: Quokka.ListItems.ItemContextPane.ItemContextPane()
+  fullName.vb: Quokka.ListItems.ItemContextPane.New()
+  nameWithType: ItemContextPane.ItemContextPane()
+  nameWithType.vb: ItemContextPane.New()
+- uid: Quokka.ListItems.ItemContextPane.#ctor*
+  name: ItemContextPane
+  href: api/Quokka.ListItems.ItemContextPane.html#Quokka_ListItems_ItemContextPane__ctor_
+  commentId: Overload:Quokka.ListItems.ItemContextPane.#ctor
+  name.vb: New
+  fullName: Quokka.ListItems.ItemContextPane.ItemContextPane
+  fullName.vb: Quokka.ListItems.ItemContextPane.New
+  nameWithType: ItemContextPane.ItemContextPane
+  nameWithType.vb: ItemContextPane.New
 - uid: Quokka.ListItems.ItemContextPane.Page_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)
   name: Page_KeyDown(object, KeyEventArgs)
   href: api/Quokka.ListItems.ItemContextPane.html#Quokka_ListItems_ItemContextPane_Page_KeyDown_System_Object_System_Windows_Input_KeyEventArgs_
@@ -651,7 +734,6 @@ references:
   name: Page_KeyDown
   href: api/Quokka.ListItems.ItemContextPane.html#Quokka_ListItems_ItemContextPane_Page_KeyDown_
   commentId: Overload:Quokka.ListItems.ItemContextPane.Page_KeyDown
-  isSpec: "True"
   fullName: Quokka.ListItems.ItemContextPane.Page_KeyDown
   nameWithType: ItemContextPane.Page_KeyDown
 - uid: Quokka.ListItems.ItemContextPane.ReturnToSearch
@@ -664,7 +746,6 @@ references:
   name: ReturnToSearch
   href: api/Quokka.ListItems.ItemContextPane.html#Quokka_ListItems_ItemContextPane_ReturnToSearch_
   commentId: Overload:Quokka.ListItems.ItemContextPane.ReturnToSearch
-  isSpec: "True"
   fullName: Quokka.ListItems.ItemContextPane.ReturnToSearch
   nameWithType: ItemContextPane.ReturnToSearch
 - uid: Quokka.ListItems.ListItem
@@ -673,6 +754,24 @@ references:
   commentId: T:Quokka.ListItems.ListItem
   fullName: Quokka.ListItems.ListItem
   nameWithType: ListItem
+- uid: Quokka.ListItems.ListItem.#ctor
+  name: ListItem()
+  href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem__ctor
+  commentId: M:Quokka.ListItems.ListItem.#ctor
+  name.vb: New()
+  fullName: Quokka.ListItems.ListItem.ListItem()
+  fullName.vb: Quokka.ListItems.ListItem.New()
+  nameWithType: ListItem.ListItem()
+  nameWithType.vb: ListItem.New()
+- uid: Quokka.ListItems.ListItem.#ctor*
+  name: ListItem
+  href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem__ctor_
+  commentId: Overload:Quokka.ListItems.ListItem.#ctor
+  name.vb: New
+  fullName: Quokka.ListItems.ListItem.ListItem
+  fullName.vb: Quokka.ListItems.ListItem.New
+  nameWithType: ListItem.ListItem
+  nameWithType.vb: ListItem.New
 - uid: Quokka.ListItems.ListItem.Description
   name: Description
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_Description
@@ -683,7 +782,6 @@ references:
   name: Description
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_Description_
   commentId: Overload:Quokka.ListItems.ListItem.Description
-  isSpec: "True"
   fullName: Quokka.ListItems.ListItem.Description
   nameWithType: ListItem.Description
 - uid: Quokka.ListItems.ListItem.Execute
@@ -696,7 +794,6 @@ references:
   name: Execute
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_Execute_
   commentId: Overload:Quokka.ListItems.ListItem.Execute
-  isSpec: "True"
   fullName: Quokka.ListItems.ListItem.Execute
   nameWithType: ListItem.Execute
 - uid: Quokka.ListItems.ListItem.Icon
@@ -709,7 +806,6 @@ references:
   name: Icon
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_Icon_
   commentId: Overload:Quokka.ListItems.ListItem.Icon
-  isSpec: "True"
   fullName: Quokka.ListItems.ListItem.Icon
   nameWithType: ListItem.Icon
 - uid: Quokka.ListItems.ListItem.Name
@@ -722,7 +818,6 @@ references:
   name: Name
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_Name_
   commentId: Overload:Quokka.ListItems.ListItem.Name
-  isSpec: "True"
   fullName: Quokka.ListItems.ListItem.Name
   nameWithType: ListItem.Name
 - uid: Quokka.ListItems.ListItem.ToString
@@ -735,7 +830,6 @@ references:
   name: ToString
   href: api/Quokka.ListItems.ListItem.html#Quokka_ListItems_ListItem_ToString_
   commentId: Overload:Quokka.ListItems.ListItem.ToString
-  isSpec: "True"
   fullName: Quokka.ListItems.ListItem.ToString
   nameWithType: ListItem.ToString
 - uid: Quokka.ListItems.NoListItem
@@ -757,7 +851,6 @@ references:
   name: NoListItem
   href: api/Quokka.ListItems.NoListItem.html#Quokka_ListItems_NoListItem__ctor_
   commentId: Overload:Quokka.ListItems.NoListItem.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Quokka.ListItems.NoListItem.NoListItem
   fullName.vb: Quokka.ListItems.NoListItem.New
@@ -773,7 +866,6 @@ references:
   name: Execute
   href: api/Quokka.ListItems.NoListItem.html#Quokka_ListItems_NoListItem_Execute_
   commentId: Overload:Quokka.ListItems.NoListItem.Execute
-  isSpec: "True"
   fullName: Quokka.ListItems.NoListItem.Execute
   nameWithType: NoListItem.Execute
 - uid: Quokka.LowLevelKeyboardListener
@@ -795,7 +887,6 @@ references:
   name: LowLevelKeyboardListener
   href: api/Quokka.LowLevelKeyboardListener.html#Quokka_LowLevelKeyboardListener__ctor_
   commentId: Overload:Quokka.LowLevelKeyboardListener.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardListener
   fullName.vb: Quokka.LowLevelKeyboardListener.New
@@ -811,7 +902,6 @@ references:
   name: HookKeyboard
   href: api/Quokka.LowLevelKeyboardListener.html#Quokka_LowLevelKeyboardListener_HookKeyboard_
   commentId: Overload:Quokka.LowLevelKeyboardListener.HookKeyboard
-  isSpec: "True"
   fullName: Quokka.LowLevelKeyboardListener.HookKeyboard
   nameWithType: LowLevelKeyboardListener.HookKeyboard
 - uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
@@ -820,6 +910,66 @@ references:
   commentId: T:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
   fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc
   nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.#ctor(System.Object,System.IntPtr)
+  name: LowLevelKeyboardProc(object, IntPtr)
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc__ctor_System_Object_System_IntPtr_
+  commentId: M:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.LowLevelKeyboardProc(object, System.IntPtr)
+  fullName.vb: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.New(Object, System.IntPtr)
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.LowLevelKeyboardProc(object, IntPtr)
+  nameWithType.vb: LowLevelKeyboardListener.LowLevelKeyboardProc.New(Object, IntPtr)
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.#ctor*
+  name: LowLevelKeyboardProc
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc__ctor_
+  commentId: Overload:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.#ctor
+  name.vb: New
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.LowLevelKeyboardProc
+  fullName.vb: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.New
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.LowLevelKeyboardProc
+  nameWithType.vb: LowLevelKeyboardListener.LowLevelKeyboardProc.New
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(System.Int32,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(int, IntPtr, IntPtr, AsyncCallback, object)
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_BeginInvoke_System_Int32_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(System.Int32,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(Integer, IntPtr, IntPtr, AsyncCallback, Object)
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(int, System.IntPtr, System.IntPtr, System.AsyncCallback, object)
+  fullName.vb: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(Integer, System.IntPtr, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(int, IntPtr, IntPtr, AsyncCallback, object)
+  nameWithType.vb: LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke(Integer, IntPtr, IntPtr, AsyncCallback, Object)
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_BeginInvoke_
+  commentId: Overload:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.BeginInvoke
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_EndInvoke_System_IAsyncResult_
+  commentId: M:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke(System.IAsyncResult)
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke(System.IAsyncResult)
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke(IAsyncResult)
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke*
+  name: EndInvoke
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_EndInvoke_
+  commentId: Overload:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.EndInvoke
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(System.Int32,System.IntPtr,System.IntPtr)
+  name: Invoke(int, IntPtr, IntPtr)
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_Invoke_System_Int32_System_IntPtr_System_IntPtr_
+  commentId: M:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(System.Int32,System.IntPtr,System.IntPtr)
+  name.vb: Invoke(Integer, IntPtr, IntPtr)
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(int, System.IntPtr, System.IntPtr)
+  fullName.vb: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(Integer, System.IntPtr, System.IntPtr)
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(int, IntPtr, IntPtr)
+  nameWithType.vb: LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke(Integer, IntPtr, IntPtr)
+- uid: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke*
+  name: Invoke
+  href: api/Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.html#Quokka_LowLevelKeyboardListener_LowLevelKeyboardProc_Invoke_
+  commentId: Overload:Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke
+  fullName: Quokka.LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke
+  nameWithType: LowLevelKeyboardListener.LowLevelKeyboardProc.Invoke
 - uid: Quokka.LowLevelKeyboardListener.OnKeyPressed
   name: OnKeyPressed
   href: api/Quokka.LowLevelKeyboardListener.html#Quokka_LowLevelKeyboardListener_OnKeyPressed
@@ -836,7 +986,6 @@ references:
   name: UnHookKeyboard
   href: api/Quokka.LowLevelKeyboardListener.html#Quokka_LowLevelKeyboardListener_UnHookKeyboard_
   commentId: Overload:Quokka.LowLevelKeyboardListener.UnHookKeyboard
-  isSpec: "True"
   fullName: Quokka.LowLevelKeyboardListener.UnHookKeyboard
   nameWithType: LowLevelKeyboardListener.UnHookKeyboard
 - uid: Quokka.NotifyIconViewModel
@@ -845,6 +994,24 @@ references:
   commentId: T:Quokka.NotifyIconViewModel
   fullName: Quokka.NotifyIconViewModel
   nameWithType: NotifyIconViewModel
+- uid: Quokka.NotifyIconViewModel.#ctor
+  name: NotifyIconViewModel()
+  href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel__ctor
+  commentId: M:Quokka.NotifyIconViewModel.#ctor
+  name.vb: New()
+  fullName: Quokka.NotifyIconViewModel.NotifyIconViewModel()
+  fullName.vb: Quokka.NotifyIconViewModel.New()
+  nameWithType: NotifyIconViewModel.NotifyIconViewModel()
+  nameWithType.vb: NotifyIconViewModel.New()
+- uid: Quokka.NotifyIconViewModel.#ctor*
+  name: NotifyIconViewModel
+  href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel__ctor_
+  commentId: Overload:Quokka.NotifyIconViewModel.#ctor
+  name.vb: New
+  fullName: Quokka.NotifyIconViewModel.NotifyIconViewModel
+  fullName.vb: Quokka.NotifyIconViewModel.New
+  nameWithType: NotifyIconViewModel.NotifyIconViewModel
+  nameWithType.vb: NotifyIconViewModel.New
 - uid: Quokka.NotifyIconViewModel.CloseWindowCommand
   name: CloseWindowCommand
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_CloseWindowCommand
@@ -855,7 +1022,6 @@ references:
   name: CloseWindowCommand
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_CloseWindowCommand_
   commentId: Overload:Quokka.NotifyIconViewModel.CloseWindowCommand
-  isSpec: "True"
   fullName: Quokka.NotifyIconViewModel.CloseWindowCommand
   nameWithType: NotifyIconViewModel.CloseWindowCommand
 - uid: Quokka.NotifyIconViewModel.ExitApplicationCommand
@@ -868,7 +1034,6 @@ references:
   name: ExitApplicationCommand
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_ExitApplicationCommand_
   commentId: Overload:Quokka.NotifyIconViewModel.ExitApplicationCommand
-  isSpec: "True"
   fullName: Quokka.NotifyIconViewModel.ExitApplicationCommand
   nameWithType: NotifyIconViewModel.ExitApplicationCommand
 - uid: Quokka.NotifyIconViewModel.OpenPlugBoard
@@ -881,7 +1046,6 @@ references:
   name: OpenPlugBoard
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_OpenPlugBoard_
   commentId: Overload:Quokka.NotifyIconViewModel.OpenPlugBoard
-  isSpec: "True"
   fullName: Quokka.NotifyIconViewModel.OpenPlugBoard
   nameWithType: NotifyIconViewModel.OpenPlugBoard
 - uid: Quokka.NotifyIconViewModel.OpenSettingsFile
@@ -894,7 +1058,6 @@ references:
   name: OpenSettingsFile
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_OpenSettingsFile_
   commentId: Overload:Quokka.NotifyIconViewModel.OpenSettingsFile
-  isSpec: "True"
   fullName: Quokka.NotifyIconViewModel.OpenSettingsFile
   nameWithType: NotifyIconViewModel.OpenSettingsFile
 - uid: Quokka.NotifyIconViewModel.ShowWindowCommand
@@ -907,7 +1070,6 @@ references:
   name: ShowWindowCommand
   href: api/Quokka.NotifyIconViewModel.html#Quokka_NotifyIconViewModel_ShowWindowCommand_
   commentId: Overload:Quokka.NotifyIconViewModel.ShowWindowCommand
-  isSpec: "True"
   fullName: Quokka.NotifyIconViewModel.ShowWindowCommand
   nameWithType: NotifyIconViewModel.ShowWindowCommand
 - uid: Quokka.PluginArch
@@ -922,6 +1084,24 @@ references:
   commentId: T:Quokka.PluginArch.FuzzySearch
   fullName: Quokka.PluginArch.FuzzySearch
   nameWithType: FuzzySearch
+- uid: Quokka.PluginArch.FuzzySearch.#ctor
+  name: FuzzySearch()
+  href: api/Quokka.PluginArch.FuzzySearch.html#Quokka_PluginArch_FuzzySearch__ctor
+  commentId: M:Quokka.PluginArch.FuzzySearch.#ctor
+  name.vb: New()
+  fullName: Quokka.PluginArch.FuzzySearch.FuzzySearch()
+  fullName.vb: Quokka.PluginArch.FuzzySearch.New()
+  nameWithType: FuzzySearch.FuzzySearch()
+  nameWithType.vb: FuzzySearch.New()
+- uid: Quokka.PluginArch.FuzzySearch.#ctor*
+  name: FuzzySearch
+  href: api/Quokka.PluginArch.FuzzySearch.html#Quokka_PluginArch_FuzzySearch__ctor_
+  commentId: Overload:Quokka.PluginArch.FuzzySearch.#ctor
+  name.vb: New
+  fullName: Quokka.PluginArch.FuzzySearch.FuzzySearch
+  fullName.vb: Quokka.PluginArch.FuzzySearch.New
+  nameWithType: FuzzySearch.FuzzySearch
+  nameWithType.vb: FuzzySearch.New
 - uid: Quokka.PluginArch.FuzzySearch.LD(System.String,System.String)
   name: LD(string, string)
   href: api/Quokka.PluginArch.FuzzySearch.html#Quokka_PluginArch_FuzzySearch_LD_System_String_System_String_
@@ -935,7 +1115,6 @@ references:
   name: LD
   href: api/Quokka.PluginArch.FuzzySearch.html#Quokka_PluginArch_FuzzySearch_LD_
   commentId: Overload:Quokka.PluginArch.FuzzySearch.LD
-  isSpec: "True"
   fullName: Quokka.PluginArch.FuzzySearch.LD
   nameWithType: FuzzySearch.LD
 - uid: Quokka.PluginArch.IPlugger
@@ -954,7 +1133,6 @@ references:
   name: OnAppShutdown
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_OnAppShutdown_
   commentId: Overload:Quokka.PluginArch.IPlugger.OnAppShutdown
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.OnAppShutdown
   nameWithType: IPlugger.OnAppShutdown
 - uid: Quokka.PluginArch.IPlugger.OnAppStartup
@@ -967,7 +1145,6 @@ references:
   name: OnAppStartup
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_OnAppStartup_
   commentId: Overload:Quokka.PluginArch.IPlugger.OnAppStartup
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.OnAppStartup
   nameWithType: IPlugger.OnAppStartup
 - uid: Quokka.PluginArch.IPlugger.OnQueryChange(System.String)
@@ -983,7 +1160,6 @@ references:
   name: OnQueryChange
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_OnQueryChange_
   commentId: Overload:Quokka.PluginArch.IPlugger.OnQueryChange
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.OnQueryChange
   nameWithType: IPlugger.OnQueryChange
 - uid: Quokka.PluginArch.IPlugger.OnSearchWindowStartup
@@ -996,7 +1172,6 @@ references:
   name: OnSearchWindowStartup
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_OnSearchWindowStartup_
   commentId: Overload:Quokka.PluginArch.IPlugger.OnSearchWindowStartup
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.OnSearchWindowStartup
   nameWithType: IPlugger.OnSearchWindowStartup
 - uid: Quokka.PluginArch.IPlugger.OnSpecialCommand(System.String)
@@ -1012,7 +1187,6 @@ references:
   name: OnSpecialCommand
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_OnSpecialCommand_
   commentId: Overload:Quokka.PluginArch.IPlugger.OnSpecialCommand
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.OnSpecialCommand
   nameWithType: IPlugger.OnSpecialCommand
 - uid: Quokka.PluginArch.IPlugger.PluggerName
@@ -1025,7 +1199,6 @@ references:
   name: PluggerName
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_PluggerName_
   commentId: Overload:Quokka.PluginArch.IPlugger.PluggerName
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.PluggerName
   nameWithType: IPlugger.PluggerName
 - uid: Quokka.PluginArch.IPlugger.SpecialCommands
@@ -1038,7 +1211,6 @@ references:
   name: SpecialCommands
   href: api/Quokka.PluginArch.IPlugger.html#Quokka_PluginArch_IPlugger_SpecialCommands_
   commentId: Overload:Quokka.PluginArch.IPlugger.SpecialCommands
-  isSpec: "True"
   fullName: Quokka.PluginArch.IPlugger.SpecialCommands
   nameWithType: IPlugger.SpecialCommands
 - uid: Quokka.SearchWindow
@@ -1060,7 +1232,6 @@ references:
   name: SearchWindow
   href: api/Quokka.SearchWindow.html#Quokka_SearchWindow__ctor_
   commentId: Overload:Quokka.SearchWindow.#ctor
-  isSpec: "True"
   name.vb: New
   fullName: Quokka.SearchWindow.SearchWindow
   fullName.vb: Quokka.SearchWindow.New
@@ -1072,6 +1243,18 @@ references:
   commentId: F:Quokka.SearchWindow.ContextPaneSettingsDict
   fullName: Quokka.SearchWindow.ContextPaneSettingsDict
   nameWithType: SearchWindow.ContextPaneSettingsDict
+- uid: Quokka.SearchWindow.InitializeComponent
+  name: InitializeComponent()
+  href: api/Quokka.SearchWindow.html#Quokka_SearchWindow_InitializeComponent
+  commentId: M:Quokka.SearchWindow.InitializeComponent
+  fullName: Quokka.SearchWindow.InitializeComponent()
+  nameWithType: SearchWindow.InitializeComponent()
+- uid: Quokka.SearchWindow.InitializeComponent*
+  name: InitializeComponent
+  href: api/Quokka.SearchWindow.html#Quokka_SearchWindow_InitializeComponent_
+  commentId: Overload:Quokka.SearchWindow.InitializeComponent
+  fullName: Quokka.SearchWindow.InitializeComponent
+  nameWithType: SearchWindow.InitializeComponent
 - uid: Quokka.SearchWindow.SelectedItem
   name: SelectedItem
   href: api/Quokka.SearchWindow.html#Quokka_SearchWindow_SelectedItem
@@ -1115,7 +1298,6 @@ references:
   name: parseHorizontalAlignmentSetting
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseHorizontalAlignmentSetting_
   commentId: Overload:Quokka.Settings.SettingParsers.parseHorizontalAlignmentSetting
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseHorizontalAlignmentSetting
   nameWithType: SettingParsers.parseHorizontalAlignmentSetting
 - uid: Quokka.Settings.SettingParsers.parseRenderingBiasSetting(System.String)
@@ -1131,7 +1313,6 @@ references:
   name: parseRenderingBiasSetting
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseRenderingBiasSetting_
   commentId: Overload:Quokka.Settings.SettingParsers.parseRenderingBiasSetting
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseRenderingBiasSetting
   nameWithType: SettingParsers.parseRenderingBiasSetting
 - uid: Quokka.Settings.SettingParsers.parseScreenDimensionsSetting(System.String)
@@ -1147,7 +1328,6 @@ references:
   name: parseScreenDimensionsSetting
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseScreenDimensionsSetting_
   commentId: Overload:Quokka.Settings.SettingParsers.parseScreenDimensionsSetting
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseScreenDimensionsSetting
   nameWithType: SettingParsers.parseScreenDimensionsSetting
 - uid: Quokka.Settings.SettingParsers.parseThicknessSetting(System.String)
@@ -1163,7 +1343,6 @@ references:
   name: parseThicknessSetting
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseThicknessSetting_
   commentId: Overload:Quokka.Settings.SettingParsers.parseThicknessSetting
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseThicknessSetting
   nameWithType: SettingParsers.parseThicknessSetting
 - uid: Quokka.Settings.SettingParsers.parseVerticalAlignmentSetting(System.String)
@@ -1179,7 +1358,6 @@ references:
   name: parseVerticalAlignmentSetting
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseVerticalAlignmentSetting_
   commentId: Overload:Quokka.Settings.SettingParsers.parseVerticalAlignmentSetting
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseVerticalAlignmentSetting
   nameWithType: SettingParsers.parseVerticalAlignmentSetting
 - uid: Quokka.Settings.SettingParsers.parseVisibilitySettings(System.String)
@@ -1195,31 +1373,5 @@ references:
   name: parseVisibilitySettings
   href: api/Quokka.Settings.SettingParsers.html#Quokka_Settings_SettingParsers_parseVisibilitySettings_
   commentId: Overload:Quokka.Settings.SettingParsers.parseVisibilitySettings
-  isSpec: "True"
   fullName: Quokka.Settings.SettingParsers.parseVisibilitySettings
   nameWithType: SettingParsers.parseVisibilitySettings
-- uid: Tests
-  name: Tests
-  href: api/Tests.html
-  commentId: N:Tests
-  fullName: Tests
-  nameWithType: Tests
-- uid: Tests.TestSettings
-  name: TestSettings
-  href: api/Tests.TestSettings.html
-  commentId: T:Tests.TestSettings
-  fullName: Tests.TestSettings
-  nameWithType: TestSettings
-- uid: Tests.TestSettings.TestScreenDimensionsParsing
-  name: TestScreenDimensionsParsing()
-  href: api/Tests.TestSettings.html#Tests_TestSettings_TestScreenDimensionsParsing
-  commentId: M:Tests.TestSettings.TestScreenDimensionsParsing
-  fullName: Tests.TestSettings.TestScreenDimensionsParsing()
-  nameWithType: TestSettings.TestScreenDimensionsParsing()
-- uid: Tests.TestSettings.TestScreenDimensionsParsing*
-  name: TestScreenDimensionsParsing
-  href: api/Tests.TestSettings.html#Tests_TestSettings_TestScreenDimensionsParsing_
-  commentId: Overload:Tests.TestSettings.TestScreenDimensionsParsing
-  isSpec: "True"
-  fullName: Tests.TestSettings.TestScreenDimensionsParsing
-  nameWithType: TestSettings.TestScreenDimensionsParsing

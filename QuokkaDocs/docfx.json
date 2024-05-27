@@ -5,7 +5,9 @@
         {
           "src": "G:/Quokka/Quokka/",
           "files": [
-            "Quokka.dll"
+            "Quokka.dll",
+            "PlugBoard/Plugin_InstalledApps/Plugin/Plugin_InstalledApps.dll",
+            "PlugBoard/Plugin_PortableApps/Plugin/Plugin_PortableApps.dll"
           ]
         }
       ],
@@ -30,16 +32,20 @@
         ]
       }
     ],
-    "output": "_site",
+    "output": "../APIdocs/",
     "template": [
-      "default",
-      "modern"
+        "templates/material",
+        "default",
+        "modern"
     ],
     "globalMetadata": {
       "_appName": "QuokkaDocs",
       "_appTitle": "QuokkaDocs",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
       "pdf": false
-    }
+    },
+    "postProcessors": ["ExtractSearchIndex"]
   }
 }

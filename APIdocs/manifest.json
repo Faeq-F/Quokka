@@ -11,39 +11,6 @@
       }
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "QuokkaDocs/getting-started.md",
-      "output": {
-        ".html": {
-          "relative_path": "QuokkaDocs/getting-started.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "QuokkaDocs/introduction.md",
-      "output": {
-        ".html": {
-          "relative_path": "QuokkaDocs/introduction.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "QuokkaDocs/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "QuokkaDocs/toc.html"
-        },
-        ".json": {
-          "relative_path": "QuokkaDocs/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "ManagedReference",
       "source_relative_path": "api/Plugin_InstalledApps.ContextPane.yml",
       "output": {
@@ -289,26 +256,6 @@
       "output": {
         ".html": {
           "relative_path": "api/Quokka.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Tests.TestSettings.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Tests.TestSettings.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Tests.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Tests.html"
         }
       },
       "version": ""
