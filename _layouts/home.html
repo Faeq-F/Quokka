@@ -57,6 +57,9 @@
     <link
       rel="stylesheet"
       href="styles/Documentation.css" />
+      <link
+      rel="stylesheet"
+      href="styles/Carousel.css"/>
   </head>
   <body>
     <div id="top">
@@ -172,8 +175,9 @@
         class="card aboutCard"
         data-aos="fade-down">
         <p>
-          Quokka is an extremely customizable keystroke launcher for Windows.
+          <span style="font-size: 20px">Quokka is an extremely customizable keystroke launcher for Windows.</span>
           <br />
+          <hr />
           <br />
           Quokka has a plugin-architecture, open to third parties. Through this,
           Quokka will have a large number of features, like color conversion,
@@ -188,7 +192,33 @@
           wish to have, maybe start a discussion over
           <a href="https://github.com/Faeq-F/Quokka/discussions">here</a>, or
           create it yourself.
-          <br />
+          <div id="#AboutScreenshots">
+            <div class="carousel-container">
+              <ul class="carousel my-carousel"><input class="carousel__activator" type="radio" id="A" name="activator" checked="checked" /><input class="carousel__activator" type="radio" id="B" name="activator" /><input class="carousel__activator" type="radio" id="C" name="activator" /><input
+                      class="carousel__activator" type="radio" id="D" name="activator" /><input class="carousel__activator" type="radio" id="E" name="activator" />
+                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="E"></label><label class="carousel__control carousel__control--forward" for="B"></label></div>
+                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="A"></label><label class="carousel__control carousel__control--forward" for="C"></label></div>
+                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="B"></label><label class="carousel__control carousel__control--forward" for="D"></label></div>
+                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="C"></label><label class="carousel__control carousel__control--forward" for="E"></label></div>
+                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="D"></label><label class="carousel__control carousel__control--forward" for="A"></label></div>
+                  <li class="carousel__slide"></li>
+                  <li class="carousel__slide"></li>
+                  <li class="carousel__slide"></li>
+                  <li class="carousel__slide"></li>
+                  <li class="carousel__slide"></li>
+              </ul>
+              <div class="carousel__indicators">
+                    <label class="carousel__indicator" for="A"></label>
+                    <label class="carousel__indicator" for="B"></label>
+                    <label class="carousel__indicator" for="C"></label>
+                    <label class="carousel__indicator" for="D"></label>
+                    <label class="carousel__indicator" for="E"></label>
+                    <br>
+                    <a href="#Documentation" onclick="lenis.scrollTo('#Documentation')" class="carouselText""></a>
+                  </div>
+            </div>
+
+          </div>
           <br />
           Quokka was designed to replace the need for your ugly start menu, task
           bar and any other clunky applications you currently use to add
@@ -198,9 +228,7 @@
           calculator, wikipedia, etc.
           <br />
         </p>
-        <br />
         <hr />
-        <br />
         <div>
           <a href="https://github.com">
             <img
