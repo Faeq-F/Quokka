@@ -44,60 +44,69 @@ aside {
   transition: transform .5s, opacity .5s;
   border: 0;
   width: 27vw;
-  height: 16vh;
+  /* height: 12vh; */
+  height: fit-content;
+  padding: 20px;
 }
 
 
 .PluginName {
-  font-size: larger;
-  color: var(--primary);
+  font-size: large;
+  color: var(--primaryPlugins);
   font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
   line-height: 1.45;
   margin: 0;
-  margin-left: 20px;
+  /* margin-left: 20px;
+  margin-top: 20px; */
+}
+
+.PluginName svg {
+  margin-right: 5px;
+}
+
+.ProjectCard {
+  fill: var(--primaryPlugins) !important;
+  color: var(--primaryPlugins) !important;
 }
 
 .PluginDesc {
-  font-size: small;
-  color: var(--primary);
+  font-size: medium;
+  color: var(--primaryPlugins);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
-  line-height: 1.45;
-  margin-left: 20px;
-  margin-top: -1%;
+  margin: 10px;
+  height: 5vh;
+  overflow-y: auto;
 }
 
 .SiteButton {
   flex: 0;
   background: #ffffff55;
   border: 0;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 5px;
-  padding: 5px;
+
   width: fit-content;
   height: fit-content;
   margin: 0;
-  margin-bottom: 20px;
-  margin-left: 20px;
-
+  color: var(--primaryPlugins) !important
 }
 
 .PluginButtonGroup {
   display: flex;
-  margin-top: -7px;
+  height: fit-content;
 }
 
 .DeveloperName {
   flex: 1;
   margin: 0;
   padding: 0;
-  font-size: 70%;
+  font-size: small;
   text-align: start;
   margin-left: 10px;
   margin-top: 10px;
-  color: var(--primary);
+  color: var(--primaryPlugins);
 }
 
 @media (max-width: 661px) {

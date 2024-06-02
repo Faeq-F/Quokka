@@ -45,7 +45,10 @@ body {
 
 :root {
   --hue: 288;
+  --huePlugins: 360;
   --primary: oklch(0.8 0.2 var(--hue));
+  /* IDK why, plugins look like a different color */
+  --primaryPlugins: oklch(0.9 0.2 var(--huePlugins));
   --otherColorHue: calc(var(--hue) - 20);
   --primaryOther: oklch(90% .2 var(--otherColorHue));
   --primaryOtherOther: oklch(80% .7 var(--otherColorHue));
