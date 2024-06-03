@@ -86,11 +86,11 @@ aside {
   background: #ffffff55;
   border: 0;
   border-radius: 5px;
-
   width: fit-content;
   height: fit-content;
   margin: 0;
-  color: var(--primaryPlugins) !important
+  color: var(--primaryPlugins) !important;
+  place-self: flex-end;
 }
 
 .PluginButtonGroup {
@@ -105,7 +105,6 @@ aside {
   font-size: small;
   text-align: start;
   margin-left: 10px;
-  margin-top: 10px;
   color: var(--primaryPlugins);
 }
 
