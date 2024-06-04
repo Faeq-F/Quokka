@@ -2,3 +2,45 @@
   width: 100vw;
   margin-bottom: 10vh;
 }
+
+.collapsible {
+  background-color: #eee;
+  padding: 2px;
+  width: calc(100% - 20px);
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 10px;
+  box-shadow: rgba(151, 65, 252, 0.1) 0 2px 20px 1px;
+}
+
+.active,
+.collapsible:hover {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: #ddd;
+  margin-bottom: 0px;
+}
+
+.active span {
+  background: none;
+  color: #fff;
+}
+
+.collapsibleContent {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin: 10px;
+  margin-top: 0px;
+  font-size: medium;
+}

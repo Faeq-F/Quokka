@@ -1,1 +1,1 @@
-bundle exec jekyll serve --livereload --incremental --verbose
+bundle exec jekyll serve --livereload --incremental

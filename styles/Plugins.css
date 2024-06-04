@@ -44,11 +44,15 @@ aside {
   transition: transform .5s, opacity .5s;
   border: 0;
   width: 27vw;
-  /* height: 12vh; */
   height: fit-content;
   padding: 20px;
 }
 
+@media (max-width: 661px) {
+  .ProjectCard {
+    width: 90%;
+  }
+}
 
 .PluginName {
   font-size: large;
@@ -151,13 +155,13 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--sec);
+  background-color: transparent;
   border-radius: 4px;
   transition: transform 0.3s ease-in-out;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  box-shadow: 1px 1px 3px 0 #0009;
+
 }
 
 .grid-item:hover {
@@ -185,10 +189,10 @@ aside {
 }
 
 @media (min-width: 600px) {
-  .wide {
+  /* .wide {
     grid-column: span 2;
     grid-row: span 2;
-  }
+  } */
 
   .tall {
     grid-row: span 2;

@@ -113,17 +113,7 @@ footer {
   border-radius: 15px;
 }
 
-.spliter-div {
-  width: 5px;
-  height: 50%;
-  margin: 3px 0;
-  position: absolute;
-  left: var(--m-x);
-  margin-top: 9px;
-  cursor: col-resize;
-  top: 30%;
-  background: #ffffff7c;
-}
+
 
 .ConnectTagline {
   color: #f2f4f8 !important;
@@ -326,6 +316,11 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
 
 #cd-1 {
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+}
+
+#cd-2 {
+  flex-grow: 4;
 }
 
 #DocsNav {
@@ -354,8 +349,20 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   padding: 10%;
 }
 
+#DocsNav ul {
+  padding-left: 20%;
+  list-style-type: none;
+  list-style-position: outside;
+  text-align: left;
+}
+
 #DocsNav ul li {
   list-style: none;
+}
+
+#DocsNav ul li span {
+  color: white;
+  font-size: large;
 }
 
 #DocsNav ul li button {

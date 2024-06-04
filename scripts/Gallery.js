@@ -9,7 +9,9 @@ function loadScreenshots(buttonText) {
 function attachButtonListeners() {
   buttons_array.forEach(function (item, idx) {
     item.addEventListener("click", function () {
-      loadScreenshots(item.innerText.replace(/ /g, "_").split("\n")[0]);
+      loadScreenshots(
+        item.innerText.replace(/ /g, "_").split("\n")[0].substring(1)
+      );
     });
   });
 }
@@ -27,26 +29,30 @@ const vw = Math.max(
   window.innerWidth || 0
 );
 
-var $window = $(".modal-window");
-var $overlay = $(".modal-overlay");
+var modalWindow = document.getElementsByClassName("modal-window");
+var modalOverlay = document.getElementsByClassName("modal-overlay")[0];
 
-images = document.getElementsByClassName("modal-launcher");
+var images = document.getElementsByClassName("modal-launcher");
 function exitImageView() {
   for (i in images) images[i].checked = false;
   if (vw > 660) $("header").css("display", "block");
-  $window.removeClass("fadeIn");
-  $overlay.removeClass("fadeIn");
-  $window.addClass("fadeOut");
-  $overlay.addClass("fadeOut");
+  modalWindow.removeClass("fadeIn");
+  modalOverlay.removeClass("fadeIn");
+  modalWindow.addClass("fadeOut");
+  modalOverlay.addClass("fadeOut");
 }
 
-$($window).click(exitImageView);
-$($overlay).click(exitImageView);
+// $($window).addEventListener("click", function () {
+//   exitImageView();
+// });
+// $($overlay).addEventListener("click", function () {
+//   exitImageView();
+// });
 
 $(".modal-launcher").click(function () {
   if (vw > 660) $("header").css("display", "none");
-  $window.removeClass("fadeOut");
-  $overlay.removeClass("fadeOut");
-  $window.addClass("fadeIn");
-  $overlay.addClass("fadeIn");
+  modalWindow.removeClass("fadeOut");
+  modalOverlay.removeClass("fadeOut");
+  modalWindow.addClass("fadeIn");
+  modalOverlay.addClass("fadeIn");
 });
