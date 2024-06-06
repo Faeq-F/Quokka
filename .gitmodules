@@ -1,0 +1,3 @@
+[submodule "Plugin_Everything"]
+	path = Plugin_Everything
+	url = https://github.com/Faeq-F/Quokka-Everything-Plugin.git
