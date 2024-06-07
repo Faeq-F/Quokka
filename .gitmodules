@@ -1,3 +1,9 @@
 [submodule "Plugin_Everything"]
 	path = Plugin_Everything
 	url = https://github.com/Faeq-F/Quokka-Everything-Plugin.git
+[submodule "Plugin_InstalledApps"]
+	path = Plugin_InstalledApps
+	url = https://github.com/Faeq-F/Quokka-InstalledApps-Plugin.git
+[submodule "Plugin_PortableApps"]
+	path = Plugin_PortableApps
+	url = https://github.com/Faeq-F/Quokka-PortableApps-Plugin.git
