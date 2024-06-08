@@ -7,3 +7,6 @@
 [submodule "Plugin_PortableApps"]
 	path = Plugin_PortableApps
 	url = https://github.com/Faeq-F/Quokka-PortableApps-Plugin.git
+[submodule "Plugin_Calculator"]
+	path = Plugin_Calculator
+	url = https://github.com/Faeq-F/Quokka-Calculator-Plugin.git
