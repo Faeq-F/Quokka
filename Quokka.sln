@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_Everything", "Plugin_Everything\Plugin_Everything.csproj", "{E95C988F-279D-4F75-886E-206716E1461D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_Calculator", "Plugin_Calculator\Plugin_Calculator.csproj", "{2278593A-4F13-4BDD-B45B-1DBE156C0C05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,22 @@ Global
 		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Quokka|Any CPU.Build.0 = Debug|Any CPU
 		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{144F8C8D-900E-4AA8-9D4D-C6D9854512B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E95C988F-279D-4F75-886E-206716E1461D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2278593A-4F13-4BDD-B45B-1DBE156C0C05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

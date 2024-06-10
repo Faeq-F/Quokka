@@ -10,3 +10,6 @@
 [submodule "Plugin_Calculator"]
 	path = Plugin_Calculator
 	url = https://github.com/Faeq-F/Quokka-Calculator-Plugin.git
+[submodule "Plugin_EnglishDictionary"]
+	path = Plugin_EnglishDictionary
+	url = https://github.com/Faeq-F/Quokka-EnglishDictionary-Plugin.git

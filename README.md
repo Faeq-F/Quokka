@@ -372,8 +372,9 @@ In order of priority:
 
 1. open Visual Studio & clone Quokka
 2. in the solution, create a project of type WPF class library, naming it "Plugin\__YourPluginNameHere_"<br>
+(make sure that it is a part of the Quokka solution and that it is not its own)<br>
 3. rename the cs file to "Plugin\__YourPluginNameHere_"
-4. edit the project file to look like the following:<br>
+4. edit the project file to look like the following and set the build configuration to 'Plugin':<br>
    > The following is part of the ShowTypedText plugin:<br>
 
 ```
@@ -390,9 +391,15 @@ In order of priority:
     <Product>Plugin_ShowTypedText</Product>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <BaseOutputPath>..\Quokka\bin\Debug\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
+    <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
+    <Configurations>Debug;Release;Plugin</Configurations>
 
   </PropertyGroup>
+
+  <PropertyGroup>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
@@ -404,8 +411,8 @@ In order of priority:
 5. In the cs file add
 
 ```
-using Quokka.Plugger.Contracts;
-using Quokka;
+using Quokka.PluginArch;
+using Quokka.ListItems;
 ```
 
 and create a ListItem class for your item type.<br>
@@ -416,15 +423,15 @@ and create a ListItem class for your item type.<br>
 class TypedTextItem : ListItem {
         public string query;
         public TypedTextItem(string query) {
-            this.name = "Typed:" + query;
+            this.Name = "Typed:" + query;
             this.query = query;
-            this.description = "The search field contains the above text";
-            this.icon = new BitmapImage(new Uri(
+            this.Description = "The search field contains the above text";
+            this.Icon = new BitmapImage(new Uri(
                 Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
         }
 
         //When item is selected, copy text
-        public override void execute() {
+        public override void Execute() {
             Clipboard.SetText(query);
             App.Current.MainWindow.Close();
         }
@@ -472,10 +479,10 @@ In this method, you should create your list item objects, filter them (if needed
 <br>
 If your plugin has a special command, then you will need to sort the list for that command yourself. Normal results (those returned in OnQueryChange) do not need to be sorted as Quokka will sort them once it has results from all of the plugins the program is using during runtime.
 
-8. Every plugin (for now) will need a context pane for its item type
+8. Define the context pane for the item type
 
 - In the project, add a WPF Page <b>called 'ContextPane'</b>
-- ensure ContextPane : Page (inherits page)
+- ensure ContextPane : ItemContextPane (inherits ItemContextPane from Quokka.ListItems)
 - ensure the plugin's project file has
 
 ```
@@ -492,13 +499,44 @@ If your plugin has a special command, then you will need to sort the list for th
 </ItemGroup>
 ```
 
-- add information / extra actions to the pane
+- add the following to not have a context pane:
+```
+    public partial class ContextPane : ItemContextPane
+    {
+        public ContextPane()
+        {
+            InitializeComponent();
+            base.ReturnToSearch();
+        }
+    }
+```
+
+```
+<src:ItemContextPane
+    x:Class="Plugin_ShowTypedText.ContextPane"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
+    Title="ContextPane"
+    d:DesignHeight="300"
+    d:DesignWidth="800">
+
+    <Grid />
+</src:ItemContextPane>
+```
+
+- or, add information / extra actions to the pane
   > e.g., The following is part of the ShowTypedText plugin:
 
 ```
-<Page x:Class="Plugin_ShowTypedText.ContextPane"
+<src:ItemContextPane
+    x:Class="Plugin_ShowTypedText.ContextPane"
+    xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
+    d:DesignHeight="300"
+    d:DesignWidth="800"
     ...
-    d:DesignHeight="300" d:DesignWidth="800"
     Title="ContextPane"
     KeyDown="Page_KeyDown">
 
@@ -535,7 +573,7 @@ If your plugin has a special command, then you will need to sort the list for th
             </Grid>
         </Grid>
     </Border>
-</Page>
+</src:ItemContextPane>
 ```
 
 ```
@@ -544,7 +582,7 @@ using Quokka;
 
 namespace Plugin_ShowTypedText {
 
-    public partial class ContextPane : Page{
+    public partial class ContextPane : ItemContextPane {
 
         private Quokka.ListItem Item;
 
@@ -557,7 +595,7 @@ namespace Plugin_ShowTypedText {
 
         ...
 
-        private void Page_KeyDown(object sender, KeyEventArgs e) {
+        protected override void Page_KeyDown(object sender, KeyEventArgs e) {
             ButtonsListView.Focus();
             switch (e.Key){
                 case Key.Enter:

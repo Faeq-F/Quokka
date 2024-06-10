@@ -27,8 +27,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Quokka\Quokka.csproj" />
-    <Reference Include="..\Quokka\Quokka.csproj">
-      <HintPath>..\Quokka\obj\Release\Quokka.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>

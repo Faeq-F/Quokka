@@ -30,6 +30,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="Shell32">
@@ -43,22 +44,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hardcodet.NotifyIcon.Wpf"
-                      Version="1.1.0" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf"
-                      Version="1.1.77" />
-    <PackageReference Include="Newtonsoft.Json"
-                      Version="13.0.3" />
-    <PackageReference Include="PInvoke.User32"
-                      Version="0.7.124" />
-    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell"
-                      Version="2.12.0.2" />
-  </ItemGroup>
-  <ItemGroup>
-    <ContentWithTargetPath Include="..\Config\Resources\3dObjectsFolder.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <TargetPath>Config\Resources\3dObjectsFolder.png</TargetPath>
-    </ContentWithTargetPath>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PInvoke.User32" Version="0.7.124" />
+    <PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.12.0.2" />
   </ItemGroup>
   <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\admin.png">

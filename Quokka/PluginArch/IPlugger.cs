@@ -13,7 +13,7 @@ namespace Quokka.PluginArch {
      *  The name of the plugin
      *  </summary>
      */
-    string PluggerName { get; set; }
+    public string PluggerName { get; set; }
 
     /** <summary>
      *  This method will run just before the application shuts down,
