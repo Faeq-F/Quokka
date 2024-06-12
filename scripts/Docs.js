@@ -26,67 +26,65 @@ function loadDefaultDocsContent() {
 document.getElementById("DocsHeaderButton").onclick = loadDefaultDocsContent;
 loadDefaultDocsContent();
 
-//Resize divs
-let root = document.documentElement;
-let spliter = document.querySelector(".spliter-div");
-let rowDiv = document.querySelector(".row-divs");
-let cd1 = document.getElementById("cd-1");
-var isDown = false;
-var isHover = false;
-var minWidth = 127;
-var maxWidth = 600;
+// Expanding div -----------------------------------------------------------------------------
 
-function setPosition() {
-  var cl = this.document.querySelector(".col-div");
-  if (cl) {
-    root.style.setProperty("--m-x", cl.offsetWidth + 3.5 + "px");
-  }
-  minWidth = parseInt(rowDiv.clientWidth / 10) * 2 + 22;
-  maxWidth = parseInt(rowDiv.clientWidth - minWidth);
+function getPosition(elem) {
+  const rect = elem.getBoundingClientRect();
+  return {
+    top: rect.top,
+    left: rect.left,
+    width: rect.width,
+    height: rect.height,
+  };
 }
-function moveTo(e) {
-  if (e.clientX > minWidth && e.clientX < maxWidth) {
-    if (cd1.classList.contains("col-div-flex")) {
-      cd1.classList.remove("col-div-flex");
-    }
-    cd1.style.width = e.clientX + "px";
-    root.style.setProperty("--m-x", e.clientX + 9.5 + "px");
+
+function toPx(val) {
+  return [val, "px"].join("");
+}
+var entry = $(".expandingDiv")[0];
+
+function expandDocs() {
+  if (entry.classList.contains("fullscreen")) {
+    entry.classList.remove("fullscreen");
+    setTimeout((e) => {
+      entry.style.position = "fixed";
+      entry.style.left = "50%";
+    }, 1000);
+    //close
+  } else {
+    //open
+    let pos = getPosition(entry);
+    entry.style.width = toPx(pos.width);
+    entry.style.height = toPx(pos.height);
+    entry.style.top = toPx(pos.top);
+    entry.style.left = toPx(pos.left);
+    entry.classList.add("fullscreen");
+
+    entry.style.position = "fixed";
   }
 }
-window.addEventListener("DOMContentLoaded", function (e) {
-  setPosition();
-});
-window.addEventListener("resize", function (e) {
-  setPosition();
-});
-root.addEventListener(
-  "mousedown",
-  function (e) {
-    if (isHover) {
-      isDown = true;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      expandDocs();
     }
-  },
-  true
-);
-document.addEventListener(
-  "mouseup",
-  function (e) {
-    isDown = false;
-    if (isHover) {
-      //...
+  });
+});
+
+observer.observe($("#bottom")[0]);
+
+var y;
+window.onscroll = function () {
+  if (entry.classList.contains("fullscreen")) {
+    if (window.scrollY < y) {
+      entry.classList.remove("fullscreen");
+      setTimeout((e) => {
+        entry.style.position = "fixed";
+        entry.style.left = "50%";
+      }, 1000);
     }
-  },
-  true
-);
-document.addEventListener("mousemove", function (e) {
-  if (isDown) {
-    moveTo(e);
+  } else {
+    y = window.scrollY;
   }
-});
-spliter.addEventListener("mouseenter", function (e) {
-  isHover = true;
-  spliter.style.cursor = "col-resize";
-});
-spliter.addEventListener("mouseout", function (e) {
-  isHover = false;
-});
+};

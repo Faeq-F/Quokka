@@ -32,30 +32,23 @@ body {
 footer {
   margin: 0 auto;
   text-align: center;
-  height: 90vh;
+  height: 5vh;
   width: 100vw;
+  background-color: #f4f7ff;
 }
 
 
 .ContactCard {
-  resize: both;
-  overflow: auto;
-  z-index: 999;
-
-  height: 60vh;
-  min-width: 80%;
-  max-width: 93%;
-  width: 80%;
-  margin: 20vh auto 0;
+  min-height: 100vh;
   text-align: center;
   padding: 2rem;
   line-height: 1.45;
   font-size: 16px;
   color: #2c2c2cd5;
-  background: linear-gradient(125deg, var(--primary), var(--primaryOther));
+  /* background: linear-gradient(125deg, var(--primary), var(--primaryOther)); */
   background-size: cover;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
-
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px; */
+  background-color: #f4f7ff;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -80,6 +73,7 @@ footer {
 
 #DocumentationCard {
   position: relative;
+  display: none;
 }
 
 :root {
@@ -89,7 +83,7 @@ footer {
 .container-divs {
   display: flex;
   flex: 1 1 auto;
-  height: 100%;
+  height: 93vh;
   width: 100%;
 }
 
@@ -99,7 +93,7 @@ footer {
 }
 
 .col-div {
-  margin: 3px;
+  margin: 5px;
   padding: 3px;
   min-width: 1%;
   max-width: 90%;
@@ -156,144 +150,6 @@ footer {
   padding: 0;
 }
 
-/*The below was modified from https://uiverse.io/StealthWorm/spotty-horse-48
-original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
-
-#container-stars {
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  transition: 0.5s;
-  backdrop-filter: blur(1rem);
-  border-radius: 6px;
-}
-
-
-.circle {
-  width: 100%;
-  height: 30px;
-  filter: blur(2rem);
-  animation: pulse_3011 4s infinite;
-  z-index: -1;
-}
-
-
-.btn:hover #container-stars {
-  z-index: 1;
-  background-color: #212121;
-}
-
-.btn:hover {
-  transform: scale(1.1)
-}
-
-.btn:active {
-  border: double 4px #6d53fe88;
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  animation: none;
-}
-
-.btn:active .circle {
-  background: #8653feaf;
-}
-
-#stars {
-  position: relative;
-  background: transparent;
-  width: 200rem;
-  height: 200rem;
-}
-
-#stars::after {
-  content: "";
-  position: absolute;
-  top: -10rem;
-  left: -100rem;
-  width: 100%;
-  height: 100%;
-  animation: animStarRotate 90s linear infinite;
-}
-
-#stars::after {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-}
-
-#stars::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -50%;
-  width: 170%;
-  height: 500%;
-  animation: animStar 60s linear infinite;
-}
-
-#stars::before {
-  background-image: radial-gradient(#ffffff 1px, transparent 1%);
-  background-size: 50px 50px;
-  opacity: 0.5;
-}
-
-@keyframes animStar {
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-135rem);
-  }
-}
-
-@keyframes animStarRotate {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0);
-  }
-}
-
-@keyframes gradient_301 {
-  0% {
-    background-position: 0 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0 50%;
-  }
-}
-
-@keyframes pulse_3011 {
-  0% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-  }
-
-  70% {
-    transform: scale(1);
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
-
-  100% {
-    transform: scale(0.75);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-  }
-}
-
-
-
-
-
-
 .ConnectTitleBox {
   display: grid;
   grid-auto-flow: row;
@@ -310,17 +166,22 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   border-radius: 10px;
   height: 100%;
   width: 100%;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+
   overflow-y: scroll;
 }
 
 #cd-1 {
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
+  background: var(--primaryOther);
+  filter: hue-rotate(45deg);
   flex-grow: 1;
 }
 
 #cd-2 {
   flex-grow: 4;
+  box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
+  background: var(--primaryOther);
+  filter: hue-rotate(45deg);
 }
 
 #DocsNav {
@@ -339,10 +200,15 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   padding: 10px;
   border-radius: 10px;
   text-align: left;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#DefaultDocsContentCard1 {
+  height: 20%;
 }
 
 #DefaultDocsContentCard2 {
-  height: 80%;
+  height: calc(80% - 65px);
 }
 
 #DocsHeader {
@@ -354,6 +220,7 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   list-style-type: none;
   list-style-position: outside;
   text-align: left;
+  margin-top: 0;
 }
 
 #DocsNav ul li {
@@ -373,7 +240,7 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
   padding: 5px;
   margin: 5px;
   font-weight: 500;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 15px 30px -5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 #DocsNav ul li button:active {
@@ -383,9 +250,43 @@ original creator Copyright - 2023 StealthWorm (thierry) - MIT License*/
 #DocsHeaderButton {
   background: transparent;
   border: 0;
-  color: #f2f4f8 !important;
+  color: white !important;
   text-align: left;
   font-weight: bolder;
   font-size: 90% !important;
-  text-decoration: underline;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
+/* ---------------------------- */
+
+.expandingDiv {
+  background-color: #ffffff;
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+  border-radius: 15px;
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  bottom: 0;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  z-index: 9999;
+}
+
+.expandingDiv.fullscreen {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: translate(0px, 0px);
+}
+
+.animateTransitions {
+  transition: all 1s;
+}
+
+.expandingDiv.fullscreen #DocumentationCard {
+  display: block;
 }

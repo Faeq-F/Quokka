@@ -105,7 +105,8 @@ body {
   position: absolute;
   top: 90vh;
   width: 3vw;
-  left: 50vw;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .hideme {
