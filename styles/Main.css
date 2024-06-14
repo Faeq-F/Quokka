@@ -478,3 +478,7 @@ kbd {
   white-space: nowrap;
   font-family: monospace;
 }
+
+code {
+  font-family: monospace;
+}
