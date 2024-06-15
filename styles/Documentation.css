@@ -172,16 +172,15 @@ footer {
 
 #cd-1 {
   box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
-  background: var(--primaryOther);
-  filter: hue-rotate(45deg);
+  background: var(--primary);
   flex-grow: 1;
 }
 
 #cd-2 {
   flex-grow: 4;
   box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
-  background: var(--primaryOther);
-  filter: hue-rotate(45deg);
+  background: var(--primary);
+
 }
 
 #DocsNav {

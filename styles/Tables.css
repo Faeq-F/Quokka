@@ -42,7 +42,7 @@
   opacity: 70%;
   vertical-align: bottom;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-  background: var(--primaryOther);
+  background: var(--primary);
   text-shadow: 0 0 3px black;
 }
 
@@ -189,12 +189,12 @@
 
 .table-striped.table-mc-primary>tbody>tr:nth-child(odd)>td,
 .table-striped.table-mc-primary>tbody>tr:nth-child(odd)>th {
-  background-color: var(--primaryOther);
+  background-color: var(--primary);
 }
 
 .table-hover.table-mc-primary>tbody>tr:hover>td,
 .table-hover.table-mc-primary>tbody>tr:hover>th {
-  background-color: var(--primaryOther);
+  background-color: var(--primary);
 }
 
 @media screen and (max-width: 767px) {
@@ -205,7 +205,7 @@
   }
 
   .table-responsive-vertical .table-striped.table-mc-primary>tbody>tr>td:nth-child(odd) {
-    background-color: var(--primaryOther);
+    background-color: var(--primary);
   }
 
   .table-responsive-vertical .table-hover.table-mc-primary>tbody>tr:hover>td,
@@ -214,6 +214,6 @@
   }
 
   .table-responsive-vertical .table-hover.table-mc-primary>tbody>tr>td:hover {
-    background-color: var(--primaryOther);
+    background-color: var(--primary);
   }
 }
