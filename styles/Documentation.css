@@ -290,3 +290,13 @@ footer {
 .expandingDiv.fullscreen #DocumentationCard {
   display: block;
 }
+
+blockquote {
+  margin: 0;
+  padding-left: 10px;
+  font-size: small;
+  border-left: solid 1px #bbb;
+  border-bottom: solid 1px #bbb;
+  width: 90%;
+  border-bottom-left-radius: 15px;
+}
