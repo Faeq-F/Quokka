@@ -47,6 +47,7 @@ function expandDocs() {
   if (entry.classList.contains("fullscreen")) {
     entry.classList.remove("fullscreen");
     setTimeout((e) => {
+      entry.style.display = "none";
       entry.style.position = "fixed";
       entry.style.left = "50%";
     }, 1000);

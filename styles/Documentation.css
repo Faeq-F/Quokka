@@ -294,6 +294,7 @@ footer {
 blockquote {
   margin: 0;
   padding-left: 10px;
+  padding-bottom: 5px;
   font-size: small;
   border-left: solid 1px #bbb;
   border-bottom: solid 1px #bbb;
