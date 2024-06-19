@@ -34,6 +34,14 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+
+  margin: 0;
+}
+
+#top {
+  position: absolute;
+  top: 0;
 }
 
 * {
@@ -196,23 +204,22 @@ body:has(.switch__input:checked) *,
   padding: 2rem;
   line-height: 1.45;
   font-size: 16px;
-  color: #2c2c2cd5;
-  background-color: #ffffff;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-
+  text-shadow: 1px 1px 10px #0000002e;
+  color: #2d2d2dad;
+  border-radius: 15px;
   -webkit-transition: -webkit-transform .5s, opacity .5s;
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
   transition: transform .5s, opacity .5s;
+  /* box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, #c3cfe2 -3.2px -3.2px 8px 0px inset; */
+  border: 1px solid #00000082;
 }
 
 a[href] {
   color: var(--primary);
   text-decoration: none;
+  filter: saturate(2) brightness(1);
+  text-shadow: 2px -1px 2px #ffffff66;
 }
 
 /* unvisited link */
@@ -452,7 +459,8 @@ img {
   background-clip: text;
   color: transparent;
   font-size: 80px;
-  filter: hue-rotate(var(--hue) deg);
+  filter: saturate(3);
+  text-shadow: 4px -2px 7px oklch(0 0 0 / 0.17)
 }
 
 @media only screen and (max-width: 639px) {

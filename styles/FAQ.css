@@ -1,6 +1,7 @@
 #FAQ {
   width: 100vw;
-  margin-bottom: 50vh;
+  padding-bottom: 50vh;
+  background-image: linear-gradient(56deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .collapsible {

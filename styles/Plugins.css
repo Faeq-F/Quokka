@@ -1,6 +1,7 @@
-#Portfolio {
+#Plugins {
   width: 100vw;
-  margin-bottom: 10vh;
+  padding-bottom: 10vh;
+  background-image: linear-gradient(119deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 aside {
@@ -33,7 +34,7 @@ aside {
 .ProjectCard {
   display: inline-grid;
   margin: 10px;
-  background-color: #ffffff;
+  background-color: #efe7ee;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -46,6 +47,7 @@ aside {
   width: 27vw;
   height: fit-content;
   padding: 20px;
+  border: 1px solid #00000082;
 }
 
 @media (max-width: 661px) {
@@ -138,6 +140,8 @@ aside {
   font-weight: bold;
   text-align: center;
   line-height: 1.45;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 #PortfolioScrollImg {
@@ -280,7 +284,7 @@ input.modal-launcher:checked {
 
   height: 87%;
   overflow-y: scroll;
-  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
+
   border-radius: 10px;
 }
 
