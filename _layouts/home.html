@@ -57,15 +57,14 @@
     <link
       rel="stylesheet"
       href="styles/Documentation.css" />
-      <link
+    <link
       rel="stylesheet"
-      href="styles/Carousel.css"/>
-      <link
-  rel="stylesheet"
-  href="styles/Tables.css" />
+      href="styles/Carousel.css" />
+    <link
+      rel="stylesheet"
+      href="styles/Tables.css" />
   </head>
   <body>
-
     <div id="top">
       <p style="color: transparent">.</p>
     </div>
@@ -85,15 +84,19 @@
           <li class="headerLink">
             <a
               href="#top"
-              onclick="lenis.scrollTo('#top')">
-              <span class="headerText">Home</span>
+              onclick="lenis.scrollTo('#top')"
+              style="padding-right: 0">
+              <img
+                src="Resources/QuokkaLogo.svg"
+                height="40px"
+                style="padding-top: 13px" />
             </a>
           </li>
           <li class="headerLink">
             <a
-              href="#About"
-              onclick="lenis.scrollTo('#About')">
-              <span class="headerText">About</span>
+              href="#top"
+              onclick="lenis.scrollTo('#top')">
+              <span class="headerText">Home</span>
             </a>
           </li>
           <li class="headerLink">
@@ -110,12 +113,22 @@
               <span class="headerText">FAQ</span>
             </a>
           </li>
-          <li class="headerLink right-li connectButton">
+          <!-- <li class="headerLink right-li connectButton"> -->
+          <li class="headerLink">
             <a
               href="#Documentation"
               onclick="lenis.scrollTo('#Documentation')">
               <span class="headerText">Documentation</span>
             </a>
+          </li>
+          <li class="headerLink right-li connectButton">
+            <img
+              width="32"
+              height="32"
+              title=""
+              alt=""
+              style="color: #000"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQUM1QkUxRUI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQUM1QkUxRkI0MUMxMUUyQUQzREIxQzRENUFFNUM5NiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkUxNkJENjdGQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkUxNkJENjgwQjNGMDExRTJBRDNEQjFDNEQ1QUU1Qzk2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hfPRaQAAB6lJREFUeNrsW2mM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" />
           </li>
         </ul>
       </nav>
@@ -164,166 +177,116 @@
             role="switch" />
         </span>
       </p>
+      <div
+        class="card aboutCard"
+        data-aos="fade-down">
+        <div id="#AboutScreenshots">
+          <div class="carousel-container">
+            <ul class="carousel my-carousel">
+              <input
+                class="carousel__activator"
+                type="radio"
+                id="A"
+                name="activator"
+                checked="checked" />
+              <input
+                class="carousel__activator"
+                type="radio"
+                id="B"
+                name="activator" />
+              <input
+                class="carousel__activator"
+                type="radio"
+                id="C"
+                name="activator" />
+              <input
+                class="carousel__activator"
+                type="radio"
+                id="D"
+                name="activator" />
+              <input
+                class="carousel__activator"
+                type="radio"
+                id="E"
+                name="activator" />
+              <div class="carousel__controls">
+                <label
+                  class="carousel__control carousel__control--backward"
+                  for="E"></label
+                ><label
+                  class="carousel__control carousel__control--forward"
+                  for="B"></label>
+              </div>
+              <div class="carousel__controls">
+                <label
+                  class="carousel__control carousel__control--backward"
+                  for="A"></label
+                ><label
+                  class="carousel__control carousel__control--forward"
+                  for="C"></label>
+              </div>
+              <div class="carousel__controls">
+                <label
+                  class="carousel__control carousel__control--backward"
+                  for="B"></label
+                ><label
+                  class="carousel__control carousel__control--forward"
+                  for="D"></label>
+              </div>
+              <div class="carousel__controls">
+                <label
+                  class="carousel__control carousel__control--backward"
+                  for="C"></label
+                ><label
+                  class="carousel__control carousel__control--forward"
+                  for="E"></label>
+              </div>
+              <div class="carousel__controls">
+                <label
+                  class="carousel__control carousel__control--backward"
+                  for="D"></label
+                ><label
+                  class="carousel__control carousel__control--forward"
+                  for="A"></label>
+              </div>
+              <li class="carousel__slide"></li>
+              <li class="carousel__slide"></li>
+              <li class="carousel__slide"></li>
+              <li class="carousel__slide"></li>
+              <li class="carousel__slide"></li>
+            </ul>
+            <div class="carousel__indicators">
+              <label
+                class="carousel__indicator"
+                for="A"></label>
+              <label
+                class="carousel__indicator"
+                for="B"></label>
+              <label
+                class="carousel__indicator"
+                for="C"></label>
+              <label
+                class="carousel__indicator"
+                for="D"></label>
+              <label
+                class="carousel__indicator"
+                for="E"></label>
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <img
       src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
       id="HomeScrollImg" />
-    <div id="About">
-      <div
-        class="ag-timeline_title-box"
-        data-aos="fade-down">
-        <div class="ag-timeline_tagline">What is this?</div>
-        <div class="ag-timeline_title">About Quokka</div>
-      </div>
-      <div
-        class="card aboutCard"
-        data-aos="fade-down">
-        <p>
-          <span style="font-size: 20px">Quokka is an extremely customizable keystroke launcher for Windows.</span>
-          <br />
-          <hr />
-          <br />
-          Quokka has a plugin-architecture, open to third parties. Through this,
-          Quokka will have a large number of features, like color conversion,
-          translation, web search, Unicode character search, and much more!
-          Please see the
-          <a
-            href="#Documentation"
-            onclick="lenis.scrollTo('#Documentation')"
-            >Documentation</a
-          >
-          for all (official) planned plugins. If you do not see a plugin you
-          wish to have, maybe start a discussion over
-          <a href="https://github.com/Faeq-F/Quokka/discussions">here</a>, or
-          create it yourself.
-          <div id="#AboutScreenshots">
-            <div class="carousel-container">
-              <ul class="carousel my-carousel">
-                <input class="carousel__activator" type="radio" id="A" name="activator" checked="checked" />
-                <input class="carousel__activator" type="radio" id="B" name="activator" />
-                <input class="carousel__activator" type="radio" id="C" name="activator" />
-                <input class="carousel__activator" type="radio" id="D" name="activator" />
-                <input class="carousel__activator" type="radio" id="E" name="activator" />
-                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="E"></label><label class="carousel__control carousel__control--forward" for="B"></label></div>
-                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="A"></label><label class="carousel__control carousel__control--forward" for="C"></label></div>
-                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="B"></label><label class="carousel__control carousel__control--forward" for="D"></label></div>
-                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="C"></label><label class="carousel__control carousel__control--forward" for="E"></label></div>
-                  <div class="carousel__controls"><label class="carousel__control carousel__control--backward" for="D"></label><label class="carousel__control carousel__control--forward" for="A"></label></div>
-                  <li class="carousel__slide"></li>
-                  <li class="carousel__slide"></li>
-                  <li class="carousel__slide"></li>
-                  <li class="carousel__slide"></li>
-                  <li class="carousel__slide"></li>
-              </ul>
-              <div class="carousel__indicators">
-                    <label class="carousel__indicator" for="A"></label>
-                    <label class="carousel__indicator" for="B"></label>
-                    <label class="carousel__indicator" for="C"></label>
-                    <label class="carousel__indicator" for="D"></label>
-                    <label class="carousel__indicator" for="E"></label>
-                    <br>
-                    <a href="#Documentation" onclick="lenis.scrollTo('#Documentation')" class="carouselText""></a>
-                  </div>
-            </div>
-
-          </div>
-          <br />
-          Quokka was designed to replace the need for your ugly start menu, task
-          bar and any other clunky applications you currently use to add
-          functionality to your system. For example, it can replace your start
-          menu by allowing you to launch all of your desired applications and
-          shortcuts, and replace windows search through plugins like Everything,
-          calculator, wikipedia, etc.
-          <br />
-        </p>
-        <hr />
-        <div>
-          <a href="https://github.com">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&amp;message=GitHub&amp;color=181717&amp;logo=GitHub&amp;logoColor=FFFFFF"
-              alt="Github" />
-          </a>
-          <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=UML&color=FABD14&logo=uml&logoColor=FFFFFF"
-              alt="UML" />
-          </a>
-
-          <a href="https://dotnet.microsoft.com/en-us/">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=.NET&color=512BD4&logo=dotnet&logoColor=FFFFFF"
-              alt="dotnet" />
-          </a>
-          <a
-            href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/?view=netdesktop-7.0">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=WPF&color=0078D4&logo=windows&logoColor=FFFFFF"
-              alt="WPF" />
-          </a>
-          <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=C%23&color=512BD4&logo=csharp&logoColor=FFFFFF"
-              alt="C&#35;" />
-          </a>
-          <a
-            href="https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=xaml&color=0C54C2&logo=xaml&logoColor=FFFFFF"
-              alt="xaml" />
-          </a>
-
-          <a href="https://docs.microsoft.com/en-gb/powershell/">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&amp;message=PowerShell&amp;color=5391FE&amp;logo=PowerShell&amp;logoColor=FFFFFF"
-              alt="Powershell" />
-          </a>
-          <a href="https://www.json.org/json-en.html">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&amp;message=JSON&amp;color=000000&amp;logo=JSON&amp;logoColor=FFFFFF"
-              alt="JSON" />
-          </a>
-
-          <a href="https://code.visualstudio.com/">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&amp;message=Visual Studio Code&amp;color=007ACC&amp;logo=Visual Studio Code&amp;logoColor=FFFFFF"
-              alt="visual studio code" />
-          </a>
-          <a href="https://visualstudio.microsoft.com">
-            <img
-              align="center"
-              margin="10px auto"
-              src="https://img.shields.io/static/v1?label=&message=Visual%20Studio&color=5C2D91&logo=visualstudio&logoColor=FFFFFF"
-              alt="visualstudio" />
-          </a>
-        </div>
-      </div>
-    </div>
-
     <div id="Plugins">
       <section>
         <aside>
           <div
             class="ag-timeline_title-box"
-            data-aos="fade-up-right">
-            <div class="ag-timeline_tagline">What features?</div>
+            data-aos="fade-up-right"
+            style="margin-bottom: 0; padding-bottom: 0">
             <div class="ag-timeline_title">Plugins</div>
           </div>
           <div
@@ -347,15 +310,72 @@
           class="content"
           data-aos="fade-up-left">
           <p class="PortfolioWorkHeader">Recognized plugins:</p>
-          <div style="text-align: center" id="PluginCards">
+          <div
+            style="text-align: center"
+            id="PluginCards">
             <button class="ProjectCard">
               <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
                 </svg>
-                Installed Apps</p>
+                Installed Apps
+              </p>
+              <p class="PluginDesc">Launch apps installed on your machine</p>
+              <div class="PluginButtonGroup">
+                <a
+                  class="SiteButton"
+                  title="Visit site"
+                  href="https://github.com/Faeq-F/Quokka">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="16"
+                    width="20"
+                    viewBox="0 0 640 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                    <path
+                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                  </svg>
+                </a>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
+                <a
+                  class="SiteButton"
+                  title="Download"
+                  href="https://github.com/Faeq-F/Quokka">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+                  </svg>
+                </a>
+              </div>
+            </button>
+            <button class="ProjectCard">
+              <p class="PluginName">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
+                </svg>
+                Portable Apps
+              </p>
               <p class="PluginDesc">
-                Allows the launching of apps installed on the system
+                Launch portable applications stored in a given directory
               </p>
               <div class="PluginButtonGroup">
                 <a
@@ -366,72 +386,49 @@
                     xmlns="http://www.w3.org/2000/svg"
                     height="16"
                     width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
+                    viewBox="0 0 640 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                     <path
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
                 </a>
-                <p class="DeveloperName">Developed by Faeq</p>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
                 <a
                   class="SiteButton"
                   title="Download"
-                  href="https://github.com/Faeq-F/Quokka">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
-                </svg>
-                </a>
-              </div>
-            </button>
-            <button class="ProjectCard">
-              <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
-                </svg>
-                Portable Apps</p>
-              <p class="PluginDesc">
-                Allows the launching of portable apps<br />(apps not installed
-                on the system)
-              </p>
-              <div class="PluginButtonGroup">
-                <a
-                  class="SiteButton"
-                  title="Visit site"
                   href="https://github.com/Faeq-F/Quokka">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
-                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                     <path
-
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                      d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
                   </svg>
-                </a>
-                <p class="DeveloperName">Developed by Faeq</p>
-                <a
-                  class="SiteButton"
-                  title="Download"
-                  href="https://github.com/Faeq-F/Quokka">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
-                </svg>
                 </a>
               </div>
             </button>
             <button class="ProjectCard">
               <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
                 </svg>
-                Everything</p>
+                Everything
+              </p>
               <p class="PluginDesc">
-                Allows searching through files and folders on the computer -
-                requires the
+                Search through and find files and folders; requires the
                 <a
                   href="https://www.voidtools.com/"
-                  style="font-style:oblique; font-weight:bold; color: var(--primaryPlugins)">
+                  style="font-style: oblique; font-weight: bold; color: #000">
                   Everything
                 </a>
                 service to be running
@@ -445,32 +442,45 @@
                     xmlns="http://www.w3.org/2000/svg"
                     height="16"
                     width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
+                    viewBox="0 0 640 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                     <path
-
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
                 </a>
-                <p class="DeveloperName">Developed by Faeq</p>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
                 <a
                   class="SiteButton"
                   title="In Development">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
                 </a>
               </div>
             </button>
             <button class="ProjectCard">
               <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
                 </svg>
-                Power Commands</p>
+                Power Commands
+              </p>
               <p class="PluginDesc">
-                Allows the execution of power settings like logout, lock, sleep,
-                shutdown, etc.
+                Shutdown, restart, set to sleep, sign out of and lock your PC
               </p>
               <div class="PluginButtonGroup">
                 <a
@@ -481,32 +491,44 @@
                     xmlns="http://www.w3.org/2000/svg"
                     height="16"
                     width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
+                    viewBox="0 0 640 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                     <path
-
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
                 </a>
-                <p class="DeveloperName">Developed by Faeq</p>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
                 <a
                   class="SiteButton"
                   title="In Development">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
                 </a>
               </div>
             </button>
             <button class="ProjectCard">
               <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
                 </svg>
-                Calculator</p>
-              <p class="PluginDesc">
-                Allows the calculation of mathematical expressions
+                Calculator
               </p>
+              <p class="PluginDesc">Calculate of mathematical expressions</p>
               <div class="PluginButtonGroup">
                 <a
                   class="SiteButton"
@@ -516,32 +538,45 @@
                     xmlns="http://www.w3.org/2000/svg"
                     height="16"
                     width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
+                    viewBox="0 0 640 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                     <path
-
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
                 </a>
-                <p class="DeveloperName">Developed by Faeq</p>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
                 <a
                   class="SiteButton"
                   title="In Development">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
                 </a>
               </div>
             </button>
             <button class="ProjectCard">
               <p class="PluginName">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  height="16px"
+                  width="20px">
+                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M96 0C78.3 0 64 14.3 64 32v96h64V32c0-17.7-14.3-32-32-32zM288 0c-17.7 0-32 14.3-32 32v96h64V32c0-17.7-14.3-32-32-32zM32 160c-17.7 0-32 14.3-32 32s14.3 32 32 32v32c0 77.4 55 142 128 156.8V480c0 17.7 14.3 32 32 32s32-14.3 32-32V412.8C297 398 352 333.4 352 256V224c17.7 0 32-14.3 32-32s-14.3-32-32-32H32z" />
                 </svg>
-                English Dictionary</p>
+                English Dictionary
+              </p>
               <p class="PluginDesc">
-                Allows the viewing of denotations for words in the English (US)
-                language
+                Find denotations for words in the English (US) language
               </p>
               <div class="PluginButtonGroup">
                 <a
@@ -552,25 +587,37 @@
                     xmlns="http://www.w3.org/2000/svg"
                     height="16"
                     width="20"
-                    viewBox="0 0 640 512" style="fill: var(--primaryPlugins);">
+                    viewBox="0 0 640 512">
                     <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                     <path
-
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
                 </a>
-                <p class="DeveloperName">Developed by Faeq</p>
+                <p class="DeveloperName">
+                  Developed by <span style="font-weight: bold">Faeq</span>
+                </p>
                 <a
                   class="SiteButton"
                   title="In Development">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="16px" width="20px" style="fill: var(--primaryPlugins);">
-                  <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                  <path d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/>
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                    height="16px"
+                    width="20px">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M152.1 38.2c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 113C-2.3 103.6-2.3 88.4 7 79s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zm0 160c9.9 8.9 10.7 24 1.8 33.9l-72 80c-4.4 4.9-10.6 7.8-17.2 7.9s-12.9-2.4-17.6-7L7 273c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l22.1 22.1 55.1-61.2c8.9-9.9 24-10.7 33.9-1.8zM224 96c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H256c-17.7 0-32-14.3-32-32zM160 416c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H192c-17.7 0-32-14.3-32-32zM48 368a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                  </svg>
                 </a>
               </div>
             </button>
-            <p style="color: var(--primary); text-shadow: 3px 1px 3px oklch(1 0 0);">Please support all developers!</p>
+            <p
+              style="
+                color: var(--primary);
+                text-shadow: 3px 1px 3px oklch(1 0 0);
+              ">
+              Please support all developers!
+            </p>
           </div>
 
           <h2 style="color: transparent">Title 1</h2>
@@ -588,93 +635,161 @@
       <div
         class="ag-timeline_title-box"
         data-aos="fade-down">
-        <div class="ag-timeline_tagline">I have a question!</div>
         <div class="ag-timeline_title">Frequently asked Questions</div>
       </div>
       <div
-        class="card aboutCard"
+        class="card"
         data-aos="fade-down">
-        <button class="collapsible button-64" role="button"><span class="text">How do you monetize the application?</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text">How do you monetize the application?</span>
+        </button>
         <div class="collapsibleContent">
-          <p>I don't, though I may in future. I will only generate revenue from this software in a way that doesn't compromise user privacy. </p>
+          <p>
+            I don't, though I may in future. I will only generate revenue from
+            this software in a way that doesn't compromise user privacy.
+          </p>
         </div>
-        <button class="collapsible button-64" role="button"><span class="text">How do I set the app to run at startup automatically?</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text"
+            >How do I set the app to run at startup automatically?</span
+          >
+        </button>
         <div class="collapsibleContent">
-          <p>There are two ways, the second providing slightly more control:<br><br>You can create a shortcut to the .exe file of the app (right click to show context menu ➤ click 'Show more options' ➤ click 'Create shortcut') and copy it to the following directory; "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\", where 'USERNAME' is your Windows profile name.<br><br>or you can create a task for the program in Task scheduler;<br>Follow a guide to create a basic task, like the following <a href="https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10">guide to create an automated task by Mauro Huculak on Windows Central</a>.<br>You will want to set it to start 'When I log on' and give 'Quokka.exe' (located in the root of the program folder) as the program. You do not need to add any arguments.</p>
+          <p>
+            There are two ways, the second providing slightly more control:<br /><br />You
+            can create a shortcut to the .exe file of the app (right click to
+            show context menu ➤ click 'Show more options' ➤ click 'Create
+            shortcut') and copy it to the following directory;
+            "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start
+            Menu\Programs\Startup\", where 'USERNAME' is your Windows profile
+            name.<br /><br />or you can create a task for the program in Task
+            scheduler;<br />Follow a guide to create a basic task, like the
+            following
+            <a
+              href="https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10"
+              >guide to create an automated task by Mauro Huculak on Windows
+              Central</a
+            >.<br />You will want to set it to start 'When I log on' and give
+            'Quokka.exe' (located in the root of the program folder) as the
+            program. You do not need to add any arguments.
+          </p>
         </div>
-        <button class="collapsible button-64" role="button"><span class="text">Question 3</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text">Question 3</span>
+        </button>
         <div class="collapsibleContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
         </div>
-        <button class="collapsible button-64" role="button"><span class="text">Question 4</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text">Question 4</span>
+        </button>
         <div class="collapsibleContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
         </div>
-        <button class="collapsible button-64" role="button"><span class="text">Question 5</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text">Question 5</span>
+        </button>
         <div class="collapsibleContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
         </div>
-        <button class="collapsible button-64" role="button"><span class="text">Question 6</span></button>
+        <button
+          class="collapsible button-64"
+          role="button">
+          <span class="text">Question 6</span>
+        </button>
         <div class="collapsibleContent">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
         </div>
       </div>
     </div>
 
-
     <footer id="Documentation">
       <div class="expandingDiv animateTransitions">
-      <div
-        id="DocumentationCard"
-        class="ContactCard"
-        data-aos="fade-down">
-        <div class="container-divs">
-          <div class="row-divs">
-            <div
-              id="cd-1"
-              class="col-div col-div-flex border-div">
-              <button id="DocsHeaderButton">Documentation</button>
+        <div
+          id="DocumentationCard"
+          class="ContactCard"
+          data-aos="fade-down">
+          <div class="container-divs">
+            <div class="row-divs">
               <div
-                id="DocsNav"
-                data-lenis-prevent>
-                <ul>
-                  <li><button>Installation</button></li>
-                  <li><button>How to use</button></li>
+                id="cd-1"
+                class="col-div col-div-flex border-div">
+                <button id="DocsHeaderButton">Documentation</button>
+                <div
+                  id="DocsNav"
+                  data-lenis-prevent>
                   <ul>
-                    <li><span>⤷</span><button>Tray task</button></li>
-                    <li><span>⤷</span><button>Plugins</button></li>
-                    <li><span>⤷</span><button>Special commands</button></li>
+                    <li><button>Installation</button></li>
+                    <li><button>How to use</button></li>
+                    <ul>
+                      <li><span>⤷</span><button>Tray task</button></li>
+                      <li><span>⤷</span><button>Plugins</button></li>
+                      <li><span>⤷</span><button>Special commands</button></li>
+                    </ul>
+                    <li><button>Settings</button></li>
+                    <ul>
+                      <li><span>⤷</span><button>Themes</button></li>
+                      <li><span>⤷</span><button>Defaults</button></li>
+                    </ul>
+                    <li><button>Building the app</button></li>
+                    <li><button>API Documentation</button></li>
+                    <li><button>Creating a plugin</button></li>
+                    <ul>
+                      <li>
+                        <span>⤷</span><button>Creating a new item type</button>
+                      </li>
+                      <li>
+                        <span>⤷</span><button>Creating a context pane</button>
+                      </li>
+                      <li>
+                        <span>⤷</span><button>Creating the plugin</button>
+                      </li>
+                    </ul>
+                    <li><button>FAQ by Developers</button></li>
                   </ul>
-                  <li><button>Settings</button></li>
-                  <ul>
-                    <li><span>⤷</span><button>Themes</button></li>
-                    <li><span>⤷</span><button>Defaults</button></li>
-                  </ul>
-                  <li><button>Building the app</button></li>
-                  <li><button>API Documentation</button></li>
-                  <li><button>Creating a plugin</button></li>
-                  <ul>
-                    <li><span>⤷</span><button>Creating a new item type</button></li>
-                    <li><span>⤷</span><button>Creating a context pane</button></li>
-                    <li><span>⤷</span><button>Creating the plugin</button></li>
-                  </ul>
-                  <li><button>FAQ by Developers</button></li>
-                </ul>
+                </div>
               </div>
-            </div>
-            <div
-              id="cd-2"
-              class="col-div col-div-flex border-div">
               <div
-                id="DocsContent"
-                data-lenis-prevent></div>
+                id="cd-2"
+                class="col-div col-div-flex border-div">
+                <div
+                  id="DocsContent"
+                  data-lenis-prevent></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-   </div>
-
     </footer>
 
     <div id="bottom">

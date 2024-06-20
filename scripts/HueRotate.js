@@ -24,7 +24,7 @@ function cardHueRotate() {
   cards.css("filter", "hue-rotate(" + hue + "deg)");
 }
 
-var cards = $(".ProjectCard, .HueRotateImage");
+var cards = $(".HueRotateImage");
 sliderInput[0].oninput = (e) => {
   document.firstElementChild.style.setProperty("--hue", e.target.value);
   cardHueRotate();

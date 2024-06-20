@@ -248,12 +248,12 @@
 
 .carousel-container {
   display: inline-block;
-  width: 65vw;
+
 }
 
 .my-carousel {
   border-radius: 5px;
-  margin: 30px;
+  width: 50vw;
 }
 
 .carousel__slide {

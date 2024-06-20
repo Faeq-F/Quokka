@@ -1,7 +1,7 @@
 #Plugins {
   width: 100vw;
   padding-bottom: 10vh;
-  background-image: linear-gradient(119deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-image: linear-gradient(56deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 aside {
@@ -34,20 +34,13 @@ aside {
 .ProjectCard {
   display: inline-grid;
   margin: 10px;
-  background-color: #efe7ee;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
   -webkit-transition: -webkit-transform .5s, opacity .5s;
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
   transition: transform .5s, opacity .5s;
-  border: 0;
   width: 27vw;
   height: fit-content;
   padding: 20px;
-  border: 1px solid #00000082;
 }
 
 @media (max-width: 661px) {
@@ -58,7 +51,7 @@ aside {
 
 .PluginName {
   font-size: large;
-  color: var(--primaryPlugins);
+
   font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
@@ -73,13 +66,17 @@ aside {
 }
 
 .ProjectCard {
-  fill: var(--primaryPlugins) !important;
-  color: var(--primaryPlugins) !important;
+  background-image: linear-gradient(56deg, #d1dae9, #c9d4e5);
+  border: 1px solid #888;
+  border-radius: 15px;
+  color: #000000cc;
+  box-shadow: 1px 3px 4px 1px #00000012;
+
 }
 
 .PluginDesc {
   font-size: medium;
-  color: var(--primaryPlugins);
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: left;
   margin: 10px;
@@ -89,7 +86,7 @@ aside {
 
 .SiteButton {
   flex: 0;
-  background: #ffffff55;
+
   border: 0;
   border-radius: 5px;
   width: fit-content;
@@ -111,7 +108,7 @@ aside {
   font-size: small;
   text-align: start;
   margin-left: 10px;
-  color: var(--primaryPlugins);
+
 }
 
 @media (max-width: 661px) {
@@ -284,7 +281,7 @@ input.modal-launcher:checked {
 
   height: 87%;
   overflow-y: scroll;
-
+  min-height: 424px;
   border-radius: 10px;
 }
 

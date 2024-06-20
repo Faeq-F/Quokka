@@ -211,8 +211,8 @@ body:has(.switch__input:checked) *,
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
   transition: transform .5s, opacity .5s;
-  /* box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, #c3cfe2 -3.2px -3.2px 8px 0px inset; */
-  border: 1px solid #00000082;
+
+
 }
 
 a[href] {

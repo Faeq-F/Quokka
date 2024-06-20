@@ -6,9 +6,14 @@
 }
 
 .aboutCard {
-  min-height: 50vh;
   height: fit-content;
   min-height: 37vh !important;
+  top: 20%;
+  position: absolute;
+  z-index: 3;
+  padding-right: 0;
+  width: 50vw;
+  right: 2.5vw;
 }
 
 @media(max-width: 661px) {
