@@ -53,7 +53,7 @@ aside {
   font-size: large;
 
   font-weight: 600;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   text-align: left;
   line-height: 1.45;
   margin: 0;
@@ -77,7 +77,7 @@ aside {
 .PluginDesc {
   font-size: medium;
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
   text-align: left;
   margin: 10px;
   height: 5vh;

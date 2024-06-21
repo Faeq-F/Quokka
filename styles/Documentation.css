@@ -20,14 +20,14 @@
 }
 
 
+
 /* Footer contact section styles */
 
 footer {
   margin: 0 auto;
   text-align: center;
-  height: 5vh;
   width: 100vw;
-  background-image: linear-gradient(119deg, #f5f7fa 0%, #c3cfe2ab 100%);
+  background-image: linear-gradient(56deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 
@@ -38,10 +38,10 @@ footer {
   line-height: 1.45;
   font-size: 16px;
   color: #2c2c2cd5;
-  /* background: linear-gradient(125deg, var(--primary), var(--primaryOther)); */
+
   background-size: cover;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px; */
-  background-color: #f4f7ff;
+
+
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -64,10 +64,7 @@ footer {
   scrollbar-color: #fff transparent !important;
 }
 
-#DocumentationCard {
-  position: relative;
-  display: none;
-}
+
 
 :root {
   --m-x: 0px;
@@ -76,7 +73,7 @@ footer {
 .container-divs {
   display: flex;
   flex: 1 1 auto;
-  height: 93vh;
+  height: calc(100vh - 100px);
   width: 100%;
 }
 
@@ -165,14 +162,14 @@ footer {
 
 #cd-1 {
   box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
-  background: var(--primary);
+
   flex-grow: 1;
 }
 
 #cd-2 {
   flex-grow: 4;
   box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;
-  background: var(--primary);
+
 
 }
 
@@ -220,19 +217,19 @@ footer {
 }
 
 #DocsNav ul li span {
-  color: white;
+  color: #2c2c2cd5;
   font-size: large;
 }
 
 #DocsNav ul li button {
-  background: #ffffff;
+  background: transparent;
   border-radius: 10px;
-  color: var(--primary);
+  color: #2c2c2cd5;
   border: 0;
   padding: 5px;
   margin: 5px;
   font-weight: 500;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
 }
 
 #DocsNav ul li button:active {
@@ -242,47 +239,15 @@ footer {
 #DocsHeaderButton {
   background: transparent;
   border: 0;
-  color: white !important;
+  color: #2c2c2cd5 !important;
   text-align: left;
   font-weight: bolder;
   font-size: 90% !important;
   margin-top: 40px;
   margin-bottom: 40px;
-  text-shadow: 0 0 3px black;
 }
 
 
-/* ---------------------------- */
-
-.expandingDiv {
-  background-color: #ffffff;
-  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
-  border-radius: 15px;
-  width: fit-content;
-  height: fit-content;
-  position: fixed;
-  bottom: 0;
-  margin: 0 auto;
-  left: 50%;
-  transform: translate(-50%, 0px);
-  z-index: 9999;
-}
-
-.expandingDiv.fullscreen {
-  width: 100% !important;
-  height: 100% !important;
-  top: 0 !important;
-  left: 0 !important;
-  transform: translate(0px, 0px);
-}
-
-.animateTransitions {
-  transition: all 1s;
-}
-
-.expandingDiv.fullscreen #DocumentationCard {
-  display: block;
-}
 
 blockquote {
   margin: 0;
