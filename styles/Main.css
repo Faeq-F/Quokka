@@ -35,8 +35,8 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-
   margin: 0;
+  background-image: repeating-linear-gradient(135deg, #f5f7fa 0vw, #c3cfe2 115vw, #f5f7fa);
 }
 
 #top {
@@ -173,10 +173,7 @@ body {
   scrollbar-color: var(--primary) rgb(242, 244, 248) !important;
 }
 
-body:has(.switch__input:checked) *,
-*:has(.switch__input:checked) {
-  scrollbar-color: var(--primary) rgb(13, 11, 7);
-}
+
 
 /*Style for mobile view*/
 @media (max-width: 661px) {

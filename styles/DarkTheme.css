@@ -1,9 +1,20 @@
+body:has(.switch__input:checked) *,
+*:has(.switch__input:checked) {
+  scrollbar-color: var(--primary) rgb(13, 11, 7) !important;
+}
+
 body:has(.switch__input:checked) {
-  background: rgb(13, 11, 7);
+  background: #274046;
+  background-image: repeating-linear-gradient(135deg, #111 0vw, #3f4c4f 115vw, #111);
+}
+
+body:has(.switch__input:checked) header.sticky img {
+  filter: invert(0.9);
 }
 
 body:has(.switch__input:checked) header.sticky {
   background-color: #111;
+  background-image: none;
   box-shadow: rgba(60, 60, 60, 0.363) 0px 30px 80px -40px,
     rgba(60, 60, 60, 0.3) 0px 10px 40px -50px,
     rgba(60, 60, 60, 0.35) 0px -2px 6px 0px inset
@@ -14,11 +25,12 @@ body:has(.switch__input:checked) #header>nav>ul>li>a>span {
   color: #ddd;
 }
 
+
 body:has(.switch__input:checked) #HomeView #title {
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PortfolioScrollImg,
+body:has(.switch__input:checked) #Plugins section div #PortfolioScrollImg,
 body:has(.switch__input:checked) #HomeScrollImg {
   filter: invert(1);
 }
@@ -29,20 +41,15 @@ body:has(.switch__input:checked) #HomeView #title>span>a>button {
 
 body:has(.switch__input:checked) #HomeView #title>span>a>button span {
   background-color: rgb(13, 11, 7);
+  background-image: linear-gradient(162deg, #000, rgb(39 39 39));
 }
 
-body:has(.switch__input:checked) #Portfolio section aside div.card,
-body:has(.switch__input:checked) div>div.card {
-  color: #ddd;
-  background-color: #1a1a1a;
-}
-
-body:has(.switch__input:checked) #Portfolio section div p.PortfolioWorkHeader,
-body:has(.switch__input:checked) #Portfolio section aside div p.PortfolioWorkHeader {
+body:has(.switch__input:checked) #Plugins section div p.PortfolioWorkHeader,
+body:has(.switch__input:checked) #Plugins section aside div p.PortfolioWorkHeader {
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid {
+body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
@@ -90,10 +97,6 @@ body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_l
   border-left: none;
 }
 
-body:has(.switch__input:checked) footer {
-  filter: brightness(0.8);
-}
-
 body:has(.switch__input:checked) #Portfolio>section>div>div>a.ProjectCard {
   background-color: #1a1a1a;
 }
@@ -106,44 +109,39 @@ body:has(.switch__input:checked) div.cursor2 {
   background-color: #ddd;
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .modal-overlay {
+body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .modal-overlay {
   background: rgb(13, 11, 7);
 }
 
-body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .modal-window,
-body:has(.switch__input:checked) #Portfolio section div #PluginScreenshotsGrid .grid-container .grid-item,
-body:has(.switch__input:checked) #Portfolio section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
+body:has(.switch__input:checked) .carousel__slide,
+body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .modal-window,
+body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .grid-container .grid-item,
+body:has(.switch__input:checked) #Plugins section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
 body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_img-box>img {
   filter: brightness(0.8);
 }
 
-body:has(.switch__input:checked) #Contact .ContactCard .ConnectTitleBox .ConnectTitle,
-body:has(.switch__input:checked) #Contact .ContactCard .ConnectTitleBox .ConnectTagline {
-  color: #212121 !important;
+body:has(.switch__input:checked) .DocsCard {
+  background: #1a1a1a;
+  color: #ddd;
 }
 
-body:has(.switch__input:checked) #Contact .ContactCard .SocialButtons .SocialBtn .SocialLink strong {
-  color: #212121;
+body:has(.switch__input:checked) #PluginCards>p,
+body:has(.switch__input:checked) .PluginDesc a,
+body:has(.switch__input:checked) .DeveloperName,
+body:has(.switch__input:checked) .PluginDesc {
+  color: #ddd !important;
 }
 
-
-
-
-body:has(.switch__input:checked) #IDE {
-  box-shadow: rgba(50, 50, 93, 0.25) 5px 5px 5px -1px,
-    rgba(0, 0, 0, 0.3) 5px 5px 5px -5px;
+body:has(.switch__input:checked) #PluginCards>p,
+body:has(.switch__input:checked) a[href] {
+  text-shadow: 1px 1px 0px #000000 !important;
 }
 
-body:has(.switch__input:checked) #IDEmenu {
-  background: rgba(2, 2, 2, 0.6);
+body:has(.switch__input:checked) #Plugins svg {
+  fill: #ddd !important;
 }
 
-body:has(.switch__input:checked) #IDEmenu::after,
-body:has(.switch__input:checked) #IDEbody::before,
-body:has(.switch__input:checked) #IDEmenu::before {
-  color: #696969a3;
-}
-
-body:has(.switch__input:checked) #IDEbody {
-  background: rgba(9, 9, 9, 0.8);
+body:has(.switch__input:checked) .ProjectCard {
+  box-shadow: 1px 3px 4px 1px #00000045 !important;
 }

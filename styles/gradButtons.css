@@ -5,7 +5,8 @@
     border: 0;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #2c2c2cd5;
+
+    color: #535151;
     display: flex;
     font-family: Phantomsans, sans-serif;
 
@@ -22,11 +23,6 @@
     cursor: pointer;
 }
 
-.button-64:active,
-.button-64:hover {
-    outline: 0;
-}
-
 .button-64 span {
     background-image: linear-gradient(198deg, #e3e4e5, #f2f4f8);
     padding: 16px 24px;
@@ -38,10 +34,6 @@
 
 }
 
-.button-64:hover span {
-    /* background: none; */
-    color: #333;
-}
 
 @media (max-width: 661px) {
     .button-64 {

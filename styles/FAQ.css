@@ -1,6 +1,6 @@
 #FAQ {
   width: 100vw;
-  background-image: linear-gradient(127deg, #f5f7fa 0%, #c3cfe2 100%);
+
 }
 
 .collapsible {
@@ -25,13 +25,8 @@
   border-bottom-right-radius: 0px;
   background-color: #ddd;
   margin-bottom: 0px;
-  border: 1px solid #a3a3a3;
+  color: #505152;
 }
-
-/* .active span {
-  background: none;
-  color: #fff;
-} */
 
 .collapsibleContent {
   padding: 0 18px;
@@ -48,5 +43,6 @@
 }
 
 #FAQ .button-64 {
-  background-image: none;
+  border: 1px solid #a3a3a3;
+  background-image: linear-gradient(119deg, #edf1f6, #cdd7e7);
 }
