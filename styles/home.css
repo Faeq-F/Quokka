@@ -12,6 +12,7 @@
     height: 100vh;
     width: 100vw;
     padding-bottom: 10vh;
+    background: linear-gradient(180deg, var(--primary) 0%, rgb(255 255 255) 95%);
 
 }
 
@@ -30,105 +31,143 @@
     top: 35%;
     left: 7.5%;
     float: left;
-    z-index: 1;
+    z-index: 5;
     color: #2c2c2cd5;
     font-size: 45px;
     font-family: sans-serif;
     line-height: normal;
 }
 
-.gradient {
-    top: 25%;
-    position: absolute;
-    left: 57%;
-    z-index: 3;
-    --size: 35vw;
-    --speed: 10s;
-    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
-    width: var(--size);
-    height: var(--size);
-    filter: blur(calc(var(--size) / 5));
-    background-image: linear-gradient(var(--primaryOther), var(--primary));
-    animation: rotate var(--speed) var(--easing) alternate infinite;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-}
-
-#IDE {
-    top: 20%;
-    position: absolute;
-    left: 50%;
-    z-index: 3;
-    box-shadow: rgba(255, 255, 255, 0.1) 5px 5px 5px -1px, rgba(0, 0, 0, 0.3) 5px 5px 5px -5px;
-    border-radius: 15px;
-}
-
-#IDEmenu {
-    width: 45vw;
-    height: 2vh;
-    background: rgba(255, 255, 255, 0.4);
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-#IDEmenu::after,
-#IDEbody::before {
-    padding: 5px;
-    color: #696969a3;
-    top: -0.7vh;
-    position: absolute;
-}
-
-#IDEmenu::after {
-    content: "\25C9 \2000 \25C9 \2000 \25C9";
-    left: 1.3vw;
-}
-
-#IDEbody::before {
-    content: "\2003 File \2003 Edit \2003 Selection \2003 View \2003 Go \2003 Run \2003 Terminal \2003 Help";
-    left: 5vw;
-    top: -0.4vh;
-    font-size: small;
-}
-
-#IDEbody {
-    width: 45vw;
-    height: 60vh;
-    background: rgba(255, 255, 255, 0.7);
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-
-}
-
-#IDEtype {
-    margin-left: 10px;
-    padding-top: 5px;
-}
-
-#codeContainer {
-    overflow: hidden;
-}
-
-#code {
-    color: var(--primary);
-    font-weight: normal;
-    font-size: medium;
-    opacity: 0.5;
-    font-family: "Cascadia Code Regular";
-}
-
-@media screen and (max-width: 1000px) {
-    .gradient {
-        visibility: hidden !important;
-    }
-
-    #IDE {
-        visibility: hidden !important;
-    }
-}
 
 .bConnect {
     margin: 0;
     border-radius: 15px;
     float: right;
 
+}
+
+#homeGalleryContainer {
+    height: 600px;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 500px 100px;
+    grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+
+div#homeGallery {
+    grid-row: 1 / 2;
+    grid-column: 1 / 8;
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    --items: 5;
+    --middle: 3;
+    --position: 1;
+    pointer-events: none;
+}
+
+#homeGallery div.item {
+    position: absolute;
+    width: 795px;
+    height: 424px;
+    background-color: coral;
+    --r: calc(var(--position) - var(--offset));
+    --abs: max(calc(var(--r) * -1), var(--r));
+    transition: all 0.25s linear;
+    transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-400px * var(--r)));
+    z-index: calc((var(--position) - var(--abs)));
+    filter: opacity(0);
+}
+
+#homeGallery>div.item:nth-of-type(1) {
+    --offset: 1;
+    background-color: transparent;
+    background-image: url("../Resources/Theme1.png");
+
+}
+
+#homeGallery>div.item:nth-of-type(2) {
+    --offset: 2;
+    background-color: transparent;
+    background-image: url("../Resources/Theme2.png");
+
+}
+
+#homeGallery>div.item:nth-of-type(3) {
+    --offset: 3;
+    background-color: transparent;
+    background-image: url("../Resources/Theme3.png");
+}
+
+#homeGallery>div.item:nth-of-type(4) {
+    --offset: 4;
+    background-color: transparent;
+    background-image: url("../Resources/Theme4.png");
+}
+
+#homeGallery>div.item:nth-of-type(5) {
+    --offset: 5;
+    background-color: transparent;
+    background-image: url("../Resources/Theme5.png");
+}
+
+#homeGalleryContainer>input[type="radio"]:nth-child(n):checked~#homeGallery div.item:nth-child(n) {
+    filter: opacity(1);
+}
+
+#homeGalleryContainer>input {
+    accent-color: var(--primary);
+}
+
+#homeGalleryContainer>input:nth-of-type(1) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(1):checked~div#homeGallery {
+    --position: 1;
+}
+
+#homeGalleryContainer>input:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(2):checked~div#homeGallery {
+    --position: 2;
+}
+
+#homeGalleryContainer>input:nth-of-type(3) {
+    grid-column: 4 /5;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(3):checked~div#homeGallery {
+    --position: 3;
+}
+
+#homeGalleryContainer>input:nth-of-type(4) {
+    grid-column: 5 / 6;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(4):checked~div#homeGallery {
+    --position: 4;
+}
+
+#homeGalleryContainer>input:nth-of-type(5) {
+    grid-column: 6 / 7;
+    grid-row: 2 / 3;
+}
+
+input:nth-of-type(5):checked~div#homeGallery {
+    --position: 5;
 }

@@ -8,11 +8,11 @@
 .aboutCard {
   height: fit-content;
   min-height: 37vh !important;
-  top: 20%;
+  top: 15%;
   position: absolute;
   z-index: 3;
   padding-right: 0;
-  width: 50vw;
+  width: 85vw;
   right: 2.5vw;
 }
 

@@ -27,7 +27,7 @@ html.lenis {
 
 /*Concerning overflow-x: hidden, it is minimal and does not cause issues at the moment*/
 body {
-  background: #f2f4f8;
+  background: #fff;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -36,7 +36,7 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   margin: 0;
-  background-image: repeating-linear-gradient(135deg, #f5f7fa 0vw, #c3cfe2 115vw, #f5f7fa);
+
 }
 
 #top {
@@ -52,9 +52,9 @@ body {
 
 
 :root {
-  --hue: 288;
+  --hue: 265;
   --huePlugins: 360;
-  --primary: oklch(0.8 0.2 var(--hue));
+  --primary: oklch(0.9 0.2 var(--hue));
   /* IDK why, plugins look like a different color */
   --primaryPlugins: oklch(0.9 0.2 var(--huePlugins));
   --otherColorHue: calc(var(--hue) - 20);
@@ -62,7 +62,12 @@ body {
   --primaryOtherOther: oklch(80% .7 var(--otherColorHue));
   --primary-highlight: oklch(97% .2 var(--hue));
   --header-bg: oklch(35% .01 200);
-
+  --accent-fill-rest: oklch(0.6 0.2 var(--hue)) !important;
+  --accent-stroke-control-rest: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
+  --accent-stroke-control-hover: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
+  --accent-stroke-control-active: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
+  --accent-fill-hover: oklch(0.5 0.2 var(--hue)) !important;
+  --accent-fill-active: oklch(0.6 0.2 var(--hue)) !important;
   --slider-value: 0;
   --slider-height: 0.375em;
 }
