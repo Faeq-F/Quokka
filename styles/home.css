@@ -57,6 +57,7 @@
 }
 
 
+
 div#homeGallery {
     grid-row: 1 / 2;
     grid-column: 1 / 8;
@@ -170,4 +171,43 @@ input:nth-of-type(4):checked~div#homeGallery {
 
 input:nth-of-type(5):checked~div#homeGallery {
     --position: 5;
+}
+
+#homeGalleryContainer>input::before {
+    content: " ";
+    background: var(--primary);
+    width: 0.7vw;
+    height: 0.7vw;
+    display: block;
+    border-radius: 360px;
+}
+
+#homeGalleryContainer>input:checked::after {
+    content: " ";
+    background: white;
+    width: 0.3vw;
+    height: 0.3vw;
+    display: block;
+    border-radius: 360px;
+    z-index: 5;
+    position: relative;
+    top: -0.5vw;
+    left: 0.21vw;
+}
+
+.aboutCard {
+    height: fit-content;
+    min-height: 37vh !important;
+    top: 15%;
+    position: absolute;
+    z-index: 3;
+    padding-right: 0;
+    width: 85vw;
+    right: 2.5vw;
+}
+
+@media (max-width: 661px) {
+    .aboutCard {
+        display: none;
+    }
 }

@@ -47,7 +47,11 @@ body {
 * {
   transition: all 0.25s ease-out;
   font-family: "Varela Round";
-  cursor: none;
+  cursor: url(../Resources/pointCursor.svg), auto;
+}
+
+* a {
+  cursor: url(../Resources/clickCursor.svg), auto;
 }
 
 
@@ -74,45 +78,6 @@ body {
 
 
 
-.cursor {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  border: 1px solid black;
-  transition: all 200ms ease-out;
-  position: fixed;
-  pointer-events: none;
-  left: 0;
-  top: 0;
-  transform: translate(calc(-50% + 15px), -50%);
-  z-index: 9999999999999999999999999999999999999999999999999;
-}
-
-.cursor2 {
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  background-color: black;
-  opacity: .3;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  transition: width .3s, height .3s, opacity .3s;
-  z-index: 9999999999999999999999999999999999999999999999999;
-}
-
-.hover {
-  background-color: oklch(80% .2 var(--hue) / 0.7);
-  opacity: 0.5;
-  z-index: 9999999999999999999999999999999999999999999999999;
-}
-
-.cursorinnerhover {
-  width: 50px;
-  height: 50px;
-  opacity: .5;
-  z-index: 9999999999999999999999999999999999999999999999999;
-}
 
 #HomeScrollImg {
   position: absolute;
@@ -221,7 +186,7 @@ a[href] {
   color: var(--primary);
   text-decoration: none;
   filter: saturate(2) brightness(1);
-  text-shadow: 2px -1px 2px #ffffff66;
+
 }
 
 /* unvisited link */
@@ -246,37 +211,6 @@ a[href]:hover {
 a[href]:active {
   color: var(--primary);
   text-decoration: none;
-}
-
-
-/* Cursor */
-
-#custom-cursor {
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background-color: white;
-  position: fixed;
-  top: 0;
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  transition: transform 500ms;
-}
-
-#custom-cursor::after {
-  content: "";
-  border-radius: 50%;
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  border: 1px solid white;
-  width: 16px;
-  height: 16px;
-}
-
-#custom-cursor.zoom {
-  transform: scale(3);
 }
 
 
@@ -453,7 +387,7 @@ img {
 }
 
 .ag-timeline_title {
-  background-image: linear-gradient(125deg, var(--primary), var(--primaryOther));
+  background-image: linear-gradient(125deg, oklch(0.5 0.2 var(--hue)), var(--primaryOther));
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;
