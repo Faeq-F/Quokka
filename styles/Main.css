@@ -32,7 +32,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   overflow-x: hidden;
-  overflow-y: scroll;
+
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -59,8 +59,6 @@ body {
   --hue: 265;
   --huePlugins: 360;
   --primary: oklch(0.9 0.2 var(--hue));
-  /* IDK why, plugins look like a different color */
-  --primaryPlugins: oklch(0.9 0.2 var(--huePlugins));
   --otherColorHue: calc(var(--hue) - 20);
   --primaryOther: oklch(90% .2 var(--otherColorHue));
   --primaryOtherOther: oklch(80% .7 var(--otherColorHue));
@@ -74,6 +72,9 @@ body {
   --accent-fill-active: oklch(0.6 0.2 var(--hue)) !important;
   --slider-value: 0;
   --slider-height: 0.375em;
+  /* Fluent UI*/
+  --PrimaryColor: oklch(0.6 0.2 var(--hue));
+  --PrimaryColorLight: var(--primaryOther);
 }
 
 
@@ -426,4 +427,8 @@ kbd {
 
 code {
   font-family: monospace;
+}
+
+.app-accordion-title::after {
+  content: " \02C5"
 }

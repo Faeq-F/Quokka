@@ -173,27 +173,7 @@ input:nth-of-type(5):checked~div#homeGallery {
     --position: 5;
 }
 
-#homeGalleryContainer>input::before {
-    content: " ";
-    background: var(--primary);
-    width: 0.7vw;
-    height: 0.7vw;
-    display: block;
-    border-radius: 360px;
-}
 
-#homeGalleryContainer>input:checked::after {
-    content: " ";
-    background: white;
-    width: 0.3vw;
-    height: 0.3vw;
-    display: block;
-    border-radius: 360px;
-    z-index: 5;
-    position: relative;
-    top: -0.5vw;
-    left: 0.21vw;
-}
 
 .aboutCard {
     height: fit-content;

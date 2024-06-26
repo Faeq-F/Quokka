@@ -104,6 +104,7 @@ aside {
   width: fit-content;
   height: fit-content;
   margin: 0;
+  margin-right: 5px;
   color: var(--primaryPlugins) !important;
   place-self: flex-end;
 }
