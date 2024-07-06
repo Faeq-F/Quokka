@@ -31,7 +31,7 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  overflow-x: hidden;
+
 
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
@@ -164,7 +164,7 @@ body {
 
 
 .card {
-  height: 50vh;
+
   width: 70%;
   max-width: 95%;
   margin: 0 auto 300px auto;
@@ -174,12 +174,14 @@ body {
   font-size: 16px;
   text-shadow: 1px 1px 10px #0000002e;
   color: #2d2d2dad;
-  border-radius: 15px;
+
   -webkit-transition: -webkit-transform .5s, opacity .5s;
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
   transition: transform .5s, opacity .5s;
-
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  background: #f9f9f9;
 
 }
 
@@ -430,5 +432,36 @@ code {
 }
 
 .app-accordion-title::after {
-  content: " \02C5"
+  content: " \f10c";
+  font-family: icons10;
+}
+
+.app-accordion-panel {
+  border: 1px solid rgb(234, 234, 234);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-top: 2px;
+}
+
+.app-range-slider input[type="range"] {
+  width: 100% !important;
+  margin: 0;
+}
+
+.app-range-slider {
+  top: -10px;
+}
+
+.app-switch>.app-switch-view::before {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 1.5px;
+  left: 1.5px;
+  display: block;
+  content: '';
+  border-radius: 18px;
+  transition: 200ms;
+  will-change: translate;
+  background: var(--color-text-default);
 }

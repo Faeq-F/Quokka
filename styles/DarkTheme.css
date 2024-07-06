@@ -1,56 +1,53 @@
-body:has(.switch__input:checked) *,
-*:has(.switch__input:checked) {
+body:has(.switch__input:not(:checked)) *,
+*:has(.switch__input:not(:checked)) {
   scrollbar-color: var(--primary) rgb(13, 11, 7) !important;
 }
 
-body:has(.switch__input:checked) {
-  background: #274046;
-  background-image: repeating-linear-gradient(135deg, #111 0vw, #3f4c4f 115vw, #111);
+body:has(.switch__input:not(:checked)) {
+  background: #000;
+
 }
 
-body:has(.switch__input:checked) header.sticky img {
+body:has(.switch__input:not(:checked)) header.sticky img {
   filter: invert(0.9);
 }
 
-body:has(.switch__input:checked) header.sticky {
+body:has(.switch__input:not(:checked)) header.sticky #headerPipe::before {
+  border-left: 2px solid #ddd;
+}
+
+body:has(.switch__input:not(:checked)) header.sticky {
   background-color: #111;
   background-image: none;
-  box-shadow: rgba(60, 60, 60, 0.363) 0px 30px 80px -40px,
-    rgba(60, 60, 60, 0.3) 0px 10px 40px -50px,
-    rgba(60, 60, 60, 0.35) 0px -2px 6px 0px inset
+  border: 1px solid #2e2e2e
 }
 
-body:has(.switch__input:checked) #LetsConnectButton,
-body:has(.switch__input:checked) #header>nav>ul>li>a>span {
+body:has(.switch__input:not(:checked)) #LetsConnectButton,
+body:has(.switch__input:not(:checked)) #header.sticky>nav>ul>li>a>span {
   color: #ddd;
 }
 
+body:has(.switch__input:not(:checked)) #HomeView {
+  background: linear-gradient(180deg, oklch(0.9 0.1 var(--hue)) 0%, #000 95%);
+}
 
-body:has(.switch__input:checked) #HomeView #title {
+body:has(.switch__input:not(:checked)) #HomeView #homeGalleryContainer {
+  filter: brightness(0.95);
+}
+
+
+body:has(.switch__input:not(:checked)) #HomeView #title {
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Plugins section div #PortfolioScrollImg,
-body:has(.switch__input:checked) #HomeScrollImg {
+body:has(.switch__input:not(:checked)) #Plugins section div #PortfolioScrollImg,
+body:has(.switch__input:not(:checked)) #HomeScrollImg {
   filter: invert(1);
 }
 
-body:has(.switch__input:checked) #HomeView #title>span>a>button {
+body:has(.switch__input:not(:checked)) #Plugins section div p.PortfolioWorkHeader,
+body:has(.switch__input:not(:checked)) #Plugins section aside div p.PortfolioWorkHeader {
   color: #ddd;
-}
-
-body:has(.switch__input:checked) #HomeView #title>span>a>button span {
-  background-color: rgb(13, 11, 7);
-  background-image: linear-gradient(162deg, #000, rgb(39 39 39));
-}
-
-body:has(.switch__input:checked) #Plugins section div p.PortfolioWorkHeader,
-body:has(.switch__input:checked) #Plugins section aside div p.PortfolioWorkHeader {
-  color: #ddd;
-}
-
-body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid {
-  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Used for fixing light theme when fixed timeleine animation in dark theme */
@@ -58,19 +55,19 @@ body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.
   background-color: #fff;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
   background-color: #1a1a1a;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_inner div.ag-timeline-card_info div.ag-timeline-card_desc {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_inner div.ag-timeline-card_info div.ag-timeline-card_desc {
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div {
   color: #1a1a1a;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div.mobileAge {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div.mobileAge {
   color: #a97ef4;
 }
 
@@ -79,69 +76,64 @@ body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.
   background-color: #fff;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
   background-color: #1a1a1a;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::before {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::before {
   border: 6px solid #1a1a1a;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1 {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1 {
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::after {
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::after {
   border: 2px solid #ddd;
   border-bottom: none;
   border-left: none;
 }
 
-body:has(.switch__input:checked) #Portfolio>section>div>div>a.ProjectCard {
+body:has(.switch__input:not(:checked)) #Portfolio>section>div>div>a.ProjectCard {
   background-color: #1a1a1a;
 }
 
-body:has(.switch__input:checked) div.cursor {
+body:has(.switch__input:not(:checked)) div.cursor {
   border: 1px solid #ddd;
 }
 
-body:has(.switch__input:checked) div.cursor2 {
+body:has(.switch__input:not(:checked)) div.cursor2 {
   background-color: #ddd;
 }
 
-body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .modal-overlay {
+body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGrid .modal-overlay {
   background: rgb(13, 11, 7);
 }
 
-body:has(.switch__input:checked) .carousel__slide,
-body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .modal-window,
-body:has(.switch__input:checked) #Plugins section div #PluginScreenshotsGrid .grid-container .grid-item,
-body:has(.switch__input:checked) #Plugins section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
-body:has(.switch__input:checked) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_img-box>img {
+body:has(.switch__input:not(:checked)) .carousel__slide,
+body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGrid .modal-window,
+body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGrid .grid-container .grid-item,
+body:has(.switch__input:not(:checked)) #Plugins section aside div.card #CertificationsGallery>div.nGY2Gallery>div.nGY2GallerySub>div>div>div.nGY2GThumbnailImage.nGY2TnImg,
+body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_img-box>img {
   filter: brightness(0.8);
 }
 
-body:has(.switch__input:checked) .DocsCard {
+body:has(.switch__input:not(:checked)) .DocsCard {
   background: #1a1a1a;
   color: #ddd;
 }
 
-body:has(.switch__input:checked) #PluginCards>p,
-body:has(.switch__input:checked) .PluginDesc a,
-body:has(.switch__input:checked) .DeveloperName,
-body:has(.switch__input:checked) .PluginDesc {
-  color: #ddd !important;
-}
-
-body:has(.switch__input:checked) #PluginCards>p,
-body:has(.switch__input:checked) a[href] {
+body:has(.switch__input:not(:checked)) #PluginCards>p {
   text-shadow: 1px 1px 0px #000000 !important;
 }
 
-body:has(.switch__input:checked) #Plugins svg {
-  fill: #ddd !important;
+body:has(.switch__input:not(:checked)) .card,
+body:has(.switch__input:not(:checked)) .ProjectCard {
+  background: #111;
+  border: 1px solid #2e2e2e
 }
 
-body:has(.switch__input:checked) .ProjectCard {
-  box-shadow: 1px 3px 4px 1px #00000045 !important;
+body:has(.switch__input:not(:checked)) .app-accordion-panel {
+  border: 1px solid rgb(75, 75, 75);
+  color: #ddd;
 }

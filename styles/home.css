@@ -13,7 +13,7 @@
     width: 100vw;
     padding-bottom: 10vh;
     background: linear-gradient(180deg, var(--primary) 0%, rgb(255 255 255) 95%);
-
+    margin-bottom: 300px;
 }
 
 @keyframes rotate {
@@ -178,12 +178,12 @@ input:nth-of-type(5):checked~div#homeGallery {
 .aboutCard {
     height: fit-content;
     min-height: 37vh !important;
-    top: 15%;
+    top: 20%;
     position: absolute;
     z-index: 3;
     padding-right: 0;
     width: 85vw;
-    right: 2.5vw;
+    right: -6vw;
 }
 
 @media (max-width: 661px) {

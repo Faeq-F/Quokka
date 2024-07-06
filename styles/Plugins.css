@@ -32,7 +32,7 @@ aside {
 }
 
 .ProjectCard {
-  display: inline-grid;
+  display: inline;
   margin: 10px;
   -webkit-transition: -webkit-transform .5s, opacity .5s;
   -moz-transition: -moz-transform .5s, opacity .5s;
@@ -304,7 +304,7 @@ input.modal-launcher:checked {
 
 #PluginScreenshotsGrid {
 
-  height: 87%;
+  height: 40vh;
   overflow-y: scroll;
   min-height: 424px;
   border-radius: 10px;

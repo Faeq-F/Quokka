@@ -2,6 +2,7 @@
   .grid-item:nth-child(1),
   input#img-0:checked ~ .modal-window {
     background-image: url("PluginScreenshots/InitialScreenshots/InitialText.png");
+    background-size: cover;
   }
 
   .grid-container {
@@ -25,15 +26,32 @@
   }
 </style>
 
-<input
-  type="checkbox"
-  class="modal-launcher"
-  id="img-0" />
-
 <div class="grid-container">
   <div class="grid-item wide">
     <label for="img-0"><span></span></label>
   </div>
 </div>
-<div class="modal-window"></div>
-<div class="modal-overlay"></div>
+
+<script>
+  var InitialScreenshotCard = $(".grid-item:nth-child(1)")[0];
+  const hueSlider = $(".slider__input");
+
+  function hueRotateImage() {
+    var hue =
+      128 +
+      Number(
+        getComputedStyle(
+          document.getElementsByClassName(".slider__input")[0]
+        ).getPropertyValue("--hue")
+      );
+    InitialScreenshotCard.style.filter = "hue-rotate(" + hue + "deg)";
+  }
+
+  hueSlider[0].oninput = (e) => {
+    hueRotateImage();
+  };
+
+  addEventListener("load", (event) => {
+    hueRotateImage();
+  });
+</script>

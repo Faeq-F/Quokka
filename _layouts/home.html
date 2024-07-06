@@ -45,6 +45,10 @@
       href="https://cdn.jsdelivr.net/npm/windows-ui-fabric@4.0.2/dist/windows-ui.min.css"
       rel="stylesheet"
       crossorigin="anonymous" />
+    <link
+      href="styles/winui-icons.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous" />
 
     <link
       rel="stylesheet"
@@ -171,25 +175,45 @@
         </span>
         <br style="display: block; content: ''; margin-top: -5%" />
 
-        <span style="position: inherit">
-          <input
-            id="themeSlider"
-            class="slider__input"
-            type="range"
-            role="slider"
-            value="288"
-            min="0"
-            max="360"
-            id="hue" />
-          <input
-            id="themeSwitch"
-            class="switch__input"
-            type="checkbox"
-            role="switch" />
+        <span style="position: inherit; width: 100%">
+          <i
+            data-feather="droplet"
+            style="position: relative; top: -4px"
+            class="app-color-primary"></i>
+          <span
+            class="app-range-slider"
+            style="width: 50%">
+            <input
+              class="slider__input"
+              type="range"
+              value="288"
+              min="0"
+              max="360"
+              id="hue" />
+          </span>
+          <span
+            id="ThemeIcon"
+            style="position: relative; top: -4px">
+            <i
+              data-feather="sun"
+              class="app-color-primary"></i>
+          </span>
+          <label
+            class="app-switch"
+            style="top: -5px; position: relative">
+            <input
+              class="switch__input"
+              type="checkbox"
+              checked />
+
+            <span
+              class="app-switch-view"
+              style="height: 15px; width: 30px"></span>
+          </label>
         </span>
       </p>
       <div
-        class="card aboutCard"
+        class="aboutCard"
         data-aos="fade-down">
         <div id="homeGalleryContainer">
           <input
@@ -231,15 +255,15 @@
       <section>
         <aside>
           <div
-            class="ag-timeline_title-box"
-            data-aos="fade-up-right"
-            style="margin-bottom: 0; padding-bottom: 0">
-            <div class="ag-timeline_title">Plugins</div>
-          </div>
-          <div
             class="card"
             data-aos="fade-up-right"
             style="padding-top: 0">
+            <div
+              class="ag-timeline_title-box"
+              data-aos="fade-up-right"
+              style="margin-bottom: 0; padding-bottom: 0">
+              <div class="ag-timeline_title">Plugins</div>
+            </div>
             <p
               class="PortfolioWorkHeader"
               style="font-size: 1.17em">
@@ -274,19 +298,26 @@
                   <a
                     class="SiteButton"
                     title="Visit site"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <p class="DeveloperName">Developed by Faeq</p>
                   <a
                     class="SiteButton"
                     title="Download"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -307,19 +338,26 @@
                   <a
                     class="SiteButton"
                     title="Visit site"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <span class="DeveloperName">Developed by Faeq</span>
                   <a
                     class="SiteButton"
                     title="Download"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -351,17 +389,25 @@
                     class="SiteButton"
                     title="Visit site"
                     href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <p class="DeveloperName">Developed by Faeq</p>
                   <a
                     class="SiteButton"
-                    title="In Development">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    title="Download"
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div></button
@@ -380,18 +426,26 @@
                   <a
                     class="SiteButton"
                     title="Visit site"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <p class="DeveloperName">Developed by Faeq</p>
                   <a
                     class="SiteButton"
-                    title="In Development">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    title="Download"
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div></button
@@ -403,23 +457,31 @@
                     class="app-color-primary"></i>
                   Calculator
                 </p>
-                <p class="PluginDesc">Calculate of mathematical expressions</p>
+                <p class="PluginDesc">Calculate mathematical expressions</p>
                 <div class="PluginButtonGroup">
                   <a
                     class="SiteButton"
                     title="Visit site"
-                    href="https://github.com/Faeq-F/Quokka-Calculator-Plugin">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <p class="DeveloperName">Developed by Faeq</p>
                   <a
                     class="SiteButton"
-                    title="In Development">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    title="Download"
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div></button
@@ -438,18 +500,26 @@
                   <a
                     class="SiteButton"
                     title="Visit site"
-                    href="https://github.com/Faeq-F/Quokka">
-                    <i
-                      data-feather="link-2"
-                      class="app-color-primary"></i>
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn">
+                      <i
+                        data-feather="link-2"
+                        class="app-color-primary"></i
+                      ><span class="DeveloperName"
+                        >Developed&nbsp;by&nbsp;Faeq</span
+                      >
+                    </span>
                   </a>
-                  <p class="DeveloperName">Developed by Faeq</p>
                   <a
                     class="SiteButton"
-                    title="In Development">
-                    <i
-                      data-feather="download"
-                      class="app-color-primary"></i>
+                    title="Download"
+                    href="https://github.com/Faeq-F/Quokka-Everything-Plugin">
+                    <span class="app-btn app-btn-primary">
+                      <i
+                        data-feather="download"
+                        style="color: var(--color-background-default)"
+                        class="app-color-primary"></i>
+                    </span>
                   </a>
                 </div>
               </div>
@@ -477,13 +547,13 @@
 
     <div id="FAQ">
       <div
-        class="ag-timeline_title-box"
-        data-aos="fade-down">
-        <div class="ag-timeline_title">Frequently asked Questions</div>
-      </div>
-      <div
         class="card"
         data-aos="fade-down">
+        <div
+          class="ag-timeline_title-box"
+          data-aos="fade-down">
+          <div class="ag-timeline_title">Frequently asked Questions</div>
+        </div>
         <div class="app-accordion">
           <div
             class="app-accordion-header"
@@ -503,96 +573,103 @@
               this software in a way that doesn't compromise user privacy.
             </p>
           </div>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text">How do you monetize the application?</span>
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            I don't, though I may in future. I will only generate revenue from
-            this software in a way that doesn't compromise user privacy.
-          </p>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text"
-            >How do I set the app to run at startup automatically?</span
-          >
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            There are two ways, the second providing slightly more control:<br /><br />You
-            can create a shortcut to the .exe file of the app (right click to
-            show context menu ➤ click 'Show more options' ➤ click 'Create
-            shortcut') and copy it to the following directory;
-            "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start
-            Menu\Programs\Startup\", where 'USERNAME' is your Windows profile
-            name.<br /><br />or you can create a task for the program in Task
-            scheduler;<br />Follow a guide to create a basic task, like the
-            following
-            <a
-              href="https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10"
-              >guide to create an automated task by Mauro Huculak on Windows
-              Central</a
-            >.<br />You will want to set it to start 'When I log on' and give
-            'Quokka.exe' (located in the root of the program folder) as the
-            program. You do not need to add any arguments.
-          </p>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text">Question 3</span>
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text">Question 4</span>
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text">Question 5</span>
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <button
-          class="collapsible button-64"
-          role="button">
-          <span class="text">Question 6</span>
-        </button>
-        <div class="collapsibleContent">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <div
+            class="app-accordion-header"
+            data-win-toggle="collapse"
+            data-win-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo">
+            <div class="app-accordion-title">
+              <span>How do I set the app to run at startup automatically?</span>
+            </div>
+          </div>
+          <div
+            class="app-accordion-panel"
+            id="collapseTwo">
+            <p>
+              There are two ways, the second providing slightly more control:<br /><br />You
+              can create a shortcut to the .exe file of the app (right click to
+              show context menu ➤ click 'Show more options' ➤ click 'Create
+              shortcut') and copy it to the following directory;
+              "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start
+              Menu\Programs\Startup\", where 'USERNAME' is your Windows profile
+              name.<br /><br />or you can create a task for the program in Task
+              scheduler;<br />Follow a guide to create a basic task, like the
+              following
+              <a
+                style="
+                  font-style: oblique;
+                  font-weight: bold;
+                  color: oklch(0.5 0.2 var(--hue));
+                "
+                href="https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10"
+                >guide to create an automated task by Mauro Huculak on Windows
+                Central</a
+              >.<br />You will want to set it to start 'When I log on' and give
+              'Quokka.exe' (located in the root of the program folder) as the
+              program. You do not need to add any arguments.
+            </p>
+          </div>
+          <div
+            class="app-accordion-header"
+            data-win-toggle="collapse"
+            data-win-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree">
+            <div class="app-accordion-title">
+              <span>Question 3</span>
+            </div>
+          </div>
+          <div
+            class="app-accordion-panel"
+            id="collapseThree">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div
+            class="app-accordion-header"
+            data-win-toggle="collapse"
+            data-win-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour">
+            <div class="app-accordion-title">
+              <span>Question 4</span>
+            </div>
+          </div>
+          <div
+            class="app-accordion-panel"
+            id="collapseFour">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div
+            class="app-accordion-header"
+            data-win-toggle="collapse"
+            data-win-target="#collapseFive"
+            aria-expanded="false"
+            aria-controls="collapseFive">
+            <div class="app-accordion-title">
+              <span>Question 5</span>
+            </div>
+          </div>
+          <div
+            class="app-accordion-panel"
+            id="collapseFive">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -670,13 +747,32 @@
     <script src="scripts/windows-ui.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
-      feather.replace({ "stroke-width": 2.5, width: 16, height: 16 });
-      const colorScheme = Appearance.getColorScheme();
-      if (colorScheme === "dark") {
-        Appearance.setDarkScheme();
-      } else {
-        Appearance.setLightScheme();
-      }
+      feather.replace({
+        "stroke-width": 2.5,
+        width: 16,
+        height: 16,
+        fill: "transparent",
+      });
+      let colorScheme = true;
+      let ThemeIcon = document.getElementById("ThemeIcon");
+      document
+        .getElementsByClassName("switch__input")[0]
+        .addEventListener("click", function () {
+          if (colorScheme === true) {
+            Appearance.setDarkScheme();
+            ThemeIcon.innerHTML = `<i data-feather="moon" class="app-color-primary"></i>`;
+          } else {
+            Appearance.setLightScheme();
+            ThemeIcon.innerHTML = `<i data-feather="sun" class="app-color-primary"></i>`;
+          }
+          feather.replace({
+            "stroke-width": 2.5,
+            width: 16,
+            height: 16,
+            fill: "transparent",
+          });
+          colorScheme = !colorScheme;
+        });
     </script>
     <script>
       //Issues with font but need for gecko based browsers to reliably change

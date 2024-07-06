@@ -243,8 +243,10 @@ for (const a of Sliders) {
     applyFill(b),
     b.addEventListener("mouseleave", () => {
       var e = b.nextElementSibling;
-      "app-range-slider-popup" == e.className &&
-        ((e.style.visibility = "hidden"), (e.style.opacity = 0));
+      if (e) {
+        "app-range-slider-popup" == e.className &&
+          ((e.style.visibility = "hidden"), (e.style.opacity = 0));
+      }
     });
 }
 function applyFill(e) {
