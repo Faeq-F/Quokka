@@ -1,0 +1,52 @@
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="scripts/Gallery.js"></script>
+<script src="scripts/header.js"></script>
+<script src="scripts/ScrollFade.js"></script>
+<script src="scripts/HueRotate.js"></script>
+<script src="scripts/Docs.js"></script>
+<script src="scripts/FAQ.js"></script>
+<script src="scripts/windows-ui.js"></script>
+<script src="https://unpkg.com/feather-icons"></script>
+<script>
+  feather.replace({
+    "stroke-width": 2.5,
+    width: 16,
+    height: 16,
+    fill: "transparent",
+  });
+  let colorScheme = true;
+  let ThemeIcon = document.getElementById("ThemeIcon");
+  document
+    .getElementsByClassName("switch__input")[0]
+    .addEventListener("click", function () {
+      if (colorScheme === true) {
+        Appearance.setDarkScheme();
+        ThemeIcon.innerHTML = `<i data-feather="moon" class="app-color-primary"></i>`;
+      } else {
+        Appearance.setLightScheme();
+        ThemeIcon.innerHTML = `<i data-feather="sun" class="app-color-primary"></i>`;
+      }
+      feather.replace({
+        "stroke-width": 2.5,
+        width: 16,
+        height: 16,
+        fill: "transparent",
+      });
+      colorScheme = !colorScheme;
+    });
+</script>
+<script>
+  //Issues with font but need for gecko based browsers to reliably change
+  // function themeChangeHandler() {
+  //   var queryString = "?reload=" + new Date().getTime();
+  //   $('link[rel="stylesheet"]').each(function () {
+  //     this.href = this.href.replace(/\?.*|$/, queryString);
+  //   });
+  // }
+  // document
+  //   .querySelector("#themeSwitch")
+  //   .addEventListener("change", themeChangeHandler);
+</script>

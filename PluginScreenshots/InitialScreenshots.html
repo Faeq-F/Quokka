@@ -40,16 +40,16 @@
     var hue =
       128 +
       Number(
-        getComputedStyle(
-          document.getElementsByClassName(".slider__input")[0]
-        ).getPropertyValue("--hue")
+        getComputedStyle(document.getElementById("hue")).getPropertyValue(
+          "--hue"
+        )
       );
     InitialScreenshotCard.style.filter = "hue-rotate(" + hue + "deg)";
   }
 
-  hueSlider[0].oninput = (e) => {
+  hueSlider[0].addEventListener("click", (e) => {
     hueRotateImage();
-  };
+  });
 
   addEventListener("load", (event) => {
     hueRotateImage();

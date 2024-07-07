@@ -23,18 +23,19 @@
 
 /* Footer contact section styles */
 
-footer {
+#Documentation {
+  height: 90vh;
   margin: 0 auto;
   text-align: center;
   width: 100vw;
-
+  display: flex;
 }
 
 
 .ContactCard {
-  min-height: 100vh;
+
   text-align: center;
-  padding: 2rem;
+
   line-height: 1.45;
   font-size: 16px;
   color: #2c2c2cd5;
@@ -58,13 +59,6 @@ footer {
 #DocsNav::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 10px 10px #fff;
 }
-
-#DocsContent,
-#DocsNav {
-  scrollbar-color: #fff transparent !important;
-}
-
-
 
 :root {
   --m-x: 0px;
@@ -114,7 +108,7 @@ footer {
 }
 
 @media(max-width: 661px) {
-  footer {
+  #Documentation {
     width: 95vw;
   }
 
@@ -184,12 +178,12 @@ footer {
 }
 
 .DocsCard {
-  background: white;
   margin: 10px;
   padding: 10px;
-  border-radius: 10px;
   text-align: left;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  background: #f9f9f9;
 }
 
 #DefaultDocsContentCard1 {
@@ -205,7 +199,7 @@ footer {
 }
 
 #DocsNav ul {
-  padding-left: 20%;
+
   list-style-type: none;
   list-style-position: outside;
   text-align: left;
@@ -258,4 +252,14 @@ blockquote {
   border-bottom: solid 1px #bbb;
   width: 90%;
   border-bottom-left-radius: 15px;
+}
+
+
+
+
+.app-navbar-wrap {
+  height: fit-content;
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  background: #f9f9f9;
 }
