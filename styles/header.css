@@ -14,12 +14,13 @@
   float: left !important;
   transition: all 0.3s ease 0s;
   text-decoration: none;
+  font-style: inherit;
 }
 
 .headerText {
   vertical-align: middle;
   line-height: 35px;
-  ;
+
   color: #2c2c2cd5;
   font-size: larger;
   font-weight: bold;

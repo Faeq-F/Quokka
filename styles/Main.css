@@ -52,6 +52,9 @@ body {
 
 * a {
   cursor: url(../Resources/clickCursor.svg), auto;
+  font-style: oblique;
+  font-weight: bold;
+  color: oklch(0.5 0.2 var(--hue));
 }
 
 
@@ -186,37 +189,18 @@ body {
 
 }
 
-a[href] {
-  color: var(--primary);
+a[href],
+a[href]:link,
+a[href]:active,
+a[href]:visited {
   text-decoration: none;
   filter: saturate(2) brightness(1);
-
 }
 
-/* unvisited link */
-a[href]:link {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-/* visited link */
-a[href]:visited {
-  color: var(--primary);
-  text-decoration: none;
-}
-
-/* mouse over link */
 a[href]:hover {
   color: var(--primary);
   text-decoration: none;
 }
-
-/* selected link */
-a[href]:active {
-  color: var(--primary);
-  text-decoration: none;
-}
-
 
 
 

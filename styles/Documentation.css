@@ -146,12 +146,13 @@
 }
 
 #DocsContent {
-  background: transparent;
-  border-radius: 10px;
+
   height: 100%;
   width: 100%;
-
   overflow-y: scroll;
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+  background: #f9f9f9;
 }
 
 #cd-1 {
@@ -170,7 +171,7 @@
 #DocsNav {
   background: transparent;
   border-radius: 10px;
-  overflow-y: scroll;
+  max-height: 80vh;
   width: 100%;
   font-size: medium;
   font-weight: normal;
@@ -183,7 +184,7 @@
   text-align: left;
   border: 1px solid #e3e3e3;
   border-radius: 15px;
-  background: #f9f9f9;
+  background: #fff;
 }
 
 #DefaultDocsContentCard1 {
@@ -199,7 +200,7 @@
 }
 
 #DocsNav ul {
-
+  max-height: 80vh;
   list-style-type: none;
   list-style-position: outside;
   text-align: left;
@@ -262,4 +263,9 @@ blockquote {
   border: 1px solid #e3e3e3;
   border-radius: 15px;
   background: #f9f9f9;
+}
+
+.app-navbar-wrap nav,
+.app-navbar-wrap .app-navbar-header {
+  border-radius: 15px
 }

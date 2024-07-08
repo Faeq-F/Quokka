@@ -1,93 +1,71 @@
-<style>
-  #Documentation .collapsible{
-    background: white;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: left;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
+<div
+  class="app-accordion-header"
+  data-win-toggle="collapse"
+  data-win-target="#collapseThirdPartyPlugins"
+  aria-expanded="false"
+  aria-controls="collapseThirdPartyPlugins">
+  <div class="app-accordion-title">
+    <span>How do I use a 3rd party library in my plugin?</span>
+  </div>
+</div>
+<div
+  class="app-accordion-panel"
+  id="collapseThirdPartyPlugins">
+  <p>
+    You must install the package (likely through nuget) for your plugins
+    project. Unfortunately this is not enough since Quokka will need the package
+    reference of the library. You will have to use
+    <a
+      href="https://learn.microsoft.com/en-us/dotnet/fundamentals/reflection/reflection"
+      >reflection</a
+    >
+    to load the library at runtime and use the classes it provides. You can have
+    a look at the following plugins as examples as to how to do this:
+  </p>
 
-  #Documentation .collapsibleContent{
-    background: white;
-    margin: 10px;
-    border-radius: 10px;
-    text-align: left;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  }
-
-  #Documentation .button-64 span{
-    color: inherit;
-    background:white;
-  }
-
-  #Documentation .button-64:hover span,
-  #Documentation .active span{
-    background: linear-gradient(144deg, var(--primary), var(--primaryOther));
-    color: white;
-  }
-</style>
-
-  <button
-  data-aos="fade-down"
-    class="collapsible button-64"
-    role="button">
-    <span class="text">How do I use a 3rd party library in my plugin?</span>
-  </button>
-  <div class="collapsibleContent">
-    <p>
-      You must install the package (likely through nuget) for your plugins project.
-  Unfortunately this is not enough since Quokka will need the package reference
-  of the library. You will have to use
-  <a
-    href="https://learn.microsoft.com/en-us/dotnet/fundamentals/reflection/reflection"
-    >reflection</a
-  >
-  to load the library at runtime and use the classes it provides. You can have a
-  look at the following plugins as examples as to how to do this:
   <ul>
     <li><a href="">Plugin_Calculator</a></li>
     <li><a href="">Plugin_EnglishDictionary</a></li>
     <li><a href="">Plugin_Everything</a></li>
   </ul>
-    </p>
+</div>
+<div
+  class="app-accordion-header"
+  data-win-toggle="collapse"
+  data-win-target="#collapseDevFAQ2"
+  aria-expanded="false"
+  aria-controls="collapseDevFAQ2">
+  <div class="app-accordion-title">
+    <span>Question 2</span>
   </div>
-  <button
-  data-aos="fade-down"
-    class="collapsible button-64"
-    role="button">
-    <span class="text">Question 2</span>
-  </button>
-  <div class="collapsibleContent">
-    <p>
-      Answer to Q2
-    </p>
+</div>
+<div
+  class="app-accordion-panel"
+  id="collapseDevFAQ2">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+</div>
+<div
+  class="app-accordion-header"
+  data-win-toggle="collapse"
+  data-win-target="#collapseDevFAQ3"
+  aria-expanded="false"
+  aria-controls="collapseDevFAQ3">
+  <div class="app-accordion-title">
+    <span>Question 3</span>
   </div>
-  <button
-  data-aos="fade-down"
-    class="collapsible button-64"
-    role="button">
-    <span class="text">Question 3</span>
-  </button>
-  <div class="collapsibleContent">
-    <p>
-      Answer to Q3
-    </p>
-  </div>
-
-<script>
-  var DocsColl = document.getElementById("Documentation").getElementsByClassName("collapsible");
-  var i;
-
-  for (i = 0; i < DocsColl.length; i++) {
-    DocsColl[i].addEventListener("click", function () {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
-    });
-  }
-</script>
+</div>
+<div
+  class="app-accordion-panel"
+  id="collapseDevFAQ3">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+</div>

@@ -110,7 +110,10 @@ body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGr
   background: rgb(13, 11, 7);
 }
 
-body:has(.switch__input:not(:checked)) .grid-item,
+body:has(.switch__input:not(:checked)) .grid-item {
+  opacity: 0.8
+}
+
 body:has(.switch__input:not(:checked)) .carousel__slide,
 body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGrid .modal-window {
   filter: brightness(0.8);
@@ -125,6 +128,8 @@ body:has(.switch__input:not(:checked)) #PluginCards>p {
   text-shadow: 1px 1px 0px #000000 !important;
 }
 
+body:has(.switch__input:not(:checked)) .DocsCard,
+body:has(.switch__input:not(:checked)) .app-navbar-wrap,
 body:has(.switch__input:not(:checked)) .card,
 body:has(.switch__input:not(:checked)) .ProjectCard {
   background: #111;
