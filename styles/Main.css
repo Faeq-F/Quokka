@@ -450,3 +450,7 @@ code {
   will-change: translate;
   background: var(--color-text-default);
 }
+
+.app-table-view-container {
+  border-radius: 15px;
+}

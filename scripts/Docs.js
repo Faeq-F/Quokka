@@ -8,7 +8,9 @@ function loadDocsContent(buttonText) {
   button = button.replace(/ /g, "_"); //replace spaces with underscores
   button = button.replace(/(?:_){2}/g, ""); //removes underscores with a length > than 2 (so that the underscores between words are kept)
   button = button.replace("⤷", "");
+  $("#DocsContent").animate({ opacity: 0 }, 20);
   $("#DocsContent").load("DocumentationCards/" + button + ".html");
+  $("#DocsContent").animate({ opacity: 1 }, 200);
 }
 
 function attachButtonListeners() {

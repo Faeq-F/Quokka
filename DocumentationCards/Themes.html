@@ -1,5 +1,7 @@
-
 <style>
+  #themesContainer .card {
+    background: #fff;
+  }
   #themesContainer {
     display: grid;
     grid-template-rows: repeat(4, 55vh);
@@ -8,15 +10,13 @@
     grid-auto-flow: dense;
     grid-template-columns: repeat(2, 45%);
     justify-content: center;
+    margin: 30px auto;
   }
 
   #WindowsDarkGridContainer,
   #WindowsLightGridContainer {
     height: 100%;
     overflow-y: scroll;
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 5px;
     overflow-x: hidden;
     padding: 10px;
   }
@@ -24,8 +24,7 @@
 <div id="themesContainer">
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -33,41 +32,29 @@
         class="SiteButton"
         title="Download"
         href="https://faeq-f.github.io/Quokka/DocumentationCards/Themes/WindowsLight/settings.json">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsLightGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsLightModalWindow {
+        #WindowsLightGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsLightGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsLightModalWindow {
+        #WindowsLightGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
-        #WindowsLightGridContainer .grid-item:nth-child(3),
-        input#img-2:checked ~ #WindowsLightModalWindow {
+        #WindowsLightGridContainer .grid-item:nth-child(3) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
-        #WindowsLightGridContainer .grid-item:nth-child(4),
-        input#img-3:checked ~ #WindowsLightModalWindow {
+        #WindowsLightGridContainer .grid-item:nth-child(4) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
-        #WindowsLightGridContainer .grid-item:nth-child(5),
-        input#img-4:checked ~ #WindowsLightModalWindow {
+        #WindowsLightGridContainer .grid-item:nth-child(5) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -87,27 +74,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-2" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-3" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-4" />
-
       <div id="WindowsLightGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -125,14 +91,12 @@
           <label for="img-4"><span></span></label>
         </div>
       </div>
-      <div id="WindowsLightModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -140,29 +104,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -182,15 +137,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -199,14 +145,12 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -214,29 +158,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -256,15 +191,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -273,14 +199,12 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -288,29 +212,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -330,15 +245,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -347,14 +253,12 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -362,29 +266,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -404,15 +299,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -421,14 +307,12 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -436,29 +320,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -478,15 +353,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -495,14 +361,12 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 
   <div
     class="card"
-    style="margin: 0 auto; width: 100%; padding: 1rem"
-    data-aos="fade-up-right">
+    style="margin: 0 auto; width: 100%; padding: 1rem">
     <p
       class="PortfolioWorkHeader"
       style="font-size: 1.17em; margin: 0">
@@ -510,29 +374,20 @@
         class="SiteButton"
         title="Download"
         href="https://github.com/Faeq-F/Quokka">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          height="16px"
-          width="20px"
-          style="fill: var(--primary)">
-          <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path
-            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
-        </svg>
+        <i
+          data-feather="download"
+          class="app-color-primary"></i>
       </a>
     </p>
     <div
       data-lenis-prevent
       style="height: 90%">
       <style>
-        #WindowsDarkGridContainer .grid-item:nth-child(1),
-        input#img-0:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(1) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
-        #WindowsDarkGridContainer .grid-item:nth-child(2),
-        input#img-1:checked ~ #WindowsDarkModalWindow {
+        #WindowsDarkGridContainer .grid-item:nth-child(2) {
           background-image: url("DocumentationCards/Themes/WindowsLight/1.png");
         }
 
@@ -552,15 +407,6 @@
         }
       </style>
 
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-0" />
-      <input
-        type="checkbox"
-        class="modal-launcher"
-        id="img-1" />
-
       <div id="WindowsDarkGridContainer">
         <div class="grid-item wide">
           <label for="img-0"><span></span></label>
@@ -569,7 +415,14 @@
           <label for="img-1"><span></span></label>
         </div>
       </div>
-      <div id="WindowsDarkModalWindow"></div>
     </div>
   </div>
 </div>
+<script>
+  feather.replace({
+    "stroke-width": 2.5,
+    width: 16,
+    height: 16,
+    fill: "transparent",
+  });
+</script>

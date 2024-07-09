@@ -383,3 +383,8 @@ input.modal-launcher:checked~.modal-window+.modal-overlay {
   transition: all 0.35s ease 0s;
   opacity: 1;
 }
+
+.PluginButtonGroup a {
+  font-style: inherit;
+  font-weight: inherit;
+}

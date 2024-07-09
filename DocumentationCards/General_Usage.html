@@ -1,24 +1,18 @@
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">
   To use the app, run Quokka.exe (in the root folder)
   <br /><br />
   <div class="app-table-view-container">
-    <table class="app-table-view">
+    <table class="app-table-view generalUsageDocsTable">
       <thead>
         <tr>
-          <th style="text-align: right; border-top-left-radius: 15px">
-            Default Keyboard shortcut
-          </th>
+          <th align="right">Default Keyboard shortcut</th>
           <th>Use</th>
-          <th style="border-top-right-radius: 15px">Notes</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: right">
-            <kbd>Left ⊞</kbd> + <kbd>Space</kbd>
-          </td>
+          <td align="right"><kbd>Left ⊞</kbd> + <kbd>Space</kbd></td>
           <td>launches the search bar</td>
           <td>
             This shortcut is modifiable;
@@ -28,27 +22,35 @@
           </td>
         </tr>
         <tr>
-          <td style="text-align: right"><kbd>🠙</kbd> &amp; <kbd>🠛</kbd></td>
+          <td align="right"><kbd>🠙</kbd> &amp; <kbd>🠛</kbd></td>
           <td>select items</td>
           <td>The keys used cannot be changed</td>
         </tr>
         <tr>
-          <td style="text-align: right"><kbd>↵</kbd></td>
+          <td align="right"><kbd>↵</kbd></td>
           <td>
             executes the selected item (the first item if no item is selected)
           </td>
           <td>The key used cannot be changed</td>
         </tr>
         <tr>
-          <td style="text-align: right; border-bottom-left-radius: 15px">
+          <td align="right">
             <kbd>☰</kbd>
           </td>
           <td>shows context pane for item</td>
-          <td style="border-bottom-right-radius: 15px">
-            The key used cannot be changed
-          </td>
+          <td>The key used cannot be changed</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+<style>
+  .generalUsageDocsTable.app-table-view
+    tr
+    th:nth-child(n + 1):nth-child(-n + 2),
+  .generalUsageDocsTable.app-table-view
+    tr
+    td:nth-child(n + 1):nth-child(-n + 2) {
+    border-right: 1px solid var(--color-ui-border-default);
+  }
+</style>

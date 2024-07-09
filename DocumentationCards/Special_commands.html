@@ -1,33 +1,24 @@
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">
   <b>Special commands are case-sensitive</b> to ensure they do not interfere
   with other functions of the app or plugins
 </div>
 
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">
   All special commands for recognized plugins:
   <br /><br />
-  <div class="table-responsive-vertical shadow-z-1">
-    <!-- Table starts here -->
-    <table
-      id="table"
-      class="table table-hover table-mc-primary">
+  <div class="app-table-view-container">
+    <table class="app-table-view specialCommandsDocsTable">
       <thead>
         <tr>
-          <th style="text-align: right; border-top-left-radius: 15px">
-            Command
-          </th>
+          <th align="right">Command</th>
           <th>Use</th>
           <th>Plugin</th>
-          <th style="border-top-right-radius: 15px">Notes</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: right"><code>AllApps</code></td>
+          <td align="right"><code>AllApps</code></td>
           <td>list all installed apps</td>
           <td><a href="">InstalledApps</a></td>
           <td>
@@ -38,12 +29,12 @@
           </td>
         </tr>
         <tr>
-          <td style="text-align: right; border-bottom-left-radius: 15px">
+          <td align="right">
             <code>AllPortableApps</code>
           </td>
           <td>list all portable apps</td>
           <td><a href="">PortableApps</a></td>
-          <td style="border-bottom-right-radius: 15px">
+          <td>
             This command is modifiable within the plugin specific settings
             <br />Along with the list of apps, an extra item is added to the
             start, allowing users to open the directory in which the portable
@@ -54,3 +45,13 @@
     </table>
   </div>
 </div>
+<style>
+  .specialCommandsDocsTable.app-table-view
+    tr
+    th:nth-child(n + 1):nth-child(-n + 3),
+  .specialCommandsDocsTable.app-table-view
+    tr
+    td:nth-child(n + 1):nth-child(-n + 3) {
+    border-right: 1px solid var(--color-ui-border-default);
+  }
+</style>

@@ -17,24 +17,39 @@
     height: 16,
     fill: "transparent",
   });
-  let colorScheme = true;
+  let colorScheme = Appearance.getColorScheme();
+
+  //for loading the correct theme on load
+  if (colorScheme === "light") {
+    document
+      .getElementsByClassName("switch__input")[0]
+      .setAttribute("checked", "checked");
+  } else {
+    document
+      .getElementsByClassName("switch__input")[0]
+      .removeAttribute("checked");
+  }
+
   let ThemeIcon = document.getElementById("ThemeIcon");
   document
     .getElementsByClassName("switch__input")[0]
     .addEventListener("click", function () {
-      if (colorScheme === true) {
+      if (colorScheme === "light") {
         Appearance.setDarkScheme();
         ThemeIcon.innerHTML = `<i data-feather="moon" class="app-color-primary"></i>`;
       } else {
         Appearance.setLightScheme();
         ThemeIcon.innerHTML = `<i data-feather="sun" class="app-color-primary"></i>`;
       }
+
+      //have to replace icons again due to color change (since svg used)
       feather.replace({
         "stroke-width": 2.5,
         width: 16,
         height: 16,
         fill: "transparent",
       });
-      colorScheme = !colorScheme;
+
+      colorScheme = Appearance.getColorScheme();
     });
 </script>

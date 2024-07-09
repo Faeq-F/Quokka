@@ -1,303 +1,70 @@
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">
   Quokka comes with the 'Windows light' theme by default. To change it, you can
   edit the style settings in the settings file or you can use values in a
   configuration provided on the themes page.
 </div>
-<div
-  class="DocsCard"
-  data-aos="fade-down">
-  The settings file is located in '...\Quokka\Config\'
-</div>
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">The settings file is located in '...\Quokka\Config\'</div>
+<div class="DocsCard">
   All settings are loaded when the application starts, meaning that you will
   have to exit and re-start the app to see changes.
 </div>
-<div
-  class="DocsCard"
-  data-aos="fade-down">
+<div class="DocsCard">
   Plugins may have their own, specific settings files in the root of their
   respective folders in the PlugBoard. You can open The PlugBoard using the Tray
   Task Icon context menu.<br />Please consult their documentation for default
   values, etc.
 </div>
 
-<div
-  class="DocsCard"
-  data-aos="fade-down">
-  General settings:
-  <br /><br />
-  <div class="table-responsive-vertical shadow-z-1">
-    <table
-      id="table"
-      class="table table-hover table-mc-primary">
+<div class="DocsCard">
+  Default General settings:<br />(Please see the 'Windows light' theme for
+  default style settings) <br /><br />
+  <div class="app-table-view-container">
+    <table class="app-table-view defaultsDocsTable">
       <thead>
         <tr>
-          <th style="text-align: center; border-top-left-radius: 15px">
-            Setting name
-          </th>
-          <th style="text-align: center">Notes</th>
-          <th style="text-align: center; border-top-right-radius: 15px">
-            Default Value
-          </th>
+          <th align="center">Setting name</th>
+          <th align="center">Notes</th>
+          <th align="center">Default Value</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td style="text-align: center"><code>WindowHotKey</code></td>
+          <td align="center"><code>WindowHotKey</code></td>
           <td>
             The default value is interpreted as 'Left Windows key + Spacebar'<br /><br />
             The full list of keys that can be used in the setting can be found
             <a
               href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields"
               >here</a
-            >
-            (use the first column)
+            >&nbsp; (use the first column)
           </td>
-          <td style="text-align: center"><code>LWinSpace</code></td>
+          <td align="center"><code>LWinSpace</code></td>
         </tr>
         <tr>
-          <td style="text-align: center"><code>FileManager</code></td>
+          <td align="center"><code>FileManager</code></td>
           <td>
             The program that will open the plugboard. Plugins may use this
             setting to open other folders, for e.g., a file location<br /><br />In
             development
           </td>
-          <td style="text-align: center"><code>explorer.exe</code></td>
+          <td align="center"><code>explorer.exe</code></td>
         </tr>
         <tr>
-          <td style="text-align: center; border-bottom-left-radius: 15px">
-            <code>TextEditor</code>
-          </td>
+          <td align="center"><code>TextEditor</code></td>
           <td>
             The program that will open the settings file. Plugins may use this
             setting to open other files, for e.g., their own settings file<br /><br />In
             development
           </td>
-          <td style="text-align: center; border-bottom-right-radius: 15px">
-            <code>notepad.exe</code>
-          </td>
+          <td align="center"><code>notepad.exe</code></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-<div class="DocsCard">
-  Window Style settings:
-  <br /><br />
-  <div class="table-responsive-vertical shadow-z-1">
-    <table
-      id="table"
-      class="table table-hover table-mc-primary">
-      <thead>
-        <tr>
-          <th style="text-align: center; border-top-left-radius: 15px">
-            Setting name
-          </th>
-          <th style="text-align: center">Notes</th>
-          <th style="text-align: center; border-top-right-radius: 15px">
-            Default Value
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="text-align: center"><code>WindowTopMargin</code></td>
-          <td>
-            The window is centered horizontally but anchored to the top of the
-            screen. This setting controls how far down it will appear.
-          </td>
-          <td style="text-align: center"><code>ScreenHeight/3</code></td>
-        </tr>
-        <tr>
-          <td
-            colspan="3"
-            style="
-              border-bottom-left-radius: 15px;
-              border-bottom-right-radius: 15px;
-            ">
-            Search Bar Style Settings:<br /><br />
-            <div class="table-responsive-vertical shadow-z-1">
-              <table
-                id="table"
-                class="table table-hover table-mc-primary">
-                <thead>
-                  <tr>
-                    <th
-                      style="text-align: center; border-top-left-radius: 15px">
-                      Setting name
-                    </th>
-                    <th style="text-align: center">Notes</th>
-                    <th
-                      style="text-align: center; border-top-right-radius: 15px">
-                      Default Value
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarColor</code>
-                    </td>
-                    <td>color</td>
-                    <td style="text-align: center">
-                      <code>White</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarRounding</code>
-                    </td>
-                    <td>corner radius</td>
-                    <td style="text-align: center">
-                      <code>32</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarBorderColor</code>
-                    </td>
-                    <td>border color</td>
-                    <td style="text-align: center">
-                      <code>Black</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarBorderSize</code>
-                    </td>
-                    <td>border thickness</td>
-                    <td style="text-align: center">
-                      <code>3</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarHeight</code>
-                    </td>
-                    <td>height</td>
-                    <td style="text-align: center">
-                      <code>64</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchBarWidth</code>
-                    </td>
-                    <td>width</td>
-                    <td style="text-align: center">
-                      <code>screen width / 2 </code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchIconWidth</code>
-                    </td>
-                    <td>icon width</td>
-                    <td style="text-align: center">
-                      <code>64</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style="text-align: center">
-                      <code>SearchIcon</code>
-                    </td>
-                    <td>icon file</td>
-                    <td style="text-align: center">
-                      <code>?</code>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td
-                      colspan="3"
-                      style="
-                        border-bottom-left-radius: 15px;
-                        border-bottom-right-radius: 15px;
-                      ">
-                      Entry Field Style Settings:<br /><br />
-                      <div class="table-responsive-vertical shadow-z-1">
-                        <table
-                          id="table"
-                          class="table table-hover table-mc-primary">
-                          <thead>
-                            <tr>
-                              <th
-                                style="
-                                  text-align: center;
-                                  border-top-left-radius: 15px;
-                                ">
-                                Setting name
-                              </th>
-                              <th style="text-align: center">Notes</th>
-                              <th
-                                style="
-                                  text-align: center;
-                                  border-top-right-radius: 15px;
-                                ">
-                                Default Value
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td style="text-align: center">
-                                <code>SearchBarColor</code>
-                              </td>
-                              <td>color</td>
-                              <td style="text-align: center">
-                                <code>White</code>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="text-align: center">
-                                <code>SearchBarColor</code>
-                              </td>
-                              <td>color</td>
-                              <td style="text-align: center">
-                                <code>White</code>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="text-align: center">
-                                <code>SearchBarColor</code>
-                              </td>
-                              <td>color</td>
-                              <td style="text-align: center">
-                                <code>White</code>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td
-                                style="
-                                  text-align: center;
-                                  border-bottom-left-radius: 15px;
-                                ">
-                                <code>SearchBarColor</code>
-                              </td>
-                              <td>color</td>
-                              <td
-                                style="
-                                  text-align: center;
-                                  border-bottom-right-radius: 15px;
-                                ">
-                                <code>White</code>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<style>
+  .defaultsDocsTable.app-table-view tr th:nth-child(n + 1):nth-child(-n + 2),
+  .defaultsDocsTable.app-table-view tr td:nth-child(n + 1):nth-child(-n + 2) {
+    border-right: 1px solid var(--color-ui-border-default);
+  }
+</style>
