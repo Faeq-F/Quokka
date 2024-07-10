@@ -1,16 +1,67 @@
-<div
-  class="app-accordion-header"
-  data-win-toggle="collapse"
-  data-win-target="#collapseThirdPartyPlugins"
-  aria-expanded="false"
-  aria-controls="collapseThirdPartyPlugins">
-  <div class="app-accordion-title">
-    <span>How do I use a 3rd party library in my plugin?</span>
-  </div>
-</div>
-<div
-  class="app-accordion-panel"
-  id="collapseThirdPartyPlugins">
+<style>
+  #Documentation .collapsible {
+    height: 33px;
+    display: flex;
+    padding: 4px 15px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+
+  #Documentation .collapsible:hover {
+    opacity: 0.85;
+    filter: brightness(0.95);
+    transition: 0.4s;
+  }
+
+  #Documentation .collapsibleContent {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    font-size: medium;
+    text-align: left;
+    border: 1px solid rgb(234, 234, 234);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-top: 2px;
+  }
+
+  body:has(.switch__input:not(:checked)) #Documentation .collapsibleContent {
+    border: 1px solid rgb(75, 75, 75);
+    color: #ddd;
+  }
+
+  /*Arrow*/
+  #Documentation .active::after {
+    transform: rotate(180deg);
+  }
+  #Documentation .collapsible::after {
+    content: " \f10c";
+    font-family: icons10;
+  }
+  #Documentation .collapsible::after {
+    line-height: 0;
+    content: "\f10c";
+    margin-left: 5px;
+    align-self: center;
+    font-family: icons10;
+    transform-origin: center;
+    transition: transform 167ms cubic-bezier(0, 0, 0, 1);
+  }
+</style>
+
+<button
+  class="collapsible"
+  role="button"
+  style="margin-top: 20px">
+  <span class="text">How do I use a 3rd party library in my plugin?</span>
+</button>
+<div class="collapsibleContent">
   <p>
     You must install the package (likely through nuget) for your plugins
     project. Unfortunately this is not enough since Quokka will need the package
@@ -29,43 +80,38 @@
     <li><a href="">Plugin_Everything</a></li>
   </ul>
 </div>
-<div
-  class="app-accordion-header"
-  data-win-toggle="collapse"
-  data-win-target="#collapseDevFAQ2"
-  aria-expanded="false"
-  aria-controls="collapseDevFAQ2">
-  <div class="app-accordion-title">
-    <span>Question 2</span>
-  </div>
+<button
+  class="collapsible"
+  role="button">
+  <span class="text">Question 2</span>
+</button>
+<div class="collapsibleContent">
+  <p>Answer to Q2</p>
 </div>
-<div
-  class="app-accordion-panel"
-  id="collapseDevFAQ2">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat.
-  </p>
+<button
+  class="collapsible"
+  role="button">
+  <span class="text">Question 3</span>
+</button>
+<div class="collapsibleContent">
+  <p>Answer to Q3</p>
 </div>
-<div
-  class="app-accordion-header"
-  data-win-toggle="collapse"
-  data-win-target="#collapseDevFAQ3"
-  aria-expanded="false"
-  aria-controls="collapseDevFAQ3">
-  <div class="app-accordion-title">
-    <span>Question 3</span>
-  </div>
-</div>
-<div
-  class="app-accordion-panel"
-  id="collapseDevFAQ3">
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat.
-  </p>
-</div>
+
+<script>
+  var DocsColl = document
+    .getElementById("Documentation")
+    .getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < DocsColl.length; i++) {
+    DocsColl[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+</script>

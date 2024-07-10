@@ -2,5 +2,18 @@
   "cSpell.words": ["Faeq", "nanogallery", "Quokka"],
   "zenMode.centerLayout": false,
   "zenMode.hideLineNumbers": false,
-  "AllAutocomplete.showCurrentDocument": true
+  "AllAutocomplete.showCurrentDocument": true,
+  "files.exclude": {
+    "_site": true,
+    ".vs": true,
+    ".vscode": true,
+    "APIdocs": true,
+    "Plugin_Calculator": true,
+    "Plugin_Everything": true,
+    "Plugin_InstalledApps": true,
+    "Plugin_PortableApps": true,
+    "Quokka": true,
+    "QuokkaDocs": true,
+    "Tests": true
+  }
 }

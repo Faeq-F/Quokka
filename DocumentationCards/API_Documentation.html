@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     border-radius: 15px;
-    background: transparent;
+    display: none;
     border: 0;
   }
 
@@ -13,6 +13,59 @@
     overflow-y: hidden;
   }
 </style>
+
 <iframe
   id="APIframe"
-  src="APIdocs/index.html"></iframe>
+  src="APIdocs/api/Quokka.html"></iframe>
+<script>
+  function iframeURLChange(iframe, callback) {
+    var lastDispatched = null;
+
+    var dispatchChange = function () {
+      var newHref = iframe.contentWindow.location.href;
+
+      if (newHref !== lastDispatched) {
+        callback(newHref);
+        lastDispatched = newHref;
+      }
+    };
+
+    var unloadHandler = function () {
+      // Timeout needed because the URL changes immediately after
+      // the `unload` event is dispatched.
+      setTimeout(dispatchChange, 0);
+    };
+
+    function attachUnload() {
+      // Remove the unloadHandler in case it was already attached.
+      // Otherwise, there will be two handlers, which is unnecessary.
+      iframe.contentWindow.removeEventListener("unload", unloadHandler);
+      iframe.contentWindow.addEventListener("unload", unloadHandler);
+    }
+
+    iframe.addEventListener("load", function () {
+      attachUnload();
+
+      // Just in case the change wasn't dispatched during the unload event...
+      dispatchChange();
+    });
+
+    attachUnload();
+  }
+
+  iframeURLChange(document.getElementById("APIframe"), function (url) {
+    console.log("URL changed:", url);
+  });
+
+  // $("#APIframe").css("display", "none");
+  // if (colorScheme === "light") {
+  //   $("#APIframe")[0].contentDocument.getElementsByTagName(
+  //     "html"
+  //   )[0].dataset.bsTheme = "light";
+  // } else {
+  //   $("#APIframe")[0].contentDocument.getElementsByTagName(
+  //     "html"
+  //   )[0].dataset.bsTheme = "dark";
+  // }
+  // $("#APIframe").css("display", "block");
+</script>

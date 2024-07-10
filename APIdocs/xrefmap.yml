@@ -43,6 +43,21 @@ references:
   commentId: Overload:Plugin_InstalledApps.ContextPane.InitializeComponent
   fullName: Plugin_InstalledApps.ContextPane.InitializeComponent
   nameWithType: ContextPane.InitializeComponent
+- uid: Plugin_InstalledApps.ContextPane.Page_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)
+  name: Page_KeyDown(object, KeyEventArgs)
+  href: api/Plugin_InstalledApps.ContextPane.html#Plugin_InstalledApps_ContextPane_Page_KeyDown_System_Object_System_Windows_Input_KeyEventArgs_
+  commentId: M:Plugin_InstalledApps.ContextPane.Page_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)
+  name.vb: Page_KeyDown(Object, KeyEventArgs)
+  fullName: Plugin_InstalledApps.ContextPane.Page_KeyDown(object, System.Windows.Input.KeyEventArgs)
+  fullName.vb: Plugin_InstalledApps.ContextPane.Page_KeyDown(Object, System.Windows.Input.KeyEventArgs)
+  nameWithType: ContextPane.Page_KeyDown(object, KeyEventArgs)
+  nameWithType.vb: ContextPane.Page_KeyDown(Object, KeyEventArgs)
+- uid: Plugin_InstalledApps.ContextPane.Page_KeyDown*
+  name: Page_KeyDown
+  href: api/Plugin_InstalledApps.ContextPane.html#Plugin_InstalledApps_ContextPane_Page_KeyDown_
+  commentId: Overload:Plugin_InstalledApps.ContextPane.Page_KeyDown
+  fullName: Plugin_InstalledApps.ContextPane.Page_KeyDown
+  nameWithType: ContextPane.Page_KeyDown
 - uid: Plugin_InstalledApps.InstalledApps
   name: InstalledApps
   href: api/Plugin_InstalledApps.InstalledApps.html

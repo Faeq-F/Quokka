@@ -34,17 +34,20 @@
     ],
     "output": "../APIdocs/",
     "template": [
-        "templates/material",
         "default",
-        "modern"
+        "modern",
+        "templates/material"
     ],
     "globalMetadata": {
       "_appName": "QuokkaDocs",
       "_appTitle": "QuokkaDocs",
-      "_appLogoPath": "images/logo.png",
-      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "../Resources/QuokkaLogo.svg",
+      "_appFaviconPath": "../Resources/QuokkaLogo.svg",
       "_enableSearch": true,
-      "pdf": false
+      "_appFooter":"<footer></footer>",
+      "_disableContribution":true,
+      "pdf": false,
+      "_disableNewTab": true
     },
     "postProcessors": ["ExtractSearchIndex"]
   }
