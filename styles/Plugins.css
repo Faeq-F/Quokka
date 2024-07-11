@@ -138,12 +138,7 @@
 
 @media (max-width: 661px) {
   aside {
-    height: 90vh;
-    width: 100vw;
-    margin-left: 0;
-    position: relative;
-    background-color: transparent;
-    overflow: visible;
+    display: none;
   }
 
   .content {

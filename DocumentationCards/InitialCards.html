@@ -1,10 +1,65 @@
+<style>
+  #DefaultDocsContentCard1 {
+    height: calc(100% - 20px);
+  }
+</style>
 <div
   id="DefaultDocsContentCard1"
   class="DocsCard">
-  Click on an item on the left
+  Click on an item on the left<br />The below is order of operations: (not
+  accurate - meant as a placeholder for now)<br />
+  <pre class="mermaid">
+flowchart TD
+%% Nodes
+    A(Launch App)
+    B(Load Settings)
+    C(Index Plugins)
+    D(Run onAppStartup)
+    E(Create Tray Icon)
+    F{User Interaction}
+    G{User hits any key}
+    H(Check Hotkey)
+    I{Matches Hotkey?}
+    J(Create Search Window)
+    K(Run onSearchWindow)
+    L{User Types in Search Window}
+    M(Call onQueryChange)
+    N(Sort and Display Results)
+    O{Right Click Tray Icon}
+    P(Context Menu)
+    Q(Exit Program)
+    R(Run onAppShutdown)
+
+%% Edge connections between nodes
+    A --> B --> C --> D --> E --> F
+    F --> G --> H --> I
+    I -->|Yes| J --> K --> L --> M --> N
+    I -->|No| G
+    F --> O --> P --> Q --> R
+
+%% Individual node styling
+    style F color:#FFFFFF, fill:#00BFFF, stroke:#00BFFF
+    style I color:#FFFFFF, fill:#FF6347, stroke:#FF6347
+    style L color:#FFFFFF, fill:#32CD32, stroke:#32CD32
+    style Q color:#FFFFFF, fill:#FF4500, stroke:#FF4500
+
+%% You can add notes with two "%" signs in a row!
+  </pre>
 </div>
-<div
-  id="DefaultDocsContentCard2"
-  class="DocsCard">
-  Quokka Docs
-</div>
+
+<script src="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.min.js"></script>
+<script>
+  $(document).on("change", function () {
+    var config = {
+      startOnLoad: true,
+      htmlLabels: true,
+      callback: function (id) {
+        console.log(id, " rendered");
+      },
+      flowchart: {
+        useMaxWidth: false,
+      },
+    };
+    mermaid.initialize(config);
+  });
+</script>

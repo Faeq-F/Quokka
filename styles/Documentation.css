@@ -185,15 +185,10 @@
   border: 1px solid #e3e3e3;
   border-radius: 15px;
   background: #fff;
+  animation: fadeIn 400ms;
+
 }
 
-#DefaultDocsContentCard1 {
-  height: 20%;
-}
-
-#DefaultDocsContentCard2 {
-  height: calc(80% - 70px);
-}
 
 #DocsHeader {
   padding: 10%;
@@ -260,9 +255,6 @@ blockquote {
   padding-top: 10px;
 }
 
-
-
-
 .app-navbar-wrap {
   height: fit-content;
   border: 1px solid #e3e3e3;
@@ -270,7 +262,30 @@ blockquote {
   background: #f9f9f9;
 }
 
+.app-navbar-wrap .app-navbar-toggler,
+.app-navbar-submenu .app-navbar-submenu-title,
+.app-navbar-wrap .app-navbar-list .app-navbar-list-item,
 .app-navbar-wrap nav,
 .app-navbar-wrap .app-navbar-header {
   border-radius: 15px
+}
+
+.app-navbar-wrap .app-navbar-list .app-navbar-list-item a {
+  font-style: normal
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 661px) {
+  #Documentation {
+    display: none;
+  }
 }

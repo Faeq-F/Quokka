@@ -5,8 +5,9 @@
     margin: 0;
     padding: 0;
     border-radius: 15px;
-    display: none;
     border: 0;
+    display: none;
+    animation: fadeIn 400ms;
   }
 
   #DocsContent {
@@ -17,55 +18,78 @@
 <iframe
   id="APIframe"
   src="APIdocs/api/Quokka.html"></iframe>
+
 <script>
+  //used to detect iframe url change - run callback before iframe loads new doc
   function iframeURLChange(iframe, callback) {
-    var lastDispatched = null;
-
-    var dispatchChange = function () {
-      var newHref = iframe.contentWindow.location.href;
-
-      if (newHref !== lastDispatched) {
-        callback(newHref);
-        lastDispatched = newHref;
-      }
-    };
-
     var unloadHandler = function () {
       // Timeout needed because the URL changes immediately after
       // the `unload` event is dispatched.
-      setTimeout(dispatchChange, 0);
+      setTimeout(function () {
+        callback(iframe, iframe.contentWindow.location.href);
+      }, 0);
     };
 
     function attachUnload() {
       // Remove the unloadHandler in case it was already attached.
-      // Otherwise, there will be two handlers, which is unnecessary.
+      // Otherwise, the change will be dispatched twice.
       iframe.contentWindow.removeEventListener("unload", unloadHandler);
       iframe.contentWindow.addEventListener("unload", unloadHandler);
     }
 
-    iframe.addEventListener("load", function () {
-      attachUnload();
-
-      // Just in case the change wasn't dispatched during the unload event...
-      dispatchChange();
-    });
-
+    iframe.addEventListener("load", attachUnload);
     attachUnload();
   }
 
-  iframeURLChange(document.getElementById("APIframe"), function (url) {
-    console.log("URL changed:", url);
+  //hide the iframe when the url changes since the theme needs to be applied (prevents flashing of white bg when in dark mode)
+  iframeURLChange(document.getElementById("APIframe"), function (iframe, url) {
+    $("#APIframe").css("display", "none");
   });
 
-  // $("#APIframe").css("display", "none");
-  // if (colorScheme === "light") {
-  //   $("#APIframe")[0].contentDocument.getElementsByTagName(
-  //     "html"
-  //   )[0].dataset.bsTheme = "light";
-  // } else {
-  //   $("#APIframe")[0].contentDocument.getElementsByTagName(
-  //     "html"
-  //   )[0].dataset.bsTheme = "dark";
-  // }
-  // $("#APIframe").css("display", "block");
+  //applying the right theme to the doc in the iframe and showing the frame
+  function applyThemeToAPIFrame() {
+    //applying light/dark theme
+    if (colorScheme === "light") {
+      $("#APIframe")[0].contentDocument.getElementsByTagName(
+        "html"
+      )[0].dataset.bsTheme = "light";
+    } else {
+      $("#APIframe")[0].contentDocument.getElementsByTagName(
+        "html"
+      )[0].dataset.bsTheme = "dark";
+    }
+    //applying primary color
+    var hue = getComputedStyle(
+      document.querySelector(":root")
+    ).getPropertyValue("--hue");
+    $("#APIframe")[0].contentDocument.body.style.setProperty(
+      "--bs-link-color-rgb",
+      culori
+        .formatRgb("oklch(0.7 0.2 " + hue)
+        .replace("rgb(", "")
+        .replace(")", "")
+    );
+    //showing frame
+    $("#APIframe").css("display", "block");
+  }
+
+  //when the iframe has loaded the doc, apply theme and show it
+  document
+    .getElementById("APIframe")
+    .addEventListener("load", applyThemeToAPIFrame);
+
+  //when user switches page theme, change theme of doc in iframe as well
+  document
+    .getElementsByClassName("switch__input")[0]
+    .removeEventListener("click", applyThemeToAPIFrame);
+  document
+    .getElementsByClassName("switch__input")[0]
+    .addEventListener("click", applyThemeToAPIFrame);
+  //when user switches page color, change color of doc in iframe as well
+  document
+    .getElementsByClassName("slider__input")[0]
+    .removeEventListener("click", applyThemeToAPIFrame);
+  document
+    .getElementsByClassName("slider__input")[0]
+    .addEventListener("click", applyThemeToAPIFrame);
 </script>

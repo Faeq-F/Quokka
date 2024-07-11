@@ -152,6 +152,7 @@ code {
   border-radius: var(--bs-border-radius);
   margin: 4px 2px;
   box-shadow: var(--card-box-shadow);
+  padding: 5px;
 }
 
 header,

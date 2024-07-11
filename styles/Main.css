@@ -31,8 +31,6 @@ body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
-
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   margin: 0;
@@ -390,7 +388,7 @@ img {
 
 @media only screen and (max-width: 639px) {
   .ag-timeline_title {
-    font-size: 14vw;
+    font-size: 7vw;
   }
 }
 
