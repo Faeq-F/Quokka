@@ -69,6 +69,16 @@
         .replace("rgb(", "")
         .replace(")", "")
     );
+    //cursor styles
+    $("#APIframe")[0].contentDocument.body.style.cursor =
+      "url(../../Resources/point.cur),auto";
+
+    for (var a of $("#APIframe")[0].contentDocument.body.getElementsByTagName(
+      "a"
+    )) {
+      a.style.cursor = "url(../../Resources/click.cur),auto";
+    }
+
     //showing frame
     $("#APIframe").css("display", "block");
   }

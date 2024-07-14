@@ -1,0 +1,24 @@
+.app-range-slider input[type="range"]::-webkit-slider-thumb,
+.app-range-slider input[type="range"]::-moz-range-thumb,
+.input-btn-default,
+.app-accordion-title,
+button,
+.app-btn,
+.app-dropdown-title,
+.app-select-menu select,
+.app-switch>.app-switch-view,
+input,
+.app-navbar-wrap .app-navbar-toggler,
+.app-navbar-submenu .app-navbar-submenu-title,
+a {
+  cursor: url(../Resources/click.cur),
+    auto !important;
+}
+
+textarea,
+label,
+.app-navbar-name,
+html {
+  cursor: url(../Resources/point.cur),
+    auto;
+}
