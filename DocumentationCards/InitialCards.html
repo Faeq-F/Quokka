@@ -1,7 +1,60 @@
 <style>
   #DefaultDocsContentCard1 {
     height: calc(100% - 20px);
-    overflow-y: hidden;
+    overflow-y: scroll;
+  }
+
+  #flowchart {
+    height: 1000vh;
+    width: 1000vw;
+    background: transparent;
+  }
+
+  #chart_container {
+    width: 100%;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+    background: white;
+    border-radius: 15px;
+  }
+
+  body:has(.switch__input:not(:checked)) #chart_container {
+    background: black;
+  }
+
+  .flowchart-container {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 15px;
+  }
+
+  .draggable_operators_label {
+    margin-bottom: 5px;
+  }
+
+  .draggable_operators_divs {
+    margin-bottom: 20px;
+  }
+
+  .draggable_operator {
+    display: inline-block;
+    padding: 2px 5px 2px 5px;
+    border: 1px solid #ccc;
+    cursor: grab;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .flowchart-operator .flowchart-operator-title,
+  .flowchart-operator {
+    border-radius: 15px;
+    background: transparent;
+    width: fit-content;
+    height: fit-content;
   }
 </style>
 <div
@@ -9,11 +62,327 @@
   class="DocsCard">
   Click on an item on the left<br />The below is order of operations: (not
   accurate - meant as a placeholder for now)<br />
-  <iframe
-    frameborder="0"
-    style="width: 100%; height: 838px"
-    src="https://app.diagrams.net/?tags=%7B%7D&amp;lightbox=1&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Quokka.drawio#R%3Cmxfile%20pages%3D%225%22%3E%3Cdiagram%20id%3D%22vYMj-4dYeqzh50wIsNQz%22%20name%3D%22Quokka%22%3E7T1Zl6LI0r%2Fle%2Bhz%2Bj5MHxap5VHBhWrBVnHBl3sQaERxuYKl8Ou%2FiAQU0EJFrZ4zU1XTU5qSEZmxR%2BTiN5af7%2BprbTWRlobpfGMoY%2FeNFb4xTIl6fYY%2F2OKHLdgWtlhr2wjb6END1w7MqDF%2BbGMbppt60FsuHc9epRv15WJh6l6qTVuvl9v0Y7%2BXThrrSrPMo4aurjnHrQPb8CZh6wtHHdobpm1NYsw0FX0y1%2BKHowZ3ohnLbaKJrX5j%2BfVy6YWv5jvedJB6MV3CfrUPPt0PbG0uvBMdeq65bo2nSBOGcrQxMIY8FI3OXM812xA0T4uanyvfmKdvDAuEZ%2BElRf57%2Bt8Gh1cx8Ln9u29sOfXpb2e51SfaGjE1O984fvGN4ch%2FlLxE7pEWav9f%2BXt5tcKpuNhB2yz0iWn8J%2FtU5XtzqRnwomt6nr2w3KMn%2BO%2FiwjB38OqXs7HsxfETwvfOBhuWC8DY9WCIm9XRQ9Xv%2FNrUPBNeKmvNhz8iSNPRYzUgERIVP1945lrTPXu5%2BPYs4MeZZ%2BuHZye2h9PUFgh4ZvrYIfN04zs%2FMfUZvlp68MgRahHASZoHZHL3D31jaydAvR3m0jW1tT6BFwN7AYJ3BPTnnjbhkx881jxMRfFXZAD24hj8ibFI33mNiOxy0d6Ya5%2BfaAvLPEIgf%2B8uiehoC%2BS2YLsrh3ChY7obxztmagtG1CEqByLg2IRwCcadGMmv7%2FwSWLbDHpK52ByBbH%2Bv7mz89Nd6aa21%2BdEDnZQgTTYeTDkSkaS4Vw3LPBgjEA8k19j0tqaJvRcntQH%2B%2FfUXaJPlhZpXyTbw2QYh21DNNtSOpTfzRD3b0Mg2iMdimHrimVdhNs84urds35%2FZhma2Qco2yGfRycsQW%2F3s5FrZhl%2FZhna2oXPETDAu9rttbDQnYh38cT3fAVuUHQA2m9FA9KWzXBMTydbIzzcGB%2F3bBl0grRRV2be63no5M1PtH4AWLwFdqz2xpedj0FH7B6Cbl4BmGV5gmWPQUfsHoNuXjbrEods8HjVpz%2FJFXW4QqoYINcMgzPGIYdraHlokb7v8RmxywmVBz%2FR7yrWtxd6agXejIFj4v%2BQTfI5DBA3%2FbVtHLvGkE0339Cbm3PzYly7MjbdGicsfRxomCXQkbT0z1%2BWxu3Q23hGG35rjmpfASjjzyyeXBjHx5k4TIw73g1GchoKe9Pz4XPN%2FG3OhH5Pw4uEZtoY2HugFMcMwC4ej8kaRA0nNQqKvgATBxHIdwrllQFsSombHcQ2ESRjMZkA8cZdDGC93pydyDT0AiAL%2B%2BgOKXA4HLcPto5mbrguB%2FmlA7BXDmdugqesyMvtIN7z1JldBswTyvGUkeWVjejS7yyFtXJjYbnBKcq4b0holp7ywHPMjvb8UkjtZbruRnsub%2Bdg8ptYdLImlLbwbrJxne46pLFenpYK5RmO0deOk2jHXaIy2rmurLITS5QC85eoXuFOMbm6wQI752%2FsAzPMVJMFiQNNemCRn%2BwDeNYr3G%2BJ%2FUlzI6skVioIwatrcdvyP3XcqyGitzMVfXW3hZkIPjHNSTS488xfkWPbvzJOXBAEZg0fUpRtmH12Mwo5U5wqZ0Ha2W1uu59qxniRDKxUCaW6O%2FzNSo7%2FJzeubte35TfPddD5GDuGirXuXEerQB2SqtQirCwWjJBLF9bW1rY1PUPhyI7Ja23MNUmMSIueQmDVNs4g4QJwK4aSbyz72mcLfIuCBS8uFcX4CE9f5HhoRjPNDvaVeX368MjT39PLEoGng%2FlNkBGNNn1nr5WZxxMvUFH%2BTnyIIPHPt2ZfN8C%2F66XiS7A92%2F1N0kpGUVJZrw1wXIfXLPUaxZ%2FYN47gHy2OOXDyMU3y5C0UivmCkel6DafJzE%2BEvQLS2xt%2BZH8%2Bl1%2BgnnG1%2By01cuHBM9PMPKv4JfS51rqnQsBwIGs7z4unpqdicL2F0OPwi8OeavajMjssKd3AEoQzlAn%2BgkSaaSufOi0hmUdDMg%2Fwbpo9n%2FIpWVJBy4RKjVMDdQ8hk61pOwARQjBJTBLaxXOTTYjweF4FLilcTUzPOa1Zsra9HcnXs7q3N8UafmLgoMD8VwL%2Bba0NbaOEbDASdqIB5iOULjvNUnnJ4Tz%2BtdkUgK42qVP0v32q2Ov9tipKoZFHQzDV6YZgPMlQENFHqR5gL3dm44Ln%2BkB2MsZ%2BfXnGTZZi%2FtY3jQfI8e5wfxNLHRepaBLppWCYpH1cuiO23E9srJGek4nqOEx8E00X5H%2BJ8jN4Q2JdFogX5QjA0Hxlf4ZKM5jxsAiH4h9KIbLSoLHfA5Ifl9HscN6SDRSWY4H4sBZfL1UMRYEx3EemKexmC4hIJKKgnCP8yGhUseuDelncNS4iXUqrgTBKILqHX7xL%2BFtL91HLCGUyFnYob1l3Pz%2BWkWj6zd4gxNMfrXjqKe80zJ%2F163ETNHYRTxmV6ZpKfQqGO5s6KG1r2HhMlQ7hklsWDRkSBBqWJq1CPEpoYyaPhC9r6gtC3oPeIkbQ2nmsbjwuC98TCDW64yHBJ3Ymln4pGdva7qfx5UU8M5IEBFC4uFlqwoIrOC2snF8%2BqYB1lj%2BOxHhtLTBdNo2CZicC%2FVApp6scrFf3Se9%2BSKuyHraXCrPOWhuZflvUUnPHKXLtxoHWlRN5nFSPE%2F5i0lCQMZ0g3djTcxFsgBMDdNBcJI8fh2YPCOC4Ltosj0cmJA%2BoMdK446Pzae62Ev8Wh55ffbxo4mwu6UqkUB13KBf38%2FFwcNJcLumjtkoB%2BygUtCEJx0M%2F5QoIbd4uCfnncqF8fJyF0vkbexEc6XyVvEj9x8Z4%2Fco383IQgf%2FjUGH9vQpBvVO4wg3zTUiI%2FNyHINzAv5OcmBPlm5on83IQg39gwzG3%2BDhDkm5ziK%2Bl7BPmG5w4zyDc%2Fd5CiM0boDlw%2BY4puFdRfprnOmcPJwJa5R2B7QJ8zwdNxNfeDJLIljnp9uR39tfWxO88%2Bx9CdRP90X%2FQ5ZvB0JeHpx1P883w7%2BhwjeRI97na%2BFWeO3TxdEL3vlHOs6p0LGwecOYb2M6acY4Y%2FQ8bzjPTDpCzPbj9Os1xE37wgrS9e%2FAynSHDk0PUOiStBkR9o3gVFvoO9nUr5oezt8PMj2dvh5weyt8PPj2Nvh58fxt4OPz%2BKvR1%2BfhB7O%2FwzMewdEDxEw9zN%2Brem59XlPtrlfofd9iHuIsEzRK93w3915HyXkwaHuV%2BNn7of%2FquXte%2FM96vx35Hv1%2BYM2WWXW%2Bd%2BNf478v3ahOXpzny%2FGv89%2BO6ttYVr466Oi0443IbiwvCxeP3H9TTv0iD1hoM5iOWRC2eHHbAPPCE4Xy2BK%2BYlu22%2F3XKSTnO8S3EU3ua1n42CW5QvRFf0SA3h%2Fvm93AVF2F4szHV1YVwyiQe64pWp25rTxbmel8GixVRHc13l3JmY4nqKV83g5VXUI8QgBn5tpHKXEwUx8jOhwlPpCPs9hCPGfsZZn8B%2Bz7mfcZd%2FPXjyZ%2BqLp9Dfc%2FZnSo008%2FLQ2Z8pNZ5Cf4%2FZr%2BzH7JYAuI%2FaKgGgH7JPAuA%2BZJMEwH3IDgmA%2B5DtEQD3IXsjAO5DNkYA3IfsigC4D9kSgaqRr3PFGfeYzRAI%2BFEqR%2BJLDFnyT2syXLHTmkkMDyuzA5LoqMD5idDPhSeSwPHIlA8wNU3LXBgPncwBxUPZQm5BfNS2yT2Ck5d%2BJYS3MJVaG89cfx6OBxKqtdJ028s5NU79KGSb%2FrfRjLW28OgaXoP5gLQkRsCcRfCb%2FN6Cgz2P4wV%2Fb8FROo%2FDwN%2BbmIF6fRZP8Tx0z5OL8FA6%2Ft7El8vwkHNDN%2FHmMjx4oV2h%2BkCM59fSXpzBczLVljW5aKKRQv1J4jEs72z3k3Cpn4iLXJu%2B0JywZhaa7gLcvEtdKx5Tdff3GxOJ%2FB7Ijx1exV7kgt80mPEVxenrq8ZpXBfeOHE9TTKUIdrwibgetkRxcl76Beci7zOti85L3YrK%2F0Ru%2BZ%2FILf%2FzuOV%2FHrdWzjLMmX5pjumduVerWq0S%2BOxTpfJSDSuo7EuZr7yE9USWfy7zwlP4uvoi8Hx4exFbq1WY8kv8usa%2BhKaafYaHoiOC0C68VOLX5RpbTeHOm1L%2B3aXp%2Ba7N%2F23stTk3F5cuexWM9JOI%2FuwNkUcjOZOG34jj0fcurk1Hu2xBvOAO%2FBjB4287SmF6WOXCsj3qSrl7pu6w0x7w5hcQC9b5AG5%2B%2FbBgKRXg5pfsCxY8AW5%2Byb5ghRbg5pfsC5aqAW5%2Byb5gaR3g5pfsi483%2F2gd3nT6XPrxHAt35mVR4T573K74abgQer6UFz%2FEFELPl%2FXix4tC6PkSX%2Fx4VAg9X%2B6Lnx8LoedLf%2FFaeAg9XweKj30MSao%2BebgrqRzQ5KjcvVDkKFhhr5vGkK9kd5lEjqbdaRIPOQmQRvGQwwBpFA85D5BG8ZAjAZ5mPXxTY4zjsUnLHssfu%2FYkHkHt%2FJW7VLFFKn05n9veJQz7tFvbE0MqvK%2FwPlfhHgbyOAZonre2x5vk3lbCiJbxsD2uH2CsvptHXxGURsngb7LpND6sQGQ%2FSbc9h9%2Fyuv%2Bi2G7PbPzkt87v8vPb%2FMls1ZaN9V%2FM%2Fgto918sG35lH%2BniTrQVvrTn5NtxK4tlM%2FoCWRrevePN%2F7rmlB3bWkCbt1xBK3m2jNtFvei5qLdAvjyWLYdvmZr7bn1jKrs53pf9qyEzI78y0efOpDl8ex%2FX%2B7PRUJ7C%2B61Rd97HU8oezXfvBiMv1eEb1RyqvmhX%2FDGzc3513xb6vLbV6s5U9%2BnZmJHp8aC%2FMfhK4rVoGXPHMai3d1Og7KZiWfhPms52El%2BiW4rEyt0yJQe9TUtQA2lq7aRpzxYbMmUOCA5PHVqewTgzo249iYLISUp5IyuzQA76W1Nw4dmJN65zATy7NBqdbct%2BeTdYg20u9KA5f%2FVH%2FosvCeVtk8W5wnhCWK%2FitLqVeMBVd2Y4l1GPdvQ5PdEGnV%2FGsLM1hm1PUnToO2NlYRa0lDLd4kWg3a94dLZ8Wa%2BGNx8zHNUcjCbjgeOaytI2Gm%2BOuuhPtXqfEut0INo7ZjR8m6kDbtKs13xtUHObDXkyXkiezvThvfo8mr8CRelAG66c1rTK6A0L2hx3LCynOEP812Kp6YjpywDLUwfOTGH7lN7oU02lykrTMicHbU4KZlsZOTHv%2BzpQqDlwpjC%2BPSxZ6fnSVPQLwRp2HLPROQFLpuDz9UgpDH82YnqeUZ%2BsVMbbgJQGzQH3jrQfN7wA6Pmu4eeRpEiLSulm%2BMPOUhvIazMee5dmgc%2BUJiyD5hSlz3sVGcNRBn1%2FPKitRtVX2mhUaIOndnIgbluKToGEc5LQK4k854zqhtMcViYgpSAzJeDrqwvwnnW2AxrlOc1BZ6Izk4m%2BeJuAjFzLSzJ%2BvV6jjDqMx6Zn6lBejj6GH9wKf8x2qBz4V%2FKXBivkOfrCm2uDnduyJUaeqnvY8fvf3Qt1ji9vgCe%2BBrrTnMv%2BmJUDMymDU5W5Znw6O1qYzOh9vGh7o3nNgzFyLfsN4PVtYwB0Hrat8VCym40RjK0zGc%2BrLljMlTrYujpT24CFDADPajSNbMFQXpnz3pOkjK6VI1cdvDnjO9kUFWRwzIpPYhDaD%2Bm6sUzHjX6A8tAc7CbqvO%2BKjbT%2BS4F0pZzJrjGUqdFQBKtes0eDLdC%2BMhnb28t51fDAnu3e9WkR%2FMl5tN2LadGQt%2BqgdMXzlWPbzcjggV99kPWIF%2BXr5H3%2BOht1K%2F5oIFNN%2Fup%2BU234Nh3Xe5fPgec2Y6bjiPW%2BO647W50p0LdReR83nMWYuYJ2h74TsNd7Oo4GfSfpZ1rKjGsd2%2B4d%2Bs1r6JqKgDJyDrJfAp8M%2Bi4vUY9AF2ej%2Bs65Tua491G9B3%2B9CcLLziv064d5pd7fMK%2BQ7%2FCX6NnuMJc68GO6AnpyqIcFYIJdgKhQY2o2RJTPKguxAQNyvai8awVgAt3Bfhvgy2qzHvgfrbH3EUH0ex0%2FB53FqI80BtovQlpn%2Fczepw2N1ajRWbam4kZqXBtTjMC2GmCPaz7QFXw9tz7yQcxoNa5vn4Bum5FyfTyhRLxT5zWgtwF06m9GPB3ZvxUL0TkFcIHmE5DdGozB2LTmsjNeQAwyLYoPbPK8PzUa3jvEA2A3OlxrilG5Z6sQL43Yt3djwM2ag8ieLYwlPOPEczWYycqo966Tq3CePMzxo7n6I%2BZt8lMQabm7hQyjRzf5sg%2BxpisKMLbu7DqZY3Y0yICj26E9NaOxaw3Z%2FSmUEaYD8LkWX%2BKkaZWWpxYjTXX6DfAkZImVBH0rB%2BUT8lS71u%2Fvfe0dfeyn%2BtZR3WEgzovp3xtD7AFZ5taEnFZnHEobvIJs1myMiw2UF5b4YIC7W42Y0pPKQEYJ828x9MTk93YPeFdBWoL%2F7cxAxxat6Ru%2Bf0TO5aONTcmfsFrqzHYJ82UkHuSOR3mbQX6wt0346%2FwE3Rizb5Bdi0%2FSsILxAuiGMxP5g4yomK1iLDV8mwCtaD1YEnx6%2FXVF9NWmHWMONGhIsb14gtxtA31KLcxmr5OnOegmq5J4vdMD%2FXRH%2FTM%2BLYp%2FgVdPYL92LbSHkV4Uih%2BFFejEK2X6lDeOn%2Bfpu%2FDtt7J9B53jIJ7BjL2uk%2F9HOYYN8jZ3wAa2X8V5jTbqL7YYfzabOGAjl4ZA2ZIiHtqdUG9%2FdcWdZItWnFv0B9wK%2BPEqLvoY3ytoD0e9101%2FKDsisR2jEfSho9cqvGbgNaMN%2Bmx7%2FlqC91uwJZakkH%2BAT4a8QQ7CysfbGnU0GX9A39UIxnaZzk1%2Bp6s3of%2FtgG0Wp6UXzOU0vgK5s%2BOOFMo%2BslF2edfyK%2FvcelSvBejL9HmNw8%2FA%2Fm1bvmiBrZzorIS0xBoAq0S0Ib6ah%2FHDeJVumcxT4cs7iS%2FTYhV1BV9XnnAsTZb4Y%2BQS%2FxrP%2FO%2FDM6pJqlKj1Who8GMWq0flaPz4L0mD%2FXgT%2BtW%2BrspUe0329SL9VwwSR4QVqDB6iSQcZnIUDYI0udYHmbkloYfE2tlB2vCzd4OKKUfgw%2BdA7Rll7TkWSmnMxa3YWNq%2Fptt3IkkCcJGJ%2BgNHY2qLEAFoWAsE7qjDPjX2D5zo1vtg2ScU4VA3waFDjW4HXIjk4a0%2FnjuUHlA2eC8YI2ZcsqMwXB8yD%2BDOmzNyZtAnfr3v%2F2e0bSCvdPC0ox5GKaEsRy3dx%2BucPqVsGSiqshFF6nKJyDTqGhONQ%2Fkbcsym%2FjzH%2BjJFYAFNVMbxgdZOoiJ9VGsUheozfh5pIKm7Yc6iDmf4GcaKzzAuyIlqAdIiymfkiEZtddhZoq2JbM7UVGLeWYQ2qGHxOPB1TPNf092eBhBbrDBfQ00Gu%2FKe4IE4GjgLrdHO8mYYWgq0mdWEzexvIBZA%2BtLoS3tglyHu%2BjV2wFbCmCDunw%2FI%2BEp%2Bwj4S%2B5qs9BPrIAA%2BgeDcz%2F0gY2FNTqwncyTR0gZo3y%2BLH4ZMKr%2BaAv0Dndpr2yU2cnpHG9nd7sT61mp1t5xYpVBaXalbcUWe4prC7O9oJzfINcJRsjZTPe3humWC84SHCynu38%2FTqZA56qx8raf7G3Bx5B9kHMb3Ho2%2BrifoFmddb0FohfWjJ7DG3if2QPeTs99XsgeYcSBf39yfl1b4TkcTtfG8vQKZ2XuiMJtcbSD6dtIeJmflha98sKrRtjJVs9V47lpKTfLa3YrU6dJ8bKkVnq40e6InxZGiUg0ku4Rrga40bdMQeVEytd1JgbqBOdFNQaTA%2BtCyYAiS0t42pyoDXPNlobeRlTbbFKoUZuUtyPz3%2Ff3tTlawfzvTX4VMzeLkdH9W4kuUPK2m%2BwfSBjxHsr8EtGab07Lf4g%2F9M9HsP5GDNuGgkOAg3%2BxJCQ6KnOSXGEkQkxz0wXYDBdVSigMBxDTTWZDmgISrw76clAB%2FG0ikfzXTX4TPq0ySA9A%2FkLolVgp66f4BWDwh1V%2BCJ0uQq28l%2B1%2FFQZ9wsJrgoNDstRMcbNOgg6BDKQ5SMnBAUnpckgOyoAIHJV%2B2kxxoM61uiZGVWZIDlBxg%2F3Kmv4XZFd1KSQBEaN3STpqqqf4tpQ06nOovAY1BB1Xu38XBDk84WEtwsNrs9RIcVCnZLlEZDgJHyht5muEgfAZWMMNBsKp%2BaZfhICMH2D%2FDwakOOlTOcFAtyTzYgDQHmZagb1pKhoPTGUhQ9d%2FGwdAP1hMcrDV7aoKDFviVUgl8VpKDJbBYaMUSbRK0oV6BL9pTVXdbAvl8l27rgb8rU3JsLafVoB1YDO7FAd2MYKoscLIEXN1IQTXuX4IsAfrrW%2FJ51B%2Fes4pgscDpLbyP%2Bs8oKYxe%2BNctxjKQp5C%2F%2BxzDph2gOtZf%2FDFvXVg%2F%2FriW9RPzkjg%2BnCfXU1JxX8ShcE%2FHeN6HyJXeQN4EeLcWWRPq0jhOjNA2zWFUn60fr%2BGI1Z0CnLKUas%2Fr%2BFHOMtt6HZtuNEmOSmLJnSSgb5N2IPcgici1WUkRqltJEUHGe%2BCHQOZ58FNCHyKRsg%2F6hm1AXYh%2BgNrQhjrstwQJXiPnej74SYCr%2Bs2pzmGsKgvVDdAJuFjdysEMXs9At6pEcloCgVFqIfcCsAPglzFaAe4DDIikprh%2BAa%2BnMxwbDWPDMQPXVZrAAAssT9VUzBvVDOO804Occ0Zyxfl2eWndN5O3bceMszGqmLfNkju%2FwjW%2BOfc%2BnvdS%2BXPEK0oja4ycA9rpAb8RryvWj%2FapBGNmtxrxqSzFA95uNPCCPZ9uAD9B86w4c5GaPd3r8tQWcOJ7GeiGGgLxDNgypYrxCiP1kG4q0LPNtEJ6gjZJPvDBlwMLaCiB5gBPfOAl4Z%2FIAS9BjhFGGfiH9hmj2jLYThHjj4j2VRZgQPSLr9sgD%2BjdZiWCIxAZeL0DGeAALtcSID5SABNf2rUUy8X4Cv6ijOGaA3hKa3fo%2F8%2FXSItoZLd70MguT78lNRJslI%2BeDqgZUXACMXyblu0wX4gpCBzA%2BB9sqrpLcgBiHeQ4l%2BZAu4QcwDbUNHnawbwENbskoU1U0AroFEgDjVYApCOUjC56Z6LZYbTrowSgzVU5BZ%2FFfCUgVmILcNHe%2FtM18S3UxGVCE2de105qospCXOrHGgWaE7SqwBcSgUAU342smdKjgYcQbbSBnrNSZM3AQqIVVFETaYglEQb0A1lGSxqUQz4TGBb4NhG1mZUUgBdYVGRVIatAnusIL7KeFvBJIpabZBhT9MPxsyhfOhX6116ETw%2F%2BDdq4DLUx4R%2B7Nt1MaiPEpuDT2kGSigr6RIg8IMZMUHwCGjUjOR3kfwkqbgEGVgBAm9Kc4CDaQR%2BbhUGD1m0loZ2BgRlMj5W6GRjTNkhBCgZwcwb2HjITIgX%2FHm66hJsKn%2BCmT0sJbvpg84CKFk082Z6bItrMKOtOcGIK9g29lpDUCYiSMCqCmDWtVyJGIQADbHcU2UhCB2GwEDHRBxgWxr8Ak3hRLtb5sApRLWFFokU8OImCGLAbgM%2FC%2Bg0t%2BbHdkKh%2FfuahhLmjnMg8wNJSyfoNBWNHCxhbTp%2FIPkT3QEUujE2RilVa7knomdBycnJsfQXdJ1kDco14UMI1TgozBMI1Ut0LueZLM4RhbaNKXJLzFOaLpMKQtL5T4l1ZOSk9VcxIZlRUjdvD%2BBdwM8wjWwluys1eKclNyPqRGnqQsmRYN4W4J2k52xBhkrxPKbNpiqssxitpKyuCPokgJbMEF4CT4E%2FBF1OZ%2FuhzQQL0lL6Dz0XrzaXHpW9BQijA8a%2BysLOjfLLbTeeTMvF1bRJ1oG7JQrlEIsWgjNYRuYuZOFBOFjCqxAqcRCJUC6LeXhBGsDOk6C70e8BJ4CxWzIEu6HMBhrgFTgEn3jCKRSuNOogWlMKck1TCBfTbVcxf0OqDNMwQBmgHVgTKNLHYwM2WghV2Cf0l2IJ2CgbkNljz8aUMDIx6QQJ20TjAB48EtDXg%2BykJa1HKDO1OEEoiRuNlGvOoFkbWxO5A%2FoVRvKDThB5Yhazis20Gq4QyoR1%2BXub%2B%2BbahE1bqfyVsQ73Ze0mutYB%2FrJKsEyheCtdNRhLmLGAbaLAbblihF9FKQ36CnMe2KkZuFImVBaSsCP4VK%2BykuueT%2FAYyWLANwEkp9PUKqXKwYd4DnAywitEOM1sBJVQMEIY8FUESRVK5QO5Bf7RTYGvIuMgYgYNRfx3ijX%2B%2BbXghtqGXiL4Un26nak3gOwkXuiEFISrCeo4PmV5UzyFUhPj5jeiTjBYWbQOhohpmPUEZq3%2BYyYZcUEQ%2F1EmRZMURDEoKHNRrH7gakFUyAkOiie8OaxRUPA7IiGgCA23UVDo8i%2FUTaMWaVgQ3gHj9n57htkmG268eMtx%2B2et1kxkuWXlhiVdN0ApiHYbUnewDXQ9VColO0BArErj6AnZbTPFGJlpWpUHjUjBwVQXsZwZGbydhNSMLQxGJd5cT%2FCU%2BiGTM7dK%2FiJedkJdigpdVr5euVmDmH5D6bZKXWJWf6iU5zQeIvEBXFSvDBxWtIEd8cJIPQRljXS62mBEMsGPwWpmV0jD0QCaxQBZGG1%2FvkjKloM8UMIavMh%2Fx8sOdC1J4Mk2Cp3eLrDWMTg6EnzU6vjrgghFSH%2Fyh0XibjBf4fMeJdtevUruGDn3JbnyxntjxySfP9JZxfwtHdo3ZFT%2FciRT5B9ITIJCzEAd5EREqFe6DT%2B3hYAFCKYI0wz1Z0qDvYdt4sH3Syb4o3I9S8Ue4y2YxcsJ4ohMAnTZIL7KP%2BkAv%2FnXxRZcvunzR5YsuX3T5ossXXf7mdMmdO0RaAtbBLA5X48mJw7hWBXk0vKZ%2FdrN5fRQf7XeGRhDnmBcC9Sl9Xtvo0MOo9%2FA8GcRmkAGTm0564f7Tae9yaisWxoGYF7KQbVO4giUHKp49Yvf7vnEH8FSFfHeGcSPMpIxVDIZwRAk5pi9CbpH4D898Ap3C82GHagbS0wjPvx9mjHtsfdGKOGuNGrjjuOaMgSpmnXZbi3BXMsx7C3DxHA4z6iJlBoN%2BADwIOR1yCk8B7jmzfR8F6f22JK7vReeyw724ES1HMGYKxhJyEp6nRl1ri2co0tw59CVz5CvLw555lNT9OaLtn6XNF12%2B6PJFl0%2BiS97cd1KA%2B6esrYz7HNE%2B72ve5H3KTl9JVy%2Bs2%2FcoGWw3epamMsPz68n6opvwJHg6lm1bWuKMSIvUW6t%2BS9C5ltIGn9RmcSdXggO4OhBIguhLU6wSWj7uH5QD6Y%2F6Za41DsAfh3yO%2BITYYq6cqTxc5FnDU9pXUHOb8plEXmdxBBPOj0gR6UcgEHk6VInD%2BnQjjDcSWP0xqwOMKBqqd5Dqu9GACm80E1YBOZeKZwRhTHgWy5iHdZgv%2BnzR54s%2Bf5A%2Bx5kTuY8oOrN1hj7RrghqnzfE%2B7iJtUe6deC5qheu9FT378nNOmEeQo%2FiPY7pG2YqTaVNpzKE8Gan2WgwmhiDHWQIHWc0r9HjxtGaYY7nlqgUhxQJq8bgW6o%2BnlJFy44raJG199Lzi7nZi7lJJ9dBU6di57VAG0hWlNV4KvO6Meq11Xje9zMScIEE7n1mwk%2FlSuTn%2BbiK3ihb2lCyINOm8Y6N0aB9cz4qBrgfVZ62S7IgseflSrxGrniQK%2BbxcoU7q0VWCtqY8QLnZuQ0uBxFeE2lh6uTgYy7FwSdjiPIUMasSMZOctuGvyvVr0RcxxuDOErFm1OGYirqvCDixeiMTq0C2zkRsPCJlmu2e1cHbavH9CmjDnNjpZulSsL7jfwopsUYNzpJso9xZ%2FDcpDkg61%2FC4T25z4xQzxjsb1hNraO1fYqSUzsfwjvQRvX%2BXB32XbxF9iBd6XXxXG8SyHz6jleMc7GqEd4reyRTFNkVokjRvbMk9qXj2Ff%2BkM9vE51xpmI95De56WrRmWgDztHtTLx8vop2qO2ctIzZOs%2Fn5UndATcbDS2rV9%2FRI8bZ6BdG57n%2BT9FxFxCFezIvkKrqNVLV4SmqxX%2BCVFG4hxFGhtKCu4BCbbUpluxR%2FvJ6x16va4BEgt0F71cJz%2Fc3%2Btub83A23C2kshfaqNpV0tQFaep%2BgjQF4So73iInnpIqRrZLO5gNG8dcX9KVkS4B7BaO0%2BrDHMxu5Q1nerN0cWR3TVDeV2LyYyr1mpiqDr5ne3NMVX91zYHxPj7aW4i3hFb4zmxUT9wmRG5pa0NbZ4r3pud4JZ4q4U4vPOkrBbiTEncOtRlJIKsRp1Yh0rJlV8LdOXjL1jTV18U7RcjJCkUkcVwzg0tM43LxZj05vGURNRpyy62H%2B45Bw7fh%2FfHx%2Fr8xs%2BNGyPeCPnd%2FFzIFFIqpVFi%2Bo31IthzCmqnP9%2FXNeFuZblfeyM2A89o0vK%2F%2Fdv8McTjutvXlQKII7%2FEOmGjPd3Q%2Ff9aqNq6yqj5FS3ewqvt7g1MRWv6amsXgWaFQarYltKoFJToJB%2B85Ck%2BlKcRKgHSq5JaDSJqTz5Idw5DlhBkMyGF6TPeS5L9H9BhJKN79GoiQhYBdXo%2BGs9vXXuOd5nu7HJ%2Fb%2FEA%2BxWvks8tTuKf48V5%2FF56aJ3HKqcyE3CxzyIa%2FMpOkbLWZiaMyrtWtv1Ia0%2BduX9GRyVkwPCvz8Xr%2BCJ5VuzTZS989vCfVP2JtFn0n3muf8tm9mQc5pp2tGKZ8%2FEG%2BMjtO9zTe24WTXgZrI4J%2BuIlOWU7B6zAgQSyeMThjGSk8iYn%2BFs%2FMhjWkUzXcdO0Eb2%2FHnfEoC4d%2BxCIy5O4K4r%2F3sK3EMx7ubG0S%2FS1vMQbAkyvEYoanMmLrXjg2fdvfUxz6X4yECldqop3%2BycjgjtGrDPqGt9sGYnUCFtFzTOXlditZksiZnh5WPiAv2p%2FGiiq32eh1eU30%2BhMrJ4%2BvCOLtWr0PKjcWaifRzK9KYLYSKIM1xnFWFPjrq4xl9Rm8J%2FqVvdlO%2BhI57alSstDDkyGXxIfNq%2FwvxIfyZ2Td5Fwa3iD3QdaNFsnHu7ml4Cvrzq3pRFI2GYIvmIHE3mE1QyLfJ2Bx4DHC%2FW9n7df2Gvslgf26fUUjL%2FsO3vCMup%2FOviW%2FTbVhbmez76xGufm7C0%2FGelZ0%2BjAgt4Zm4ZHvRsCz1Xoc8XhZHMc0h2emqP24m4TYZZKNH%2FX793nwPtpesdbhdPTidWcj1mQH5GWq8ZX7aQVNbngSelu8Q%2BYyr05doxUyZh2P9%2Bo9vEOHOqy5ZD27Dp%2FrvjRV43rol3dPe%2FcJSDLa3Y4x6PtmD3gw4BYj5Q61n6m1lbp41laKvpvxfB6k2NfkQSXIg6xb86Dj3c5BO723jdxNJ%2B49d3aPQoucaMWb2OLo8iu7TmbXPeYV7AFYxnnb6tQdkMMdVtW7YPGAR53L9mfn759UZsnVfrBk%2B7OGH1TXX66xZL%2FAknGP8O8AM3%2FvJvpUpRyt1JBbwmiIIYv47FTfJrkDn9zZt4v9dRpXOf08j%2FcrkftuQytKao14k9nee0RnOqM5Xrbf9%2B9rFZ03EueLVdnFM%2Ffgi%2FH%2BfauL9L1LVVziyC2YeLMtWbUo78%2FMfrDW2L4m6%2BnxFCN9xsr1TiL7hCz25N4tRcU6aliH%2BfK7Wb%2BLmkowKHhP%2Fz38rdIrgdb6hyrNGSvoXLUfsNNU1N3j47ky3v8RhHW9UzKFp9rxHj3r7M6IOHvqzFSID%2FGbThLZE0TuMsS%2Bmdv8Hyt78%2FgbOROreAU99GFu%2B1zmrtLZL2nDttUDao1YkLi7SKcV4B3O%2B4p4fHeAEtrAbCTYuyYS7ONOUfHhkSDeQiPjnUMfWLzwtjgprjN8RYLZSHDRB9l83bSHlW2PmdBGvQM8PH9%2B8ni%2FNH4f22jxy8KvuMf%2FKt8Y5htDrbS1ufDC772nwyb8gntzl2hiq99Yfr6rm8u56a19eCT6lKHCHn767dY2vEnU9EpTP7hX9pkLP5qYtjWJ0L2w3A%2F2iXuiKO4l8Yjmhh9be3TQWgsHAS%2FmO950nP3bnmuuW%2BOpqXv7pvVy6SUer6%2B11URaGiZ2%2Bn8%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe>
+  <div id="chart_container">
+    <div
+      class="flowchart-container"
+      id="flowchart"></div>
+  </div>
+  <div class="draggable_operators">
+    <div class="draggable_operators_label">
+      Operators (drag and drop them in the flowchart):
+    </div>
+    <div class="draggable_operators_divs">
+      <div
+        class="draggable_operator"
+        data-nb-inputs="1"
+        data-nb-outputs="0">
+        1 input
+      </div>
+      <div
+        class="draggable_operator"
+        data-nb-inputs="0"
+        data-nb-outputs="1">
+        1 output
+      </div>
+      <div
+        class="draggable_operator"
+        data-nb-inputs="1"
+        data-nb-outputs="1">
+        1 input &amp; 1 output
+      </div>
+      <div
+        class="draggable_operator"
+        data-nb-inputs="1"
+        data-nb-outputs="2">
+        1 in &amp; 2 out
+      </div>
+      <div
+        class="draggable_operator"
+        data-nb-inputs="2"
+        data-nb-outputs="1">
+        2 in &amp; 1 out
+      </div>
+      <div
+        class="draggable_operator"
+        data-nb-inputs="2"
+        data-nb-outputs="2">
+        2 in &amp; 2 out
+      </div>
+    </div>
+  </div>
+  <button class="delete_selected_button">
+    Delete selected operator / link
+  </button>
+  <button
+    class="get_data"
+    id="get_data">
+    Get data
+  </button>
+  <button
+    class="set_data"
+    id="set_data">
+    Set data
+  </button>
+  <div>
+    <textarea
+      id="flowchart_data"
+      style="height: 100%; width: 100%"></textarea>
+  </div>
 </div>
-<script
-  type="text/javascript"
-  src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var $flowchart = $("#flowchart");
+    var $container = $flowchart.parent();
+
+    function Flow2Text() {
+      var data = $flowchart.flowchart("getData");
+      $("#flowchart_data").val(JSON.stringify(data, null, 2));
+    }
+    $("#get_data").click(Flow2Text);
+
+    function Text2Flow() {
+      var data = JSON.parse($("#flowchart_data").val());
+      $flowchart.flowchart("setData", data);
+    }
+    $("#set_data").click(Text2Flow);
+
+    var cx = $flowchart.width() / 2;
+    var cy = $flowchart.height() / 2;
+
+    $flowchart.panzoom();
+    // Centering panzoom - not used
+    // $flowchart.panzoom(
+    //   "pan",
+    //   -cx + $container.width() / 2,
+    //   -cy + $container.height() / 2
+    // );
+
+    // Panzoom zoom handling...
+    var possibleZooms = [0.5, 0.75, 1, 2, 3];
+    var currentZoom = 2;
+    $container.on("mousewheel.focal", function (e) {
+      e.preventDefault();
+      var delta =
+        e.delta || e.originalEvent.wheelDelta || e.originalEvent.detail;
+      var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
+      currentZoom = Math.max(
+        0,
+        Math.min(possibleZooms.length - 1, currentZoom + (zoomOut * 2 - 1))
+      );
+      $flowchart.flowchart("setPositionRatio", possibleZooms[currentZoom]);
+      $flowchart.panzoom("zoom", possibleZooms[currentZoom], {
+        animate: false,
+        focal: e,
+      });
+    });
+
+    var data = {
+      operators: {
+        0: {
+          properties: {
+            title: "Load Settings",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "Settings saved in global Application Resources",
+              },
+            },
+          },
+          left: 210,
+          top: 0,
+        },
+        1: {
+          properties: {
+            title: "Index plugins",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "Plugins have been indexed",
+              },
+            },
+          },
+          left: 410,
+          top: 0,
+        },
+        2: {
+          properties: {
+            title: "Run onAppStartup() for all plugins",
+            inputs: {
+              input_0: {
+                label: "For every plugin in the index",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 610,
+          top: 10,
+        },
+        3: {
+          properties: {
+            title: "Create Tray Task",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "App is ready",
+              },
+            },
+          },
+          left: 658,
+          top: 230,
+        },
+        operator1: {
+          top: 0,
+          left: 0,
+          properties: {
+            title: "App Launched",
+            inputs: {},
+            outputs: {
+              output_1: {
+                label: "Process created",
+              },
+            },
+          },
+        },
+      },
+      links: {
+        0: {
+          fromOperator: "operator1",
+          fromConnector: "output_1",
+          fromSubConnector: 0,
+          toOperator: "0",
+          toConnector: "input_0",
+          toSubConnector: 0,
+        },
+        1: {
+          fromOperator: "0",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 1,
+          toConnector: "input_0",
+          toSubConnector: 0,
+        },
+        2: {
+          fromOperator: "1",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 2,
+          toConnector: "input_0",
+          toSubConnector: 0,
+        },
+        3: {
+          fromOperator: "2",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 3,
+          toConnector: "input_0",
+          toSubConnector: 0,
+        },
+      },
+      operatorTypes: {},
+    };
+
+    $flowchart.flowchart({
+      defaultSelectedLinkColor: "#000055",
+      defaultLinkColor: "rgb(0,255,0)",
+      grid: 10,
+      data: data,
+      linkWidth: 5,
+      multipleLinksOnInput: true,
+      multipleLinksOnOutput: true,
+    });
+
+    $flowchart
+      .parent()
+      .siblings(".delete_selected_button")
+      .click(function () {
+        $flowchart.flowchart("deleteSelected");
+      });
+
+    var $draggableOperators = $(".draggable_operator");
+
+    function getOperatorData($element) {
+      var nbInputs = parseInt($element.data("nb-inputs"));
+      var nbOutputs = parseInt($element.data("nb-outputs"));
+      var data = {
+        properties: {
+          title: $element.text(),
+          inputs: {},
+          outputs: {},
+        },
+      };
+
+      var i = 0;
+      for (i = 0; i < nbInputs; i++) {
+        data.properties.inputs["input_" + i] = {
+          label: "Input " + (i + 1),
+        };
+      }
+      for (i = 0; i < nbOutputs; i++) {
+        data.properties.outputs["output_" + i] = {
+          label: "Output " + (i + 1),
+        };
+      }
+
+      return data;
+    }
+
+    var operatorId = 0;
+
+    $draggableOperators.draggable({
+      cursor: "move",
+      opacity: 0.7,
+
+      helper: "clone",
+      appendTo: "body",
+      zIndex: 1000,
+
+      helper: function (e) {
+        var $this = $(this);
+        var data = getOperatorData($this);
+        return $flowchart.flowchart("getOperatorElement", data);
+      },
+      stop: function (e, ui) {
+        var $this = $(this);
+        var elOffset = ui.offset;
+        var containerOffset = $container.offset();
+        if (
+          elOffset.left > containerOffset.left &&
+          elOffset.top > containerOffset.top &&
+          elOffset.left < containerOffset.left + $container.width() &&
+          elOffset.top < containerOffset.top + $container.height()
+        ) {
+          var flowchartOffset = $flowchart.offset();
+
+          var relativeLeft = elOffset.left - flowchartOffset.left;
+          var relativeTop = elOffset.top - flowchartOffset.top;
+
+          var positionRatio = $flowchart.flowchart("getPositionRatio");
+          relativeLeft /= positionRatio;
+          relativeTop /= positionRatio;
+
+          var data = getOperatorData($this);
+          data.left = relativeLeft;
+          data.top = relativeTop;
+
+          $flowchart.flowchart("addOperator", data);
+        }
+      },
+    });
+  });
+</script>
