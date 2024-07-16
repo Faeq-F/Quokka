@@ -36,3 +36,15 @@ attachButtonListeners();
 
 //loading default content
 $("#DocsContent").load("./DocumentationCards/InitialCards.html");
+document
+  .getElementsByClassName("app-navbar-header")[0]
+  .addEventListener("click", function () {
+    var oldActive = document.getElementsByClassName("active")[0];
+    if (oldActive) {
+      oldActive.classList.remove("active");
+      oldActive
+        .getElementsByTagName("svg")[0]
+        .classList.remove("app-color-primary");
+    }
+    $("#DocsContent").load("./DocumentationCards/InitialCards.html");
+  });

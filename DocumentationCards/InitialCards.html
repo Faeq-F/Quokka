@@ -4,57 +4,14 @@
     overflow-y: scroll;
   }
 
-  #flowchart {
-    height: 1000vh;
-    width: 1000vw;
-    background: transparent;
+  g[data-link_id="8"] path,
+  g[data-link_id="9"] path,
+  g[data-link_id="10"] path {
+    stroke: red;
   }
 
-  #chart_container {
-    width: 100%;
-    height: calc(100vh - 50px);
-    overflow: hidden;
-    background: white;
-    border-radius: 15px;
-  }
-
-  body:has(.switch__input:not(:checked)) #chart_container {
-    background: black;
-  }
-
-  .flowchart-container {
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    border-radius: 15px;
-  }
-
-  .draggable_operators_label {
-    margin-bottom: 5px;
-  }
-
-  .draggable_operators_divs {
-    margin-bottom: 20px;
-  }
-
-  .draggable_operator {
-    display: inline-block;
-    padding: 2px 5px 2px 5px;
-    border: 1px solid #ccc;
-    cursor: grab;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  .flowchart-operator .flowchart-operator-title,
-  .flowchart-operator {
-    border-radius: 15px;
-    background: transparent;
-    width: fit-content;
-    height: fit-content;
+  g[data-link_id="11"] path {
+    stroke: green;
   }
 </style>
 <div
@@ -67,7 +24,8 @@
       class="flowchart-container"
       id="flowchart"></div>
   </div>
-  <div class="draggable_operators">
+  <!-- Used for creating flowchart -->
+  <!-- <div class="draggable_operators">
     <div class="draggable_operators_label">
       Operators (drag and drop them in the flowchart):
     </div>
@@ -126,8 +84,8 @@
   <div>
     <textarea
       id="flowchart_data"
-      style="height: 100%; width: 100%"></textarea>
-  </div>
+      style="height: 1000px; width: 100%; resize: both"></textarea>
+  </div> -->
 </div>
 <script>
   $(document).ready(function () {
@@ -146,8 +104,8 @@
     }
     $("#set_data").click(Text2Flow);
 
-    var cx = $flowchart.width() / 2;
-    var cy = $flowchart.height() / 2;
+    // var cx = $flowchart.width() / 2;
+    // var cy = $flowchart.height() / 2;
 
     $flowchart.panzoom();
     // Centering panzoom - not used
@@ -192,8 +150,8 @@
               },
             },
           },
-          left: 210,
-          top: 0,
+          left: 2,
+          top: 101,
         },
         1: {
           properties: {
@@ -209,8 +167,8 @@
               },
             },
           },
-          left: 410,
-          top: 0,
+          left: 59,
+          top: 209,
         },
         2: {
           properties: {
@@ -226,8 +184,8 @@
               },
             },
           },
-          left: 610,
-          top: 10,
+          left: 0,
+          top: 320,
         },
         3: {
           properties: {
@@ -243,12 +201,325 @@
               },
             },
           },
-          left: 658,
-          top: 230,
+          left: 72,
+          top: 412,
+        },
+        4: {
+          properties: {
+            title: "User Interaction",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "User hits any key",
+              },
+              output_1: {
+                label: "Right Click Tray Icon",
+              },
+            },
+          },
+          left: 38,
+          top: 554,
+        },
+        5: {
+          properties: {
+            title: "Check hotkey",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "Result",
+              },
+            },
+          },
+          left: 14,
+          top: 660,
+        },
+        6: {
+          properties: {
+            title: "Matches hotkey?",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "Yes",
+              },
+              output_1: {
+                label: "No",
+              },
+            },
+          },
+          left: 0,
+          top: 790,
+        },
+        7: {
+          properties: {
+            title: "",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 418,
+          top: 429,
+        },
+        8: {
+          properties: {
+            title: "",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 420,
+          top: 963,
+        },
+        9: {
+          properties: {
+            title: "Create Search Window",
+            inputs: {
+              input_0: {
+                label: "If one doesn't already exist",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 30,
+          top: 1038,
+        },
+        10: {
+          properties: {
+            title: "User types in Search Window",
+            inputs: {
+              input_0: {
+                label: "Force focus / input on search window",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 4,
+          top: 1242,
+        },
+        11: {
+          properties: {
+            title: "Call onQueryChange()",
+            inputs: {
+              input_0: {
+                label: "For every plugin in the index",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 33,
+          top: 1348,
+        },
+        12: {
+          properties: {
+            title: "Run onSearchWindow()",
+            inputs: {
+              input_0: {
+                label: "For every plugin in the index",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 27,
+          top: 1140,
+        },
+        13: {
+          properties: {
+            title: "Sort and Display Results",
+            inputs: {
+              input_0: {
+                label: "Concatenate all lists provided by plugins",
+              },
+            },
+            outputs: {},
+          },
+          left: 7,
+          top: 1449,
+        },
+        14: {
+          properties: {
+            title: "Launch Context Menu",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "User clicks an option",
+              },
+            },
+          },
+          left: 140,
+          top: 660,
+        },
+        15: {
+          properties: {
+            title: "Open Search Window",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 147,
+          top: 927,
+        },
+        16: {
+          properties: {
+            title: "Settings",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 707,
+          top: 936,
+        },
+        17: {
+          properties: {
+            title: "PlugBoard",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 510,
+          top: 928,
+        },
+        18: {
+          properties: {
+            title: "Exit",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 336,
+          top: 930,
+        },
+        19: {
+          properties: {
+            title: "Open Settings file",
+            inputs: {
+              input_0: {
+                label: "In text editor set in settings",
+              },
+            },
+            outputs: {},
+          },
+          left: 663,
+          top: 1036,
+        },
+        20: {
+          properties: {
+            title: "Open PlugBoard folder",
+            inputs: {
+              input_0: {
+                label: "In File Manager set in settings",
+              },
+            },
+            outputs: {},
+          },
+          left: 460,
+          top: 1035,
+        },
+        21: {
+          properties: {
+            title: "Run onAppShutdown()",
+            inputs: {
+              input_0: {
+                label: "For every plugin in the index",
+              },
+            },
+            outputs: {
+              output_0: {
+                label: "",
+              },
+            },
+          },
+          left: 260,
+          top: 1033,
+        },
+        22: {
+          properties: {
+            title: "App Closed",
+            inputs: {
+              input_0: {
+                label: "",
+              },
+            },
+            outputs: {},
+          },
+          left: 305,
+          top: 1145,
         },
         operator1: {
-          top: 0,
-          left: 0,
+          top: 8,
+          left: 78,
           properties: {
             title: "App Launched",
             inputs: {},
@@ -268,6 +539,7 @@
           toOperator: "0",
           toConnector: "input_0",
           toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
         },
         1: {
           fromOperator: "0",
@@ -276,6 +548,7 @@
           toOperator: 1,
           toConnector: "input_0",
           toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
         },
         2: {
           fromOperator: "1",
@@ -284,6 +557,7 @@
           toOperator: 2,
           toConnector: "input_0",
           toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
         },
         3: {
           fromOperator: "2",
@@ -292,20 +566,254 @@
           toOperator: 3,
           toConnector: "input_0",
           toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        4: {
+          fromOperator: "3",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 4,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        5: {
+          fromOperator: "4",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 5,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        6: {
+          fromOperator: 5,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 6,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        8: {
+          fromOperator: "6",
+          fromConnector: "output_1",
+          fromSubConnector: 0,
+          toOperator: 8,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        9: {
+          fromOperator: 8,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 7,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        10: {
+          fromOperator: 7,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "4",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        11: {
+          fromOperator: "6",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "9",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        12: {
+          fromOperator: "9",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "12",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        13: {
+          fromOperator: "12",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "10",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        14: {
+          fromOperator: "10",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "11",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        15: {
+          fromOperator: "11",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "13",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        16: {
+          fromOperator: "4",
+          fromConnector: "output_1",
+          fromSubConnector: 0,
+          toOperator: 14,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        17: {
+          fromOperator: 14,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 15,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        18: {
+          fromOperator: 14,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 16,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        19: {
+          fromOperator: 14,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 17,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        20: {
+          fromOperator: 14,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 18,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        21: {
+          fromOperator: "15",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: "9",
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        22: {
+          fromOperator: "16",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 19,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        23: {
+          fromOperator: "17",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 20,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        24: {
+          fromOperator: "18",
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 21,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
+        },
+        25: {
+          fromOperator: 21,
+          fromConnector: "output_0",
+          fromSubConnector: 0,
+          toOperator: 22,
+          toConnector: "input_0",
+          toSubConnector: 0,
+          color: "rgb(96, 150, 255)",
         },
       },
       operatorTypes: {},
     };
 
     $flowchart.flowchart({
-      defaultSelectedLinkColor: "#000055",
-      defaultLinkColor: "rgb(0,255,0)",
-      grid: 10,
+      defaultSelectedLinkColor: "#ffffff",
+      defaultLinkColor: "#ffffff",
+      grid: 1,
       data: data,
       linkWidth: 5,
       multipleLinksOnInput: true,
       multipleLinksOnOutput: true,
+      verticalConnection: true,
+      canUserEditLinks: false,
+      onLinkSelect: function () {
+        return false;
+      },
     });
+
+    function loadFlowchartColor() {
+      // primary color
+      var hue = getComputedStyle(
+        document.querySelector(":root")
+      ).getPropertyValue("--hue");
+      var primary_color = culori.formatRgb("oklch(0.7 0.2 " + hue);
+      //applying
+      for (var link of document.getElementsByClassName("flowchart-link")) {
+        $flowchart.flowchart(
+          "setLinkMainColor",
+          link.dataset.link_id,
+          primary_color
+        );
+        //send hover event to refresh view
+        link.dispatchEvent(
+          new MouseEvent("mouseover", {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+          })
+        );
+        link.dispatchEvent(
+          new MouseEvent("mouseout", {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+          })
+        );
+      }
+    }
+    document
+      .getElementsByClassName("slider__input")[0]
+      .removeEventListener("click", loadFlowchartColor);
+    document
+      .getElementsByClassName("slider__input")[0]
+      .addEventListener("click", loadFlowchartColor);
+
+    loadFlowchartColor();
 
     $flowchart
       .parent()

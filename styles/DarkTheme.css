@@ -162,3 +162,11 @@ body:has(.switch__input:not(:checked)) #DocsNav ul li span,
 body:has(.switch__input:not(:checked)) #NavBarMain {
   color: #ddd;
 }
+
+body:has(.switch__input:not(:checked)) #chart_container {
+  background: black;
+}
+
+body:has(.switch__input:not(:checked)) .app-navbar-header:hover {
+  background-color: #2d2d2d;
+}
