@@ -20,7 +20,6 @@
 .headerText {
   vertical-align: middle;
   line-height: 35px;
-
   color: #2c2c2cd5;
   font-size: larger;
   font-weight: bold;
@@ -46,6 +45,8 @@ nav {
   padding: 0;
   display: flex;
   justify-content: flex-start;
+  padding-inline-start: 40px;
+  padding-inline-end: 40px;
 }
 
 #headerPipe::before {
@@ -59,15 +60,8 @@ nav {
 
 .connectButton {
   margin-left: auto;
-
   position: relative;
   bottom: 3px;
-}
-
-
-.navbar {
-  padding-inline-start: 40px;
-  padding-inline-end: 40px;
 }
 
 /* Header box */
@@ -93,14 +87,6 @@ header {
 
 }
 
-.header {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 header.sticky {
   background: #fff;
   border: 1px solid #E3E3E3;
@@ -108,10 +94,6 @@ header.sticky {
 }
 
 @media (max-width: 661px) {
-  /*
-  .connectButton {
-    display: none;
-  }*/
 
   nav {
     display: block;
@@ -145,29 +127,3 @@ header.sticky {
     padding: 0 24px;
   }
 }
-
-/* progress bar
-
-.progress-container {
-    width: 95%;
-    height: 8px;
-    background: transparent;
-    border-radius: 360px;
-    margin: 0 2.5% 10px 2.5%;
-}
-
-.progress-bar {
-    height: 8px;
-    background: #bb7fff;
-    width: 0%;
-    border-radius: 360px;
-}
-
-header.sticky .progress-container {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-<div class="progress-container">
-      <div class="progress-bar" id="myBar"></div>
-    </div>
-*/

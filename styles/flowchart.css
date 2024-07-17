@@ -1,12 +1,10 @@
 #flowchart {
   height: 1000vh;
-  width: 1000vw;
   background: transparent;
 }
 
 #chart_container {
-  width: 70vw;
-  height: 75vh;
+  height: 100%;
   overflow: hidden;
   background: white;
   border-radius: 15px;

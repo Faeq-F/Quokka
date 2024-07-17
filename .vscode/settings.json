@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["culori", "Faeq", "nanogallery", "Quokka"],
+  "cSpell.words": ["culori", "Faeq", "Huculak", "nanogallery", "Quokka"],
   "zenMode.centerLayout": false,
   "zenMode.hideLineNumbers": false,
   "AllAutocomplete.showCurrentDocument": true,
@@ -15,5 +15,7 @@
     "Quokka": true,
     "QuokkaDocs": true,
     "Tests": true
-  }
+  },
+  "editor.tabSize": 2,
+  "prettier.tabWidth": 2
 }

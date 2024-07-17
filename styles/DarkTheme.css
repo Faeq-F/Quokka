@@ -22,7 +22,6 @@ body:has(.switch__input:not(:checked)) header.sticky {
   border: 1px solid #2e2e2e
 }
 
-body:has(.switch__input:not(:checked)) #LetsConnectButton,
 body:has(.switch__input:not(:checked)) #header.sticky>nav>ul>li>a>span {
   color: #ddd;
 }
@@ -48,66 +47,6 @@ body:has(.switch__input:not(:checked)) #HomeScrollImg {
 body:has(.switch__input:not(:checked)) #Plugins section div p.PortfolioWorkHeader,
 body:has(.switch__input:not(:checked)) #Plugins section aside div p.PortfolioWorkHeader {
   color: #ddd;
-}
-
-/* Used for fixing light theme when fixed timeleine animation in dark theme */
-body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
-  background-color: #fff;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item {
-  background-color: #1a1a1a;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_inner div.ag-timeline-card_info div.ag-timeline-card_desc {
-  color: #ddd;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div {
-  color: #1a1a1a;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_box>div.js-timeline-card_point-box.ag-timeline-card_point-box>div.mobileAge {
-  color: #a97ef4;
-}
-
-/* Used for fixing light theme when fixed timeleine animation in dark theme */
-body:has(.switch__input) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
-  background-color: #fff;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div.js-timeline_item.ag-timeline_item.js-ag-active>div.ag-timeline-card_item div.ag-timeline-card_arrow {
-  background-color: #1a1a1a;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::before {
-  border: 6px solid #1a1a1a;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1 {
-  color: #ddd;
-}
-
-body:has(.switch__input:not(:checked)) #Timeline>div>section>div>div>div.ag-timeline_list>div:nth-child(2)>div.ag-timeline-card_item>div.ag-timeline-card_inner>div.ag-timeline-card_info>div.ag-timeline-card_desc>div>div>p.h1::after {
-  border: 2px solid #ddd;
-  border-bottom: none;
-  border-left: none;
-}
-
-body:has(.switch__input:not(:checked)) #Portfolio>section>div>div>a.ProjectCard {
-  background-color: #1a1a1a;
-}
-
-body:has(.switch__input:not(:checked)) div.cursor {
-  border: 1px solid #ddd;
-}
-
-body:has(.switch__input:not(:checked)) div.cursor2 {
-  background-color: #ddd;
-}
-
-body:has(.switch__input:not(:checked)) #Plugins section div #PluginScreenshotsGrid .modal-overlay {
-  background: rgb(13, 11, 7);
 }
 
 body:has(.switch__input:not(:checked)) .grid-item {

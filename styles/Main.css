@@ -25,7 +25,6 @@ html.lenis {
   pointer-events: none;
 }
 
-/*Concerning overflow-x: hidden, it is minimal and does not cause issues at the moment*/
 body {
   background: #fff;
   display: flex;
@@ -34,15 +33,12 @@ body {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   margin: 0;
-
 }
 
 #top {
   position: absolute;
   top: 0;
-
 }
-
 
 * {
   transition: all 0.25s ease-out;
@@ -53,36 +49,20 @@ body {
 * a {
 
   font-style: oblique;
-  font-weight: bold;
+  font-weight: normal;
   color: oklch(0.5 0.2 var(--hue));
 }
 
-
 :root {
   --hue: 265;
-  --huePlugins: 360;
   --primary: oklch(0.9 0.2 var(--hue));
   --otherColorHue: calc(var(--hue) - 20);
   --primaryOther: oklch(90% .2 var(--otherColorHue));
-  --primaryOtherOther: oklch(80% .7 var(--otherColorHue));
-  --primary-highlight: oklch(97% .2 var(--hue));
-  --header-bg: oklch(35% .01 200);
-  --accent-fill-rest: oklch(0.6 0.2 var(--hue)) !important;
-  --accent-stroke-control-rest: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
-  --accent-stroke-control-hover: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
-  --accent-stroke-control-active: linear-gradient(oklch(0.6 0.2 var(--hue)) 90%, oklch(0.4 0.2 var(--hue)) 100%) !important;
-  --accent-fill-hover: oklch(0.5 0.2 var(--hue)) !important;
-  --accent-fill-active: oklch(0.6 0.2 var(--hue)) !important;
-  --slider-value: 0;
-  --slider-height: 0.375em;
   /* Fluent UI*/
   --PrimaryColor: oklch(0.6 0.2 var(--hue));
   --PrimaryColorLight: var(--primaryOther);
   --width-navbar-expanded: 340px;
 }
-
-
-
 
 #HomeScrollImg {
   position: absolute;
@@ -91,35 +71,6 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
 }
-
-.hideme {
-  opacity: 0;
-  transform: translateY(-20vh);
-  visibility: hidden;
-  transition: opacity 0.6s ease-out, transform 1.2s ease-out;
-  will-change: opacity, visibility;
-}
-
-.showme {
-  opacity: 1;
-  transform: none;
-  visibility: visible;
-}
-
-.hidemee {
-  animation: fadeIn 1s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 
 /* width */
 ::-webkit-scrollbar {
@@ -148,8 +99,6 @@ body {
   scrollbar-color: var(--primary) rgb(242, 244, 248) !important;
 }
 
-
-
 /*Style for mobile view*/
 @media (max-width: 661px) {
   ::-webkit-scrollbar {
@@ -165,10 +114,7 @@ body {
   }
 }
 
-
-
 .card {
-
   width: 70%;
   max-width: 95%;
   margin: 0 auto 300px auto;
@@ -178,7 +124,6 @@ body {
   font-size: 16px;
   text-shadow: 1px 1px 10px #0000002e;
   color: #2d2d2dad;
-
   -webkit-transition: -webkit-transform .5s, opacity .5s;
   -moz-transition: -moz-transform .5s, opacity .5s;
   -o-transition: -o-transform .5s, opacity .5s;
@@ -186,7 +131,6 @@ body {
   border: 1px solid #e3e3e3;
   border-radius: 15px;
   background: #f9f9f9;
-
 }
 
 a[href],
@@ -198,160 +142,9 @@ a[href]:visited {
 }
 
 a[href]:hover {
-  color: var(--primary);
+  color: var(--primary) !important;
   text-decoration: none;
 }
-
-
-
-
-
-#themeDiv {
-  position: absolute;
-  top: 58vh;
-  left: 7.5vw;
-}
-
-@media(max-width: 661px) {
-  #themeDiv {
-    top: 75vh;
-    left: 10vw;
-  }
-}
-
-/* Switch styles */
-
-:root {
-  --zeros: #fff;
-  --threes: #ccc;
-  --3e: #c1c1c1;
-  --35: #cacaca;
-  --6b: #ddd;
-  --23: #dcdcdc;
-  --point2: rgba(255, 255, 255, .2);
-  --point5: rgba(255, 255, 255, .5);
-  --one: rgba(255, 255, 255, 1);
-}
-
-body:has(.switch__input:checked) {
-  --zeros: #000;
-  --threes: #333;
-  --3e: #3e3e3e;
-  --35: #353535;
-  --6b: #6b6b6b;
-  --23: #232323;
-  --point2: rgba(0, 0, 0, .2);
-  --point5: rgba(0, 0, 0, .5);
-  --one: rgba(0, 0, 0, 1);
-}
-
-input[type="checkbox"] {
-  position: relative;
-  width: 120px;
-  height: 11.5px;
-  -webkit-appearance: none;
-  background: linear-gradient(0deg, var(--primary), var(--primaryOther));
-  outline: none;
-  border-radius: 20px;
-  box-shadow: 0 0 0 1px var(--35), 0 0 0 2px var(--3e), inset 0 0 10px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-  margin-top: 2px;
-  top: 3px;
-}
-
-input:checked[type="checkbox"] {
-  background: linear-gradient(0deg, var(--primary), var(--primaryOther));
-  box-shadow: 0 0 1px var(--primary), 0 0 0 2px var(--35), 0 0 0 3px var(--3e),
-    inset 0 0 10px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-}
-
-input[type="checkbox"]:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 70px;
-  height: 11.5px;
-  background: linear-gradient(0deg, var(--zeros), var(--6b));
-  border-radius: 20px;
-  box-shadow: 0 0 0 1px var(--23);
-  transform: scale(.98, .96);
-  transition: .5s;
-}
-
-input:checked[type="checkbox"]:before {
-  left: 50px;
-}
-
-input[type="checkbox"]:after {
-  content: '';
-  position: absolute;
-  top: calc(50% - 1px);
-  left: 60px;
-  width: 4px;
-  height: 4px;
-  background: var(--primary-highlight);
-  border-radius: 50%;
-  transition: .5s;
-}
-
-input:checked[type="checkbox"]:after {
-  background: var(--primary-highlight);
-  left: 105px;
-  box-shadow: 0 0 5px var(--primaryOther), 0 0 15px var(--primaryOther);
-}
-
-
-#themeSlider {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background: linear-gradient(0deg, var(--threes), var(--zeros));
-  outline: none;
-  border-radius: 20px;
-  box-shadow: 0 0 0 1px var(--35), 0 0 0 2px var(--3e), inset 0 0 10px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-  background: linear-gradient(0deg, var(--primary), var(--primaryOther));
-  box-shadow: 0 0 1px var(--primary), 0 0 0 2px var(--35), 0 0 0 1px var(--3e),
-    inset 0 0 10px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-  width: 41.5%;
-  height: 11.5px;
-}
-
-body:has(.switch__input:checked) #themeDiv #themeSlider {
-  box-shadow: 0 0 1px var(--primary), 0 0 0 2px var(--35), 0 0 0 3px var(--3e),
-    inset 0 0 10px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-}
-
-/* Fix styles in gecko (firefox) -based browsers (content not allowed for input) */
-#themeSlider::-moz-range-thumb {
-  border-radius: 360px;
-  height: 130%;
-  width: 13%;
-  background-image: linear-gradient(to bottom, #e4e2e2, #f0f0f2);
-  left: calc(var(--hue)*0.1% + 1px);
-  box-shadow: 0 0 1px var(--primary), 0 0 0 2px var(--35), 0 0 0 1px var(--3e),
-    inset 0 0 90px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-}
-
-#themeSlider::-webkit-slider-thumb {
-  border-radius: 360px;
-  width: 5.6%;
-  height: 27%;
-  background-image: linear-gradient(to bottom, #e4e2e2, #f0f0f2);
-  left: calc(var(--hue)*0.1% + 1px);
-  box-shadow: 0 0 1px var(--primary), 0 0 0 2px var(--35), 0 0 0 1px var(--3e),
-    inset 0 0 90px var(--one), 0 5px 20px var(--point5), inset 0 0 15px var(--point2);
-}
-
-body:has(.switch__input:checked) #themeDiv #themeSlider:before {
-  background-image: linear-gradient(to bottom, #6b6b6b, #0f0f0d);
-}
-
-
-
-
-
-/*Headers*/
-
-
 
 img {
   max-width: 100%;
@@ -359,19 +152,7 @@ img {
 
 .ag-timeline_title-box {
   padding: 0 0 30px;
-
   text-align: center;
-}
-
-.ag-timeline_tagline {
-  font-size: 40px;
-  color: rgb(84, 89, 95);
-}
-
-@media(max-width: 661px) {
-  .ag-timeline_tagline {
-    font-size: large;
-  }
 }
 
 .ag-timeline_title {
@@ -393,7 +174,6 @@ img {
     font-size: 7vw;
   }
 }
-
 
 kbd {
   background-color: #eee;

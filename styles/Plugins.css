@@ -1,7 +1,6 @@
 #Plugins {
   width: 100vw;
   padding-bottom: 10vh;
-
 }
 
 #Plugins aside {
@@ -14,14 +13,6 @@
   left: 0;
   background-color: transparent;
 }
-
-.current-menu-item {
-  background-color: white;
-  font-weight: bold;
-}
-
-
-/* scroll content styling */
 
 .content {
   position: relative;
@@ -43,9 +34,7 @@
   padding: 20px;
   border: 1px solid #e3e3e3;
   border-radius: 15px;
-
   background: #f9f9f9;
-
 }
 
 .ProjectCard>div {
@@ -84,12 +73,8 @@
   filter: brightness(0.8);
 }
 
-
-
 .PluginDesc {
   font-size: medium;
-
-
   text-align: left;
   margin: 10px;
   height: 5vh;
@@ -98,7 +83,6 @@
 
 .SiteButton {
   flex: 0;
-
   border: 0;
   border-radius: 5px;
   width: fit-content;
@@ -119,7 +103,6 @@
   padding: 0;
   font-size: small;
   text-align: start;
-
 }
 
 .codeLink svg:nth-of-type(2) {
@@ -134,7 +117,6 @@
   right: 7px;
   bottom: -5px;
 }
-
 
 @media (max-width: 661px) {
   aside {
@@ -166,12 +148,6 @@
   margin-top: -1vh;
 }
 
-/* new Grid */
-:root {
-  --pri: #ffffff;
-  --sec: #212121;
-}
-
 .grid-item {
   display: flex;
   align-items: center;
@@ -182,7 +158,6 @@
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-
 }
 
 .grid-item:hover {
@@ -191,7 +166,6 @@
 
 .grid-container {
   display: grid;
-  /*grid-template-columns: repeat(2, 20vh);*/
   grid-template-rows: repeat(18, 12vw);
   gap: 23px;
   padding: 0px;
@@ -209,142 +183,11 @@
   }
 }
 
-@media (min-width: 600px) {
-  /* .wide {
-    grid-column: span 2;
-    grid-row: span 2;
-  } */
-
-  .tall {
-    grid-row: span 2;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-
-}
-
-.fadeIn {
-  animation-name: fadeIn;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-duration: 0.3s;
-}
-
-.fadeOut {
-  animation-name: fadeOut;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-duration: 0.3s;
-}
-
-/* MODAL */
-input.modal-launcher {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  margin: 0;
-  opacity: 0;
-  display: none;
-}
-
-input.modal-launcher:checked {
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  width: 100%;
-  height: 100%;
-  right: 0;
-  top: 0;
-  z-index: 3;
-  left: inherit;
-  display: block;
-}
-
-.modal-window {
-  position: fixed;
-  z-index: 700;
-  border-radius: 5px;
-  display: none;
-  top: 50%;
-  transform: translate(0vw, -60%);
-  width: 80vw;
-  height: 80vh;
-  /*overflow: hidden;*/
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-}
-
 #PluginScreenshotsGrid {
-
   height: 40vh;
   overflow-y: scroll;
   min-height: 424px;
   border-radius: 10px;
-}
-
-.modal-overlay {
-  background: #f2f4f8;
-  position: absolute;
-  left: -5vw;
-  top: -38vh;
-  z-index: 600;
-  width: 100vw;
-  height: 110vh;
-  display: none;
-}
-
-.modal-overlay:before {
-  content: "";
-  position: fixed;
-  width: 1em;
-  height: 1em;
-  right: 30px;
-  top: 30px;
-  border-radius: 2px;
-}
-
-/*/002B*/
-.modal-overlay:after {
-  content: "";
-  position: fixed;
-  width: 0.8em;
-  height: 0.8em;
-  right: 30px;
-  top: 30px;
-  color: #333;
-  font-size: 1.25em;
-  line-height: 0.85em;
-  text-align: center;
-  transform: rotate(45deg);
-
-}
-
-input.modal-launcher:checked~.modal-window,
-input.modal-launcher:checked~.modal-window+.modal-overlay {
-  display: block;
 }
 
 .grid-item label {
@@ -358,25 +201,6 @@ input.modal-launcher:checked~.modal-window+.modal-overlay {
   justify-content: space-between;
   align-items: flex-start;
   position: relative;
-}
-
-
-.grid-item label span {
-  padding: 2px 8px;
-  border-radius: 2px;
-  color: var(--sec);
-  background: var(--pri);
-  mix-blend-mode: hard-light;
-  opacity: 0.5;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
-
-
-.grid-item label:hover span {
-  transition: all 0.35s ease 0s;
-  opacity: 1;
 }
 
 .PluginButtonGroup a {

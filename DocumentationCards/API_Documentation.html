@@ -53,10 +53,28 @@
       $("#APIframe")[0].contentDocument.getElementsByTagName(
         "html"
       )[0].dataset.bsTheme = "light";
+      //cursor styles
+      $("#APIframe")[0].contentDocument.body.style.cursor =
+        "url(../../Resources/LightPoint.cur),auto";
+
+      for (var a of $("#APIframe")[0].contentDocument.body.getElementsByTagName(
+        "a"
+      )) {
+        a.style.cursor = "url(../../Resources/LightClick.cur),auto";
+      }
     } else {
       $("#APIframe")[0].contentDocument.getElementsByTagName(
         "html"
       )[0].dataset.bsTheme = "dark";
+      //cursor styles
+      $("#APIframe")[0].contentDocument.body.style.cursor =
+        "url(../../Resources/DarkPoint.cur),auto";
+
+      for (var a of $("#APIframe")[0].contentDocument.body.getElementsByTagName(
+        "a"
+      )) {
+        a.style.cursor = "url(../../Resources/DarkClick.cur),auto";
+      }
     }
     //applying primary color
     var hue = getComputedStyle(
@@ -69,15 +87,6 @@
         .replace("rgb(", "")
         .replace(")", "")
     );
-    //cursor styles
-    $("#APIframe")[0].contentDocument.body.style.cursor =
-      "url(../../Resources/point.cur),auto";
-
-    for (var a of $("#APIframe")[0].contentDocument.body.getElementsByTagName(
-      "a"
-    )) {
-      a.style.cursor = "url(../../Resources/click.cur),auto";
-    }
 
     //showing frame
     $("#APIframe").css("display", "block");

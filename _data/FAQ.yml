@@ -1,0 +1,28 @@
+- question: How do you monetize the application?
+  answer: I don't, though I may in future. I will only generate revenue from this software in a way that doesn't compromise user privacy.
+
+- question: How do I set the app to run at startup automatically?
+  answer:
+    There are two ways, the second providing slightly more control:<br /><br />
+    You can create a shortcut to the .exe file of the app (right click to show context menu ➤ click 'Show more options' ➤ click 'Create shortcut') and copy it to the following directory;
+    "C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\", where 'USERNAME' is your Windows profile name.<br /><br />or you can create a task for the program in Task scheduler;<br />
+    Follow a guide to create a basic task, like the following <a href="https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10">guide to create an automated task
+    by Mauro Huculak on Windows Central</a>.<br />You will want to set it to start 'When I log on' and give 'Quokka.exe' (located in the root of the program folder) as the program. You do not need to add any arguments.
+
+- question: Question 3
+  answer: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+
+- question: Question 4
+  answer: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+
+- question: Question 5
+  answer: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.

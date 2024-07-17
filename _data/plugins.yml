@@ -1,0 +1,35 @@
+- name: Installed Apps
+  description: Launch apps installed on your machine
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq
+
+- name: Portable Apps
+  description: Launch portable applications stored in a given directory
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq
+
+- name: Everything
+  description: 'Search through and find files and folders; requires the <a href="https://www.voidtools.com/"> Everything</a> service to be running'
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq
+
+- name: Power Commands
+  description: Shutdown, restart, set to sleep, sign out of and lock your PC
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq
+
+- name: Calculator
+  description: Calculate mathematical expressions
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq
+
+- name: English Dictionary
+  description: Find denotations for words in the English (US) language
+  site_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  download_link: https://github.com/Faeq-F/Quokka-Everything-Plugin
+  developer_name: Faeq

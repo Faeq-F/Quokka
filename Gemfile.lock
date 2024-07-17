@@ -31,6 +31,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    faraday-retry (2.2.1)
+      faraday (~> 2.0)
     ffi (1.16.3-x64-mingw-ucrt)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
@@ -261,6 +263,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  faraday-retry
   github-pages
   minima (~> 2.5)
   tzinfo (~> 1.2)
