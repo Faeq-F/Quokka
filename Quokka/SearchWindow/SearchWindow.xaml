@@ -10,7 +10,6 @@
   FocusManager.FocusedElement="{Binding ElementName=SearchTermTextBox}"
   ResizeMode="NoResize"
   ShowInTaskbar="False"
-  SnapsToDevicePixels="True"
   Topmost="True"
   UseLayoutRounding="True"
   WindowStartupLocation="CenterScreen"
@@ -31,20 +30,23 @@
     Margin="{DynamicResource WindowTopMargin}"
     Padding="{DynamicResource WindowPadding}"
     VerticalAlignment="Top"
-    d:Background="Transparent"
-    d:BorderThickness="0"
-    d:Padding="10"
+    d:Background="White"
+    d:BorderBrush="#e5e5e5"
+    d:BorderThickness="2"
+    d:CornerRadius="15"
+    d:Padding="3"
+    d:Width="700"
     Background="{DynamicResource WindowColor}"
     BorderBrush="{DynamicResource WindowBorderColor}"
     BorderThickness="{DynamicResource WindowBorderThickness}"
     CornerRadius="{DynamicResource WindowRounding}">
     <Border.Effect>
       <DropShadowEffect
-        d:BlurRadius="10"
+        d:BlurRadius="70"
         d:Direction="315"
-        d:Opacity="0.35"
+        d:Opacity="0.1"
         d:RenderingBias="Quality"
-        d:ShadowDepth="3"
+        d:ShadowDepth="2"
         BlurRadius="{DynamicResource DropShadowBlurRadius}"
         Direction="{DynamicResource DropShadowDirection}"
         Opacity="{DynamicResource DropShadowOpacity}"
@@ -64,12 +66,18 @@
         Grid.Row="1"
         Margin="{DynamicResource ListContainerMargin}"
         VerticalAlignment="Top"
-        Panel.ZIndex="0">
+        Panel.ZIndex="0"
+        d:Margin="0,3,0,0">
         <Border
           x:Name="ResultsBox"
           Height="auto"
           MinHeight="{DynamicResource ListContainerMinHeight}"
           MaxHeight="{DynamicResource ListContainerMaxHeight}"
+          d:Background="#f3f3f3"
+          d:BorderBrush="#e5e5e5"
+          d:BorderThickness="2"
+          d:CornerRadius="15"
+          d:MinHeight="64"
           Background="{DynamicResource ListContainerColor}"
           BorderBrush="{DynamicResource ListContainerBorderColor}"
           BorderThickness="{DynamicResource ListContainerBorderThickness}"
@@ -77,6 +85,7 @@
           <ListView
             x:Name="ResultsListView"
             Margin="{DynamicResource ListMargin}"
+            d:Margin="10,10,10,10"
             Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="0"
@@ -84,20 +93,6 @@
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             SelectionMode="Single">
             <ListView.Resources>
-              <Style x:Key="FocusVisual">
-                <Setter Property="Control.Template">
-                  <Setter.Value>
-                    <ControlTemplate>
-                      <Rectangle
-                        Margin="2"
-                        SnapsToDevicePixels="true"
-                        Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                        StrokeDashArray="1 2"
-                        StrokeThickness="1" />
-                    </ControlTemplate>
-                  </Setter.Value>
-                </Setter>
-              </Style>
               <Style TargetType="{x:Type ListViewItem}">
                 <Style.Resources>
                   <Style TargetType="Border">
@@ -105,23 +100,17 @@
                     <Setter Property="Margin" Value="{DynamicResource ListItemMargin}" />
                   </Style>
                 </Style.Resources>
-                <Setter Property="SnapsToDevicePixels" Value="True" />
-                <Setter Property="Padding" Value="4,1" />
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderBrush" Value="Transparent" />
-                <Setter Property="BorderThickness" Value="{DynamicResource ListItemBorderThickness}" />
-                <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
                 <Setter Property="Template">
                   <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ListViewItem}">
                       <Border
                         x:Name="Bd"
-                        Padding="{TemplateBinding Padding}"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        SnapsToDevicePixels="true">
-                        <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        Padding="3"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="{DynamicResource ListItemBorderThickness}"
+                        UseLayoutRounding="True">
+                        <ContentPresenter UseLayoutRounding="True" />
                       </Border>
                       <ControlTemplate.Triggers>
                         <MultiTrigger>
@@ -160,20 +149,21 @@
               <DataTemplate>
                 <Grid PreviewMouseLeftButtonUp="ListItem_Click">
                   <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="9*" />
+                    <ColumnDefinition Width="{DynamicResource ListItemIconColumnWidth}" />
+                    <ColumnDefinition Width="*" />
                   </Grid.ColumnDefinitions>
                   <Image
                     Grid.Column="0"
                     Width="{DynamicResource ListItemIconSize}"
                     Height="{DynamicResource ListItemIconSize}"
-                    RenderOptions.BitmapScalingMode="NearestNeighbor"
-                    SnapsToDevicePixels="True"
-                    Source="{Binding Icon}" />
+                    Source="{Binding Icon}"
+                    Stretch="Uniform"
+                    UseLayoutRounding="True" />
                   <Grid
                     Grid.Column="1"
                     Margin="{DynamicResource ListItemTextMargin}"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Center"
+                    d:Margin="10">
                     <Grid.RowDefinitions>
                       <RowDefinition Height="7*" />
                       <RowDefinition Height="3*" />
@@ -184,16 +174,16 @@
                       FontFamily="{DynamicResource ListItemNameFont}"
                       FontSize="{DynamicResource ListItemNameSize}"
                       Foreground="{DynamicResource ListItemNameColor}"
-                      SnapsToDevicePixels="True"
-                      Text="{Binding Name}" />
+                      Text="{Binding Name}"
+                      UseLayoutRounding="True" />
                     <TextBlock
                       Grid.Row="1"
                       VerticalAlignment="Top"
                       FontFamily="{DynamicResource ListItemDescFont}"
                       FontSize="{DynamicResource ListItemDescSize}"
                       Foreground="{DynamicResource ListItemDescColor}"
-                      SnapsToDevicePixels="True"
-                      Text="{Binding Description}" />
+                      Text="{Binding Description}"
+                      UseLayoutRounding="True" />
                   </Grid>
                 </Grid>
               </DataTemplate>
@@ -209,9 +199,9 @@
           VerticalAlignment="Top"
           d:Background="#f3f3f3"
           d:BorderBrush="#e5e5e5"
-          d:BorderThickness="1"
-          d:CornerRadius="32"
-          d:Height="64"
+          d:BorderThickness="2"
+          d:CornerRadius="15"
+          d:Height="40"
           Background="{DynamicResource SearchBarColor}"
           BorderBrush="{DynamicResource SearchBarBorderColor}"
           BorderThickness="{DynamicResource SearchBarBorderThickness}"
@@ -224,13 +214,13 @@
                 Width="{DynamicResource SearchIconWidth}"
                 Margin="{DynamicResource SearchIconMargin}"
                 d:Margin="10,0,-5,0"
-                d:Width="40"
-                RenderOptions.BitmapScalingMode="NearestNeighbor"
-                SnapsToDevicePixels="True"
-                Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png" />
+                d:Width="32"
+                Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png"
+                UseLayoutRounding="True" />
               <Grid Grid.Column="1">
                 <TextBox
                   x:Name="SearchTermTextBox"
+                  Grid.Column="1"
                   Width="{DynamicResource SearchFieldWidth}"
                   Height="{DynamicResource SearchFieldHeight}"
                   MinWidth="{DynamicResource SearchFieldWidth}"
@@ -239,9 +229,12 @@
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
                   VerticalContentAlignment="Center"
+                  d:FontFamily="Segoe UI"
                   d:FontSize="24"
+                  d:Foreground="Black"
                   d:Height="50"
                   d:Margin="15,10,10,10"
+                  d:MinWidth="720"
                   d:Width="720"
                   AutoWordSelection="True"
                   Background="Transparent"
@@ -255,9 +248,9 @@
                   MaxLines="1"
                   PreviewKeyDown="SearchTermTextBox_KeyDown"
                   SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
-                  SnapsToDevicePixels="True"
                   SpellCheck.IsEnabled="True"
-                  TextChanged="OnQueryChange">
+                  TextChanged="OnQueryChange"
+                  UseLayoutRounding="True">
                   <TextBox.ContextMenu>
                     <ContextMenu Visibility="Hidden" />
                   </TextBox.ContextMenu>
@@ -268,10 +261,11 @@
                 <TextBlock
                   x:Name="SearchFieldPlaceholder"
                   Margin="{DynamicResource SearchFieldPlaceholderMargin}"
-                  Padding="10,0,0,0"
+                  Padding="8,0,0,0"
                   HorizontalAlignment="Left"
                   VerticalAlignment="Center"
-                  d:FontSize="24"
+                  d:FontFamily="Segoe UI"
+                  d:FontSize="12"
                   d:Foreground="#8e8e8e"
                   d:Margin="10"
                   d:Text="Enter Query"
@@ -279,8 +273,8 @@
                   FontSize="{DynamicResource SearchFieldPlaceholderSize}"
                   Foreground="{DynamicResource SearchFieldPlaceholderColor}"
                   IsHitTestVisible="False"
-                  SnapsToDevicePixels="True"
-                  Text="{DynamicResource SearchFieldPlaceholder}">
+                  Text="{DynamicResource SearchFieldPlaceholder}"
+                  UseLayoutRounding="True">
                   <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                       <Setter Property="Visibility" Value="Collapsed" />

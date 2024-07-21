@@ -53,7 +53,7 @@ namespace Quokka {
       InitializeComponent();
 
       // initial look
-      ResultsBox.Visibility = Visibility.Collapsed;
+      ListContainer.Visibility = Visibility.Collapsed;
       ContextPane.Visibility = Visibility.Collapsed;
 
       //settings indirectly available to the user
@@ -153,7 +153,7 @@ namespace Quokka {
       ListOfResults = new List<ListItem>();
       //getting results for query
       if (query == "") {
-        ResultsBox.Visibility = Visibility.Collapsed; return;
+        ListContainer.Visibility = Visibility.Collapsed; return;
       } else {
         try {
           foreach (IPlugger plugin in App.plugins) {
@@ -188,7 +188,7 @@ namespace Quokka {
       }
       ResultsAreReady:
       ResultsListView.SelectedIndex = -1;
-      ResultsBox.Visibility = Visibility.Visible;
+      ListContainer.Visibility = Visibility.Visible;
     }
 
     private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e) {

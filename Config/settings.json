@@ -1,23 +1,25 @@
 {
   "GeneralSettings": {
     "WindowHotKey": "LWinSpace",
-    "MaxResults": "7",
-    "IgnoreMaxResultsFlag": " -ShowAll"
+    "MaxResults": "10",
+    "IgnoreMaxResultsFlag": " -ShowAll",
+    "FileManager": "",
+    "TextEditor": ""
   },
   "StyleSettings": {
     "AppWindow": {
       "WindowTopMargin": "PrimaryScreenHeight/3",
-      "WindowWidth": "PrimaryScreenWidth / 2",
-      "WindowColor": "Transparent",
-      "WindowBorderColor": "Transparent",
-      "WindowBorderThickness": "0",
-      "WindowRounding": "0",
-      "WindowPadding": "10",
+      "WindowWidth": "700",
+      "WindowColor": "White",
+      "WindowBorderColor": "#dddddd",
+      "WindowBorderThickness": "1",
+      "WindowRounding": "8",
+      "WindowPadding": "3",
 
-      "DropShadowBlurRadius": "10",
-      "DropShadowOpacity": "0.35",
+      "DropShadowBlurRadius": "70",
+      "DropShadowOpacity": "0.1",
       "DropShadowDirection": "315",
-      "DropShadowShadowDepth": "3",
+      "DropShadowShadowDepth": "2",
       "DropShadowRenderingBias": "Quality"
     },
     "TrayTask": {
@@ -37,62 +39,62 @@
       "TrayTaskContextMenuDropShadowRenderingBias": "Performance"
     },
     "SearchBar": {
-      "SearchBarColor": "#f3f3f3",
-      "SearchBarRounding": "32",
-      "SearchBarBorderColor": "#e5e5e5",
+      "SearchBarColor": "#f5f5f5",
+      "SearchBarRounding": "8",
+      "SearchBarBorderColor": "#dddddd",
       "SearchBarBorderThickness": "1",
-      "SearchBarHeight": "64",
-      "SearchIconWidth": "40",
-      "SearchIconMargin": "10, 0, -5, 0",
+      "SearchBarHeight": "40",
+      "SearchIconWidth": "32",
+      "SearchIconMargin": "8, 0, -8, 0",
 
       "EntryField": {
         "SearchFieldTxtColor": "Black",
         "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "50",
+        "SearchFieldHeight": "32",
         "SearchFieldWidth": "720",
-        "SearchFieldMargin": "15, 10, 10, 10",
+        "SearchFieldMargin": "5, 10, 10, 10",
         "SearchFieldFont": "Segoe UI",
-        "SearchFieldTxtSize": "24",
+        "SearchFieldTxtSize": "14",
         "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "10",
+        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
         "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "24",
+        "SearchFieldPlaceholderSize": "14",
         "SearchFieldPlaceholderFont": "Segoe UI"
       }
     },
 
     "ResultsList": {
       "Container": {
-        "ListContainerMargin": "0,10,0,0",
-        "ListContainerBorderColor": "#e5e5e5",
-        "ListContainerBorderThickness": "1",
-        "ListContainerRounding": "15",
-        "ListContainerColor": "#f3f3f3",
-        "ListContainerMinHeight": "64",
+        "ListContainerMargin": "0,3,0,0",
+        "ListContainerBorderColor": "Transparent",
+        "ListContainerBorderThickness": "0",
+        "ListContainerRounding": "0",
+        "ListContainerColor": "Transparent",
+        "ListContainerMinHeight": "0",
         "ListContainerMaxHeight": "PrimaryScreenHeight"
       },
       "List": {
-        "ListMargin": "10,10,10,10",
-        "ScrollBarWidth": "18",
+        "ListMargin": "3,3,3,3",
+        "ScrollBarWidth": "10",
 
         "ScrollBarBackground": {
           "ScrollBarBgVisibility": "Visible",
-          "ScrollBarBgColor": "#f9f9f9",
+          "ScrollBarBgColor": "#ffffff",
           "ScrollBarBgRounding": "3",
           "ScrollBarBgBorderColor": "Transparent",
           "ScrollBarBgBorderThickness": "0",
           "ScrollBarBgWidth": "10",
-          "ScrollBarBgMargin": "-10,0,-1,10"
+          "ScrollBarBgMargin": "-10,0,-9,10"
         },
 
         "ScrollBarThumbBackground": {
           "ScrollThumbBgVisibility": "Visible",
-          "ScrollThumbBgColor": "#f9f9f9",
-          "ScrollThumbBgRounding": "7",
-          "ScrollThumbBgBorderColor": "#e5e5e5",
-          "ScrollThumbBgBorderThickness": "1",
+          "ScrollThumbBgColor": "#ffffff",
+          "ScrollThumbBgRounding": "8",
+          "ScrollThumbBgBorderColor": "Transparent",
+          "ScrollThumbBgBorderThickness": "0",
           "ScrollThumbBgWidth": "11",
-          "ScrollThumbBgMargin": "-10,-1,-1,-1"
+          "ScrollThumbBgMargin": "-10,-1,-9,-1"
         },
 
         "ScrollBarThumb": {
@@ -102,42 +104,44 @@
           "ScrollThumbBorderColor": "Transparent",
           "ScrollThumbBorderThickness": "0",
           "ScrollThumbWidth": "5",
-          "ScrollThumbMargin": "-10,2,-1,2"
+          "ScrollThumbMargin": "-10,2,-9,2"
         }
       },
       "ListItems": {
         "ListItemBorderThickness": "1",
-        "ListItemHoverBorderColor": "#e5e5e5",
-        "ListItemHoverBgColor": "#f6f6f6",
-        "ListItemSelectedBorderColor": "#e5e5e5",
-        "ListItemSelectedBgColor": "#fbfbfb",
-        "ListItemRounding": "15",
-        "ListItemMargin": "0, 0, 10, 0",
-        "ListItemIconSize": "50",
-        "ListItemTextMargin": "10",
+        "ListItemHoverBorderColor": "#eeeeee",
+        "ListItemHoverBgColor": "#f7f7f7",
+        "ListItemSelectedBorderColor": "#dddddd",
+        "ListItemSelectedBgColor": "#f5f5f5",
+        "ListItemRounding": "8",
+        "ListItemMargin": "0, 0, 8, 0",
+        "ListItemIconSize": "32",
+        "ListItemIconColumnWidth":"40",
+        "ListItemTextMargin": "3",
         "ListItemNameFont": "Segoe UI",
-        "ListItemNameSize": "18",
+        "ListItemNameSize": "12",
         "ListItemNameColor": "Black",
         "ListItemDescFont": "Segoe UI",
-        "ListItemDescSize": "12",
+        "ListItemDescSize": "10",
         "ListItemDescColor": "Gray",
 
         "ContextPane": {
-          "ContextPaneBorderColor": "#e5e5e5",
-          "ContextPaneBorderThickness": "1",
-          "ContextPaneCornerRounding": "15",
-          "ContextPaneBgColor": "#f3f3f3",
-          "ContextPaneMinHeight": "64",
+          "ContextPaneBorderColor": "Transparent",
+          "ContextPaneBorderThickness": "0",
+          "ContextPaneCornerRounding": "0",
+          "ContextPaneBgColor": "#ffffff",
+          "ContextPaneMinHeight": "192",
 
           "Details": {
             "ContextPaneContentMargin": "0, 0, 0, 0",
             "ContextPaneContentVerticalAlignment": "Center",
             "ContextPaneContentHorizontalAlignment": "Center",
-            "ContextPaneImageMargin": "40,30,40,30",
+            "ContextPaneImageMargin": "0,0,0,30",
+            "ContextPaneImageSize": "32",
 
             "NameTextMargin": "0,-20,0,0",
             "NameTextFont": "Segoe UI",
-            "NameTextSize": "16",
+            "NameTextSize": "14",
             "NameTextColor": "Black",
 
             "DescTextMargin": "0,0,0,0",
@@ -147,7 +151,7 @@
 
             "ExtraDetailsTextMargin": "0,0,0,0",
             "ExtraDetailsTextFont": "Segoe UI",
-            "ExtraDetailsTextSize": "12",
+            "ExtraDetailsTextSize": "10",
             "ExtraDetailsTextColor": "Gray"
           },
 
@@ -158,21 +162,21 @@
 
             "ListItems": {
               "ContextPaneListItemBorderThickness": "1",
-              "ContextPaneListItemHoverBorderColor": "#e5e5e5",
-              "ContextPaneListItemHoverBgColor": "#f6f6f6",
-              "ContextPaneListItemSelectedBorderColor": "#e5e5e5",
-              "ContextPaneListItemSelectedBgColor": "#fbfbfb",
-              "ContextPaneListItemRounding": "15",
-              "ContextPaneListItemMargin": "0, 0, 10, 0",
+              "ContextPaneListItemHoverBorderColor": "#eeeeee",
+              "ContextPaneListItemHoverBgColor": "#f7f7f7",
+              "ContextPaneListItemSelectedBorderColor": "#dddddd",
+              "ContextPaneListItemSelectedBgColor": "#f5f5f5",
+              "ContextPaneListItemRounding": "8",
+              "ContextPaneListItemMargin": "0, 0, 0, 0",
 
-              "ContextPaneListItemIconSize": "26",
-              "ContextPaneListItemIconMargin": "10,0,0,0",
-              "ContextPaneListItemTextPadding": "0,10,10,10",
+              "ContextPaneListItemIconSize": "30",
+              "ContextPaneListItemIconMargin": "8,0,-3,0",
+              "ContextPaneListItemTextPadding": "10,10,10,10",
               "ContextPaneListItemFont": "Segoe UI",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",
 
-              "ContextPaneListItemContentMargin": "10"
+              "ContextPaneListItemContentMargin": "3"
             }
           }
         }

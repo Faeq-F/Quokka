@@ -42,7 +42,11 @@ namespace Quokka {
 
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
-      applyAppSettings(JObject.Parse(File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")));
+      applyAppSettings(
+          JObject.Parse(
+              File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")
+          )
+      );
 
       LoadPlugins();
 
@@ -53,7 +57,9 @@ namespace Quokka {
 
       //create the notifyIcon (it's a resource declared in NotifyIconResources.xaml
       notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
-      notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
+      notifyIcon.Icon = new Icon(
+          File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico")
+      );
     }
 
     #region keyboardShortcut
@@ -68,13 +74,19 @@ namespace Quokka {
       _listener!.HookKeyboard();
 
       //save memory - sometimes requires pressing the shortcut twice
-      if (detectedKeys.Length > 20) detectedKeys = "";
+      if (detectedKeys.Length > 20)
+        detectedKeys = "";
 
       detectedKeys += e.KeyPressed.ToString();
 
       if (detectedKeys.Contains((string) Application.Current.Resources["WindowHotKey"])) {
         bool windowOpen = false;
-        foreach (var wnd in App.Current.Windows) { if (wnd is SearchWindow) { windowOpen = true; break; } }
+        foreach (var wnd in App.Current.Windows) {
+          if (wnd is SearchWindow) {
+            windowOpen = true;
+            break;
+          }
+        }
         if (!windowOpen) {
           App.Current.MainWindow = new SearchWindow();
           App.Current.MainWindow.Show();
@@ -89,8 +101,13 @@ namespace Quokka {
 
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "WindowTopMargin" };
-    private string[] StringSettings = { "WindowHotKey", "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
+    private string[] SpecialSettings = { "WindowTopMargin", "ListItemIconColumnWidth" };
+    private string[] StringSettings =
+    {
+            "WindowHotKey",
+            "IgnoreMaxResultsFlag",
+            "SearchFieldPlaceholder"
+        };
 
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
@@ -99,43 +116,89 @@ namespace Quokka {
           try {
             applyAppSettings(JObject.Parse(entry.Value.ToString()));
           } catch (JsonReaderException e) {
-            MessageBox.Show(entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace, "Could not Parse", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(
+                entry.Value.ToString() + "\n\n\n" + e.Message + "\n\n\n" + e.StackTrace,
+                "Could not Parse",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error
+            );
           }
         } else {
           // applying settings based on type
           if (SpecialSettings.Contains(entry.Key)) {
             switch (entry.Key) {
               case "WindowTopMargin":
-                Application.Current.Resources[entry.Key] = parseThicknessSetting("0," + parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
+                Application.Current.Resources[entry.Key] = parseThicknessSetting(
+                    "0,"
+                        + parseScreenDimensionsSetting(entry.Value.ToString())
+                        + ",0,0"
+                );
+                break;
+              case "ListItemIconColumnWidth":
+                Application.Current.Resources[entry.Key] = new GridLength(double.Parse(entry.Value.ToString()));
                 break;
             }
           } else if (StringSettings.Contains(entry.Key)) {
             Application.Current.Resources[entry.Key] = entry.Value.ToString();
           } else if (ScreenDimensionsSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = parseScreenDimensionsSetting(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseScreenDimensionsSetting(
+                entry.Value.ToString()
+            );
           } else if (IntSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = int.Parse(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = int.Parse(
+                entry.Value.ToString()
+            );
           } else if (entry.Key.Contains("Color")) {
-            Current.Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
-            Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
+            Current.Resources[entry.Key] =
+                new BrushConverter().ConvertFromString(entry.Value.ToString())
+                as SolidColorBrush;
+            Resources[entry.Key] =
+                new BrushConverter().ConvertFromString(entry.Value.ToString())
+                as SolidColorBrush;
           } else if (entry.Key.Contains("Rounding")) {
-            Application.Current.Resources[entry.Key] = new CornerRadius(int.Parse(entry.Value.ToString()));
-          } else if (entry.Key.Contains("Opacity") || entry.Key.Contains("Direction") || entry.Key.Contains("Radius")
-            || entry.Key.Contains("Depth") || entry.Key.Contains("Size") || entry.Key.Contains("Height")
-            || entry.Key.Contains("Width")) {
-            Application.Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = new CornerRadius(
+                int.Parse(entry.Value.ToString())
+            );
+          } else if (
+                entry.Key.Contains("Opacity")
+                || entry.Key.Contains("Direction")
+                || entry.Key.Contains("Radius")
+                || entry.Key.Contains("Depth")
+                || entry.Key.Contains("Size")
+                || entry.Key.Contains("Height")
+                || entry.Key.Contains("Width")
+            ) {
+            Application.Current.Resources[entry.Key] = double.Parse(
+                entry.Value.ToString()
+            );
           } else if (entry.Key.Contains("Font")) {
-            Application.Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] =
+                new System.Windows.Media.FontFamily(entry.Value.ToString());
           } else if (entry.Key.Contains("HorizontalAlignment")) {
-            Application.Current.Resources[entry.Key] = parseHorizontalAlignmentSetting(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseHorizontalAlignmentSetting(
+                entry.Value.ToString()
+            );
           } else if (entry.Key.Contains("RenderingBias")) {
-            Application.Current.Resources[entry.Key] = parseRenderingBiasSetting(entry.Value.ToString());
-          } else if (entry.Key.Contains("Padding") || entry.Key.Contains("Margin") || entry.Key.Contains("Thickness") || entry.Key.Contains("Margin")) {
-            Application.Current.Resources[entry.Key] = parseThicknessSetting(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseRenderingBiasSetting(
+                entry.Value.ToString()
+            );
+          } else if (
+                entry.Key.Contains("Padding")
+                || entry.Key.Contains("Margin")
+                || entry.Key.Contains("Thickness")
+                || entry.Key.Contains("Margin")
+            ) {
+            Application.Current.Resources[entry.Key] = parseThicknessSetting(
+                entry.Value.ToString()
+            );
           } else if (entry.Key.Contains("VerticalAlignment")) {
-            Application.Current.Resources[entry.Key] = parseVerticalAlignmentSetting(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseVerticalAlignmentSetting(
+                entry.Value.ToString()
+            );
           } else if (entry.Key.Contains("Visibility")) {
-            Application.Current.Resources[entry.Key] = parseVisibilitySettings(entry.Value.ToString());
+            Application.Current.Resources[entry.Key] = parseVisibilitySettings(
+                entry.Value.ToString()
+            );
           }
         }
       }
@@ -154,9 +217,14 @@ namespace Quokka {
 
     //returns the absolute path to the plugin's DLL
     private string GetPluggerDll(string connector) {
-      var files = Directory.GetFiles(System.IO.Path.GetFullPath(connector), "*.dll", SearchOption.AllDirectories);
+      var files = Directory.GetFiles(
+          System.IO.Path.GetFullPath(connector),
+          "*.dll",
+          SearchOption.AllDirectories
+      );
       foreach (var file in files) {
-        if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_")) return file;
+        if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_"))
+          return file;
       }
       return string.Empty;
     }
@@ -166,7 +234,11 @@ namespace Quokka {
       plugins = new List<IPlugger>();
       if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard")) {
         try {
-          foreach (var plugin in Directory.GetDirectories(Environment.CurrentDirectory + "\\PlugBoard\\")) {
+          foreach (
+              var plugin in Directory.GetDirectories(
+                  Environment.CurrentDirectory + "\\PlugBoard\\"
+              )
+          ) {
             if (plugin != "") {
               string dllPath = GetPluggerDll(plugin);
               Assembly _Assembly = Assembly.LoadFile(dllPath);
@@ -180,7 +252,12 @@ namespace Quokka {
             plugin.OnAppStartup();
           }
         } catch (Exception ex) {
-          System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          System.Windows.MessageBox.Show(
+              ex.Message + "\n" + ex.StackTrace,
+              "Internal Error",
+              MessageBoxButton.OK,
+              MessageBoxImage.Error
+          );
         }
       }
     }
@@ -213,7 +290,8 @@ namespace Quokka {
     public static void OpenSettingsFile() {
       using Process fileOpener = new Process();
       fileOpener.StartInfo.FileName = "notepad";
-      fileOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\Config\\settings.json";
+      fileOpener.StartInfo.Arguments =
+          Environment.CurrentDirectory + "\\Config\\settings.json";
       fileOpener.Start();
     }
 
@@ -232,7 +310,12 @@ namespace Quokka {
           plugin.OnAppShutdown();
         }
       } catch (Exception ex) {
-        System.Windows.MessageBox.Show(ex.Message + "\n" + ex.StackTrace, "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        System.Windows.MessageBox.Show(
+            ex.Message + "\n" + ex.StackTrace,
+            "Internal Error",
+            MessageBoxButton.OK,
+            MessageBoxImage.Error
+        );
       }
       _listener.UnHookKeyboard();
       notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
@@ -240,7 +323,10 @@ namespace Quokka {
     }
 
     //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
-    private void Application_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+    private void Application_LoadCompleted(
+        object sender,
+        System.Windows.Navigation.NavigationEventArgs e
+    ) {
       this.notifyIcon.ToolTipText = "Quokka";
     }
 

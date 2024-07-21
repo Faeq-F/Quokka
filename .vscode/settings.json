@@ -1,0 +1,11 @@
+{
+  "files.exclude": {
+    ".jekyll-metadata": true,
+    "SECURITY.md": true,
+    "LICENCE": true,
+    "BuildAndServeDocs.ps1": true,
+    "PluginScreenshots": true,
+    "_site": true
+  },
+  "cSpell.words": ["dangl", "Hardcodet", "Newtonsoft", "Quokka"]
+}

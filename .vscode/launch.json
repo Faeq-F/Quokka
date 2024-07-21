@@ -24,7 +24,8 @@
       "name": "Faeq's Setup",
       "program": "G:/Quokka/Quokka/Quokka.exe",
       "type": "coreclr",
-      "request": "launch"
+      "request": "launch",
+      "preLaunchTask": "build"
     }
   ]
 }
