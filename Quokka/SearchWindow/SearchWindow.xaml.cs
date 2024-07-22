@@ -140,6 +140,7 @@ namespace Quokka {
       ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
       // Close context pane if it was open
       if (ContextPane.Visibility == Visibility.Visible) {
+
         ContextPane.Visibility = Visibility.Collapsed;
       }
       //get text from sender

@@ -4,6 +4,9 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:xf="clr-namespace:XamlFlair;assembly=XamlFlair.WPF"
+  xmlns:xfc="clr-namespace:XamlFlair.Controls;assembly=XamlFlair.WPF"
+  x:Name="QuokkaSearchWindow"
   Title="Quokka"
   AllowsTransparency="True"
   Background="Transparent"
@@ -23,6 +26,15 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
+  <Window.Triggers>
+    <EventTrigger RoutedEvent="Loaded">
+      <BeginStoryboard>
+        <Storyboard Storyboard.TargetProperty="Opacity" Duration="00:00:01">
+          <DoubleAnimation From="0" To="1" />
+        </Storyboard>
+      </BeginStoryboard>
+    </EventTrigger>
+  </Window.Triggers>
   <Border
     x:Name="Container"
     Width="{DynamicResource WindowWidth}"
@@ -33,7 +45,7 @@
     d:Background="White"
     d:BorderBrush="#e5e5e5"
     d:BorderThickness="2"
-    d:CornerRadius="15"
+    d:CornerRadius="8"
     d:Padding="3"
     d:Width="700"
     Background="{DynamicResource WindowColor}"
@@ -73,26 +85,27 @@
           Height="auto"
           MinHeight="{DynamicResource ListContainerMinHeight}"
           MaxHeight="{DynamicResource ListContainerMaxHeight}"
-          d:Background="#f3f3f3"
-          d:BorderBrush="#e5e5e5"
+          d:Background="White"
+          d:BorderBrush="Transparent"
           d:BorderThickness="2"
-          d:CornerRadius="15"
+          d:CornerRadius="0"
           d:MinHeight="64"
           Background="{DynamicResource ListContainerColor}"
           BorderBrush="{DynamicResource ListContainerBorderColor}"
           BorderThickness="{DynamicResource ListContainerBorderThickness}"
           CornerRadius="{DynamicResource ListContainerRounding}">
-          <ListView
+          <xfc:AnimatedListView
             x:Name="ResultsListView"
             Margin="{DynamicResource ListMargin}"
             d:Margin="10,10,10,10"
+            xf:Animations.AnimateOnLoad="False"
             Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="0"
             KeyboardNavigation.DirectionalNavigation="Cycle"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             SelectionMode="Single">
-            <ListView.Resources>
+            <xfc:AnimatedListView.Resources>
               <Style TargetType="{x:Type ListViewItem}">
                 <Style.Resources>
                   <Style TargetType="Border">
@@ -106,6 +119,7 @@
                       <Border
                         x:Name="Bd"
                         Padding="3"
+                        xf:Animations.Primary="{StaticResource FadeInAndSlideFromBottom}"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="{DynamicResource ListItemBorderThickness}"
@@ -144,8 +158,8 @@
                   </Setter.Value>
                 </Setter>
               </Style>
-            </ListView.Resources>
-            <ListView.ItemTemplate>
+            </xfc:AnimatedListView.Resources>
+            <xfc:AnimatedListView.ItemTemplate>
               <DataTemplate>
                 <Grid PreviewMouseLeftButtonUp="ListItem_Click">
                   <Grid.ColumnDefinitions>
@@ -187,10 +201,15 @@
                   </Grid>
                 </Grid>
               </DataTemplate>
-            </ListView.ItemTemplate>
-          </ListView>
+            </xfc:AnimatedListView.ItemTemplate>
+          </xfc:AnimatedListView>
         </Border>
-        <Frame x:Name="ContextPane" NavigationUIVisibility="Hidden" />
+        <Frame
+          x:Name="ContextPane"
+          xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn},
+                                             Event=Visibility}"
+          xf:Animations.Secondary="{StaticResource FadeOut}"
+          NavigationUIVisibility="Hidden" />
       </Grid>
       <Grid Grid.Row="0" Panel.ZIndex="999">
         <Border

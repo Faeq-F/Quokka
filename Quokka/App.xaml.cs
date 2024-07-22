@@ -25,8 +25,10 @@ namespace Quokka {
     * http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/<br />
     * JSON.Net - MIT license<br />
     * https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-    * Fluent UI Icons<br />
-    * https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE
+    * Fluent UI Icons - MIT License<br />
+    * https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE<br />
+    * XAMLFlair - MIT License<br />
+    * https://github.com/XamlFlair/XamlFlair?tab=MIT-1-ov-file
     * </summary>
     */
 
@@ -49,6 +51,8 @@ namespace Quokka {
       );
 
       LoadPlugins();
+
+      XamlFlair.Animations.OverrideDefaultSettings(duration: 200);
 
       //keyboard listener for search window shortcut
       _listener = new LowLevelKeyboardListener();
