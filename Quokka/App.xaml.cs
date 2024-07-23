@@ -14,36 +14,36 @@ using System.Windows.Media;
 using static Quokka.Settings.SettingParsers;
 
 namespace Quokka {
-  /**
-    * <summary>
-    * The app - interaction logic behind App.xaml.
-    * <br /><br />
-    * Includes:<br />
-    * wpf-notifyIcon - CPOL:<br />
-    * https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE<br />
-    * LowLevelKeyboardListener from Dylan's Web - License is in class file and at<br />
-    * http://www.dylansweb.com/2014/10/low-level-global-keyboard-hook-sink-in-c-net/<br />
-    * JSON.Net - MIT license<br />
-    * https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-    * Fluent UI Icons - MIT License<br />
-    * https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE<br />
-    * XAMLFlair - MIT License<br />
-    * https://github.com/XamlFlair/XamlFlair?tab=MIT-1-ov-file
-    * </summary>
-    */
+
+  ///<summary>
+  ///The Quokka app
+  ///<br /><br />
+  ///Includes:<br />
+  ///wpf-notifyIcon - CPOL-1.02<br />
+  ///https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE<br />
+  ///KeyboardHook by Christian Liensberger<br />
+  ///Obtained from https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207<br />
+  ///JSON.Net - MIT license<br />
+  ///https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+  ///Fluent UI Icons - MIT License<br />
+  ///https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE<br />
+  ///XAMLFlair - MIT License<br />
+  ///https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE
+  ///</summary>
 
   public partial class App : Application {
-    /**
-      * <summary>
-      * The entry point for the app. Loads all of the settings in the app settings file,
-      * plugins available in the PlugBoard, the listener for keyboard shortcuts and the tray task.
-      * Also runs all of the plugin OnAppStartup methods.
-      * </summary>
-      * <param name="e">The arguments for the Startup event.</param>
-      */
 
+    private KeyboardHook hook = new KeyboardHook();
+
+    /// <summary>
+    /// The entry point for the app. Loads all of the settings in the app settings file,
+    /// plugins available in the PlugBoard, the SearchWindow HotKey and the tray task.
+    /// Also runs all of the plugins' OnAppStartup() methods.
+    /// </summary>
+    /// <param name="e">The arguments for the Startup event.</param>
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
+
       applyAppSettings(
           JObject.Parse(
               File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")
@@ -54,64 +54,31 @@ namespace Quokka {
 
       XamlFlair.Animations.OverrideDefaultSettings(duration: 200);
 
-      //keyboard listener for search window shortcut
-      _listener = new LowLevelKeyboardListener();
-      _listener.OnKeyPressed += _listener_OnKeyPressed!;
-      _listener.HookKeyboard();
-
-      //create the notifyIcon (it's a resource declared in NotifyIconResources.xaml
       notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
       notifyIcon.Icon = new Icon(
           File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico")
       );
-    }
 
-    #region keyboardShortcut
-
-    private LowLevelKeyboardListener? _listener;
-    private string detectedKeys = "";
-
-    //launching search window
-    private void _listener_OnKeyPressed(object sender, KeyPressedArgs e) {
-      //refresh hook to prevent app hanging
-      _listener!.UnHookKeyboard();
-      _listener!.HookKeyboard();
-
-      //save memory - sometimes requires pressing the shortcut twice
-      if (detectedKeys.Length > 20)
-        detectedKeys = "";
-
-      detectedKeys += e.KeyPressed.ToString();
-
-      if (detectedKeys.Contains((string) Application.Current.Resources["WindowHotKey"])) {
-        bool windowOpen = false;
-        foreach (var wnd in App.Current.Windows) {
-          if (wnd is SearchWindow) {
-            windowOpen = true;
-            break;
-          }
-        }
-        if (!windowOpen) {
-          App.Current.MainWindow = new SearchWindow();
-          App.Current.MainWindow.Show();
-          detectedKeys = "";
-        }
+      try {
+        hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(CreateSearchWindow);
+        hook.RegisterHotKey((ModifierKeys) Current.Resources["WindowHotKeyModifier"], (System.Windows.Forms.Keys) Current.Resources["WindowHotKey"]);
+      } catch (InvalidOperationException exception) {
+        System.Windows.MessageBox.Show(
+            exception.Message + "\n" + exception.StackTrace,
+            "Error",
+            MessageBoxButton.OK,
+            MessageBoxImage.Error
+        );
       }
-    }
 
-    #endregion keyboardShortcut
+    }
 
     #region AppsSettings
 
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "WindowTopMargin", "ListItemIconColumnWidth" };
-    private string[] StringSettings =
-    {
-            "WindowHotKey",
-            "IgnoreMaxResultsFlag",
-            "SearchFieldPlaceholder"
-        };
+    private string[] SpecialSettings = { "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier" };
+    private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder", "FileManager", "TextEditor" };
 
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
@@ -132,37 +99,33 @@ namespace Quokka {
           if (SpecialSettings.Contains(entry.Key)) {
             switch (entry.Key) {
               case "WindowTopMargin":
-                Application.Current.Resources[entry.Key] = parseThicknessSetting(
+                Current.Resources[entry.Key] = parseThicknessSetting(
                     "0,"
                         + parseScreenDimensionsSetting(entry.Value.ToString())
                         + ",0,0"
                 );
                 break;
               case "ListItemIconColumnWidth":
-                Application.Current.Resources[entry.Key] = new GridLength(double.Parse(entry.Value.ToString()));
+                Current.Resources[entry.Key] = new GridLength(double.Parse(entry.Value.ToString()));
+                break;
+              case "WindowHotKey":
+                Current.Resources[entry.Key] = (System.Windows.Forms.Keys) Enum.Parse(typeof(System.Windows.Forms.Keys), entry.Value.ToString(), true);
+                break;
+              case "WindowHotKeyModifier":
+                Current.Resources[entry.Key] = (ModifierKeys) Enum.Parse(typeof(ModifierKeys), entry.Value.ToString(), true);
                 break;
             }
           } else if (StringSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = entry.Value.ToString();
+            Current.Resources[entry.Key] = entry.Value.ToString();
           } else if (ScreenDimensionsSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = parseScreenDimensionsSetting(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseScreenDimensionsSetting(entry.Value.ToString());
           } else if (IntSettings.Contains(entry.Key)) {
-            Application.Current.Resources[entry.Key] = int.Parse(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = int.Parse(entry.Value.ToString());
           } else if (entry.Key.Contains("Color")) {
-            Current.Resources[entry.Key] =
-                new BrushConverter().ConvertFromString(entry.Value.ToString())
-                as SolidColorBrush;
-            Resources[entry.Key] =
-                new BrushConverter().ConvertFromString(entry.Value.ToString())
-                as SolidColorBrush;
+            Current.Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
+            Resources[entry.Key] = new BrushConverter().ConvertFromString(entry.Value.ToString()) as SolidColorBrush;
           } else if (entry.Key.Contains("Rounding")) {
-            Application.Current.Resources[entry.Key] = new CornerRadius(
-                int.Parse(entry.Value.ToString())
-            );
+            Current.Resources[entry.Key] = parseCornerRadiusSetting(entry.Value.ToString());
           } else if (
                 entry.Key.Contains("Opacity")
                 || entry.Key.Contains("Direction")
@@ -172,37 +135,24 @@ namespace Quokka {
                 || entry.Key.Contains("Height")
                 || entry.Key.Contains("Width")
             ) {
-            Application.Current.Resources[entry.Key] = double.Parse(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = double.Parse(entry.Value.ToString());
           } else if (entry.Key.Contains("Font")) {
-            Application.Current.Resources[entry.Key] =
-                new System.Windows.Media.FontFamily(entry.Value.ToString());
+            Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(entry.Value.ToString());
           } else if (entry.Key.Contains("HorizontalAlignment")) {
-            Application.Current.Resources[entry.Key] = parseHorizontalAlignmentSetting(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseHorizontalAlignmentSetting(entry.Value.ToString());
           } else if (entry.Key.Contains("RenderingBias")) {
-            Application.Current.Resources[entry.Key] = parseRenderingBiasSetting(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseRenderingBiasSetting(entry.Value.ToString());
           } else if (
                 entry.Key.Contains("Padding")
                 || entry.Key.Contains("Margin")
                 || entry.Key.Contains("Thickness")
                 || entry.Key.Contains("Margin")
             ) {
-            Application.Current.Resources[entry.Key] = parseThicknessSetting(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseThicknessSetting(entry.Value.ToString());
           } else if (entry.Key.Contains("VerticalAlignment")) {
-            Application.Current.Resources[entry.Key] = parseVerticalAlignmentSetting(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseVerticalAlignmentSetting(entry.Value.ToString());
           } else if (entry.Key.Contains("Visibility")) {
-            Application.Current.Resources[entry.Key] = parseVisibilitySettings(
-                entry.Value.ToString()
-            );
+            Current.Resources[entry.Key] = parseVisibilitySetting(entry.Value.ToString());
           }
         }
       }
@@ -212,21 +162,19 @@ namespace Quokka {
 
     #region plugins
 
-    /**
-      * <summary>
-      * A list of all plugins available in the PlugBoard.
-      * </summary>
-      */
-    public static List<IPlugger>? plugins { private set; get; }
+    ///<summary>
+    ///A list of all plugins available in the PlugBoard.
+    ///</summary>
+    public static List<IPlugger> plugins = new List<IPlugger>();
 
     //returns the absolute path to the plugin's DLL
     private string GetPluggerDll(string connector) {
-      var files = Directory.GetFiles(
+      string[] files = Directory.GetFiles(
           System.IO.Path.GetFullPath(connector),
           "*.dll",
           SearchOption.AllDirectories
       );
-      foreach (var file in files) {
+      foreach (string file in files) {
         if (FileVersionInfo.GetVersionInfo(file).ProductName.StartsWith("Plugin_"))
           return file;
       }
@@ -235,7 +183,6 @@ namespace Quokka {
 
     // grab plugins and run startup methods
     private void LoadPlugins() {
-      plugins = new List<IPlugger>();
       if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard")) {
         try {
           foreach (
@@ -272,11 +219,10 @@ namespace Quokka {
 
     private TaskbarIcon? notifyIcon;
 
-    /**
-      * <summary>
-      * Opens the PlugBoard folder within Windows file explorer.
-      * </summary>
-      */
+    ///<summary>
+    ///Opens the PlugBoard folder within Windows file explorer.
+    ///</summary>
+
 
     public static void OpenPlugBoard() {
       using Process folderOpener = new Process();
@@ -285,11 +231,11 @@ namespace Quokka {
       folderOpener.Start();
     }
 
-    /**
-      * <summary>
-      * Opens the app settings file in notepad.
-      * </summary>
-      */
+
+    ///<summary>
+    ///Opens the app settings file in notepad.
+    ///</summary>
+
 
     public static void OpenSettingsFile() {
       using Process fileOpener = new Process();
@@ -299,13 +245,13 @@ namespace Quokka {
       fileOpener.Start();
     }
 
-    /**
-      * <summary>
-      * The end point for the app. Runs all of the plugin OnAppShutdown methods,
-      * unhooks the keyboard listener and disposes of the tray task.
-      * </summary>
-      * <param name="e">The arguments for the Exit event.</param>
-      */
+
+    ///<summary>
+    ///The end point for the app. Runs all of the plugin OnAppShutdown methods,
+    ///unhooks the keyboard listener and disposes of the tray task.
+    ///</summary>
+    ///<param name="e">The arguments for the Exit event.</param>
+
 
     protected override void OnExit(ExitEventArgs e) {
       //run anything needed for plugins on app exit
@@ -321,9 +267,22 @@ namespace Quokka {
             MessageBoxImage.Error
         );
       }
-      _listener.UnHookKeyboard();
       notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
       base.OnExit(e);
+    }
+
+    private void CreateSearchWindow(object? sender, KeyPressedEventArgs e) {
+      bool windowOpen = false;
+      foreach (var wnd in Current.Windows) {
+        if (wnd is SearchWindow) {
+          windowOpen = true;
+          break;
+        }
+      }
+      if (!windowOpen) {
+        Current.MainWindow = new SearchWindow();
+        Current.MainWindow.Show();
+      }
     }
 
     //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2

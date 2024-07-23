@@ -100,7 +100,6 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
-          RenderOptions.BitmapScalingMode="NearestNeighbor"
           Source="pack://siteoforigin:,,,/Config/Resources/TraySearch.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -117,7 +116,6 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
-          RenderOptions.BitmapScalingMode="NearestNeighbor"
           Source="pack://siteoforigin:,,,/Config/Resources/settings.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -134,7 +132,6 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
-          RenderOptions.BitmapScalingMode="NearestNeighbor"
           Source="pack://siteoforigin:,,,/Config/Resources/plug.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -151,7 +148,6 @@
           Width="{DynamicResource TrayTaskContextMenuIconSize}"
           Height="{DynamicResource TrayTaskContextMenuIconSize}"
           Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
-          RenderOptions.BitmapScalingMode="NearestNeighbor"
           Source="pack://siteoforigin:,,,/Config/Resources/exit.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>

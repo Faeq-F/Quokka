@@ -2,22 +2,20 @@
 using System.Windows.Media.Effects;
 
 namespace Quokka.Settings {
-  /**
-    * <summary>
-    * All of the methods for parsing and evaluating different types of app settings.
-    * </summary>
-    */
+
+  /// <summary>
+  /// All of the methods for parsing and evaluating different types of app settings.
+  /// </summary>
 
   public static class SettingParsers {
-    /**
-      * <summary>
-      * Parses and evaluates HorizontalAlignment settings.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.
-      * </returns>
-      */
+
+    /// <summary>
+    /// Parses and evaluates HorizontalAlignment settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.
+    /// </returns>
 
     public static HorizontalAlignment parseHorizontalAlignmentSetting(string settingValue) {
       switch (settingValue.ToLower()) {
@@ -38,15 +36,13 @@ namespace Quokka.Settings {
       }
     }
 
-    /**
-      * <summary>
-      * Parses and evaluates RenderingBias settings.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned.
-      * </returns>
-      */
+    /// <summary>
+    /// Parses and evaluates RenderingBias settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned.
+    /// </returns>
 
     public static RenderingBias parseRenderingBiasSetting(string settingValue) {
       switch (settingValue.ToLower()) {
@@ -61,15 +57,13 @@ namespace Quokka.Settings {
       }
     }
 
-    /**
-      * <summary>
-      * Parses and evaluates settings that can have ScreenHeight & ScreenWidth values in them.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated. If the setting cannot be evaluated correctly, -1 is returned.
-      * </returns>
-      */
+    /// <summary>
+    /// Parses and evaluates settings that can have ScreenHeight and ScreenWidth values in them.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, -1 is returned.
+    /// </returns>
 
     public static double parseScreenDimensionsSetting(string settingValue) {
       settingValue = settingValue.Trim().Replace(" ", "");
@@ -111,15 +105,13 @@ namespace Quokka.Settings {
       return output;
     }
 
-    /**
-      * <summary>
-      * Parses and evaluates Thickness settings.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated.
-      * </returns>
-      */
+    /// <summary>
+    /// Parses and evaluates Thickness settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated.
+    /// </returns>
 
     public static Thickness parseThicknessSetting(string settingValue) {
       Thickness thickness;
@@ -136,15 +128,13 @@ namespace Quokka.Settings {
       return thickness;
     }
 
-    /**
-      * <summary>
-      * Parses and evaluates VerticalAlignment settings.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned.
-      * </returns>
-      */
+    /// <summary>
+    /// Parses and evaluates VerticalAlignment settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned.
+    /// </returns>
 
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
       switch (settingValue.ToLower()) {
@@ -165,17 +155,15 @@ namespace Quokka.Settings {
       }
     }
 
-    /**
-      * <summary>
-      * Parses and evaluates Visibility settings.
-      * </summary>
-      * <param name="settingValue">The value of a setting to be evaluated.</param>
-      * <returns>
-      * The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned.
-      * </returns>
-      */
+    /// <summary>
+    /// Parses and evaluates Visibility settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned.
+    /// </returns>
 
-    public static Visibility parseVisibilitySettings(string settingValue) {
+    public static Visibility parseVisibilitySetting(string settingValue) {
       switch (settingValue.ToLower()) {
         case "collapsed":
           return Visibility.Collapsed;
@@ -189,6 +177,26 @@ namespace Quokka.Settings {
         default:
           return Visibility.Visible;
       }
+    }
+
+    /// <summary>
+    /// Parses and evaluates CornerRadius settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>The setting value evaluated.</returns>
+    public static CornerRadius parseCornerRadiusSetting(string settingValue) {
+      CornerRadius radius;
+      if (settingValue.Contains(",")) {
+        string[] radii = settingValue.Split(",");
+        radius = new CornerRadius();
+        radius.TopLeft = double.Parse(radii[0]);
+        radius.TopRight = double.Parse(radii[1]);
+        radius.BottomLeft = double.Parse(radii[2]);
+        radius.BottomRight = double.Parse(radii[3]);
+      } else {
+        radius = new CornerRadius(double.Parse(settingValue));
+      }
+      return radius;
     }
   }
 }

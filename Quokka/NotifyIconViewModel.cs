@@ -123,9 +123,9 @@ namespace Quokka {
     public static ICommand ShowWindowCommand {
       get {
         return new DelegateCommand(() => {
-          Application.Current.MainWindow = new SearchWindow();
-          Application.Current.MainWindow.Show();
-        }, () => Application.Current.MainWindow == null);
+          App.Current.MainWindow = new SearchWindow();
+          App.Current.MainWindow.Show();
+        }, () => App.Current.MainWindow == null);
       }
     }
   }

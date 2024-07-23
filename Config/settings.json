@@ -1,10 +1,11 @@
 {
   "GeneralSettings": {
-    "WindowHotKey": "LWinSpace",
+    "WindowHotKey": "Space",
+    "WindowHotKeyModifier": "Alt",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "",
-    "TextEditor": ""
+    "FileManager": "C:\\Windows\\explorer.exe",
+    "TextEditor": "C:\\Windows\\notepad.exe"
   },
   "StyleSettings": {
     "AppWindow": {
@@ -14,7 +15,7 @@
       "WindowBorderColor": "#dddddd",
       "WindowBorderThickness": "1",
       "WindowRounding": "8",
-      "WindowPadding": "3",
+      "WindowPadding": "0,0,0,0",
 
       "DropShadowBlurRadius": "70",
       "DropShadowOpacity": "0.1",
@@ -23,26 +24,26 @@
       "DropShadowRenderingBias": "Quality"
     },
     "TrayTask": {
-      "TrayTaskContextMenuColor": "#f3f3f3",
-      "TrayTaskContextMenuBorderColor": "#e5e5e5",
+      "TrayTaskContextMenuColor": "#fff",
+      "TrayTaskContextMenuBorderColor": "#ddd",
       "TrayTaskContextMenuBorderThickness": "2",
-      "TrayTaskContextMenuRounding": "5",
-      "TrayTaskContextMenuIconSize": "20",
+      "TrayTaskContextMenuRounding": "8",
+      "TrayTaskContextMenuIconSize": "32",
       "TrayTaskContextMenuIconMargin": "0,0,5,0",
       "TrayTaskContextMenuTxtColor": "Black",
       "TrayTaskContextMenuSeperatorColor": "#e5e5e5",
 
-      "TrayTaskContextMenuDropShadowBlurRadius": "0",
-      "TrayTaskContextMenuDropShadowOpacity": "0",
+      "TrayTaskContextMenuDropShadowBlurRadius": "70",
+      "TrayTaskContextMenuDropShadowOpacity": "0.1",
       "TrayTaskContextMenuDropShadowDirection": "315",
-      "TrayTaskContextMenuDropShadowShadowDepth": "0",
+      "TrayTaskContextMenuDropShadowShadowDepth": "2",
       "TrayTaskContextMenuDropShadowRenderingBias": "Performance"
     },
     "SearchBar": {
-      "SearchBarColor": "#f5f5f5",
+      "SearchBarColor": "#fff",
       "SearchBarRounding": "8",
       "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "1",
+      "SearchBarBorderThickness": "0",
       "SearchBarHeight": "40",
       "SearchIconWidth": "32",
       "SearchIconMargin": "8, 0, -8, 0",
@@ -65,16 +66,16 @@
 
     "ResultsList": {
       "Container": {
-        "ListContainerMargin": "0,3,0,0",
-        "ListContainerBorderColor": "Transparent",
-        "ListContainerBorderThickness": "0",
+        "ListContainerMargin": "0",
+        "ListContainerBorderColor": "#ddd",
+        "ListContainerBorderThickness": "0,1,0,0",
         "ListContainerRounding": "0",
         "ListContainerColor": "Transparent",
         "ListContainerMinHeight": "0",
         "ListContainerMaxHeight": "PrimaryScreenHeight"
       },
       "List": {
-        "ListMargin": "3,3,3,3",
+        "ListMargin": "3",
         "ScrollBarWidth": "10",
 
         "ScrollBarBackground": {
@@ -126,9 +127,9 @@
         "ListItemDescColor": "Gray",
 
         "ContextPane": {
-          "ContextPaneBorderColor": "Transparent",
-          "ContextPaneBorderThickness": "0",
-          "ContextPaneCornerRounding": "0",
+          "ContextPaneBorderColor": "#ddd",
+          "ContextPaneBorderThickness": "0, 1, 0, 0",
+          "ContextPaneCornerRounding": "0, 0, 8, 8",
           "ContextPaneBgColor": "#ffffff",
           "ContextPaneMinHeight": "192",
 
