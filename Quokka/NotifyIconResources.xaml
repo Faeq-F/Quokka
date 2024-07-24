@@ -3,7 +3,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:local="clr-namespace:Quokka"
   xmlns:tb="http://www.hardcodet.net/taskbar">
-  <!--  Context Menu style  -->
+  <!--  Context Menu styles  -->
   <Style TargetType="{x:Type ContextMenu}">
     <Setter Property="Template">
       <Setter.Value>
@@ -24,7 +24,7 @@
               </Border.Effect>
               <ScrollViewer
                 Uid="ScrollViewer_9"
-                CanContentScroll="True"
+                CanContentScroll="False"
                 Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer,
                                                               TypeInTargetAssembly={x:Type FrameworkElement}}}">
                 <ItemsPresenter
@@ -38,16 +38,18 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <!--  Removes hover style from menu items  -->
+  <!--  Menu Item styles  -->
   <Style TargetType="{x:Type MenuItem}">
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type MenuItem}">
           <Border
             x:Name="Border"
-            Background="Transparent"
-            BorderBrush="Transparent"
-            BorderThickness="1"
+            Margin="{DynamicResource TrayTaskContextMenuItemMargin}"
+            Background="{DynamicResource TrayTaskContextMenuItemColor}"
+            BorderBrush="{DynamicResource TrayTaskContextMenuItemBorderColor}"
+            BorderThickness="{DynamicResource TrayTaskContextMenuItemBorderThickness}"
+            CornerRadius="{DynamicResource TrayTaskContextMenuItemRounding}"
             UseLayoutRounding="True">
             <Grid x:Name="Grid">
               <Grid.ColumnDefinitions>
@@ -79,7 +81,12 @@
                 ContentSource="InputGestureText" />
             </Grid>
           </Border>
-          <ControlTemplate.Triggers />
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsHighlighted" Value="True">
+              <Setter TargetName="Border" Property="Background" Value="{DynamicResource TrayTaskContextMenuItemHoverColor}" />
+              <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource TrayTaskContextMenuItemHoverBorderColor}" />
+            </Trigger>
+          </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
     </Setter>
@@ -92,14 +99,14 @@
     <MenuItem
       Command="{Binding ShowWindowCommand}"
       CommandParameter="{Binding}"
-      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
       Header="Open Search Window"
       UseLayoutRounding="True">
       <MenuItem.Icon>
         <Image
-          Width="{DynamicResource TrayTaskContextMenuIconSize}"
-          Height="{DynamicResource TrayTaskContextMenuIconSize}"
-          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          Width="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuItemIconMargin}"
           Source="pack://siteoforigin:,,,/Config/Resources/TraySearch.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -108,14 +115,14 @@
     <MenuItem
       Command="{Binding OpenSettingsFile}"
       CommandParameter="{Binding}"
-      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
       Header="Settings"
       UseLayoutRounding="True">
       <MenuItem.Icon>
         <Image
-          Width="{DynamicResource TrayTaskContextMenuIconSize}"
-          Height="{DynamicResource TrayTaskContextMenuIconSize}"
-          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          Width="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuItemIconMargin}"
           Source="pack://siteoforigin:,,,/Config/Resources/settings.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -124,14 +131,14 @@
     <MenuItem
       Command="{Binding OpenPlugBoard}"
       CommandParameter="{Binding}"
-      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
       Header="PlugBoard"
       UseLayoutRounding="True">
       <MenuItem.Icon>
         <Image
-          Width="{DynamicResource TrayTaskContextMenuIconSize}"
-          Height="{DynamicResource TrayTaskContextMenuIconSize}"
-          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          Width="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuItemIconMargin}"
           Source="pack://siteoforigin:,,,/Config/Resources/plug.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
@@ -140,24 +147,25 @@
     <MenuItem
       Command="{Binding ExitApplicationCommand}"
       CommandParameter="{Binding}"
-      Foreground="{DynamicResource TrayTaskContextMenuTxtColor}"
+      Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
       Header="Exit"
       UseLayoutRounding="True">
       <MenuItem.Icon>
         <Image
-          Width="{DynamicResource TrayTaskContextMenuIconSize}"
-          Height="{DynamicResource TrayTaskContextMenuIconSize}"
-          Margin="{DynamicResource TrayTaskContextMenuIconMargin}"
+          Width="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuItemIconMargin}"
           Source="pack://siteoforigin:,,,/Config/Resources/exit.png"
           UseLayoutRounding="True" />
       </MenuItem.Icon>
     </MenuItem>
   </ContextMenu>
-  <!--  the applications tray task - tool-tip in code  -->
+  <!--  the applications tray task - tool-tip assigned in code  -->
   <tb:TaskbarIcon
     x:Key="NotifyIcon"
     ContextMenu="{StaticResource SysTrayMenu}"
-    LeftClickCommand="{Binding ShowWindowCommand}">
+    LeftClickCommand="{Binding ShowWindowCommand}"
+    UseLayoutRounding="True">
     <!--  self-assign a data context  -->
     <tb:TaskbarIcon.DataContext>
       <local:NotifyIconViewModel />

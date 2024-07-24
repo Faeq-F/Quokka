@@ -1,6 +1,7 @@
 # Quokka
 
-An extremely customizable, portable keystroke launcher with plugins
+An extremely customizable, portable keystroke launcher with plugins <br />
+Please see the [site](https://faeq-f.github.io/Quokka/) for Available Plugins, Themes, Documentation, FAQ, etc.
 
 ---
 

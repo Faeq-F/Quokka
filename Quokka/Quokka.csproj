@@ -76,6 +76,12 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\folder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\folder.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
     <ContentWithTargetPath Include="..\Config\Resources\openFolder.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\openFolder.png</TargetPath>
@@ -109,6 +115,24 @@
     <ContentWithTargetPath Include="..\Config\Resources\settings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\settings.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\Icons By Icons8.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\Icons By Icons8.txt</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\QuokkaLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\QuokkaLogo.png</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+  <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\QuokkaTextLogo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\QuokkaTextLogo.png</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>

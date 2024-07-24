@@ -19,14 +19,16 @@ namespace Quokka {
   ///The Quokka app
   ///<br /><br />
   ///Includes:<br />
+  ///Illustration by Icons 8 from Ouch! - https://icons8.com<br />
+  ///https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8<br />
+  ///Feather by Cole Bemis<br />
+  ///https://github.com/feathericons/feather/blob/main/LICENSE<br />
   ///wpf-notifyIcon - CPOL-1.02<br />
   ///https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE<br />
   ///KeyboardHook by Christian Liensberger<br />
   ///Obtained from https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207<br />
   ///JSON.Net - MIT license<br />
   ///https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
-  ///Fluent UI Icons - MIT License<br />
-  ///https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE<br />
   ///XAMLFlair - MIT License<br />
   ///https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE
   ///</summary>

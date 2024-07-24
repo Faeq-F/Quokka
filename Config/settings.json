@@ -1,4 +1,18 @@
 {
+  "AppDetails": {
+    "AppName": "Quokka",
+    "Developer": "Faeq",
+    "Site": "faeq-f.github.io/Quokka/",
+    "AppIncludes": {
+      "Icons": "Illustration by Icons 8 from Ouch! - icons8.com",
+      "OtherIcons": "Feather by Cole Bemis",
+      "TrayTask": "wpf-notifyicon by hardcodet",
+      "Keyboard Shortcut": "KeyboardHook by Christian Liensberger",
+      "JSON": "JSON.NET by James Newton-King",
+      "Animations": "XAMLFlair"
+    },
+    "Licenses": "Please see faeq-f.github.io/Quokka/ for all licenses"
+  },
   "GeneralSettings": {
     "WindowHotKey": "Space",
     "WindowHotKeyModifier": "Alt",
@@ -28,16 +42,26 @@
       "TrayTaskContextMenuBorderColor": "#ddd",
       "TrayTaskContextMenuBorderThickness": "2",
       "TrayTaskContextMenuRounding": "8",
-      "TrayTaskContextMenuIconSize": "32",
-      "TrayTaskContextMenuIconMargin": "0,0,5,0",
-      "TrayTaskContextMenuTxtColor": "Black",
       "TrayTaskContextMenuSeperatorColor": "#e5e5e5",
 
       "TrayTaskContextMenuDropShadowBlurRadius": "70",
       "TrayTaskContextMenuDropShadowOpacity": "0.1",
       "TrayTaskContextMenuDropShadowDirection": "315",
       "TrayTaskContextMenuDropShadowShadowDepth": "2",
-      "TrayTaskContextMenuDropShadowRenderingBias": "Performance"
+      "TrayTaskContextMenuDropShadowRenderingBias": "Performance",
+
+      "Items": {
+        "TrayTaskContextMenuItemMargin": "3",
+        "TrayTaskContextMenuItemIconSize": "32",
+        "TrayTaskContextMenuItemIconMargin": "0,0,5,0",
+        "TrayTaskContextMenuItemTxtColor": "Black",
+        "TrayTaskContextMenuItemColor": "Transparent",
+        "TrayTaskContextMenuItemBorderColor": "Transparent",
+        "TrayTaskContextMenuItemBorderThickness": "1",
+        "TrayTaskContextMenuItemRounding": "8",
+        "TrayTaskContextMenuItemHoverColor": "#f5f5f5",
+        "TrayTaskContextMenuItemHoverBorderColor": "#ddd"
+      }
     },
     "SearchBar": {
       "SearchBarColor": "#fff",
@@ -117,7 +141,7 @@
         "ListItemRounding": "8",
         "ListItemMargin": "0, 0, 8, 0",
         "ListItemIconSize": "32",
-        "ListItemIconColumnWidth":"40",
+        "ListItemIconColumnWidth": "40",
         "ListItemTextMargin": "3",
         "ListItemNameFont": "Segoe UI",
         "ListItemNameSize": "12",
