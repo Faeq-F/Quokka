@@ -22,6 +22,7 @@
     "TextEditor": "C:\\Windows\\notepad.exe"
   },
   "StyleSettings": {
+    "AppFont": "Varela Round",
     "AppWindow": {
       "WindowTopMargin": "PrimaryScreenHeight/3",
       "WindowWidth": "700",
@@ -78,13 +79,11 @@
         "SearchFieldHeight": "32",
         "SearchFieldWidth": "720",
         "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldFont": "Segoe UI",
         "SearchFieldTxtSize": "14",
         "SearchFieldPlaceholder": "Enter Query",
         "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
         "SearchFieldPlaceholderColor": "#8e8e8e",
         "SearchFieldPlaceholderSize": "14",
-        "SearchFieldPlaceholderFont": "Segoe UI"
       }
     },
 
@@ -143,10 +142,8 @@
         "ListItemIconSize": "32",
         "ListItemIconColumnWidth": "40",
         "ListItemTextMargin": "3",
-        "ListItemNameFont": "Segoe UI",
         "ListItemNameSize": "12",
         "ListItemNameColor": "Black",
-        "ListItemDescFont": "Segoe UI",
         "ListItemDescSize": "10",
         "ListItemDescColor": "Gray",
 
@@ -165,17 +162,14 @@
             "ContextPaneImageSize": "32",
 
             "NameTextMargin": "0,-20,0,0",
-            "NameTextFont": "Segoe UI",
             "NameTextSize": "14",
             "NameTextColor": "Black",
 
             "DescTextMargin": "0,0,0,0",
-            "DescTextFont": "Segoe UI",
             "DescTextSize": "12",
             "DescTextColor": "Gray",
 
             "ExtraDetailsTextMargin": "0,0,0,0",
-            "ExtraDetailsTextFont": "Segoe UI",
             "ExtraDetailsTextSize": "10",
             "ExtraDetailsTextColor": "Gray"
           },
@@ -197,7 +191,6 @@
               "ContextPaneListItemIconSize": "30",
               "ContextPaneListItemIconMargin": "8,0,-3,0",
               "ContextPaneListItemTextPadding": "10,10,10,10",
-              "ContextPaneListItemFont": "Segoe UI",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",
 

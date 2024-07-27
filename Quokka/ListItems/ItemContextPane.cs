@@ -7,7 +7,7 @@ namespace Quokka.ListItems {
    * <summary>
    * Basic Context Pane class for a list item.
    * Contains the basic methods most context panes
-   * would need & / or should want to override.
+   * would need and / or should want to override.
    * </summary>
    */
 

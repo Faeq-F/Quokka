@@ -39,12 +39,11 @@ namespace Quokka {
           ModifierKeys modifier = (ModifierKeys) ( (int) m.LParam & 0xFFFF );
 
           // invoke the event to notify the parent.
-          if (KeyPressed != null)
-            KeyPressed(this, new KeyPressedEventArgs(modifier, key));
+          KeyPressed?.Invoke(this, new KeyPressedEventArgs(modifier, key));
         }
       }
 
-      public event EventHandler<KeyPressedEventArgs> KeyPressed;
+      public event EventHandler<KeyPressedEventArgs>? KeyPressed;
 
       #region IDisposable Members
 
@@ -57,12 +56,13 @@ namespace Quokka {
 
     private Window _window = new Window();
     private int _currentId;
-
+    /// <summary>
+    /// 
+    /// </summary>
     public KeyboardHook() {
       // register the event of the inner native window.
-      _window.KeyPressed += delegate (object sender, KeyPressedEventArgs args) {
-        if (KeyPressed != null)
-          KeyPressed(this, args);
+      _window.KeyPressed += delegate (object? sender, KeyPressedEventArgs args) {
+        KeyPressed?.Invoke(this, args);
       };
     }
 
@@ -83,10 +83,12 @@ namespace Quokka {
     /// <summary>
     /// A hot key has been pressed.
     /// </summary>
-    public event EventHandler<KeyPressedEventArgs> KeyPressed;
+    public event EventHandler<KeyPressedEventArgs>? KeyPressed;
 
     #region IDisposable Members
-
+    /// <summary>
+    /// 
+    /// </summary>
     public void Dispose() {
       // unregister all the registered hot keys.
       for (int i = _currentId; i > 0; i--) {
@@ -111,11 +113,15 @@ namespace Quokka {
       _modifier = modifier;
       _key = key;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public ModifierKeys Modifier {
       get { return _modifier; }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public Keys Key {
       get { return _key; }
     }
@@ -126,9 +132,21 @@ namespace Quokka {
   /// </summary>
   [Flags]
   public enum ModifierKeys : uint {
+    /// <summary>
+    /// 
+    /// </summary>
     Alt = 1,
+    /// <summary>
+    /// 
+    /// </summary>
     Control = 2,
+    /// <summary>
+    /// 
+    /// </summary>
     Shift = 4,
+    /// <summary>
+    /// 
+    /// </summary>
     Win = 8
   }
 }
