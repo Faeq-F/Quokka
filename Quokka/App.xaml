@@ -12,7 +12,7 @@
     -->
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="NotifyIconResources.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TrayTask/NotifyIconResources.xaml" />
         <ResourceDictionary Source="pack://application:,,,/XamlFlair.WPF;component/DefaultAnimations.xaml" />
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>

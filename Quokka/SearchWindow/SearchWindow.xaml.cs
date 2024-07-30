@@ -72,8 +72,7 @@ namespace Quokka {
           plugin.OnSearchWindowStartup();
         }
       } catch (Exception ex) {
-        MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
-          "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        Quokka.App.ShowErrorMessageBox(ex, "Error with a plugin calling its OnSearchWindowStartup()");
       }
 
       //Escape key to close window
@@ -172,8 +171,7 @@ namespace Quokka {
             }
           }
         } catch (Exception ex) {
-          MessageBox.Show(ex.Message + "\n" + ex.StackTrace,
-            "Internal Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          Quokka.App.ShowErrorMessageBox(ex, "Could not produce list items");
         }
         //sort by relevance
         ListOfResults = ListOfResults.OrderByDescending(x => (

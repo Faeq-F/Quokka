@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media.Effects;
 
 namespace Quokka.Settings {
@@ -6,8 +7,56 @@ namespace Quokka.Settings {
   /// <summary>
   /// All of the methods for parsing and evaluating different types of app settings.
   /// </summary>
-
   public static class SettingParsers {
+
+    /// <summary>
+    /// Parses and evaluates settings that can have ScreenHeight and ScreenWidth values in them (i.e., the "WindowTopMargin", "WindowWidth" and "ListContainerMaxHeight" settings).
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.
+    /// </returns>
+    public static double parseScreenDimensionsSetting(string settingValue) {
+      try {
+        settingValue = settingValue.Trim().Replace(" ", "");
+        double output = 0;
+        string pastScreen = "";
+        if (settingValue.Contains("PrimaryScreenHeight")) {
+          pastScreen = settingValue.Replace("PrimaryScreenHeight", "");
+          output = SystemParameters.PrimaryScreenHeight;
+        } else if (settingValue.Contains("PrimaryScreenWidth")) {
+          pastScreen = settingValue.Replace("PrimaryScreenWidth", "");
+          output = SystemParameters.PrimaryScreenWidth;
+        } else {
+          output = double.Parse(settingValue);
+          return output;
+        }
+
+        if (pastScreen.Length > 0) {
+          char op = pastScreen[0];
+          double optionalValue = double.Parse(pastScreen.Substring(1));
+          switch (op) {
+            case '/':
+              output = output / optionalValue;
+              break;
+
+            case '*':
+              output = output * optionalValue;
+              break;
+
+            case '+':
+              output = output + optionalValue;
+              break;
+
+            case '-':
+              output = output - optionalValue;
+              break;
+          }
+        }
+
+        return output;
+      } catch (System.FormatException) { return 0; }
+    }
 
     /// <summary>
     /// Parses and evaluates HorizontalAlignment settings.
@@ -16,24 +65,10 @@ namespace Quokka.Settings {
     /// <returns>
     /// The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.
     /// </returns>
-
     public static HorizontalAlignment parseHorizontalAlignmentSetting(string settingValue) {
-      switch (settingValue.ToLower()) {
-        case "center":
-          return HorizontalAlignment.Center;
-
-        case "left":
-          return HorizontalAlignment.Left;
-
-        case "right":
-          return HorizontalAlignment.Right;
-
-        case "stretch":
-          return HorizontalAlignment.Stretch;
-
-        default:
-          return HorizontalAlignment.Center;
-      }
+      try {
+        return (HorizontalAlignment) Enum.Parse(typeof(HorizontalAlignment), settingValue.ToString(), true);
+      } catch (System.ArgumentException) { return HorizontalAlignment.Center; }
     }
 
     /// <summary>
@@ -43,89 +78,10 @@ namespace Quokka.Settings {
     /// <returns>
     /// The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned.
     /// </returns>
-
     public static RenderingBias parseRenderingBiasSetting(string settingValue) {
-      switch (settingValue.ToLower()) {
-        case "quality":
-          return RenderingBias.Quality;
-
-        case "performance":
-          return RenderingBias.Performance;
-
-        default:
-          return RenderingBias.Quality;
-      }
-    }
-
-    /// <summary>
-    /// Parses and evaluates settings that can have ScreenHeight and ScreenWidth values in them.
-    /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, -1 is returned.
-    /// </returns>
-
-    public static double parseScreenDimensionsSetting(string settingValue) {
-      settingValue = settingValue.Trim().Replace(" ", "");
-      double output = -1;
-      string pastScreen = "";
-      if (settingValue.Contains("PrimaryScreenHeight")) {
-        pastScreen = settingValue.Replace("PrimaryScreenHeight", "");
-        output = SystemParameters.PrimaryScreenHeight;
-      } else if (settingValue.Contains("PrimaryScreenWidth")) {
-        pastScreen = settingValue.Replace("PrimaryScreenWidth", "");
-        output = SystemParameters.PrimaryScreenWidth;
-      } else {
-        output = double.Parse(settingValue);
-        return output;
-      }
-
-      if (pastScreen.Length > 0) {
-        char op = pastScreen[0];
-        double optionalValue = double.Parse(pastScreen.Substring(1));
-        switch (op) {
-          case '/':
-            output = output / optionalValue;
-            break;
-
-          case '*':
-            output = output * optionalValue;
-            break;
-
-          case '+':
-            output = output + optionalValue;
-            break;
-
-          case '-':
-            output = output - optionalValue;
-            break;
-        }
-      }
-
-      return output;
-    }
-
-    /// <summary>
-    /// Parses and evaluates Thickness settings.
-    /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>
-    /// The setting value evaluated.
-    /// </returns>
-
-    public static Thickness parseThicknessSetting(string settingValue) {
-      Thickness thickness;
-      if (settingValue.Contains(",")) {
-        string[] thicknesses = settingValue.Split(",");
-        thickness = new Thickness();
-        thickness.Left = double.Parse(thicknesses[0]);
-        thickness.Top = double.Parse(thicknesses[1]);
-        thickness.Right = double.Parse(thicknesses[2]);
-        thickness.Bottom = double.Parse(thicknesses[3]);
-      } else {
-        thickness = new Thickness(double.Parse(settingValue));
-      }
-      return thickness;
+      try {
+        return (RenderingBias) Enum.Parse(typeof(RenderingBias), settingValue.ToString(), true);
+      } catch (System.ArgumentException) { return RenderingBias.Quality; }
     }
 
     /// <summary>
@@ -135,24 +91,10 @@ namespace Quokka.Settings {
     /// <returns>
     /// The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned.
     /// </returns>
-
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
-      switch (settingValue.ToLower()) {
-        case "top":
-          return VerticalAlignment.Top;
-
-        case "bottom":
-          return VerticalAlignment.Bottom;
-
-        case "center":
-          return VerticalAlignment.Center;
-
-        case "stretch":
-          return VerticalAlignment.Stretch;
-
-        default:
-          return VerticalAlignment.Center;
-      }
+      try {
+        return (VerticalAlignment) Enum.Parse(typeof(VerticalAlignment), settingValue.ToString(), true);
+      } catch (System.ArgumentException) { return VerticalAlignment.Center; }
     }
 
     /// <summary>
@@ -162,41 +104,56 @@ namespace Quokka.Settings {
     /// <returns>
     /// The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned.
     /// </returns>
-
     public static Visibility parseVisibilitySetting(string settingValue) {
-      switch (settingValue.ToLower()) {
-        case "collapsed":
-          return Visibility.Collapsed;
+      try {
+        return (Visibility) Enum.Parse(typeof(Visibility), settingValue.ToString(), true);
+      } catch (System.ArgumentException) { return Visibility.Visible; }
+    }
 
-        case "hidden":
-          return Visibility.Hidden;
-
-        case "visible":
-          return Visibility.Visible;
-
-        default:
-          return Visibility.Visible;
-      }
+    /// <summary>
+    /// Parses and evaluates Thickness settings.
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, a thickness of 0 is returned.
+    /// </returns>
+    public static Thickness parseThicknessSetting(string settingValue) {
+      try {
+        return (Thickness) new ThicknessConverter().ConvertFromString(settingValue)!;
+      } catch (System.FormatException) { return (Thickness) new ThicknessConverter().ConvertFromString("0")!; }
     }
 
     /// <summary>
     /// Parses and evaluates CornerRadius settings.
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated.</returns>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a corner radius of 0 is returned.</returns>
     public static CornerRadius parseCornerRadiusSetting(string settingValue) {
-      CornerRadius radius;
-      if (settingValue.Contains(",")) {
-        string[] radii = settingValue.Split(",");
-        radius = new CornerRadius();
-        radius.TopLeft = double.Parse(radii[0]);
-        radius.TopRight = double.Parse(radii[1]);
-        radius.BottomLeft = double.Parse(radii[2]);
-        radius.BottomRight = double.Parse(radii[3]);
-      } else {
-        radius = new CornerRadius(double.Parse(settingValue));
-      }
-      return radius;
+      try {
+        return (CornerRadius) new CornerRadiusConverter().ConvertFromString(settingValue)!;
+      } catch (System.FormatException) { return (CornerRadius) new CornerRadiusConverter().ConvertFromString("0")!; }
+    }
+
+    /// <summary>
+    /// Parses and evaluates double settings (i.e., of double type).
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</returns>
+    public static Double parseDoubleSetting(string settingValue) {
+      try {
+        return double.Parse(settingValue);
+      } catch (System.FormatException) { return 0; }
+    }
+
+    /// <summary>
+    /// Parses and evaluates integer settings (i.e., of integer type).
+    /// </summary>
+    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</returns>
+    public static int parseIntegerSetting(string settingValue) {
+      try {
+        return int.Parse(settingValue);
+      } catch (System.FormatException) { return 0; }
     }
   }
 }
