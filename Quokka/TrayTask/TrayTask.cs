@@ -45,7 +45,7 @@ namespace Quokka {
       } catch (Exception ex) {
         ShowErrorMessageBox(ex, "Error with a plugin calling its OnAppShutdown()");
       }
-      notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+      notifyIcon!.Dispose(); //the icon would clean up automatically, but this is cleaner
       base.OnExit(e);
     }
 
@@ -68,7 +68,7 @@ namespace Quokka {
         object sender,
         System.Windows.Navigation.NavigationEventArgs e
     ) {
-      this.notifyIcon.ToolTipText = "Quokka";
+      this.notifyIcon!.ToolTipText = "Quokka";
     }
   }
 }

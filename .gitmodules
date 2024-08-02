@@ -1,3 +1,9 @@
+[submodule "Plugin_EnglishDictionary"]
+	path = Plugin_EnglishDictionary
+	url = https://github.com/Faeq-F/Quokka-EnglishDictionary-Plugin.git
+[submodule "Plugin_Calculator"]
+	path = Plugin_Calculator
+	url = https://github.com/Faeq-F/Quokka-Calculator-Plugin.git
 [submodule "Plugin_Everything"]
 	path = Plugin_Everything
 	url = https://github.com/Faeq-F/Quokka-Everything-Plugin.git
@@ -7,9 +13,3 @@
 [submodule "Plugin_PortableApps"]
 	path = Plugin_PortableApps
 	url = https://github.com/Faeq-F/Quokka-PortableApps-Plugin.git
-[submodule "Plugin_Calculator"]
-	path = Plugin_Calculator
-	url = https://github.com/Faeq-F/Quokka-Calculator-Plugin.git
-[submodule "Plugin_EnglishDictionary"]
-	path = Plugin_EnglishDictionary
-	url = https://github.com/Faeq-F/Quokka-EnglishDictionary-Plugin.git

@@ -55,7 +55,7 @@ namespace Quokka.Settings {
         }
 
         return output;
-      } catch (System.FormatException) { return 0; }
+      } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a screen dimensions setting with the value \"" + settingValue + "\""); return 0; }
     }
 
     /// <summary>
@@ -68,7 +68,7 @@ namespace Quokka.Settings {
     public static HorizontalAlignment parseHorizontalAlignmentSetting(string settingValue) {
       try {
         return (HorizontalAlignment) Enum.Parse(typeof(HorizontalAlignment), settingValue.ToString(), true);
-      } catch (System.ArgumentException) { return HorizontalAlignment.Center; }
+      } catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a horizontal alignment setting with the value \"" + settingValue + "\""); return HorizontalAlignment.Center; }
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ namespace Quokka.Settings {
     public static RenderingBias parseRenderingBiasSetting(string settingValue) {
       try {
         return (RenderingBias) Enum.Parse(typeof(RenderingBias), settingValue.ToString(), true);
-      } catch (System.ArgumentException) { return RenderingBias.Quality; }
+      } catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a rendering bias setting with the value \"" + settingValue + "\""); return RenderingBias.Quality; }
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ namespace Quokka.Settings {
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
       try {
         return (VerticalAlignment) Enum.Parse(typeof(VerticalAlignment), settingValue.ToString(), true);
-      } catch (System.ArgumentException) { return VerticalAlignment.Center; }
+      } catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a vertical alignment setting with the value \"" + settingValue + "\""); return VerticalAlignment.Center; }
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ namespace Quokka.Settings {
     public static Visibility parseVisibilitySetting(string settingValue) {
       try {
         return (Visibility) Enum.Parse(typeof(Visibility), settingValue.ToString(), true);
-      } catch (System.ArgumentException) { return Visibility.Visible; }
+      } catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a visibility setting with the value \"" + settingValue + "\""); return Visibility.Visible; }
     }
 
     /// <summary>
@@ -120,7 +120,7 @@ namespace Quokka.Settings {
     public static Thickness parseThicknessSetting(string settingValue) {
       try {
         return (Thickness) new ThicknessConverter().ConvertFromString(settingValue)!;
-      } catch (System.FormatException) { return (Thickness) new ThicknessConverter().ConvertFromString("0")!; }
+      } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a thickness setting with the value \"" + settingValue + "\""); return (Thickness) new ThicknessConverter().ConvertFromString("0")!; }
     }
 
     /// <summary>
@@ -131,7 +131,7 @@ namespace Quokka.Settings {
     public static CornerRadius parseCornerRadiusSetting(string settingValue) {
       try {
         return (CornerRadius) new CornerRadiusConverter().ConvertFromString(settingValue)!;
-      } catch (System.FormatException) { return (CornerRadius) new CornerRadiusConverter().ConvertFromString("0")!; }
+      } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a corner radius setting with the value \"" + settingValue + "\""); return (CornerRadius) new CornerRadiusConverter().ConvertFromString("0")!; }
     }
 
     /// <summary>
@@ -142,18 +142,18 @@ namespace Quokka.Settings {
     public static Double parseDoubleSetting(string settingValue) {
       try {
         return double.Parse(settingValue);
-      } catch (System.FormatException) { return 0; }
+      } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a double setting with the value \"" + settingValue + "\""); return 0; }
     }
 
     /// <summary>
     /// Parses and evaluates integer settings (i.e., of integer type).
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</returns>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is show to the user.</returns>
     public static int parseIntegerSetting(string settingValue) {
       try {
         return int.Parse(settingValue);
-      } catch (System.FormatException) { return 0; }
+      } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse an integer setting with the value \"" + settingValue + "\""); return 0; }
     }
   }
 }

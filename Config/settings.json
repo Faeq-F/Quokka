@@ -139,7 +139,7 @@
         "ListItemSelectedBgColor": "#f5f5f5",
         "ListItemRounding": "8",
         "ListItemMargin": "0, 0, 8, 0",
-        "ListItemIconSize": "48",
+        "ListItemIconSize": "32",
         "ListItemIconColumnWidth": "40",
         "ListItemTextMargin": "3",
         "ListItemNameSize": "12",
@@ -159,7 +159,7 @@
             "ContextPaneContentVerticalAlignment": "Center",
             "ContextPaneContentHorizontalAlignment": "Center",
             "ContextPaneImageMargin": "0,0,0,30",
-            "ContextPaneImageSize": "48",
+            "ContextPaneImageSize": "32",
 
             "NameTextMargin": "0,-20,0,0",
             "NameTextSize": "14",
@@ -188,8 +188,8 @@
               "ContextPaneListItemRounding": "8",
               "ContextPaneListItemMargin": "0, 0, 0, 0",
 
-              "ContextPaneListItemIconSize": "48",
-              "ContextPaneListItemIconMargin": "-8,0,-3,0",
+              "ContextPaneListItemIconSize": "32",
+              "ContextPaneListItemIconMargin": "8,0,-3,0",
               "ContextPaneListItemTextPadding": "10,10,10,0",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",

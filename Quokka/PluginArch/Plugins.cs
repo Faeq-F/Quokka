@@ -22,7 +22,8 @@ namespace Quokka {
           SearchOption.AllDirectories
       );
       foreach (string file in files) {
-        if (FileVersionInfo.GetVersionInfo(file).ProductName!.StartsWith("Plugin_"))
+        bool? isPlugin = FileVersionInfo.GetVersionInfo(file)?.ProductName?.StartsWith("Plugin_");
+        if ((bool) ( isPlugin == null ? false : isPlugin ))
           return file;
       }
       return string.Empty;
@@ -31,12 +32,13 @@ namespace Quokka {
     // grab plugins and run startup methods
     private void LoadPlugins() {
       if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard")) {
-        try {
-          foreach (
-              var plugin in Directory.GetDirectories(
-                  Environment.CurrentDirectory + "\\PlugBoard\\"
-              )
-          ) {
+
+        foreach (
+            var plugin in Directory.GetDirectories(
+                Environment.CurrentDirectory + "\\PlugBoard\\"
+            )
+        ) {
+          try {
             if (plugin != "") {
               string dllPath = GetPluggerDll(plugin);
               Assembly _Assembly = Assembly.LoadFile(dllPath);
@@ -44,14 +46,20 @@ namespace Quokka {
               var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
               plugins.Add((IPlugger) Activator.CreateInstance(type!)!);
             }
+          } catch (Exception ex) {
+            ShowErrorMessageBox(ex, "Error with loading the plugin \"" + plugin.Replace(Environment.CurrentDirectory + "\\PlugBoard\\", "") + "\"");
           }
-          //run anything needed for plugins on app startup
-          foreach (IPlugger plugin in plugins) {
-            plugin.OnAppStartup();
-          }
-        } catch (Exception ex) {
-          ShowErrorMessageBox(ex, "Error with loading a plugin or calling its OnAppStartup()");
         }
+
+        //run anything needed for plugins on app startup
+        foreach (IPlugger plugin in plugins) {
+          try {
+            plugin.OnAppStartup();
+          } catch (Exception ex) {
+            ShowErrorMessageBox(ex, "Error with the \"" + plugin.PluggerName + "\" plugin calling its OnAppStartup()");
+          }
+        }
+
       }
     }
   }

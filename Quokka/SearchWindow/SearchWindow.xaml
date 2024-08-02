@@ -237,7 +237,6 @@
                 Source="pack://siteoforigin:,,,/Config/Resources/SearchIcon.png"
                 UseLayoutRounding="True" />
               <Grid Grid.Column="1">
-
                 <TextBox
                   x:Name="SearchTermTextBox"
                   Grid.Column="1"
