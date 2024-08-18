@@ -11,7 +11,8 @@ namespace Quokka {
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
     private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier" };
-    private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder", "FileManager", "TextEditor" };
+    private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
+    private string[] PathSettings = { "FileManager", "TextEditor" };
 
     private void applyAppSettings(JObject obj) {
       foreach (var entry in obj) {
@@ -42,6 +43,8 @@ namespace Quokka {
                 Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(Path.GetFullPath("./Config/Resources/#") + entry.Value.ToString());
                 break;
             }
+          } else if (PathSettings.Contains(entry.Key)) {
+            Current.Resources[entry.Key] = Path.GetFullPath(entry.Value.ToString());
           } else if (StringSettings.Contains(entry.Key)) {
             Current.Resources[entry.Key] = entry.Value.ToString();
           } else if (ScreenDimensionsSettings.Contains(entry.Key)) {

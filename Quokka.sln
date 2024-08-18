@@ -33,6 +33,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_Calculator", "Plugin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_Everything", "Plugin_Everything\Plugin_Everything.csproj", "{E3379DF7-DD05-4AD9-B2F2-E923A2F083C7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin_PowerCommands", "Plugin_PowerCommands\Plugin_PowerCommands.csproj", "{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_EnglishDictionary", "Plugin_EnglishDictionary\Plugin_EnglishDictionary.csproj", "{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +145,38 @@ Global
 		{E3379DF7-DD05-4AD9-B2F2-E923A2F083C7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E3379DF7-DD05-4AD9-B2F2-E923A2F083C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E3379DF7-DD05-4AD9-B2F2-E923A2F083C7}.Release|x86.Build.0 = Release|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Debug|x86.Build.0 = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Plugin|x86.ActiveCfg = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Plugin|x86.Build.0 = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Quokka|x86.ActiveCfg = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Quokka|x86.Build.0 = Debug|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Release|x86.ActiveCfg = Release|Any CPU
+		{EB07486D-5FE1-4051-B3F5-CD1F63A0261E}.Release|x86.Build.0 = Release|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Debug|x86.Build.0 = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Plugin|x86.ActiveCfg = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Plugin|x86.Build.0 = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Quokka|x86.ActiveCfg = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Quokka|x86.Build.0 = Debug|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Release|x86.ActiveCfg = Release|Any CPU
+		{06A3F214-031A-4ED3-AF6D-624C3EF34EEF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

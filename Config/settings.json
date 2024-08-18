@@ -18,7 +18,7 @@
     "WindowHotKeyModifier": "Alt",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "C:\\Windows\\explorer.exe",
+    "FileManager": "G:\\PortableApps\\Q-DirPortable\\Q-DirPortable.exe",
     "TextEditor": "C:\\Windows\\notepad.exe"
   },
   "StyleSettings": {
@@ -83,7 +83,7 @@
         "SearchFieldPlaceholder": "Enter Query",
         "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
         "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14",
+        "SearchFieldPlaceholderSize": "14"
       }
     },
 
@@ -161,7 +161,7 @@
             "ContextPaneImageMargin": "0,0,0,30",
             "ContextPaneImageSize": "32",
 
-            "NameTextMargin": "0,-20,0,0",
+            "NameTextMargin": "0,0,0,0",
             "NameTextSize": "14",
             "NameTextColor": "Black",
 
