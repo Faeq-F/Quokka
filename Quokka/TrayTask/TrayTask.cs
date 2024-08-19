@@ -39,7 +39,7 @@ namespace Quokka {
     protected override void OnExit(ExitEventArgs e) {
       //run anything needed for plugins on app exit
       try {
-        foreach (IPlugger plugin in plugins) {
+        foreach (Plugin plugin in plugins) {
           plugin.OnAppShutdown();
         }
       } catch (Exception ex) {

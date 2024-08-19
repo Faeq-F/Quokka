@@ -68,7 +68,7 @@ namespace Quokka {
 
       //run anything needed for plugins on window startup
       try {
-        foreach (IPlugger plugin in App.plugins!) {
+        foreach (Plugin plugin in App.plugins!) {
           plugin.OnSearchWindowStartup();
         }
       } catch (Exception ex) {
@@ -156,12 +156,22 @@ namespace Quokka {
         ListContainer.Visibility = Visibility.Collapsed; return;
       } else {
         try {
-          foreach (IPlugger plugin in App.plugins) {
+          foreach (Plugin plugin in App.plugins) {
             //checking special commands
             foreach (string specialCommand in plugin.SpecialCommands()) {
               if (specialCommand.Equals(query)) {
                 ListOfResults = plugin.OnSpecialCommand(query);
                 ResultsListView.ItemsSource = ListOfResults;
+                goto ResultsAreReady;
+              }
+            }
+            //checking signifiers
+            foreach (string signifier in plugin.CommandSignifiers()) {
+              if (query.StartsWith(signifier, StringComparison.Ordinal)) {
+                ListOfResults = plugin.OnSignifier(query);
+                ResultsListView.ItemsSource = ListOfResults;
+                //Check if items were shown
+                if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
                 goto ResultsAreReady;
               }
             }

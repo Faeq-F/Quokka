@@ -12,7 +12,7 @@ namespace Quokka {
     ///<summary>
     ///A list of all plugins available in the PlugBoard.
     ///</summary>
-    public static List<IPlugger> plugins = new List<IPlugger>();
+    public static List<Plugin> plugins = new List<Plugin>();
 
     //returns the absolute path to the plugin's DLL
     private string GetPluggerDll(string connector) {
@@ -43,8 +43,8 @@ namespace Quokka {
               string dllPath = GetPluggerDll(plugin);
               Assembly _Assembly = Assembly.LoadFile(dllPath);
               var types = _Assembly.GetTypes()?.ToList();
-              var type = types?.Find(a => typeof(IPlugger).IsAssignableFrom(a));
-              plugins.Add((IPlugger) Activator.CreateInstance(type!)!);
+              var type = types?.Find(a => typeof(Plugin).IsAssignableFrom(a));
+              plugins.Add((Plugin) Activator.CreateInstance(type!)!);
             }
           } catch (Exception ex) {
             ShowErrorMessageBox(ex, "Error with loading the plugin \"" + plugin.Replace(Environment.CurrentDirectory + "\\PlugBoard\\", "") + "\"");
@@ -52,7 +52,7 @@ namespace Quokka {
         }
 
         //run anything needed for plugins on app startup
-        foreach (IPlugger plugin in plugins) {
+        foreach (Plugin plugin in plugins) {
           try {
             plugin.OnAppStartup();
           } catch (Exception ex) {
