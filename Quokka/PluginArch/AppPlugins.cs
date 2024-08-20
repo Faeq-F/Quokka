@@ -14,6 +14,8 @@ namespace Quokka {
     ///</summary>
     public static List<Plugin> plugins = new List<Plugin>();
 
+    internal static Dictionary<String, bool> hasContextPane = new Dictionary<String, bool>();
+
     //returns the absolute path to the plugin's DLL
     private string GetPluggerDll(string connector) {
       string[] files = Directory.GetFiles(
@@ -45,6 +47,14 @@ namespace Quokka {
               var types = _Assembly.GetTypes()?.ToList();
               var type = types?.Find(a => typeof(Plugin).IsAssignableFrom(a));
               plugins.Add((Plugin) Activator.CreateInstance(type!)!);
+              //check if it has a context pane
+              string pluginName = plugin.Substring(( Environment.CurrentDirectory + "\\PlugBoard\\" ).Length);
+              hasContextPane[pluginName] = false;
+              foreach (var assemblyType in _Assembly.GetTypes()) {
+                if (assemblyType.ToString().Equals(pluginName + "." + "ContextPane")) {
+                  hasContextPane[pluginName] = true;
+                }
+              }
             }
           } catch (Exception ex) {
             ShowErrorMessageBox(ex, "Error with loading the plugin \"" + plugin.Replace(Environment.CurrentDirectory + "\\PlugBoard\\", "") + "\"");

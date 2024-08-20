@@ -88,10 +88,6 @@ namespace Quokka {
       //fields needed for context panes
       searchBox = SearchTermTextBox;
       contextPane = ContextPane;
-
-      //Focusing Search Bar (not guaranteed every time - same issue as ms power-toys)
-      EventManager.RegisterClassHandler(typeof(Window), LoadedEvent,
-        new RoutedEventHandler(WindowLoaded));
     }
 
     private void Exit(object sender, ExecutedRoutedEventArgs e) {
@@ -243,11 +239,9 @@ namespace Quokka {
             } else {
               if (( ResultsListView.SelectedIndex == -1 )) ResultsListView.SelectedIndex = 0;
               string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
-              if (PluginName != "Quokka.ListItems") {
+              if (PluginName != "Quokka.ListItems" && App.hasContextPane[PluginName] == true) {
                 SelectedItem = ( ResultsListView.SelectedItem as ListItem )!;
-                ContextPane.Source = null;
-                ContextPane.Source =
-                  new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
+                ContextPane.Navigate(new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml"));
                 ContextPane.Visibility = Visibility.Visible;
               }
             }
@@ -260,9 +254,5 @@ namespace Quokka {
       e.Handled = true;
     }
 
-    //Focuses search field
-    private void WindowLoaded(object sender, RoutedEventArgs e) {
-      //Loaded += (sender, e) => MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-    }
   }
 }
