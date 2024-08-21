@@ -91,6 +91,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
     </ContentWithTargetPath>
+    <ContentWithTargetPath Include="..\Config\Resources\LoadingQuokkaTray.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\LoadingQuokkaTray.ico</TargetPath>
+    </ContentWithTargetPath>
     <ContentWithTargetPath Include="..\Config\Resources\TraySearch.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\TraySearch.png</TargetPath>

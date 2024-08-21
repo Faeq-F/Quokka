@@ -43,6 +43,9 @@ namespace Quokka {
     protected override void OnStartup(StartupEventArgs e) {
       base.OnStartup(e);
 
+      notifyIcon = (TaskbarIcon) FindResource("LoadingNotifyIcon");
+      notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\LoadingQuokkaTray.ico"));
+
       try {
         applyAppSettings(JObject.Parse(File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")));
       } catch (JsonReaderException exception) {
@@ -54,15 +57,16 @@ namespace Quokka {
 
       XamlFlair.Animations.OverrideDefaultSettings(duration: 200);
 
-      notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
-      notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
-
       try {
         hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(CreateSearchWindow);
         hook.RegisterHotKey((ModifierKeys) Current.Resources["WindowHotKeyModifier"], (System.Windows.Forms.Keys) Current.Resources["WindowHotKey"]);
       } catch (InvalidOperationException exception) {
         ShowErrorMessageBox(exception, "Could not register the hotkey");
       }
+
+      notifyIcon.Dispose();
+      notifyIcon = (TaskbarIcon) FindResource("NotifyIcon");
+      notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\QuokkaTray.ico"));
 
     }
 

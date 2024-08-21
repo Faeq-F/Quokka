@@ -165,10 +165,16 @@
     x:Key="NotifyIcon"
     ContextMenu="{StaticResource SysTrayMenu}"
     LeftClickCommand="{Binding ShowWindowCommand}"
+    ToolTipText="Quokka"
     UseLayoutRounding="True">
     <!--  self-assign a data context  -->
     <tb:TaskbarIcon.DataContext>
       <local:NotifyIconViewModel />
     </tb:TaskbarIcon.DataContext>
   </tb:TaskbarIcon>
+  <!--  loading tray task  -->
+  <tb:TaskbarIcon
+    x:Key="LoadingNotifyIcon"
+    ToolTipText="Quokka is initializing"
+    UseLayoutRounding="True" />
 </ResourceDictionary>

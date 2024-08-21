@@ -63,12 +63,5 @@ namespace Quokka {
       }
     }
 
-    //Work around for 'The root Visual of a VisualTarget cannot have a parent' error introduced with .NET 4.5.2
-    private void Application_LoadCompleted(
-        object sender,
-        System.Windows.Navigation.NavigationEventArgs e
-    ) {
-      this.notifyIcon!.ToolTipText = "Quokka";
-    }
   }
 }
