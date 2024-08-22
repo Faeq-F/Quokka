@@ -232,7 +232,7 @@ namespace Quokka {
           ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
           break;
 
-        case Key.Apps: //This is the menu key
+        case var value when value == (System.Windows.Input.Key) App.Current.Resources["ContextPaneKey"]:
           if (query != "") {
             if (ContextPane.Visibility == Visibility.Visible) { //setting the frame visibility
               ContextPane.Visibility = Visibility.Collapsed;

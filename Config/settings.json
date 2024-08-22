@@ -16,6 +16,7 @@
   "GeneralSettings": {
     "WindowHotKey": "Space",
     "WindowHotKeyModifier": "Alt",
+    "ContextPaneKey": "Apps",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
     "FileManager": "G:\\PortableApps\\Q-DirPortable\\Q-DirPortable.exe",

@@ -10,7 +10,7 @@ namespace Quokka {
   public partial class App {
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier" };
+    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey" };
     private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
     private string[] PathSettings = { "FileManager", "TextEditor" };
 
@@ -28,6 +28,11 @@ namespace Quokka {
                 break;
               case "ListItemIconColumnWidth":
                 Current.Resources[entry.Key] = new GridLength(parseDoubleSetting(entry.Value.ToString()));
+                break;
+              case "ContextPaneKey":
+                try {
+                  Current.Resources[entry.Key] = (System.Windows.Input.Key) Enum.Parse(typeof(System.Windows.Input.Key), entry.Value.ToString(), true);
+                } catch (System.ArgumentException) { Current.Resources[entry.Key] = System.Windows.Input.Key.Apps; }
                 break;
               case "WindowHotKey":
                 try {
