@@ -101,6 +101,7 @@
       "List": {
         "ListMargin": "3",
         "ScrollBarWidth": "10",
+        "HorizontalScrollIncrementingWidth": "3",
 
         "ScrollBarBackground": {
           "ScrollBarBgVisibility": "Visible",
@@ -161,6 +162,7 @@
             "ContextPaneContentHorizontalAlignment": "Center",
             "ContextPaneImageMargin": "0,0,0,30",
             "ContextPaneImageSize": "32",
+            "MaxDetailsWidth": "360",
 
             "NameTextMargin": "0,0,0,0",
             "NameTextSize": "14",

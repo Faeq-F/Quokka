@@ -102,6 +102,7 @@
             Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="0"
+            IsSynchronizedWithCurrentItem="True"
             KeyboardNavigation.DirectionalNavigation="Cycle"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             SelectionMode="Single">
@@ -161,45 +162,55 @@
             </xfc:AnimatedListView.Resources>
             <xfc:AnimatedListView.ItemTemplate>
               <DataTemplate>
-                <Grid PreviewMouseLeftButtonUp="ListItem_Click">
-                  <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="{DynamicResource ListItemIconColumnWidth}" />
-                    <ColumnDefinition Width="*" />
-                  </Grid.ColumnDefinitions>
-                  <Image
-                    Grid.Column="0"
-                    Width="{DynamicResource ListItemIconSize}"
-                    Height="{DynamicResource ListItemIconSize}"
-                    Source="{Binding Icon}"
-                    Stretch="Uniform"
-                    UseLayoutRounding="True" />
-                  <Grid
-                    Grid.Column="1"
-                    Margin="{DynamicResource ListItemTextMargin}"
-                    VerticalAlignment="Center"
-                    d:Margin="10">
-                    <Grid.RowDefinitions>
-                      <RowDefinition Height="7*" />
-                      <RowDefinition Height="3*" />
-                    </Grid.RowDefinitions>
-                    <TextBlock
-                      Grid.Row="0"
-                      VerticalAlignment="Bottom"
-                      FontFamily="{DynamicResource AppFont}"
-                      FontSize="{DynamicResource ListItemNameSize}"
-                      Foreground="{DynamicResource ListItemNameColor}"
-                      Text="{Binding Name}"
+                <ScrollViewer
+                  x:Name="ListItemScrollViewer"
+                  Background="Transparent"
+                  BorderThickness="0"
+                  CanContentScroll="True"
+                  Focusable="True"
+                  HorizontalScrollBarVisibility="Hidden"
+                  IsTabStop="True"
+                  VerticalScrollBarVisibility="Disabled">
+                  <Grid PreviewMouseLeftButtonUp="ListItem_Click">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="{DynamicResource ListItemIconColumnWidth}" />
+                      <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                      Grid.Column="0"
+                      Width="{DynamicResource ListItemIconSize}"
+                      Height="{DynamicResource ListItemIconSize}"
+                      Source="{Binding Icon}"
+                      Stretch="Uniform"
                       UseLayoutRounding="True" />
-                    <TextBlock
-                      Grid.Row="1"
-                      VerticalAlignment="Top"
-                      FontFamily="{DynamicResource AppFont}"
-                      FontSize="{DynamicResource ListItemDescSize}"
-                      Foreground="{DynamicResource ListItemDescColor}"
-                      Text="{Binding Description}"
-                      UseLayoutRounding="True" />
+                    <Grid
+                      Grid.Column="1"
+                      Margin="{DynamicResource ListItemTextMargin}"
+                      VerticalAlignment="Center"
+                      d:Margin="10">
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="7*" />
+                        <RowDefinition Height="3*" />
+                      </Grid.RowDefinitions>
+                      <TextBlock
+                        Grid.Row="0"
+                        VerticalAlignment="Bottom"
+                        FontFamily="{DynamicResource AppFont}"
+                        FontSize="{DynamicResource ListItemNameSize}"
+                        Foreground="{DynamicResource ListItemNameColor}"
+                        Text="{Binding Name}"
+                        UseLayoutRounding="True" />
+                      <TextBlock
+                        Grid.Row="1"
+                        VerticalAlignment="Top"
+                        FontFamily="{DynamicResource AppFont}"
+                        FontSize="{DynamicResource ListItemDescSize}"
+                        Foreground="{DynamicResource ListItemDescColor}"
+                        Text="{Binding Description}"
+                        UseLayoutRounding="True" />
+                    </Grid>
                   </Grid>
-                </Grid>
+                </ScrollViewer>
               </DataTemplate>
             </xfc:AnimatedListView.ItemTemplate>
           </xfc:AnimatedListView>

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace Quokka {
 
@@ -248,10 +249,66 @@ namespace Quokka {
           }
           break;
 
+        case Key.Left:
+          ListBoxItem CurrentListBoxItem =
+                    (ListBoxItem) ( ResultsListView.ItemContainerGenerator.ContainerFromItem(ResultsListView.Items.CurrentItem) );
+          if (CurrentListBoxItem != null) {
+            // Getting the ContentPresenter of CurrentListBoxItem
+            ContentPresenter? ListBoxItemContentPresenter = FindVisualChild<ContentPresenter>(CurrentListBoxItem);
+            if (ListBoxItemContentPresenter != null) {
+              // Finding the scroll viewer from the DataTemplate that is set on that ContentPresenter
+              DataTemplate ListBoxItemDataTemplate = ListBoxItemContentPresenter.ContentTemplate;
+              ScrollViewer ListBoxItemScrollViewer = (ScrollViewer) ListBoxItemDataTemplate.FindName("ListItemScrollViewer", ListBoxItemContentPresenter);
+              //scrolling the item
+              if (ListBoxItemScrollViewer.HorizontalOffset != 0) {
+                ListBoxItemScrollViewer.ScrollToHorizontalOffset(
+                  ListBoxItemScrollViewer.HorizontalOffset - (double) App.Current.Resources["HorizontalScrollIncrementingWidth"]);
+              } else { return; }
+            } else { return; }
+          } else { return; }
+          break;
+
+        case Key.Right:
+          CurrentListBoxItem =
+                    (ListBoxItem) ( ResultsListView.ItemContainerGenerator.ContainerFromItem(ResultsListView.Items.CurrentItem) );
+          if (CurrentListBoxItem != null) {
+            // Getting the ContentPresenter of CurrentListBoxItem
+            ContentPresenter? ListBoxItemContentPresenter = FindVisualChild<ContentPresenter>(CurrentListBoxItem);
+            if (ListBoxItemContentPresenter != null) {
+              // Finding the scroll viewer from the DataTemplate that is set on that ContentPresenter
+              DataTemplate ListBoxItemDataTemplate = ListBoxItemContentPresenter.ContentTemplate;
+              ScrollViewer ListBoxItemScrollViewer = (ScrollViewer) ListBoxItemDataTemplate.FindName("ListItemScrollViewer", ListBoxItemContentPresenter);
+              //scrolling the item
+              if (ListBoxItemScrollViewer.HorizontalOffset != ListBoxItemScrollViewer.ScrollableWidth) {
+                ListBoxItemScrollViewer.ScrollToHorizontalOffset(
+                  ListBoxItemScrollViewer.HorizontalOffset + (double) App.Current.Resources["HorizontalScrollIncrementingWidth"]);
+              } else { return; }
+            } else { return; }
+          } else { return; }
+          break;
+
         default:
           return; //e is not handled - normal activity occurs
       }
       e.Handled = true;
+    }
+
+
+    private childItem? FindVisualChild<childItem>(DependencyObject obj)
+    where childItem : DependencyObject {
+      for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++) {
+        DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+        if (child != null && child is childItem) {
+          return (childItem) child;
+        } else {
+          if (child != null) {
+            childItem? childOfChild = FindVisualChild<childItem>(child);
+            if (childOfChild != null)
+              return childOfChild;
+          }
+        }
+      }
+      return null;
     }
 
   }
