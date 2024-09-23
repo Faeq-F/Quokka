@@ -1,19 +1,7 @@
 {
-  "AppDetails": {
-    "AppName": "Quokka",
-    "Developer": "Faeq",
-    "Site": "faeq-f.github.io/Quokka/",
-    "AppIncludes": {
-      "Icons": "Illustration by Icons 8 from Ouch! - icons8.com",
-      "OtherIcons": "Feather by Cole Bemis",
-      "TrayTask": "wpf-notifyicon by hardcodet",
-      "Keyboard Shortcut": "KeyboardHook by Christian Liensberger",
-      "JSON": "JSON.NET by James Newton-King",
-      "Animations": "XAMLFlair"
-    },
-    "Licenses": "Please see faeq-f.github.io/Quokka/ for all licenses"
-  },
   "GeneralSettings": {
+    "AboutCommand": "AboutQuokka",
+    "CheckForUpdates": true,
     "WindowHotKey": "Space",
     "WindowHotKeyModifier": "Alt",
     "ContextPaneKey": "Apps",
@@ -162,7 +150,7 @@
             "ContextPaneContentHorizontalAlignment": "Center",
             "ContextPaneImageMargin": "0,0,0,30",
             "ContextPaneImageSize": "32",
-            "MaxDetailsWidth": "360",
+            "MaxDetailsWidth": "300",
 
             "NameTextMargin": "0,0,0,0",
             "NameTextSize": "14",

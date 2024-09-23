@@ -13,6 +13,11 @@ I intend to make the app extremely customizable.<br>
 
 ---
 
+To remove annoyances from Plugin_TypedText during development, you can `cd Plugin_TypedText` and then `git checkout 760d02e`.<br>
+Ensure the plugin folder has been removed from the PlugBoard.
+
+---
+
 ### Includes:
    - [Illustration by Icons 8 from Ouch!](https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8) - https://icons8.com<br />
    - [Feather by Cole Bemis](https://github.com/feathericons/feather/blob/main/LICENSE)<br />

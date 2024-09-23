@@ -10,8 +10,8 @@ namespace Quokka {
   public partial class App {
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey" };
-    private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder" };
+    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey", "CheckForUpdates" };
+    private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder", "AboutCommand" };
     private string[] PathSettings = { "FileManager", "TextEditor" };
 
     private void applyAppSettings(JObject obj) {
@@ -23,6 +23,9 @@ namespace Quokka {
           // applying settings based on type
           if (SpecialSettings.Contains(entry.Key)) {
             switch (entry.Key) {
+              case "CheckForUpdates":
+                Current.Resources[entry.Key] = Boolean.Parse(entry.Value.ToString());
+                break;
               case "WindowTopMargin":
                 Current.Resources[entry.Key] = parseThicknessSetting("0," + parseScreenDimensionsSetting(entry.Value.ToString()) + ",0,0");
                 break;

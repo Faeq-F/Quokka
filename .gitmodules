@@ -16,3 +16,24 @@
 [submodule "Plugin_PowerCommands"]
 	path = Plugin_PowerCommands
 	url = https://github.com/Faeq-F/Quokka-PowerCommands-Plugin.git
+[submodule "Plugin_UnicodeCharacterLookup"]
+	path = Plugin_UnicodeCharacterLookup
+	url = https://github.com/Faeq-F/Quokka-UnicodeCharacterLookup-Plugin.git
+[submodule "Plugin_Settings"]
+	path = Plugin_Settings
+	url = https://github.com/Faeq-F/Quokka-Settings-Plugin.git
+[submodule "Plugin_ShellCommand"]
+	path = Plugin_ShellCommand
+	url = https://github.com/Faeq-F/Quokka-ShellCommand-Plugin.git
+[submodule "Plugin_DeviceAddresses"]
+	path = Plugin_DeviceAddresses
+	url = https://github.com/Faeq-F/Quokka-DeviceAddresses-Plugin.git
+[submodule "Plugin_WebSearch"]
+	path = Plugin_WebSearch
+	url = https://github.com/Faeq-F/Quokka-WebSearch-Plugin.git
+[submodule "Plugin_WindowSwitch"]
+	path = Plugin_WindowSwitch
+	url = https://github.com/Faeq-F/Quokka-WindowSwitch-Plugin.git
+[submodule "Plugin_TypedText"]
+	path = Plugin_TypedText
+	url = https://github.com/Faeq-F/Quokka-TypedText-Plugin.git

@@ -1,4 +1,5 @@
 ﻿using Quokka.PluginArch;
+using Quokka.TheQuokkaPlugin;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -57,9 +58,11 @@ namespace Quokka {
               }
             }
           } catch (Exception ex) {
-            ShowErrorMessageBox(ex, "Error with loading the plugin \"" + plugin.Replace(Environment.CurrentDirectory + "\\PlugBoard\\", "") + "\"");
+            ShowErrorMessageBox(ex, "Error loading the plugin \"" + plugin.Replace(Environment.CurrentDirectory + "\\PlugBoard\\", "") + "\"");
           }
         }
+
+        plugins.Add(new Plugin_Quokka());
 
         //run anything needed for plugins on app startup
         foreach (Plugin plugin in plugins) {
