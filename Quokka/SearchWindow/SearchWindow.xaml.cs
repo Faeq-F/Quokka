@@ -240,8 +240,8 @@ namespace Quokka {
             } else {
               if (( ResultsListView.SelectedIndex == -1 )) ResultsListView.SelectedIndex = 0;
               string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
-              if (PluginName == "Plugin_Quokka") {
-                ContextPane.Navigate(new Uri("pack://application:,,,/;component/TheQuokkaPlugin/ContextPane.xaml"));
+              if (PluginName == "Quokka.TheQuokkaPlugin") {
+                ContextPane.Navigate(new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
                 ContextPane.Visibility = Visibility.Visible;
               } else if (PluginName != "Quokka.ListItems" && App.hasContextPane[PluginName] == true) {
                 SelectedItem = ( ResultsListView.SelectedItem as ListItem )!;

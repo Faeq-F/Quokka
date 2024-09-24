@@ -28,7 +28,7 @@
     /// </summary>
     public override void OnAppStartup() {
       if ((bool) App.Current.Resources["CheckForUpdates"]) {
-        UpdateChecker.RunUpdateCheck();
+        UpdateChecker.RunUpdateCheck(false);
       }
     }
 

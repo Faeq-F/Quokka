@@ -39,9 +39,16 @@ namespace Quokka.TheQuokkaPlugin {
       }
     }
 
-    public static async void RunUpdateCheck() {
+    public static async void RunUpdateCheck(bool showUpdated) {
       string result = await Task.Run(() => CheckForUpdates());
       switch (result) {
+
+        case "updated": {
+          if (showUpdated) {
+            MessageBox.Show($"Quokka is on the latest version ({version!})", "Quokka is up-to-date", MessageBoxButton.OK, MessageBoxImage.Information);
+          }
+          break;
+        }
 
         case "needs_update": {
           if (MessageBox.Show($"A new version ({version!}) is available\nPlease backup your data before installing the new version\n\nWould you like to copy the download link?",

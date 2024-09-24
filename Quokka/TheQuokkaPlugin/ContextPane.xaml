@@ -31,268 +31,417 @@
     BorderBrush="{DynamicResource ContextPaneBorderColor}"
     BorderThickness="{DynamicResource ContextPaneBorderThickness}"
     CornerRadius="{DynamicResource ContextPaneCornerRounding}">
-    <Grid
-      Margin="{DynamicResource ContextPaneContentMargin}"
+
+    <ListView
+      x:Name="ButtonsListView"
+      Width="Auto"
+      Margin="10"
       HorizontalAlignment="Stretch"
-      VerticalAlignment="{DynamicResource ContextPaneContentVerticalAlignment}"
-      d:Margin="0,0,0,0"
-      d:VerticalAlignment="Center">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="5*" />
-        <ColumnDefinition Width="5*" />
-      </Grid.ColumnDefinitions>
-      <Grid
-        Grid.Column="0"
-        HorizontalAlignment="{DynamicResource ContextPaneContentHorizontalAlignment}"
-        d:HorizontalAlignment="Center">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="4*" />
-          <RowDefinition Height="1*" />
-          <RowDefinition Height="1*" />
-
-        </Grid.RowDefinitions>
-        <Image
-          x:Name="DetailsImage"
-          Grid.Row="0"
-          Width="{DynamicResource ContextPaneImageSize}"
-          Height="{DynamicResource ContextPaneImageSize}"
-          Margin="{DynamicResource ContextPaneImageMargin}"
-          d:Height="32"
-          d:Margin="0,0,0,30"
-          d:Width="32"
-          UseLayoutRounding="True" />
-
-        <TextBlock
-          x:Name="TextTyped"
-          Grid.Row="1"
-          MaxWidth="{DynamicResource MaxDetailsWidth}"
-          Margin="{DynamicResource NameTextMargin}"
-          d:FontSize="16"
-          d:Margin="0,0,0,0"
-          d:MaxWidth="360"
-          d:Text="TextTyped"
-          FontFamily="{DynamicResource AppFont}"
-          FontSize="{DynamicResource NameTextSize}"
-          Foreground="{DynamicResource NameTextColor}"
-          Text=""
-          TextWrapping="Wrap"
-          UseLayoutRounding="True" />
-
-        <TextBlock
-          x:Name="DescText"
-          Grid.Row="2"
-          MaxWidth="{DynamicResource MaxDetailsWidth}"
-          Margin="{DynamicResource DescTextMargin}"
-          d:FontSize="12"
-          d:Margin="0"
-          d:MaxWidth="360"
-          d:Text="The text above is what you typed in"
-          FontFamily="{DynamicResource AppFont}"
-          FontSize="{DynamicResource DescTextSize}"
-          Foreground="{DynamicResource DescTextColor}"
-          Text=""
-          TextWrapping="Wrap"
-          UseLayoutRounding="True" />
-
-      </Grid>
-      <Grid Grid.Column="1" VerticalAlignment="Center">
-        <ListView
-          x:Name="ButtonsListView"
-          Margin="{DynamicResource ContextPaneListMargin}"
-          HorizontalAlignment="{DynamicResource ContextPaneListHorizontalAlignment}"
-          HorizontalContentAlignment="{DynamicResource ContextPaneListContentHorizontalAlignment}"
-          d:HorizontalAlignment="Center"
-          d:HorizontalContentAlignment="Stretch"
-          d:Margin="-50,0,0,0"
-          Background="Transparent"
-          BorderBrush="Transparent"
-          BorderThickness="0"
-          KeyboardNavigation.DirectionalNavigation="Cycle"
-          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-          SelectionMode="Single">
-          <ListView.Resources>
-            <Style x:Key="FocusVisual">
-              <Setter Property="Control.Template">
-                <Setter.Value>
-                  <ControlTemplate>
-                    <Rectangle
-                      Margin="2"
-                      Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
-                      StrokeDashArray="1 2"
-                      StrokeThickness="0"
-                      UseLayoutRounding="True" />
-                  </ControlTemplate>
-                </Setter.Value>
-              </Setter>
+      VerticalAlignment="Center"
+      HorizontalContentAlignment="Stretch"
+      VerticalContentAlignment="Stretch"
+      Background="Transparent"
+      BorderBrush="Transparent"
+      BorderThickness="0"
+      KeyboardNavigation.DirectionalNavigation="Cycle"
+      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+      SelectionMode="Single">
+      <ListView.Resources>
+        <Style x:Key="FocusVisual">
+          <Setter Property="Control.Template">
+            <Setter.Value>
+              <ControlTemplate>
+                <Rectangle
+                  Margin="2"
+                  Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                  StrokeDashArray="1 2"
+                  StrokeThickness="0"
+                  UseLayoutRounding="True" />
+              </ControlTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+        <Style TargetType="{x:Type ListViewItem}">
+          <Style.Resources>
+            <Style TargetType="Border">
+              <Setter Property="CornerRadius" Value="{DynamicResource ContextPaneListItemRounding}" />
+              <Setter d:Value="0, 0, 10, 0" Property="Margin" Value="{DynamicResource ContextPaneListItemMargin}" />
             </Style>
-            <Style TargetType="{x:Type ListViewItem}">
-              <Style.Resources>
-                <Style TargetType="Border">
-                  <Setter Property="CornerRadius" Value="{DynamicResource ContextPaneListItemRounding}" />
-                  <Setter d:Value="0, 0, 10, 0" Property="Margin" Value="{DynamicResource ContextPaneListItemMargin}" />
-                </Style>
-              </Style.Resources>
-              <Setter Property="Background" Value="Transparent" />
-              <Setter Property="BorderBrush" Value="Transparent" />
-              <Setter Property="BorderThickness" Value="{DynamicResource ContextPaneListItemBorderThickness}" />
-              <Setter Property="UseLayoutRounding" Value="True" />
-              <Setter Property="Padding" Value="4,1" />
-              <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-              <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
-              <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-              <Setter Property="Template">
-                <Setter.Value>
-                  <ControlTemplate TargetType="{x:Type ListViewItem}">
-                    <Border
-                      x:Name="Bd"
-                      Padding="{TemplateBinding Padding}"
-                      Background="{TemplateBinding Background}"
-                      BorderBrush="{TemplateBinding BorderBrush}"
-                      BorderThickness="{TemplateBinding BorderThickness}"
-                      UseLayoutRounding="True">
-                      <ContentPresenter
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                        UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
-                    </Border>
-                    <ControlTemplate.Triggers>
-                      <MultiTrigger>
-                        <MultiTrigger.Conditions>
-                          <Condition Property="IsMouseOver" Value="True" />
-                        </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemHoverBgColor}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemHoverBorderColor}" />
-                      </MultiTrigger>
-                      <MultiTrigger>
-                        <MultiTrigger.Conditions>
-                          <Condition Property="Selector.IsSelectionActive" Value="False" />
-                          <Condition Property="IsSelected" Value="True" />
-                        </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
-                      </MultiTrigger>
-                      <MultiTrigger>
-                        <MultiTrigger.Conditions>
-                          <Condition Property="Selector.IsSelectionActive" Value="True" />
-                          <Condition Property="IsSelected" Value="True" />
-                        </MultiTrigger.Conditions>
-                        <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
-                        <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
-                      </MultiTrigger>
-                      <Trigger Property="IsEnabled" Value="False">
-                        <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
-                      </Trigger>
-                    </ControlTemplate.Triggers>
-                  </ControlTemplate>
-                </Setter.Value>
-              </Setter>
-            </Style>
-          </ListView.Resources>
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="1*" />
-              <ColumnDefinition Width="9*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-              <Image
-                Width="{DynamicResource ContextPaneListItemIconSize}"
-                Height="{DynamicResource ContextPaneListItemIconSize}"
-                Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
-                Source="pack://siteoforigin:,,,/PlugBoard/Plugin_TypedText/Plugin/text.png"
-                UseLayoutRounding="True" />
-            </Grid>
-            <Grid Grid.Column="1">
-
-              <Button
-                Margin="{DynamicResource ContextPaneListItemContentMargin}"
-                Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                d:FontSize="12"
-                d:Margin="10"
-                d:Padding="10"
-                Background="Transparent"
-                BorderThickness="0"
-                Click="CopyText"
-                Content="Copy text"
-                FontFamily="{DynamicResource AppFont}"
-                FontSize="{DynamicResource ContextPaneListItemSize}"
-                Foreground="{DynamicResource ContextPaneListItemColor}"
-                Style="{StaticResource TransparentStyle}"
-                UseLayoutRounding="True" />
-            </Grid>
-          </Grid>
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="1*" />
-              <ColumnDefinition Width="9*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-              <Image
-                Width="{DynamicResource ContextPaneListItemIconSize}"
-                Height="{DynamicResource ContextPaneListItemIconSize}"
-                Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
-                Source="pack://siteoforigin:,,,/Config/Resources/information.png"
-                UseLayoutRounding="True" />
-            </Grid>
-            <Grid Grid.Column="1">
-
-              <Button
-                Margin="{DynamicResource ContextPaneListItemContentMargin}"
-                Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                d:Margin="10"
-                d:Padding="10"
-                Background="Transparent"
-                BorderThickness="0"
-                Click="CopyText"
-                Content="another copy text button"
-                FontFamily="{DynamicResource AppFont}"
-                FontSize="{DynamicResource ContextPaneListItemSize}"
-                Foreground="{DynamicResource ContextPaneListItemColor}"
-                Style="{StaticResource TransparentStyle}"
-                UseLayoutRounding="True" />
-            </Grid>
-          </Grid>
-          <Grid>
-            <Grid.ColumnDefinitions>
-              <ColumnDefinition Width="1*" />
-              <ColumnDefinition Width="9*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-              <Image
-                Width="{DynamicResource ContextPaneListItemIconSize}"
-                Height="{DynamicResource ContextPaneListItemIconSize}"
-                Margin="{DynamicResource ContextPaneListItemIconMargin}"
-                d:Height="20"
-                d:Margin="0,0,0,0"
-                d:Width="20"
-                Source="pack://siteoforigin:,,,/Config/Resources/information.png"
-                UseLayoutRounding="True" />
-            </Grid>
-            <Grid Grid.Column="1">
-
-              <Button
-                Margin="{DynamicResource ContextPaneListItemContentMargin}"
-                Padding="{DynamicResource ContextPaneListItemTextPadding}"
-                d:Margin="10"
-                d:Padding="10"
-                Background="Transparent"
-                BorderThickness="0"
-                Click="CopyText"
-                Content="A third copy text button"
-                FontFamily="{DynamicResource AppFont}"
-                FontSize="{DynamicResource ContextPaneListItemSize}"
-                Foreground="{DynamicResource ContextPaneListItemColor}"
-                Style="{StaticResource TransparentStyle}"
-                UseLayoutRounding="True" />
-            </Grid>
-          </Grid>
-        </ListView>
+          </Style.Resources>
+          <Setter Property="Background" Value="Transparent" />
+          <Setter Property="BorderBrush" Value="Transparent" />
+          <Setter Property="BorderThickness" Value="{DynamicResource ContextPaneListItemBorderThickness}" />
+          <Setter Property="UseLayoutRounding" Value="True" />
+          <Setter Property="Padding" Value="4,1" />
+          <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+          <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}" />
+          <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+          <Setter Property="Template">
+            <Setter.Value>
+              <ControlTemplate TargetType="{x:Type ListViewItem}">
+                <Border
+                  x:Name="Bd"
+                  Padding="{TemplateBinding Padding}"
+                  Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  UseLayoutRounding="True">
+                  <ContentPresenter
+                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                    UseLayoutRounding="{TemplateBinding UseLayoutRounding}" />
+                </Border>
+                <ControlTemplate.Triggers>
+                  <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                      <Condition Property="IsMouseOver" Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemHoverBgColor}" />
+                    <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemHoverBorderColor}" />
+                  </MultiTrigger>
+                  <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                      <Condition Property="Selector.IsSelectionActive" Value="False" />
+                      <Condition Property="IsSelected" Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                    <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
+                  </MultiTrigger>
+                  <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                      <Condition Property="Selector.IsSelectionActive" Value="True" />
+                      <Condition Property="IsSelected" Value="True" />
+                    </MultiTrigger.Conditions>
+                    <Setter TargetName="Bd" Property="Background" Value="{DynamicResource ContextPaneListItemSelectedBgColor}" />
+                    <Setter TargetName="Bd" Property="BorderBrush" Value="{DynamicResource ContextPaneListItemSelectedBorderColor}" />
+                  </MultiTrigger>
+                  <Trigger Property="IsEnabled" Value="False">
+                    <Setter TargetName="Bd" Property="TextElement.Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                  </Trigger>
+                </ControlTemplate.Triggers>
+              </ControlTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </ListView.Resources>
+      <!--  Item 0  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            x:Name="DetailsImage"
+            Grid.Row="0"
+            Width="Auto"
+            Height="{DynamicResource ContextPaneImageSize}"
+            Margin="10,0,0,0"
+            HorizontalAlignment="Left"
+            d:Height="32"
+            Source="pack://siteoforigin:,,,/Config/Resources/QuokkaTextLogo.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1" />
+        <Grid Grid.Column="2">
+          <Button
+            VerticalAlignment="Center"
+            d:Margin="20,0,0,0"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="(Hit enter to copy the link to the project's site)"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
       </Grid>
-    </Grid>
+      <!--  Item 1  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10,10,10,0"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="Current Version: 2.0.0.0"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to copy the link to the release)"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 2  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="What's new"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to copy the link to the changelog)"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 3  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="Check for updates"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to check for updates (background service))"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 4  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="Help"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to copy the link to GitHub issues)"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 5  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="Feedback"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to copy the link to GitHub discussions)"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 6  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="9*" />
+          <ColumnDefinition Width="9*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyText"
+            Content="Licences"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter to display all licenses)"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+    </ListView>
+
   </Border>
 </src:ItemContextPane>
