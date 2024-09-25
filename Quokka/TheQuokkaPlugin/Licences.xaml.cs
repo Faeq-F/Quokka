@@ -6,12 +6,12 @@ using System.Windows.Input;
 
 namespace Quokka.TheQuokkaPlugin {
 
-  public partial class ContextPane : ItemContextPane {
+  public partial class Licences : ItemContextPane {
 
     /// <summary>
-    /// TheQuokkaPlugin Context Pane
+    /// The Licenses Page for the TheQuokkaPlugin Context Pane
     /// </summary>
-    public ContextPane() {
+    public Licences() {
       InitializeComponent();
     }
 
@@ -57,32 +57,40 @@ namespace Quokka.TheQuokkaPlugin {
       e.Handled = true;
     }
 
-    private void CopySiteLink(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://faeq-f.github.io/Quokka");
+    private void GoBack(object sender, RoutedEventArgs e) {
+      ( (SearchWindow) App.Current.MainWindow ).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
     }
 
-    private void CopyReleaseLink(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/releases/tag/v2.0");
+    private void CopyLinkIcons8(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://icons8.com/illustrations");
     }
 
-    private void CopyChangelogLink(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/blob/v2.0/Changelog.md");
+    private void CopyLinkFeatherIcons(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://feathericons.com/");
     }
 
-    private void CheckForUpdates(object sender, RoutedEventArgs e) {
-      UpdateChecker.RunUpdateCheck(true);
+    private void CopyLinkVarelaRound(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://fonts.google.com/specimen/Varela+Round");
     }
 
-    private void CopyIssuesLink(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/issues");
+    private void CopyLinkNotifyIcon(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://github.com/hardcodet/wpf-notifyicon");
     }
 
-    private void CopyDiscussionsLink(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/discussions");
+    private void CopyLinkKeboardHook(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207");
     }
 
-    private void DisplayLicenses(object sender, RoutedEventArgs e) {
-      ( (SearchWindow) App.Current.MainWindow ).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/licenses.xaml"));
+    private void CopyLinkJSON(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://www.newtonsoft.com/json");
+    }
+
+    private void CopyLinkXamlFlair(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://github.com/XamlFlair/XamlFlair");
+    }
+
+    private void CopyLinkPluginArch(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/");
     }
   }
 }
