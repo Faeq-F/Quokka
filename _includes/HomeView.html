@@ -1,12 +1,9 @@
-<div
-  id="HomeView"
-  class="hidemee">
+<div id="HomeView" class="hidemee">
   <p id="title">
-    <strong>Quokka</strong
-    ><br style="display: block; content: ''; margin-top: -4%" />
-    <span style="font-size: medium; font-weight: bold"
-      >A customizable keystroke launcher with plugins</span
-    >
+    <strong>Quokka</strong><br
+      style="display: block; content: ''; margin-top: -4%" />
+    <span style="font-size: medium; font-weight: bold">A customizable keystroke
+      launcher with plugins</span>
     <br style="display: block; content: ''; margin-top: -2%" />
     <span style="display: inline-block">
       <a href="https://github.com/Faeq-F/Quokka">
@@ -25,77 +22,128 @@
     <br style="display: block; content: ''; margin-top: -5%" />
 
     <span style="position: inherit; width: 100%">
-      <i
-        data-feather="droplet"
-        style="position: relative; top: -4px"
+      <i data-feather="droplet" style="position: relative; top: -4px"
         class="app-color-primary"></i>
-      <span
-        class="app-range-slider"
-        style="width: 50%">
-        <input
-          class="slider__input"
-          type="range"
-          value="288"
-          min="0"
-          max="360"
+      <span class="app-range-slider" style="width: 50%">
+        <input class="slider__input" type="range" value="288" min="0" max="360"
           id="hue" />
       </span>
-      <span
-        id="ThemeIcon"
-        style="position: relative; top: -4px">
-        <i
-          data-feather="sun"
-          class="app-color-primary"></i>
+      <span id="ThemeIcon" style="position: relative; top: -4px">
+        <i data-feather="sun" class="app-color-primary"></i>
       </span>
-      <label
-        class="app-switch"
-        style="top: -5px; position: relative">
-        <input
-          class="switch__input"
-          type="checkbox"
-          checked />
+      <label class="app-switch" style="top: -5px; position: relative">
+        <input class="switch__input" type="checkbox" checked />
 
-        <span
-          class="app-switch-view"
-          style="height: 15px; width: 30px"></span>
+        <span class="app-switch-view" style="height: 15px; width: 30px"></span>
       </label>
     </span>
   </p>
-  <div
-    class="aboutCard"
-    data-aos="fade-down">
-    <div id="homeGalleryContainer">
-      <input
-        type="radio"
-        name="position"
-        class="app-radio-button"
-        checked />
-      <input
-        type="radio"
-        name="position"
-        class="app-radio-button" />
-      <input
-        type="radio"
-        name="position"
-        class="app-radio-button" />
-      <input
-        type="radio"
-        name="position"
-        class="app-radio-button" />
-      <input
-        type="radio"
-        name="position"
-        class="app-radio-button" />
-      <div id="homeGallery">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-      </div>
+  <div class="aboutCard" data-aos="fade-down">
+    <div class="image-slider">
+      <section class="slider__content">
+
+        <main class="image-display"></main>
+
+      </section>
+      <nav class="slider-navigation">
+        <button class="nav-button" aria-selected="true">
+          <img class="thumbnail" src="Resources/Theme1.png" alt="Thumbnail 1" />
+        </button>
+        <button class="nav-button" aria-selected="false">
+          <img class="thumbnail" src="Resources/Theme2.png" alt="Thumbnail 2" />
+        </button>
+        <button class="nav-button" aria-selected="false">
+          <img class="thumbnail" src="Resources/Theme3.png" alt="Thumbnail 3" />
+        </button>
+        <button class="nav-button" aria-selected="false">
+          <img class="thumbnail" src="Resources/Theme4.png" alt="Thumbnail 4" />
+        </button>
+        <button class="nav-button" aria-selected="false">
+          <img class="thumbnail" src="Resources/Theme5.png" alt="Thumbnail 5" />
+        </button>
+        <button class="nav-button" aria-selected="false">
+          <img class="thumbnail" src="Resources/Theme5.png" alt="Thumbnail 6" />
+        </button>
+
+      </nav>
     </div>
   </div>
 </div>
 <img
-  src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
+  src="https://raw.githubusercontent.com/Faeq-F/PersonalSite2023/master/Resources/scrollDown.gif"
   id="HomeScrollImg" />
+
+<script>
+  // For the image slider
+  class Slider {
+    constructor(slider) {
+      this.slider = slider;
+      this.display = slider.querySelector(".image-display");
+      this.navButtons = Array.from(slider.querySelectorAll(".nav-button"));
+      this.sliderNavigation = slider.querySelector(".slider-navigation");
+      this.currentSlideIndex = 0;
+      this.preloadedImages = {};
+      this.initialize();
+    }
+
+    initialize() {
+      this.setupSlider();
+      this.preloadImages();
+      this.eventListeners();
+    }
+
+    setupSlider() {
+      this.showSlide(this.currentSlideIndex);
+    }
+
+    showSlide(index) {
+      this.currentSlideIndex = index;
+      const navButtonImg = this.navButtons[
+        this.currentSlideIndex
+      ].querySelector("img");
+      if (navButtonImg) {
+        const imgClone = navButtonImg.cloneNode();
+        imgClone.style.height = "unset";
+        imgClone.style.width = "100%";
+        this.display.replaceChildren(imgClone);
+      }
+      this.updateNavButtons();
+    }
+
+    updateNavButtons() {
+      this.navButtons.forEach((button, buttonIndex) => {
+        const isSelected = buttonIndex === this.currentSlideIndex;
+        button.setAttribute("aria-selected", isSelected);
+        if (isSelected) button.focus();
+      });
+    }
+
+    preloadImages() {
+      this.navButtons.forEach((button) => {
+        const imgElement = button.querySelector("img");
+        if (imgElement) {
+          const imgSrc = imgElement.src;
+          if (!this.preloadedImages[imgSrc]) {
+            this.preloadedImages[imgSrc] = new Image();
+            this.preloadedImages[imgSrc].src = imgSrc;
+          }
+        }
+      });
+    }
+
+    eventListeners() {
+      this.sliderNavigation.addEventListener("click", (event) => {
+        const targetButton = event.target.closest(".nav-button");
+        const index = targetButton
+          ? this.navButtons.indexOf(targetButton)
+          : -1;
+        if (index !== -1) {
+          this.showSlide(index);
+        }
+      });
+    }
+  }
+
+  const ImageSlider = new Slider(document.querySelector(".image-slider"));
+
+</script>

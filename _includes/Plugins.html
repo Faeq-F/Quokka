@@ -1,69 +1,46 @@
 <div id="Plugins">
   <section>
     <aside>
-      <div
-        class="card"
-        data-aos="fade-up-right"
-        style="padding-top: 0">
-        <div
-          class="ag-timeline_title-box"
-          data-aos="fade-up-right"
+      <div class="card" data-aos="fade-up-right" style="padding-top: 0">
+        <div class="ag-timeline_title-box" data-aos="fade-up-right"
           style="margin-bottom: 0; padding-bottom: 0">
           <div class="ag-timeline_title">Plugins</div>
         </div>
-        <p
-          class="PortfolioWorkHeader"
-          style="font-size: 1.17em">
+        <p class="PortfolioWorkHeader" style="font-size: 1.17em">
           Screenshots for selected plugin:
         </p>
-        <div
-          id="PluginScreenshotsGrid"
-          data-lenis-prevent></div>
+        <div id="PluginScreenshotsGrid" data-lenis-prevent></div>
         <img
-          src="https://raw.githubusercontent.com/Faeq-F/faeq-f.github.io/master/Resources/scrollDown.gif"
+          src="https://raw.githubusercontent.com/Faeq-F/PersonalSite2023/master/Resources/scrollDown.gif"
           id="PortfolioScrollImg" />
       </div>
     </aside>
 
-    <div
-      class="content"
-      data-aos="fade-up-left">
+    <div class="content" data-aos="fade-up-left">
       <p class="PortfolioWorkHeader">Recognized plugins:</p>
 
-      <div
-        style="text-align: center"
-        id="PluginCards">
+      <div style="text-align: center" id="PluginCards">
         {% for plugin in site.data.plugins %}
         <button class="ProjectCard">
           <div>
             <p class="PluginName">
-              <i
-                data-feather="box"
-                class="app-color-primary"></i>
+              <i data-feather="box" class="app-color-primary"></i>
               {{ plugin.name }}
             </p>
             <p class="PluginDesc">{{ plugin.description }}</p>
             <div class="PluginButtonGroup">
-              <a
-                class="SiteButton"
-                title="Visit site"
+              <a class="SiteButton" title="Visit site"
                 href="{{ plugin.site_link }}">
                 <span class="app-btn">
-                  <i
-                    data-feather="link-2"
-                    class="app-color-primary"></i
-                  ><span class="DeveloperName"
-                    >Developed&nbsp;by&nbsp;{{ plugin.developer_name }}</span
-                  >
+                  <i data-feather="link-2" class="app-color-primary"></i><span
+                    class="DeveloperName">Developed&nbsp;by&nbsp;{{
+                    plugin.developer_name }}</span>
                 </span>
               </a>
-              <a
-                class="SiteButton"
-                title="Download"
+              <a class="SiteButton" title="Download"
                 href="{{ plugin.download_link }}">
                 <span class="app-btn app-btn-primary">
-                  <i
-                    data-feather="download"
+                  <i data-feather="download"
                     style="color: var(--color-background-default)"
                     class="app-color-primary"></i>
                 </span>
