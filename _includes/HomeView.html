@@ -39,111 +39,106 @@
     </span>
   </p>
   <div class="aboutCard" data-aos="fade-down">
-    <div class="image-slider">
-      <section class="slider__content">
-
-        <main class="image-display"></main>
-
-      </section>
-      <nav class="slider-navigation">
-        <button class="nav-button" aria-selected="true">
-          <img class="thumbnail" src="Resources/Theme1.png" alt="Thumbnail 1" />
-        </button>
-        <button class="nav-button" aria-selected="false">
-          <img class="thumbnail" src="Resources/Theme2.png" alt="Thumbnail 2" />
-        </button>
-        <button class="nav-button" aria-selected="false">
-          <img class="thumbnail" src="Resources/Theme3.png" alt="Thumbnail 3" />
-        </button>
-        <button class="nav-button" aria-selected="false">
-          <img class="thumbnail" src="Resources/Theme4.png" alt="Thumbnail 4" />
-        </button>
-        <button class="nav-button" aria-selected="false">
-          <img class="thumbnail" src="Resources/Theme5.png" alt="Thumbnail 5" />
-        </button>
-        <button class="nav-button" aria-selected="false">
-          <img class="thumbnail" src="Resources/Theme5.png" alt="Thumbnail 6" />
-        </button>
-
-      </nav>
-    </div>
+    <section id="main-slider" class="splide" aria-label="Quokka Themes">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="Resources/Theme1.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme2.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme3.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme4.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme5.png" alt="">
+          </li>
+        </ul>
+      </div>
+    </section>
+    <br>
+    <section id="thumbnail-slider" class="splide"
+      aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Themes carousel.">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="Resources/Theme1.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme2.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme3.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme4.png" alt="">
+          </li>
+          <li class="splide__slide">
+            <img src="Resources/Theme5.png" alt="">
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
 </div>
 <img
   src="https://raw.githubusercontent.com/Faeq-F/PersonalSite2023/master/Resources/scrollDown.gif"
   id="HomeScrollImg" />
 
-<script>
-  // For the image slider
-  class Slider {
-    constructor(slider) {
-      this.slider = slider;
-      this.display = slider.querySelector(".image-display");
-      this.navButtons = Array.from(slider.querySelectorAll(".nav-button"));
-      this.sliderNavigation = slider.querySelector(".slider-navigation");
-      this.currentSlideIndex = 0;
-      this.preloadedImages = {};
-      this.initialize();
-    }
-
-    initialize() {
-      this.setupSlider();
-      this.preloadImages();
-      this.eventListeners();
-    }
-
-    setupSlider() {
-      this.showSlide(this.currentSlideIndex);
-    }
-
-    showSlide(index) {
-      this.currentSlideIndex = index;
-      const navButtonImg = this.navButtons[
-        this.currentSlideIndex
-      ].querySelector("img");
-      if (navButtonImg) {
-        const imgClone = navButtonImg.cloneNode();
-        imgClone.style.height = "unset";
-        imgClone.style.width = "100%";
-        this.display.replaceChildren(imgClone);
-      }
-      this.updateNavButtons();
-    }
-
-    updateNavButtons() {
-      this.navButtons.forEach((button, buttonIndex) => {
-        const isSelected = buttonIndex === this.currentSlideIndex;
-        button.setAttribute("aria-selected", isSelected);
-        if (isSelected) button.focus();
-      });
-    }
-
-    preloadImages() {
-      this.navButtons.forEach((button) => {
-        const imgElement = button.querySelector("img");
-        if (imgElement) {
-          const imgSrc = imgElement.src;
-          if (!this.preloadedImages[imgSrc]) {
-            this.preloadedImages[imgSrc] = new Image();
-            this.preloadedImages[imgSrc].src = imgSrc;
-          }
-        }
-      });
-    }
-
-    eventListeners() {
-      this.sliderNavigation.addEventListener("click", (event) => {
-        const targetButton = event.target.closest(".nav-button");
-        const index = targetButton
-          ? this.navButtons.indexOf(targetButton)
-          : -1;
-        if (index !== -1) {
-          this.showSlide(index);
-        }
-      });
-    }
+<style>
+  .splide__track--nav>.splide__list>.splide__slide.is-active {
+    border: 3px solid var(--primary);
+    border-radius: 7px;
   }
 
-  const ImageSlider = new Slider(document.querySelector(".image-slider"));
+  #thumbnail-slider-list {
+    justify-content: center;
+  }
 
+  #main-slider {
+    width: 795px;
+    margin: 0 auto;
+  }
+
+  #thumbnail-slider {
+    padding-left: 10px;
+  }
+</style>
+<script>
+  // For the image slider
+  var main = new Splide('#main-slider', {
+    type: 'fade',
+    heightRatio: 0.5,
+    arrows: false,
+    pagination: false,
+    fixedWidth: 795,
+    fixedHeight: 424
+  });
+
+  var thumbnails = new Splide('#thumbnail-slider', {
+    pagination: false,
+    rewind: true,
+    fixedWidth: 140,
+    fixedHeight: 80,
+    isNavigation: true,
+    gap: 10,
+    dragMinThreshold: {
+      mouse: 4,
+      touch: 10,
+    },
+    breakpoints: {
+      640: {
+        fixedWidth: 66,
+        fixedHeight: 38,
+      },
+    },
+  });
+
+  main.sync(thumbnails);
+  main.mount();
+  thumbnails.mount();
 </script>

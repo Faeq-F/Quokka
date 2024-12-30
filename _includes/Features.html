@@ -25,7 +25,7 @@
       <div class="FeatureName">
         <i data-feather="dollar-sign" class="app-color-primary" width="45"
           height="45"></i>
-        <div class="FeatureTitle">Completely FOSS</div>
+        <div class="FeatureTitle">Completely Free, Libre and Open Source</div>
         <div class="FeatureSubTitle">No premium tiers or paywalls - everything's
           included, with no ads or tracking
         </div>
@@ -132,5 +132,9 @@
     text-align: left;
     margin-top: 10px;
     margin-left: 10px;
+  }
+
+  body:has(.switch__input:not(:checked)) #Features .card {
+    color: #ddd;
   }
 </style>
