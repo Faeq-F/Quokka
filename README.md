@@ -1,20 +1,15 @@
 # Quokka
 
 An extremely customizable, portable keystroke launcher with plugins <br />
-Please see the [site](https://faeq-f.github.io/Quokka/) for Available Plugins, Themes, Documentation, FAQ, etc.
+Please see the [site](https://faeq-f.github.io/Quokka/) for available Plugins, Themes, Documentation, FAQ, etc.
 
 ---
+<details>
 
-### Note - this codebase is a complete rewrite of the app
+<summary>Plugin_TypedText & development</summary>
 
-The app has a plugin architecture so that, like the app per the old codebase, it can / will have additional features such as opening files & folders, color conversion, translation and much more.
-
-I intend to make the app extremely customizable.<br>
-
----
-
-To remove annoyances from Plugin_TypedText during development, you can `cd Plugin_TypedText` and then `git checkout 760d02e`.<br>
-Ensure the plugin folder has been removed from the PlugBoard.
+To remove annoyances from `Plugin_TypedText` during development, you can `cd Plugin_TypedText` and then `git checkout 760d02e`. Ensure the plugin folder has been removed from the PlugBoard.
+</details>
 
 ---
 
