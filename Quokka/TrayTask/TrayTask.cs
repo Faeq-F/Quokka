@@ -10,21 +10,21 @@ namespace Quokka {
     private TaskbarIcon? notifyIcon;
 
     ///<summary>
-    ///Opens the PlugBoard folder within Windows file explorer.
+    ///Opens the PlugBoard folder within the user's file manager.
     ///</summary>
     public static void OpenPlugBoard() {
-      using Process folderOpener = new Process();
-      folderOpener.StartInfo.FileName = "explorer";
-      folderOpener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
-      folderOpener.Start();
+      using Process folderopener = new();
+      folderopener.StartInfo.FileName = (string) App.Current.Resources["FileManager"];
+      folderopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
+      folderopener.Start();
     }
 
     ///<summary>
-    ///Opens the app settings file in notepad.
+    ///Opens the app settings file in the user's text editor.
     ///</summary>
     public static void OpenSettingsFile() {
       using Process fileOpener = new Process();
-      fileOpener.StartInfo.FileName = "notepad";
+      fileOpener.StartInfo.FileName = (string) App.Current.Resources["TextEditor"];
       fileOpener.StartInfo.Arguments =
           Environment.CurrentDirectory + "\\Config\\settings.json";
       fileOpener.Start();

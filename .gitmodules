@@ -37,3 +37,6 @@
 [submodule "Plugin_TypedText"]
 	path = Plugin_TypedText
 	url = https://github.com/Faeq-F/Quokka-TypedText-Plugin.git
+[submodule "Plugin_Gitmoji"]
+	path = Plugin_Gitmoji
+	url = https://github.com/Faeq-F/Quokka-Gitmoji-Plugin.git

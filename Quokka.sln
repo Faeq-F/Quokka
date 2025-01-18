@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_WindowSwitch", "Plug
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_TypedText", "Plugin_TypedText\Plugin_TypedText.csproj", "{69CB2D7D-F324-4269-BAC9-1B3A007C3F2C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_Gitmoji", "Plugin_Gitmoji\Plugin_Gitmoji.csproj", "{FD28B614-9061-4D46-A420-FD71008FF1B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -303,6 +305,22 @@ Global
 		{69CB2D7D-F324-4269-BAC9-1B3A007C3F2C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69CB2D7D-F324-4269-BAC9-1B3A007C3F2C}.Release|x86.ActiveCfg = Release|Any CPU
 		{69CB2D7D-F324-4269-BAC9-1B3A007C3F2C}.Release|x86.Build.0 = Release|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Debug|x86.Build.0 = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Plugin|x86.ActiveCfg = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Plugin|x86.Build.0 = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Quokka|x86.ActiveCfg = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Quokka|x86.Build.0 = Debug|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|x86.ActiveCfg = Release|Any CPU
+		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

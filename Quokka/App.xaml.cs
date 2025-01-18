@@ -70,6 +70,11 @@ namespace Quokka {
 
     }
 
+    private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e) {
+      ShowErrorMessageBox(e.Exception, "Unknown error!");
+      e.Handled = true;
+    }
+
     /// <summary>
     /// Displays a message box to the user with an error icon and an OK button
     /// </summary>

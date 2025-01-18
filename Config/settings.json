@@ -7,8 +7,8 @@
     "ContextPaneKey": "Apps",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "G:\\PortableApps\\Q-DirPortable\\Q-DirPortable.exe",
-    "TextEditor": "C:\\Windows\\notepad.exe"
+    "FileManager": "..\\..\\PortableApps\\tablacus\\TE64.exe",
+    "TextEditor": "..\\..\\PortableApps\\Notepad++Portable\\Notepad++Portable.exe"
   },
   "StyleSettings": {
     "AppFont": "Varela Round",
