@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PortableApps | QuokkaDocs ">
       
-      <meta name="description" content="Interaction logic for plugin">
+      <meta name="description" content="The Portable Apps Plugin">
       <link rel="icon" href="../../Resources/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,12 +97,12 @@ Class PortableApps
   <dl><dt>Assembly</dt><dd>Plugin_PortableApps.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Interaction logic for plugin</p>
+  <div class="markdown summary"><p>The Portable Apps Plugin</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PortableApps : IPlugger</code></pre>
+    <pre><code class="lang-csharp hljs">public class PortableApps : Plugin</code></pre>
   </div>
 
 
@@ -116,39 +116,8 @@ Class PortableApps
     </dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><a class="xref" href="Quokka.PluginArch.IPlugger.html">IPlugger</a></div>
-    </dd>
-  </dl>
 
 
-  <dl class="typelist inheritedMembers">
-    <dt>Inherited Members</dt>
-    <dd>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
-    </div>
-  </dd></dl>
 
 
 
@@ -166,7 +135,8 @@ Class PortableApps
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Loads the plugin's settings</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -189,37 +159,6 @@ Class PortableApps
 </h2>
 
 
-  <a id="Plugin_PortableApps_PortableApps_ListOfSystemApps_" data-uid="Plugin_PortableApps.PortableApps.ListOfSystemApps*"></a>
-
-  <h3 id="Plugin_PortableApps_PortableApps_ListOfSystemApps" data-uid="Plugin_PortableApps.PortableApps.ListOfSystemApps">
-  ListOfSystemApps
-  
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;ListItem&gt; ListOfSystemApps { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="Plugin_PortableApps_PortableApps_PluggerName_" data-uid="Plugin_PortableApps.PortableApps.PluggerName*"></a>
 
   <h3 id="Plugin_PortableApps_PortableApps_PluggerName" data-uid="Plugin_PortableApps.PortableApps.PluggerName">
@@ -227,12 +166,12 @@ Class PortableApps
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This is name will display in main plug board</p>
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string PluggerName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override string PluggerName { get; set; }</code></pre>
   </div>
 
 
@@ -252,28 +191,31 @@ Class PortableApps
 
 
 
-  <a id="Plugin_PortableApps_PortableApps_PluginSettings_" data-uid="Plugin_PortableApps.PortableApps.PluginSettings*"></a>
+  <h2 class="section" id="methods">Methods
+</h2>
 
-  <h3 id="Plugin_PortableApps_PortableApps_PluginSettings" data-uid="Plugin_PortableApps.PortableApps.PluginSettings">
-  PluginSettings
+
+  <a id="Plugin_PortableApps_PortableApps_CommandSignifiers_" data-uid="Plugin_PortableApps.PortableApps.CommandSignifiers*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_CommandSignifiers" data-uid="Plugin_PortableApps.PortableApps.CommandSignifiers">
+  CommandSignifiers()
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Settings PluginSettings { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override List&lt;string&gt; CommandSignifiers()</code></pre>
   </div>
 
 
-
-
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Plugin_PortableApps.Settings.html">Settings</a></dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The PortableAppsSignifier from plugin settings</p>
+</dd>
   </dl>
 
 
@@ -283,34 +225,175 @@ Class PortableApps
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
 
 
-  <a id="Plugin_PortableApps_PortableApps_RemoveBlacklistItems_" data-uid="Plugin_PortableApps.PortableApps.RemoveBlacklistItems*"></a>
 
-  <h3 id="Plugin_PortableApps_PortableApps_RemoveBlacklistItems_System_Collections_Generic_List_Quokka_ListItems_ListItem__" data-uid="Plugin_PortableApps.PortableApps.RemoveBlacklistItems(System.Collections.Generic.List{Quokka.ListItems.ListItem})">
-  RemoveBlacklistItems(List&lt;ListItem&gt;)
+  <a id="Plugin_PortableApps_PortableApps_OnAppStartup_" data-uid="Plugin_PortableApps.PortableApps.OnAppStartup*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_OnAppStartup" data-uid="Plugin_PortableApps.PortableApps.OnAppStartup">
+  OnAppStartup()
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc>
+Creates the list of all portable apps</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;ListItem&gt; RemoveBlacklistItems(List&lt;ListItem&gt; list)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void OnAppStartup()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_PortableApps_PortableApps_OnQueryChange_" data-uid="Plugin_PortableApps.PortableApps.OnQueryChange*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_OnQueryChange_System_String_" data-uid="Plugin_PortableApps.PortableApps.OnQueryChange(System.String)">
+  OnQueryChange(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;ListItem&gt; OnQueryChange(string query)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>list</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd></dd>
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The app being searched for</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>List of PortableApps that possibly match what is being searched for</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_PortableApps_PortableApps_OnSignifier_" data-uid="Plugin_PortableApps.PortableApps.OnSignifier*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_OnSignifier_System_String_" data-uid="Plugin_PortableApps.PortableApps.OnSignifier(System.String)">
+  OnSignifier(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;ListItem&gt; OnSignifier(string command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The PortableAppsSignifier (Since there is only 1 signifier for this plugin), followed by the app being searched for</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd><p>List of PortableApps that possibly match what is being searched for</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_PortableApps_PortableApps_OnSpecialCommand_" data-uid="Plugin_PortableApps.PortableApps.OnSpecialCommand*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_OnSpecialCommand_System_String_" data-uid="Plugin_PortableApps.PortableApps.OnSpecialCommand(System.String)">
+  OnSpecialCommand(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;ListItem&gt; OnSpecialCommand(string command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The 'all apps' command (Since there is only 1 special command for this plugin)</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd><p>All Apps sorted alphabetically + a shortcut to the portable apps folder</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_PortableApps_PortableApps_SpecialCommands_" data-uid="Plugin_PortableApps.PortableApps.SpecialCommands*"></a>
+
+  <h3 id="Plugin_PortableApps_PortableApps_SpecialCommands" data-uid="Plugin_PortableApps.PortableApps.SpecialCommands">
+  SpecialCommands()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;string&gt; SpecialCommands()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The AllAppsSpecialCommand from plugin settings</p>
+</dd>
   </dl>
 
 

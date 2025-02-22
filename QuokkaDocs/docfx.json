@@ -5,9 +5,22 @@
         {
           "src": "G:/Quokka/Quokka/",
           "files": [
-            "Quokka.dll",
+            "Quokka.exe",
+            "PlugBoard/Plugin_Calculator/Plugin/Plugin_Calculator.dll",
+            "PlugBoard/Plugin_DeviceAddresses/Plugin/Plugin_DeviceAddresses.dll",
+            "PlugBoard/Plugin_EnglishDictionary/Plugin/Plugin_EnglishDictionary.dll",
+            "PlugBoard/Plugin_Everything/Plugin/Plugin_Everything.dll",
+            "PlugBoard/Plugin_Gitmoji/Plugin/Plugin_Gitmoji.dll",
             "PlugBoard/Plugin_InstalledApps/Plugin/Plugin_InstalledApps.dll",
-            "PlugBoard/Plugin_PortableApps/Plugin/Plugin_PortableApps.dll"
+            "PlugBoard/Plugin_PortableApps/Plugin/Plugin_PortableApps.dll",
+            "PlugBoard/Plugin_PowerCommands/Plugin/Plugin_PowerCommands.dll",
+            "PlugBoard/Plugin_Settings/Plugin/Plugin_Settings.dll",
+            "PlugBoard/Plugin_ShellCommand/Plugin/Plugin_ShellCommand.dll",
+            "PlugBoard/Plugin_TypedText/Plugin/Plugin_TypedText.dll",
+            "PlugBoard/Plugin_UnicodeCharacterLookup/Plugin/Plugin_UnicodeCharacterLookup.dll",
+            "PlugBoard/Plugin_WebSearch/Plugin/Plugin_WebSearch.dll",
+            "PlugBoard/Plugin_WindowSwitch/Plugin/Plugin_WindowSwitch.dll",
+            "PlugBoard/Plugin_Workflows/Plugin/Plugin_Workflows.dll"
           ]
         }
       ],

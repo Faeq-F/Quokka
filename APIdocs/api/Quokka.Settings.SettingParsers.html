@@ -153,6 +153,84 @@ Class SettingParsers
 </h2>
 
 
+  <a id="Quokka_Settings_SettingParsers_parseCornerRadiusSetting_" data-uid="Quokka.Settings.SettingParsers.parseCornerRadiusSetting*"></a>
+
+  <h3 id="Quokka_Settings_SettingParsers_parseCornerRadiusSetting_System_String_" data-uid="Quokka.Settings.SettingParsers.parseCornerRadiusSetting(System.String)">
+  parseCornerRadiusSetting(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses and evaluates CornerRadius settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static CornerRadius parseCornerRadiusSetting(string settingValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settingValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value of a setting to be evaluated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.cornerradius">CornerRadius</a></dt>
+    <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, a corner radius of 0 is returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_Settings_SettingParsers_parseDoubleSetting_" data-uid="Quokka.Settings.SettingParsers.parseDoubleSetting*"></a>
+
+  <h3 id="Quokka_Settings_SettingParsers_parseDoubleSetting_System_String_" data-uid="Quokka.Settings.SettingParsers.parseDoubleSetting(System.String)">
+  parseDoubleSetting(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses and evaluates double settings (i.e., of double type).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double parseDoubleSetting(string settingValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settingValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value of a setting to be evaluated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
+    <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Quokka_Settings_SettingParsers_parseHorizontalAlignmentSetting_" data-uid="Quokka.Settings.SettingParsers.parseHorizontalAlignmentSetting*"></a>
 
   <h3 id="Quokka_Settings_SettingParsers_parseHorizontalAlignmentSetting_System_String_" data-uid="Quokka.Settings.SettingParsers.parseHorizontalAlignmentSetting(System.String)">
@@ -179,6 +257,45 @@ Class SettingParsers
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.horizontalalignment">HorizontalAlignment</a></dt>
     <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_Settings_SettingParsers_parseIntegerSetting_" data-uid="Quokka.Settings.SettingParsers.parseIntegerSetting*"></a>
+
+  <h3 id="Quokka_Settings_SettingParsers_parseIntegerSetting_System_String_" data-uid="Quokka.Settings.SettingParsers.parseIntegerSetting(System.String)">
+  parseIntegerSetting(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Parses and evaluates integer settings (i.e., of integer type).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int parseIntegerSetting(string settingValue)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>settingValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The value of a setting to be evaluated.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is show to the user.</p>
 </dd>
   </dl>
 
@@ -238,7 +355,8 @@ Class SettingParsers
   
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Parses and evaluates settings that can have ScreenHeight and ScreenWidth values in them (i.e., the &quot;WindowTopMargin&quot;, &quot;WindowWidth&quot; and &quot;ListContainerMaxHeight&quot; settings).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -248,13 +366,15 @@ Class SettingParsers
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>settingValue</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The value of a setting to be evaluated.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a></dt>
-    <dd></dd>
+    <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</p>
+</dd>
   </dl>
 
 
@@ -292,7 +412,7 @@ Class SettingParsers
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.thickness">Thickness</a></dt>
-    <dd><p>The setting value evaluated.</p>
+    <dd><p>The setting value evaluated. If the setting cannot be evaluated correctly, a thickness of 0 is returned.</p>
 </dd>
   </dl>
 
@@ -345,10 +465,10 @@ Class SettingParsers
 
 
 
-  <a id="Quokka_Settings_SettingParsers_parseVisibilitySettings_" data-uid="Quokka.Settings.SettingParsers.parseVisibilitySettings*"></a>
+  <a id="Quokka_Settings_SettingParsers_parseVisibilitySetting_" data-uid="Quokka.Settings.SettingParsers.parseVisibilitySetting*"></a>
 
-  <h3 id="Quokka_Settings_SettingParsers_parseVisibilitySettings_System_String_" data-uid="Quokka.Settings.SettingParsers.parseVisibilitySettings(System.String)">
-  parseVisibilitySettings(string)
+  <h3 id="Quokka_Settings_SettingParsers_parseVisibilitySetting_System_String_" data-uid="Quokka.Settings.SettingParsers.parseVisibilitySetting(System.String)">
+  parseVisibilitySetting(string)
   
   </h3>
 
@@ -357,7 +477,7 @@ Class SettingParsers
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Visibility parseVisibilitySettings(string settingValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Visibility parseVisibilitySetting(string settingValue)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

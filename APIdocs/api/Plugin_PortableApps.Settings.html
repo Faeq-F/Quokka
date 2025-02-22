@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Settings | QuokkaDocs ">
       
-      <meta name="description" content="The setting for this (Portable Apps) plugin">
+      <meta name="description" content="The settings for this (Portable Apps) plugin">
       <link rel="icon" href="../../Resources/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,7 @@ Class Settings
   <dl><dt>Assembly</dt><dd>Plugin_PortableApps.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The setting for this (Portable Apps) plugin</p>
+  <div class="markdown summary"><p>The settings for this (Portable Apps) plugin</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -122,12 +122,6 @@ Class Settings
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
     <div>
@@ -141,6 +135,12 @@ Class Settings
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
     </div>
   </dd></dl>
 
@@ -299,6 +299,40 @@ bigger the difference.</p>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string PortableAppsDirectory { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Plugin_PortableApps_Settings_PortableAppsSignifier_" data-uid="Plugin_PortableApps.Settings.PortableAppsSignifier*"></a>
+
+  <h3 id="Plugin_PortableApps_Settings_PortableAppsSignifier" data-uid="Plugin_PortableApps.Settings.PortableAppsSignifier">
+  PortableAppsSignifier
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The command signifier to show only portable apps (defaults to &quot;portapp &quot;)<br>
+Using this signifier does not change the output of this plugin, it only
+ensures that no other plugins' results are included in the search window results list</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PortableAppsSignifier { get; set; }</code></pre>
   </div>
 
 

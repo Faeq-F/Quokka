@@ -1,0 +1,900 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class Everything | QuokkaDocs </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Everything | QuokkaDocs ">
+      
+      <meta name="description" content="The Everything Plugin">
+      <link rel="icon" href="../../Resources/QuokkaLogo.svg">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      <meta name="docfx:disablenewtab" content="true">
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../../Resources/QuokkaLogo.svg" alt="QuokkaDocs">
+            QuokkaDocs
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="Plugin_Everything.Everything">
+
+
+
+  <h1 id="Plugin_Everything_Everything" data-uid="Plugin_Everything.Everything" class="text-break">
+Class Everything  
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Plugin_Everything.html">Plugin_Everything</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Plugin_Everything.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>The Everything Plugin</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Everything : Plugin</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">Everything</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="Plugin_Everything_Everything__ctor_" data-uid="Plugin_Everything.Everything.#ctor*"></a>
+
+  <h3 id="Plugin_Everything_Everything__ctor" data-uid="Plugin_Everything.Everything.#ctor">
+  Everything()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets Everything Request Flags and Max values num. Also loads the plugin's settings</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Everything()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="Plugin_Everything_Everything_PluggerName_" data-uid="Plugin_Everything.Everything.PluggerName*"></a>
+
+  <h3 id="Plugin_Everything_Everything_PluggerName" data-uid="Plugin_Everything.Everything.PluggerName">
+  PluggerName
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc>
+<br>
+The name is &quot;Everything&quot;</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string PluggerName { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="Plugin_Everything_Everything_CommandSignifiers_" data-uid="Plugin_Everything.Everything.CommandSignifiers*"></a>
+
+  <h3 id="Plugin_Everything_Everything_CommandSignifiers" data-uid="Plugin_Everything.Everything.CommandSignifiers">
+  CommandSignifiers()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;string&gt; CommandSignifiers()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The EverythingSignifier from plugin settings</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_GetNumResults_" data-uid="Plugin_Everything.Everything.Everything_GetNumResults*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_GetNumResults" data-uid="Plugin_Everything.Everything.Everything_GetNumResults">
+  Everything_GetNumResults()
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_GetNumResults function returns the number of visible file and folder results.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_getnumresults/">https://www.voidtools.com/support/everything/sdk/everything_getnumresults/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern uint Everything_GetNumResults()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Returns the number of visible file and folder results. If the function fails the return value is 0.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_GetResultDateModified_" data-uid="Plugin_Everything.Everything.Everything_GetResultDateModified*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_GetResultDateModified_System_UInt32_System_Int64__" data-uid="Plugin_Everything.Everything.Everything_GetResultDateModified(System.UInt32,System.Int64@)">
+  Everything_GetResultDateModified(uint, out long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_GetResultDateModified function retrieves the modified date of a visible result. <br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_getresultdatemodified/">https://www.voidtools.com/support/everything/sdk/everything_getresultdatemodified/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern bool Everything_GetResultDateModified(uint nIndex, out long lpFileTime)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+    <dt><code>lpFileTime</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>A FILETIME to hold the modified date of the result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The function returns non-zero if successful. The function returns 0 if the modified date information is unavailable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_GetResultFileName_" data-uid="Plugin_Everything.Everything.Everything_GetResultFileName*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_GetResultFileName_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_GetResultFileName(System.UInt32)">
+  Everything_GetResultFileName(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_GetResultFileName function retrieves the file name part only of the visible result.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_getresultfilename/">https://www.voidtools.com/support/everything/sdk/everything_getresultfilename/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern IntPtr Everything_GetResultFileName(uint nIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></dt>
+    <dd><p>The function returns a pointer to a null terminated string of TCHARs. If the function fails the return value is NULL.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_GetResultFullPathName_" data-uid="Plugin_Everything.Everything.Everything_GetResultFullPathName*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_GetResultFullPathName_System_UInt32_System_Text_StringBuilder_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_GetResultFullPathName(System.UInt32,System.Text.StringBuilder,System.UInt32)">
+  Everything_GetResultFullPathName(uint, StringBuilder, uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_GetResultFullPathName function retrieves the full path and file name of the visible result.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_getresultfullpathname/">https://www.voidtools.com/support/everything/sdk/everything_getresultfullpathname/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_GetResultFullPathName(uint nIndex, StringBuilder lpString, uint nMaxCount)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+    <dt><code>lpString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.stringbuilder">StringBuilder</a></dt>
+    <dd><p>The buffer that will receive the text. If the string is as long or longer than the buffer, the string is truncated and terminated with a NULL character.</p>
+</dd>
+    <dt><code>nMaxCount</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Specifies the maximum number of characters to copy to the buffer, including the NULL character. If the text exceeds this limit, it is truncated.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_GetResultSize_" data-uid="Plugin_Everything.Everything.Everything_GetResultSize*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_GetResultSize_System_UInt32_System_Int64__" data-uid="Plugin_Everything.Everything.Everything_GetResultSize(System.UInt32,System.Int64@)">
+  Everything_GetResultSize(uint, out long)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_GetResultSize function retrieves the size of a visible result.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_getresultsize/">https://www.voidtools.com/support/everything/sdk/everything_getresultsize/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern bool Everything_GetResultSize(uint nIndex, out long lpFileSize)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+    <dt><code>lpFileSize</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a></dt>
+    <dd><p>Pointer to a LARGE_INTEGER to hold the size of the result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The function returns non-zero if successful. The function returns 0 if size information is unavailable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_IsFolderResult_" data-uid="Plugin_Everything.Everything.Everything_IsFolderResult*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_IsFolderResult_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_IsFolderResult(System.UInt32)">
+  Everything_IsFolderResult(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_IsFolderResult function determines if the visible result is a folder.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_isfolderresult/">https://www.voidtools.com/support/everything/sdk/everything_isfolderresult/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern bool Everything_IsFolderResult(uint nIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The function returns TRUE, if the visible result is a folder or volume (For example: C: or c:\WINDOWS). The function returns FALSE, if the visible result is a file (For example: C:\ABC.123). If the function fails the return value is FALSE.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_IsVolumeResult_" data-uid="Plugin_Everything.Everything.Everything_IsVolumeResult*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_IsVolumeResult_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_IsVolumeResult(System.UInt32)">
+  Everything_IsVolumeResult(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_IsVolumeResult function determines if the visible result is the root folder of a volume.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_isvolumeresult/">https://www.voidtools.com/support/everything/sdk/everything_isvolumeresult/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern bool Everything_IsVolumeResult(uint nIndex)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>nIndex</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Zero based index of the visible result.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>The function returns TRUE, if the visible result is a volume (For example: C:). The function returns FALSE, if the visible result is a folder or file (For example: C:\ABC.123). If the function fails the return value is FALSE.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_QueryW_" data-uid="Plugin_Everything.Everything.Everything_QueryW*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_QueryW_System_Boolean_" data-uid="Plugin_Everything.Everything.Everything_QueryW(System.Boolean)">
+  Everything_QueryW(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_Query function executes an Everything IPC query with the current search state.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_query/">https://www.voidtools.com/support/everything/sdk/everything_query/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern bool Everything_QueryW(bool bWait)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bWait</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Should the function wait for the results or return immediately.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>If the function succeeds, the return value is TRUE. If the function fails, the return value is FALSE.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetMatchCase_" data-uid="Plugin_Everything.Everything.Everything_SetMatchCase*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetMatchCase_System_Boolean_" data-uid="Plugin_Everything.Everything.Everything_SetMatchCase(System.Boolean)">
+  Everything_SetMatchCase(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetMatchCase function enables or disables case sensitivity for the next call to Everything_Query. <br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setmatchcase/">https://www.voidtools.com/support/everything/sdk/everything_setmatchcase/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetMatchCase(bool bEnable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bEnable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies whether the search is case sensitive or insensitive.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetMatchPath_" data-uid="Plugin_Everything.Everything.Everything_SetMatchPath*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetMatchPath_System_Boolean_" data-uid="Plugin_Everything.Everything.Everything_SetMatchPath(System.Boolean)">
+  Everything_SetMatchPath(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetMatchPath function enables or disables full path matching for the next call to Everything_Query. <br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setmatchpath/">https://www.voidtools.com/support/everything/sdk/everything_setmatchpath/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetMatchPath(bool bEnable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bEnable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies whether to enable or disable full path matching.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetMatchWholeWord_" data-uid="Plugin_Everything.Everything.Everything_SetMatchWholeWord*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetMatchWholeWord_System_Boolean_" data-uid="Plugin_Everything.Everything.Everything_SetMatchWholeWord(System.Boolean)">
+  Everything_SetMatchWholeWord(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetMatchWholeWord function enables or disables matching whole words for the next call to Everything_Query.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setmatchwholeword/">https://www.voidtools.com/support/everything/sdk/everything_setmatchwholeword/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetMatchWholeWord(bool bEnable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bEnable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Specifies whether the search matches whole words, or can match anywhere.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetMax_" data-uid="Plugin_Everything.Everything.Everything_SetMax*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetMax_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_SetMax(System.UInt32)">
+  Everything_SetMax(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetMax function sets the maximum number of results to return from Everything_Query.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setmax/">https://www.voidtools.com/support/everything/sdk/everything_setmax/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetMax(uint dwMax)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dwMax</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>Specifies the maximum number of results to return.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetRegex_" data-uid="Plugin_Everything.Everything.Everything_SetRegex*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetRegex_System_Boolean_" data-uid="Plugin_Everything.Everything.Everything_SetRegex(System.Boolean)">
+  Everything_SetRegex(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetRegex function enables or disables Regular Expression searching. <br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setregex/">https://www.voidtools.com/support/everything/sdk/everything_setregex/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetRegex(bool bEnable)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>bEnable</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Set to non-zero to enable regex, set to zero to disable regex.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetRequestFlags_" data-uid="Plugin_Everything.Everything.Everything_SetRequestFlags*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetRequestFlags_System_UInt32_" data-uid="Plugin_Everything.Everything.Everything_SetRequestFlags(System.UInt32)">
+  Everything_SetRequestFlags(uint)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetRequestFlags function sets the desired result data.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setrequestflags/">https://www.voidtools.com/support/everything/sdk/everything_setrequestflags/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern void Everything_SetRequestFlags(uint dwRequestFlags)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dwRequestFlags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The request flags, can be zero or more of the following flags:<br>
+EVERYTHING_REQUEST_FILE_NAME  (0x00000001)<br>EVERYTHING_REQUEST_PATH       (0x00000002)<br>EVERYTHING_REQUEST_FULL_PATH_A(0x00000004)<br>EVERYTHING_REQUEST_EXTENSION  (0x00000008)<br>EVERYTHING_REQUEST_SIZE       (0x00000010)<br>EVERYTHING_REQUEST_DATE_CREATE(0x00000020)<br>EVERYTHING_REQUEST_DATE_MODIFI(0x00000040)<br>EVERYTHING_REQUEST_DATE_ACCESS(0x00000080)<br>EVERYTHING_REQUEST_ATTRIBUTES (0x00000100)<br>EVERYTHING_REQUEST_FILE_LIST_F(0x00000200)<br>EVERYTHING_REQUEST_RUN_COUNT  (0x00000400)<br>EVERYTHING_REQUEST_DATE_RUN   (0x00000800)<br>EVERYTHING_REQUEST_DATE_RECENT(0x00001000)<br>EVERYTHING_REQUEST_HIGHLIGHTED(0x00002000)<br>EVERYTHING_REQUEST_HIGHLIGHTED(0x00004000)<br>EVERYTHING_REQUEST_HIGHLIGHTED(0x00008000)</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_Everything_SetSearchW_" data-uid="Plugin_Everything.Everything.Everything_SetSearchW*"></a>
+
+  <h3 id="Plugin_Everything_Everything_Everything_SetSearchW_System_String_" data-uid="Plugin_Everything.Everything.Everything_SetSearchW(System.String)">
+  Everything_SetSearchW(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p>The Everything_SetSearch function sets the search string for the IPC Query.<br>
+<a href="https://www.voidtools.com/support/everything/sdk/everything_setsearch/">https://www.voidtools.com/support/everything/sdk/everything_setsearch/</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern uint Everything_SetSearchW(string lpSearchString)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>lpSearchString</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>A string to be used as the new search text.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>This function has no return value.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_OnQueryChange_" data-uid="Plugin_Everything.Everything.OnQueryChange*"></a>
+
+  <h3 id="Plugin_Everything_Everything_OnQueryChange_System_String_" data-uid="Plugin_Everything.Everything.OnQueryChange(System.String)">
+  OnQueryChange(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc>
+<br>
+Executes the query, obtains the relevant information for each item from Everything and then creates EverythingItems for them</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;ListItem&gt; OnQueryChange(string query)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p><inheritdoc></inheritdoc></p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd><p><inheritdoc></inheritdoc></p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Plugin_Everything_Everything_OnSignifier_" data-uid="Plugin_Everything.Everything.OnSignifier*"></a>
+
+  <h3 id="Plugin_Everything_Everything_OnSignifier_System_String_" data-uid="Plugin_Everything.Everything.OnSignifier(System.String)">
+  OnSignifier(string)
+  
+  </h3>
+
+  <div class="markdown level1 summary"><p><inheritdoc></inheritdoc></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;ListItem&gt; OnSignifier(string command)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The EverythingSignifier (Since there is only 1 signifier for this plugin), followed by the file / folder being searched for</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd><p>List of files / folders that possibly match what is being searched for</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <footer></footer>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
