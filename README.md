@@ -22,3 +22,4 @@ To remove annoyances from `Plugin_TypedText` during development, you can `cd Plu
    - [JSON.Net - MIT license](https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md)<br />
    - [XAMLFlair - MIT License](https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE)<br />
    - [References from a Plugin Architecture by Nagaraj M](https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/)
+   - [TypeExtender - MIT license](https://github.com/NdubuisiJr/TypeExtender/tree/main)

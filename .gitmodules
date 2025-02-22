@@ -40,3 +40,6 @@
 [submodule "Plugin_Gitmoji"]
 	path = Plugin_Gitmoji
 	url = https://github.com/Faeq-F/Quokka-Gitmoji-Plugin.git
+[submodule "Plugin_Workflows"]
+	path = Plugin_Workflows
+	url = https://github.com/Faeq-F/Quokka-Workflows-Plugin.git

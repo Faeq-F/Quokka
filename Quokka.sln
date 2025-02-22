@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_TypedText", "Plugin_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_Gitmoji", "Plugin_Gitmoji\Plugin_Gitmoji.csproj", "{FD28B614-9061-4D46-A420-FD71008FF1B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin_Workflows", "Plugin_Workflows\Plugin_Workflows.csproj", "{CE1868B3-4D32-42BB-A824-B053688FEE1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,22 @@ Global
 		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD28B614-9061-4D46-A420-FD71008FF1B8}.Release|x86.Build.0 = Release|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Debug|x86.Build.0 = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Plugin|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Plugin|Any CPU.Build.0 = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Plugin|x86.ActiveCfg = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Plugin|x86.Build.0 = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Quokka|Any CPU.ActiveCfg = Plugin|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Quokka|Any CPU.Build.0 = Plugin|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Quokka|x86.ActiveCfg = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Quokka|x86.Build.0 = Debug|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Release|x86.ActiveCfg = Release|Any CPU
+		{CE1868B3-4D32-42BB-A824-B053688FEE1C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

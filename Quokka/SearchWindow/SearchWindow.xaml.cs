@@ -116,12 +116,80 @@ namespace Quokka {
     }
 
     /// <summary>
-    ///   Loads the relevant ListItems into the results list
-    ///   when the user changes the query entered in the
-    ///   search bar. The maximum number of results loaded
+    /// Creates the item list that would be shown in the results list after the user enters a command
+    /// <br />
+    /// The maximum number of results loaded
     ///   is dependent upon the MaxResults setting, though
     ///   this can be overridden by the IgnoreMaxResultsFlag
     ///   setting and plugin SpecialCommands.
+    /// </summary>
+    /// <returns>The items for a command</returns>
+    public static List<ListItem> ProduceItems(string command) {
+      bool IgnoreMaxResults = false;
+      if (command.EndsWith((string) Application.Current.Resources["IgnoreMaxResultsFlag"])) {
+        command = command.Remove(
+          command.Length - ( (string) Application.Current.Resources["IgnoreMaxResultsFlag"] ).Length);
+        IgnoreMaxResults = true;
+      }
+      ListOfResults = new List<ListItem>();
+
+      //getting results for query
+      if (command == "") {
+        return new List<ListItem>();
+      } else {
+        try {
+          foreach (Plugin plugin in App.plugins) {
+            //checking special commands
+            foreach (string specialCommand in plugin.SpecialCommands()) {
+              if (specialCommand.Equals(command)) {
+                ListOfResults = plugin.OnSpecialCommand(command);
+                return ListOfResults;
+              }
+            }
+            //checking signifiers
+            foreach (string signifier in plugin.CommandSignifiers()) {
+              if (command.StartsWith(signifier, StringComparison.Ordinal)) {
+                ListOfResults = plugin.OnSignifier(command);
+                //Check if items were shown
+                if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
+                return ListOfResults;
+              }
+            }
+            //grab plugin items
+            foreach (ListItem item in plugin.OnQueryChange(command)) {
+              ListOfResults.Add(item);
+            }
+          }
+        } catch (Exception ex) {
+          Quokka.App.ShowErrorMessageBox(ex, "Could not produce list items");
+        }
+        //sort by relevance
+        ListOfResults = ListOfResults.OrderByDescending(
+          x => (
+            x.Name.ToLower().Contains(command.ToLower())
+          )
+        ).ThenBy(
+          x => (
+            FuzzySearch.LD(x.Name, command)
+          )
+        ).ThenByDescending(
+          x => (
+            x.Name.ToLower().StartsWith(command.ToLower()) || x.Name.ToLower().EndsWith(command.ToLower())
+          )
+        ).ToList();
+        //Check if items were shown
+        if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
+        //use MaxResults setting
+        if (!IgnoreMaxResults)
+          ListOfResults = ListOfResults.Take((int) Application.Current.Resources["MaxResults"]).ToList();
+        return ListOfResults;
+      }
+    }
+
+    /// <summary>
+    ///   Loads the relevant ListItems into the results list
+    ///   when the user changes the query entered in the
+    ///   search bar.
     /// </summary>
     /// <param name="e">
     ///   The arguments for the event.
@@ -130,7 +198,6 @@ namespace Quokka {
     ///   The element from which the event is triggered.
     /// </param>
     private void OnQueryChange(object sender, RoutedEventArgs e) {
-      bool IgnoreMaxResults = false;
       //reset view of list
       ResultsListView.SelectedIndex = 0;
       ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
@@ -141,67 +208,11 @@ namespace Quokka {
       }
       //get text from sender
       TextBox textBox = ( sender as TextBox )!;
-      query = textBox.Text;
-      if (query.EndsWith((string) Application.Current.Resources["IgnoreMaxResultsFlag"])) {
-        query = query.Remove(
-          query.Length - ( (string) Application.Current.Resources["IgnoreMaxResultsFlag"] ).Length);
-        IgnoreMaxResults = true;
-      }
-      ListOfResults = new List<ListItem>();
-      //getting results for query
-      if (query == "") {
+      List<ListItem> Results = ProduceItems(textBox.Text);
+      if (Results.Count == 0) {
         ListContainer.Visibility = Visibility.Collapsed; return;
-      } else {
-        try {
-          foreach (Plugin plugin in App.plugins) {
-            //checking special commands
-            foreach (string specialCommand in plugin.SpecialCommands()) {
-              if (specialCommand.Equals(query)) {
-                ListOfResults = plugin.OnSpecialCommand(query);
-                ResultsListView.ItemsSource = ListOfResults;
-                goto ResultsAreReady;
-              }
-            }
-            //checking signifiers
-            foreach (string signifier in plugin.CommandSignifiers()) {
-              if (query.StartsWith(signifier, StringComparison.Ordinal)) {
-                ListOfResults = plugin.OnSignifier(query);
-                ResultsListView.ItemsSource = ListOfResults;
-                //Check if items were shown
-                if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
-                goto ResultsAreReady;
-              }
-            }
-            //grab plugin items
-            foreach (ListItem item in plugin.OnQueryChange(query)) {
-              ListOfResults.Add(item);
-            }
-          }
-        } catch (Exception ex) {
-          Quokka.App.ShowErrorMessageBox(ex, "Could not produce list items");
-        }
-        //sort by relevance
-        ListOfResults = ListOfResults.OrderByDescending(
-          x => (
-            x.Name.ToLower().Contains(query.ToLower())
-          )
-        ).ThenBy(
-          x => (
-            FuzzySearch.LD(x.Name, query)
-          )
-        ).ThenByDescending(
-          x => (
-            x.Name.ToLower().StartsWith(query.ToLower()) || x.Name.ToLower().EndsWith(query.ToLower())
-          )
-        ).ToList();
-        //Check if items were shown
-        if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
-        //use MaxResults setting
-        if (!IgnoreMaxResults)
-          ResultsListView.ItemsSource = ListOfResults.Take((int) Application.Current.Resources["MaxResults"]);
-        else ResultsListView.ItemsSource = ListOfResults;
       }
-      ResultsAreReady:
+      ResultsListView.ItemsSource = Results;
       ResultsListView.SelectedIndex = -1;
       ListContainer.Visibility = Visibility.Visible;
     }
