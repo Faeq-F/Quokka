@@ -1,52 +1,82 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
-const plugins = usePluginsStore()
+import { ref } from 'vue';
+import { usePluginsStore } from '../stores/plugins'
+import { useFetch } from 'nuxt/app';
 
-const items = ref<NavigationMenuItem[][]>([
-  [],
+// const plugins = usePluginsStore() {{ plugins.pluginsList }}
+
+let githubStars;
+let rightItems;
+
+useFetch('https://api.github.com/repos/faeq-f/quokka/stargazers').then((data) => {
+  githubStars = Intl.NumberFormat('en-US', {
+    notation: "compact",
+    maximumFractionDigits: 1
+  }).format([...data.data.value].length).toString()
+}).catch(() => {
+  githubStars = ""
+})
+rightItems = ref<NavigationMenuItem[][]>([
+  [
+    {
+      icon: 'i-lucide-download',
+    },
+    {
+      label: 'GitHub',
+      icon: 'i-lucide-github',
+      badge: githubStars,
+      to: 'https://github.com/faeq-f/quokka/',
+      target: '_blank'
+    },
+  ]
+])
+
+
+const middleItems = ref<NavigationMenuItem[][]>([
   [
     {
       label: 'Plugins',
       icon: 'i-lucide-box',
-      to: '/components',
-      active: true,
+      to: '/plugins',
+
       defaultOpen: true,
       children: [
         {
           label: 'Link',
           icon: 'i-lucide-file-text',
           description: 'Use NuxtLink with superpowers.',
-          to: '/components/link'
+          to: '/plugins/link'
         },
         {
           label: 'Modal',
           icon: 'i-lucide-file-text',
           description: 'Display a modal within your application.',
-          to: '/components/modal'
+          to: '/plugins/modal'
         },
         {
           label: 'NavigationMenu',
           icon: 'i-lucide-file-text',
           description: 'Display a list of links.',
-          to: '/components/navigation-menu'
+          to: '/plugins/navigation-menu'
         },
         {
           label: 'Pagination',
           icon: 'i-lucide-file-text',
           description: 'Display a list of pages.',
-          to: '/components/pagination'
+          to: '/plugins/pagination'
         },
         {
           label: 'Popover',
           icon: 'i-lucide-file-text',
           description: 'Display a non-modal dialog that floats around a trigger element.',
-          to: '/components/popover'
+          to: '/plugins/popover'
         },
         {
           label: 'Progress',
           icon: 'i-lucide-file-text',
           description: 'Show a horizontal bar to indicate task progression.',
-          to: '/components/progress'
+          to: '/plugins/progress'
         }
       ]
     },
@@ -57,7 +87,8 @@ const items = ref<NavigationMenuItem[][]>([
         {
           label: 'Introduction',
           description: 'Fully styled and customizable components for Nuxt.',
-          icon: 'i-lucide-house'
+          icon: 'i-lucide-house',
+          to: '/plugins/progress#Introduction'
         },
         {
           label: 'Installation',
@@ -87,18 +118,6 @@ const items = ref<NavigationMenuItem[][]>([
       icon: 'i-lucide-circle-help',
     }
   ],
-  [
-    {
-      icon: 'i-lucide-download',
-    },
-    {
-      label: 'GitHub',
-      icon: 'i-lucide-github',
-      badge: '3.8k',
-      to: 'https://github.com/nuxt/ui',
-      target: '_blank'
-    },
-  ]
 ])
 
 import { useThemeHandler } from 'maz-ui'
@@ -106,34 +125,79 @@ import { useThemeHandler } from 'maz-ui'
 const {
   setDarkTheme,
   setLightTheme,
+  setSystemTheme
 } = useThemeHandler()
 
-function toggleTheme() {
-  if (document.documentElement.classList.contains('dark')) {
+function toggleTheme(theme) {
+  if (theme == 1) {
     setLightTheme()
-  } else {
+  } else if (theme == 0) {
     setDarkTheme()
+  } else {
+    setSystemTheme()
   }
 }
 
+const themeItems = ref<NavigationMenuItem[][]>([
+  [
+    {
+      icon: 'i-lucide-sun-moon',
+      children: [
+        {
+          label: 'Light',
+          icon: 'i-lucide-sun',
+          onSelect: () => toggleTheme(1),
+        },
+        {
+          label: 'Dark',
+          icon: 'i-lucide-moon',
+          onSelect: () => toggleTheme(0),
+        },
+        {
+          label: 'System',
+          icon: 'i-lucide-laptop-minimal',
+          onSelect: () => toggleTheme(-1),
+        }
+      ]
+    }
+  ]
+])
+
 </script>
 <template>
-  <div
-    class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48">
-    <!-- Logo -->
-    <img src="~/assets/images/QuokkatextLogo.svg" alt="Quokka Logo"
-      class="h-10 p-1 pl-2 object-cover dark:invert-100" />
-    <!-- Navigation Menu -->
-    <UNavigationMenu highlight highlight-color="primary" orientation="horizontal" :items="items" :ui="{
-      viewport: 'sm:w-(--reka-navigation-menu-viewport-width)',
-      content: 'sm:w-auto',
-      childList: 'sm:w-96',
-      childLinkDescription: 'text-balance line-clamp-2'
-    }" class="flex-1" />
-    <!-- Theme Switch -->
-    <USwitch unchecked-icon="i-lucide-sun" checked-icon="i-lucide-moon" @click="toggleTheme" class="mr-5" />
-  </div>
-  <!-- Page Content -->
+  <MazAnimatedElement direction="down" :delay="1200" :duration="2000"
+    class="sticky top-0 z-10">
+    <div data-maz-aos="fade-down" data-maz-aos-delay="600"
+      data-maz-aos-once="true"
+      class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48 border-b-2 border-accent sticky top-0 bg-white dark:bg-[var(--ui-bg)] z-10">
+      <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo"
+        class="h-10 p-1 pl-2 object-cover dark:invert-100 ml-5" />
+      <UNavigationMenu highlight highlight-color="neutral" color="neutral"
+        orientation="horizontal" :items="middleItems" :ui="{
+          viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
+          content: 'sm:w-auto',
+          childList: 'sm:w-96',
+          childLinkDescription: 'text-balance line-clamp-2'
+        }" class="w-full justify-center" />
+      <UNavigationMenu highlight highlight-color="neutral" color="neutral"
+        orientation="horizontal" v-if="rightItems" :items="rightItems" :ui="{
+          viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
+          content: 'sm:w-auto',
+          childList: 'sm:w-96',
+          childLinkDescription: 'text-balance line-clamp-2'
+        }" class="" />
+      <!-- Theme Switch -->
+      <USeparator orientation="vertical" class="h-8" />
+      <UNavigationMenu content-orientation="vertical" color="neutral"
+        :items="themeItems" class="relative flex w-auto justify-end"
+        highlight="false" variant="link" trailing-icon=" " :ui="{
+          viewport: ' mt-2',
+          content: 'w-auto',
+          childList: 'w-auto',
+          childLabel: 'w-full',
+          childLinkDescription: 'line-clamp-1'
+        }" />
+    </div>
+  </MazAnimatedElement>
   <slot />
-  {{ plugins.name }}
 </template>

@@ -1,3 +1,11 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Outfit:wght@100..900&display=swap");
 
+.lexend {
+  font-family: "Lexend", sans-serif;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
