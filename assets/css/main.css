@@ -1,11 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import "tailwindcss";
 @import "@nuxt/ui";
-@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Outfit:wght@100..900&display=swap");
 
-.lexend {
-  font-family: "Lexend", sans-serif;
+.varela {
+  font-family: "Varela Round", sans-serif;
 }
 
 .outfit {
   font-family: "Outfit", sans-serif;
+}
+
+*{
+  transition: 200ms all;
+  scroll-behavior: smooth;
+}
+
+.dark video,
+.dark img{
+  filter: brightness(0.8);
+}
+
+.dark img.dark\:invert-100{
+  filter: invert(100);
 }

@@ -33,6 +33,7 @@ rightItems = ref<NavigationMenuItem[][]>([
 ])
 
 
+
 const middleItems = ref<NavigationMenuItem[][]>([
   [
     {
@@ -116,6 +117,8 @@ const middleItems = ref<NavigationMenuItem[][]>([
     {
       label: 'FAQ',
       icon: 'i-lucide-circle-help',
+      to: "/#faq",
+      active: false
     }
   ],
 ])
@@ -165,22 +168,21 @@ const themeItems = ref<NavigationMenuItem[][]>([
 
 </script>
 <template>
-  <MazAnimatedElement direction="down" :delay="1200" :duration="2000"
-    class="sticky top-0 z-10">
-    <div data-maz-aos="fade-down" data-maz-aos-delay="600"
-      data-maz-aos-once="true"
+  <MazAnimatedElement direction="down" :delay="1200" :duration="2000" class="sticky top-0 z-10">
+    <div data-maz-aos="fade-down" data-maz-aos-delay="600" data-maz-aos-once="true"
       class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48 border-b-2 border-accent sticky top-0 bg-white dark:bg-[var(--ui-bg)] z-10">
-      <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo"
-        class="h-10 p-1 pl-2 object-cover dark:invert-100 ml-5" />
-      <UNavigationMenu highlight highlight-color="neutral" color="neutral"
-        orientation="horizontal" :items="middleItems" :ui="{
+      <a href="/" class="object-cover">
+        <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo" class="h-10 dark:invert-100 ml-5 p-1 pl-2 " />
+      </a>
+      <UNavigationMenu highlight highlight-color="neutral" color="neutral" orientation="horizontal" :items="middleItems"
+        :ui="{
           viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
           content: 'sm:w-auto',
           childList: 'sm:w-96',
           childLinkDescription: 'text-balance line-clamp-2'
         }" class="w-full justify-center" />
-      <UNavigationMenu highlight highlight-color="neutral" color="neutral"
-        orientation="horizontal" v-if="rightItems" :items="rightItems" :ui="{
+      <UNavigationMenu highlight highlight-color="neutral" color="neutral" orientation="horizontal" v-if="rightItems"
+        :items="rightItems" :ui="{
           viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
           content: 'sm:w-auto',
           childList: 'sm:w-96',
@@ -188,9 +190,8 @@ const themeItems = ref<NavigationMenuItem[][]>([
         }" class="" />
       <!-- Theme Switch -->
       <USeparator orientation="vertical" class="h-8" />
-      <UNavigationMenu content-orientation="vertical" color="neutral"
-        :items="themeItems" class="relative flex w-auto justify-end"
-        highlight="false" variant="link" trailing-icon=" " :ui="{
+      <UNavigationMenu content-orientation="vertical" color="neutral" :items="themeItems"
+        class="relative flex w-auto justify-end" highlight="false" variant="link" trailing-icon=" " :ui="{
           viewport: ' mt-2',
           content: 'w-auto',
           childList: 'w-auto',
