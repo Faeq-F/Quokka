@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/css/main.css"],
   modules: [
+    "lenis/nuxt",
     "maz-ui/nuxt",
     "@nuxt/content",
     "@nuxt/eslint",
