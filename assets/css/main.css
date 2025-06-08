@@ -3,17 +3,23 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+*{
+  transition: 200ms all;
+  scroll-behavior: smooth;
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 360px;
+}
+
 .varela {
   font-family: "Varela Round", sans-serif;
 }
 
 .outfit {
   font-family: "Outfit", sans-serif;
-}
-
-*{
-  transition: 200ms all;
-  scroll-behavior: smooth;
 }
 
 .dark video,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePluginsStore } from '~/stores/plugins.ts';
+import { usePluginsStore } from '../../stores/plugins.ts';
 const plugins = usePluginsStore()
 const topPlugins = plugins.pluginsList.slice(0, 9)
 </script>
@@ -38,7 +38,7 @@ const topPlugins = plugins.pluginsList.slice(0, 9)
         <MazCardSpotlight style="min-width: 250px;box-shadow: none;" class="w-72">
           <MazCard :images="[
             'https://loremflickr.com/250/300'
-          ]" style="box-shadow: none;" class="w-full">
+          ]" style="box-shadow: none;" class="w-full !bg-transparent">
             <template #title>
               <h4 class="maz-m-0">
                 {{ plugin.name }}
@@ -46,7 +46,7 @@ const topPlugins = plugins.pluginsList.slice(0, 9)
             </template>
             <template #content>
               <p class="maz-text-muted" style="margin-bottom: 0;">
-                {{ plugin.description }}
+                {{ plugin.shortDescription }}
               </p>
             </template>
           </MazCard>
@@ -54,7 +54,7 @@ const topPlugins = plugins.pluginsList.slice(0, 9)
       </MazAnimatedElement>
       <MazAnimatedElement direction="down" :delay="2000 + 500" :duration="2000" once="False">
         <MazCardSpotlight style="min-width: 250px;box-shadow: none;" color="secondary" class="cursor-pointer">
-          <MazCard style="min-width: 250px;box-shadow: none;" class="hover:bg-gray-400 bg-transparent">
+          <MazCard style="min-width: 250px;box-shadow: none;" class="hover:bg-gray-400 !bg-transparent">
             <template #title>
               <h4 class="maz-m-0">
               </h4>

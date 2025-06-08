@@ -73,7 +73,7 @@ const faq = [
     </MazAnimatedElement>
     <MazAnimatedElement direction="down" :delay="(i * 200) + 1500" :duration="2000" once=false class="m-4"
       v-for="(q, i) in faq" :key="q.question">
-      <MazAccordion class="w-full" style="box-shadow: none;">
+      <MazAccordion class="w-full">
         <template #title-1>
           {{ q.question }}
         </template>
@@ -84,3 +84,9 @@ const faq = [
     </MazAnimatedElement>
   </div>
 </template>
+
+<style scoped>
+.m-card-spotlight {
+  box-shadow: none !important;
+}
+</style>

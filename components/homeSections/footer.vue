@@ -84,7 +84,7 @@ const links = [
 
 <template>
   <div class="h-60 w-full px-78 pt-62 outfit">
-    <MazAnimatedElement direction="up" :delay="2500" :duration="2000" once=false class="inline">
+    <MazAnimatedElement direction="up" :duration="2000" once=false class="inline">
       <div class="bg-gray-300 dark:bg-blue-950 rounded-[60px] p-12">
 
         <div class="flex justify-around pb-16">
