@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <h1>
+  <h1 id="doc1">
     <UIcon name="i-lucide-loader" /> Installation
   </h1>
   <div>
@@ -47,7 +47,7 @@
         Task Scheduler. Alternatively see the <a href=''>FAQ</a> on this.</li>
     </ul>
   </div>
-  <h1>
+  <h1 id="doc2">
     <UIcon name="i-lucide-pointer" /> How to use
   </h1>
   <div>
@@ -321,7 +321,7 @@
     </div>
   </div>
 
-  <h1>
+  <h1 id="doc3">
     <UIcon name="i-lucide-sliders-vertical" /> Settings
   </h1>
   <div>
@@ -381,7 +381,7 @@
       </tbody>
     </table>
   </div>
-  <h1>
+  <h1 id="doc4">
     <UIcon name="i-lucide-drill" /> Building the app
   </h1>
   <div>
@@ -407,13 +407,13 @@
       </li>
     </ol>
   </div>
-  <h1>
+  <h1 id="doc5">
     <UIcon name="i-lucide-code" /> API documentation
   </h1>
   <div>
     <!-- <iframe src="APIdocs/api/Quokka.html" class="w-96 h-52"></iframe> -->
   </div>
-  <h1>
+  <h1 id="doc6">
     <UIcon name="i-lucide-toy-brick" /> Creating a plugin
   </h1>
   <div>
@@ -795,7 +795,7 @@ namespace Plugin_ShowTypedText {
       plugins the program is using during runtime.
     </div>
   </div>
-  <h1>
+  <h1 id="doc7">
     <UIcon name="i-lucide-circle-help" /> FAQ by Developers
   </h1>
   <div>

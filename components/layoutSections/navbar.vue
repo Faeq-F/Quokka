@@ -39,7 +39,7 @@ const middleItems = ref<NavigationMenuItem[][]>([
     {
       label: 'Plugins',
       icon: 'i-lucide-box',
-      to: '/plugins',
+      to: '/plugin',
 
       defaultOpen: true,
       children: [
@@ -47,70 +47,90 @@ const middleItems = ref<NavigationMenuItem[][]>([
           label: 'Link',
           icon: 'i-lucide-file-text',
           description: 'Use NuxtLink with superpowers.',
-          to: '/plugins/link'
+          to: '/plugin/link'
         },
         {
           label: 'Modal',
           icon: 'i-lucide-file-text',
           description: 'Display a modal within your application.',
-          to: '/plugins/modal'
+          to: '/plugin/modal'
         },
         {
           label: 'NavigationMenu',
           icon: 'i-lucide-file-text',
           description: 'Display a list of links.',
-          to: '/plugins/navigation-menu'
+          to: '/plugin/navigation-menu'
         },
         {
           label: 'Pagination',
           icon: 'i-lucide-file-text',
           description: 'Display a list of pages.',
-          to: '/plugins/pagination'
+          to: '/plugin/pagination'
         },
         {
           label: 'Popover',
           icon: 'i-lucide-file-text',
           description: 'Display a non-modal dialog that floats around a trigger element.',
-          to: '/plugins/popover'
+          to: '/plugin/popover'
         },
         {
           label: 'Progress',
           icon: 'i-lucide-file-text',
           description: 'Show a horizontal bar to indicate task progression.',
-          to: '/plugins/progress'
+          to: '/plugin/progress'
         }
       ]
     },
     {
       label: 'Documentation',
       icon: 'i-lucide-book-open',
+      to: '/documentation',
+      active: false,
       children: [
         {
-          label: 'Introduction',
-          description: 'Fully styled and customizable components for Nuxt.',
-          icon: 'i-lucide-house',
-          to: '/plugins/progress#Introduction'
-        },
-        {
           label: 'Installation',
-          description: 'Learn how to install and configure Nuxt UI in your application.',
-          icon: 'i-lucide-cloud-download'
+          description: 'Requirements, steps & suggestions',
+          icon: 'i-lucide-loader',
+          to: '/documentation#doc1'
         },
         {
-          label: 'Icons',
-          icon: 'i-lucide-smile',
-          description: 'You have nothing to do, @nuxt/icon will handle it automatically.'
+          label: 'How to Use',
+          description: 'The tray task, plugins & command types',
+          icon: 'i-lucide-pointer',
+          to: '/documentation#doc2'
         },
         {
-          label: 'Colors',
-          icon: 'i-lucide-swatch-book',
-          description: 'Choose a primary and a neutral color from your Tailwind CSS theme.'
+          label: 'Settings',
+          icon: 'i-lucide-sliders-vertical',
+          description: 'Defaults & extra information',
+          to: '/documentation#doc3'
         },
         {
-          label: 'Theme',
-          icon: 'i-lucide-cog',
+          label: 'Building the app',
+          icon: 'i-lucide-drill',
+          description: 'Steps to produce the published release',
+          to: '/documentation#doc4'
+        },
+        {
+          label: 'API Documentation',
+          icon: 'i-lucide-code',
           description:
-            'You can customize components by using the `class` / `ui` props or in your app.config.ts.'
+            'Documentation generated from source files',
+          to: '/documentation#doc5'
+        },
+        {
+          label: 'Creating a plugin',
+          icon: 'i-lucide-toy-brick',
+          description:
+            'Creating new item types & producing their plugin ',
+          to: '/documentation#doc6'
+        },
+        {
+          label: 'FAQ by Developers',
+          icon: 'i-lucide-circle-help',
+          description:
+            'Answers to frequently asked questions',
+          to: '/documentation#doc7'
         }
       ]
     },
@@ -145,6 +165,7 @@ const themeItems = ref<NavigationMenuItem[][]>([
   [
     {
       icon: 'i-lucide-sun-moon',
+      label: '',
       children: [
         {
           label: 'Light',
@@ -166,39 +187,52 @@ const themeItems = ref<NavigationMenuItem[][]>([
   ]
 ])
 
+setSystemTheme()
+
+import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
+
 </script>
 
 <template>
-  <MazAnimatedElement direction="down" :delay="1200" :duration="2000" class="sticky top-0 z-10">
-    <div data-maz-aos="fade-down" data-maz-aos-delay="600" data-maz-aos-once="true"
+  <MazAnimatedElement direction="down" :duration="2000"
+    class="sticky top-0 z-10">
+    <div
       class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48 border-b-2 border-accent sticky top-0 bg-white dark:bg-[var(--ui-bg)] z-10">
-      <a href="/" class="object-cover">
-        <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo" class="h-10 dark:invert-100 ml-5 p-1 pl-2 " />
-      </a>
-      <UNavigationMenu highlight highlight-color="neutral" color="neutral" orientation="horizontal" :items="middleItems"
-        :ui="{
-          viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
-          content: 'sm:w-auto',
-          childList: 'sm:w-96',
-          childLinkDescription: 'text-balance line-clamp-2'
-        }" class="w-full justify-center" />
-      <UNavigationMenu highlight highlight-color="neutral" color="neutral" orientation="horizontal" v-if="rightItems"
-        :items="rightItems" :ui="{
-          viewport: 'sm:w-(--reka-navigation-menu-viewport-width) mt-2',
-          content: 'sm:w-auto',
-          childList: 'sm:w-96',
-          childLinkDescription: 'text-balance line-clamp-2'
-        }" class="" />
-      <!-- Theme Switch -->
-      <USeparator orientation="vertical" class="h-8" />
-      <UNavigationMenu content-orientation="vertical" color="neutral" :items="themeItems"
-        class="relative flex w-auto justify-end" highlight="false" variant="link" trailing-icon=" " :ui="{
-          viewport: ' mt-2',
-          content: 'w-auto',
-          childList: 'w-auto',
-          childLabel: 'w-full',
-          childLinkDescription: 'line-clamp-1'
-        }" />
+      <MazAnimatedElement direction="right" :delay='1000' :duration="2000">
+        <a href="/" class="object-cover">
+          <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo"
+            class="h-10 dark:invert-100 ml-5 p-1 pl-2 " />
+        </a>
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="down" :delay="1000" :duration="2000"
+        class="w-full justify-center flex">
+        <UNavigationMenu highlight highlight-color="neutral" color="neutral"
+          orientation="horizontal" :items="middleItems" variant="link" :ui="{
+            viewport: 'mt-2 !px-70',
+            content: '',
+            childLink: 'bg-white hover:bg-gray-100',
+            childLinkDescription: 'text-balance line-clamp-2'
+          }" />
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="down" :delay="1000" :duration="2000"
+        class="relative flex w-auto justify-end">
+        <UNavigationMenu highlight highlight-color="neutral" color="neutral"
+          orientation="horizontal" v-if="rightItems" :items="rightItems" />
+        <!-- Theme Switch -->
+        <USeparator orientation="vertical" class="h-8 self-center ml-4" />
+        <UNavigationMenu content-orientation="vertical" color="neutral"
+          :items="themeItems" variant="link" trailing-icon=" " :ui="{
+            viewport: 'mt-2 pr-27',
+            content: 'w-auto',
+            childList: 'w-auto',
+            childLabel: 'w-full',
+            childLinkDescription: 'line-clamp-1'
+          }" class="relative flex w-auto justify-end">
+          <template #item="{ item }">
+            <UIcon :name="item.icon" class="mx-4" />
+          </template>
+        </UNavigationMenu>
+      </MazAnimatedElement>
     </div>
   </MazAnimatedElement>
 </template>

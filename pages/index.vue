@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
-
 const features = [
   {
     title: 'and more!',
@@ -10,20 +8,16 @@ const features = [
 ]
 
 import Faq from '../components/homeSections/faq.vue'
-import Footer from '../components/homeSections/footer.vue'
 import Plugins from '../components/homeSections/plugins.vue'
 import Customizability from '../components/homeSections/customizability.vue'
 import Landing from '../components/homeSections/landing.vue'
 </script>
 
 <template>
-  <div class="pb-120">
-    <Landing />
-    <Plugins />
-    <Customizability />
-    <Faq />
-    <Footer />
-  </div>
+  <Landing />
+  <Plugins />
+  <Customizability />
+  <Faq />
 </template>
 
 <style>
