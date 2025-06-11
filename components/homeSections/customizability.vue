@@ -199,11 +199,12 @@ import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
 
 <template>
   <div class="flex px-78 pt-62">
-    <div
-      class="flex flex-col justify-left items-center px-4 outline rounded-lg outline-gray-400">
-
-      <div class="">
-        <pre class="text-xs">
+    <MazAnimatedElement direction="right" :delay="1100" :duration="2000"
+      class="inline">
+      <div
+        class="flex flex-col justify-left items-center px-4 outline rounded-lg outline-gray-400">
+        <div class="">
+          <pre class="text-xs">
       <code>
       ...
 
@@ -211,32 +212,52 @@ import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
 
       ...
       </code></pre>
-        <div
-          class="flex justify-around p-4 outline rounded-xl rounded-b-none outline-gray-400">
-          Windows 11 Light <div>
-            <div
-              class="bg-gray-600 opacity-70 py-1 px-2 rounded-xl hover:bg-black">
-              <UIcon name="i-lucide-download" class="size-5 bg-white" />
+          <div
+            class="flex justify-around p-4 outline rounded-xl rounded-b-none outline-gray-400">
+            Windows 11 Light <div>
+              <div
+                class="bg-gray-600 opacity-70 py-1 px-2 rounded-xl hover:bg-black">
+                <UIcon name="i-lucide-download" class="size-5 bg-white" />
+              </div>
             </div>
           </div>
         </div>
-
-
       </div>
-
-    </div>
+    </MazAnimatedElement>
 
     <div class="flex-2 w-full flex flex-col items-center pr-4 rounded-lg">
+      <div class="font-bold text-4xl text-center varela">
+        <MazAnimatedElement direction="up" :delay="600" :duration="700"
+          class="inline">
+          Customizable GUI &
+          functionality
+        </MazAnimatedElement>
 
-      <MazAnimatedText tag="p" text="Customizable GUI & functionality"
-        :delay="200" :duration="2000" direction="up" :column-gap="0.2"
-        :row-gap="0.2" class="font-bold text-4xl text-center varela" />
-      <MazAnimatedText tag="p"
-        text="Flexible, with an intuitive file-based configuration" :delay="200"
-        :duration="2000" direction="up" :column-gap="0.2" :row-gap="0.2"
-        class="outfit text-gray-500 dark:text-gray-400 mb-10" />
+      </div>
+      <div class="mb-4 outfit">
+        <p class="text-gray-500 dark:text-gray-400 mb-6">
+          <MazAnimatedElement direction="up" :delay="700" :duration="700"
+            class="inline">Flexible,
+          </MazAnimatedElement>
+          <MazAnimatedElement direction="up" :delay="750" :duration="700"
+            class="inline">with
+          </MazAnimatedElement>
+          <MazAnimatedElement direction="up" :delay="800" :duration="700"
+            class="inline">an
+          </MazAnimatedElement>
+          <MazAnimatedElement direction="up" :delay="850" :duration="700"
+            class="inline">intuitive
+          </MazAnimatedElement>
+          <MazAnimatedElement direction="up" :delay="900" :duration="700"
+            class="inline">file-based
+          </MazAnimatedElement>
+          <MazAnimatedElement direction="up" :delay="950" :duration="700"
+            class="inline">configuration
+          </MazAnimatedElement>
+        </p>
+      </div>
 
-      <MazAnimatedElement direction="up" :delay="975" :duration="2000"
+      <MazAnimatedElement direction="left" :delay="1100" :duration="2000"
         class="justify-center">
         <UCarousel ref="carousel" v-slot="{ item }" arrows auto-height dots
           :items="galleryitems" :prev="{ onClick: onClickPrev }"

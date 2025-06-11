@@ -5,17 +5,33 @@ import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
 
 <template>
   <div class="text-center mt-16 outfit">
-    <MazAnimatedElement direction="up" :delay="2200" :duration="2000">
+    <MazAnimatedElement direction="up" :delay="1200" :duration="700">
       <img src="~/assets/media/QuokkaTextLogo.svg"
         class="w-62 mx-auto my-0 dark:invert-100">
     </MazAnimatedElement>
-    <MazAnimatedText tag="p"
-      text="A customizable keystroke launcher with plugins" :delay="2500"
-      :duration="2000" direction="up" :column-gap="0.2" :row-gap="0.2"
-      class="outfit text-gray-500 dark:text-gray-400 mb-6" />
+    <p class="text-gray-500 dark:text-gray-400 mb-6">
+      <MazAnimatedElement direction="up" :delay="1400" :duration="700"
+        class="inline">A
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="up" :delay="1450" :duration="700"
+        class="inline">customizable
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="up" :delay="1500" :duration="700"
+        class="inline">keystroke
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="up" :delay="1550" :duration="700"
+        class="inline">launcher
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="up" :delay="1600" :duration="700"
+        class="inline">with
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="up" :delay="1650" :duration="700"
+        class="inline">plugins
+      </MazAnimatedElement>
+    </p>
   </div>
 
-  <MazAnimatedElement direction="up" :delay="3000" :duration="2000">
+  <MazAnimatedElement direction="up" :delay="1900" :duration="700">
     <div class="flex p-78 py-0">
       <div style="border-radius: 60px; overflow: hidden;">
         <div class="overflow-hidden rounded-[60px] -m-4">
