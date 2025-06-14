@@ -91,46 +91,46 @@ const middleItems = ref<NavigationMenuItem[][]>([
           label: 'Installation',
           description: 'Requirements, steps & suggestions',
           icon: 'i-lucide-loader',
-          to: '/documentation#doc1'
+          to: '/documentation?section=installation'
         },
         {
           label: 'How to Use',
           description: 'The tray task, plugins & command types',
           icon: 'i-lucide-pointer',
-          to: '/documentation#doc2'
+          to: '/documentation?section=use'
         },
         {
           label: 'Settings',
           icon: 'i-lucide-sliders-vertical',
           description: 'Defaults & extra information',
-          to: '/documentation#doc3'
+          to: '/documentation?section=settings'
         },
         {
           label: 'Building the app',
           icon: 'i-lucide-drill',
           description: 'Steps to produce the published release',
-          to: '/documentation#doc4'
+          to: '/documentation?section=build-app'
         },
         {
           label: 'API Documentation',
           icon: 'i-lucide-code',
           description:
             'Documentation generated from source files',
-          to: '/documentation#doc5'
+          to: '/documentation?section=api-documentation'
         },
         {
           label: 'Creating a plugin',
           icon: 'i-lucide-toy-brick',
           description:
             'Creating new item types & producing their plugin ',
-          to: '/documentation#doc6'
+          to: '/documentation?section=create-plugin'
         },
         {
           label: 'FAQ by Developers',
           icon: 'i-lucide-circle-help',
           description:
             'Answers to frequently asked questions',
-          to: '/documentation#doc7'
+          to: '/documentation?section=faq'
         }
       ]
     },
@@ -148,8 +148,11 @@ import { useThemeHandler } from 'maz-ui'
 const {
   setDarkTheme,
   setLightTheme,
-  setSystemTheme
-} = useThemeHandler()
+  setSystemTheme,
+  autoSetTheme
+} = useThemeHandler({
+  watchChanges: true,
+})
 
 function toggleTheme(theme) {
   if (theme == 1) {
@@ -187,10 +190,7 @@ const themeItems = ref<NavigationMenuItem[][]>([
   ]
 ])
 
-setSystemTheme()
-
-import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
-
+autoSetTheme()
 </script>
 
 <template>

@@ -1,9 +1,185 @@
-<script>
-// API docs frame theme change scripts in old site commits and possibly css
+<script setup>
+//applying the right theme to the doc in the iframe and showing the frame
+function applyThemeToAPIFrame() {
+  APIframe.value.contentDocument.getElementsByTagName(
+    "html"
+  )[0].dataset.bsTheme = themeHandler.selectedTheme.value;
+  //cursor styles
+  APIframe.value.contentDocument.body.style.cursor =
+    "url(../../Resources/" + themeHandler.selectedTheme.value + "Point.cur),auto";
+  for (var a of APIframe.value.contentDocument.body.getElementsByTagName(
+    "a"
+  )) {
+    a.style.cursor = "url(../../Resources/" + themeHandler.selectedTheme.value + "Click.cur),auto";
+  }
+}
+
+//used to detect iframe url change - run callback before iframe loads new doc
+function iframeURLChange(iframe, callback) {
+  var unloadHandler = function () {
+    // Timeout needed because the URL changes immediately after
+    // the `unload` event is dispatched.
+    setTimeout(function () {
+      callback(iframe, iframe.contentWindow.location.href);
+    }, 0);
+  };
+  function attachUnload() {
+    // Remove the unloadHandler in case it was already attached.
+    // Otherwise, the change will be dispatched twice.
+    iframe.contentWindow.removeEventListener("unload", unloadHandler);
+    iframe.contentWindow.addEventListener("unload", unloadHandler);
+  }
+  iframe.addEventListener("load", attachUnload);
+  attachUnload();
+}
+
+import { watch, onMounted } from 'vue'
+import { useThemeHandler } from 'maz-ui'
+const themeHandler = useThemeHandler({
+  watchChanges: true,
+})
+const APIframe = ref(null)
+onMounted(() => {
+  //when the iframe has loaded the doc, apply theme and show it
+  APIframe.value.addEventListener("load", applyThemeToAPIFrame);
+  //when user switches page theme, change theme of doc in iframe as well
+  watch(themeHandler.selectedTheme, async (_newTheme, _oldTheme) => applyThemeToAPIFrame())
+  //hide the iframe when the url changes since the theme needs to be applied (prevents flashing of white bg when in dark mode)
+  iframeURLChange(APIframe.value, function (iframe, url) {
+    applyThemeToAPIFrame();
+  });
+
+})
+
+
+
+
+const route = useRoute()
+console.log(route.query.section);
+
+const toc = [
+  {
+    title: 'Installation',
+    icon: 'i-lucide-loader',
+    section: 'installation',
+    children: []
+  },
+  {
+    title: 'How to Use',
+    icon: 'i-lucide-pointer',
+    section: 'use',
+    children: [
+      {
+        title: 'General Usage',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Tray task',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Plugins',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Commands ?',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+    ]
+  },
+  {
+    title: 'Settings',
+    icon: 'i-lucide-sliders-vertical',
+    section: 'settings',
+    children: []
+  },
+  {
+    title: 'Building the app',
+    icon: 'i-lucide-drill',
+    section: 'build-app',
+    children: []
+  },
+  {
+    title: 'API Documentation',
+    icon: 'i-lucide-code',
+    section: "api-documentation",
+    children: []
+  },
+  {
+    title: 'Creating a plugin',
+    icon: 'i-lucide-toy-brick',
+    section: 'create-plugin',
+    children: [
+      {
+        title: 'Creating the project',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Creating a new item type',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Creating a context pane',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+      {
+        title: 'Creating the plugin',
+        icon: 'i-lucide-pointer',
+        section: 'use'
+      },
+    ]
+  },
+  {
+    title: 'FAQ by Developers',
+    icon: 'i-lucide-circle-help',
+    description:
+      'Answers to frequently asked questions',
+    to: '/documentation?section=faq'
+  }
+]
+
+function switchSection(section) {
+  console.log(section);
+}
 </script>
 
 <template>
-  <h1 id="doc1">
+  <div class="flex flex-row">
+    <div class="basis-1/4">
+      <MazAnimatedElement direction="down" :delay="500" :duration="2000"
+        class="m-4" v-for="(s, i) in toc" :key="i">
+        <MazAccordion class="w-full">
+          <template #title-1>
+            <a @click="switchSection(s.section)">
+              <MazAnimatedElement direction="right" :delay="1900"
+                :duration="2000">
+                <UIcon :name="s.icon" />
+                <p>
+                  {{ s.title }}
+                </p>
+              </MazAnimatedElement>
+            </a>
+          </template>
+          <template #content-1>
+            <MazAnimatedElement direction="right" :delay="400" :duration="700">
+              <!-- <p v-if="s.children.length > 0">
+                there
+              </p> -->
+            </MazAnimatedElement>
+          </template>
+        </MazAccordion>
+      </MazAnimatedElement>
+    </div>
+    <div class="basis-3/4 content">02</div>
+  </div>
+  <h1>
     <UIcon name="i-lucide-loader" /> Installation
   </h1>
   <div>
@@ -47,7 +223,7 @@
         Task Scheduler. Alternatively see the <a href=''>FAQ</a> on this.</li>
     </ul>
   </div>
-  <h1 id="doc2">
+  <h1>
     <UIcon name="i-lucide-pointer" /> How to use
   </h1>
   <div>
@@ -321,7 +497,7 @@
     </div>
   </div>
 
-  <h1 id="doc3">
+  <h1>
     <UIcon name="i-lucide-sliders-vertical" /> Settings
   </h1>
   <div>
@@ -381,7 +557,7 @@
       </tbody>
     </table>
   </div>
-  <h1 id="doc4">
+  <h1>
     <UIcon name="i-lucide-drill" /> Building the app
   </h1>
   <div>
@@ -407,13 +583,16 @@
       </li>
     </ol>
   </div>
-  <h1 id="doc5">
+  <h1>
     <UIcon name="i-lucide-code" /> API documentation
   </h1>
   <div>
-    <!-- <iframe src="APIdocs/api/Quokka.html" class="w-96 h-52"></iframe> -->
+    <div class="w-full h-[70vh] !border-0">
+      <iframe ref="APIframe" src="APIdocs/api/Quokka.html"
+        class="w-full h-full"></iframe>
+    </div>
   </div>
-  <h1 id="doc6">
+  <h1>
     <UIcon name="i-lucide-toy-brick" /> Creating a plugin
   </h1>
   <div>
@@ -436,34 +615,37 @@
           <br />
           <textarea disabled>
 
-        <Project Sdk="Microsoft.NET.Sdk">
+          <Project Sdk="Microsoft.NET.Sdk">
 
-          <PropertyGroup>
-            <TargetFramework>net6.0-windows</TargetFramework>
-            <Nullable>enable</Nullable>
-            <UseWPF>true</UseWPF>
-            <PublishSingleFile>true</PublishSingleFile>
-            <SelfContained>true</SelfContained>
-            <DebugType>embedded</DebugType>
-            <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-            <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+            <PropertyGroup>
+              <TargetFramework>net6.0-windows</TargetFramework>
+              <Nullable>enable</Nullable>
+              <UseWPF>true</UseWPF>
+              <PublishSingleFile>true</PublishSingleFile>
+              <SelfContained>true</SelfContained>
+              <DebugType>embedded</DebugType>
+              <AppendTargetFrameworkToOutputPath>false
+              </AppendTargetFrameworkToOutputPath>
+              <AppendRuntimeIdentifierToOutputPath>false
+              </AppendRuntimeIdentifierToOutputPath>
 
-            <Product>Plugin_ShowTypedText</Product>
-            <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_ShowTypedText</BaseOutputPath>
-            <Configurations>Debug;Release;Plugin</Configurations>
-          </PropertyGroup>
+              <Product>Plugin_ShowTypedText</Product>
+              <BaseOutputPath>G:\Quokka\Quokka\PlugBoard\Plugin_ShowTypedText
+              </BaseOutputPath>
+              <Configurations>Debug;Release;Plugin</Configurations>
+            </PropertyGroup>
 
-          <PropertyGroup>
-            <GenerateDocumentationFile>true</GenerateDocumentationFile>
-            <PlatformTarget>AnyCPU</PlatformTarget>
-          </PropertyGroup>
+            <PropertyGroup>
+              <GenerateDocumentationFile>true</GenerateDocumentationFile>
+              <PlatformTarget>AnyCPU</PlatformTarget>
+            </PropertyGroup>
 
-          <ItemGroup>
-            <ProjectReference Include="..\Quokka\Quokka.csproj" />
-          </ItemGroup>
+            <ItemGroup>
+              <ProjectReference Include="..\Quokka\Quokka.csproj" />
+            </ItemGroup>
 
-        </Project>
-      </textarea>
+          </Project>
+        </textarea>
           <blockquote>
             This is a part of the
             <a
@@ -488,32 +670,33 @@
           In the .cs file add
           <br />
           <textarea disabled style="height: 5vh;">
-        using Quokka.PluginArch;
-        using Quokka.ListItems;
-      </textarea>
+          using Quokka.PluginArch;
+          using Quokka.ListItems;
+        </textarea>
         </li>
         <li>
           Create a ListItem class for your item type
           <br />
           <textarea disabled>
-        class TypedTextItem : ListItem {
+          class TypedTextItem : ListItem {
           public string query;
 
           public TypedTextItem(string query) {
-            this.Name = "Typed:" + query;
-            this.query = query;
-            this.Description = "The search field contains the above text";
-            this.Icon = new BitmapImage(new Uri(
-                Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
+          this.Name = "Typed:" + query;
+          this.query = query;
+          this.Description = "The search field contains the above text";
+          this.Icon = new BitmapImage(new Uri(
+          Environment.CurrentDirectory +
+          "\\Config\\Resources\\information.png"));
           }
 
           //When item is selected, copy text
           public override void Execute() {
-              Clipboard.SetText(query);
-              App.Current.MainWindow.Close();
+          Clipboard.SetText(query);
+          App.Current.MainWindow.Close();
           }
-        }
-      </textarea>
+          }
+        </textarea>
           <blockquote>
             This is a part of the
             <a
@@ -559,18 +742,18 @@
           Ensure the plugin's project file has:
           <textarea disabled style="height: 20vh">
 
-        <ItemGroup>
-          <Compile Update="ContextPane.xaml.cs">
-            <SubType>Code</SubType>
-          </Compile>
-        </ItemGroup>
+          <ItemGroup>
+            <Compile Update="ContextPane.xaml.cs">
+              <SubType>Code</SubType>
+            </Compile>
+          </ItemGroup>
 
-        <ItemGroup>
-          <Page Update="ContextPane.xaml">
-            <SubType>Designer</SubType>
-          </Page>
-        </ItemGroup>
-      </textarea>
+          <ItemGroup>
+            <Page Update="ContextPane.xaml">
+              <SubType>Designer</SubType>
+            </Page>
+          </ItemGroup>
+        </textarea>
         </li>
       </ol>
     </div>
@@ -581,12 +764,12 @@
       <textarea disabled style="height: 20vh">
 
       public partial class ContextPane : ItemContextPane {
-        public ContextPane() {
-          InitializeComponent();
-          base.ReturnToSearch();
-        }
+      public ContextPane() {
+      InitializeComponent();
+      base.ReturnToSearch();
       }
-  </textarea>
+      }
+    </textarea>
       <textarea disabled style="
       height: 20vh;
       width: 90%;
@@ -595,140 +778,138 @@
       border: 1px solid #bbb;
     ">
 
-    <src:ItemContextPane
-      x:Class="Plugin_ShowTypedText.ContextPane"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
-      Title="ContextPane"
-      d:DesignHeight="300"
-      d:DesignWidth="800">
+      <src:ItemContextPane x:Class="Plugin_ShowTypedText.ContextPane"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
+        Title="ContextPane" d:DesignHeight="300" d:DesignWidth="800">
 
-      <Grid />
+        <Grid />
 
-    </src:ItemContextPane>
+      </src:ItemContextPane>
 
-  </textarea>
+    </textarea>
     </div>
 
     <div>
       If your context pane is visible, you may want to add extra information or
       actions like the following does:
       <textarea disabled style="height: 20vh">
-    <src:ItemContextPane
-      x:Class="Plugin_ShowTypedText.ContextPane"
-      xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
-      d:DesignHeight="300"
-      d:DesignWidth="800"
-      ...
-      Title="ContextPane"
-      KeyDown="Page_KeyDown">
+      <src:ItemContextPane x:Class="Plugin_ShowTypedText.ContextPane"
+        xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
+        d:DesignHeight="300" d:DesignWidth="800" ... Title="ContextPane"
+        KeyDown="Page_KeyDown">
 
-      <Border ...>
+        <Border ...>
 
-          <Grid Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+          <Grid Margin="10" VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+            ...
+
+            <Grid Grid.Column="0">
 
               ...
 
-              <Grid Grid.Column="0">
+              <Image Grid.Row="0" x:Name="DetailsImage" />
+              <TextBlock TextWrapping="Wrap"
+                Text="You typed the text after 'Typed:'" Grid.Row="1"
+                Padding="10" />
+              <TextBlock TextWrapping="Wrap" Text="" Grid.Row="2" x:Name="text"
+                Padding="10" />
+            </Grid>
 
-                  ...
+            <Grid Grid.Column="1">
 
-                  <Image Grid.Row="0" x:Name="DetailsImage"/>
-                  <TextBlock TextWrapping="Wrap"
-                      Text="You typed the text after 'Typed:'" Grid.Row="1" Padding="10"/>
-                  <TextBlock TextWrapping="Wrap"
-                      Text="" Grid.Row="2" x:Name="text" Padding="10"/>
-              </Grid>
+              <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                HorizontalContentAlignment="Center" x:Name="ButtonsListView">
 
-              <Grid Grid.Column="1">
+                <ui:Button Content="Copy the text" Padding="10"
+                  Click="CopyText" />
+                <ui:Button Content="Another 'Copy the text' button" Padding="10"
+                  Click="CopyText" />
+                <ui:Button Content="Another 'Copy the text' button" Padding="10"
+                  Click="CopyText" />
+              </ListView>
 
-                  <ListView
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      HorizontalContentAlignment="Center" x:Name="ButtonsListView">
-
-                      <ui:Button Content="Copy the text" Padding="10" Click="CopyText"/>
-                      <ui:Button Content="Another 'Copy the text' button"
-                          Padding="10"  Click="CopyText"/>
-                      <ui:Button Content="Another 'Copy the text' button"
-                          Padding="10"  Click="CopyText"/>
-                  </ListView>
-
-              </Grid>
+            </Grid>
           </Grid>
-      </Border>
-  </src:ItemContextPane>
-  </textarea>
+        </Border>
+      </src:ItemContextPane>
+    </textarea>
       <textarea disabled>
-  using Quokka;
-...
+      using Quokka;
+      ...
 
-namespace Plugin_ShowTypedText {
+      namespace Plugin_ShowTypedText {
 
-    public partial class ContextPane : ItemContextPane {
+      public partial class ContextPane : ItemContextPane {
 
-        private Quokka.ListItem Item;
+      private Quokka.ListItem Item;
 
-        public ContextPane() {
-            InitializeComponent();
-            this.Item = (Application.Current.MainWindow as SearchWindow).SelectedItem;
-            DetailsImage.Source = this.Item.icon;
-            text.Text = Item.name;
-        }
+      public ContextPane() {
+      InitializeComponent();
+      this.Item = (Application.Current.MainWindow as SearchWindow).SelectedItem;
+      DetailsImage.Source = this.Item.icon;
+      text.Text = Item.name;
+      }
 
-        ...
+      ...
 
-        protected override void Page_KeyDown(object sender, KeyEventArgs e) {
-            ButtonsListView.Focus();
-            switch (e.Key){
-                case Key.Enter:
+      protected override void Page_KeyDown(object sender, KeyEventArgs e) {
+      ButtonsListView.Focus();
+      switch (e.Key){
+      case Key.Enter:
 
-                    if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
+      if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex =
+      0;
 
-                    Wpf.Ui.Controls.Button currentButton =
-                        (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
-                    currentButton.RaiseEvent(new
-                        RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
-                    break;
-                case Key.Down:
-                    if ((ButtonsListView.SelectedIndex == -1)) {
-                        ButtonsListView.SelectedIndex = 1;
-                    } else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count - 1) {
-                        ButtonsListView.SelectedIndex = 0;
-                    } else {
-                        ButtonsListView.SelectedIndex++;
-                    }
-                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
-                    break;
-                case Key.Up:
-                    if ((ButtonsListView.SelectedIndex == -1) ||
-                        (ButtonsListView.SelectedIndex == 0)) {
+      Wpf.Ui.Controls.Button currentButton =
+      (ButtonsListView.SelectedItem as Wpf.Ui.Controls.Button);
+      currentButton.RaiseEvent(new
+      RoutedEventArgs(Wpf.Ui.Controls.Button.ClickEvent));
+      break;
+      case Key.Down:
+      if ((ButtonsListView.SelectedIndex == -1)) {
+      ButtonsListView.SelectedIndex = 1;
+      } else if (ButtonsListView.SelectedIndex == ButtonsListView.Items.Count -
+      1) {
+      ButtonsListView.SelectedIndex = 0;
+      } else {
+      ButtonsListView.SelectedIndex++;
+      }
+      ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+      break;
+      case Key.Up:
+      if ((ButtonsListView.SelectedIndex == -1) ||
+      (ButtonsListView.SelectedIndex == 0)) {
 
-                        ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
+      ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
 
-                    } else {
-                        ButtonsListView.SelectedIndex--;
-                    }
-                    ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
-                    break;
-                case Key.Apps: //This is the menu key
-                    (Application.Current.MainWindow as SearchWindow).contextPane.Visibility
-                        = Visibility.Collapsed;
-                    (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
+      } else {
+      ButtonsListView.SelectedIndex--;
+      }
+      ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
+      break;
+      case Key.Apps: //This is the menu key
+      (Application.Current.MainWindow as SearchWindow).contextPane.Visibility
+      = Visibility.Collapsed;
+      (Application.Current.MainWindow as SearchWindow).searchBox.Focus();
 
-                    //makes showing a new pane more reliable
-                    (Application.Current.MainWindow as SearchWindow).contextPane.Source = null;
-                    break;
-                default:
-                    return;
-            }
-            e.Handled = true;
-        }
-    }
-}
-  </textarea>
+      //makes showing a new pane more reliable
+      (Application.Current.MainWindow as SearchWindow).contextPane.Source =
+      null;
+      break;
+      default:
+      return;
+      }
+      e.Handled = true;
+      }
+      }
+      }
+    </textarea>
       <blockquote>
         This is a part of the
         <a
@@ -742,37 +923,37 @@ namespace Plugin_ShowTypedText {
     <div>
       In the same .cs file, create a class that inherits from IPlugger;<br />
       <textarea disabled>
-        public partial class ShowTypedText : IPlugger {
+      public partial class ShowTypedText : IPlugger {
 
-          public ShowTypedText() {}
+      public ShowTypedText() {}
 
-          public string PluggerName { get; set; } = "ShowTypedText";
+      public string PluggerName { get; set; } = "ShowTypedText";
 
-          /// <summary>
-          /// This will get called when user types a query into the search field
-          /// </summary>
-          public List<ListItem> OnQueryChange(string query) {
-              List<ListItem> ItemList = new List<ListItem>();
-              ItemList.Add(new ShowTypedTextItem(query));
-              return ItemList;
-          }
+      /// <summary>
+        /// This will get called when user types a query into the search field
+        /// </summary>
+      public List<ListItem> OnQueryChange(string query) {
+        List<ListItem> ItemList = new List<ListItem>();
+            ItemList.Add(new ShowTypedTextItem(query));
+            return ItemList;
+            }
 
-          public List<String> SpecialCommands() {
+            public List<String> SpecialCommands() {
               return new List<String>();
-          }
+                }
 
-          public List<ListItem> OnSpecialCommand(string command) {
-              return new List<ListItem>();
-          }
+                public List<ListItem> OnSpecialCommand(string command) {
+                  return new List<ListItem>();
+                    }
 
-          public void OnAppStartup() { }
+                    public void OnAppStartup() { }
 
-          public void OnAppShutdown() { }
+                    public void OnAppShutdown() { }
 
-          public void OnSearchWindowStartup() { }
+                    public void OnSearchWindowStartup() { }
 
-        }
-      </textarea>
+                    }
+    </textarea>
       <blockquote>
         This is a part of the
         <a
@@ -795,7 +976,7 @@ namespace Plugin_ShowTypedText {
       plugins the program is using during runtime.
     </div>
   </div>
-  <h1 id="doc7">
+  <h1>
     <UIcon name="i-lucide-circle-help" /> FAQ by Developers
   </h1>
   <div>
@@ -865,7 +1046,7 @@ h1 span {
   margin-bottom: 3px;
 }
 
-div {
+content div {
   border: 1px solid gray;
   border-radius: 30px;
   margin: 1rem;

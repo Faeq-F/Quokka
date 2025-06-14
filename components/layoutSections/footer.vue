@@ -82,7 +82,7 @@ const links = [
 ]
 
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
-import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
+
 </script>
 
 <template>

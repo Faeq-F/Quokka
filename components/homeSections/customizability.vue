@@ -194,7 +194,7 @@ function onSelect(index: number) {
 }
 
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
-import MazAnimatedText from 'maz-ui/components/MazAnimatedText'
+
 </script>
 
 <template>
