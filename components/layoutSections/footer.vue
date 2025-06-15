@@ -190,7 +190,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
                 </MazAnimatedElement>
               </div>
               <ul>
-                <li class="opacity-55 hover:opacity-75"
+                <li class="opacity-55 hover:opacity-75 ml-2"
                   v-for="(link, i) in section.links" :key="i">
                   <div v-if="link.text == ''" class="h-8">
                   </div>

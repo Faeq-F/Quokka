@@ -31,4 +31,41 @@
   filter: invert(100);
 }
 
-/*Add cursors from old site*/
+.maz-elevation {
+  box-shadow: none !important;
+}
+
+/*
+  Cursors by GeorgiosNexus (Light cursors) & AKGAMER (Dark cursors)
+  http://www.rw-designer.com/cursor-set/windows-11-light-theme
+  http://www.rw-designer.com/cursor-set/windows-11-dark-theme
+*/
+
+textarea,
+label,
+html {
+  cursor: url(../cursors/lightPoint.cur),
+    auto !important;
+}
+
+button,
+input,
+a {
+  cursor: url(../cursors/lightClick.cur),
+    auto !important;
+}
+
+
+.dark textarea,
+.dark label,
+html.dark {
+  cursor: url(../cursors/darkPoint.cur),
+    auto !important;
+}
+
+.dark button,
+.dark input,
+.dark a {
+  cursor: url(../cursors/darkClick.cur),
+    auto !important;
+}

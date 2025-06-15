@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { ref } from 'vue';
-import { usePluginsStore } from '../../stores/plugins'
 import { useFetch } from 'nuxt/app';
-
-// const plugins = usePluginsStore() {{ plugins.pluginsList }}
 
 let githubStars;
 let rightItems;
@@ -40,7 +37,7 @@ const middleItems = ref<NavigationMenuItem[][]>([
       label: 'Plugins',
       icon: 'i-lucide-box',
       to: '/plugin',
-
+      active: false,
       defaultOpen: true,
       children: [
         {

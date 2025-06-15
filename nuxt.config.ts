@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     head: {
       link: [{ rel: "icon", type: "image/svg", href: "/QuokkaLogo.svg" }],
     },
-    // pageTransition: { name: 'page', mode: 'out-in' }
   },
   css: [
     "~/assets/css/main.css",

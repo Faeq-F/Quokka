@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { usePluginsStore } from '../../stores/plugins.ts';
 const plugins = usePluginsStore()
-const topPlugins = plugins.pluginsList.slice(0, 9)
-
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 </script>
 
@@ -52,7 +50,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     <MazAnimatedElement direction="down" :duration="20" :delay="1500">
       <MazCarousel hideScrollbar>
         <MazAnimatedElement direction="right" :delay="1500" :duration="1500"
-          v-for="(plugin, i) in topPlugins" :key="plugin.name">
+          v-for="(plugin, i) in plugins.getTopPlugins()" :key="plugin.name">
           <MazCardSpotlight style="min-width: 250px;box-shadow: none;"
             class="w-72">
             <MazCard :images="[

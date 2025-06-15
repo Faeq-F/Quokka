@@ -110,9 +110,3 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     </MazAnimatedElement>
   </div>
 </template>
-
-<style scoped>
-.m-card-spotlight {
-  box-shadow: none !important;
-}
-</style>

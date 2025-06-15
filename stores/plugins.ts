@@ -158,8 +158,8 @@ export const usePluginsStore = defineStore("pluginsStore", {
     ],
   }),
   actions: {
-    test() {
-      console.log("test action called");
+    getTopPlugins() {
+      return this.pluginsList.slice(0, 9);
     },
   },
 });
