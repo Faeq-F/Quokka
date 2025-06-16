@@ -35,6 +35,19 @@
   box-shadow: none !important;
 }
 
+.m-input-wrapper {
+  overflow: visible !important;
+  z-index: 3 !important;
+}
+
+.m-select-list{
+  --maz-border-color: #e5e7eb;
+}
+
+.m-select .maz-border-primary {
+  border-color: transparent !important;
+}
+
 /*
   Cursors by GeorgiosNexus (Light cursors) & AKGAMER (Dark cursors)
   http://www.rw-designer.com/cursor-set/windows-11-light-theme

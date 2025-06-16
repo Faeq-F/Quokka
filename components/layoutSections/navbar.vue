@@ -2,6 +2,8 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { ref } from 'vue';
 import { useFetch } from 'nuxt/app';
+import { useMiddleNavbarItems } from '../../stores/navbar'
+const middleItems = useMiddleNavbarItems()
 
 let githubStars;
 let rightItems;
@@ -27,117 +29,6 @@ rightItems = ref<NavigationMenuItem[][]>([
       target: '_blank'
     },
   ]
-])
-
-
-
-const middleItems = ref<NavigationMenuItem[][]>([
-  [
-    {
-      label: 'Plugins',
-      icon: 'i-lucide-box',
-      to: '/plugin',
-      active: false,
-      defaultOpen: true,
-      children: [
-        {
-          label: 'Link',
-          icon: 'i-lucide-file-text',
-          description: 'Use NuxtLink with superpowers.',
-          to: '/plugin/link'
-        },
-        {
-          label: 'Modal',
-          icon: 'i-lucide-file-text',
-          description: 'Display a modal within your application.',
-          to: '/plugin/modal'
-        },
-        {
-          label: 'NavigationMenu',
-          icon: 'i-lucide-file-text',
-          description: 'Display a list of links.',
-          to: '/plugin/navigation-menu'
-        },
-        {
-          label: 'Pagination',
-          icon: 'i-lucide-file-text',
-          description: 'Display a list of pages.',
-          to: '/plugin/pagination'
-        },
-        {
-          label: 'Popover',
-          icon: 'i-lucide-file-text',
-          description: 'Display a non-modal dialog that floats around a trigger element.',
-          to: '/plugin/popover'
-        },
-        {
-          label: 'Progress',
-          icon: 'i-lucide-file-text',
-          description: 'Show a horizontal bar to indicate task progression.',
-          to: '/plugin/progress'
-        }
-      ]
-    },
-    {
-      label: 'Documentation',
-      icon: 'i-lucide-book-open',
-      to: '/documentation',
-      active: false,
-      children: [
-        {
-          label: 'Installation',
-          description: 'Requirements, steps & suggestions',
-          icon: 'i-lucide-loader',
-          to: '/documentation?section=installation'
-        },
-        {
-          label: 'How to Use',
-          description: 'The tray task, plugins & command types',
-          icon: 'i-lucide-pointer',
-          to: '/documentation?section=use'
-        },
-        {
-          label: 'Settings',
-          icon: 'i-lucide-sliders-vertical',
-          description: 'Defaults & extra information',
-          to: '/documentation?section=settings'
-        },
-        {
-          label: 'Building the app',
-          icon: 'i-lucide-drill',
-          description: 'Steps to produce the published release',
-          to: '/documentation?section=build-app'
-        },
-        {
-          label: 'API Documentation',
-          icon: 'i-lucide-code',
-          description:
-            'Documentation generated from source files',
-          to: '/documentation?section=api-documentation'
-        },
-        {
-          label: 'Creating a plugin',
-          icon: 'i-lucide-toy-brick',
-          description:
-            'Creating new item types & producing their plugin ',
-          to: '/documentation?section=create-plugin'
-        },
-        {
-          label: 'FAQ by Developers',
-          icon: 'i-lucide-circle-help',
-          description:
-            'Answers to frequently asked questions',
-          to: '/documentation?section=faq'
-        }
-      ]
-    },
-    {
-      label: 'FAQ',
-      icon: 'i-lucide-circle-help',
-      to: "/#faq",
-      active: false
-    }
-  ],
 ])
 
 import { useThemeHandler } from 'maz-ui'
@@ -204,7 +95,8 @@ autoSetTheme()
       <MazAnimatedElement direction="down" :delay="700" :duration="700"
         class="w-full justify-center flex">
         <UNavigationMenu highlight highlight-color="neutral" color="neutral"
-          orientation="horizontal" :items="middleItems" variant="link" :ui="{
+          orientation="horizontal" :items="middleItems.items" variant="link"
+          :ui="{
             viewport: 'mt-2 !px-70',
             content: '',
             childLink: 'bg-white hover:bg-gray-100',
