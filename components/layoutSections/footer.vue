@@ -96,7 +96,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
             <div class="flex items-center">
               <div>
                 <MazAnimatedElement direction="up" :delay="600" :duration="700">
-                  <img src="~/assets/media/QuokkaLogo.svg"
+                  <img src="/media/QuokkaLogo.svg"
                     class="w-10 h-10 dark:invert-100 opacity-70" />
                 </MazAnimatedElement>
               </div>

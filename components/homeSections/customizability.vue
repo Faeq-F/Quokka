@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const galleryitems = [
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
-  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
+  '/media/AppScreenshots/AllApps.png',
 ]
 
 const codeItems = [

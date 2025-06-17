@@ -6,7 +6,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 <template>
   <div class="text-center mt-16 outfit">
     <MazAnimatedElement direction="up" :delay="1200" :duration="700">
-      <img src="~/assets/media/QuokkaTextLogo.svg"
+      <img src="/media/QuokkaTextLogo.svg"
         class="w-62 mx-auto my-0 dark:invert-100">
     </MazAnimatedElement>
     <p class="text-gray-500 dark:text-gray-400 mb-6">
@@ -35,7 +35,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     <div class="flex p-78 py-0">
       <div style="border-radius: 60px; overflow: hidden;">
         <div class="overflow-hidden rounded-[60px] -m-4">
-          <video src="~/assets/media/HomePageVideo.mp4" autoplay loop
+          <video src="/media/HomePageVideo.mp4" autoplay loop
             class="w-screen"></video>
         </div>
       </div>

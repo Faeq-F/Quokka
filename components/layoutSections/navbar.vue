@@ -88,7 +88,7 @@ autoSetTheme()
       class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48 border-b-2 border-accent sticky top-0 bg-white dark:bg-[var(--ui-bg)] z-10">
       <MazAnimatedElement direction="right" :delay='300' :duration="700">
         <a href="/" class="object-cover">
-          <img src="~/assets/media/QuokkatextLogo.svg" alt="Quokka Logo"
+          <img src="/media/QuokkatextLogo.svg" alt="Quokka Logo"
             class="h-10 dark:invert-100 ml-5 p-1 pl-2 " />
         </a>
       </MazAnimatedElement>

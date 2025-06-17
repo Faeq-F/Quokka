@@ -672,7 +672,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
             </li>
             <li>a context pane</li>
           </ul>
-          <img src="~/assets/media/AppScreenshots/AllApps.png"></img>
+          <img src="/media/AppScreenshots/AllApps.png"></img>
         </div>
         <div>
           The ToString method of ListItems return the item's Name.
