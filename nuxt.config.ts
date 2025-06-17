@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   app: {
     baseURL: "/Quokka/",
+    buildAssetsDir: "assets",
     head: {
       link: [{ rel: "icon", type: "image/svg", href: "/QuokkaLogo.svg" }],
     },
