@@ -9,6 +9,11 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/svg", href: "/media/QuokkaLogo.svg" }],
     },
   },
+  nitro: {
+    prerender: {
+      failOnError: false,
+    },
+  },
   css: [
     "~/assets/css/main.css",
   ],
