@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
-import { usePluginsStore } from '../../stores/plugins'
+import { usePluginsStore } from '~/stores/plugins'
 const plugins = usePluginsStore()
 import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
 const searchVal = ref('');

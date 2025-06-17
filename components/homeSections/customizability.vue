@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const galleryitems = [
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
-  '/Quokka/_nuxt/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
+  '../../assets/assets/media/AppScreenshots/AllApps.png',
 ]
 
 const codeItems = [

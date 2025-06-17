@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePluginsStore } from '../../stores/plugins.ts';
+import { usePluginsStore } from '~/stores/plugins.ts';
 const plugins = usePluginsStore()
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 </script>

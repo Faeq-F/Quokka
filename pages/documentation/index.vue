@@ -57,7 +57,7 @@ onMounted(() => {
 const route = useRoute()
 console.log(route.query.section);
 
-import { useDocsStore } from '../../stores/docsTOC.ts';
+import { useDocsStore } from '~/stores/docsTOC.ts';
 const docsTOC = useDocsStore()
 
 function switchSection(section) {

@@ -2,7 +2,7 @@
 import { useRoute } from 'nuxt/app';
 
 const route = useRoute()
-import { usePluginsStore } from '../../stores/plugins'
+import { usePluginsStore } from '~/stores/plugins'
 const plugins = usePluginsStore()
 const name = (route.params.name as string).replace('~', ' ')
 
