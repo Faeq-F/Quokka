@@ -3,10 +3,9 @@ name: Deploy to GitHub Pages
 on:
   workflow_dispatch:
   push:
-    branches:
-      - site
+    branches: [site]
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,19 +15,7 @@ jobs:
           node-version: "20"
       - run: npm install --legacy-peer-deps
       - run: npx nuxt build --preset github_pages
-  deploy:
-    needs: build
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
       - name: GitHub Pages 🚀
-        id: deployment
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.CI }}
