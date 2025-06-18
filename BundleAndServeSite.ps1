@@ -1,1 +1,0 @@
-bundle exec jekyll serve --livereload --incremental --port 3000
