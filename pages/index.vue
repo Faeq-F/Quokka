@@ -11,6 +11,7 @@ import Faq from '../components/homeSections/faq.vue'
 import Plugins from '../components/homeSections/plugins.vue'
 import Customizability from '../components/homeSections/customizability.vue'
 import Landing from '../components/homeSections/landing.vue'
+import Footer from '../components/homeSections/footer.vue'
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import Landing from '../components/homeSections/landing.vue'
   <Plugins />
   <Customizability />
   <Faq />
+  <Footer />
 </template>
 
 <style>

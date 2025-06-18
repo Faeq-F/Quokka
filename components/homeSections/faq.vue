@@ -89,7 +89,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
       class="inline">
       <div class="varela text-2xl pl-4 pt-4">FAQ</div>
     </MazAnimatedElement>
-    <MazAnimatedElement direction="down" :delay="(i * 200) + 1500"
+    <MazAnimatedElement direction="down" :delay="(i * 200) + 1400"
       :duration="2000" class="m-4" v-for="(q, i) in faq" :key="q.question">
       <MazAccordion class="w-full">
         <template #title-1>

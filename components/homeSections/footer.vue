@@ -184,7 +184,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
           <div class="flex">
             <div class="px-[10%]" v-for="(section, i) in links" :key="i">
               <div class="varela font-extrabold">
-                <MazAnimatedElement direction="left" :delay="1750"
+                <MazAnimatedElement direction="left" :delay="1700"
                   :duration="700" class="inline">
                   {{ section.title }}
                 </MazAnimatedElement>
@@ -196,7 +196,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
                   </div>
                   <a :href="link.url" v-else>
                     <MazAnimatedElement direction="left"
-                      :delay="1750 + (i * 200)" :duration="700" class="inline">
+                      :delay="1700 + (i * 200)" :duration="700" class="inline">
                       {{ link.text }}
                     </MazAnimatedElement>
                   </a>
