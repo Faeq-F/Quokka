@@ -86,14 +86,14 @@ import 'maz-ui/styles'
 textarea,
 label,
 html {
-  cursor: url(~/assets/cursors/lightPoint.cur),
+  cursor: url(/cursors/lightPoint.cur),
     auto !important;
 }
 
 button,
 input,
 a {
-  cursor: url(~/assets/cursors/lightClick.cur),
+  cursor: url(/cursors/lightClick.cur),
     auto !important;
 }
 
@@ -101,13 +101,13 @@ a {
 .dark textarea,
 .dark label,
 html.dark {
-  cursor: url(~/assets/cursors/darkPoint.cur),
+  cursor: url(/cursors/darkPoint.cur),
     auto !important;
 }
 
 .dark button,
 .dark input,
 .dark a {
-  cursor: url(~/assets/cursors/darkClick.cur),
+  cursor: url(/cursors/darkClick.cur),
     auto !important;
 }
