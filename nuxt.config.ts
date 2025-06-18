@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     baseURL: "/Quokka/",
     buildAssetsDir: "assets",
     head: {
-      link: [{ rel: "icon", type: "image/svg", href: "/media/QuokkaLogo.svg" }],
+      link: [{ rel: "icon", type: "image/svg", href: "/Quokka/media/QuokkaLogo.svg" }],
     },
   },
   nitro: {

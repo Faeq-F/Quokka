@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const galleryitems = [
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
-  '/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
+  '/Quokka/media/AppScreenshots/AllApps.png',
 ]
 
 const codeItems = [

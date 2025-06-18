@@ -2,17 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import "tailwindcss";
 @import "@nuxt/ui";
+import 'maz-ui/styles'
 
 *{
   transition: 200ms all;
-  scroll-behavior: smooth;
-  scrollbar-color: gray transparent;
-  scrollbar-width: thin;
 }
 
-::-webkit-scrollbar-thumb{
+/* Scroll bar */
+
+*{
+  scroll-behavior: smooth;
+  /* scrollbar-color: gray transparent;
+  scrollbar-width: thin; */
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
   border-radius: 360px;
 }
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 360px;
+  background-clip: content-box;
+  border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  background-clip: content-box;
+  border: 5px solid transparent;
+}
+
+/* Font classes */
 
 .varela {
   font-family: "Varela Round", sans-serif;
@@ -22,6 +47,8 @@
   font-family: "Outfit", sans-serif;
 }
 
+/* Dark-mode specific styles */
+
 .dark video,
 .dark img{
   filter: brightness(0.8);
@@ -30,6 +57,8 @@
 .dark img.dark\:invert-100{
   filter: invert(100);
 }
+
+/* Overriding Maz-UI styles */
 
 .maz-elevation {
   box-shadow: none !important;
@@ -57,14 +86,14 @@
 textarea,
 label,
 html {
-  cursor: url(../cursors/lightPoint.cur),
+  cursor: url(~/assets/cursors/lightPoint.cur),
     auto !important;
 }
 
 button,
 input,
 a {
-  cursor: url(../cursors/lightClick.cur),
+  cursor: url(~/assets/cursors/lightClick.cur),
     auto !important;
 }
 
@@ -72,13 +101,13 @@ a {
 .dark textarea,
 .dark label,
 html.dark {
-  cursor: url(../cursors/darkPoint.cur),
+  cursor: url(~/assets/cursors/darkPoint.cur),
     auto !important;
 }
 
 .dark button,
 .dark input,
 .dark a {
-  cursor: url(../cursors/darkClick.cur),
+  cursor: url(~/assets/cursors/darkClick.cur),
     auto !important;
 }

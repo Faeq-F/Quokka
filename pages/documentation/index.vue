@@ -6,11 +6,11 @@ function applyThemeToAPIFrame() {
   )[0].dataset.bsTheme = themeHandler.selectedTheme.value;
   //cursor styles
   APIframe.value.contentDocument.body.style.cursor =
-    "url(../../_nuxt/assets/cursors/" + themeHandler.selectedTheme.value + "Point.cur),auto";
+    "url(https://faeq-f.github.io/Quokka/assets/cursors/" + themeHandler.selectedTheme.value + "Point.cur),auto";
   for (var a of APIframe.value.contentDocument.body.getElementsByTagName(
     "a"
   )) {
-    a.style.cursor = "url(../../_nuxt/assets/cursors/" + themeHandler.selectedTheme.value + "Click.cur),auto";
+    a.style.cursor = "url(https://faeq-f.github.io/Quokka/assets/cursors/" + themeHandler.selectedTheme.value + "Click.cur),auto";
   }
 }
 
