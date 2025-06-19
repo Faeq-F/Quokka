@@ -86,14 +86,15 @@ import 'maz-ui/styles'
 textarea,
 label,
 html {
-  cursor: url(/cursors/lightPoint.cur),
+  cursor: url(/Quokka/cursors/lightPoint.cur),
     auto !important;
 }
 
+.clickable,
 button,
 input,
 a {
-  cursor: url(/cursors/lightClick.cur),
+  cursor: url(/Quokka/cursors/lightClick.cur),
     auto !important;
 }
 
@@ -101,13 +102,14 @@ a {
 .dark textarea,
 .dark label,
 html.dark {
-  cursor: url(/cursors/darkPoint.cur),
+  cursor: url(/Quokka/cursors/darkPoint.cur),
     auto !important;
 }
 
+.dark .clickable,
 .dark button,
 .dark input,
 .dark a {
-  cursor: url(/cursors/darkClick.cur),
+  cursor: url(/Quokka/cursors/darkClick.cur),
     auto !important;
 }

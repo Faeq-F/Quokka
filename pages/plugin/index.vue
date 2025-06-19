@@ -2,16 +2,16 @@
 import { ref, watch } from 'vue';
 import { usePluginsStore } from '~/stores/plugins'
 const plugins = usePluginsStore()
-import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
+
 const searchVal = ref('');
 const tagsVal = ref([]);
 import Fuse from 'fuse.js'
+import PluginCard from '~/components/PluginCard.vue';
 const fuse = new Fuse(plugins.pluginsList, {
   keys: ['name', 'shortDescription', 'author'],
 });
 let searched = plugins.pluginsList;
 watch(searchVal, (newV, _oldV) => {
-  console.log('searchVal changed', newV);
   if (newV === '') {
     searched = plugins.pluginsList
   } else {
@@ -75,55 +75,8 @@ function checkTags(plugin) {
   </div>
   <USeparator label=" Results" class="px-88" />
   <div class="flex justify-evenly flex-wrap px-68">
-    <nuxt-link :to="'/plugin/' + plugin.name.replace(' ', '~')"
-      v-for="(plugin, i) in searched" :key="i">
-      <MazCardSpotlight class="my-4 mx-0 w-78 h-42" v-if="checkTags(plugin)">
-        <div class=" text-sm absolute top-4 right-4 left-auto ">
-          <MazAnimatedElement direction=" right" :delay="600" :duration="700">
-            v{{ plugin.version }}
-          </MazAnimatedElement>
-        </div>
-        <div class="flex justify-start pb-1">
-          <div class="flex ">
-            <div>
-              <MazAnimatedElement direction="up" :delay="600" :duration="700">
-                <UIcon :name="'lucide-' + plugin.icon" class="!w-10 !h-10" />
-              </MazAnimatedElement>
-            </div>
-            <div class="px-2 text-gray-500 dark:text-gray-200 w-52">
-              <MazAnimatedElement direction="up" :delay="800" :duration="700"
-                class="inline">
-                <h1>
-                  {{ plugin.name }}
-                </h1>
-              </MazAnimatedElement>
-              <div>
-                <MazAnimatedElement direction="up" :delay="1100" :duration="700"
-                  class="inline">
-                  <nuxt-link :to="plugin.authorUrl">
-                    by <span
-                      class="underline hover:text-gray-700 dark:hover:text-white">{{
-                        plugin.author }}</span>
-                  </nuxt-link>
-                </MazAnimatedElement>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-gray-600 p-1 dark:text-gray-100">
-          <MazAnimatedElement direction="up" :delay="1400" :duration="700">
-            {{ plugin.shortDescription }}
-          </MazAnimatedElement>
-        </div>
-        <div>
-          <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5 mt-2">
-            <UIcon
-              :name="'i-lucide-' + plugins.tags.find((t) => t.label === tag)?.icon"
-              class="mx-0.5" />
-            {{ tag }}
-          </UKbd>
-        </div>
-      </MazCardSpotlight>
-    </nuxt-link>
+    <template v-for="(plugin, i) in searched" :key="i">
+      <PluginCard :plugin="plugin" v-if="checkTags(plugin)" />
+    </template>
   </div>
 </template>
