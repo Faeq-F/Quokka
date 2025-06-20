@@ -4,6 +4,8 @@
 @import "@nuxt/ui";
 import 'maz-ui/styles'
 
+/* Global styles */
+
 *{
   transition: 200ms all;
 }
@@ -16,25 +18,25 @@ import 'maz-ui/styles'
   scrollbar-width: thin; */
 }
 
-::-webkit-scrollbar {
-  width: 20px;
+*::-webkit-scrollbar {
+  width: 10px;
 }
 
-::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   border-radius: 360px;
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: gray;
   border-radius: 360px;
   background-clip: content-box;
-  border: 5px solid transparent;
+  border: 2px solid transparent;
 }
 
-::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: black;
   background-clip: content-box;
-  border: 5px solid transparent;
+  border: 2px solid transparent;
 }
 
 /* Font classes */
@@ -86,7 +88,7 @@ import 'maz-ui/styles'
 textarea,
 label,
 html {
-  cursor: url(/Quokka/cursors/lightPoint.cur),
+  cursor: url(/Quokka/cursors/light-Point.cur),
     auto !important;
 }
 
@@ -94,7 +96,7 @@ html {
 button,
 input,
 a {
-  cursor: url(/Quokka/cursors/lightClick.cur),
+  cursor: url(/Quokka/cursors/light-Click.cur),
     auto !important;
 }
 
@@ -102,7 +104,7 @@ a {
 .dark textarea,
 .dark label,
 html.dark {
-  cursor: url(/Quokka/cursors/darkPoint.cur),
+  cursor: url(/Quokka/cursors/dark-Point.cur),
     auto !important;
 }
 
@@ -110,6 +112,6 @@ html.dark {
 .dark button,
 .dark input,
 .dark a {
-  cursor: url(/Quokka/cursors/darkClick.cur),
+  cursor: url(/Quokka/cursors/dark-Click.cur),
     auto !important;
 }

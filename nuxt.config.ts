@@ -2,12 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: false },
+  ssr: false,
   app: {
     baseURL: "/Quokka/",
     buildAssetsDir: "assets",
     head: {
       link: [{ rel: "icon", type: "image/svg", href: "/Quokka/media/QuokkaLogo.svg" }],
-      title: "Quokka",
+      title: "Quokka"
     },
   },
   nitro: {
@@ -16,7 +17,7 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    "~/assets/css/main.css",
+    "~/assets/css/main.css"
   ],
   modules: [
     "lenis/nuxt",
