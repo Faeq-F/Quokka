@@ -45,7 +45,7 @@ export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
               label: 'How to Use',
               description: 'The tray task, plugins & command types',
               icon: 'i-lucide-pointer',
-              to: '/documentation?section=use'
+              to: '/documentation?section=general-usage'
             },
             {
               label: 'Settings',
@@ -71,7 +71,7 @@ export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
               icon: 'i-lucide-toy-brick',
               description:
                 'Creating new item types & producing their plugin ',
-              to: '/documentation?section=create-plugin'
+              to: '/documentation?section=creating-the-project'
             },
             {
               label: 'FAQ by Developers',

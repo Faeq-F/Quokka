@@ -1,0 +1,58 @@
+<template>
+  <h1>
+    <UIcon name="i-lucide-loader" /> Installation
+  </h1>
+  <div>
+    Quokka requires the following:
+    <ul>
+      <li>A computer running Windows 7 or higher</li>
+      <li><a href="">.NET 4.8 Framework (pre-installed on Windows 10 and
+          11)</a>
+      </li>
+      <li>A Windows defender exclusion for the location of the exe;</li>
+    </ul>
+
+    Due to costs, binaries are not signed.<br />
+    Add exclusions to any other anti-malware software that is installed
+    on
+    your
+    computer, you do not want the software
+    to mistake the app for malware
+  </div>
+  <div>
+    To install:
+    <ul>
+      <li>Go to the top of this page and click on the <a href=''>'Download
+          Latest Release'</a> button</li>
+      <li>Download the 'Quokka.zip' file & extract it's contents</li>
+      <li>You will want to extract / move the folder to an appropriate
+        location.
+      </li>
+    </ul>
+
+    Quokka is a portable program by design, meaning that you can place
+    the
+    folder on a external storage medium (e.g. a
+    USB drive) and run the program from there.<br />
+    Please see the suggestions below for an appropriate location of the
+    folder.
+  </div>
+  <div>
+    Suggestions:
+    <ul>
+      <li>If you do not wish to use the program in a portable manner, I
+        suggest
+        placing the folder in 'C:\Program
+        Files', and
+        creating a shortcut that is pinned to the taskbar and / or start
+        menu.
+      </li>
+      <li>You may also want to set up a task to run the program at
+        startup
+        in
+        Task Scheduler. Alternatively see the <a href=''>FAQ</a> on
+        this.
+      </li>
+    </ul>
+  </div>
+</template>

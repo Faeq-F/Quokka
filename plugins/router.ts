@@ -1,34 +1,33 @@
 import { defineNuxtPlugin, useRouter } from "nuxt/app";
 export default defineNuxtPlugin(() => {
   const router = useRouter()
-  router.options.scrollBehavior = (to, from, savedPosition) => {
-    // scroll to hash, useful for using to="#some-id" in NuxtLink
-    // ex: <NuxtLink to="#top"> To Top </ NuxtLink>
+  router.options.scrollBehavior = async (to: RouteLocationNormalized,
+    from: RouteLocationNormalized,
+    savedPosition: ScrollPosition | null) => {
+
+    if (savedPosition) {
+      return savedPosition
+    }
+
+    const findEl = async (hash, x) => {
+      return document.querySelector(hash) ||
+        new Promise((resolve, reject) => {
+          if (x > 50) {
+            return resolve()
+          }
+          setTimeout(() => { resolve(findEl(hash, ++x || 1)) }, 100)
+        })
+    }
+
     if (to.hash) {
-      console.log('to.hash: ', to.hash);
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      };
+      let el = await findEl(to.hash)
+      if ('scrollBehavior' in document.documentElement.style) {
+        return window.scrollTo({ top: el.offsetTop, behavior: 'smooth' })
+      } else {
+        return window.scrollTo(0, el.offsetTop)
+      }
     }
 
-    // if link is to same page, scroll to top with smooth behavior
-    if (to === from) {
-      return {
-        left: 0,
-        top: 0,
-        behavior: 'smooth',
-      };
-    }
-
-    // this will use saved scroll position on browser forward/back navigation
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve({
-          left: savedPosition?.left || 0,
-          top: savedPosition?.top || 0,
-        });
-      }, 500);
-    });
+    return { x: 0, y: 0 }
   }
 })

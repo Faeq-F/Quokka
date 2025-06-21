@@ -12,27 +12,27 @@ export const useDocsStore = defineStore("docsStore", {
       {
         title: 'How to Use',
         icon: 'i-lucide-pointer',
-        section: 'use',
+        section: 'general-usage',
         children: [
           {
             title: 'General Usage',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'general-usage'
           },
           {
             title: 'Tray task',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'tray-task'
           },
           {
             title: 'Plugins',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'plugins'
           },
           {
-            title: 'Commands ?',
+            title: 'Commands',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'commands'
           },
         ]
       },
@@ -57,36 +57,35 @@ export const useDocsStore = defineStore("docsStore", {
       {
         title: 'Creating a plugin',
         icon: 'i-lucide-toy-brick',
-        section: 'create-plugin',
+        section: 'creating-the-project',
         children: [
           {
             title: 'Creating the project',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'creating-the-project'
           },
           {
             title: 'Creating a new item type',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'creating-new-item-type'
           },
           {
             title: 'Creating a context pane',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'creating-context-pane'
           },
           {
             title: 'Creating the plugin',
             icon: 'i-lucide-pointer',
-            section: 'use'
+            section: 'creating-the-plugin'
           },
         ]
       },
       {
         title: 'FAQ by Developers',
         icon: 'i-lucide-circle-help',
-        description:
-          'Answers to frequently asked questions',
-        to: '/documentation?section=faq'
+        section: 'faq',
+        children: []
       }
     ]
   }),

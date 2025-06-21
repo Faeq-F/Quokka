@@ -4,18 +4,18 @@
 @import "@nuxt/ui";
 import 'maz-ui/styles'
 
-/* Global styles */
-
 *{
   transition: 200ms all;
+  scroll-behavior: smooth;
 }
 
 /* Scroll bar */
 
-*{
-  scroll-behavior: smooth;
-  /* scrollbar-color: gray transparent;
-  scrollbar-width: thin; */
+@-moz-document url-prefix() {
+  * {
+    scrollbar-color: gray transparent;
+    scrollbar-width: thin;
+  }
 }
 
 *::-webkit-scrollbar {
