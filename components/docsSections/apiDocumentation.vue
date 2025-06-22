@@ -61,13 +61,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <h1>
-    <UIcon name="i-lucide-code" /> API documentation
-  </h1>
-  <div>
-    <div class="w-full h-[70vh] !border-0">
-      <iframe ref="APIframe" src="../APIdocs/api/Quokka.html"
-        class="w-full h-full"></iframe>
-    </div>
+  <div class="w-full h-[85vh] !border-0">
+    <iframe ref="APIframe" src="../APIdocs/api/Quokka.html"
+      class="w-full h-full"></iframe>
   </div>
 </template>

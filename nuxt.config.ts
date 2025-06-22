@@ -10,6 +10,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/svg", href: "/Quokka/media/QuokkaLogo.svg" }],
       title: "Quokka"
     },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
   nitro: {
     prerender: {
@@ -86,6 +87,7 @@ export default defineNuxtConfig({
         'lucide:panel-bottom-open',
         'lucide:network',
         'lucide:globe-2',
+
       ],
       scan: true,
       includeCustomCollections: true,

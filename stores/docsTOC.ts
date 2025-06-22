@@ -16,22 +16,22 @@ export const useDocsStore = defineStore("docsStore", {
         children: [
           {
             title: 'General Usage',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-mouse-pointer',
             section: 'general-usage'
           },
           {
             title: 'Tray task',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-panel-bottom',
             section: 'tray-task'
           },
           {
             title: 'Plugins',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-blocks',
             section: 'plugins'
           },
           {
             title: 'Commands',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-zap',
             section: 'commands'
           },
         ]
@@ -61,22 +61,22 @@ export const useDocsStore = defineStore("docsStore", {
         children: [
           {
             title: 'Creating the project',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-folder-kanban',
             section: 'creating-the-project'
           },
           {
             title: 'Creating a new item type',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-list',
             section: 'creating-new-item-type'
           },
           {
             title: 'Creating a context pane',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-panels-top-left',
             section: 'creating-context-pane'
           },
           {
             title: 'Creating the plugin',
-            icon: 'i-lucide-pointer',
+            icon: 'i-lucide-unplug',
             section: 'creating-the-plugin'
           },
         ]

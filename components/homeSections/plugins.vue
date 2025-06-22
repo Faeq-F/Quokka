@@ -2,6 +2,7 @@
 import { usePluginsStore } from '~/stores/plugins.ts';
 const plugins = usePluginsStore()
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
+import PluginCard from '~/components/PluginCard.vue'
 </script>
 
 <template>
@@ -50,25 +51,10 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     <MazAnimatedElement direction="down" :duration="20" :delay="1500">
       <MazCarousel hideScrollbar>
         <MazAnimatedElement direction="right" :delay="1500" :duration="1500"
-          v-for="(plugin, i) in plugins.getTopPlugins()" :key="plugin.name">
-          <MazCardSpotlight style="min-width: 250px;box-shadow: none;"
-            class="w-72">
-            <MazCard :images="[
-              'https://loremflickr.com/250/300'
-            ]" style="box-shadow: none;" class="w-full !bg-transparent">
-              <template #title>
-                <h4 class="maz-m-0">
-                  {{ plugin.name }}
-                </h4>
-              </template>
-              <template #content>
-                <p class="maz-text-muted" style="margin-bottom: 0;">
-                  {{ plugin.shortDescription }}
-                </p>
-              </template>
-            </MazCard>
-          </MazCardSpotlight>
+          v-for="(plugin, i) in plugins.getTopPlugins()" :key="i">
+          <PluginCard :plugin="plugin" />
         </MazAnimatedElement>
+
         <MazAnimatedElement direction="right" :duration="2000">
           <MazCardSpotlight style="min-width: 250px;box-shadow: none;"
             color="secondary" class="cursor-pointer">

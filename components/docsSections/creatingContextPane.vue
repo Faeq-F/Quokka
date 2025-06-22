@@ -1,28 +1,28 @@
 <template>
-
-  <h1>
-    <UIcon name="i-lucide-panels-top-left" /> Creating a context pane
-  </h1>
   <div>
+    <h1>
+      <UIcon name="i-lucide-panels-top-left" /> Creating a context pane
+    </h1>
+    <div>
 
-    All plugins need their own context panes. It is up to you whether
-    or
-    not
-    they
-    are visible to the user or if they do anything at all; but one
-    must
-    be
-    defined.<br /><br />To define the context pane for the item type:
-    <ol>
-      <li>In the project, add a WPF Page called 'ContextPane'</li>
-      <li>
-        Ensure ContextPane : ItemContextPane (inherits ItemContextPane
-        from
-        Quokka.ListItems)
-      </li>
-      <li>
-        Ensure the plugin's project file has:
-        <textarea readonly style="height: 20vh">
+      All plugins need their own context panes. It is up to you whether
+      or
+      not
+      they
+      are visible to the user or if they do anything at all; but one
+      must
+      be
+      defined.<br /><br />To define the context pane for the item type:
+      <ol>
+        <li>In the project, add a WPF Page called 'ContextPane'</li>
+        <li>
+          Ensure ContextPane : ItemContextPane (inherits ItemContextPane
+          from
+          Quokka.ListItems)
+        </li>
+        <li>
+          Ensure the plugin's project file has:
+          <textarea readonly style="height: 20vh" data-lenis-prevent>
 
                 <ItemGroup>
                   <Compile Update="ContextPane.xaml.cs">
@@ -36,15 +36,15 @@
                   </Page>
                 </ItemGroup>
               </textarea>
-      </li>
-    </ol>
-  </div>
+        </li>
+      </ol>
+    </div>
 
-  <div>
-    To not have a context pane visible to the user, you can use the
-    following
-    code;<br />
-    <textarea readonly style="height: 20vh">
+    <div>
+      To not have a context pane visible to the user, you can use the
+      following
+      code;<br />
+      <textarea readonly style="height: 20vh" data-lenis-prevent>
 
             public partial class ContextPane : ItemContextPane {
             public ContextPane() {
@@ -53,13 +53,13 @@
             }
             }
           </textarea>
-    <textarea readonly style="
+      <textarea readonly style="
       height: 20vh;
       width: 90%;
       font-family: cascadia code;
       border-radius: 10px;
       border: 1px solid #bbb;
-    ">
+    " data-lenis-prevent>
 
             <src:ItemContextPane x:Class="Plugin_ShowTypedText.ContextPane"
               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -74,14 +74,14 @@
             </src:ItemContextPane>
 
           </textarea>
-  </div>
+    </div>
 
-  <div>
-    If your context pane is visible, you may want to add extra
-    information
-    or
-    actions like the following does:
-    <textarea readonly style="height: 20vh">
+    <div>
+      If your context pane is visible, you may want to add extra
+      information
+      or
+      actions like the following does:
+      <textarea readonly style="height: 20vh" data-lenis-prevent>
             <src:ItemContextPane x:Class="Plugin_ShowTypedText.ContextPane"
               xmlns:src="clr-namespace:Quokka.ListItems;assembly=Quokka"
               d:DesignHeight="300" d:DesignWidth="800" ... Title="ContextPane"
@@ -126,7 +126,7 @@
               </Border>
             </src:ItemContextPane>
           </textarea>
-    <textarea readonly>
+      <textarea readonly data-lenis-prevent>
             using Quokka;
             ...
 
@@ -205,11 +205,12 @@
             }
             }
           </textarea>
-    <blockquote>
-      This is a part of the
-      <a
-        href="https://github.com/Faeq-F/TypedText-Plugins">ShowTypedText</a>&nbsp;
-      plugin (a demo plugin; not made for use)
-    </blockquote>
+      <blockquote>
+        This is a part of the
+        <a
+          href="https://github.com/Faeq-F/TypedText-Plugins">ShowTypedText</a>&nbsp;
+        plugin (a demo plugin; not made for use)
+      </blockquote>
+    </div>
   </div>
 </template>

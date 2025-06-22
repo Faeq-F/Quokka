@@ -15,11 +15,13 @@ import Footer from '../components/homeSections/footer.vue'
 </script>
 
 <template>
-  <Landing />
-  <Plugins />
-  <Customizability />
-  <Faq />
-  <Footer />
+  <div>
+    <Landing />
+    <Plugins />
+    <Customizability />
+    <Faq />
+    <Footer />
+  </div>
 </template>
 
 <style>

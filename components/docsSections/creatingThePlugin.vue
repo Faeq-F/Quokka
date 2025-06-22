@@ -1,11 +1,12 @@
 <template>
-  <h1>
-    <UIcon name="i-lucide-unplug" /> Creating the plugin
-  </h1>
   <div>
-    In the same .cs file, create a class that inherits from
-    IPlugger;<br />
-    <textarea readonly>
+    <h1>
+      <UIcon name="i-lucide-unplug" /> Creating the plugin
+    </h1>
+    <div>
+      In the same .cs file, create a class that inherits from
+      IPlugger;<br />
+      <textarea readonly data-lenis-prevent>
             public partial class ShowTypedText : IPlugger {
 
             public ShowTypedText() {}
@@ -38,34 +39,35 @@
 
                           }
           </textarea>
-    <blockquote>
-      This is a part of the
-      <a
-        href="https://github.com/Faeq-F/TypedText-Plugins">ShowTypedText</a>&nbsp;
-      plugin (a demo plugin; not made for use)
-    </blockquote>
-  </div>
+      <blockquote>
+        This is a part of the
+        <a
+          href="https://github.com/Faeq-F/TypedText-Plugins">ShowTypedText</a>&nbsp;
+        plugin (a demo plugin; not made for use)
+      </blockquote>
+    </div>
 
-  <div>
-    OnQueryChange is the method that is called by the SearchWindow
-    when
-    a
-    user
-    types in a query In this method, you should create your list item
-    objects,
-    filter them (if needed), and return them in a list.
-    <br /><br />
-    If your plugin has a special command, then you will need to sort
-    the
-    list
-    for
-    that command yourself. Normal results (those returned in
-    OnQueryChange) do
-    not
-    need to be sorted as Quokka will sort them once it has results
-    from
-    all of
-    the
-    plugins the program is using during runtime.
+    <div>
+      OnQueryChange is the method that is called by the SearchWindow
+      when
+      a
+      user
+      types in a query In this method, you should create your list item
+      objects,
+      filter them (if needed), and return them in a list.
+      <br /><br />
+      If your plugin has a special command, then you will need to sort
+      the
+      list
+      for
+      that command yourself. Normal results (those returned in
+      OnQueryChange) do
+      not
+      need to be sorted as Quokka will sort them once it has results
+      from
+      all of
+      the
+      plugins the program is using during runtime.
+    </div>
   </div>
 </template>

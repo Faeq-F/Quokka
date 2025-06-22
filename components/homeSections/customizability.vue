@@ -180,7 +180,7 @@ const codeItems = [
   },
 ]
 
-import { ref } from 'vue';
+import { ref, useId } from 'vue';
 const activeIndex = ref(0)
 
 function onClickPrev() {
@@ -202,7 +202,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     <MazAnimatedElement direction="right" :delay="1100" :duration="2000"
       class="inline">
       <div
-        class="flex flex-col justify-left items-center px-4 outline rounded-lg outline-gray-400">
+        class="flex flex-col justify-left items-center px-4 rounded-lg sameOutline">
         <div class="">
           <pre class="text-xs">
       <code>
@@ -213,12 +213,14 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
       ...
       </code></pre>
           <div
-            class="flex justify-around p-4 outline rounded-xl rounded-b-none outline-gray-400">
+            class="flex justify-around p-4 rounded-xl rounded-b-none sameOutline !border-b-0">
             Windows 11 Light <div>
-              <div
-                class="bg-gray-600 opacity-70 py-1 px-2 rounded-xl hover:bg-black">
-                <UIcon name="i-lucide-download" class="size-5 bg-white" />
-              </div>
+              <MazBtn color="transparent" class="!p-1 !min-h-0">
+                <template #icon>
+                  <UIcon name="i-lucide-download" />
+                </template>
+              </MazBtn>
+
             </div>
           </div>
         </div>
@@ -276,3 +278,8 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     </div>
   </div>
 </template>
+<style lang="css" scoped>
+.sameOutline {
+  border: oklch(86.9% 0.022 252.894) 1px solid;
+}
+</style>

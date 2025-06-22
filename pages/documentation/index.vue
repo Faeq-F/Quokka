@@ -30,18 +30,17 @@ import trayTask from '~/components/docsSections/trayTask.vue'
 </script>
 
 <template>
-  <div class="flex flex-row" id="docsPage">
+  <div class="flex flex-row" id="docsPage" data-lenis-prevent>
     <div class="basis-1/4 pt-4 px-4">
       <MazCardSpotlight class="w-full" :padding="false">
-        <MazAnimatedElement direction="down" :delay="500" :duration="2000"
-          class="noRadius" v-for="(s, i) in docsTOC.toc" :key="i">
+        <div class="noRadius" v-for="(s, i) in docsTOC.toc" :key="i">
           <MazBtn color="transparent" @click="switchSection(s.section)"
             class="w-full !border-0 !p-0 !min-h-0 !hover:bg-transparent"
             justify="start" v-if="s.children?.length == 0"
             :class="i == 0 ? '' : '!rounded-none'">
             <MazCardSpotlight class="w-full">
-              <MazAnimatedElement direction="right" :delay="1900"
-                :duration="2000" class="justify-start flex">
+              <MazAnimatedElement direction="right" :delay="600"
+                :duration="2000" class="justify-start flex items-center">
                 <UIcon :name="s.icon" />
                 <p class="inline ml-2">
                   {{ s.title }}
@@ -51,7 +50,7 @@ import trayTask from '~/components/docsSections/trayTask.vue'
           </MazBtn>
           <MazAccordion class="w-full" v-else>
             <template #title-1>
-              <MazAnimatedElement direction="right" :delay="1900"
+              <MazAnimatedElement direction="right" :delay="600"
                 :duration="2000">
                 <UIcon :name="s.icon" />
                 <p class="inline ml-2">
@@ -60,47 +59,55 @@ import trayTask from '~/components/docsSections/trayTask.vue'
               </MazAnimatedElement>
             </template>
             <template #content-1>
-              <MazAnimatedElement direction="right" :delay="400" :duration="700"
-                v-for="(child, i) in s.children" :key="i">
-                <MazBtn color="transparent"
-                  @click="switchSection(child.section)"
-                  class="w-full !border-0 !p-0 !min-h-0 !hover:bg-transparent"
-                  justify="start" :class="i == 0 ? '' : '!rounded-none'">
-                  <MazCardSpotlight class="w-full">
-                    <MazAnimatedElement direction="right" :delay="1900"
-                      :duration="2000" class="justify-start flex">
-                      <UIcon :name="child.icon" />
-                      <p class="inline ml-2">
-                        {{ child.title }}
-                      </p>
-                    </MazAnimatedElement>
-                  </MazCardSpotlight>
-                </MazBtn>
-              </MazAnimatedElement>
+              <MazCardSpotlight class="w-full !pr-0 !py-0 noRadius"
+                :padding="false">
+                <div v-for="(child, i) in s.children" :key="i">
+                  <MazBtn color="transparent"
+                    @click="switchSection(child.section)"
+                    class="w-full !border-0 !p-0 !min-h-0 !hover:bg-transparent"
+                    justify="start" :class="i == 0 ? '' : '!rounded-none'">
+                    <MazCardSpotlight class="w-full !px-0 !pt-0">
+                      <MazAnimatedElement direction="right" :delay="600"
+                        :duration="2000"
+                        class="justify-start flex items-center">
+                        <UIcon :name="child.icon" />
+                        <p class="inline ml-2">
+                          {{ child.title }}
+                        </p>
+                      </MazAnimatedElement>
+                    </MazCardSpotlight>
+                  </MazBtn>
+                </div>
+              </MazCardSpotlight>
             </template>
           </MazAccordion>
-        </MazAnimatedElement>
+        </div>
       </MazCardSpotlight>
     </div>
     <div class="basis-3/4 py-4 pr-4">
       <MazCardSpotlight class="w-full">
-        <div class="docsContent max-h-[85vh] overflow-y-scroll">
-          <apiDocumentation v-if="displayedSection == 'api-documentation'" />
-          <buildingTheApp v-if="displayedSection == 'build-app'" />
-          <creatingContextPane
-            v-if="displayedSection == 'creating-context-pane'" />
-          <commands v-if="displayedSection == 'commands'" />
-          <creatingNewItemType
-            v-if="displayedSection == 'creating-new-item-type'" />
-          <creatingThePlugin v-if="displayedSection == 'creating-the-plugin'" />
-          <creatingTheProject
-            v-if="displayedSection == 'creating-the-project'" />
-          <faqs v-if="displayedSection == 'faq'" />
-          <generalUsage v-if="displayedSection == 'general-usage'" />
-          <installation v-if="displayedSection == 'installation'" />
-          <plugins v-if="displayedSection == 'plugins'" />
-          <settings v-if="displayedSection == 'settings'" />
-          <trayTask v-if="displayedSection == 'tray-task'" />
+
+        <div class=" docsContent max-h-[85vh] min-h-[85vh]
+          overflow-y-scroll">
+          <Transition name="fade">
+            <apiDocumentation v-if="displayedSection == 'api-documentation'" />
+            <buildingTheApp v-else-if="displayedSection == 'build-app'" />
+            <creatingContextPane
+              v-else-if="displayedSection == 'creating-context-pane'" />
+            <commands v-else-if="displayedSection == 'commands'" />
+            <creatingNewItemType
+              v-else-if="displayedSection == 'creating-new-item-type'" />
+            <creatingThePlugin
+              v-else-if="displayedSection == 'creating-the-plugin'" />
+            <creatingTheProject
+              v-else-if="displayedSection == 'creating-the-project'" />
+            <faqs v-else-if="displayedSection == 'faq'" />
+            <generalUsage v-else-if="displayedSection == 'general-usage'" />
+            <installation v-else-if="displayedSection == 'installation'" />
+            <plugins v-else-if="displayedSection == 'plugins'" />
+            <settings v-else-if="displayedSection == 'settings'" />
+            <trayTask v-else-if="displayedSection == 'tray-task'" />
+          </Transition>
         </div>
       </MazCardSpotlight>
     </div>
@@ -109,7 +116,21 @@ import trayTask from '~/components/docsSections/trayTask.vue'
 </template>
 
 <!--add a copy code button-->
+<style lang="css" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
+.fade-enter-active {
+  transition-delay: 1s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
 <style lang="css">
 #docsPage a {
   font-style: italic;
@@ -134,13 +155,13 @@ import trayTask from '~/components/docsSections/trayTask.vue'
   list-style: auto;
 }
 
-#docsPage h2,
 #docsPage h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   font-size: x-large;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 4rem;
   margin-left: 3rem;
 }
@@ -211,5 +232,11 @@ import trayTask from '~/components/docsSections/trayTask.vue'
 
 #docsPage .noRadius * {
   --maz-border-radius: 0 !important;
+}
+
+#docsPage .noRadius {
+  --maz-border-radius: 0.7rem !important;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
 }
 </style>
