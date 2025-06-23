@@ -4,7 +4,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 </script>
 
 <template>
-  <div class="text-center mt-16 outfit">
+  <div class="text-center outfit" id="header">
     <MazAnimatedElement direction="up" :delay="1200" :duration="700">
       <img src="/media/QuokkaTextLogo.svg"
         class="w-62 mx-auto my-0 dark:invert-100">
@@ -42,3 +42,10 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     </div>
   </MazAnimatedElement>
 </template>
+<style lang="css" scoped>
+#header {
+  background: radial-gradient(circle, rgb(255 255 255) 0%, rgba(237, 83, 83, 0) 40%);
+  padding: 10px;
+  padding-top: 4rem;
+}
+</style>

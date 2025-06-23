@@ -65,21 +65,24 @@ function checkTags(plugin) {
               @click="searchVal = ''" />
             <USeparator orientation="vertical" class="mr-4 h-5" />
             <UIcon name="i-lucide-filter" />
-            <MazSelect v-model="tagsVal"
-              :options="plugins.getSortedTags().map((tag) => tag.label)"
-              label="Filter..." multiple search :search-threshold="0.75" block
-              size="sm" style="--maz-border-color: transparent;">
-              <template #no-results>
-                <div class="p-4 text-center">
-                  No result
-                </div>
-              </template>
-            </MazSelect>
+            <div data-lenis-prevent>
+              <MazSelect v-model="tagsVal"
+                :options="plugins.getSortedTags().map((tag) => tag.label)"
+                label="Filter..." multiple search :search-threshold="0.75"
+                size="sm" style="--maz-border-color: transparent;">
+                <template #no-results>
+                  <div class="p-4 text-center">
+                    No result
+                  </div>
+                </template>
+              </MazSelect>
+            </div>
           </template>
         </MazInput>
       </MazAnimatedElement>
     </div>
-    <MazAnimatedElement direction="down" :delay="1200" :duration="700">
+    <MazAnimatedElement direction="down" :delay="1200" :duration="700"
+      class="-z-1 relative">
       <USeparator label=" Results" class="px-88" />
     </MazAnimatedElement>
     <div class="flex justify-evenly flex-wrap px-68">
@@ -87,7 +90,7 @@ function checkTags(plugin) {
       <template v-for="(plugin,
         i) in searched" :key="i">
         <MazAnimatedElement direction="up" :delay="(200 * i) + 200"
-          :duration="1500">
+          :duration="1500" class="-z-1">
           <PluginCard :plugin="plugin" v-if="checkTags(plugin)" />
         </MazAnimatedElement>
       </template>
