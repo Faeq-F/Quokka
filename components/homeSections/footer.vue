@@ -87,11 +87,9 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 
 <template>
   <div class="px-78">
-    <MazCardSpotlight class="w-full mb-4 mt-62 outfit !shadow-none"
-      color="secondary">
+    <div class="w-full mb-4 mt-62 outfit !shadow-none p-4" id="footerCard">
       <MazAnimatedElement direction="up" :duration="2000" class="inline">
-        <div class=" dark:bg-blue-950 ">
-
+        <div>
           <div class="flex justify-around pb-16">
             <div class="flex items-center">
               <div>
@@ -119,10 +117,11 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
                 </MazAnimatedElement>
                 <MazAnimatedElement direction="up" :delay="1000" :duration="700"
                   class="inline">
-                  <a href="https://faeq-f.github.io/" target="_blank">Faeq</a>
+                  <a href="https://faeq-f.github.io/" class="hover:underline"
+                    target="_blank">Faeq</a>
                 </MazAnimatedElement>
                 <div>
-                  <a href="">
+                  <a href="" class="hover:underline">
                     <MazAnimatedElement direction="up" :delay="1100"
                       :duration="700" class="inline">
                       Support
@@ -183,7 +182,8 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 
           <div class="flex">
             <div class="px-[10%]" v-for="(section, i) in links" :key="i">
-              <div class="varela font-extrabold">
+              <div
+                class="varela font-extrabold border-b-1 border-gray-200 dark:border-gray-700">
                 <MazAnimatedElement direction="left" :delay="1700"
                   :duration="700" class="inline">
                   {{ section.title }}
@@ -198,6 +198,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
                     <MazAnimatedElement direction="left"
                       :delay="1700 + (i * 200)" :duration="700" class="inline">
                       {{ link.text }}
+                      <!-- <UIcon name="i-line-md-external-link-rounded" /> -->
                     </MazAnimatedElement>
                   </a>
                 </li>
@@ -206,6 +207,15 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
           </div>
         </div>
       </MazAnimatedElement>
-    </MazCardSpotlight>
+    </div>
   </div>
 </template>
+<style lang="css" scoped>
+#footerCard {
+  background: radial-gradient(circle, #fff 0%, rgba(237, 83, 83, 0) 90%);
+}
+
+.dark #footerCard {
+  background: radial-gradient(circle, #20212c 0%, rgba(237, 83, 83, 0) 90%);
+}
+</style>

@@ -48,4 +48,8 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
   padding: 10px;
   padding-top: 4rem;
 }
+
+.dark #header {
+  background: radial-gradient(circle, oklch(20.8% 0.042 265.755) 0%, rgba(237, 83, 83, 0) 40%);
+}
 </style>

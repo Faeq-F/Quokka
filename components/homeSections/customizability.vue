@@ -281,5 +281,11 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 <style lang="css" scoped>
 .sameOutline {
   border: oklch(86.9% 0.022 252.894) 1px solid;
+  background: #fff
+}
+
+.dark .sameOutline {
+  border: rgba(31, 143, 255, .2) 1px solid;
+  background: #20212c
 }
 </style>
