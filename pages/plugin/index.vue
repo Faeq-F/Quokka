@@ -7,18 +7,24 @@ import PluginCard from '~/components/PluginCard.vue';
 const plugins = usePluginsStore()
 const searchVal = ref('');
 const tagsVal = ref([]);
-let searched = ref(plugins.pluginsList);
+const searched = ref(plugins.pluginsList);
+// required due to bug related to select being under cards
+const lowerCards = ref(false);
 
 const fuse = new Fuse(plugins.pluginsList, {
   keys: ['name', 'shortDescription', 'author'],
 });
 
-watch(searchVal, (newV, _oldV) => {
-  if (newV === '') {
-    searched.value = plugins.pluginsList
+watch([searchVal, tagsVal], ([newSearch, _newTags], [_oldSearch, _oldTags]) => {
+  let value;
+  if (newSearch === '') {
+    value = plugins.pluginsList
   } else {
-    searched.value = fuse.search(newV).map((result) => result.item);
+    value = fuse.search(newSearch).map((result) => result.item);
   }
+  searched.value = value.filter((plugin) => {
+    return checkTags(plugin);
+  });
 })
 
 function checkTags(plugin) {
@@ -69,7 +75,8 @@ function checkTags(plugin) {
               <MazSelect v-model="tagsVal"
                 :options="plugins.getSortedTags().map((tag) => tag.label)"
                 label="Filter..." multiple search :search-threshold="0.75"
-                size="sm" style="--maz-border-color: transparent;">
+                size="sm" style="--maz-border-color: transparent;"
+                @open="lowerCards = true" @close="lowerCards = false">
                 <template #no-results>
                   <div class="p-4 text-center">
                     No result
@@ -86,13 +93,15 @@ function checkTags(plugin) {
       <USeparator label=" Results" class="px-88" />
     </MazAnimatedElement>
     <div class="flex justify-evenly flex-wrap px-68">
-      <span v-if="searched.length === 0">No results found</span>
+      <span v-if="searched.length === 0" class="p-4">No results found</span>
       <template v-for="(plugin,
         i) in searched" :key="i">
-        <MazAnimatedElement direction="up" :delay="(200 * i) + 200"
-          :duration="1500" class="-z-1">
-          <PluginCard :plugin="plugin" v-if="checkTags(plugin)" />
-        </MazAnimatedElement>
+        <div :class="lowerCards ? '-z-1' : ''">
+          <MazAnimatedElement direction="up" :delay="(200 * i) + 200"
+            :duration="1500">
+            <PluginCard :plugin="plugin" />
+          </MazAnimatedElement>
+        </div>
       </template>
     </div>
   </div>

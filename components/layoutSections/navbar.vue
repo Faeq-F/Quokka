@@ -99,7 +99,7 @@ autoSetTheme()
           :ui="{
             viewport: 'mt-2 !px-70',
             content: '',
-            childLink: 'bg-white hover:bg-gray-100',
+            childLink: 'bg-white hover:bg-gray-100 dark:bg-[var(--ui-bg)] dark:hover:bg-gray-800',
             childLinkDescription: 'text-balance line-clamp-2'
           }" />
       </MazAnimatedElement>

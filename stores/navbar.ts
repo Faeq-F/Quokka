@@ -6,7 +6,7 @@ const pluginsChildren = plugins.getTopPlugins().map((plugin) => {
     label: plugin.name,
     icon: 'i-lucide-' + plugin.icon,
     description: plugin.shortDescription,
-    to: `/plugin/${plugin.name.replace(' ', '-')}`,
+    to: `/plugin/${plugin.name.replace(' ', '~')}`,
     active: false
   }
 })

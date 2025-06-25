@@ -30,7 +30,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
           <div>
             <MazAnimatedElement direction="up" :delay="1100" :duration="700"
               class="inline">
-              <nuxt-link :to="plugin.authorUrl">
+              <nuxt-link :to="plugin.authorUrl" target="_blank">
                 by <span
                   class="underline hover:text-gray-700 dark:hover:text-white">{{
                     plugin.author }}</span>
@@ -45,7 +45,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
         {{ plugin.shortDescription }}
       </MazAnimatedElement>
     </div>
-    <div>
+    <div class="">
       <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5 mt-2">
         <UIcon
           :name="'i-lucide-' + plugins.tags.find((t) => t.label === tag)?.icon"
