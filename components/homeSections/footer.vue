@@ -53,6 +53,10 @@ const links = [
         url: ""
       },
       {
+        text: "Contribute",
+        url: ""
+      },
+      {
         text: "Documentation",
         url: ""
       },
@@ -74,7 +78,7 @@ const links = [
         url: ""
       },
       {
-        text: "Report a Vulnerability",
+        text: "Report an Issue",
         url: ""
       },
     ]
