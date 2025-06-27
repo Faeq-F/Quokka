@@ -6,7 +6,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
 </script>
 
 <template>
-  <MazCardSpotlight class="my-4 mx-0 w-78 h-42 clickable"
+  <MazCardSpotlight class="my-4 mx-0 w-78 h-42 clickable outfit"
     @click="$router.push('/plugin/' + plugin.name.replace(' ', '~'))">
     <div class=" text-sm absolute top-4 right-4 left-auto ">
       <MazAnimatedElement direction=" right" :delay="600" :duration="700">
@@ -46,7 +46,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
       </MazAnimatedElement>
     </div>
     <div class="">
-      <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5 mt-2">
+      <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5 mt-2 outfit">
         <UIcon
           :name="'i-lucide-' + plugins.tags.find((t) => t.label === tag)?.icon"
           class="mx-0.5" />

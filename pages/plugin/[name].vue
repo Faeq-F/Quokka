@@ -80,7 +80,7 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
             v-if="!loading" />
         </MazCardSpotlight>
       </div>
-      <div class="basis-1/4 pt-4 px-4">
+      <div class="basis-1/4 pt-4 px-4 outfit">
         <MazCardSpotlight class="w-full m-2">
           <div class="flex items-center text-sm">
             <UIcon name="i-lucide-images" class="mr-1.5 !size-4" />
@@ -144,7 +144,7 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
             <span>Tags</span>
           </div>
           <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
-          <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5">
+          <UKbd v-for="(tag, i) in plugin.tags" :key="i" class="mx-0.5 outfit">
             <UIcon
               :name="'i-lucide-' + plugins.tags.find((t) => t.label === tag)?.icon"
               class="mx-0.5" />

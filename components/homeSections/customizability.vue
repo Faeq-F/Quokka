@@ -213,7 +213,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
       ...
       </code></pre>
           <div
-            class="flex justify-around p-4 rounded-xl rounded-b-none sameOutline !border-b-0">
+            class="flex justify-around p-4 rounded-xl rounded-b-none sameOutline !border-b-0 outfit">
             Windows 11 Light <div>
               <MazBtn color="transparent" class="!p-1 !min-h-0">
                 <template #icon>

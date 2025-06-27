@@ -1,25 +1,34 @@
 <script setup>
 import { ref } from 'vue'
-let displayedSection = ref('installation')
+let displayedSection = ref({ label: 'documentation', icon: '' })
 const route = useRoute()
 if (route.query.section) displayedSection.value = route.query.section
 
 import { useDocsStore } from '~/stores/docsTOC.ts';
 const docsTOC = useDocsStore()
+const toc = docsTOC.toc.map((item) => {
+  if (item.children?.length) {
+    return {
+      ...item,
+      children: item.children.map((child) => {
+        return {
+          ...child,
+          onSelect: (_e) => displayedSection.value = child,
+        }
+      })
+    }
+  }
+  return {
+    ...item,
+    onSelect: (_e) => displayedSection.value = item,
+  }
+})
 
-function switchSection(section) {
-  displayedSection.value = section
-}
-
-import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
-
+import documentation from '~/components/docsSections/documentation.vue'
 import apiDocumentation from '~/components/docsSections/apiDocumentation.vue'
 import buildingTheApp from '~/components/docsSections/buildingTheApp.vue'
-import creatingContextPane from '~/components/docsSections/creatingContextPane.vue'
 import commands from '~/components/docsSections/commands.vue'
-import creatingNewItemType from '~/components/docsSections/creatingNewItemType.vue'
-import creatingThePlugin from '~/components/docsSections/creatingThePlugin.vue'
-import creatingTheProject from '~/components/docsSections/creatingTheProject.vue';
+import creatingPlugin from '~/components/docsSections/creatingPlugin.vue';
 import faqs from '~/components/docsSections/faq.vue'
 import generalUsage from '~/components/docsSections/generalUsage.vue'
 import installation from '~/components/docsSections/installation.vue'
@@ -27,92 +36,88 @@ import plugins from '~/components/docsSections/plugins.vue'
 import settings from '~/components/docsSections/settings.vue'
 import trayTask from '~/components/docsSections/trayTask.vue'
 
+const switchSectionTo = (to) => {
+  displayedSection.value = toc.find((item) => {
+    return item.section == to.replace("/documentation?section=", "")
+  })
+}
+
 </script>
 
 <template>
-  <div class="flex flex-row" id="docsPage" data-lenis-prevent>
-    <div class="basis-1/4 pt-4 px-4">
-      <MazCardSpotlight class="w-full" :padding="false">
-        <div class="noRadius" v-for="(s, i) in docsTOC.toc" :key="i">
-          <MazBtn color="transparent" @click="switchSection(s.section)"
-            class="w-full !border-0 !p-0 !min-h-0 !hover:bg-transparent"
-            justify="start" v-if="s.children?.length == 0"
-            :class="i == 0 ? '' : '!rounded-none'">
-            <MazCardSpotlight class="w-full">
-              <MazAnimatedElement direction="right" :delay="600"
-                :duration="2000" class="justify-start flex items-center">
-                <UIcon :name="s.icon" />
-                <p class="inline ml-2">
-                  {{ s.title }}
-                </p>
-              </MazAnimatedElement>
-            </MazCardSpotlight>
-          </MazBtn>
-          <MazAccordion class="w-full" v-else>
-            <template #title-1>
-              <MazAnimatedElement direction="right" :delay="600"
-                :duration="2000">
-                <UIcon :name="s.icon" />
-                <p class="inline ml-2">
-                  {{ s.title }}
-                </p>
-              </MazAnimatedElement>
-            </template>
-            <template #content-1>
-              <MazCardSpotlight class="w-full !pr-0 !py-0 noRadius"
-                :padding="false">
-                <div v-for="(child, i) in s.children" :key="i">
-                  <MazBtn color="transparent"
-                    @click="switchSection(child.section)"
-                    class="w-full !border-0 !p-0 !min-h-0 !hover:bg-transparent"
-                    justify="start" :class="i == 0 ? '' : '!rounded-none'">
-                    <MazCardSpotlight class="w-full !px-0 !pt-0">
-                      <MazAnimatedElement direction="right" :delay="600"
-                        :duration="2000"
-                        class="justify-start flex items-center">
-                        <UIcon :name="child.icon" />
-                        <p class="inline ml-2">
-                          {{ child.title }}
-                        </p>
-                      </MazAnimatedElement>
-                    </MazCardSpotlight>
-                  </MazBtn>
-                </div>
-              </MazCardSpotlight>
-            </template>
-          </MazAccordion>
-        </div>
-      </MazCardSpotlight>
+  <div>
+    <div class="flex">
+      <div
+        class="flex items-center justify-start p-2 varela clickable hover:bg-gray-100 dark:hover:bg-gray-800"
+        @click="displayedSection = { label: 'documentation', icon: '' }">
+        <UIcon name="i-lucide-book-text" class="mr-1" />
+        Documentation
+      </div>
+      <div class="flex items-center justify-start p-2 varela "
+        v-if="displayedSection.label != 'documentation'">
+        <USeparator orientation="vertical" class="mr-4"
+          :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
+        <MazAnimatedElement direction="right" :duration="500"
+          class="flex items-center">
+          Currently reading '
+          <UIcon :name="displayedSection.icon" class="px-3" /> {{
+            displayedSection.label + " " }}'
+        </MazAnimatedElement>
+      </div>
     </div>
-    <div class="basis-3/4 py-4 pr-4">
-      <MazCardSpotlight class="w-full">
-
-        <div class=" docsContent max-h-[85vh] min-h-[85vh]
-          overflow-y-scroll">
-          <Transition name="fade">
-            <apiDocumentation v-if="displayedSection == 'api-documentation'" />
-            <buildingTheApp v-else-if="displayedSection == 'build-app'" />
-            <creatingContextPane
-              v-else-if="displayedSection == 'creating-context-pane'" />
-            <commands v-else-if="displayedSection == 'commands'" />
-            <creatingNewItemType
-              v-else-if="displayedSection == 'creating-new-item-type'" />
-            <creatingThePlugin
-              v-else-if="displayedSection == 'creating-the-plugin'" />
-            <creatingTheProject
-              v-else-if="displayedSection == 'creating-the-project'" />
-            <faqs v-else-if="displayedSection == 'faq'" />
-            <generalUsage v-else-if="displayedSection == 'general-usage'" />
-            <installation v-else-if="displayedSection == 'installation'" />
-            <plugins v-else-if="displayedSection == 'plugins'" />
-            <settings v-else-if="displayedSection == 'settings'" />
-            <trayTask v-else-if="displayedSection == 'tray-task'" />
-          </Transition>
-        </div>
-      </MazCardSpotlight>
+    <USeparator
+      :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] w-full' }" />
+    <div class="flex">
+      <div class="flex flex-col justify-between">
+        <UNavigationMenu orientation="vertical" :items="toc"
+          class="transition-all duration-200 ease-out w-[48px] hover:w-64 p-1 outfit"
+          :ui="{ childList: 'ms-3', childItem: 'ps-0.5', linkTrailingIcon: '' }" />
+        <!-- <div class="text-sm text-gray-400">
+          <div>
+            Releases
+          </div>
+          <div>
+            Program Source
+          </div>
+          <div>
+            Website Source
+          </div>
+          <div>
+            Discussions
+          </div>
+          <div>
+            Feedback
+          </div>
+          <div>
+            Report an Issue
+          </div>
+        </div> -->
+      </div>
+      <USeparator orientation=" vertical" class="h-[90vh] ml-4"
+        :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
+      <div class="docsContent max-h-[90vh] min-h-[90vh]
+          overflow-y-scroll px-4 w-full outfit" data-lenis-prevent>
+        <Transition name="fade">
+          <documentation v-if="displayedSection.label == 'documentation'"
+            @switch-section="(to) => switchSectionTo(to)" />
+          <apiDocumentation
+            v-else-if="displayedSection.section == 'api-documentation'" />
+          <buildingTheApp v-else-if="displayedSection.section == 'build-app'" />
+          <commands v-else-if="displayedSection.section == 'commands'" />
+          <creatingPlugin
+            v-else-if="displayedSection.section == 'creating-plugin'" />
+          <faqs v-else-if="displayedSection.section == 'faq'" />
+          <generalUsage
+            v-else-if="displayedSection.section == 'general-usage'" />
+          <installation
+            v-else-if="displayedSection.section == 'installation'" />
+          <plugins v-else-if="displayedSection.section == 'plugins'" />
+          <settings v-else-if="displayedSection.section == 'settings'" />
+          <trayTask v-else-if="displayedSection.section == 'tray-task'" />
+        </Transition>
+      </div>
     </div>
   </div>
-
 </template>
 
 <!--add a copy code button-->
@@ -132,30 +137,30 @@ import trayTask from '~/components/docsSections/trayTask.vue'
 }
 </style>
 <style lang="css">
-#docsPage a {
+.docsContent a {
   font-style: italic;
   color: black;
   text-decoration: underline;
 }
 
-.dark #docsPage a {
+.dark .docsContent a {
   color: white;
 }
 
-#docsPage ul,
-#docsPage ol {
+.docsContent ul,
+.docsContent ol {
   margin-left: 2rem;
 }
 
-#docsPage ul {
+.docsContent ul {
   list-style: unset;
 }
 
-#docsPage ol {
+.docsContent ol {
   list-style: auto;
 }
 
-#docsPage h1 {
+.docsContent h1 {
   font-family: "Varela Round", sans-serif;
   font-weight: bold;
   font-size: x-large;
@@ -166,25 +171,25 @@ import trayTask from '~/components/docsSections/trayTask.vue'
   margin-left: 3rem;
 }
 
-#docsPage h2 {
+.docsContent h2 {
   font-size: large;
   margin: 1rem;
 }
 
-#docsPage h2 span,
-#docsPage h1 span {
+.docsContent h2 span,
+.docsContent h1 span {
   margin-right: 10px;
   margin-bottom: 3px;
 }
 
-#docsPage docsContent div {
+.docsContent docsContent div {
   border: 1px solid gray;
   border-radius: 30px;
   margin: 1rem;
   padding: 1rem
 }
 
-#docsPage blockquote {
+.docsContent blockquote {
   margin: 0;
   margin-top: 0px;
   padding-left: 10px;
@@ -200,7 +205,7 @@ import trayTask from '~/components/docsSections/trayTask.vue'
   padding-top: 10px;
 }
 
-#docsPage textarea[readonly] {
+.docsContent textarea[readonly] {
   height: 40vh;
   width: 90%;
   font-family: cascadia code;
@@ -209,7 +214,7 @@ import trayTask from '~/components/docsSections/trayTask.vue'
   font-size: x-small;
 }
 
-#docsPage kbd {
+.docsContent kbd {
   background-color: #eee;
   border-radius: 3px;
   border: 1px solid #b4b4b4;
@@ -226,15 +231,15 @@ import trayTask from '~/components/docsSections/trayTask.vue'
   font-family: monospace;
 }
 
-#docsPage code {
+.docsContent code {
   font-family: monospace;
 }
 
-#docsPage .noRadius * {
+.docsContent .noRadius * {
   --maz-border-radius: 0 !important;
 }
 
-#docsPage .noRadius {
+.docsContent .noRadius {
   --maz-border-radius: 0.7rem !important;
   border-bottom-right-radius: 0;
   border-top-left-radius: 0;
