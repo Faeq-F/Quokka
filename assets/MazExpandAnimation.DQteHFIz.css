@@ -1,0 +1,1 @@
+.m-expand-animation[data-v-058a2912]{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--expand-animation-duration) var(--expand-animation-timing-function)}.m-expand-animation__inner.--overflow-hidden[data-v-058a2912]{overflow:hidden}.m-expand-animation--expanded[data-v-058a2912]{grid-template-rows:1fr}
