@@ -41,7 +41,10 @@ const switchSectionTo = (to) => {
     return item.section == to.replace("/documentation?section=", "")
   })
 }
+watch(() => route.query.section, switchSectionTo, { immediate: true })
 
+import Link from '~/components/link.vue'
+const sidebarHover = ref(false);
 </script>
 
 <template>
@@ -59,7 +62,8 @@ const switchSectionTo = (to) => {
           :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
         <MazAnimatedElement direction="right" :duration="500"
           class="flex items-center">
-          Currently reading '
+          Currently reading
+          '
           <UIcon :name="displayedSection.icon" class="px-3" /> {{
             displayedSection.label + " " }}'
         </MazAnimatedElement>
@@ -68,32 +72,91 @@ const switchSectionTo = (to) => {
     <USeparator
       :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] w-full' }" />
     <div class="flex">
-      <div class="flex flex-col justify-between">
-        <UNavigationMenu orientation="vertical" :items="toc"
-          class="transition-all duration-200 ease-out w-[48px] hover:w-64 p-1 outfit"
-          :ui="{ childList: 'ms-3', childItem: 'ps-0.5', linkTrailingIcon: '' }" />
-        <!-- <div class="text-sm text-gray-400">
-          <div>
-            Releases
+      <div
+        class="flex flex-col justify-between w-[48px] hover:w-64 transition-all duration-200 ease-out"
+        @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
+        <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
+          :ui="{ childList: 'ms-3', childItem: 'ps-0.5' }"
+          :trailingIcon="sidebarHover ? '' : ' '" />
+        <div class="text-sm text-gray-400 ">
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-scale" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Licence" />
+              </MazAnimatedElement>
+            </div>
           </div>
-          <div>
-            Program Source
+          <USeparator />
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-file-cog" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Changelog" />
+              </MazAnimatedElement>
+            </div>
           </div>
-          <div>
-            Website Source
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-tags" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Releases" />
+              </MazAnimatedElement>
+            </div>
           </div>
-          <div>
-            Discussions
+          <USeparator />
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-folder-git" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Program Source" />
+              </MazAnimatedElement>
+            </div>
           </div>
-          <div>
-            Feedback
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-folder-git-2" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Website Source" />
+              </MazAnimatedElement>
+            </div>
           </div>
-          <div>
-            Report an Issue
+          <USeparator />
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-messages-square" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Discussions" />
+              </MazAnimatedElement>
+            </div>
           </div>
-        </div> -->
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-thumbs-up" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Feedback" />
+              </MazAnimatedElement>
+            </div>
+          </div>
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-shield-check" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Security Policy" />
+              </MazAnimatedElement>
+            </div>
+          </div>
+          <div class="flex items-center m-1 p-1 h-6">
+            <UIcon name="i-lucide-octagon-alert" class="mx-1 !size-4" />
+            <div :class="sidebarHover ? '' : 'hidden'">
+              <MazAnimatedElement duration="700" direction="right">
+                <Link url="" text="Report an Issue" />
+              </MazAnimatedElement>
+            </div>
+          </div>
+        </div>
       </div>
-      <USeparator orientation=" vertical" class="h-[90vh] ml-4"
+      <USeparator orientation=" vertical" class="h-[90vh] ml-2"
         :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
       <div class="docsContent max-h-[90vh] min-h-[90vh]
           overflow-y-scroll px-4 w-full outfit" data-lenis-prevent>

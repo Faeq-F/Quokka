@@ -1,186 +1,8 @@
 <script setup lang="ts">
-const galleryitems = [
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-  '/Quokka/media/AppScreenshots/AllApps.png',
-]
+import { useThemesStore } from '~/stores/themes'
+const themes = useThemesStore()
 
-const codeItems = [
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-  {
-    "SearchBar": {
-      "SearchBarColor": "#fff",
-      "SearchBarRounding": "8",
-      "SearchBarBorderColor": "#dddddd",
-      "SearchBarBorderThickness": "0",
-      "SearchBarHeight": "40",
-      "SearchIconWidth": "32",
-      "SearchIconMargin": "8, 0, -8, 0",
-
-      "EntryField": {
-        "SearchFieldTxtColor": "Black",
-        "SearchFieldTxtSelColor": "Black",
-        "SearchFieldHeight": "32",
-        "SearchFieldWidth": "720",
-        "SearchFieldMargin": "5, 10, 10, 10",
-        "SearchFieldTxtSize": "14",
-        "SearchFieldPlaceholder": "Enter Query",
-        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
-        "SearchFieldPlaceholderColor": "#8e8e8e",
-        "SearchFieldPlaceholderSize": "14"
-      }
-    }
-  },
-]
-
-import { ref, useId } from 'vue';
+import { ref } from 'vue';
 const activeIndex = ref(0)
 
 function onClickPrev() {
@@ -199,33 +21,43 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 
 <template>
   <div class="flex px-78 pt-62">
-    <MazAnimatedElement direction="right" :delay="1100" :duration="2000"
-      class="inline">
-      <div
-        class="flex flex-col justify-left items-center px-4 rounded-lg sameOutline">
-        <div class="">
-          <pre class="text-xs">
-      <code>
-      ...
+    <div class="inline">
+      <MazAnimatedElement direction="right" :delay="1100" :duration="2000">
+        <MazCardSpotlight :padding="false">
+          <div class="px-4 w-88 ">
 
-      {{ codeItems[activeIndex] }}
+            <textarea readonly>
+            ...
 
-      ...
-      </code></pre>
-          <div
-            class="flex justify-around p-4 rounded-xl rounded-b-none sameOutline !border-b-0 outfit">
-            Windows 11 Light <div>
-              <MazBtn color="transparent" class="!p-1 !min-h-0">
+            {{ themes.themes[activeIndex].json }}
+            ...
+            </textarea>
+
+          </div>
+        </MazCardSpotlight>
+      </MazAnimatedElement>
+      <MazAnimatedElement direction="right" :delay="1200" :duration="2000">
+        <MazCardSpotlight
+          class="flex flex-col justify-left items-center mt-2 w-full"
+          :padding="false">
+          <div class="p-4 flex justify-between outfit">
+            <div class="flex items-center">
+              <UIcon name="i-lucide-swatch-book" class="mr-2" />
+              {{ themes.themes[activeIndex].name }}
+            </div>
+            <div class="flex">
+              <USeparator orientation="vertical" class="mx-3" />
+              <MazBtn color="transparent" class="!p-1 !min-h-0"
+                :href="themes.themes[activeIndex].downloadLink">
                 <template #icon>
                   <UIcon name="i-lucide-download" />
                 </template>
               </MazBtn>
-
             </div>
           </div>
-        </div>
-      </div>
-    </MazAnimatedElement>
+        </MazCardSpotlight>
+      </MazAnimatedElement>
+    </div>
 
     <div class="flex-2 w-full flex flex-col items-center pr-4 rounded-lg">
       <div class="font-bold text-4xl text-center varela">
@@ -262,14 +94,15 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
       <MazAnimatedElement direction="left" :delay="1100" :duration="2000"
         class="justify-center">
         <UCarousel ref="carousel" v-slot="{ item }" arrows auto-height dots
-          :items="galleryitems" :prev="{ onClick: onClickPrev }"
-          :next="{ onClick: onClickNext }"
+          :items="themes.getGalleryItems()"
+          :prev="{ onClick: onClickPrev, class: 'ring-[#1f8fff33]' }"
+          :next="{ onClick: onClickNext, class: 'ring-[#1f8fff33]' }"
           class="w-[80%] rounded-lg mx-auto my-0" @select="onSelect"
           :loop="true" :ui="{
             container: 'transition-[height]',
             controls: 'absolute -bottom-4 inset-x-12',
             dots: '-top-7',
-            dot: 'w-6 h-1'
+            dot: 'w-6 h-1 bg-[#1f8fff33]',
           }">
           <img :src="item" class="rounded-lg mx-auto my-0" />
         </UCarousel>
@@ -281,11 +114,18 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 <style lang="css" scoped>
 .sameOutline {
   border: oklch(86.9% 0.022 252.894) 1px solid;
-  background: #fff
 }
 
 .dark .sameOutline {
-  border: rgba(31, 143, 255, .2) 1px solid;
-  background: #20212c
+  border: #1f8fff33 1px solid;
+}
+
+textarea {
+  font-family: cascadia code;
+  font-size: x-small;
+  height: 48vh;
+  width: 100%;
+  resize: none;
+  align-content: center;
 }
 </style>
