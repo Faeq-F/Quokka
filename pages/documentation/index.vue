@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-let displayedSection = ref({ label: 'documentation', icon: '' })
+let displayedSection = ref({ section: 'documentation', icon: '' })
 const route = useRoute()
 if (route.query.section) displayedSection.value = route.query.section
 
@@ -37,13 +37,15 @@ import settings from '~/components/docsSections/settings.vue'
 import trayTask from '~/components/docsSections/trayTask.vue'
 
 const switchSectionTo = (to) => {
-  displayedSection.value = toc.find((item) => {
-    return item.section == to.replace("/documentation?section=", "")
-  })
+  if (to)
+    displayedSection.value = toc.find((item) => {
+      return item.section == to.replace("/documentation?section=", "")
+    })
+  else
+    displayedSection.value = { section: 'documentation', icon: '' }
 }
 watch(() => route.query.section, switchSectionTo, { immediate: true })
 
-import Link from '~/components/link.vue'
 const sidebarHover = ref(false);
 </script>
 
@@ -52,12 +54,12 @@ const sidebarHover = ref(false);
     <div class="flex">
       <div
         class="flex items-center justify-start p-2 varela clickable hover:bg-gray-100 dark:hover:bg-gray-800"
-        @click="displayedSection = { label: 'documentation', icon: '' }">
+        @click="displayedSection = { section: 'documentation', icon: '' }">
         <UIcon name="i-lucide-book-text" class="mr-1" />
         Documentation
       </div>
       <div class="flex items-center justify-start p-2 varela "
-        v-if="displayedSection.label != 'documentation'">
+        v-if="displayedSection.section != 'documentation'">
         <USeparator orientation="vertical" class="mr-4"
           :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
         <MazAnimatedElement direction="right" :duration="500"
@@ -73,95 +75,24 @@ const sidebarHover = ref(false);
       :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] w-full' }" />
     <div class="flex">
       <div
-        class="flex flex-col justify-between w-[48px] hover:w-64 transition-all duration-200 ease-out"
+        class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out"
         @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
+
         <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
-          :ui="{ childList: 'ms-3', childItem: 'ps-0.5' }"
+          :ui="{ childList: sidebarHover ? 'transition-all duration-200 ease-out' : 'ms-0 transition-all duration-200 ease-out', childItem: 'ps-0.5' }"
           :trailingIcon="sidebarHover ? '' : ' '" />
-        <div class="text-sm text-gray-400 ">
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-scale" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Licence" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <USeparator />
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-file-cog" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Changelog" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-tags" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Releases" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <USeparator />
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-folder-git" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Program Source" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-folder-git-2" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Website Source" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <USeparator />
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-messages-square" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Discussions" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-thumbs-up" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Feedback" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-shield-check" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Security Policy" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-          <div class="flex items-center m-1 p-1 h-6">
-            <UIcon name="i-lucide-octagon-alert" class="mx-1 !size-4" />
-            <div :class="sidebarHover ? '' : 'hidden'">
-              <MazAnimatedElement duration="700" direction="right">
-                <Link url="" text="Report an Issue" />
-              </MazAnimatedElement>
-            </div>
-          </div>
-        </div>
+
+        <UNavigationMenu orientation="vertical" :items="docsTOC.links"
+          class=" p-1 outfit" :ui="{ childList: 'ms-3', childItem: 'ps-0.5' }"
+          :externalIcon="false">
+        </UNavigationMenu>
       </div>
-      <USeparator orientation=" vertical" class="h-[90vh] ml-2"
+      <USeparator orientation=" vertical" class="h-[90vh]"
         :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
       <div class="docsContent max-h-[90vh] min-h-[90vh]
           overflow-y-scroll px-4 w-full outfit" data-lenis-prevent>
         <Transition name="fade">
-          <documentation v-if="displayedSection.label == 'documentation'"
+          <documentation v-if="displayedSection.section == 'documentation'"
             @switch-section="(to) => switchSectionTo(to)" />
           <apiDocumentation
             v-else-if="displayedSection.section == 'api-documentation'" />
@@ -201,13 +132,22 @@ const sidebarHover = ref(false);
 </style>
 <style lang="css">
 .docsContent a {
-  font-style: italic;
-  color: black;
   text-decoration: underline;
+  text-decoration-color: #1f8fffde;
+  text-underline-offset: 3px;
 }
 
 .dark .docsContent a {
-  color: white;
+  text-decoration-color: #1f8fff91;
+}
+
+.docsContent a:hover {
+  opacity: 70%;
+}
+
+.dark .docsContent a:hover {
+  opacity: 100%;
+  filter: brightness(1.2);
 }
 
 .docsContent ul,
@@ -223,33 +163,9 @@ const sidebarHover = ref(false);
   list-style: auto;
 }
 
-.docsContent h1 {
-  font-family: "Varela Round", sans-serif;
-  font-weight: bold;
-  font-size: x-large;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 4rem;
-  margin-left: 3rem;
-}
-
 .docsContent h2 {
   font-size: large;
   margin: 1rem;
-}
-
-.docsContent h2 span,
-.docsContent h1 span {
-  margin-right: 10px;
-  margin-bottom: 3px;
-}
-
-.docsContent docsContent div {
-  border: 1px solid gray;
-  border-radius: 30px;
-  margin: 1rem;
-  padding: 1rem
 }
 
 .docsContent blockquote {
@@ -296,15 +212,5 @@ const sidebarHover = ref(false);
 
 .docsContent code {
   font-family: monospace;
-}
-
-.docsContent .noRadius * {
-  --maz-border-radius: 0 !important;
-}
-
-.docsContent .noRadius {
-  --maz-border-radius: 0.7rem !important;
-  border-bottom-right-radius: 0;
-  border-top-left-radius: 0;
 }
 </style>

@@ -61,8 +61,8 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="w-full h-[85vh] !border-0">
-    <iframe ref="APIframe" src="/APIdocs/api/Quokka.html"
+  <div class="w-full h-full !border-0">
+    <iframe ref="APIframe" src="/Quokka/APIdocs/api/Quokka.html"
       class="w-full h-full"></iframe>
   </div>
 </template>
