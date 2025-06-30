@@ -101,23 +101,24 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
               <ul class="list-disc ml-5">
                 <li>
                   <div class="flex items-center">
-                    <Link :url="'https://github.com/' + plugin?.github"
-                      text="Source code" />
+                    <Link :url="'https://github.com/' + plugin?.github">
+                    Source code
+                    </Link>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="" text="Discussions" />
+                    <Link url="">Discussions</Link>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="" text="Feedback" />
+                    <Link url="">Feedback</Link>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="" text="Report an Issue" />
+                    <Link url="">Report an Issue</Link>
                   </div>
                 </li>
               </ul>

@@ -193,21 +193,51 @@ const sidebarHover = ref(false);
   font-size: x-small;
 }
 
+.docsContent tr {
+  cursor: url(/Quokka/cursors/light-Point.cur),
+    auto !important;
+}
+
+.dark .docsContent tr {
+  cursor: url(/Quokka/cursors/dark-Point.cur),
+    auto !important;
+}
+
 .docsContent kbd {
-  background-color: #eee;
-  border-radius: 3px;
-  border: 1px solid #b4b4b4;
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.2),
-    0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
-  color: #333;
-  display: inline-block;
-  font-size: 0.85em;
-  font-weight: 700;
+  width: fit-content;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  border: 1px solid oklch(92.8% 0.006 264.531);
+  box-shadow: 0 2px 0 1px oklch(92.8% 0.006 264.531);
+  cursor: url(/Quokka/cursors/light-Point.cur),
+    auto !important;
+  font-family: var(--font-family-sans-serif);
+  font-size: 0.75em;
   line-height: 1;
-  padding: 2px 4px;
-  white-space: nowrap;
-  font-family: monospace;
+  display: inline;
+  text-align: center;
+  padding: 2px 5px;
+  position: relative;
+  top: -1px;
+  margin-left: 7px;
+  margin-right: 7px;
+
+  &:hover {
+    box-shadow: 0 1px 0 0.5px oklch(92.8% 0.006 264.531);
+    top: 1px;
+  }
+}
+
+.dark .docsContent kbd {
+  background-color: #0f172b;
+  border: 1px solid oklch(44.6% 0.03 256.802);
+  box-shadow: 0 2px 0 1px oklch(44.6% 0.03 256.802);
+  cursor: url(/Quokka/cursors/dark-Point.cur),
+    auto !important;
+
+  &:hover {
+    box-shadow: 0 1px 0 0.5px oklch(44.6% 0.03 256.802);
+  }
 }
 
 .docsContent code {

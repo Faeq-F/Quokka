@@ -17,8 +17,9 @@ import DocNotice from '~/components/docNotice.vue'
           A computer running Windows 7 or higher
         </li>
         <li>
-          <ExternalLink url=''
-            text=".NET 4.8 Framework (pre-installed on Windows 10 and 11)" />
+          <ExternalLink url=''>
+            .NET 4.8 Framework (pre-installed on Windows 10 and 11)
+          </ExternalLink>
         </li>
         <li>
           Exclusions to any anti-malware software (including Microsoft
@@ -39,7 +40,10 @@ import DocNotice from '~/components/docNotice.vue'
       <ul>
         <li>
           Go to the top of this page and click on the
-          <ExternalLink url='' text="'Download Latest Release'" />&nbsp;button
+          <ExternalLink url=''>
+            'Download Latest Release'
+          </ExternalLink>
+          &nbsp;button
         </li>
         <li>
           Download the 'Quokka.zip' file & extract it's contents
@@ -56,11 +60,14 @@ import DocNotice from '~/components/docNotice.vue'
             suggest placing the folder in 'C:\Program Files',<br />and
             creating a shortcut that is pinned to the taskbar and / or start
             menu.
-          </DocNotice>
-          <DocNotice type="tip">
+            <USeparator class="my-3 w-1/2 mx-auto"
+              :ui="{ border: 'dark:border-gray-600' }" />
             You can set up a task to run the program at
             startup in Task Scheduler. Alternatively see the
-            <ExternalLink url='' text="FAQ" />&nbsp;on this.
+            <ExternalLink url=''>
+              FAQ
+            </ExternalLink>
+            &nbsp;on this.
           </DocNotice>
         </li>
       </ul>

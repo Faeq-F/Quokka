@@ -160,19 +160,19 @@ import Link from '~/components/link.vue'
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1550"
                     :duration="700" class="inline">
-                    <Link url="" text="Changelog" />
+                    <Link url="">Changelog</Link>
                   </MazAnimatedElement>
                 </li>
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1600"
                     :duration="700" class="inline">
-                    <Link url="" text="Licence" />
+                    <Link url="">License</Link>
                   </MazAnimatedElement>
                 </li>
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1650"
                     :duration="700" class="inline">
-                    <Link url="" text="Security Policy" />
+                    <Link url="">Security Policy</Link>
                   </MazAnimatedElement>
                 </li>
               </ul>
@@ -197,7 +197,7 @@ import Link from '~/components/link.vue'
                   </div>
                   <MazAnimatedElement direction="left" :delay="1700 + (i * 200)"
                     :duration="700" class="inline" v-else>
-                    <Link :url="link.url" :text="link.text" />
+                    <Link :url="link.url">{{ link.text }}</Link>
                   </MazAnimatedElement>
                 </li>
               </ul>

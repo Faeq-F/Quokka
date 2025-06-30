@@ -6,7 +6,7 @@ export default defineConfig({
     colors: {
       primary: 'hsl(210, 100%, 56%)',
       secondary: '#d2afff',
-      info: '#5fc1d0',
+      info: '#a7ccff',
       success: 'hsl(130, 51%, 65%)',
       warning: '#f0b100',
       danger: '#fb2c36',
