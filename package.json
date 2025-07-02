@@ -34,6 +34,7 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
-    "@iconify-json/lucide": "^1.2.50"
+    "@iconify-json/lucide": "^1.2.50",
+    "prismjs": "^1.30.0"
   }
 }

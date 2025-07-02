@@ -33,7 +33,8 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 
   <MazAnimatedElement direction="up" :delay="1900" :duration="700">
     <div class="flex p-78 py-0">
-      <div style="border-radius: 60px; overflow: hidden;">
+      <div style="border-radius: 60px; overflow: hidden;"
+        class="hover:px-4 transition-all duration-700 ease-in-out">
         <div class="overflow-hidden rounded-[60px] -m-4">
           <video src="/media/HomePageVideo.mp4" autoplay loop
             class="w-screen"></video>

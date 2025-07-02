@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ExternalLink from '~/components/link.vue'
+import Code from '~/components/code.vue'
 </script>
 <template>
   <div class="px-88">
@@ -58,10 +59,17 @@ import ExternalLink from '~/components/link.vue'
           </MazTableCell>
           <MazTableCell style=" font-size: 1rem; width:43%">
             This shortcut is modifiable; see
-            <ExternalLink url=''>the ContextPaneKey setting</ExternalLink>
+            <ExternalLink url=''>the ContextPaneKey setting
+            </ExternalLink>
           </MazTableCell>
         </MazTableRow>
       </MazTable>
+      <!-- <Code lang="cs">
+        return Console.WriteLine('Hi');
+      </Code>
+      Hello <Code lang="cs" inline>
+        return Console.WriteLine('Hi');
+      </Code> after -->
     </MazCardSpotlight>
   </div>
 </template>

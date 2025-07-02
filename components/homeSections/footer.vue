@@ -181,20 +181,22 @@ import Link from '~/components/link.vue'
 
           <div class="flex justify-evenly">
             <div v-for="(section, i) in links" :key="i">
-              <div
-                class="varela font-extrabold border-b-1 border-gray-200 dark:border-gray-700 max-w-44 w-44 text-sm">
-                <MazAnimatedElement direction="left" :delay="1700"
-                  :duration="700" class="inline">
+
+              <MazAnimatedElement direction="left" :delay="1700" :duration="700"
+                class="inline">
+                <div
+                  class="varela font-extrabold border-b-1 border-gray-200 dark:border-gray-700 max-w-44 w-44 text-sm">
                   {{ section.title }}
-                </MazAnimatedElement>
-              </div>
+                </div>
+              </MazAnimatedElement>
               <ul>
                 <li
                   class="opacity-55 hover:opacity-75 ml-3 max-w-44 w-44 text-sm"
                   v-for="(link, i) in section.links" :key="i">
-                  <div v-if="link.text == ''"
+                  <MazAnimatedElement direction="left" :delay="1700 + (i * 200)"
+                    :duration="700" v-if="link.text == ''"
                     class="h-3 border-b-1 border-gray-200 dark:border-gray-700">
-                  </div>
+                  </MazAnimatedElement>
                   <MazAnimatedElement direction="left" :delay="1700 + (i * 200)"
                     :duration="700" class="inline" v-else>
                     <Link :url="link.url">{{ link.text }}</Link>

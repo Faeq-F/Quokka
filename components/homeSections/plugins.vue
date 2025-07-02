@@ -49,7 +49,7 @@ import PluginCard from '~/components/PluginCard.vue'
       </template>
     </MazCarousel>
     <MazAnimatedElement direction="down" :duration="20" :delay="1500">
-      <MazCarousel hideScrollbar>
+      <MazCarousel hideScrollbar id="pluginCarousel">
         <MazAnimatedElement direction="right" :delay="1500" :duration="1500"
           v-for="(plugin, i) in plugins.getTopPlugins()" :key="i">
           <PluginCard :plugin="plugin" />
@@ -57,7 +57,7 @@ import PluginCard from '~/components/PluginCard.vue'
 
         <MazAnimatedElement direction="right" :duration="2000">
           <MazCardSpotlight style="min-width: 250px;box-shadow: none;"
-            color="secondary" class="cursor-pointer">
+            class="cursor-pointer">
             <MazCard style="min-width: 250px;box-shadow: none;"
               class="hover:bg-gray-400 !bg-transparent">
               <template #title>
@@ -80,5 +80,15 @@ import PluginCard from '~/components/PluginCard.vue'
 <style lang="css">
 .m-carousel .m-carousel__items {
   overflow-x: hidden !important;
+}
+
+#pluginCarousel .m-carousel__items::after {
+  box-shadow: inset 30px 0 15px -4px rgba(255, 255, 255, 0.8),
+    inset -30px 0 15px -4px rgb(255 255 255 / 80%);
+  content: "";
+  width: calc(100vw - 39.6rem);
+  height: 12rem;
+  position: absolute;
+  left: 0;
 }
 </style>
