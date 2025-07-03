@@ -11,7 +11,11 @@ import Code from '~/components/code.vue'
       <div class="text-md outfit">Running the app & default keys</div>
     </div>
     <MazCardSpotlight class="w-full m-2">
-      To use the app, run Quokka.exe (in the root folder)
+      <span class="flex gap-1">
+        To use the app, run
+        <Code inline> Quokka.exe </Code>
+        (in the root folder)
+      </span>
     </MazCardSpotlight>
     <MazCardSpotlight class="w-full m-2" :padding="false">
       <MazTable hoverable divider size="md" tableClass="!bg-transparent"
@@ -25,7 +29,13 @@ import Code from '~/components/code.vue'
           </MazTableCell>
           <MazTableCell style="font-size: 1rem; width:43%">
             This shortcut is modifiable; see
-            <ExternalLink url=''>the WindowHotKey setting</ExternalLink>
+            <span class="flex gap-1">This shortcut is modifiable; see
+              <ExternalLink url='' class="flex">
+                <span>the&nbsp;</span>
+                <Code inline class="!border-0">WindowHotKey</Code>
+                <span>&nbsp;setting</span>
+              </ExternalLink>
+            </span>
           </MazTableCell>
         </MazTableRow>
         <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
@@ -58,18 +68,23 @@ import Code from '~/components/code.vue'
             Shows context pane for item
           </MazTableCell>
           <MazTableCell style=" font-size: 1rem; width:43%">
-            This shortcut is modifiable; see
-            <ExternalLink url=''>the ContextPaneKey setting
-            </ExternalLink>
+            <span class="flex gap-1">This shortcut is modifiable; see
+              <ExternalLink url='' class="flex">
+                <span>the&nbsp;</span>
+                <Code inline class="!border-0">ContextPaneKey</Code>
+                <span>&nbsp;setting</span>
+              </ExternalLink>
+            </span>
           </MazTableCell>
         </MazTableRow>
       </MazTable>
       <!-- <Code lang="cs">
         return Console.WriteLine('Hi');
       </Code>
-      Hello <Code lang="cs" inline>
+      <span class="flex gap-1">
+        Hello <Code lang="cs" inline>
         return Console.WriteLine('Hi');
-      </Code> after -->
+      </Code> after</span> -->
     </MazCardSpotlight>
   </div>
 </template>

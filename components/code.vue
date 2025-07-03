@@ -2,7 +2,11 @@
 
 import Prism from 'prismjs'
 import '~/assets/css/prism-vs.css'
+import 'prismjs/components/prism-c'
+import 'prismjs/components/prism-clike'
 import 'prismjs/components/prism-csharp'
+import 'prismjs/plugins/match-braces/prism-match-braces'
+import 'prismjs/plugins/match-braces/prism-match-braces.css'
 import 'prismjs/plugins/toolbar/prism-toolbar'
 import 'prismjs/plugins/toolbar/prism-toolbar.css'
 import 'prismjs/plugins/autolinker/prism-autolinker'
@@ -11,9 +15,11 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords'
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
-defineProps(['inline', 'lang'])
+defineProps({
+  inline: Boolean,
+  lang: String
+})
 import { onMounted } from 'vue'
 onMounted(() => {
   Prism.highlightAll()
@@ -21,11 +27,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <code v-if="inline" :class="`lang-${lang}`" data-prismjs-copy="⿻">
+  <code v-if="inline" :class="`lang-${lang} match-braces`">
     <slot />
   </code>
-  <pre v-else data-prismjs-copy="⿻">
-      <code :class="`lang-${lang}`">
+  <pre class="line-numbers" v-else>
+      <code :class="`lang-${lang} match-braces`">
         <slot />
     </code>
   </pre>

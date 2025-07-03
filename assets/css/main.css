@@ -10,6 +10,14 @@ import 'maz-ui/styles'
   scroll-behavior: smooth;
 }
 
+::selection {
+  background-color: #eeeeee !important;
+}
+
+.dark ::selection {
+  background-color: #142550 !important;
+}
+
 /* Scroll bar */
 
 @-moz-document url-prefix() {

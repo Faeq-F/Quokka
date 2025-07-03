@@ -114,7 +114,6 @@ const sidebarHover = ref(false);
   </div>
 </template>
 
-<!--add a copy code button-->
 <style lang="css" scoped>
 .fade-enter-active,
 .fade-leave-active {
@@ -131,12 +130,26 @@ const sidebarHover = ref(false);
 }
 </style>
 <style lang="css">
+.docsContent a:has(code) *,
 .docsContent a {
   text-decoration: underline;
   text-decoration-color: #1f8fffde;
   text-underline-offset: 3px;
 }
 
+.docsContent a:has(code) {
+  text-decoration: none;
+}
+
+.docsContent a code {
+  text-decoration: underline;
+  text-decoration-color: #1f8fffde;
+  text-underline-offset: 4px;
+  padding-top: 1px;
+}
+
+.dark .docsContent a:has(code) *,
+.dark .docsContent a code,
 .dark .docsContent a {
   text-decoration-color: #1f8fff91;
 }
