@@ -28,7 +28,6 @@ import Code from '~/components/code.vue'
             Launches the search bar
           </MazTableCell>
           <MazTableCell style="font-size: 1rem; width:43%">
-            This shortcut is modifiable; see
             <span class="flex gap-1">This shortcut is modifiable; see
               <ExternalLink url='' class="flex">
                 <span>the&nbsp;</span>
@@ -78,13 +77,6 @@ import Code from '~/components/code.vue'
           </MazTableCell>
         </MazTableRow>
       </MazTable>
-      <!-- <Code lang="cs">
-        return Console.WriteLine('Hi');
-      </Code>
-      <span class="flex gap-1">
-        Hello <Code lang="cs" inline>
-        return Console.WriteLine('Hi');
-      </Code> after</span> -->
     </MazCardSpotlight>
   </div>
 </template>

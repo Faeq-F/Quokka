@@ -219,6 +219,36 @@ export const usePluginsStore = defineStore("pluginsStore", {
         tags: ['search', 'notes', 'productivity', 'online'],
       },
     ],
+    plannedPlugins: [
+      {
+        name: 'Color Space Convertor',
+        inProgress: true
+      },
+      {
+        name: 'Unit Convertor',
+        inProgress: false
+      },
+      {
+        name: 'Currency Convertor',
+        inProgress: false
+      },
+      {
+        name: 'Translator',
+        inProgress: false
+      },
+      {
+        name: 'Lorem Ipsum Generator',
+        inProgress: false
+      },
+      {
+        name: 'Emoji Lookup',
+        inProgress: false
+      },
+      {
+        name: 'Wikipedia Search',
+        inProgress: false
+      },
+    ]
   }),
   actions: {
     getTopPlugins() {

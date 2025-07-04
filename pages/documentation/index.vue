@@ -13,14 +13,14 @@ const toc = docsTOC.toc.map((item) => {
       children: item.children.map((child) => {
         return {
           ...child,
-          onSelect: (_e) => displayedSection.value = child,
+          onSelect: (_e) => navigateTo('/documentation?section=' + child.section),
         }
       })
     }
   }
   return {
     ...item,
-    onSelect: (_e) => displayedSection.value = item,
+    onSelect: (_e) => navigateTo('/documentation?section=' + item.section),
   }
 })
 
@@ -37,11 +37,16 @@ import settings from '~/components/docsSections/settings.vue'
 import trayTask from '~/components/docsSections/trayTask.vue'
 
 const switchSectionTo = (to) => {
-  if (to)
+  if (to) {
     displayedSection.value = toc.find((item) => {
       return item.section == to.replace("/documentation?section=", "")
     })
-  else
+    if (displayedSection.value === undefined) {
+      displayedSection.value = toc[1].children.find((item) => {
+        return item.section == to.replace("/documentation?section=", "")
+      })
+    }
+  } else
     displayedSection.value = { section: 'documentation', icon: '' }
 }
 watch(() => route.query.section, switchSectionTo, { immediate: true })
@@ -77,14 +82,17 @@ const sidebarHover = ref(false);
       <div
         class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out"
         @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
-
         <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
-          :ui="{ childList: sidebarHover ? 'transition-all duration-200 ease-out' : 'ms-0 transition-all duration-200 ease-out', childItem: 'ps-0.5' }"
-          :trailingIcon="sidebarHover ? '' : ' '" />
-
+          :ui="{
+            childList: sidebarHover ? 'transition-all duration-200 ease-out'
+              : 'ms-0 transition-all duration-200 ease-out', childItem: 'ps-0.5',
+            label: 'font-light', linkTrailingIcon: sidebarHover ? '' : '!hidden'
+          }" />
         <UNavigationMenu orientation="vertical" :items="docsTOC.links"
-          class=" p-1 outfit" :ui="{ childList: 'ms-3', childItem: 'ps-0.5' }"
-          :externalIcon="false">
+          class=" p-1 outfit" :ui="{
+            childList: 'ms-3', childItem: 'ps-0.5',
+            label: 'font-light'
+          }" :externalIcon="false">
         </UNavigationMenu>
       </div>
       <USeparator orientation=" vertical" class="h-[90vh]"
@@ -145,6 +153,10 @@ const sidebarHover = ref(false);
   text-decoration: underline;
   text-decoration-color: #1f8fffde;
   text-underline-offset: 4px;
+  padding-top: 3px;
+}
+
+.docsContent table a code {
   padding-top: 1px;
 }
 

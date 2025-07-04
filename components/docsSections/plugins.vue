@@ -1,116 +1,64 @@
+<script lang="ts" setup>
+import { usePluginsStore } from '~/stores/plugins'
+const plugins = usePluginsStore()
+
+const createdPlugins = plugins.pluginsList.map((item) => {
+  return {
+    developed: '✅',
+    name: item.name,
+    author: item.author,
+    classes: 'hover:!bg-blue-50 dark:hover:!bg-[#181821]'
+  }
+})
+const plannedPlugins = plugins.plannedPlugins.map((item) => {
+  return {
+    developed: item.inProgress ? 'In progress' : '▢',
+    name: item.name,
+    author: 'n/a',
+    classes: 'hover:!bg-blue-50 dark:hover:!bg-[#181821]'
+  }
+})
+const allPlugins = [...createdPlugins, ...plannedPlugins]
+</script>
 <template>
-  <div>
-    <h1>
-      <UIcon name="i-lucide-blocks" /> Plugins
-    </h1>
-    <div>
-      To add a plugin, download and extract it to the PlugBoard
-      folder<br />
+  <div class="px-88">
+    <div class="flex flex-col mt-22 mb-16 items-center">
+      <div class="flex items-center Varela text-3xl">
+        <UIcon name="i-lucide-blocks" class="mr-2" /> Plugins
+      </div>
+      <div class="text-md outfit">Using plugins & the plugins list</div>
+    </div>
+    <DocNotice type="warning" style="width: 100%;">
+      Only recognized plugins appear on this site — others may exist.
+    </DocNotice>
+    <MazCardSpotlight class="w-full m-2">
+      <span class="flex gap-1">
+        To add a plugin, download and extract it to the
+        <Code inline> PlugBoard </Code> folder
+      </span>
       If you do not wish to use a plugin, simply delete the appropriate
-      folder
-      in the PlugBoard
-    </div>
-    <div>
-      Plugins may have their own settings and special commands.<br />
-      Please see their folder in the PlugBoard to find their settings
-      file
-      (at
-      the root (if there is one)).<br />
-      Please consult their documentation for default values, etc.
-    </div>
-    <div>
-      Only recognized plugins appear on this page. Being human, I can't
-      recognize every plugin for Quokka — I can only
-      realize there is so much that exists.
-    </div>
-    <div>
-      Planned plugins:
-      <MazTable hoverable divider :headers="['Developed?', 'Plugin']">
-        <MazTableRow>
-          <MazTableCell>✅</MazTableCell>
-          <MazTableCell>installed app launcher</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>✅</MazTableCell>
-          <MazTableCell>portable app launcher</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>In progress</MazTableCell>
-          <MazTableCell>file/folder launcher - everything integration
-          </MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>In progress</MazTableCell>
-          <MazTableCell>calculator</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>In progress</MazTableCell>
-          <MazTableCell>power commands (logout, lock, sleep, shutdown, etc.)
-          </MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>In progress</MazTableCell>
-          <MazTableCell>English dictionary</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>control panel shortcuts</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>Windows settings</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>Unicode character lookup</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>IP & MAC address</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>cli commands - powershell</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>color space conversion</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>unit conversion</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>currency conversion</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>translate</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>lorem ipsum generator</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>emoji lookup</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>url opener</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>wikipedia search</MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell>▢</MazTableCell>
-          <MazTableCell>workflows - launch multiple shortcuts at once - see
-            below
-          </MazTableCell>
-        </MazTableRow>
+      folder in the PlugBoard
+      <DocNotice type="info" style="width: calc(100% - 1rem); ">
+        Plugins may have their own settings, special commands, command
+        signifiers, etc.<br />
+        Please see their folder in the PlugBoard to find their settings
+        file (at the root, if there is one) and consult their documentation for
+        default values, implemented features, etc.
+      </DocNotice>
+    </MazCardSpotlight>
+    <MazCardSpotlight class="w-full m-2" :padding="false">
+      <MazTable hoverable divider size="md" tableClass="!bg-transparent"
+        :headers="[
+          { label: 'Developed?', key: 'developed' },
+          { label: 'Planned / developed plugin', key: 'name' },
+          { label: 'Author', key: 'author' },
+        ]" :rows="allPlugins" search noSearchBy inputSize="sm">
       </MazTable>
-    </div>
+    </MazCardSpotlight>
   </div>
 </template>
+<style>
+.m-table-header {
+  background: transparent !important;
+}
+</style>
