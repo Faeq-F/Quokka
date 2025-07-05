@@ -20,11 +20,11 @@ import Code from '~/components/code.vue'
     <MazCardSpotlight class="w-full m-2" :padding="false">
       <MazTable hoverable divider size="md" tableClass="!bg-transparent"
         :headers="['Default keys / shortcuts', 'Use', 'Notes']">
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
+        <MazTableRow>
           <MazTableCell style="font-size: 1rem;">
             <kbd>Left Alt</kbd>+<kbd>Space</kbd>
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Launches the search bar
           </MazTableCell>
           <MazTableCell style="font-size: 1rem; width:43%">
@@ -37,33 +37,33 @@ import Code from '~/components/code.vue'
             </span>
           </MazTableCell>
         </MazTableRow>
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
-          <MazTableCell style=" font-size: 1rem;">
+        <MazTableRow>
+          <MazTableCell>
             <kbd>🠙</kbd><span class="text-sm">&</span><kbd>🠛</kbd>
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Select items
           </MazTableCell>
           <MazTableCell style=" font-size: 1rem; width:43%">
             The keys used cannot be changed
           </MazTableCell>
         </MazTableRow>
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
-          <MazTableCell style=" font-size: 1rem;">
+        <MazTableRow>
+          <MazTableCell>
             <kbd>↵</kbd>
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Executes the selected item (the first item if no item is selected)
           </MazTableCell>
           <MazTableCell style=" font-size: 1rem; width:43%">
             The key used cannot be changed
           </MazTableCell>
         </MazTableRow>
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
-          <MazTableCell style=" font-size: 1rem;">
+        <MazTableRow>
+          <MazTableCell>
             <kbd>☰</kbd>
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Shows context pane for item
           </MazTableCell>
           <MazTableCell style=" font-size: 1rem; width:43%">

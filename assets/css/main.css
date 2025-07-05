@@ -88,6 +88,39 @@ import 'maz-ui/styles'
   border-color: transparent !important;
 }
 
+.m-table-header {
+  background: transparent !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+.m-table-header .m-input-wrapper {
+  width: calc(100vw - 49.5rem);
+  background: transparent !important;
+  border: none !important;
+  border-bottom: var(--maz-border-color) solid 1px !important;
+}
+
+.dark .m-table-header .m-input-wrapper{
+  border-bottom: #4a5565 solid 1px !important;
+}
+
+.m-table-wrapper {
+  border: none !important;
+}
+
+td.m-table-cell{
+  font-size: 1rem !important;
+}
+
+tr.m-table-row:hover{
+  background-color: var(--color-blue-50) !important;
+}
+
+.dark tr.m-table-row:hover{
+  background-color: #181821 !important;
+}
+
 /*
   Cursors by GeorgiosNexus (Light cursors) & AKGAMER (Dark cursors)
   http://www.rw-designer.com/cursor-set/windows-11-light-theme

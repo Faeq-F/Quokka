@@ -13,19 +13,19 @@ import DocNotice from '~/components/docNotice.vue'
     <MazCardSpotlight class="w-full m-2" :padding="false">
       <MazTable hoverable divider size="md" tableClass="!bg-transparent"
         :headers="['Default tray task icon', 'Notes']">
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
-          <MazTableCell style="font-size: 1rem;">
+        <MazTableRow>
+          <MazTableCell>
             <img src="/media/Docs/LoadingQuokkaTray.ico" class="size-10" />
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Displayed while Quokka is starting up / loading (is not ready)
           </MazTableCell>
         </MazTableRow>
-        <MazTableRow class="hover:!bg-blue-50 dark:hover:!bg-[#181821]">
-          <MazTableCell style="font-size: 1rem;">
+        <MazTableRow>
+          <MazTableCell>
             <img src="/media/Docs/QuokkaTray.ico" class="size-10" />
           </MazTableCell>
-          <MazTableCell style=" font-size: 1rem;">
+          <MazTableCell>
             Displayed when Quokka is ready for use
           </MazTableCell>
         </MazTableRow>
