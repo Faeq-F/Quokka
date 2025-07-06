@@ -85,9 +85,11 @@ import DocNotice from '~/components/docNotice.vue'
       </ul>
       <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
       <DocNotice type="warning" style="width: calc(100% - 1rem);">
-        When the tray task context menu has its appearance changed in the
-        settings file, you will have to exit and reload the application to see
-        the changes.
+        When the tray task context menu has its
+        <span class="font-bold">appearance changed</span> in the
+        settings file, you will have to <span class="font-bold">exit and
+          reload</span>
+        the application to see the changes.
       </DocNotice>
     </MazCardSpotlight>
     <DocNotice type="danger" style="width: 100%;">

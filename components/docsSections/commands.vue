@@ -11,8 +11,9 @@ import DocNotice from '~/components/docNotice.vue'
       <div class="text-md outfit">Special commands & command signifiers</div>
     </div>
     <!-- check this with signifiers -->
-    <DocNotice type="warning" style="width: 100%">
-      <b>Special commands are case-sensitive</b> to ensure they do not
+    <DocNotice type="warning" style="width: 100%" class="outfit">
+      <span class="font-bold">Special commands are case-sensitive</span> to
+      ensure they do not
       interfere with other functions of the app or plugins
     </DocNotice>
 

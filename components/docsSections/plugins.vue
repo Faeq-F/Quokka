@@ -39,10 +39,11 @@ import ExternalLink from '~/components/link.vue'
       If you do not wish to use a plugin, simply delete the appropriate
       folder in the PlugBoard
       <DocNotice type="info" style="width: calc(100% - 1rem); ">
-        Plugins may have their own settings, special commands, command
-        signifiers, etc.<br />
+        <span class="font-bold">Plugins may have their own settings</span>,
+        special commands, command signifiers, etc.<br />
         Please see their folder in the PlugBoard to find their settings
-        file (at the root, if there is one) and consult their documentation for
+        file (at the root, if there is one) and consult their documentation
+        for
         default values, implemented features, etc.
       </DocNotice>
     </MazCardSpotlight>

@@ -86,13 +86,11 @@ const sidebarHover = ref(false);
           :ui="{
             childList: sidebarHover ? 'transition-all duration-200 ease-out'
               : 'ms-0 transition-all duration-200 ease-out', childItem: 'ps-0.5',
-            label: 'font-light', linkTrailingIcon: sidebarHover ? '' : '!hidden'
+            linkLabel: '!font-light', linkTrailingIcon: sidebarHover ? '' : '!hidden'
           }" />
         <UNavigationMenu orientation="vertical" :items="docsTOC.links"
-          class=" p-1 outfit" :ui="{
-            childList: 'ms-3', childItem: 'ps-0.5',
-            label: 'font-light'
-          }" :externalIcon="false">
+          class="p-1 outfit" :ui="{ linkLabel: '!font-light' }"
+          :externalIcon="false">
         </UNavigationMenu>
       </div>
       <USeparator orientation=" vertical" class="h-[90vh]"
