@@ -59,7 +59,7 @@ import PluginCard from '~/components/PluginCard.vue'
           <MazCardSpotlight style="min-width: 250px;box-shadow: none;"
             class="cursor-pointer">
             <MazCard style="min-width: 250px;box-shadow: none;"
-              class="hover:bg-gray-400 !bg-transparent">
+              class="hover:bg-gray-400 !bg-transparent !border-0 outfit">
               <template #title>
                 <h4 class="maz-m-0">
                 </h4>
@@ -86,9 +86,14 @@ import PluginCard from '~/components/PluginCard.vue'
   box-shadow: inset 30px 0 15px -4px rgba(255, 255, 255, 0.8),
     inset -30px 0 15px -4px rgb(255 255 255 / 80%);
   content: "";
-  width: calc(100vw - 39.6rem);
+  width: calc(100vw - 39rem);
   height: 12rem;
   position: absolute;
   left: 0;
+}
+
+.dark #pluginCarousel .m-carousel__items::after {
+  box-shadow: inset 30px 0 15px -4px rgba(15, 23, 43, 0.8),
+    inset -30px 0 15px -4px rgb(15 23 43 / 80%);
 }
 </style>

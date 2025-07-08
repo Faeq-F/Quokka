@@ -1,6 +1,27 @@
 <script setup lang="ts">
 import ExternalLink from '~/components/link.vue'
 import DocNotice from '~/components/docNotice.vue'
+import { usePluginsStore } from '~/stores/plugins'
+const plugins = usePluginsStore()
+
+const commands = plugins.pluginsList.map((i) => {
+  return i.specialCommands.map((j) => {
+    return {
+      ...j,
+      plugin: i.name
+    }
+  })
+}).flat()
+
+const signifiers = plugins.pluginsList.map((i) => {
+  return i.commandSignifiers.map((j) => {
+    return {
+      ...j,
+      plugin: i.name
+    }
+  })
+}).flat()
+
 </script>
 <template>
   <div class="px-88">
@@ -17,7 +38,6 @@ import DocNotice from '~/components/docNotice.vue'
       interfere with other functions of the app or plugins
     </DocNotice>
 
-
     <!-- get these from the store -->
     <MazAccordion class="w-full m-2" contentClass="!p-0">
       <template #title-1>
@@ -27,34 +47,27 @@ import DocNotice from '~/components/docNotice.vue'
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
           roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm"
-          :headers="['Special Command', 'Use', 'Plugin', 'Notes']">
-          <MazTableRow>
-            <MazTableCell><code>AllApps</code></MazTableCell>
-            <MazTableCell>list all installed apps</MazTableCell>
-            <MazTableCell>InstalledApps</MazTableCell>
-            <MazTableCell>
-              This command is modifiable within the plugin specific
-              settings<br />
-              Along with the list of apps, an extra item is added to the
-              start,
-              allowing users to open shell:appsFolder.<br />
-              This item can be blacklisted.
-            </MazTableCell>
-          </MazTableRow>
-          <MazTableRow>
-            <MazTableCell><code>AllPortableApps</code></MazTableCell>
-            <MazTableCell>list all portable apps</MazTableCell>
-            <MazTableCell><a href=''>PortableApps</a></MazTableCell>
-            <MazTableCell>This command is
-              modifiable within the plugin specific settings<br />
-              Along with the list of apps, an extra item is added to the
-              start,
-              allowing users to open the directory in which the portable
-              apps
-              reside.<br />
-              This item can be blacklisted.</MazTableCell>
-          </MazTableRow>
+          inputSize="sm" :headers="[
+            { label: 'Plugin', key: 'plugin' },
+            { label: 'Default Special Command', key: 'command' },
+            { label: 'Use', key: 'use' },
+            { label: 'Notes', key: 'notes' },
+          ]" :rows="commands">
+          <template #cell-notes="{ value }">
+            <ul>
+              <li v-for="(note, i) in value" :key="i">
+                {{ note }}
+              </li>
+            </ul>
+          </template>
+          <template #cell-plugin="{ value }">
+            <ExternalLink :url='"/plugin/" + value.replace(" ", "~")'>
+              {{ value }}
+            </ExternalLink>
+          </template>
+          <template #cell-command="{ value }">
+            <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+          </template>
         </MazTable>
       </template>
 
@@ -64,14 +77,27 @@ import DocNotice from '~/components/docNotice.vue'
       <template #content-2>
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
           roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm"
-          :headers="['Command Signifier', 'Use', 'Plugin', 'Notes']">
-          <MazTableRow>
-            <MazTableCell><code>...</code></MazTableCell>
-            <MazTableCell>...</MazTableCell>
-            <MazTableCell>...</MazTableCell>
-            <MazTableCell>...</MazTableCell>
-          </MazTableRow>
+          inputSize="sm" :headers="[
+            { label: 'Plugin', key: 'plugin' },
+            { label: 'Default Command Signifier', key: 'signifier' },
+            { label: 'Use', key: 'use' },
+            { label: 'Notes', key: 'notes' },
+          ]" :rows="signifiers">
+          <template #cell-notes="{ value }">
+            <ul>
+              <li v-for="(note, i) in value" :key="i">
+                {{ note }}
+              </li>
+            </ul>
+          </template>
+          <template #cell-plugin="{ value }">
+            <ExternalLink :url='"/plugin/" + value.replace(" ", "~")'>
+              {{ value }}
+            </ExternalLink>
+          </template>
+          <template #cell-signifier="{ value }">
+            <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+          </template>
         </MazTable>
       </template>
     </MazAccordion>
