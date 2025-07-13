@@ -63,6 +63,7 @@
  /* Inline code */
  :not(pre) > code[class*="language-"] {
    padding-top: 1px;
+	 padding-bottom: 3px;
    background: transparent;
    border: 1px solid #dddddd;
    border-radius: 7px;

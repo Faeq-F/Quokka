@@ -31,6 +31,13 @@ const signifiers = plugins.pluginsList.map((i) => {
       </div>
       <div class="text-md outfit">Special commands & command signifiers</div>
     </div>
+    <DocNotice type="info" style="width: 100%">
+      Please check the
+      <ExternalLink url="/documentation?section=api-documentation">
+        API Documentation
+      </ExternalLink>
+      &nbsp;for further details on the content covered on this page
+    </DocNotice>
     <!-- check this with signifiers -->
     <DocNotice type="warning" style="width: 100%" class="outfit">
       <span class="font-bold">Special commands are case-sensitive</span> to
@@ -48,9 +55,9 @@ const signifiers = plugins.pluginsList.map((i) => {
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
           roundedSize="none" search noSearchBy searchPlaceholder="Search..."
           inputSize="sm" :headers="[
-            { label: 'Plugin', key: 'plugin' },
-            { label: 'Default Special Command', key: 'command' },
-            { label: 'Use', key: 'use' },
+            { label: 'Plugin', key: 'plugin', width: '12rem' },
+            { label: 'Default Special Command', key: 'command', width: '10rem' },
+            { label: 'Use', key: 'use', width: '18rem' },
             { label: 'Notes', key: 'notes' },
           ]" :rows="commands">
           <template #cell-notes="{ value }">
@@ -78,9 +85,9 @@ const signifiers = plugins.pluginsList.map((i) => {
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
           roundedSize="none" search noSearchBy searchPlaceholder="Search..."
           inputSize="sm" :headers="[
-            { label: 'Plugin', key: 'plugin' },
-            { label: 'Default Command Signifier', key: 'signifier' },
-            { label: 'Use', key: 'use' },
+            { label: 'Plugin', key: 'plugin', width: '12rem' },
+            { label: 'Default Command Signifier', key: 'signifier', width: '12rem' },
+            { label: 'Use', key: 'use', width: '16rem' },
             { label: 'Notes', key: 'notes' },
           ]" :rows="signifiers">
           <template #cell-notes="{ value }">
