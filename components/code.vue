@@ -30,7 +30,7 @@ onMounted(() => {
   <code v-if="inline" :class="`lang-${lang} match-braces`">
     <slot />
   </code>
-  <pre class="line-numbers" v-else>
+  <pre class="line-numbers" data-lenis-prevent v-else>
       <code :class="`lang-${lang} match-braces`">
         <slot />
     </code>

@@ -1,72 +1,78 @@
-<template>
-  <div>
-    <h1>
-      <UIcon name="i-lucide-sliders-vertical" /> Settings
-    </h1>
-    <div>
-      Quokka comes with the 'Windows light' theme by default.<br />
-      To change it, you can edit the style settings in the settings file
-      or
-      you
-      can use values in a configuration provided on the themes page.
-    </div>
-    <div>
-      The settings file is located in '...\Quokka\Config\'
-    </div>
-    <div>
-      All settings are loaded when the application starts, meaning that
-      you
-      will
-      have to exit and re-start the app to see changes.
-    </div>
-    <div>
-      Plugins may have their own, specific settings files in the root of
-      their
-      respective folders in the PlugBoard. You can open The PlugBoard
-      using
-      the
-      Tray Task Icon context menu.<br />
-      Please consult their documentation for default values, etc.
-    </div>
-    <div>
-      Default General settings:<br />
-      (Please see the 'Windows light' theme for default style settings)
-      <MazTable hoverable divider
-        :headers="['Setting name', 'Notes', 'Default Value']">
+<script setup lang="ts">
+import ExternalLink from '~/components/link.vue'
+import DocNotice from '~/components/docNotice.vue'
 
-        <MazTableRow>
-          <MazTableCell><code>WindowHotKey</code></MazTableCell>
-          <MazTableCell>The default value is interpreted as 'Left Windows key +
-            Spacebar'<br /><br />The full list of keys that can be used
-            in
-            the
-            setting can be found <a
-              href="https://learn.microsoft.com/en-us/dotnet/api/system.windows.input.key?view=windowsdesktop-7.0#fields">here</a>
-            (use
-            the first column)</MazTableCell>
-          <MazTableCell><code>LWinSpace</code></MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell><code>FileManager</code></MazTableCell>
-          <MazTableCell>The program that will open the plugboard. Plugins may
-            use
-            this
-            setting to open other folders, for e.g., a file location
-          </MazTableCell>
-          <MazTableCell><code>explorer.exe</code></MazTableCell>
-        </MazTableRow>
-        <MazTableRow>
-          <MazTableCell><code>TextEditor</code></MazTableCell>
-          <MazTableCell>The program that will open the settings file. Plugins
-            may
-            use
-            this setting to open other files, for e.g., their own
-            settings
-            file
-          </MazTableCell>
-          <MazTableCell><code>notepad.exe</code></MazTableCell>
-        </MazTableRow>
-      </MazTable>
+import { useSettingsStore } from '~/stores/settings'
+const settings = useSettingsStore()
+</script>
+<template>
+  <div class="px-88">
+    <div class="flex flex-col mt-22 mb-16 items-center">
+      <div class="flex items-center Varela text-3xl">
+        <UIcon name="i-lucide-sliders-vertical" class="mr-2" /> Settings
+      </div>
+      <div class="text-md outfit">Defaults & extra information</div>
     </div>
+    <MazCardSpotlight class="w-full m-2">
+      <span class="flex gap-1">
+        The settings file is located in
+        <Code inline>&nbsp;'...\Quokka\Config\'&nbsp;</Code>
+      </span>
+      All settings are loaded when the application starts, meaning that
+      you will have to exit and re-start the app to see changes.
+      <DocNotice type="info" style="width: calc(100% - 1rem)">
+        Plugins may have their own, specific settings files in the root of
+        their respective folders, in the PlugBoard.<br />
+        Please consult their documentation (
+        <ExternalLink url="/documentation?section=api-documentation">
+          API Documentation
+        </ExternalLink>
+        &nbsp;included) for default values, etc.
+      </DocNotice>
+    </MazCardSpotlight>
+    <MazCardSpotlight class="w-full m-2">
+      Quokka comes with the
+      <ExternalLink url="/#customizability">
+        'Windows light'
+      </ExternalLink>
+      &nbsp;theme by default.<br />
+      To change it, you can edit the style settings in the settings file
+      and / or you can use values in a
+      <ExternalLink url="/#customizability">
+        provided configuration
+      </ExternalLink>.
+    </MazCardSpotlight>
+    <MazCardSpotlight class="w-full m-2" :padding="false">
+      <MazTable hoverable divider size="md" tableClass="!bg-transparent"
+        roundedSize="none" search noSearchBy searchPlaceholder="Search..."
+        inputSize="sm" :headers="[
+          { label: 'Setting name', key: 'name', width: '12rem' },
+          { label: 'Default Value', key: 'defaultValue', width: '12rem' },
+          { label: 'Notes', key: 'notes' },
+        ]" :rows="settings.settings">
+        <template #cell-notes="{ value }">
+          <ul>
+            <li v-for="(note, i) in value" :key="i">
+              <template v-if="Object.keys(note)[0] != '0'">
+                {{ note.prevText }}
+                <ExternalLink :url="note.link.url" target="_blank">
+                  {{ note.link.text }}
+                </ExternalLink>
+                &nbsp;{{ note.afterText }}
+              </template>
+              <template v-else>
+                {{ note }}
+              </template>
+            </li>
+          </ul>
+        </template>
+        <template #cell-defaultValue="{ value }">
+          <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+        </template>
+        <template #cell-name="{ value }">
+          <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+        </template>
+      </MazTable>
+    </MazCardSpotlight>
   </div>
 </template>

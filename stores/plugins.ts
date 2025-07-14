@@ -371,7 +371,7 @@ export const usePluginsStore = defineStore("pluginsStore", {
             command: 'AllWindows',
             use: 'Display all open windows that can be switched to',
             notes: [
-              'Not all windows may appear as they cannot be focused by the user',
+              'Not all windows may appear as some cannot be focused by the user',
             ]
           },
         ],
@@ -397,23 +397,17 @@ export const usePluginsStore = defineStore("pluginsStore", {
           {
             command: 'DeviceAddresses',
             use: 'Display all addresses for the device',
-            notes: [
-              'Maybe all not show',
-            ]
+            notes: []
           },
           {
             command: 'IPaddresses',
             use: 'Display all IP addresses for the device',
-            notes: [
-              'Maybe all not show',
-            ]
+            notes: []
           },
           {
             command: 'MACaddresses',
             use: 'Display all MAC addresses for the device',
-            notes: [
-              'Maybe all not show',
-            ]
+            notes: []
           },
         ],
         commandSignifiers: []

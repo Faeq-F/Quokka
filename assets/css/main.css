@@ -121,6 +121,13 @@ tr.m-table-row:hover{
   background-color: #181821 !important;
 }
 
+.m-stepper__header{
+  border: 1px solid #efefef;
+}
+.dark .m-stepper__header{
+  border: 1px solid #2f3141;
+}
+
 /*
   Cursors by GeorgiosNexus (Light cursors) & AKGAMER (Dark cursors)
   http://www.rw-designer.com/cursor-set/windows-11-light-theme

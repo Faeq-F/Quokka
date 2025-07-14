@@ -31,7 +31,7 @@ const signifiers = plugins.pluginsList.map((i) => {
       </div>
       <div class="text-md outfit">Special commands & command signifiers</div>
     </div>
-    <DocNotice type="info" style="width: 100%">
+    <DocNotice type="tip" style="width: 100%">
       Please check the
       <ExternalLink url="/documentation?section=api-documentation">
         API Documentation

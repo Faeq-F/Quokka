@@ -20,7 +20,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 </script>
 
 <template>
-  <div class="flex px-78 pt-62">
+  <div class="flex px-78 pt-62" id="customizability">
     <div class="inline">
       <MazAnimatedElement direction="right" :delay="1100" :duration="2000"
         class="flex flex-col">
