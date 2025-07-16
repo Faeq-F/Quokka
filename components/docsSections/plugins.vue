@@ -21,7 +21,7 @@ const allPlugins = [...createdPlugins, ...plannedPlugins]
 import ExternalLink from '~/components/link.vue'
 </script>
 <template>
-  <div class="px-88">
+  <div>
     <div class="flex flex-col mt-22 mb-16 items-center">
       <div class="flex items-center Varela text-3xl">
         <UIcon name="i-lucide-blocks" class="mr-2" /> Plugins

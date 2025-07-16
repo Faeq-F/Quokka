@@ -15,6 +15,7 @@ import 'prismjs/plugins/line-numbers/prism-line-numbers'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard'
 import 'prismjs/plugins/highlight-keywords/prism-highlight-keywords'
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 
 defineProps({
   inline: Boolean,
@@ -22,6 +23,13 @@ defineProps({
 })
 import { onMounted } from 'vue'
 onMounted(() => {
+  Prism.plugins.NormalizeWhitespace.setDefaults({
+    'remove-trailing': true,
+    'remove-indent': true,
+    'left-trim': true,
+    'right-trim': true,
+    'break-lines': 100,
+  });
   Prism.highlightAll()
 })
 </script>

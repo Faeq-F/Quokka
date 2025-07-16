@@ -1,5 +1,9 @@
 /* Themes include some modifications by Faeq */
 
+.line-numbers-rows {
+  line-height: 16px;
+}
+
 /**
  * VS theme by Andrew Lock (https://andrewlock.net)
  * Inspired by Visual Studio syntax coloring
@@ -15,7 +19,7 @@
    word-spacing: normal;
    word-break: normal;
    font-size: .9em;
-   line-height: 1.2em;
+   line-height: 15px;
 
    -moz-tab-size: 2;
    -o-tab-size: 2;
@@ -54,6 +58,10 @@
    border: 1px solid #dddddd;
    background-color: transparent;
    border-radius: 15px;
+ }
+
+ div.code-toolbar:has(+ blockquote) pre[class*="language-"]{
+	border-bottom-left-radius: 0px;
  }
 
  .dark pre[class*="language-"] {

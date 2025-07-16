@@ -3,7 +3,7 @@ import ExternalLink from '~/components/link.vue'
 import Code from '~/components/code.vue'
 </script>
 <template>
-  <div class="px-88">
+  <div>
     <div class="flex flex-col mt-22 mb-16 items-center">
       <div class="flex items-center Varela text-3xl">
         <UIcon name="i-lucide-mouse-pointer" class="mr-2" /> General Usage

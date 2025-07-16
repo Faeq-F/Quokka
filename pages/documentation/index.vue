@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 let displayedSection = ref({ section: 'documentation', icon: '' })
 const route = useRoute()
 if (route.query.section) displayedSection.value = route.query.section
@@ -52,28 +52,56 @@ const switchSectionTo = (to) => {
 watch(() => route.query.section, switchSectionTo, { immediate: true })
 
 const sidebarHover = ref(false);
+const applyPadding = ref(false);
+const slider = ref(23);
+const padding = ref('padding-left:23rem;padding-right:23rem;');
+const sidebarHoverPadding = ref('padding-left:17.625rem;padding-right:17.625rem;');
+const updatePadding = (n) => {
+  padding.value = `padding-left:${n}rem;padding-right:${n}rem;`
+  sidebarHoverPadding.value = `padding-left:${n - 5.375}rem;padding-right:${n - 5.375}rem;`
+}
+watch(applyPadding, async (_new, _old) => {
+  if (applyPadding.value) updatePadding(slider.value)
+  else updatePadding(7)
+})
 </script>
 
 <template>
   <div>
-    <div class="flex">
-      <div
-        class="flex items-center justify-start p-2 varela clickable hover:bg-gray-100 dark:hover:bg-gray-800"
-        @click="displayedSection = { section: 'documentation', icon: '' }">
-        <UIcon name="i-lucide-book-text" class="mr-1" />
-        Documentation
+    <div class="flex justify-between">
+      <div class="flex">
+        <UButton class="m-2 p-1" color="neutral" variant="ghost"
+          icon="i-lucide-book-text"
+          @click="displayedSection = { section: 'documentation', icon: '' }">
+          Documentation
+        </UButton>
+        <div class="flex items-center justify-start p-2 varela "
+          v-if="displayedSection.section != 'documentation'">
+          <USeparator orientation="vertical" class="mr-4"
+            :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
+          <MazAnimatedElement direction="right" :duration="500"
+            class="flex items-center pt-0.5">
+            Currently reading
+            '
+            <UIcon :name="displayedSection.icon" class="px-3" /> {{
+              displayedSection.label + " " }}'
+          </MazAnimatedElement>
+        </div>
       </div>
-      <div class="flex items-center justify-start p-2 varela "
-        v-if="displayedSection.section != 'documentation'">
-        <USeparator orientation="vertical" class="mr-4"
-          :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
-        <MazAnimatedElement direction="right" :duration="500"
-          class="flex items-center">
-          Currently reading
-          '
-          <UIcon :name="displayedSection.icon" class="px-3" /> {{
-            displayedSection.label + " " }}'
+      <div class="justify-end flex items-center">
+        <MazAnimatedElement direction="left" :duration="500"
+          v-if="applyPadding && displayedSection.section != 'api-documentation'">
+          <USlider v-model="slider" :min="7" :max="40" :step="0.125"
+            color="neutral" class="w-64 mr-2"
+            style="--ui-bg-inverted: var(--ui-bg-accented)" size="xs"
+            :tooltip="{ text: `${slider} rem`, delayDuration: 200 }"
+            @update:modelValue="updatePadding" />
         </MazAnimatedElement>
+        <UButton class="mr-2" color="neutral" variant="ghost"
+          :icon="displayedSection.section == 'api-documentation' ? 'i-lucide-fold-horizontal' : (applyPadding ? 'i-lucide-unfold-horizontal' : 'i-lucide-fold-horizontal')"
+          @click="applyPadding = !applyPadding"
+          :style="displayedSection.section == 'api-documentation' ? 'cursor: not-allowed !important;' : ''"
+          :disabled="displayedSection.section == 'api-documentation'" />
       </div>
     </div>
     <USeparator
@@ -95,8 +123,11 @@ const sidebarHover = ref(false);
       </div>
       <USeparator orientation=" vertical" class="h-[90vh]"
         :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
-      <div class="docsContent max-h-[90vh] min-h-[90vh]
-          overflow-y-scroll px-4 w-full outfit" data-lenis-prevent>
+      <div
+        :style="displayedSection.section == 'api-documentation' ? '' : (sidebarHover ? sidebarHoverPadding : padding)"
+        class="docsContent max-h-[90vh] min-h-[90vh]
+          overflow-y-scroll w-full outfit transition-all ease-out duration-100"
+        data-lenis-prevent>
         <Transition name="fade">
           <documentation v-if="displayedSection.section == 'documentation'"
             @switch-section="(to) => switchSectionTo(to)" />
@@ -197,14 +228,18 @@ const sidebarHover = ref(false);
   padding-left: 10px;
   padding-bottom: 5px;
   font-size: small;
-  border-left: solid 1px #bbb;
-  border-bottom: solid 1px #bbb;
-  width: 90%;
+  border-left: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
+  width: 95%;
   border-bottom-left-radius: 15px;
-
   margin-top: -10px;
   height: 30px;
-  padding-top: 10px;
+  padding-top: 6px;
+}
+
+.dark .docsContent blockquote {
+  border-left: solid 1px oklch(44.6% 0.03 256.802);
+  border-bottom: solid 1px oklch(44.6% 0.03 256.802);
 }
 
 .docsContent textarea[readonly] {

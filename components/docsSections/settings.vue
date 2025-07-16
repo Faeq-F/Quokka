@@ -6,7 +6,7 @@ import { useSettingsStore } from '~/stores/settings'
 const settings = useSettingsStore()
 </script>
 <template>
-  <div class="px-88">
+  <div>
     <div class="flex flex-col mt-22 mb-16 items-center">
       <div class="flex items-center Varela text-3xl">
         <UIcon name="i-lucide-sliders-vertical" class="mr-2" /> Settings

@@ -5,7 +5,7 @@ const middleItems = useMiddleNavbarItems()
 </script>
 
 <template>
-  <div class="px-88 w-full text-center">
+  <div class="w-full text-center">
     <div class="text-3xl mb-2 mt-22">
       Welcome to the Quokka documentation!
     </div>

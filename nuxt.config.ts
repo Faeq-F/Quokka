@@ -18,6 +18,11 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+  vue: {
+    compilerOptions: {
+      whitespace: 'preserve'
+    }
+  },
   css: [
     "~/assets/css/main.css"
   ],
