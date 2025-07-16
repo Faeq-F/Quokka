@@ -27,7 +27,14 @@ import DocNotice from '~/components/docNotice.vue'
         (make sure that it is a part of the Quokka solution
         and that it is not its own)
       </li>
-      <li>Rename the cs file to "Plugin_YourPluginNameHere"</li>
+      <li>
+        <span class="flex gap-1">
+          Rename the
+          <Code inline> .cs </Code>
+          file to
+          <Code inline> Plugin_YourPluginNameHere.cs </Code>
+        </span>
+      </li>
       <li>
         Edit the project file to look like the following and set the
         build configuration to 'Plugin':
@@ -68,9 +75,9 @@ import DocNotice from '~/components/docNotice.vue'
           This is a part of the
           <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
             target="_blank">
-            ShowTypedText
+            ShowTypedText plugin
           </ExternalLink>
-          &nbsp;plugin (a demo plugin not made for use)
+          &nbsp;(a demo plugin not made for use)
         </blockquote>
       </li>
     </ol>

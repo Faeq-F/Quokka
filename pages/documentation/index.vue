@@ -90,6 +90,12 @@ watch(applyPadding, async (_new, _old) => {
       </div>
       <div class="justify-end flex items-center">
         <MazAnimatedElement direction="left" :duration="500"
+          v-if="applyPadding && displayedSection.section != 'api-documentation' && slider != 23">
+          <UButton class="mr-2" color="neutral" variant="ghost"
+            icon="i-lucide-rotate-ccw"
+            @click="slider = 23; updatePadding(23);" />
+        </MazAnimatedElement>
+        <MazAnimatedElement direction="left" :duration="500"
           v-if="applyPadding && displayedSection.section != 'api-documentation'">
           <USlider v-model="slider" :min="7" :max="40" :step="0.125"
             color="neutral" class="w-64 mr-2"
@@ -108,12 +114,12 @@ watch(applyPadding, async (_new, _old) => {
       :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] w-full' }" />
     <div class="flex">
       <div
-        class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out"
+        class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out delay-300"
         @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
         <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
           :ui="{
-            childList: sidebarHover ? 'transition-all duration-200 ease-out'
-              : 'ms-0 transition-all duration-200 ease-out', childItem: 'ps-0.5',
+            childList: sidebarHover ? 'transition-all duration-200 ease-out delay-300'
+              : 'ms-0 transition-all duration-200 ease-out delay-300', childItem: 'ps-0.5',
             linkLabel: '!font-light', linkTrailingIcon: sidebarHover ? '' : '!hidden'
           }" />
         <UNavigationMenu orientation="vertical" :items="docsTOC.links"
@@ -126,7 +132,7 @@ watch(applyPadding, async (_new, _old) => {
       <div
         :style="displayedSection.section == 'api-documentation' ? '' : (sidebarHover ? sidebarHoverPadding : padding)"
         class="docsContent max-h-[90vh] min-h-[90vh]
-          overflow-y-scroll w-full outfit transition-all ease-out duration-100"
+          overflow-y-scroll w-full outfit transition-all ease-out duration-100 delay-300"
         data-lenis-prevent>
         <Transition name="fade">
           <documentation v-if="displayedSection.section == 'documentation'"

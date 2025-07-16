@@ -19,7 +19,7 @@ import creatingContextPane from '~/components/docsSections/creatingPlugin/creati
     <MazStepper :steps="[
       { title: 'Creating the project' },
       { title: 'Creating a new item type' },
-      { title: 'Creating a context pane' },
+      { title: 'Creating a context pane (optional)' },
       { title: 'Creating the plugin' },
     ]" can-close-steps color="neutral">
       <template #icon-1>
