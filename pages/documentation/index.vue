@@ -114,7 +114,7 @@ watch(applyPadding, async (_new, _old) => {
       :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] w-full' }" />
     <div class="flex">
       <div
-        class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out delay-300"
+        class="flex flex-col justify-between w-11 hover:w-64 transition-all duration-200 ease-out delay-200"
         @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
         <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
           :ui="{
@@ -132,7 +132,7 @@ watch(applyPadding, async (_new, _old) => {
       <div
         :style="displayedSection.section == 'api-documentation' ? '' : (sidebarHover ? sidebarHoverPadding : padding)"
         class="docsContent max-h-[90vh] min-h-[90vh]
-          overflow-y-scroll w-full outfit transition-all ease-out duration-100 delay-300"
+          overflow-y-scroll w-full outfit transition-all ease-out duration-100 delay-200"
         data-lenis-prevent>
         <Transition name="fade">
           <documentation v-if="displayedSection.section == 'documentation'"

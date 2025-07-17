@@ -128,6 +128,16 @@ tr.m-table-row:hover{
   border: 1px solid #2f3141;
 }
 
+/* Overriding Nuxt UI styles */
+
+span[role="slider"].ring-inverted {
+  --tw-ring-color: #b3b9c0;
+}
+
+.dark span[role="slider"].ring-inverted {
+  --tw-ring-color: #737373;
+}
+
 /*
   Cursors by GeorgiosNexus (Light cursors) & AKGAMER (Dark cursors)
   http://www.rw-designer.com/cursor-set/windows-11-light-theme
@@ -141,6 +151,7 @@ html {
     auto !important;
 }
 
+span[role="slider"],
 .clickable,
 button,
 input,
@@ -149,7 +160,6 @@ a {
     auto !important;
 }
 
-
 .dark textarea,
 .dark label,
 html.dark {
@@ -157,6 +167,7 @@ html.dark {
     auto !important;
 }
 
+.dark span[role="slider"],
 .dark .clickable,
 .dark button,
 .dark input,
