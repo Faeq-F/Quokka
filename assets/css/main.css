@@ -10,6 +10,11 @@ import 'maz-ui/styles'
   scroll-behavior: smooth;
 }
 
+#navbar,
+body{
+  transition: 200ms all ease-in-out;
+}
+
 ::selection {
   background-color: #eeeeee !important;
 }
@@ -121,11 +126,22 @@ tr.m-table-row:hover{
   background-color: #181821 !important;
 }
 
-.m-stepper__header{
-  border: 1px solid #efefef;
+.m-stepper__content{
+  border-color: var(--maz-color-primary-alpha-20) !important;
+  border-left-width: 2px !important;
 }
-.dark .m-stepper__header{
-  border: 1px solid #2f3141;
+
+.m-stepper__header:not(.--is-current-step) + .m-stepper__content.--no-border {
+  border-color: transparent !important;
+}
+
+.m-stepper__header{
+  border-color: var(--maz-color-primary-alpha-20) !important;
+  border-width: 2px !important;
+  background-color: var(--ui-bg) !important;
+}
+.m-stepper__header:hover{
+  background-color: var(--maz-color-primary-alpha-05) !important;
 }
 
 /* Overriding Nuxt UI styles */

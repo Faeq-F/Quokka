@@ -31,7 +31,7 @@ const outlineColor = computed(() => {
         :style="`color: ${iconColor};`" />
       <USeparator orientation="vertical" class="h-7 mx-3"
         :ui="{ border: 'dark:border-gray-600 h-full' }" />
-      <div>
+      <div class="w-full">
         <slot />
       </div>
     </div>

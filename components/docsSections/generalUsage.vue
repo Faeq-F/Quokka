@@ -30,9 +30,9 @@ import Code from '~/components/code.vue'
           <MazTableCell style="font-size: 1rem; width:43%">
             <span class="flex gap-1">This shortcut is modifiable; see
               <ExternalLink url='' class="flex">
-                <span>the&nbsp;</span>
+                <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">WindowHotKey</Code>
-                <span>&nbsp;setting</span>
+                <span>&nbsp;&nbsp;setting</span>
               </ExternalLink>
             </span>
           </MazTableCell>
@@ -69,9 +69,9 @@ import Code from '~/components/code.vue'
           <MazTableCell style=" font-size: 1rem; width:43%">
             <span class="flex gap-1">This shortcut is modifiable; see
               <ExternalLink url='' class="flex">
-                <span>the&nbsp;</span>
+                <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">ContextPaneKey</Code>
-                <span>&nbsp;setting</span>
+                <span>&nbsp;&nbsp;setting</span>
               </ExternalLink>
             </span>
           </MazTableCell>

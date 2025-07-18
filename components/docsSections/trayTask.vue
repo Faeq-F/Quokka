@@ -60,9 +60,9 @@ import DocNotice from '~/components/docNotice.vue'
               You can change which text editor opens the settings file
               through
               <ExternalLink url='' class="flex">
-                <span>the&nbsp;</span>
+                <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">TextEditor</Code>
-                <span>&nbsp;setting</span>
+                <span>&nbsp;&nbsp;setting</span>
               </ExternalLink>
             </span>
           </DocNotice>
@@ -74,9 +74,9 @@ import DocNotice from '~/components/docNotice.vue'
               You can change which file manager opens the
               <Code inline> PlugBoard </Code> folder through
               <ExternalLink url='' class="flex">
-                <span>the&nbsp;</span>
+                <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">FileManager</Code>
-                <span>&nbsp;setting</span>
+                <span>&nbsp;&nbsp;setting</span>
               </ExternalLink>
             </span>
           </DocNotice>

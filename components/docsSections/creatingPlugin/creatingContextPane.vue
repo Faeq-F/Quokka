@@ -126,7 +126,7 @@ import DocNotice from '~/components/docNotice.vue'
             public ContextPane() {
               InitializeComponent();
               this.Item = (Application.Current.MainWindow as
-              SearchWindow).SelectedItem;
+                SearchWindow).SelectedItem;
               DetailsImage.Source = this.Item.icon;
               text.Text = Item.name;
             }
