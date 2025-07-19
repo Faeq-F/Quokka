@@ -17,48 +17,53 @@ const middleItems = useMiddleNavbarItems()
       If you have any questions or feedback, feel free to reach out
     </div>
     <div class="flex w-full mt-12">
-      <MazCardSpotlight class="w-1/3 m-3 h-36 clickable"
+      <nuxt-link
         v-for="(item, i) in middleItems.items[0][1].children.slice(0, 3)"
-        :key="i" @click="$emit('switchSection', item.to)">
-        <div class="flex flex-col justify-center items-center h-full">
-          <UIcon :name="item.icon" />
-          <div>
-            {{ item.label }}
+        :key="i" :to="item.to" class="w-1/3 m-3 h-36">
+        <MazCardSpotlight class="w-full h-full">
+          <div class="flex flex-col justify-center items-center h-full">
+            <UIcon :name="item.icon" />
+            <div>
+              {{ item.label }}
+            </div>
+            <div class="text-sm text-gray-400">
+              {{ item.description }}
+            </div>
           </div>
-          <div class="text-sm text-gray-400">
-            {{ item.description }}
-          </div>
-        </div>
-      </MazCardSpotlight>
+        </MazCardSpotlight>
+      </nuxt-link>
     </div>
     <div class="flex w-full">
-      <MazCardSpotlight class="w-1/3 m-3 h-36 clickable"
+      <nuxt-link
         v-for="(item, i) in middleItems.items[0][1].children.slice(3, 6)"
-        :key="i" @click="$emit('switchSection', item.to)">
-        <div class="flex flex-col justify-center items-center h-full">
-          <UIcon :name="item.icon" />
-          <div>
-            {{ item.label }}
+        :key="i" :to="item.to" class="w-1/3 m-3 h-36">
+        <MazCardSpotlight class="w-full h-full">
+          <div class="flex flex-col justify-center items-center h-full">
+            <UIcon :name="item.icon" />
+            <div>
+              {{ item.label }}
+            </div>
+            <div class="text-sm  text-gray-400">
+              {{ item.description }}
+            </div>
           </div>
-          <div class="text-sm  text-gray-400">
-            {{ item.description }}
-          </div>
-        </div>
-      </MazCardSpotlight>
+        </MazCardSpotlight>
+      </nuxt-link>
     </div>
     <div class="pr-6">
-      <MazCardSpotlight class="w-full m-3 h-36 clickable" @click=" $emit('switchSection',
-        middleItems.items[0][1].children[6].to)">
-        <div class="flex flex-col justify-center items-center h-full">
-          <UIcon :name="middleItems.items[0][1].children[6].icon" />
-          <div>
-            {{ middleItems.items[0][1].children[6].label }}
+      <nuxt-link :to="middleItems.items[0][1].children[6].to">
+        <MazCardSpotlight class="w-full h-36 m-3">
+          <div class="flex flex-col justify-center items-center h-full">
+            <UIcon :name="middleItems.items[0][1].children[6].icon" />
+            <div>
+              {{ middleItems.items[0][1].children[6].label }}
+            </div>
+            <div class="text-sm  text-gray-400">
+              {{ middleItems.items[0][1].children[6].description }}
+            </div>
           </div>
-          <div class="text-sm  text-gray-400">
-            {{ middleItems.items[0][1].children[6].description }}
-          </div>
-        </div>
-      </MazCardSpotlight>
+        </MazCardSpotlight>
+      </nuxt-link>
     </div>
   </div>
 </template>

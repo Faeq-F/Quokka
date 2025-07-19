@@ -86,7 +86,7 @@ export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
           {
             label: 'FAQ',
             icon: 'i-lucide-circle-help',
-            to: "/#faq",
+            to: { path: '/', hash: '#faq' },
             active: false
           }
         ],

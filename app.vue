@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { VueLenis, useLenis } from 'lenis/vue'
+import { VueLenis } from 'lenis/vue'
 
 const lenisOptions = {
-
+  anchors: true
 }
 </script>
 <template>

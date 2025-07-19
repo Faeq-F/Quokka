@@ -71,8 +71,7 @@ watch(applyPadding, async (_new, _old) => {
     <div class="flex justify-between">
       <div class="flex">
         <UButton class="m-2 p-1" color="neutral" variant="ghost"
-          icon="i-lucide-book-text"
-          @click="displayedSection = { section: 'documentation', icon: '' }">
+          icon="i-lucide-book-text" to="/documentation">
           Documentation
         </UButton>
         <div class="flex items-center justify-start p-2 varela "
@@ -135,8 +134,7 @@ watch(applyPadding, async (_new, _old) => {
           overflow-y-scroll w-full outfit transition-all ease-out duration-100 delay-200"
         data-lenis-prevent>
         <Transition name="fade">
-          <documentation v-if="displayedSection.section == 'documentation'"
-            @switch-section="(to) => switchSectionTo(to)" />
+          <documentation v-if="displayedSection.section == 'documentation'" />
           <apiDocumentation
             v-else-if="displayedSection.section == 'api-documentation'" />
           <buildingTheApp v-else-if="displayedSection.section == 'build-app'" />
