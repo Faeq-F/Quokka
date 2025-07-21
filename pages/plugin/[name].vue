@@ -62,7 +62,7 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
         <MazAnimatedElement direction="right" :delay="1200" :duration="700">
           <MazCardSpotlight class="min-h-[85vh] mb-4 w-full">
             <nuxt-link
-              :to="'https://raw.githubusercontent.com/' + plugin?.github + '/main/README.md'"
+              :to="'https://github.com/' + plugin?.github + '/blob/main/README.md'"
               class="!no-underline flex items-center !not-italic">
               <UIcon name="i-lucide-book-open" class="mr-1.5 !size-4" />
               <code>README.md</code>

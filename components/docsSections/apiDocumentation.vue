@@ -4,23 +4,6 @@ function applyThemeToAPIFrame() {
   APIframe.value.contentDocument.getElementsByTagName(
     "html"
   )[0].dataset.bsTheme = themeHandler.selectedTheme.value;
-  //cursor styles
-  let content = `
-    a:-webkit-any-link{
-      cursor: url(https://faeq-f.github.io/Quokka/cursors/${themeHandler.selectedTheme.value}-Click.cur),auto;
-    }
-  `
-  let style = APIframe.value.contentDocument.createElement("style");
-  style.type = "text/css";
-  style.appendChild(APIframe.value.contentDocument.createTextNode(content));
-  APIframe.value.contentDocument.body.appendChild(style);
-  APIframe.value.contentDocument.body.style.cursor =
-    "url(https://faeq-f.github.io/Quokka/cursors/" + themeHandler.selectedTheme.value + "-Point.cur),auto";
-  for (var a of APIframe.value.contentDocument.body.getElementsByTagName(
-    "a"
-  )) {
-    a.style.cursor = "url(https://faeq-f.github.io/Quokka/cursors/" + themeHandler.selectedTheme.value + "-Click.cur),auto";
-  }
 }
 
 //used to detect iframe url change - run callback before iframe loads new doc
