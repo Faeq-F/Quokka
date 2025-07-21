@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  router: {
+    options: {
+      scrollBehaviorType: "smooth"
+    },
+  },
   nitro: {
     prerender: {
       failOnError: false,
