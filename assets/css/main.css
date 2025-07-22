@@ -25,33 +25,14 @@ body{
 
 /* Scroll bar */
 
-@-moz-document url-prefix() {
   * {
     scrollbar-color: gray transparent;
     scrollbar-width: thin;
   }
-}
 
-*::-webkit-scrollbar {
-  width: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  border-radius: 360px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: gray;
-  border-radius: 360px;
-  background-clip: content-box;
-  border: 2px solid transparent;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: black;
-  background-clip: content-box;
-  border: 2px solid transparent;
-}
+  .docsContent:has(iframe){
+    overflow: hidden;
+  }
 
 /* Font classes */
 

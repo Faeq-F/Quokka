@@ -4,6 +4,14 @@ function applyThemeToAPIFrame() {
   APIframe.value.contentDocument.getElementsByTagName(
     "html"
   )[0].dataset.bsTheme = themeHandler.selectedTheme.value;
+  //open external links in a new tab
+  for (var a of APIframe.value.contentDocument.body.getElementsByTagName(
+    "a"
+  )) {
+    if (!a.href.includes("Quokka")) {
+      a.target = "_blank";
+    }
+  }
 }
 
 //used to detect iframe url change - run callback before iframe loads new doc

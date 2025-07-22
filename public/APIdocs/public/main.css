@@ -226,13 +226,6 @@ body {
   cursor: url(https://faeq-f.github.io/Quokka/cursors/dark-Point.cur), auto !important;
 }
 
-@-moz-document url-prefix() {
-  * {
-    scrollbar-color: gray transparent !important;
-    scrollbar-width: thin !important;
-  }
-}
-
 a:-webkit-any-link,
 a,
 .toc .expand-stub:before{
@@ -255,4 +248,9 @@ a,
 
 .hljs-function{
   color: #2B91AF;
+}
+
+* {
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
 }
