@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Varela Round');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
-  --bs-font-sans-serif: 'Varela Round';
+  --headerFont: 'Varela Round';
+  --bs-font-sans-serif: 'Outfit';
   --bs-border-radius: 15px;
 
   --border-radius-button: 40px;
@@ -29,6 +31,26 @@
   --material-danger-background-dark: #572c2c;
 
   --bs-body-bg: transparent;
+
+  --bs-code-color: #2B91AF;
+}
+
+*{
+  font-family: var(--bs-font-sans-serif), sans-serif;
+  transition: 200ms all;
+  scroll-behavior: smooth;
+}
+
+body{
+  transition: 200ms all ease-in-out;
+}
+
+::selection {
+  background-color: #eeeeee !important;
+}
+
+[data-bs-theme='dark'] ::selection {
+  background-color: #142550 !important;
 }
 
 /* HEADINGS */
@@ -36,23 +58,27 @@
 h1 {
   font-weight: 600;
   font-size: 32px;
+  font-family: var(--headerFont);
 }
 
 h2 {
   font-weight: 600;
   font-size: 24px;
   line-height: 1.8;
+  font-family: var(--headerFont);
 }
 
 h3 {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.8;
+  font-weight: 600 !important;
+    font-size: 17px;
+    line-height: 1.8;
+    font-family: var(--headerFont);
 }
 
 h5 {
   font-size: 14px;
   padding: 10px 0px;
+  font-family: var(--headerFont);
 }
 
 article h2,
@@ -65,6 +91,10 @@ article h4 {
 article h4 {
   padding-bottom: 8px;
   border-bottom: 2px solid #ddd;
+}
+
+[data-bs-theme='dark'] article h4 {
+  border-color: #4a5565;
 }
 
 /** IMAGES **/
@@ -147,12 +177,35 @@ form.filter {
   background-color: var(--material-danger-header);
 }
 
-/* CODE HIGHLIGHT */
-code {
-  border-radius: var(--bs-border-radius);
-  margin: 4px 2px;
-  box-shadow: var(--card-box-shadow);
+:not(pre) > code {
   padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+  background: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  font-size: .8rem;
+  line-height: inherit;
+  height: calc(.8rem + 10px);
+  margin-top: 2px;
+  color: #2B91AF;
+}
+
+pre {
+  margin: .5em 0;
+  overflow: auto;
+  border: 1px solid #dddddd;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+[data-bs-theme='dark'] :not(pre) > code,
+[data-bs-theme='dark'] pre{
+  border-color: #4a5565;
+}
+
+code{
+  background-color: transparent !important;
 }
 
 header,
@@ -166,6 +219,40 @@ html {
 
 body {
   scroll-behavior: smooth;
-  scrollbar-width: thin !important;
-  scrollbar-color: #ddd transparent !important;
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/light-Point.cur), auto !important;
+}
+
+[data-bs-theme='dark'] body {
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/dark-Point.cur), auto !important;
+}
+
+@-moz-document url-prefix() {
+  * {
+    scrollbar-color: gray transparent !important;
+    scrollbar-width: thin !important;
+  }
+}
+
+a:-webkit-any-link,
+a,
+.toc .expand-stub:before{
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/light-Click.cur), auto !important;
+}
+
+[data-bs-theme='dark'] a:-webkit-any-link,
+[data-bs-theme='dark'] a,
+[data-bs-theme='dark'] .toc .expand-stub:before{
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/dark-Click.cur), auto !important;
+}
+
+.hljs-title{
+  color: #7e5b22;
+}
+
+[data-bs-theme='dark'] .hljs-title{
+  color: #dcdcaa !important;
+}
+
+.hljs-function{
+  color: #2B91AF;
 }
