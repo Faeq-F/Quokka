@@ -58,7 +58,8 @@ namespace Quokka.TheQuokkaPlugin {
     }
 
     private void GoBack(object sender, RoutedEventArgs e) {
-      ( (SearchWindow) App.Current.MainWindow ).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
+      ( (SearchWindow) App.Current.MainWindow ).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/contextpane.xaml"));
+      ( (SearchWindow) App.Current.MainWindow ).SearchTermTextBox.Focus();
     }
 
     private void CopyLinkIcons8(object sender, RoutedEventArgs e) {

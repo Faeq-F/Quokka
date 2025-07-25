@@ -64,6 +64,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\admin.png</TargetPath>
     </ContentWithTargetPath>
+    <ContentWithTargetPath Include="..\Config\Resources\back.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\back.png</TargetPath>
+    </ContentWithTargetPath>
     <ContentWithTargetPath Include="..\Config\Resources\exit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\exit.png</TargetPath>

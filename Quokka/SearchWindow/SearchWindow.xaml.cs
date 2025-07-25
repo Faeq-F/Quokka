@@ -208,6 +208,7 @@ namespace Quokka {
       }
       //get text from sender
       TextBox textBox = ( sender as TextBox )!;
+      query = textBox.Text;
       List<ListItem> Results = ProduceItems(textBox.Text);
       if (Results.Count == 0) {
         ListContainer.Visibility = Visibility.Collapsed; return;
@@ -252,6 +253,7 @@ namespace Quokka {
               if (( ResultsListView.SelectedIndex == -1 )) ResultsListView.SelectedIndex = 0;
               string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
               if (PluginName == "Quokka.TheQuokkaPlugin") {
+                SelectedItem = ( ResultsListView.SelectedItem as ListItem )!;
                 ContextPane.Navigate(new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
                 ContextPane.Visibility = Visibility.Visible;
               } else if (PluginName != "Quokka.ListItems" && App.hasContextPane[PluginName] == true) {

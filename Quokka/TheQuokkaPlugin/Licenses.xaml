@@ -129,37 +129,53 @@
       <!--  Item 0  -->
       <Grid>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="9*" />
-          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="8*" />
+          <ColumnDefinition Width="10*" />
         </Grid.ColumnDefinitions>
-        <Image
-          x:Name="DetailsImage"
-          Grid.Column="0"
-          Width="Auto"
-          Height="{DynamicResource ContextPaneImageSize}"
-          Margin="10,0,0,0"
-          HorizontalAlignment="Left"
-          d:Height="32"
-          Source="pack://siteoforigin:,,,/Config/Resources/QuokkaTextLogo.png"
-          UseLayoutRounding="True" />
-        <Button
-          Grid.Column="1"
-          Margin="{DynamicResource ContextPaneListItemContentMargin}"
-          Padding="{DynamicResource ContextPaneListItemTextPadding}"
-          d:Margin="10"
-          d:Padding="10,10,10,0"
-          Background="Transparent"
-          BorderThickness="0"
-          Click="GoBack"
-          Content="About (go back)"
-          FontFamily="{DynamicResource AppFont}"
-          FontSize="{DynamicResource ContextPaneListItemSize}"
-          Foreground="{DynamicResource ContextPaneListItemColor}"
-          Style="{StaticResource TransparentStyle}"
-          UseLayoutRounding="True" />
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/back.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            HorizontalAlignment="Left"
+            d:Margin="10"
+            d:Padding="10,10,10,0"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="GoBack"
+            Content="About (go back)"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="DarkGray"
+            Text="(Hit enter on an item to copy its link)"
+            UseLayoutRounding="True" />
+        </Grid>
       </Grid>
       <!--  Item 1  -->
-      <Grid Margin="0,10,0,0">
+      <Grid>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="1*" />
           <ColumnDefinition Width="18*" />

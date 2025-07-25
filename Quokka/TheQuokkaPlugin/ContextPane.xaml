@@ -143,19 +143,32 @@
             Source="pack://siteoforigin:,,,/Config/Resources/QuokkaTextLogo.png"
             UseLayoutRounding="True" />
         </Grid>
-        <Grid Grid.Column="1" />
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="1">
           <Button
-            VerticalAlignment="Center"
-            d:Margin="20,0,0,0"
+            Margin="0"
+            Padding="0"
+            d:Margin="0"
+            d:Padding="0"
             Background="Transparent"
             BorderThickness="0"
             Click="CopySiteLink"
-            Content="(Hit enter to copy the link to the project's site)"
+            Content=""
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="2">
+          <TextBlock
+            Width="Auto"
+            Margin="20,0,0,0"
+            VerticalAlignment="Center"
+            Background="Transparent"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="DarkGray"
-            Style="{StaticResource TransparentStyle}"
+            Text="(Hit enter to copy the link to the project's site)"
             UseLayoutRounding="True" />
         </Grid>
       </Grid>

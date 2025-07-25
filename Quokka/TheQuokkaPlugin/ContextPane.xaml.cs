@@ -83,6 +83,7 @@ namespace Quokka.TheQuokkaPlugin {
 
     private void DisplayLicenses(object sender, RoutedEventArgs e) {
       ( (SearchWindow) App.Current.MainWindow ).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/licenses.xaml"));
+      ( (SearchWindow) App.Current.MainWindow ).SearchTermTextBox.Focus();
     }
   }
 }

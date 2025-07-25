@@ -9,6 +9,8 @@ namespace Quokka.TheQuokkaPlugin {
     private static string? download_link = null;
     private static string? version = null;
 
+    private static string currentVersion = "1.0.0.0";
+
     internal static string CheckForUpdates() {
       var version_file = "https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Version";
       var temp_version_file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\QuokkaVersion.txt";
@@ -28,7 +30,7 @@ namespace Quokka.TheQuokkaPlugin {
         download_link = version_data[1];
         File.Delete(temp_version_file);
 
-        if ("1.0.0.0" == version) {
+        if (currentVersion == version) {
           return "updated";
         } else {
           return "needs_update";

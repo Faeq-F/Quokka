@@ -1,4 +1,7 @@
 PluginScreenshots/InitialScreenshots/Initial.xcf
+.data/
+.nuxt/
+public/
 .jekyll-metadata
 _site
 ## Ignore Visual Studio temporary files, build results, and
