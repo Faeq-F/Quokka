@@ -7,8 +7,8 @@
     "ContextPaneKey": "Apps",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "..\\..\\PortableApps\\tablacus\\TE64.exe",
-    "TextEditor": "..\\..\\PortableApps\\Notepad++Portable\\Notepad++Portable.exe"
+    "FileManager": "explorer.exe",
+    "TextEditor": "notepad.exe"
   },
   "StyleSettings": {
     "AppFont": "Varela Round",

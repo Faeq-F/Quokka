@@ -73,6 +73,22 @@ namespace Quokka {
     }
 
     /// <summary>
+    /// Restart the application
+    /// </summary>
+    /// <returns>
+    ///   A DelegateCommand which will start a new Quokka instance
+    ///   and call Application.Current.Shutdown.
+    /// </returns>
+    public static ICommand RestartApplicationCommand {
+      get {
+        return new DelegateCommand(() => {
+          System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+          Application.Current.Shutdown();
+        });
+      }
+    }
+
+    /// <summary>
     ///   Closes the search window. This command is only
     ///   enabled if a search window is open.
     /// </summary>

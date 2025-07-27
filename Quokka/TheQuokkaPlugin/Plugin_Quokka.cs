@@ -1,6 +1,7 @@
 ﻿namespace Quokka.TheQuokkaPlugin {
   using Quokka.ListItems;
   using Quokka.PluginArch;
+  using System;
   using System.Collections.Generic;
 
   /// <summary>
@@ -30,6 +31,8 @@
       if ((bool) App.Current.Resources["CheckForUpdates"]) {
         UpdateChecker.RunUpdateCheck(false);
       }
+
+      SettingsFileWatcher.CreateFileWatcher(Environment.CurrentDirectory + "\\Config\\");
     }
 
     /// <summary>

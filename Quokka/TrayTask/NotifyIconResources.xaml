@@ -145,6 +145,21 @@
     </MenuItem>
     <Separator Background="{DynamicResource TrayTaskContextMenuSeperatorColor}" />
     <MenuItem
+      Command="{Binding RestartApplicationCommand}"
+      CommandParameter="{Binding}"
+      Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
+      Header="Restart"
+      UseLayoutRounding="True">
+      <MenuItem.Icon>
+        <Image
+          Width="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Height="{DynamicResource TrayTaskContextMenuItemIconSize}"
+          Margin="{DynamicResource TrayTaskContextMenuItemIconMargin}"
+          Source="pack://siteoforigin:,,,/Config/Resources/restart.png"
+          UseLayoutRounding="True" />
+      </MenuItem.Icon>
+    </MenuItem>
+    <MenuItem
       Command="{Binding ExitApplicationCommand}"
       CommandParameter="{Binding}"
       Foreground="{DynamicResource TrayTaskContextMenuItemTxtColor}"
