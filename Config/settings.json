@@ -90,6 +90,9 @@
         "ListMargin": "3",
         "ScrollBarWidth": "10",
         "HorizontalScrollIncrementingWidth": "3",
+        "AnimationBlurRadius": "24",
+        "AnimationOffset": "50",
+        "Animation": "FadeIn",
 
         "ScrollBarBackground": {
           "ScrollBarBgVisibility": "Visible",

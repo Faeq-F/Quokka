@@ -10,7 +10,7 @@ namespace Quokka {
   public partial class App {
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey", "CheckForUpdates" };
+    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey", "CheckForUpdates", "Animation", "AnimationBlurRadius", "AnimationOffset" };
     private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder", "AboutCommand" };
     private string[] PathSettings = { "FileManager", "TextEditor" };
 
@@ -49,6 +49,15 @@ namespace Quokka {
                 break;
               case "AppFont":
                 Current.Resources[entry.Key] = new System.Windows.Media.FontFamily(Path.GetFullPath("./Config/Resources/#") + entry.Value.ToString());
+                break;
+              case "Animation":
+                Current.Resources[entry.Key] = parseAnimationSetting(entry.Value.ToString());
+                break;
+              case "AnimationBlurRadius":
+                Current.Resources[entry.Key] = parseDoubleSetting(entry.Value.ToString());
+                break;
+              case "AnimationOffset":
+                Current.Resources[entry.Key] = parseIntegerSetting(entry.Value.ToString());
                 break;
             }
           } else if (PathSettings.Contains(entry.Key)) {

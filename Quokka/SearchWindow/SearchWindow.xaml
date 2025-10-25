@@ -98,7 +98,6 @@
             x:Name="ResultsListView"
             Margin="{DynamicResource ListMargin}"
             d:Margin="10,10,10,10"
-            xf:Animations.AnimateOnLoad="False"
             Background="Transparent"
             BorderBrush="Transparent"
             BorderThickness="0"
@@ -120,7 +119,7 @@
                       <Border
                         x:Name="Bd"
                         Padding="3"
-                        xf:Animations.Primary="{StaticResource FadeInAndSlideFromBottom}"
+                        xf:Animations.Primary="{DynamicResource Animation}"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="{DynamicResource ListItemBorderThickness}"

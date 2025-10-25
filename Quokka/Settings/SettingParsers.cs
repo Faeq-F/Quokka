@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media.Effects;
+using XamlFlair;
 
 namespace Quokka.Settings {
 
@@ -14,7 +15,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.
     /// </returns>
     public static double parseScreenDimensionsSetting(string settingValue) {
       try {
@@ -63,7 +64,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned and an error message is shown to the user.
     /// </returns>
     public static HorizontalAlignment parseHorizontalAlignmentSetting(string settingValue) {
       try {
@@ -76,7 +77,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned and an error message is shown to the user.
     /// </returns>
     public static RenderingBias parseRenderingBiasSetting(string settingValue) {
       try {
@@ -89,7 +90,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned and an error message is shown to the user.
     /// </returns>
     public static VerticalAlignment parseVerticalAlignmentSetting(string settingValue) {
       try {
@@ -102,7 +103,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned and an error message is shown to the user.
     /// </returns>
     public static Visibility parseVisibilitySetting(string settingValue) {
       try {
@@ -115,7 +116,7 @@ namespace Quokka.Settings {
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, a thickness of 0 is returned.
+    /// The setting value evaluated. If the setting cannot be evaluated correctly, a thickness of 0 is returned and an error message is shown to the user.
     /// </returns>
     public static Thickness parseThicknessSetting(string settingValue) {
       try {
@@ -127,7 +128,7 @@ namespace Quokka.Settings {
     /// Parses and evaluates CornerRadius settings.
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a corner radius of 0 is returned.</returns>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a corner radius of 0 is returned and an error message is shown to the user.</returns>
     public static CornerRadius parseCornerRadiusSetting(string settingValue) {
       try {
         return (CornerRadius) new CornerRadiusConverter().ConvertFromString(settingValue)!;
@@ -138,7 +139,7 @@ namespace Quokka.Settings {
     /// Parses and evaluates double settings (i.e., of double type).
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned.</returns>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.</returns>
     public static Double parseDoubleSetting(string settingValue) {
       try {
         return double.Parse(settingValue);
@@ -149,11 +150,95 @@ namespace Quokka.Settings {
     /// Parses and evaluates integer settings (i.e., of integer type).
     /// </summary>
     /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is show to the user.</returns>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.</returns>
     public static int parseIntegerSetting(string settingValue) {
       try {
         return int.Parse(settingValue);
       } catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse an integer setting with the value \"" + settingValue + "\""); return 0; }
+    }
+
+    /// <summary>
+    /// Parses and evaluates the animation to be used for the app results list.
+    /// </summary>
+    /// <param name="settingValue">
+    /// The value of a setting to be evaluated.
+    /// 
+    /// Values accepted: FadeIn, Unblur, ScaleFromLeft, ScaleFromTop, ScaleFromRight, ScaleFromBottom, ScaleHorizontally, ScaleVertically, SlideFromLeft, SlideFromTop, SlideFromRight, SlideFromBottom
+    /// </param>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, an empty animation (no animation) will be used  and an error message is shown to the user.</returns>
+    public static AnimationSettings parseAnimationSetting(string settingValue) {
+      double BlurRadius = (double) App.Current.Resources["AnimationBlurRadius"];
+      int Offset = (int) App.Current.Resources["AnimationOffset"];
+      int NegativeOffset = 0 - Offset;
+      switch (settingValue) {
+        case "FadeIn":
+          return new AnimationSettings {
+            Kind = AnimationKind.FadeFrom,
+            Opacity = 0
+          };
+        case "Unblur":
+          return new AnimationSettings {
+            Kind = AnimationKind.BlurFrom,
+            BlurRadius = BlurRadius
+          };
+        case "ScaleFromLeft":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleXFrom,
+            ScaleX = 0,
+            TransformCenterPoint = new Point(0, 0.5)
+          };
+        case "ScaleFromTop":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleYFrom,
+            ScaleY = 0,
+            TransformCenterPoint = new Point(0.5, 0)
+          };
+        case "ScaleFromRight":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleXFrom,
+            ScaleX = 0,
+            TransformCenterPoint = new Point(1, 0.5)
+          };
+        case "ScaleFromBottom":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleYFrom,
+            ScaleY = 0,
+            TransformCenterPoint = new Point(0.5, 1)
+          };
+        case "ScaleHorizontally":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleXFrom,
+            ScaleX = 0
+          };
+        case "ScaleVertically":
+          return new AnimationSettings {
+            Kind = AnimationKind.ScaleYFrom,
+            ScaleY = 0
+          };
+        case "SlideFromLeft":
+          return new AnimationSettings {
+            Kind = AnimationKind.TranslateXFrom,
+            OffsetX = new Offset { OffsetValue = NegativeOffset }
+          };
+        case "SlideFromTop":
+          return new AnimationSettings {
+            Kind = AnimationKind.TranslateYFrom,
+            OffsetY = new Offset { OffsetValue = NegativeOffset }
+          };
+        case "SlideFromRight":
+          return new AnimationSettings {
+            Kind = AnimationKind.TranslateXFrom,
+            OffsetX = new Offset { OffsetValue = Offset }
+          };
+        case "SlideFromBottom":
+          return new AnimationSettings {
+            Kind = AnimationKind.TranslateYFrom,
+            OffsetY = new Offset { OffsetValue = Offset }
+          };
+        default:
+          MessageBox.Show("Could not parse the animation setting with the value \"" + settingValue + "\"", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          return new AnimationSettings { };
+      }
     }
   }
 }
