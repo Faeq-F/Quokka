@@ -164,19 +164,7 @@ namespace Quokka {
           Quokka.App.ShowErrorMessageBox(ex, "Could not produce list items");
         }
         //sort by relevance
-        ListOfResults = ListOfResults.OrderByDescending(
-          x => (
-            x.Name.ToLower().Contains(command.ToLower())
-          )
-        ).ThenBy(
-          x => (
-            FuzzySearch.LD(x.Name, command)
-          )
-        ).ThenByDescending(
-          x => (
-            x.Name.ToLower().StartsWith(command.ToLower()) || x.Name.ToLower().EndsWith(command.ToLower())
-          )
-        ).ToList();
+        ListOfResults = FuzzySearch.sort(command, ListOfResults).ToList();
         //Check if items were shown
         if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
         //use MaxResults setting

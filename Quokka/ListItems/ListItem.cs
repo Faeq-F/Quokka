@@ -26,7 +26,7 @@ namespace Quokka.ListItems {
     /// </summary>
     /// <returns>The name of the ListItem</returns>
     public override string ToString() {
-      return Name;
+      return Name + "\n" + Description;
     }
   }
 }
