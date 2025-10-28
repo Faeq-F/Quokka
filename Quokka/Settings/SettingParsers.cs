@@ -1,4 +1,8 @@
-﻿using System;
+﻿using FuzzySharp.SimilarityRatio;
+using FuzzySharp.SimilarityRatio.Scorer;
+using FuzzySharp.SimilarityRatio.Scorer.Composite;
+using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
+using System;
 using System.Windows;
 using System.Windows.Media.Effects;
 using XamlFlair;
@@ -158,10 +162,37 @@ namespace Quokka.Settings {
     }
 
     /// <summary>
-    /// Parses and evaluates the animation to be used for the app results list.
+    /// Parses and evaluates the setting for the scorer that is used during fuzzy search
     /// </summary>
     /// <param name="settingValue">
-    /// The value of a setting to be evaluated.
+    /// The value of the setting to be evaluated.
+    /// 
+    /// Values accepted: 
+    /// ratio, partialRatio, tokenSet, partialTokenSet, tokenSort, partialTokenSort, tokenAbbreviation, partialTokenAbbreviation, weighted
+    /// </param>
+    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a PartialRatioScorer will be used and an error message is shown to the user.</returns>
+    public static IRatioScorer parseScorerSetting(string settingValue) {
+      switch (settingValue) {
+        case "ratio": return ScorerCache.Get<DefaultRatioScorer>();
+        case "partialRatio": return ScorerCache.Get<PartialRatioScorer>();
+        case "tokenSet": return ScorerCache.Get<TokenSetScorer>();
+        case "partialTokenSet": return ScorerCache.Get<PartialTokenSetScorer>();
+        case "tokenSort": return ScorerCache.Get<TokenSortScorer>();
+        case "partialTokenSort": return ScorerCache.Get<PartialTokenSortScorer>();
+        case "tokenAbbreviation": return ScorerCache.Get<TokenAbbreviationScorer>();
+        case "partialTokenAbbreviation": return ScorerCache.Get<PartialTokenAbbreviationScorer>();
+        case "weighted": return ScorerCache.Get<WeightedRatioScorer>();
+        default:
+          MessageBox.Show("Could not parse the scorer setting with the value \"" + settingValue + "\"", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          return ScorerCache.Get<PartialRatioScorer>();
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates the setting for the animation to be used for the app results list.
+    /// </summary>
+    /// <param name="settingValue">
+    /// The value of the setting to be evaluated.
     /// 
     /// Values accepted: FadeIn, Unblur, ScaleFromLeft, ScaleFromTop, ScaleFromRight, ScaleFromBottom, ScaleHorizontally, ScaleVertically, SlideFromLeft, SlideFromTop, SlideFromRight, SlideFromBottom
     /// </param>

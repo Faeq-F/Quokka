@@ -5,6 +5,7 @@
     "WindowHotKey": "Space",
     "WindowHotKeyModifier": "Alt",
     "ContextPaneKey": "Apps",
+    "Scorer": "partialRatio",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
     "FileManager": "explorer.exe",

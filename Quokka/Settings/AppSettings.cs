@@ -10,7 +10,7 @@ namespace Quokka {
   public partial class App {
     private string[] IntSettings = { "MaxResults" };
     private string[] ScreenDimensionsSettings = { "WindowWidth", "ListContainerMaxHeight" };
-    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey", "CheckForUpdates", "Animation", "AnimationBlurRadius", "AnimationOffset" };
+    private string[] SpecialSettings = { "AppFont", "WindowTopMargin", "ListItemIconColumnWidth", "WindowHotKey", "WindowHotKeyModifier", "ContextPaneKey", "CheckForUpdates", "Animation", "AnimationBlurRadius", "AnimationOffset", "Scorer" };
     private string[] StringSettings = { "IgnoreMaxResultsFlag", "SearchFieldPlaceholder", "AboutCommand" };
     private string[] PathSettings = { "FileManager", "TextEditor" };
 
@@ -58,6 +58,9 @@ namespace Quokka {
                 break;
               case "AnimationOffset":
                 Current.Resources[entry.Key] = parseIntegerSetting(entry.Value.ToString());
+                break;
+              case "Scorer":
+                Current.Resources[entry.Key] = parseScorerSetting(entry.Value.ToString());
                 break;
             }
           } else if (PathSettings.Contains(entry.Key)) {

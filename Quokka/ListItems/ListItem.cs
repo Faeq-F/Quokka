@@ -24,9 +24,35 @@ namespace Quokka.ListItems {
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <returns>The name of the ListItem</returns>
+    /// <returns>The name of the ListItem with the description on a new line</returns>
     public override string ToString() {
       return Name + "\n" + Description;
+    }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <param name="obj"><inheritdoc/></param>
+    /// <returns><inheritdoc/></returns>
+    public override bool Equals(object obj) {
+      var item = obj as ListItem;
+
+      if (item == null) {
+        return false;
+      }
+
+      return this.ToString().Equals(item.ToString()) && this.Icon.ToString().Equals(item.Icon.ToString());
+    }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <returns><inheritdoc/></returns>
+    public override int GetHashCode() {
+      int hash = 17;
+      hash = hash * 23 + ToString().GetHashCode();
+      hash = hash * 23 + Icon.ToString().GetHashCode();
+      return hash;
     }
   }
 }
