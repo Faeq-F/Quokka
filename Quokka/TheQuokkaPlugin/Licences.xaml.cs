@@ -63,19 +63,19 @@ namespace Quokka.TheQuokkaPlugin {
     }
 
     private void CopyLinkIcons8(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://icons8.com/illustrations");
+      System.Windows.Clipboard.SetText("https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8");
     }
 
     private void CopyLinkFeatherIcons(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://feathericons.com/");
+      System.Windows.Clipboard.SetText("https://github.com/feathericons/feather/blob/main/LICENSE");
     }
 
     private void CopyLinkVarelaRound(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://fonts.google.com/specimen/Varela+Round");
+      System.Windows.Clipboard.SetText("https://github.com/avrahamcornfeld/Varela-Round-Hebrew/blob/master/OFL.txt");
     }
 
     private void CopyLinkNotifyIcon(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/hardcodet/wpf-notifyicon");
+      System.Windows.Clipboard.SetText("https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE");
     }
 
     private void CopyLinkKeboardHook(object sender, RoutedEventArgs e) {
@@ -83,15 +83,23 @@ namespace Quokka.TheQuokkaPlugin {
     }
 
     private void CopyLinkJSON(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://www.newtonsoft.com/json");
+      System.Windows.Clipboard.SetText("https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md");
     }
 
     private void CopyLinkXamlFlair(object sender, RoutedEventArgs e) {
-      System.Windows.Clipboard.SetText("https://github.com/XamlFlair/XamlFlair");
+      System.Windows.Clipboard.SetText("https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE");
     }
 
     private void CopyLinkPluginArch(object sender, RoutedEventArgs e) {
       System.Windows.Clipboard.SetText("https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/");
+    }
+
+    private void CopyLinkTypeExtender(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://github.com/NdubuisiJr/TypeExtender/blob/main/LICENSE");
+    }
+
+    private void CopyLinkFuzzySharp(object sender, RoutedEventArgs e) {
+      System.Windows.Clipboard.SetText("https://github.com/JakeBayer/FuzzySharp/blob/master/LICENSE");
     }
   }
 }

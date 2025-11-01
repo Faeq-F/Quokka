@@ -234,7 +234,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkFeatherIcons"
-            Content="Feather Icons by Cole Bemis | feathericons.com"
+            Content="Feather Icons by Cole Bemis | feathericons.com | MIT Licence"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -268,7 +268,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkVarelaRound"
-            Content="Varela Round by Joe Prince | The SIL Open Font License"
+            Content="Varela Round by Joe Prince | SIL Open Font License 1.1"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -302,7 +302,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkNotifyIcon"
-            Content="Hardcodet NotifyIcon for WPF by Philipp Sumi "
+            Content="Hardcodet NotifyIcon for WPF by Philipp Sumi | MIT Licence"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -336,7 +336,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkKeboardHook"
-            Content="KeyboardHook by Christian Liensberger | Obtained from web.archive.org"
+            Content="KeyboardHook by Christian Liensberger"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -370,7 +370,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkJSON"
-            Content="Json.NET by James Newton-King | newtonsoft.com/json"
+            Content="Json.NET by James Newton-King | newtonsoft.com/json | MIT Licence"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -404,7 +404,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="CopyLinkXamlFlair"
-            Content="XamlFlair | Massimo, Luis Llamas, Thomas Ibel | MIT License"
+            Content="XamlFlair | MIT License"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"
@@ -437,8 +437,76 @@
             d:Padding="10,10,10,0"
             Background="Transparent"
             BorderThickness="0"
+            Click="CopyLinkTypeExtender"
+            Content="TypeExtender by Ndubuisi Jr Chukuigwe | MIT License"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 9  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="18*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10,10,10,0"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="CopyLinkFuzzySharp"
+            Content="FuzzySharp by Jacob Bayer | MIT license"
+            FontFamily="{DynamicResource AppFont}"
+            FontSize="{DynamicResource ContextPaneListItemSize}"
+            Foreground="{DynamicResource ContextPaneListItemColor}"
+            Style="{StaticResource TransparentStyle}"
+            UseLayoutRounding="True" />
+        </Grid>
+      </Grid>
+      <!--  Item 10  -->
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="1*" />
+          <ColumnDefinition Width="18*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+          <Image
+            Width="{DynamicResource ContextPaneListItemIconSize}"
+            Height="{DynamicResource ContextPaneListItemIconSize}"
+            Margin="{DynamicResource ContextPaneListItemIconMargin}"
+            d:Height="20"
+            d:Margin="0,0,0,0"
+            d:Width="20"
+            Source="pack://siteoforigin:,,,/Config/Resources/information.png"
+            UseLayoutRounding="True" />
+        </Grid>
+        <Grid Grid.Column="1">
+          <Button
+            Margin="{DynamicResource ContextPaneListItemContentMargin}"
+            Padding="{DynamicResource ContextPaneListItemTextPadding}"
+            d:Margin="10"
+            d:Padding="10,10,10,0"
+            Background="Transparent"
+            BorderThickness="0"
             Click="CopyLinkPluginArch"
-            Content="References from a Plugin Architecture by Nagaraj M | Simple Plugin Architecture Using Reflection With WPF Projects"
+            Content="References from a Plugin Architecture by Nagaraj M"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"

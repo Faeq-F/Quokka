@@ -3,6 +3,8 @@ using Quokka.PluginArch;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -108,10 +110,8 @@ namespace Quokka {
     /// </param>
     private void ListItem_Click(object sender, RoutedEventArgs e) {
       if (ResultsListView != null) {
-        if (ResultsListView.SelectedIndex > -1) {
-          ( (ListItem) ResultsListView.SelectedItem ).Execute();
-        } else ( (ListItem) ResultsListView.Items.GetItemAt(0) ).Execute();
-        Close();
+        if (ResultsListView.SelectedIndex > -1) ( (ListItem) ResultsListView.SelectedItem ).Execute();
+        else ( (ListItem) ResultsListView.Items.GetItemAt(0) ).Execute();
       }
     }
 
@@ -174,6 +174,8 @@ namespace Quokka {
       }
     }
 
+    private CancellationTokenSource? _produceCts;
+
     /// <summary>
     ///   Loads the relevant ListItems into the results list
     ///   when the user changes the query entered in the
@@ -185,22 +187,40 @@ namespace Quokka {
     /// <param name="sender">
     ///   The element from which the event is triggered.
     /// </param>
-    private void OnQueryChange(object sender, RoutedEventArgs e) {
+    private async void OnQueryChange(object sender, RoutedEventArgs e) {
+      // cancel previous run
+      _produceCts?.Cancel();
+      _produceCts = new CancellationTokenSource();
+      CancellationToken token = _produceCts.Token;
+
       //reset view of list
       ResultsListView.SelectedIndex = 0;
       ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
       // Close context pane if it was open
-      if (ContextPane.Visibility == Visibility.Visible) {
-
-        ContextPane.Visibility = Visibility.Collapsed;
-      }
+      if (ContextPane.Visibility == Visibility.Visible) ContextPane.Visibility = Visibility.Collapsed;
       //get text from sender
       TextBox textBox = ( sender as TextBox )!;
       query = textBox.Text;
-      List<ListItem> Results = ProduceItems(textBox.Text);
+      //show loading item
+      ResultsListView.ItemsSource = new List<ListItem>() { new LoadingListItem() };
+      ResultsListView.SelectedIndex = -1;
+      ListContainer.Visibility = Visibility.Visible;
+
+      List<ListItem> Results;
+      try {
+        // run work off the UI thread
+        Results = await Task.Run(() => ProduceItems(query), token);
+      } catch (OperationCanceledException) {
+        return;
+      } catch (Exception ex) {
+        MessageBox.Show(ex.Message, "Error!");
+        return;
+      }
+
       if (Results.Count == 0) {
         ListContainer.Visibility = Visibility.Collapsed; return;
       }
+
       ResultsListView.ItemsSource = Results;
       ResultsListView.SelectedIndex = -1;
       ListContainer.Visibility = Visibility.Visible;

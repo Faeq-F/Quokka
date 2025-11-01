@@ -8,8 +8,8 @@
     "Scorer": "partialRatio",
     "MaxResults": "10",
     "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "explorer.exe",
-    "TextEditor": "notepad.exe"
+    "FileManager": "C:\\Windows\\explorer.exe",
+    "TextEditor": "C:\\Windows\\notepad.exe"
   },
   "StyleSettings": {
     "AppFont": "Varela Round",

@@ -61,6 +61,10 @@
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
+    <ContentWithTargetPath Include="..\Config\Resources\loading.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\loading.png</TargetPath>
+    </ContentWithTargetPath>
     <ContentWithTargetPath Include="..\Config\Resources\admin.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\admin.png</TargetPath>

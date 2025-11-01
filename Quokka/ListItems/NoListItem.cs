@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quokka.PluginArch;
+using System;
 using System.Windows.Media.Imaging;
 
 namespace Quokka.ListItems {
@@ -12,7 +13,9 @@ namespace Quokka.ListItems {
     public NoListItem() {
       Name = "No items found";
       Description = "Try reformatting / rewording your query";
-      Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
+      UiDispatcher.BeginInvoke(() => {
+        Icon = new BitmapImage(new Uri(Environment.CurrentDirectory + "\\Config\\Resources\\information.png"));
+      });
     }
     /// <summary>
     /// <inheritdoc/><br />
