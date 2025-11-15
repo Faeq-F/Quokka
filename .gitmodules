@@ -1,45 +1,45 @@
 [submodule "Plugin_EnglishDictionary"]
-	path = Plugin_EnglishDictionary
+	path = PluginEnglishDictionary
 	url = https://github.com/Faeq-F/Quokka-EnglishDictionary-Plugin.git
 [submodule "Plugin_Calculator"]
-	path = Plugin_Calculator
+	path = PluginCalculator
 	url = https://github.com/Faeq-F/Quokka-Calculator-Plugin.git
 [submodule "Plugin_Everything"]
-	path = Plugin_Everything
+	path = PluginEverything
 	url = https://github.com/Faeq-F/Quokka-Everything-Plugin.git
 [submodule "Plugin_InstalledApps"]
-	path = Plugin_InstalledApps
+	path = PluginInstalledApps
 	url = https://github.com/Faeq-F/Quokka-InstalledApps-Plugin.git
 [submodule "Plugin_PortableApps"]
-	path = Plugin_PortableApps
+	path = PluginPortableApps
 	url = https://github.com/Faeq-F/Quokka-PortableApps-Plugin.git
 [submodule "Plugin_PowerCommands"]
-	path = Plugin_PowerCommands
+	path = PluginPowerCommands
 	url = https://github.com/Faeq-F/Quokka-PowerCommands-Plugin.git
 [submodule "Plugin_UnicodeCharacterLookup"]
-	path = Plugin_UnicodeCharacterLookup
+	path = PluginUnicodeCharacterLookup
 	url = https://github.com/Faeq-F/Quokka-UnicodeCharacterLookup-Plugin.git
 [submodule "Plugin_Settings"]
-	path = Plugin_Settings
+	path = PluginSettings
 	url = https://github.com/Faeq-F/Quokka-Settings-Plugin.git
 [submodule "Plugin_ShellCommand"]
-	path = Plugin_ShellCommand
+	path = PluginShellCommand
 	url = https://github.com/Faeq-F/Quokka-ShellCommand-Plugin.git
 [submodule "Plugin_DeviceAddresses"]
-	path = Plugin_DeviceAddresses
+	path = PluginDeviceAddresses
 	url = https://github.com/Faeq-F/Quokka-DeviceAddresses-Plugin.git
 [submodule "Plugin_WebSearch"]
-	path = Plugin_WebSearch
+	path = PluginWebSearch
 	url = https://github.com/Faeq-F/Quokka-WebSearch-Plugin.git
 [submodule "Plugin_WindowSwitch"]
-	path = Plugin_WindowSwitch
+	path = PluginWindowSwitch
 	url = https://github.com/Faeq-F/Quokka-WindowSwitch-Plugin.git
 [submodule "Plugin_TypedText"]
-	path = Plugin_TypedText
+	path = PluginTypedText
 	url = https://github.com/Faeq-F/Quokka-TypedText-Plugin.git
 [submodule "Plugin_Gitmoji"]
-	path = Plugin_Gitmoji
+	path = PluginGitmoji
 	url = https://github.com/Faeq-F/Quokka-Gitmoji-Plugin.git
 [submodule "Plugin_Workflows"]
-	path = Plugin_Workflows
+	path = PluginWorkflows
 	url = https://github.com/Faeq-F/Quokka-Workflows-Plugin.git
