@@ -2,17 +2,33 @@
   "GeneralSettings": {
     "AboutCommand": "AboutQuokka",
     "CheckForUpdates": true,
-    "WindowHotKey": "Space",
-    "WindowHotKeyModifier": "Alt",
-    "ContextPaneKey": "Apps",
-    "Scorer": "partialRatio",
-    "MaxResults": "10",
-    "IgnoreMaxResultsFlag": " -ShowAll",
-    "FileManager": "C:\\Windows\\explorer.exe",
-    "TextEditor": "C:\\Windows\\notepad.exe"
+
+    "Keys": {
+      "WindowHotKey": "Space",
+      "WindowHotKeyModifier": "Alt",
+      "ContextPaneKey": "Apps"
+    },
+
+    "Search": {
+      "Scorer": "partialRatio",
+      "Debounce": "300",
+      "MaxResults": "10",
+      "IgnoreMaxResultsFlag": " -ShowAll",
+      "LoadingItemName": "Loading...",
+      "LoadingItemDesc": "Please wait",
+      "NoResultsItemName": "No results found",
+      "NoResultsItemDesc": "Try reformatting / rewording your query"
+    },
+
+    "Programs": {
+      "FileManager": "C:\\Windows\\explorer.exe",
+      "TextEditor": "C:\\Windows\\notepad.exe"
+    }
   },
+
   "StyleSettings": {
     "AppFont": "Varela Round",
+
     "AppWindow": {
       "WindowTopMargin": "PrimaryScreenHeight/3",
       "WindowWidth": "700",
@@ -28,6 +44,7 @@
       "DropShadowShadowDepth": "2",
       "DropShadowRenderingBias": "Quality"
     },
+
     "TrayTask": {
       "TrayTaskContextMenuColor": "#fff",
       "TrayTaskContextMenuBorderColor": "#ddd",
@@ -54,6 +71,7 @@
         "TrayTaskContextMenuItemHoverBorderColor": "#ddd"
       }
     },
+
     "SearchBar": {
       "SearchBarColor": "#fff",
       "SearchBarRounding": "8",
@@ -87,6 +105,7 @@
         "ListContainerMinHeight": "0",
         "ListContainerMaxHeight": "PrimaryScreenHeight"
       },
+
       "List": {
         "ListMargin": "3",
         "ScrollBarWidth": "10",
@@ -94,6 +113,7 @@
         "AnimationBlurRadius": "24",
         "AnimationOffset": "50",
         "Animation": "FadeIn",
+        "AnimationDuration": "200",
 
         "ScrollBarBackground": {
           "ScrollBarBgVisibility": "Visible",
@@ -125,6 +145,7 @@
           "ScrollThumbMargin": "-10,2,-9,2"
         }
       },
+
       "ListItems": {
         "ListItemBorderThickness": "1",
         "ListItemHoverBorderColor": "#eeeeee",
