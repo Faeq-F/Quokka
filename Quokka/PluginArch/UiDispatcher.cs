@@ -2,11 +2,13 @@
 using System.Windows;
 using System.Windows.Threading;
 
-namespace Quokka.PluginArch {
+namespace Quokka.PluginArch
+{
   /// <summary>
   /// Provides methods to execute actions on the UI thread, ensuring thread safety.
   /// </summary>
-  public class UiDispatcher {
+  public static class UiDispatcher
+  {
     /// <summary>
     /// Gets the Dispatcher associated with the current application.
     /// </summary>

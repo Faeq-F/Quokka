@@ -2,14 +2,16 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Quokka.ListItems {
+namespace Quokka.ListItems
+{
 
   /// <summary>
   /// Basic Context Pane class for a list item.
   /// Contains the basic methods most context panes
   /// would need and / or should want to override.
   /// </summary>
-  public partial class ItemContextPane : Page {
+  public partial class ItemContextPane : Page
+  {
 
     /// <summary>
     /// Basic method for Context Panes to handle keyboard input.
@@ -20,27 +22,33 @@ namespace Quokka.ListItems {
     /// </summary>
     /// <param name = "sender" > The sender of the key down event</param>
     /// <param name = "e" > The key event args</param>
-    protected virtual void Page_KeyDown(object sender, KeyEventArgs e) {
-      switch (e.Key) {
-        case Key.Apps: //This is the menu key
-          ReturnToSearch();
-          break;
+    protected virtual void PageKeyDown(object sender, KeyEventArgs e)
+    {
+      if (e != null)
+      {
+        switch (e.Key)
+        {
+          case Key.Apps: //This is the menu key
+            ReturnToSearch();
+            break;
 
-        default:
-          return;
+          default:
+            return;
+        }
+        e.Handled = true;
       }
-      e.Handled = true;
     }
 
     /// <summary>
     /// Closes the context pane and returns the user
     /// back to the item list where they can continue their search.
     /// </summary>
-    protected void ReturnToSearch() {
-      SearchWindow window = ( (SearchWindow) Application.Current.MainWindow );
-      window.contextPane.Visibility = Visibility.Collapsed;
-      window.searchBox.Focus();
-      window.contextPane.Source = null; //makes showing a new pane more reliable
+    protected static void ReturnToSearch()
+    {
+      SearchWindow window = ((SearchWindow)Application.Current.MainWindow);
+      window.ContextPaneFrame.Visibility = Visibility.Collapsed;
+      window.SearchBox.Focus();
+      window.ContextPaneFrame.Source = null; //makes showing a new pane more reliable
     }
   }
 }
