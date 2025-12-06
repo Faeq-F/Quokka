@@ -1,11 +1,14 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows.Media;
 
-namespace Quokka.ListItems {
+namespace Quokka.ListItems
+{
   /// <summary>
   /// All list items should implement this class.
   /// </summary>
-  public abstract class ListItem : INotifyPropertyChanged {
+  public abstract class ListItem : INotifyPropertyChanged
+  {
     /// <summary>
     /// The name of the item (The main text that appears in the list)
     /// </summary>
@@ -19,10 +22,13 @@ namespace Quokka.ListItems {
     /// <summary>
     /// The icon for the item
     /// </summary>
-    public ImageSource? Icon {
+    public ImageSource? Icon
+    {
       get => _icon;
-      set {
-        if (_icon != value) {
+      set
+      {
+        if (_icon != value)
+        {
           _icon = value;
           OnPropertyChanged(nameof(Icon));
         }
@@ -38,7 +44,8 @@ namespace Quokka.ListItems {
     /// <inheritdoc/>
     /// </summary>
     /// <returns>The name of the ListItem with the description on a new line</returns>
-    public override string ToString() {
+    public override string ToString()
+    {
       return Name + "\n" + Description;
     }
 
@@ -47,21 +54,22 @@ namespace Quokka.ListItems {
     /// </summary>
     /// <param name="obj"><inheritdoc/></param>
     /// <returns><inheritdoc/></returns>
-    public override bool Equals(object obj) {
-      var item = obj as ListItem;
-
-      if (item == null) {
+    public override bool Equals(object obj)
+    {
+      if (obj is not ListItem item)
+      {
         return false;
       }
 
-      return this.ToString().Equals(item.ToString());
+      return ToString().Equals(item.ToString(), StringComparison.Ordinal);
     }
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
     /// <returns><inheritdoc/></returns>
-    public override int GetHashCode() {
+    public override int GetHashCode()
+    {
       int hash = 17;
       hash = hash * 23 + ToString().GetHashCode();
       return hash;
@@ -75,7 +83,8 @@ namespace Quokka.ListItems {
     /// Raises the PropertyChanged event for a specified property. This method should be called whenever a property value changes to notify any subscribers of the change
     /// </summary>
     /// <param name="propertyName">The name of the property that changed</param>
-    protected void OnPropertyChanged(string propertyName) {
+    protected void OnPropertyChanged(string propertyName)
+    {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
   }
