@@ -1,17 +1,19 @@
 using Quokka.ListItems;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-namespace Quokka.PluginArch {
+namespace Quokka.PluginArch
+{
 
   /// <summary>
-  /// All plugins must implement this.
+  /// All plugins must implement this
   /// </summary>
-  public abstract class Plugin {
+  public abstract class Plugin
+  {
 
     /// <summary>
     ///  The name of the plugin
     ///  </summary>
-    public abstract string PluggerName { get; set; }
+    public abstract string PluginName { get; set; }
 
     /// <summary>
     ///  This method will run just before the application shuts down,
@@ -36,10 +38,10 @@ namespace Quokka.PluginArch {
     ///  </summary>
     ///  <param name = "query" >The user's current query</param>
     ///  <returns>
-    ///  A List of ListItems appropriate for the user's query.
+    ///  A Collection of ListItems appropriate for the user's query.
     ///  These will be displayed in the search windows results list
     ///  </returns>
-    public abstract List<ListItem> OnQueryChange(string query);
+    public abstract Collection<ListItem> OnQueryChange(string query);
 
     /// <summary>
     ///  This method will run just after the search window starts up.
@@ -56,11 +58,11 @@ namespace Quokka.PluginArch {
     ///  </summary>
     ///  <param name = "command" >The query the user has entered</param>
     ///  <returns>
-    ///  A List of ListItems appropriate for the command.
+    ///  A Collection of ListItems appropriate for the command.
     ///  These will be displayed in the search windows results list.
-    ///  <br />Default behavior when not overridden: returns an empty list.
+    ///  <br />Default behavior when not overridden: returns an empty collection.
     ///  </returns>
-    public virtual List<ListItem> OnSpecialCommand(string command) { return new List<ListItem>(); }
+    public virtual Collection<ListItem> OnSpecialCommand(string command) { return new Collection<ListItem>(); }
 
     /// <summary>
     ///  Used to define special commands that should have unique results.
@@ -70,9 +72,10 @@ namespace Quokka.PluginArch {
     ///  </summary>
     ///  <returns>
     ///  The special commands; the commands defined should be unique as to NOT CLASH with other plugins.
-    ///  <br />Default behavior when not overridden: returns an empty list.
+    ///  <br />Default behavior when not overridden: returns an empty Collection.
     ///  </returns>
-    public virtual List<string> SpecialCommands() { return new List<string>(); }
+
+    public virtual Collection<string> SpecialCommands() { return new Collection<string>(); }
 
     /// <summary>
     /// Runs when the user changes their query in the search window to include a 
@@ -81,10 +84,10 @@ namespace Quokka.PluginArch {
     /// </summary>
     ///  <param name = "command" >The query the user has entered</param>
     /// <returns>
-    /// A List of ListItems appropriate for the signifier and extra information that proceeded it.
-    /// <br />Default behavior when not overridden: returns an empty list.
+    /// A Collection of ListItems appropriate for the signifier and extra information that proceeded it.
+    /// <br />Default behavior when not overridden: returns an empty collection.
     /// </returns>
-    public virtual List<ListItem> OnSignifier(string command) { return new List<ListItem>(); }
+    public virtual Collection<ListItem> OnSignifier(string command) { return new Collection<ListItem>(); }
 
     /// <summary>
     /// Used to define signifiers (prefixes) to produce commands that should take in 
@@ -95,8 +98,9 @@ namespace Quokka.PluginArch {
     /// </summary>
     /// <returns>
     /// The command signifiers; the signifiers defined should be unique as to NOT CLASH with other plugins.
-    /// <br />Default behavior when not overridden: returns an empty list.
+    /// <br />Default behavior when not overridden: returns an empty Collection.
     /// </returns>
-    public virtual List<string> CommandSignifiers() { return new List<string>(); }
+    public virtual Collection<string> CommandSignifiers() { return new Collection<string>(); }
+
   }
 }

@@ -2,11 +2,12 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net4.8-windows</TargetFramework>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <PublishReadyToRun>true</PublishReadyToRun>
     <Nullable>enable</Nullable>
     <LangVersion>10.0</LangVersion>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
     <DebugType>embedded</DebugType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -25,13 +26,12 @@
     <RepositoryUrl>https://github.com/faeq-F/Quokka</RepositoryUrl>
     <BaseOutputPath>G:\Quokka</BaseOutputPath>
     <Configurations>Quokka</Configurations>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Quokka|AnyCPU'">
     <Optimize>True</Optimize>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <StartupObject>Quokka.App</StartupObject>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>latest-all</AnalysisLevel>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="Shell32">
