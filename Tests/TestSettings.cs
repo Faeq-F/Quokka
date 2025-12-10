@@ -1,7 +1,8 @@
 using Quokka.Settings;
 using static System.Windows.SystemParameters;
 
-namespace Tests {
+namespace Tests
+{
   /**
     * <summary>
     * Testing for Quokka settings, i.e., if they apply correctly, are parsed correctly, etc..
@@ -9,7 +10,8 @@ namespace Tests {
     */
 
   [TestClass]
-  public class TestSettings {
+  public class TestSettings
+  {
     /**
       * <summary>
       * Testing parsing of Screen Dimensions settings,<br />
@@ -18,12 +20,14 @@ namespace Tests {
       */
 
     [TestMethod]
-    public void TestScreenDimensionsParsing() {
+    public void TestScreenDimensionsParsing()
+    {
       string[] possibleSettingValues = { "PrimaryScreenHeight/3", "PrimaryScreenHeight/ 2", "PrimaryScreenWidth / 3",
         "PrimaryScreenHeight", "PrimaryScreenWidth", "PrimaryScreenHeight*4", "PrimaryScreenHeight-56", "PrimaryScreenHeight+20"};
-      double[] correspondingValues = { ( PrimaryScreenHeight / 3 ), ( PrimaryScreenHeight / 2 ), ( PrimaryScreenWidth / 3 ), ( PrimaryScreenHeight ), ( PrimaryScreenWidth ), ( PrimaryScreenHeight * 4 ), ( PrimaryScreenHeight - 56 ), ( PrimaryScreenHeight + 20 ) };
-      for (int index = 0; index < possibleSettingValues.Length; index++) {
-        Assert.AreEqual(SettingParsers.parseScreenDimensionsSetting(possibleSettingValues[index]), correspondingValues[index]);
+      double[] correspondingValues = { (PrimaryScreenHeight / 3), (PrimaryScreenHeight / 2), (PrimaryScreenWidth / 3), (PrimaryScreenHeight), (PrimaryScreenWidth), (PrimaryScreenHeight * 4), (PrimaryScreenHeight - 56), (PrimaryScreenHeight + 20) };
+      for (int index = 0; index < possibleSettingValues.Length; index++)
+      {
+        Assert.AreEqual(SettingParsers.ParseScreenDimensionsSetting(possibleSettingValues[index]), correspondingValues[index]);
       }
     }
   }

@@ -8,7 +8,7 @@
   Title="ContextPane"
   d:DesignHeight="300"
   d:DesignWidth="800"
-  KeyDown="Page_KeyDown"
+  KeyDown="PageKeyDown"
   UseLayoutRounding="True"
   mc:Ignorable="d">
   <Page.Resources>
