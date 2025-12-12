@@ -2,12 +2,14 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace Quokka {
+namespace Quokka
+{
 
   /// <summary>
   ///   Provides bindable properties and commands for the NotifyIcon.
   /// </summary>
-  public class DelegateCommand : ICommand {
+  public class DelegateCommand : ICommand
+  {
 
     /// <summary>
     ///   Creates a bindable command.
@@ -15,7 +17,8 @@ namespace Quokka {
     /// <param name="CommandAction">
     ///   The instructions to execute.
     /// </param>
-    public DelegateCommand(Action CommandAction) {
+    public DelegateCommand(Action CommandAction)
+    {
       this.CommandAction = CommandAction;
     }
 
@@ -30,13 +33,15 @@ namespace Quokka {
     ///   The initial state of whether the instructions can
     ///   be executed.
     /// </param>
-    public DelegateCommand(Action CommandAction, Func<bool> CanExecuteFunc) {
+    public DelegateCommand(Action CommandAction, Func<bool> CanExecuteFunc)
+    {
       this.CommandAction = CommandAction;
       this.CanExecuteFunc = CanExecuteFunc;
     }
 
     /// <inheritdoc />
-    public event EventHandler? CanExecuteChanged {
+    public event EventHandler? CanExecuteChanged
+    {
       add { CommandManager.RequerySuggested += value; }
       remove { CommandManager.RequerySuggested -= value; }
     }
@@ -45,12 +50,14 @@ namespace Quokka {
     private Action CommandAction { get; set; }
 
     /// <inheritdoc />
-    public bool CanExecute(object? parameter) {
+    public bool CanExecute(object? parameter)
+    {
       return CanExecuteFunc == null || CanExecuteFunc();
     }
 
     /// <inheritdoc />
-    public void Execute(object? parameter) {
+    public void Execute(object? parameter)
+    {
       CommandAction();
     }
   }
@@ -58,7 +65,9 @@ namespace Quokka {
   /// <summary>
   ///   The View Model for the Notify Icon.
   /// </summary>
-  public class NotifyIconViewModel {
+  public class NotifyIconViewModel
+  {
+    public NotifyIconViewModel() { }
 
     /// <summary>
     ///   Shutdown the application.
@@ -66,8 +75,10 @@ namespace Quokka {
     /// <returns>
     ///   A DelegateCommand which will call Application.Current.Shutdown.
     /// </returns>
-    public static ICommand ExitApplicationCommand {
-      get {
+    public static ICommand ExitApplicationCommand
+    {
+      get
+      {
         return new DelegateCommand(() => Application.Current.Shutdown());
       }
     }
@@ -79,9 +90,12 @@ namespace Quokka {
     ///   A DelegateCommand which will start a new Quokka instance
     ///   and call Application.Current.Shutdown.
     /// </returns>
-    public static ICommand RestartApplicationCommand {
-      get {
-        return new DelegateCommand(() => {
+    public static ICommand RestartApplicationCommand
+    {
+      get
+      {
+        return new DelegateCommand(() =>
+        {
           System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
           Application.Current.Shutdown();
         });
@@ -96,8 +110,10 @@ namespace Quokka {
     ///   A DelegateCommand which will close the current
     ///   search window.
     /// </returns>
-    public static ICommand CloseWindowCommand {
-      get {
+    public static ICommand CloseWindowCommand
+    {
+      get
+      {
         return new DelegateCommand(
           () => Application.Current.MainWindow.Close(), () => Application.Current.MainWindow != null);
       }
@@ -110,8 +126,10 @@ namespace Quokka {
     ///   A DelegateCommand which will open the PlugBoard
     ///   folder within Windows file explorer.
     /// </returns>
-    public static ICommand OpenPlugBoard {
-      get {
+    public static ICommand OpenPlugBoard
+    {
+      get
+      {
         return new DelegateCommand(() => App.OpenPlugBoard());
       }
     }
@@ -123,8 +141,10 @@ namespace Quokka {
     ///   A DelegateCommand which will open the app settings
     ///   in notepad.
     /// </returns>
-    public static ICommand OpenSettingsFile {
-      get {
+    public static ICommand OpenSettingsFile
+    {
+      get
+      {
         return new DelegateCommand(() => App.OpenSettingsFile());
       }
     }
@@ -136,9 +156,12 @@ namespace Quokka {
     /// <returns>
     ///   A DelegateCommand which will open a new search window.
     /// </returns>
-    public static ICommand ShowWindowCommand {
-      get {
-        return new DelegateCommand(() => {
+    public static ICommand ShowWindowCommand
+    {
+      get
+      {
+        return new DelegateCommand(() =>
+        {
           App.Current.MainWindow = new SearchWindow();
           App.Current.MainWindow.Show();
         }, () => App.Current.MainWindow == null);

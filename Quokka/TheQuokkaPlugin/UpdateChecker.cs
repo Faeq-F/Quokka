@@ -4,61 +4,79 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Quokka.TheQuokkaPlugin {
-  internal static class UpdateChecker {
-    private static string? download_link = null;
-    private static string? version = null;
+namespace Quokka.TheQuokkaPlugin
+{
+  internal static class UpdateChecker
+  {
+    private static string? download_link;
+    private static string? version;
 
-    private static string currentVersion = "1.0.0.0";
+    private const string currentVersion = "2.0.0.0";
 
-    internal static string CheckForUpdates() {
+    internal static string CheckForUpdates()
+    {
       var version_file = "https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Version";
       var temp_version_file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\QuokkaVersion.txt";
 
-      using (var webClient = new WebClient()) {
-        try {
+      using (var webClient = new WebClient())
+      {
+        try
+        {
           webClient.DownloadFile(address: version_file, fileName: temp_version_file);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
           App.ShowErrorMessageBox(e, "Could not check for updates");
           return "error";
         }
       }
 
-      if (File.Exists(temp_version_file)) {
+      if (File.Exists(temp_version_file))
+      {
         string[] version_data = File.ReadAllText(temp_version_file).Split('=');
         version = version_data[0];
         download_link = version_data[1];
         File.Delete(temp_version_file);
 
-        if (currentVersion == version) {
+        if (currentVersion == version)
+        {
           return "updated";
-        } else {
+        }
+        else
+        {
           return "needs_update";
         }
 
-      } else {
+      }
+      else
+      {
         return "error";
       }
     }
 
-    public static async void RunUpdateCheck(bool showUpdated) {
-      string result = await Task.Run(() => CheckForUpdates());
-      switch (result) {
+    public static async void RunUpdateCheck(bool showUpdated)
+    {
+      switch (await Task.Run(() => CheckForUpdates()))
+      {
 
-        case "updated": {
-          if (showUpdated) {
-            MessageBox.Show($"Quokka is on the latest version ({version!})", "Quokka is up-to-date", MessageBoxButton.OK, MessageBoxImage.Information);
+        case "updated":
+          {
+            if (showUpdated)
+            {
+              MessageBox.Show($"Quokka is on the latest version ({version!})", "Quokka is up-to-date", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            break;
           }
-          break;
-        }
 
-        case "needs_update": {
-          if (MessageBox.Show($"A new version ({version!}) is available\nPlease backup your data before installing the new version\n\nWould you like to copy the download link?",
-            "New Version available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes) {
-            System.Windows.Clipboard.SetText(download_link);
+        case "needs_update":
+          {
+            if (MessageBox.Show($"A new version ({version!}) is available\nPlease backup your data before installing the new version\n\nWould you like to copy the download link?",
+              "New Version available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
+            {
+              System.Windows.Clipboard.SetText(download_link);
+            }
+            break;
           }
-          break;
-        }
 
         default: break;
       }

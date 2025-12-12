@@ -1,34 +1,38 @@
-﻿namespace Quokka.TheQuokkaPlugin {
+﻿namespace Quokka.TheQuokkaPlugin
+{
   using Quokka.ListItems;
   using Quokka.PluginArch;
   using System;
-  using System.Collections.Generic;
+  using System.Collections.ObjectModel;
 
   /// <summary>
   /// The Quokka Plugin
   /// </summary>
-  public partial class Plugin_Quokka : Plugin {
+  public partial class PluginQuokka : Plugin
+  {
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    public override string PluggerName { get; set; } = "Plugin_Quokka";
+    public override string PluginName { get; set; } = "PluginQuokka";
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
     /// <param name="query"><inheritdoc/></param>
     /// <returns>
-    /// An empty list
+    /// An empty collection
     /// </returns>
-    public override List<ListItem> OnQueryChange(string query) { return new List<ListItem>(); }
+    public override Collection<ListItem> OnQueryChange(string query) { return new Collection<ListItem>(); }
 
     /// <summary>
     /// <inheritdoc/><br />
     /// Checks for updates, if CheckForUpdates (in settings) is true
     /// </summary>
-    public override void OnAppStartup() {
-      if ((bool) App.Current.Resources["CheckForUpdates"]) {
+    public override void OnAppStartup()
+    {
+      if ((bool)App.Current.Resources["CheckForUpdates"])
+      {
         UpdateChecker.RunUpdateCheck(false);
       }
 
@@ -40,16 +44,18 @@
     /// </summary>
     /// <param name="command"><inheritdoc/></param>
     /// <returns>The AboutQuokkaItem</returns>
-    public override List<ListItem> OnSpecialCommand(string command) {
-      return new List<ListItem>() { new AboutQuokkaItem() };
+    public override Collection<ListItem> OnSpecialCommand(string command)
+    {
+      return new Collection<ListItem>() { new AboutQuokkaItem() };
     }
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
     /// <returns>The AboutCommand in settings</returns>
-    public override List<string> SpecialCommands() {
-      return new List<string>() { (string) App.Current.Resources["AboutCommand"] };
+    public override Collection<string> SpecialCommands()
+    {
+      return new Collection<string>() { (string)App.Current.Resources["AboutCommand"] };
     }
   }
 }
