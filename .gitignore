@@ -26,6 +26,6 @@ logs
 # From other Quokka branches
 Debug/
 Quokka/
-QuokkaDocs/
 Tests/
 _site/
+Plugin*/
