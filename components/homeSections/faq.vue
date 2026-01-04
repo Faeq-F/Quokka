@@ -10,11 +10,11 @@ const faq = [
     answer: 'Answer 2',
   },
   {
-    question: 'Question 3',
+    question: 'How do I change the app font?',
     answer: 'Answer 3',
   },
   {
-    question: 'Question 4',
+    question: 'How do I change app icons?',
     answer: 'Answer 4',
   },
 ]
@@ -84,7 +84,22 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
         tracking
       </MazAnimatedElement>
     </div>
-
+    <MazAnimatedElement direction="down" :delay="1600" :duration="700"
+      class="flex items-center justify-center varela text-sm pl-4 pt-4 gap-4">
+      <nuxt-link to="">
+        <div class="flex items-center justify-center">
+          <UIcon name="i-lucide-file-cog" class="size-4 mx-1 mb-1" />
+          Changelog
+        </div>
+      </nuxt-link>
+      <UIcon name="i-lucide-dot" class="size-4" />
+      <nuxt-link to="">
+        <div class="flex items-center">
+          <UIcon name="i-lucide-square-kanban" class="size-4 mx-1 mb-1" />
+          Kanban
+        </div>
+      </nuxt-link>
+    </MazAnimatedElement>
     <MazAnimatedElement direction="down" :delay="1600" :duration="700"
       class="inline">
       <div class="varela text-2xl pl-4 pt-4">FAQ</div>

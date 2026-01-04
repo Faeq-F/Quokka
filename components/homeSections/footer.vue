@@ -155,18 +155,19 @@ import Link from '~/components/link.vue'
                 </div>
               </div>
             </div>
-            <div class="max-w-30 w-30">
+            <div class="max-w-32 w-32">
               <ul>
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1550"
                     :duration="700" class="inline">
-                    <Link url="">Changelog</Link>
+                    <Link url="/changelog">Changelog</Link>
                   </MazAnimatedElement>
                 </li>
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1600"
                     :duration="700" class="inline">
-                    <Link url="">License</Link>
+                    <Link blank url="/license">
+                      License</Link>
                   </MazAnimatedElement>
                 </li>
                 <li class="opacity-55 hover:opacity-75">

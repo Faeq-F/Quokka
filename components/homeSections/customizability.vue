@@ -27,7 +27,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
         <MazCardSpotlight :padding="false">
           <div class="px-4 w-88 ">
 
-            <textarea readonly>
+            <textarea readonly class="focus:outline-0">
             ...
 
             {{ themes.themes[activeIndex].json }}
@@ -103,7 +103,7 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
             dots: '-top-7',
             dot: 'w-6 h-1 bg-[#1f8fff33]',
           }">
-          <img :src="item" class="rounded-lg mx-auto my-0" />
+          <img :src="item" class="rounded-lg mx-auto my-0" v-fullscreen-img />
         </UCarousel>
       </MazAnimatedElement>
 
