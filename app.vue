@@ -1,11 +1,7 @@
 <script setup lang="ts">
-import { VueLenis } from 'lenis/vue'
-const lenisOptions = {
-  anchors: true
-}
+
 </script>
 <template>
-  <VueLenis root :options="lenisOptions" />
   <UApp>
     <NuxtLayout>
       <NuxtPage />

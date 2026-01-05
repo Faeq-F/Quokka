@@ -35,6 +35,7 @@ import installation from '~/components/docsSections/installation.vue'
 import plugins from '~/components/docsSections/plugins.vue'
 import settings from '~/components/docsSections/settings.vue'
 import trayTask from '~/components/docsSections/trayTask.vue'
+import underTheHood from '~/components/docsSections/underTheHood.vue'
 
 const switchSectionTo = (to) => {
   if (to) {
@@ -64,6 +65,10 @@ watch(applyPadding, async (_new, _old) => {
   if (applyPadding.value) updatePadding(slider.value)
   else updatePadding(7)
 })
+
+import { VueLenis } from 'lenis/vue'
+const LenisWrapper = ref();
+const LenisContent = ref();
 </script>
 
 <template>
@@ -80,10 +85,17 @@ watch(applyPadding, async (_new, _old) => {
             :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
           <MazAnimatedElement direction="right" :duration="500"
             class="flex items-center pt-0.5">
-            Currently reading
-            '
+            <div v-if="displayedSection.section == 'tray-task'
+              || displayedSection.section == 'plugins'
+              || displayedSection.section == 'commands'"
+              class="flex items-center">
+              <UIcon name="i-lucide-chevron-right" class="mr-2" />
+              <UIcon name="i-lucide-pointer" class="px-3" />
+              <span class="mr-2">How to Use</span>
+            </div>
+            <UIcon name="i-lucide-chevron-right" class="mr-2" />
             <UIcon :name="displayedSection.icon" class="px-3" /> {{
-              displayedSection.label + " " }}'
+              displayedSection.label + " " }}
           </MazAnimatedElement>
         </div>
       </div>
@@ -132,24 +144,36 @@ watch(applyPadding, async (_new, _old) => {
         :style="displayedSection.section == 'api-documentation' ? '' : (sidebarHover ? sidebarHoverPadding : padding)"
         class="docsContent max-h-[90vh] min-h-[90vh]
           overflow-y-scroll w-full outfit transition-all ease-out duration-100 delay-200"
-        data-lenis-prevent>
-        <Transition name="fade">
-          <documentation v-if="displayedSection.section == 'documentation'" />
-          <apiDocumentation
-            v-else-if="displayedSection.section == 'api-documentation'" />
-          <buildingTheApp v-else-if="displayedSection.section == 'build-app'" />
-          <commands v-else-if="displayedSection.section == 'commands'" />
-          <creatingPlugin
-            v-else-if="displayedSection.section == 'creating-plugin'" />
-          <faqs v-else-if="displayedSection.section == 'faq'" />
-          <generalUsage
-            v-else-if="displayedSection.section == 'general-usage'" />
-          <installation
-            v-else-if="displayedSection.section == 'installation'" />
-          <plugins v-else-if="displayedSection.section == 'plugins'" />
-          <settings v-else-if="displayedSection.section == 'settings'" />
-          <trayTask v-else-if="displayedSection.section == 'tray-task'" />
-        </Transition>
+        ref="LenisWrapper">
+        <VueLenis root :options="{
+          autoRaf: true,
+          lerp: 0.1,
+          anchors: true,
+          content: LenisContent,
+          wrapper: LenisWrapper,
+        }" />
+        <div ref="LenisContent" class="h-full w-full">
+          <Transition name="fade">
+            <documentation v-if="displayedSection.section == 'documentation'" />
+            <apiDocumentation
+              v-else-if="displayedSection.section == 'api-documentation'" />
+            <buildingTheApp
+              v-else-if="displayedSection.section == 'build-app'" />
+            <underTheHood
+              v-else-if="displayedSection.section == 'under-hood'" />
+            <commands v-else-if="displayedSection.section == 'commands'" />
+            <creatingPlugin
+              v-else-if="displayedSection.section == 'creating-plugin'" />
+            <faqs v-else-if="displayedSection.section == 'faq'" />
+            <generalUsage
+              v-else-if="displayedSection.section == 'general-usage'" />
+            <installation
+              v-else-if="displayedSection.section == 'installation'" />
+            <plugins v-else-if="displayedSection.section == 'plugins'" />
+            <settings v-else-if="displayedSection.section == 'settings'" />
+            <trayTask v-else-if="displayedSection.section == 'tray-task'" />
+          </Transition>
+        </div>
       </div>
     </div>
   </div>
