@@ -57,41 +57,24 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
         {{ plugin.shortDescription }}
       </MazAnimatedElement>
     </div>
-    <div class=" flex flex-row" data-lenis-prevent>
-      <div class="basis-3/4 pt-4 px-4">
-        <MazAnimatedElement direction="right" :delay="1200" :duration="700">
-          <MazCardSpotlight class="min-h-[85vh] mb-4 w-full">
-            <nuxt-link
-              :to="'https://github.com/' + plugin?.github + '/blob/main/README.md'"
-              class="!no-underline flex items-center !not-italic">
-              <UIcon name="i-lucide-book-open" class="mr-1.5 !size-4" />
-              <code>README.md</code>
-              <UIcon name="i-lucide-arrow-up-right" class="!size-2 mb-1" />
-            </nuxt-link>
-            <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
-            <MdPreview :theme="theme" previewTheme="github" codeTheme="github"
-              language="en-US" class="!bg-transparent" :modelValue="readme"
-              v-if="!loading" />
-          </MazCardSpotlight>
-        </MazAnimatedElement>
-      </div>
-      <div class="basis-1/4 pt-4 px-4 outfit">
-        <MazAnimatedElement direction="left" :delay="1400" :duration="700">
-          <MazCardSpotlight class="w-full m-2">
-            <div class="flex items-center text-sm">
-              <UIcon name="i-lucide-images" class="mr-1.5 !size-4" />
-              <span>Gallery</span>
-            </div>
-            <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
-            <MazCard :images="['https://loremflickr.com/600/600',
-              'https://loremflickr.com/700/700', 'https://loremflickr.com/400/400',
-              'https://loremflickr.com/300/300']" :images-show-count="3"
-              :no-remaining="false" zoom class="w-full" noPadding>
-            </MazCard>
-          </MazCardSpotlight>
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="left" :delay="1600" :duration="700">
-          <MazCardSpotlight class="w-full m-2">
+    <MazAnimatedElement direction="right" :duration="500" :delay="1200"
+      class="flex items-center pl-8 text-toned text-sm">
+      <nuxt-link to="/">
+        Quokka
+      </nuxt-link>
+      <UIcon name="i-lucide-chevron-right" class="mx-2" />
+      <nuxt-link to="/plugin" class="flex items-center">
+        <UIcon name="i-lucide-box" class="mx-2" />
+        Plugins
+      </nuxt-link>
+      <UIcon name="i-lucide-chevron-right" class="mx-2" />
+      <UIcon :name="'lucide-' + plugin.icon" class="px-3" />
+      {{ plugin.name }}
+    </MazAnimatedElement>
+    <div class="flex gap-2 min-h-[30vh] pl-4 pr-2">
+      <div class="flex flex-col h-full w-1/4">
+        <MazAnimatedElement direction="right" :delay="1400" :duration="700">
+          <MazCardSpotlight class="w-full m-2 ml-0 h-full">
             <div class="flex items-center text-sm">
               <UIcon name="i-lucide-square-kanban" class="mr-1.5 !size-4" />
               <span>Details</span>
@@ -101,8 +84,17 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
               <ul class="list-disc ml-5">
                 <li>
                   <div class="flex items-center">
-                    <Link :url="'https://github.com/' + plugin?.github">
-                    Source code
+                    <Link target="_blank"
+                      :url="'https://volta.net/' + plugin?.github">
+                      Kanban
+                    </Link>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-center">
+                    <Link target="_blank"
+                      :url="'https://github.com/' + plugin?.github">
+                      Source code
                     </Link>
                   </div>
                 </li>
@@ -125,10 +117,11 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
             </div>
           </MazCardSpotlight>
         </MazAnimatedElement>
-        <MazAnimatedElement direction="left" :delay="1800" :duration="700">
+        <MazAnimatedElement direction="left" :delay="1600" :duration="700"
+          class="flex-1">
           <a :href="plugin?.downloadUrl" target="_blank"
-            class="!no-underline !not-italic">
-            <MazCardSpotlight class="w-full m-2">
+            class="!no-underline !not-italic h-auto">
+            <MazCardSpotlight class="w-full ml-0 h-auto">
               <div class="flex items-center text-sm">
                 <UIcon name="i-lucide-plug-zap" class="mr-1.5 !size-4" />
                 <span>Latest Release</span>
@@ -140,8 +133,42 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
             </MazCardSpotlight>
           </a>
         </MazAnimatedElement>
-        <MazAnimatedElement direction="left" :delay="2000" :duration="700">
-          <MazCardSpotlight class="w-full m-2">
+      </div>
+      <MazAnimatedElement direction="left" :delay="1800" :duration="700"
+        class="flex-auto h-auto mt-2">
+        <MazCardSpotlight class="w-full h-full">
+          <div class="flex items-center text-sm">
+            <UIcon name="i-lucide-images" class="mr-1.5 !size-4" />
+            <span>Gallery</span>
+          </div>
+          <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
+          <MazGallery :images="['https://loremflickr.com/600/600',
+            'https://loremflickr.com/700/700', 'https://loremflickr.com/400/400', 'https://loremflickr.com/400/400', 'https://loremflickr.com/400/400',
+            'https://loremflickr.com/300/300']" class="h-[85%]" no-height />
+        </MazCardSpotlight>
+      </MazAnimatedElement>
+    </div>
+    <div class="flex flex-row gap-2 mb-4">
+      <div class="basis-3/4 pt-4 pl-4 ">
+        <MazAnimatedElement direction="right" :delay="2000" :duration="700">
+          <MazCardSpotlight class="min-h-[40vh] w-full">
+            <nuxt-link
+              :to="'https://github.com/' + plugin?.github + '/blob/main/README.md'"
+              class="!no-underline flex items-center !not-italic">
+              <UIcon name="i-lucide-book-open" class="mr-1.5 !size-4" />
+              <code>README.md</code>
+              <UIcon name="i-lucide-arrow-up-right" class="!size-2 mb-1" />
+            </nuxt-link>
+            <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
+            <MdPreview :theme="theme" previewTheme="github" codeTheme="github"
+              language="en-US" class="!bg-transparent" :modelValue="readme"
+              v-if="!loading" />
+          </MazCardSpotlight>
+        </MazAnimatedElement>
+      </div>
+      <div class="basis-1/4 pt-4 pr-4 outfit flex flex-col">
+        <MazAnimatedElement direction="left" :delay="2200" :duration="700">
+          <MazCardSpotlight class="w-full m-2 mt-0">
             <div class="flex items-center text-sm">
               <UIcon name="i-lucide-tags" class="mr-1.5 !size-4" />
               <span>Tags</span>
@@ -156,8 +183,9 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
             </UKbd>
           </MazCardSpotlight>
         </MazAnimatedElement>
-        <MazAnimatedElement direction="left" :delay="200" :duration="700">
-          <MazCardSpotlight class="w-full m-2">
+        <MazAnimatedElement direction="left" :delay="2400" :duration="700"
+          class="flex-1">
+          <MazCardSpotlight class="w-full h-full ml-2">
             <div class="flex items-center text-sm ">
               <UIcon name="i-lucide-git-pull-request-arrow"
                 class="mr-1.5 !size-4" />

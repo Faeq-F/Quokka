@@ -23,6 +23,20 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+  vite: {
+    optimizeDeps: {
+      esbuildOptions: {
+        supported: {
+          'top-level-await': true,
+        },
+      },
+    },
+    esbuild: {
+      supported: {
+        'top-level-await': true,
+      },
+    }
+  },
   vue: {
     compilerOptions: {
       whitespace: 'preserve'
@@ -46,61 +60,7 @@ export default defineNuxtConfig({
   ],
   icon: {
     clientBundle: {
-      icons: [
-        'lucide:box',
-        'lucide:chevron-down',
-        'lucide:book-open',
-        'lucide:circle-help',
-        'lucide:download',
-        'lucide:github',
-        'lucide:arrow-up-right',
-        'lucide:sun-moon',
-        'lucide:sun',
-        'lucide:moon',
-        'lucide:laptop-minimal',
-        'lucide:arrow-left',
-        'lucide:arrow-right',
-        'lucide:terminal',
-        'lucide:loader',
-        'lucide:pointer',
-        'lucide:mouse-pointer',
-        'lucide:panel-bottom',
-        'lucide:blocks',
-        'lucide:zap',
-        'lucide:sliders-vertical',
-        'lucide:drill',
-        'lucide:code',
-        'lucide:toy-brick',
-        'lucide:folder-kanban',
-        'lucide:list',
-        'lucide:panels-top-left',
-        'lucide:unplug',
-        'lucide:search',
-        'lucide:circle-x',
-        'lucide:filter',
-        'lucide:earth',
-        'lucide:ethernet-port',
-        'lucide:notebook-pen',
-        'lucide:wrench',
-        'lucide:briefcase-business',
-        'lucide:laptop',
-        'lucide:code-xml',
-        'lucide:image-play',
-        'lucide:workflow',
-        'lucide:calculator',
-        'lucide:wifi-off',
-        'lucide:wifi',
-        'lucide:usb',
-        'lucide:folder-search',
-        'lucide:power',
-        'lucide:book-a',
-        'lucide:settings',
-        'lucide:smile',
-        'lucide:panel-bottom-open',
-        'lucide:network',
-        'lucide:globe-2',
-
-      ],
+      icons: [],
       scan: true,
       includeCustomCollections: true,
       sizeLimitKb: 256,
