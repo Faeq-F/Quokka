@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ExternalLink from '~/components/link.vue'
 import DocNotice from '~/components/docNotice.vue'
-
+import refreshLenis from '~/assets/scripts/lenis'
 import { useSettingsStore } from '~/stores/settings'
 const settings = useSettingsStore()
 </script>
@@ -30,49 +30,117 @@ const settings = useSettingsStore()
         &nbsp;included) for default values, etc.
       </DocNotice>
     </MazCardSpotlight>
-    <MazCardSpotlight class="w-full m-2">
-      Quokka comes with the
-      <ExternalLink url="/#customizability">
-        'Windows light'
-      </ExternalLink>
-      &nbsp;theme by default.<br />
-      To change it, you can edit the style settings in the settings file
-      and / or you can use values in a
-      <ExternalLink url="/#customizability">
-        provided configuration
-      </ExternalLink>.
-    </MazCardSpotlight>
-    <MazCardSpotlight class="w-full m-2" :padding="false">
-      <MazTable hoverable divider size="md" tableClass="!bg-transparent"
-        roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-        inputSize="sm" :headers="[
-          { label: 'Setting name', key: 'name', width: '12rem' },
-          { label: 'Default Value', key: 'defaultValue', width: '12rem' },
-          { label: 'Notes', key: 'notes' },
-        ]" :rows="settings.settings">
-        <template #cell-notes="{ value }">
-          <ul>
-            <li v-for="(note, i) in value" :key="i">
-              <template v-if="Object.keys(note)[0] != '0'">
-                {{ note.prevText }}
-                <ExternalLink :url="note.link.url" target="_blank">
-                  {{ note.link.text }}
-                </ExternalLink>
-                &nbsp;{{ note.afterText }}
-              </template>
-              <template v-else>
-                {{ note }}
-              </template>
-            </li>
-          </ul>
-        </template>
-        <template #cell-defaultValue="{ value }">
-          <Code inline>&nbsp;{{ value }}&nbsp;</Code>
-        </template>
-        <template #cell-name="{ value }">
-          <Code inline>&nbsp;{{ value }}&nbsp;</Code>
-        </template>
-      </MazTable>
-    </MazCardSpotlight>
+    <MazAccordion class="w-full m-2" contentClass="!p-0"
+      @update:model-value="() => refreshLenis()">
+      <template #title-1>
+        General Settings
+      </template>
+      <template #content-1>
+        <USeparator :ui="{ border: 'dark:border-gray-600' }" />
+        <MazTable hoverable divider size="md" tableClass="!bg-transparent"
+          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
+          inputSize="sm" :headers="[
+            { label: 'Setting name', key: 'name', width: '12rem' },
+            { label: 'Default Value', key: 'defaultValue', width: '12rem' },
+            { label: 'Notes', key: 'notes' },
+          ]" :rows="settings.general">
+          <template #cell-notes="{ value }">
+            <ul>
+              <li v-for="(note, i) in value" :key="i">
+                <template v-if="Object.keys(note)[0] != '0'">
+                  {{ note.prevText }}
+                  <ExternalLink :url="note.link.url" target="_blank">
+                    {{ note.link.text }}
+                  </ExternalLink>
+                  &nbsp;{{ note.afterText }}
+                </template>
+                <template v-else>
+                  {{ note }}
+                </template>
+              </li>
+            </ul>
+          </template>
+          <template #cell-defaultValue="{ value }">
+            <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+          </template>
+          <template #cell-name="{ value }">
+            <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+          </template>
+        </MazTable>
+        <USeparator :ui="{ border: 'dark:border-gray-600' }" />
+        <div class="flex flex-col items-center">
+          <img v-fullscreen-img src="/media/AppScreenshots/LoadingItem.png" />
+          <img v-fullscreen-img class="ml-1"
+            src="/media/AppScreenshots/NoResultsItem.png" />
+        </div>
+      </template>
+
+      <template #title-2>
+        Style Settings
+      </template>
+      <template #content-2>
+        <USeparator :ui="{ border: 'dark:border-gray-600' }" />
+        <div class="m-2">
+          Quokka comes with the
+          <ExternalLink url="/#customizability">
+            'Windows light'
+          </ExternalLink>
+          &nbsp;theme by default.<br />
+          To change it, you can edit the style settings in the settings file
+          and / or you can use values in a
+          <ExternalLink url="/#customizability">
+            provided configuration
+          </ExternalLink>.
+        </div>
+        <USeparator :ui="{ border: 'dark:border-gray-600' }" />
+        <MazTable hoverable divider size="md" tableClass="!bg-transparent"
+          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
+          inputSize="sm" :headers="[
+            { label: 'Setting type', key: 'type', width: '12rem' },
+            { label: 'Notes', key: 'notes' },
+          ]" :rows="settings.style">
+          <template #cell-notes="{ value }">
+            <ul>
+              <li v-for="(note, i) in value.slice(0, value.length - 1)"
+                :key="i">
+                <template v-if="Object.keys(note)[0] != '0'">
+                  <span v-if="Object.keys(note).length == 2">
+                    {{ note.prevText }}
+                    <span v-for="(value, j) in note.values" :key="j">
+                      <Code inline>&nbsp;{{ value }}&nbsp;</Code>
+                      <span v-if="j != note.values.length - 1">, </span>
+                    </span>
+                  </span>
+                  <span v-else>
+                    {{ note.prevText }}
+                    <ExternalLink :url="note.link.url" target="_blank">
+                      {{ note.link.text }}
+                    </ExternalLink>
+                    &nbsp;{{ note.afterText }}
+                  </span>
+                </template>
+                <template v-else>
+                  {{ note }}
+                </template>
+              </li>
+            </ul>
+            <USeparator :ui="{ border: 'dark:border-gray-600' }" class="my-2" />
+            Used by:<br />
+            <span v-for="(setting, j) in value[value.length - 1].usedBy"
+              :key="j">
+              <Code inline>&nbsp;{{ setting }}&nbsp;</Code>
+              <span v-if="j != value[value.length - 1].usedBy.length - 1">,
+              </span>
+            </span>
+          </template>
+          <!-- <template #cell-usedBy="{ value }">
+            <div v-for="(setting, i) in value" :key="i">
+              <Code inline>&nbsp;{{ setting }}&nbsp;</Code>
+              <span v-if="i != value.length - 1">, </span>
+            </div>
+          </template> -->
+        </MazTable>
+      </template>
+    </MazAccordion>
   </div>
 </template>
