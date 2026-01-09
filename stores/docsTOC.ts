@@ -45,7 +45,11 @@ export const useDocsStore = defineStore("docsStore", {
         label: 'Building the app',
         icon: 'i-lucide-drill',
         section: 'build-app',
-
+      },
+      {
+        label: 'Under the Hood',
+        icon: 'i-lucide-folder-open-dot',
+        section: 'under-hood',
       },
       {
         label: 'API Documentation',
@@ -70,21 +74,25 @@ export const useDocsStore = defineStore("docsStore", {
         {
           label: 'License',
           icon: 'i-lucide-scale',
-          to: '',
-          target: '_blank'
+          to: '/license',
         },
       ],
       [
         {
+          label: 'Kanban',
+          icon: 'i-lucide-square-kanban',
+          to: 'https://volta.net/Faeq-F/Quokka',
+          target: '_blank'
+        },
+        {
           label: 'Changelog',
           icon: 'i-lucide-file-cog',
-          to: '',
-          target: '_blank'
+          to: '/changelog',
         },
         {
           label: 'Releases',
           icon: 'i-lucide-tags',
-          to: '',
+          to: 'https://github.com/Faeq-F/Quokka/releases',
           target: '_blank'
         },
       ],
@@ -92,13 +100,13 @@ export const useDocsStore = defineStore("docsStore", {
         {
           label: 'Program Source',
           icon: 'i-lucide-folder-git',
-          to: '',
+          to: 'https://github.com/Faeq-F/Quokka',
           target: '_blank'
         },
         {
           label: 'Website Source',
           icon: 'i-lucide-folder-git-2',
-          to: '',
+          to: 'https://github.com/Faeq-F/Quokka/tree/site',
           target: '_blank'
         },
       ],
@@ -106,7 +114,7 @@ export const useDocsStore = defineStore("docsStore", {
         {
           label: 'Discussions',
           icon: 'i-lucide-messages-square',
-          to: '',
+          to: 'https://github.com/Faeq-F/Quokka/discussions',
           target: '_blank'
         },
         {

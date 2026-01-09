@@ -172,11 +172,11 @@ export const useUnderTheHoodStore = defineStore("underTheHoodStore", {
                   },
                   {
                     label: 'ContextPane.xaml',
-                    icon: 'i-lucide-cable'
+                    icon: 'i-lucide-toolbox'
                   },
                   {
                     label: 'ContextPane.xaml.cs',
-                    icon: 'i-lucide-cable'
+                    icon: 'i-lucide-toolbox'
                   },
                   {
                     label: 'Licences.xaml.cs',

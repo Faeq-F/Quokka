@@ -442,7 +442,7 @@ export const usePluginsStore = defineStore("pluginsStore", {
         author: "Faeq",
         authorUrl: "https://faeq-f.github.io",
         icon: "globe-2",
-        tags: ['search', 'notes', 'productivity', 'online'],
+        tags: ['search', 'notes', 'productivity', 'offline'],
         specialCommands: [],
         commandSignifiers: [
           {

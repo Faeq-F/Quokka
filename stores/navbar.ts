@@ -61,6 +61,12 @@ export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
                 to: '/documentation?section=build-app'
               },
               {
+                label: 'Under the hood',
+                icon: 'i-lucide-folder-open-dot',
+                description: 'The inner workings of the application',
+                to: '/documentation?section=under-hood'
+              },
+              {
                 label: 'API Documentation',
                 icon: 'i-lucide-code',
                 description:
