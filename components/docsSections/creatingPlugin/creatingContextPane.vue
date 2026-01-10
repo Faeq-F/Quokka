@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ExternalLink from '~/components/link.vue'
 import DocNotice from '~/components/docNotice.vue'
+import refreshLenis from '~/assets/scripts/lenis';
 </script>
 <template>
   <DocNotice type="info" class="m-2" style="width: calc(100% - 0.5rem);">
@@ -53,7 +54,7 @@ import DocNotice from '~/components/docNotice.vue'
       </li>
     </ol>
   </MazCardSpotlight>
-  <MazAccordion class="m-2"
+  <MazAccordion class="m-2" @update:model-value="() => refreshLenis()"
     style="width: calc(100% - 0.5rem); --maz-color-primary-alpha-20: var(--maz-color-secondary-alpha-20);--maz-color-primary-alpha: var(--maz-color-secondary-alpha);">
     <template #title-1>
       <div class="flex items-center">

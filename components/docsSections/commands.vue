@@ -2,6 +2,7 @@
 import ExternalLink from '~/components/link.vue'
 import DocNotice from '~/components/docNotice.vue'
 import { usePluginsStore } from '~/stores/plugins'
+import refreshLenis from '~/assets/scripts/lenis'
 const plugins = usePluginsStore()
 
 const commands = plugins.pluginsList.map((i) => {
@@ -38,15 +39,16 @@ const signifiers = plugins.pluginsList.map((i) => {
       </ExternalLink>
       &nbsp;for further details on the content covered on this page
     </DocNotice>
-    <!-- check this with signifiers -->
+
     <DocNotice type="warning" style="width: 100%" class="outfit">
-      <span class="font-bold">Special commands are case-sensitive</span> to
+      <span class="font-bold">Special commands and command signifiers are
+        case-sensitive</span> to
       ensure they do not
       interfere with other functions of the app or plugins
     </DocNotice>
 
-    <!-- get these from the store -->
-    <MazAccordion class="w-full m-2" contentClass="!p-0">
+    <MazAccordion class="w-full m-2" contentClass="!p-0"
+      @update:model-value="() => refreshLenis()">
       <template #title-1>
         All special commands from recognized plugins
       </template>
@@ -82,6 +84,7 @@ const signifiers = plugins.pluginsList.map((i) => {
         All command signifiers from recognized plugins
       </template>
       <template #content-2>
+        <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
           roundedSize="none" search noSearchBy searchPlaceholder="Search..."
           inputSize="sm" :headers="[

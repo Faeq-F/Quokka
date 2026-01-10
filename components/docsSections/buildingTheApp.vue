@@ -10,6 +10,12 @@ import DocNotice from '~/components/docNotice.vue'
       </div>
       <div class="text-md outfit">Steps to produce the published release</div>
     </div>
+    <DocNotice type="info" class="m-2 w-full">
+      Quokka is licensed under the
+      <ExternalLink url="/license">
+        GNU General Public License v3.0
+      </ExternalLink>
+    </DocNotice>
     <MazCardSpotlight class="w-full m-2">
       To build the app:
       <ol>

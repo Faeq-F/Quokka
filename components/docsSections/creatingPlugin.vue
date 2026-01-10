@@ -3,6 +3,8 @@ import creatingPlugin from '~/components/docsSections/creatingPlugin/creatingPlu
 import creatingProject from '~/components/docsSections/creatingPlugin/creatingProject.vue';
 import creatingNewItemType from '~/components/docsSections/creatingPlugin/creatingNewItemType.vue';
 import creatingContextPane from '~/components/docsSections/creatingPlugin/creatingContextPane.vue';
+import refreshLenis from '~/assets/scripts/lenis';
+import Link from '~/components/link.vue'
 </script>
 
 <template>
@@ -15,13 +17,20 @@ import creatingContextPane from '~/components/docsSections/creatingPlugin/creati
         plugin</div>
     </div>
 
-    <div class="mb-2">Steps</div>
+    <DocNotice type="info" class="w-full">
+      Quokka is licensed under the
+      <Link blank url="https://github.com/Faeq-F/Quokka/blob/main/LICENCE"> GNU
+        General Public License v3.0</Link>
+    </DocNotice>
+
+    <div class="mb-2 mt-4">Steps</div>
     <MazStepper :steps="[
       { title: 'Creating the project' },
       { title: 'Creating a new item type' },
       { title: 'Creating a context pane (optional)' },
       { title: 'Creating the plugin' },
-    ]" can-close-steps color="neutral">
+    ]" can-close-steps color="neutral"
+      @update:model-value="() => refreshLenis()">
       <template #icon-1>
         <UIcon name="i-lucide-folder-kanban" />
       </template>
