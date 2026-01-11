@@ -9,7 +9,7 @@ import MazCardSpotlight from 'maz-ui/components/MazCardSpotlight'
   <MazCardSpotlight class="my-4 mx-0 w-78 h-42 clickable outfit"
     @click="$router.push('/plugin/' + plugin.name.replace(' ', '~'))">
     <div class=" text-sm absolute top-4 right-4 left-auto ">
-      <MazAnimatedElement direction=" right" :delay="600" :duration="700">
+      <MazAnimatedElement direction="right" :delay="600" :duration="700">
         v{{ plugin.version }}
       </MazAnimatedElement>
     </div>

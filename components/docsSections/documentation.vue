@@ -52,7 +52,7 @@ const middleItems = useMiddleNavbarItems()
     </div>
     <div class="flex w-full gap-6">
       <nuxt-link :to="middleItems.items[0][1].children[6].to" class="w-1/2">
-        <MazCardSpotlight class="w-full h-36 m-3">
+        <MazCardSpotlight class="w-full h-36 mt-3">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="middleItems.items[0][1].children[6].icon" />
             <div>
@@ -65,7 +65,7 @@ const middleItems = useMiddleNavbarItems()
         </MazCardSpotlight>
       </nuxt-link>
       <nuxt-link :to="middleItems.items[0][1].children[7].to" class="w-1/2">
-        <MazCardSpotlight class="w-full h-36 m-3">
+        <MazCardSpotlight class="w-full h-36 mt-3">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="middleItems.items[0][1].children[7].icon" />
             <div>

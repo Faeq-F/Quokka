@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class SearchWindow | QuokkaDocs ">
       
-      <meta name="description" content="The search window - interaction logic for SearchWindow.xaml.">
+      
       <link rel="icon" href="../../assets/media/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,12 +97,11 @@ Class SearchWindow
   <dl><dt>Assembly</dt><dd>Quokka.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The search window - interaction logic for SearchWindow.xaml.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SearchWindow : Window, IAnimatable, IFrameworkInputElement, IInputElement, ISupportInitialize, IQueryAmbient, IAddChild, IComponentConnector, IStyleConnector</code></pre>
+    <pre><code class="lang-csharp hljs">public class SearchWindow : Window, IAnimatable, IFrameworkInputElement, IInputElement, ISupportInitialize, IQueryAmbient, IAddChild, IDisposable, IComponentConnector, IStyleConnector</code></pre>
   </div>
 
 
@@ -133,6 +132,7 @@ Class SearchWindow
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.isupportinitialize">ISupportInitialize</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.iqueryambient">IQueryAmbient</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.iaddchild">IAddChild</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.icomponentconnector">IComponentConnector</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.istyleconnector">IStyleConnector</a></div>
     </dd>
@@ -2194,13 +2194,7 @@ Class SearchWindow
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Constructs the search window, applies the relevant
-app settings that were previously loaded on
-AppStartup, runs the OnSearchWindowStartup method
-for plugins, binds the relevant keyboard shortcuts
-for the window and tries to set focus on the
-TextBox in which the user enters their query.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2219,92 +2213,29 @@ TextBox in which the user enters their query.</p>
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
+  <a id="Quokka_SearchWindow_ContextPaneFrame_" data-uid="Quokka.SearchWindow.ContextPaneFrame*"></a>
 
-  <h3 id="Quokka_SearchWindow_ContextPaneSettingsDict" data-uid="Quokka.SearchWindow.ContextPaneSettingsDict">
-  ContextPaneSettingsDict
+  <h3 id="Quokka_SearchWindow_ContextPaneFrame" data-uid="Quokka.SearchWindow.ContextPaneFrame">
+  ContextPaneFrame
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Used by ContextPanes (Pages) - the app settings.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ResourceDictionary ContextPaneSettingsDict</code></pre>
+    <pre><code class="lang-csharp hljs">public Frame ContextPaneFrame { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
-    <dd></dd>
-  </dl>
 
-
-
-
-
-
-
-
-
-
-  <h3 id="Quokka_SearchWindow_SelectedItem" data-uid="Quokka.SearchWindow.SelectedItem">
-  SelectedItem
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Used by ContextPanes (Pages) - the currently
-selected ListItem.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ListItem? SelectedItem</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-  <h3 id="Quokka_SearchWindow_contextPane" data-uid="Quokka.SearchWindow.contextPane">
-  contextPane
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Used by ContextPanes (Pages) - the frame on which
-context panes are displayed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Frame contextPane</code></pre>
-  </div>
-
-
-
-
-  <h4 class="section">Field Value</h4>
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.frame">Frame</a></dt>
     <dd></dd>
@@ -2317,26 +2248,56 @@ context panes are displayed.</p>
 
 
 
+  <a id="Quokka_SearchWindow_ContextPaneSettingsDict_" data-uid="Quokka.SearchWindow.ContextPaneSettingsDict*"></a>
 
-
-  <h3 id="Quokka_SearchWindow_searchBox" data-uid="Quokka.SearchWindow.searchBox">
-  searchBox
+  <h3 id="Quokka_SearchWindow_ContextPaneSettingsDict" data-uid="Quokka.SearchWindow.ContextPaneSettingsDict">
+  ContextPaneSettingsDict
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Used by ContextPanes (Pages) - the TextBox in
-which the user enters their query.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TextBox searchBox</code></pre>
+    <pre><code class="lang-csharp hljs">public static ResourceDictionary ContextPaneSettingsDict { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.resourcedictionary">ResourceDictionary</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Quokka_SearchWindow_SearchBox_" data-uid="Quokka.SearchWindow.SearchBox*"></a>
+
+  <h3 id="Quokka_SearchWindow_SearchBox" data-uid="Quokka.SearchWindow.SearchBox">
+  SearchBox
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TextBox SearchBox { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.controls.textbox">TextBox</a></dt>
     <dd></dd>
@@ -2349,9 +2310,96 @@ which the user enters their query.</p>
 
 
 
+  <a id="Quokka_SearchWindow_SelectedItem_" data-uid="Quokka.SearchWindow.SelectedItem*"></a>
+
+  <h3 id="Quokka_SearchWindow_SelectedItem" data-uid="Quokka.SearchWindow.SelectedItem">
+  SelectedItem
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ListItem? SelectedItem { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="Quokka_SearchWindow_Dispose_" data-uid="Quokka.SearchWindow.Dispose*"></a>
+
+  <h3 id="Quokka_SearchWindow_Dispose" data-uid="Quokka.SearchWindow.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_SearchWindow_Dispose_" data-uid="Quokka.SearchWindow.Dispose*"></a>
+
+  <h3 id="Quokka_SearchWindow_Dispose_System_Boolean_" data-uid="Quokka.SearchWindow.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
 
 
   <a id="Quokka_SearchWindow_InitializeComponent_" data-uid="Quokka.SearchWindow.InitializeComponent*"></a>
@@ -2361,8 +2409,7 @@ which the user enters their query.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>InitializeComponent</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -2388,17 +2435,11 @@ which the user enters their query.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates the item list that would be shown in the results list after the user enters a command
-<br>
-The maximum number of results loaded
-is dependent upon the MaxResults setting, though
-this can be overridden by the IgnoreMaxResultsFlag
-setting and plugin SpecialCommands.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;ListItem&gt; ProduceItems(string command)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Collection&lt;ListItem&gt; ProduceItems(string command)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -2409,9 +2450,8 @@ setting and plugin SpecialCommands.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd><p>The items for a command</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 

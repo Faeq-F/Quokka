@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Plugin | QuokkaDocs ">
       
-      <meta name="description" content="All plugins must implement this.">
+      
       <link rel="icon" href="../../assets/media/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,8 +97,7 @@ Class Plugin
   <dl><dt>Assembly</dt><dd>Quokka.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>All plugins must implement this.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -120,17 +119,22 @@ Class Plugin
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="Plugin_DeviceAddresses.DeviceAddresses.html">DeviceAddresses</a></div>
-      <div><a class="xref" href="Plugin_EnglishDictionary.EnglishDictionary.html">EnglishDictionary</a></div>
-      <div><a class="xref" href="Plugin_Gitmoji.Plugin_Gitmoji.html">Plugin_Gitmoji</a></div>
-      <div><a class="xref" href="Plugin_PowerCommands.PowerCommands.html">PowerCommands</a></div>
-      <div><a class="xref" href="Plugin_Settings.Settings.html">Settings</a></div>
-      <div><a class="xref" href="Plugin_ShellCommand.ShellCommand.html">ShellCommand</a></div>
-      <div><a class="xref" href="Plugin_UnicodeCharacterLookup.UnicodeCharacterLookup.html">UnicodeCharacterLookup</a></div>
-      <div><a class="xref" href="Plugin_WebSearch.WebSearch.html">WebSearch</a></div>
-      <div><a class="xref" href="Plugin_WindowSwitch.WindowSwitch.html">WindowSwitch</a></div>
-      <div><a class="xref" href="Plugin_Workflows.Plugin_Workflows.html">Plugin_Workflows</a></div>
-      <div><a class="xref" href="Quokka.TheQuokkaPlugin.Plugin_Quokka.html">Plugin_Quokka</a></div>
+      <div><a class="xref" href="PluginCalculator.Calculator.html">Calculator</a></div>
+      <div><a class="xref" href="PluginDeviceAddresses.DeviceAddresses.html">DeviceAddresses</a></div>
+      <div><a class="xref" href="PluginEnglishDictionary.EnglishDictionary.html">EnglishDictionary</a></div>
+      <div><a class="xref" href="PluginEverything.Everything.html">Everything</a></div>
+      <div><a class="xref" href="PluginGitmoji.GitmojiPlugin.html">GitmojiPlugin</a></div>
+      <div><a class="xref" href="PluginInstalledApps.InstalledApps.html">InstalledApps</a></div>
+      <div><a class="xref" href="PluginPortableApps.PortableApps.html">PortableApps</a></div>
+      <div><a class="xref" href="PluginPowerCommands.PowerCommands.html">PowerCommands</a></div>
+      <div><a class="xref" href="PluginSettings.Settings.html">Settings</a></div>
+      <div><a class="xref" href="PluginShellCommand.ShellCommand.html">ShellCommand</a></div>
+      <div><a class="xref" href="PluginTypedText.TypedText.html">TypedText</a></div>
+      <div><a class="xref" href="PluginUnicodeCharacterLookup.UnicodeCharacterLookup.html">UnicodeCharacterLookup</a></div>
+      <div><a class="xref" href="PluginWebSearch.WebSearch.html">WebSearch</a></div>
+      <div><a class="xref" href="PluginWindowSwitch.WindowSwitch.html">WindowSwitch</a></div>
+      <div><a class="xref" href="PluginWorkflows.WorkflowsPlugin.html">WorkflowsPlugin</a></div>
+      <div><a class="xref" href="Quokka.TheQuokkaPlugin.PluginQuokka.html">PluginQuokka</a></div>
     </dd>
   </dl>
 
@@ -199,19 +203,18 @@ Class Plugin
 </h2>
 
 
-  <a id="Quokka_PluginArch_Plugin_PluggerName_" data-uid="Quokka.PluginArch.Plugin.PluggerName*"></a>
+  <a id="Quokka_PluginArch_Plugin_PluginName_" data-uid="Quokka.PluginArch.Plugin.PluginName*"></a>
 
-  <h3 id="Quokka_PluginArch_Plugin_PluggerName" data-uid="Quokka.PluginArch.Plugin.PluggerName">
-  PluggerName
+  <h3 id="Quokka_PluginArch_Plugin_PluginName" data-uid="Quokka.PluginArch.Plugin.PluginName">
+  PluginName
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The name of the plugin</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract string PluggerName { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract string PluginName { get; set; }</code></pre>
   </div>
 
 
@@ -242,25 +245,18 @@ Class Plugin
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Used to define signifiers (prefixes) to produce commands that should take in
-extra information (after the prefix) to produce unique results.
-When a query starting with one of these signifiers is entered by the user, OnSignifier(string command) is called.
-ListItems from other plugins will not appear when one of these commands is entered.
-The signifiers defined should be unique as to NOT CLASH with other plugins.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual List&lt;string&gt; CommandSignifiers()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Collection&lt;string&gt; CommandSignifiers()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd><p>The command signifiers; the signifiers defined should be unique as to NOT CLASH with other plugins.
-<br>Default behavior when not overridden: returns an empty list.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -280,11 +276,7 @@ The signifiers defined should be unique as to NOT CLASH with other plugins.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This method will run just before the application shuts down,
-i.e., when the user clicks 'exit' in the tray task context menu.
-Useful for any clean-up required.
-<br>Default behavior when not overridden: does nothing.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -310,12 +302,7 @@ Useful for any clean-up required.
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This method will run just after the application starts up,
-e.g., when the user runs Quokka.exe.
-Useful for any required resource gathering;
-there is an OnSearchWindowStartup() method which may be more appropriate for certain tasks.
-<br>Default behavior when not overridden: does nothing.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -341,28 +328,23 @@ there is an OnSearchWindowStartup() method which may be more appropriate for cer
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs when the user changes their query in the search window.
-Used to give the user the results they want to see from their query.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract List&lt;ListItem&gt; OnQueryChange(string query)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Collection&lt;ListItem&gt; OnQueryChange(string query)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The user's current query</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd><p>A List of ListItems appropriate for the user's query.
-These will be displayed in the search windows results list</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -382,11 +364,7 @@ These will be displayed in the search windows results list</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>This method will run just after the search window starts up.
-Useful for any required resource gathering;
-there is an OnAppStartup() method which may be more appropriate for certain tasks.
-<br>Default behavior when not overridden: does nothing.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -412,29 +390,23 @@ there is an OnAppStartup() method which may be more appropriate for certain task
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs when the user changes their query in the search window to include a
-command signifier, provided by CommandSignifiers(), at the beginning of their query.
-Used to give the user the results they want to see from the command.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual List&lt;ListItem&gt; OnSignifier(string command)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Collection&lt;ListItem&gt; OnSignifier(string command)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The query the user has entered</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd><p>A List of ListItems appropriate for the signifier and extra information that proceeded it.
-<br>Default behavior when not overridden: returns an empty list.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -454,30 +426,23 @@ Used to give the user the results they want to see from the command.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs when the user changes their query in the search window to
-one of the commands provided by SpecialCommands().
-Used to give the user the results they want to see from the command.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual List&lt;ListItem&gt; OnSpecialCommand(string command)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Collection&lt;ListItem&gt; OnSpecialCommand(string command)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>command</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The query the user has entered</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
-    <dd><p>A List of ListItems appropriate for the command.
-These will be displayed in the search windows results list.
-<br>Default behavior when not overridden: returns an empty list.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 
@@ -497,24 +462,18 @@ These will be displayed in the search windows results list.
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Used to define special commands that should have unique results.
-When one of these commands is entered by the user, OnSpecialCommand(string command) is called.
-ListItems from other plugins will not appear when one of these commands is entered.
-The commands defined should be unique as to NOT CLASH with other plugins.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual List&lt;string&gt; SpecialCommands()</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual Collection&lt;string&gt; SpecialCommands()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd><p>The special commands; the commands defined should be unique as to NOT CLASH with other plugins.
-<br>Default behavior when not overridden: returns an empty list.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
   </dl>
 
 

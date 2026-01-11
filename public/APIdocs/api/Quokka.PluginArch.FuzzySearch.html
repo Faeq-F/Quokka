@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class FuzzySearch | QuokkaDocs ">
       
-      <meta name="description" content="Contains methods for implementing Fuzzy Search">
+      
       <link rel="icon" href="../../assets/media/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,12 +97,11 @@ Class FuzzySearch
   <dl><dt>Assembly</dt><dd>Quokka.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Contains methods for implementing Fuzzy Search</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class FuzzySearch</code></pre>
+    <pre><code class="lang-csharp hljs">public static class FuzzySearch</code></pre>
   </div>
 
 
@@ -149,14 +148,14 @@ Class FuzzySearch
 
 
 
-  <h2 class="section" id="constructors">Constructors
+  <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="Quokka_PluginArch_FuzzySearch__ctor_" data-uid="Quokka.PluginArch.FuzzySearch.#ctor*"></a>
+  <a id="Quokka_PluginArch_FuzzySearch_SearchAll_" data-uid="Quokka.PluginArch.FuzzySearch.SearchAll*"></a>
 
-  <h3 id="Quokka_PluginArch_FuzzySearch__ctor" data-uid="Quokka.PluginArch.FuzzySearch.#ctor">
-  FuzzySearch()
+  <h3 id="Quokka_PluginArch_FuzzySearch_SearchAll_System_String_System_Collections_ObjectModel_Collection_Quokka_ListItems_ListItem__System_Int32_" data-uid="Quokka.PluginArch.FuzzySearch.SearchAll(System.String,System.Collections.ObjectModel.Collection{Quokka.ListItems.ListItem},System.Int32)">
+  SearchAll(string, Collection&lt;ListItem&gt;, int)
   
   </h3>
 
@@ -164,57 +163,139 @@ Class FuzzySearch
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FuzzySearch()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="Quokka_PluginArch_FuzzySearch_LD_" data-uid="Quokka.PluginArch.FuzzySearch.LD*"></a>
-
-  <h3 id="Quokka_PluginArch_FuzzySearch_LD_System_String_System_String_" data-uid="Quokka.PluginArch.FuzzySearch.LD(System.String,System.String)">
-  LD(string, string)
-  
-  </h3>
-
-  <div class="markdown level1 summary"><p>Computes the Levenshtein distance between two
-given strings.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int LD(string s, string t)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Collection&lt;ListItem&gt; SearchAll(string query, Collection&lt;ListItem&gt; possibleResults, int cutoff = 0)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>s</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>one of the strings to compare</p>
-</dd>
-    <dt><code>t</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>one of the strings to compare</p>
-</dd>
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>possibleResults</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cutoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The Levenshtein distance between the two strings.
-The larger the number, the bigger the difference.</p>
-</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_PluginArch_FuzzySearch_SearchAll_" data-uid="Quokka.PluginArch.FuzzySearch.SearchAll*"></a>
+
+  <h3 id="Quokka_PluginArch_FuzzySearch_SearchAll_System_String_System_Collections_ObjectModel_Collection_System_String__System_Int32_" data-uid="Quokka.PluginArch.FuzzySearch.SearchAll(System.String,System.Collections.ObjectModel.Collection{System.String},System.Int32)">
+  SearchAll(string, Collection&lt;string&gt;, int)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Collection&lt;ExtractedResult&lt;string&gt;&gt; SearchAll(string query, Collection&lt;string&gt; possibleResults, int cutoff = 0)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>possibleResults</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>cutoff</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<span class="xref">ExtractedResult</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_PluginArch_FuzzySearch_Sort_" data-uid="Quokka.PluginArch.FuzzySearch.Sort*"></a>
+
+  <h3 id="Quokka_PluginArch_FuzzySearch_Sort_System_String_System_Collections_ObjectModel_Collection_Quokka_ListItems_ListItem__" data-uid="Quokka.PluginArch.FuzzySearch.Sort(System.String,System.Collections.ObjectModel.Collection{Quokka.ListItems.ListItem})">
+  Sort(string, Collection&lt;ListItem&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Collection&lt;ListItem&gt; Sort(string query, Collection&lt;ListItem&gt; possibleResults)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>possibleResults</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.ListItems.ListItem.html">ListItem</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_PluginArch_FuzzySearch_Sort_" data-uid="Quokka.PluginArch.FuzzySearch.Sort*"></a>
+
+  <h3 id="Quokka_PluginArch_FuzzySearch_Sort_System_String_System_Collections_ObjectModel_Collection_System_String__" data-uid="Quokka.PluginArch.FuzzySearch.Sort(System.String,System.Collections.ObjectModel.Collection{System.String})">
+  Sort(string, Collection&lt;string&gt;)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Collection&lt;ExtractedResult&lt;string&gt;&gt; Sort(string query, Collection&lt;string&gt; possibleResults)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>query</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd></dd>
+    <dt><code>possibleResults</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<span class="xref">ExtractedResult</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;</dt>
+    <dd></dd>
   </dl>
 
 
