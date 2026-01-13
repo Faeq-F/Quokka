@@ -1,0 +1,220 @@
+{
+  "GeneralSettings": {
+    "AboutCommand": "AboutQuokka",
+    "CheckForUpdates": true,
+
+    "Keys": {
+      "WindowHotKey": "Space",
+      "WindowHotKeyModifier": "Alt",
+      "ContextPaneKey": "Apps"
+    },
+
+    "Search": {
+      "Scorer": "partialRatio",
+      "Debounce": "300",
+      "MaxResults": "10",
+      "IgnoreMaxResultsFlag": " -ShowAll",
+      "LoadingItemName": "Loading...",
+      "LoadingItemDesc": "Please wait",
+      "NoResultsItemName": "No results found",
+      "NoResultsItemDesc": "Try reformatting / rewording your query"
+    },
+
+    "Programs": {
+      "FileManager": "C:\\Windows\\explorer.exe",
+      "TextEditor": "C:\\Windows\\notepad.exe"
+    }
+  },
+
+  "StyleSettings": {
+    "AppFont": "Varela Round",
+
+    "AppWindow": {
+      "WindowTopMargin": "200",
+      "WindowWidth": "950",
+      "WindowColor": "White",
+      "WindowBorderColor": "#dddddd",
+      "WindowBorderThickness": "1",
+      "WindowRounding": "8",
+      "WindowPadding": "0,0,0,0",
+
+      "DropShadowBlurRadius": "70",
+      "DropShadowOpacity": "0.1",
+      "DropShadowDirection": "315",
+      "DropShadowShadowDepth": "2",
+      "DropShadowRenderingBias": "Quality"
+    },
+
+    "TrayTask": {
+      "TrayTaskContextMenuColor": "#fff",
+      "TrayTaskContextMenuBorderColor": "#ddd",
+      "TrayTaskContextMenuBorderThickness": "2",
+      "TrayTaskContextMenuRounding": "8",
+      "TrayTaskContextMenuSeperatorColor": "#e5e5e5",
+
+      "TrayTaskContextMenuDropShadowBlurRadius": "70",
+      "TrayTaskContextMenuDropShadowOpacity": "0.1",
+      "TrayTaskContextMenuDropShadowDirection": "315",
+      "TrayTaskContextMenuDropShadowShadowDepth": "2",
+      "TrayTaskContextMenuDropShadowRenderingBias": "Performance",
+
+      "Items": {
+        "TrayTaskContextMenuItemMargin": "3",
+        "TrayTaskContextMenuItemIconSize": "32",
+        "TrayTaskContextMenuItemIconMargin": "0,0,5,0",
+        "TrayTaskContextMenuItemTxtColor": "Black",
+        "TrayTaskContextMenuItemColor": "Transparent",
+        "TrayTaskContextMenuItemBorderColor": "Transparent",
+        "TrayTaskContextMenuItemBorderThickness": "1",
+        "TrayTaskContextMenuItemRounding": "8",
+        "TrayTaskContextMenuItemHoverColor": "#f5f5f5",
+        "TrayTaskContextMenuItemHoverBorderColor": "#ddd"
+      }
+    },
+
+    "SearchBar": {
+      "SearchBarColor": "#fff",
+      "SearchBarRounding": "8",
+      "SearchBarBorderColor": "#dddddd",
+      "SearchBarBorderThickness": "0",
+      "SearchBarHeight": "100",
+      "SearchIconWidth": "92",
+      "SearchIconMargin": "8, 0, -8, 0",
+
+      "EntryField": {
+        "SearchFieldTxtColor": "Black",
+        "SearchFieldTxtSelColor": "Black",
+        "SearchFieldHeight": "100",
+        "SearchFieldWidth": "950",
+        "SearchFieldMargin": "5, 10, 10, 10",
+        "SearchFieldTxtSize": "40",
+        "SearchFieldPlaceholder": "Enter Query",
+        "SearchFieldPlaceholderMargin": "5, 10, 10, 10",
+        "SearchFieldPlaceholderColor": "#8e8e8e",
+        "SearchFieldPlaceholderSize": "40"
+      }
+    },
+
+    "ResultsList": {
+      "Container": {
+        "ListContainerMargin": "0",
+        "ListContainerBorderColor": "#ddd",
+        "ListContainerBorderThickness": "0,1,0,0",
+        "ListContainerRounding": "0",
+        "ListContainerColor": "Transparent",
+        "ListContainerMinHeight": "0",
+        "ListContainerMaxHeight": "PrimaryScreenHeight"
+      },
+
+      "List": {
+        "ListMargin": "3",
+        "ScrollBarWidth": "10",
+        "HorizontalScrollIncrementingWidth": "3",
+        "AnimationBlurRadius": "24",
+        "AnimationOffset": "50",
+        "Animation": "FadeIn",
+        "AnimationDuration": "200",
+
+        "ScrollBarBackground": {
+          "ScrollBarBgVisibility": "Visible",
+          "ScrollBarBgColor": "#ffffff",
+          "ScrollBarBgRounding": "3",
+          "ScrollBarBgBorderColor": "Transparent",
+          "ScrollBarBgBorderThickness": "0",
+          "ScrollBarBgWidth": "10",
+          "ScrollBarBgMargin": "-10,0,-9,10"
+        },
+
+        "ScrollBarThumbBackground": {
+          "ScrollThumbBgVisibility": "Visible",
+          "ScrollThumbBgColor": "#ffffff",
+          "ScrollThumbBgRounding": "8",
+          "ScrollThumbBgBorderColor": "Transparent",
+          "ScrollThumbBgBorderThickness": "0",
+          "ScrollThumbBgWidth": "11",
+          "ScrollThumbBgMargin": "-10,-1,-9,-1"
+        },
+
+        "ScrollBarThumb": {
+          "ScrollThumbVisibility": "Visible",
+          "ScrollThumbColor": "#8a8a8a",
+          "ScrollThumbRounding": "2",
+          "ScrollThumbBorderColor": "Transparent",
+          "ScrollThumbBorderThickness": "0",
+          "ScrollThumbWidth": "5",
+          "ScrollThumbMargin": "-10,2,-9,2"
+        }
+      },
+
+      "ListItems": {
+        "ListItemBorderThickness": "1",
+        "ListItemHoverBorderColor": "#eeeeee",
+        "ListItemHoverBgColor": "#f7f7f7",
+        "ListItemSelectedBorderColor": "#dddddd",
+        "ListItemSelectedBgColor": "#f5f5f5",
+        "ListItemRounding": "8",
+        "ListItemMargin": "0, 0, 8, 0",
+        "ListItemIconSize": "92",
+        "ListItemIconColumnWidth": "120",
+        "ListItemTextMargin": "3",
+        "ListItemNameSize": "35",
+        "ListItemNameColor": "Black",
+        "ListItemDescSize": "28",
+        "ListItemDescColor": "Gray",
+
+        "ContextPane": {
+          "ContextPaneBorderColor": "#ddd",
+          "ContextPaneBorderThickness": "0, 1, 0, 0",
+          "ContextPaneCornerRounding": "0, 0, 8, 8",
+          "ContextPaneBgColor": "#ffffff",
+          "ContextPaneMinHeight": "200",
+
+          "Details": {
+            "ContextPaneContentMargin": "0, 0, 0, 0",
+            "ContextPaneContentVerticalAlignment": "Center",
+            "ContextPaneContentHorizontalAlignment": "Center",
+            "ContextPaneImageMargin": "0,0,0,30",
+            "ContextPaneImageSize": "92",
+            "MaxDetailsWidth": "500",
+
+            "NameTextMargin": "0,0,0,-80",
+            "NameTextSize": "40",
+            "NameTextColor": "Black",
+
+            "DescTextMargin": "0,20,0,0",
+            "DescTextSize": "24",
+            "DescTextColor": "Gray",
+
+            "ExtraDetailsTextMargin": "0,20,0,0",
+            "ExtraDetailsTextSize": "20",
+            "ExtraDetailsTextColor": "Gray"
+          },
+
+          "List": {
+            "ContextPaneListMargin": "-300,0,-200,0",
+            "ContextPaneListHorizontalAlignment": "Center",
+            "ContextPaneListContentHorizontalAlignment": "Stretch",
+
+            "ListItems": {
+              "ContextPaneListItemBorderThickness": "1",
+              "ContextPaneListItemHoverBorderColor": "#eeeeee",
+              "ContextPaneListItemHoverBgColor": "#f7f7f7",
+              "ContextPaneListItemSelectedBorderColor": "#dddddd",
+              "ContextPaneListItemSelectedBgColor": "#f5f5f5",
+              "ContextPaneListItemRounding": "8",
+              "ContextPaneListItemMargin": "0, 0, 0, 0",
+
+              "ContextPaneListItemIconSize": "92",
+              "ContextPaneListItemIconMargin": "8,0,-3,0",
+              "ContextPaneListItemTextPadding": "10,10,10,0",
+              "ContextPaneListItemSize": "20",
+              "ContextPaneListItemColor": "Black",
+
+              "ContextPaneListItemContentMargin": "8"
+            }
+          }
+        }
+      }
+    }
+  }
+}

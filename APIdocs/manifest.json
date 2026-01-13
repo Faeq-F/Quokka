@@ -1,5 +1,5 @@
 {
-  "source_base_path": "G:/Documents/dev/Quokka/QuokkaDocs",
+  "source_base_path": "G:/git/Quokka/QuokkaDocs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,6 +9,726 @@
           "relative_path": "index.json"
         }
       }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.Calculator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.Calculator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.GridColumnHeaders.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.GridColumnHeaders.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.GridRows.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.GridRows.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.SupportedFunction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.SupportedFunction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.SupportedFunctionsGrid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.SupportedFunctionsGrid.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginCalculator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginCalculator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginDeviceAddresses.DeviceAddresses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginDeviceAddresses.DeviceAddresses.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginDeviceAddresses.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginDeviceAddresses.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginDeviceAddresses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginDeviceAddresses.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.ApiResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.ApiResponse.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.Definition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.Definition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.EnglishDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.EnglishDictionary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.License.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.License.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.Meaning.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.Meaning.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.Phonetic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.Phonetic.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEnglishDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEnglishDictionary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.Everything.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.Everything.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.EverythingSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.EverythingSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.HookEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.HookEventArgs.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.HookType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.HookType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.ItemTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.ItemTypes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.LocalWindowsHook.HookEventHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.LocalWindowsHook.HookEventHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.LocalWindowsHook.HookProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.LocalWindowsHook.HookProc.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.LocalWindowsHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.LocalWindowsHook.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.ShellContextMenu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.ShellContextMenu.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.ShellContextMenuException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.ShellContextMenuException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginEverything.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginEverything.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginGitmoji.Gitmoji.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginGitmoji.Gitmoji.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginGitmoji.GitmojiPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginGitmoji.GitmojiPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginGitmoji.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginGitmoji.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginGitmoji.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginGitmoji.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginInstalledApps.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginInstalledApps.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginInstalledApps.InstalledApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginInstalledApps.InstalledApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginInstalledApps.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginInstalledApps.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginInstalledApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginInstalledApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPortableApps.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPortableApps.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPortableApps.PortableApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPortableApps.PortableApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPortableApps.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPortableApps.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPortableApps.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPortableApps.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPowerCommands.PowerCommands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPowerCommands.PowerCommands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPowerCommands.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPowerCommands.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginPowerCommands.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginPowerCommands.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginSettings.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginSettings.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginSettings.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginSettings.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginShellCommand.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginShellCommand.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginShellCommand.ShellCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginShellCommand.ShellCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginShellCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginShellCommand.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginTypedText.ContextPane.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginTypedText.ContextPane.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginTypedText.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginTypedText.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginTypedText.TypedText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginTypedText.TypedText.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginTypedText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginTypedText.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginUnicodeCharacterLookup.PluginSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginUnicodeCharacterLookup.PluginSettings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginUnicodeCharacterLookup.UnicodeCharacter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginUnicodeCharacterLookup.UnicodeCharacter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginUnicodeCharacterLookup.UnicodeCharacterLookup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginUnicodeCharacterLookup.UnicodeCharacterLookup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginUnicodeCharacterLookup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginUnicodeCharacterLookup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWebSearch.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWebSearch.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWebSearch.WebSearch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWebSearch.WebSearch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWebSearch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWebSearch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWindowSwitch.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWindowSwitch.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWindowSwitch.WindowEnumerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWindowSwitch.WindowEnumerator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWindowSwitch.WindowSwitch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWindowSwitch.WindowSwitch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWindowSwitch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWindowSwitch.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWorkflows.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWorkflows.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWorkflows.WorkflowsPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWorkflows.WorkflowsPlugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PluginWorkflows.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PluginWorkflows.html"
+        }
+      },
+      "version": ""
     },
     {
       "type": "ManagedReference",
@@ -642,6 +1362,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Quokka.ListItems.LoadingListItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quokka.ListItems.LoadingListItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Quokka.ListItems.NoListItem.yml",
       "output": {
         ".html": {
@@ -722,10 +1452,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Quokka.PluginArch.IconCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quokka.PluginArch.IconCache.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Quokka.PluginArch.Plugin.yml",
       "output": {
         ".html": {
           "relative_path": "api/Quokka.PluginArch.Plugin.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Quokka.PluginArch.UiDispatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quokka.PluginArch.UiDispatcher.html"
         }
       },
       "version": ""
@@ -786,6 +1536,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Quokka.TheQuokkaPlugin.Licences.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Quokka.TheQuokkaPlugin.PluginQuokka.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Quokka.TheQuokkaPlugin.PluginQuokka.html"
         }
       },
       "version": ""

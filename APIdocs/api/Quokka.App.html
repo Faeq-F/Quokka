@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class App | QuokkaDocs ">
       
-      <meta name="description" content="The Quokka app  Includes:  Illustration by Icons 8 from Ouch! - https://icons8.com https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8 Feather by Cole Bemis https://github.com/feathericons/feather/blob/main/LICENSE Varela Round by Joe Prince https://fonts.google.com/specimen/Varela+Round/about wpf-notifyIcon - CPOL-1.02 https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE KeyboardHook by Christian Liensberger Obtained from https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207 JSON.Net - MIT license https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md XAMLFlair - MIT License https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE References from a Plugin Architecture by Nagaraj M https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/">
+      
       <link rel="icon" href="../../assets/media/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,32 +97,11 @@ Class App
   <dl><dt>Assembly</dt><dd>Quokka.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>The Quokka app
-<br><br>
-Includes:<br></p>
-<ul>
-<li>Illustration by Icons 8 from Ouch! - <a href="https://icons8.com">https://icons8.com</a><br>
-<a href="https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8">https://intercom.help/icons8-7fb7577e8170/en/articles/5534926-universal-multimedia-license-agreement-for-icons8</a><br><br></li>
-<li>Feather by Cole Bemis<br>
-<a href="https://github.com/feathericons/feather/blob/main/LICENSE">https://github.com/feathericons/feather/blob/main/LICENSE</a><br><br></li>
-<li>Varela Round by Joe Prince<br>
-<a href="https://fonts.google.com/specimen/Varela+Round/about">https://fonts.google.com/specimen/Varela+Round/about</a><br><br></li>
-<li>wpf-notifyIcon - CPOL-1.02<br>
-<a href="https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE">https://github.com/hardcodet/wpf-notifyicon/blob/develop/LICENSE</a><br><br></li>
-<li>KeyboardHook by Christian Liensberger<br>
-Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207">https://web.archive.org/web/20141017230556/http://www.liensberger.it:80/web/blog/?p=207</a><br><br></li>
-<li>JSON.Net - MIT license<br>
-<a href="https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md">https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md</a><br><br></li>
-<li>XAMLFlair - MIT License<br>
-<a href="https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE">https://github.com/XamlFlair/XamlFlair/blob/master/LICENSE</a><br><br></li>
-<li>References from a Plugin Architecture by Nagaraj M<br>
-<a href="https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/">https://www.c-sharpcorner.com/article/simple-plugin-architecture-using-reflection-with-wpf-projects/</a></li>
-</ul>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class App : Application, IQueryAmbient</code></pre>
+    <pre><code class="lang-csharp hljs">public class App : Application, IQueryAmbient, IDisposable</code></pre>
   </div>
 
 
@@ -142,6 +121,7 @@ Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.lie
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.markup.iqueryambient">IQueryAmbient</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
 
@@ -342,33 +322,33 @@ Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.lie
 
 
 
-  <h2 class="section" id="fields">Fields
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
+  <a id="Quokka_App_Plugins_" data-uid="Quokka.App.Plugins*"></a>
 
-  <h3 id="Quokka_App_plugins" data-uid="Quokka.App.plugins">
-  plugins
+  <h3 id="Quokka_App_Plugins" data-uid="Quokka.App.Plugins">
+  Plugins
   
   </h3>
 
-  <div class="markdown level1 summary"><p>A list of all plugins available in the PlugBoard.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static List&lt;Plugin&gt; plugins</code></pre>
+    <pre><code class="lang-csharp hljs">public static Collection&lt;Plugin&gt; Plugins { get; }</code></pre>
   </div>
 
 
 
 
-  <h4 class="section">Field Value</h4>
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="Quokka.PluginArch.Plugin.html">Plugin</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.objectmodel.collection-1">Collection</a>&lt;<a class="xref" href="Quokka.PluginArch.Plugin.html">Plugin</a>&gt;</dt>
     <dd></dd>
   </dl>
-
 
 
 
@@ -381,6 +361,63 @@ Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.lie
 </h2>
 
 
+  <a id="Quokka_App_Dispose_" data-uid="Quokka.App.Dispose*"></a>
+
+  <h3 id="Quokka_App_Dispose" data-uid="Quokka.App.Dispose">
+  Dispose()
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="Quokka_App_Dispose_" data-uid="Quokka.App.Dispose*"></a>
+
+  <h3 id="Quokka_App_Dispose_System_Boolean_" data-uid="Quokka.App.Dispose(System.Boolean)">
+  Dispose(bool)
+  
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Quokka_App_InitializeComponent_" data-uid="Quokka.App.InitializeComponent*"></a>
 
   <h3 id="Quokka_App_InitializeComponent" data-uid="Quokka.App.InitializeComponent">
@@ -388,8 +425,7 @@ Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.lie
   
   </h3>
 
-  <div class="markdown level1 summary"><p>InitializeComponent</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -415,8 +451,7 @@ Obtained from <a href="https://web.archive.org/web/20141017230556/http://www.lie
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Application Entry Point.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -443,9 +478,7 @@ public static void Main()</code></pre>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The end point for the app. Runs all of the plugin OnAppShutdown methods,
-unhooks the keyboard listener and disposes of the tray task.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -455,8 +488,7 @@ unhooks the keyboard listener and disposes of the tray task.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.exiteventargs">ExitEventArgs</a></dt>
-    <dd><p>The arguments for the Exit event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -477,10 +509,7 @@ unhooks the keyboard listener and disposes of the tray task.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>The entry point for the app. Loads all of the settings in the app settings file,
-plugins available in the PlugBoard, the SearchWindow HotKey and the tray task.
-Also runs all of the plugins' OnAppStartup() methods.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -490,8 +519,7 @@ Also runs all of the plugins' OnAppStartup() methods.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.startupeventargs">StartupEventArgs</a></dt>
-    <dd><p>The arguments for the Startup event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -512,8 +540,7 @@ Also runs all of the plugins' OnAppStartup() methods.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Opens the PlugBoard folder within the user's file manager.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -539,8 +566,7 @@ Also runs all of the plugins' OnAppStartup() methods.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Opens the app settings file in the user's text editor.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -566,8 +592,7 @@ Also runs all of the plugins' OnAppStartup() methods.</p>
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Displays a message box to the user with an error icon and an OK button</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -577,11 +602,9 @@ Also runs all of the plugins' OnAppStartup() methods.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>exception</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a></dt>
-    <dd><p>The exception that requires that the user sees the error message</p>
-</dd>
+    <dd></dd>
     <dt><code>title</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The title of the message box</p>
-</dd>
+    <dd></dd>
   </dl>
 
 

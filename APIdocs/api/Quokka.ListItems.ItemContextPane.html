@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ItemContextPane | QuokkaDocs ">
       
-      <meta name="description" content="Basic Context Pane class for a list item. Contains the basic methods most context panes would need and / or should want to override.">
+      
       <link rel="icon" href="../../assets/media/QuokkaLogo.svg">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,10 +97,7 @@ Class ItemContextPane
   <dl><dt>Assembly</dt><dd>Quokka.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Basic Context Pane class for a list item.
-Contains the basic methods most context panes
-would need and / or should want to override.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -139,11 +136,12 @@ would need and / or should want to override.</p>
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
-      <div><a class="xref" href="Plugin_Calculator.ContextPane.html">ContextPane</a></div>
-      <div><a class="xref" href="Plugin_EnglishDictionary.ContextPane.html">ContextPane</a></div>
-      <div><a class="xref" href="Plugin_Everything.ContextPane.html">ContextPane</a></div>
-      <div><a class="xref" href="Plugin_InstalledApps.ContextPane.html">ContextPane</a></div>
-      <div><a class="xref" href="Plugin_PortableApps.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginCalculator.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginEnglishDictionary.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginEverything.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginInstalledApps.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginPortableApps.ContextPane.html">ContextPane</a></div>
+      <div><a class="xref" href="PluginTypedText.ContextPane.html">ContextPane</a></div>
       <div><a class="xref" href="Quokka.TheQuokkaPlugin.ContextPane.html">ContextPane</a></div>
       <div><a class="xref" href="Quokka.TheQuokkaPlugin.Licences.html">Licences</a></div>
     </dd>
@@ -1957,33 +1955,26 @@ would need and / or should want to override.</p>
 </h2>
 
 
-  <a id="Quokka_ListItems_ItemContextPane_Page_KeyDown_" data-uid="Quokka.ListItems.ItemContextPane.Page_KeyDown*"></a>
+  <a id="Quokka_ListItems_ItemContextPane_PageKeyDown_" data-uid="Quokka.ListItems.ItemContextPane.PageKeyDown*"></a>
 
-  <h3 id="Quokka_ListItems_ItemContextPane_Page_KeyDown_System_Object_System_Windows_Input_KeyEventArgs_" data-uid="Quokka.ListItems.ItemContextPane.Page_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
-  Page_KeyDown(object, KeyEventArgs)
+  <h3 id="Quokka_ListItems_ItemContextPane_PageKeyDown_System_Object_System_Windows_Input_KeyEventArgs_" data-uid="Quokka.ListItems.ItemContextPane.PageKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+  PageKeyDown(object, KeyEventArgs)
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Basic method for Context Panes to handle keyboard input.
-If the menu key is pressed, the context pane is closed
-and the user will return to search, otherwise
-the default action will occur
-(e.g., input text in a field, nothing, etc.)</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Page_KeyDown(object sender, KeyEventArgs e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual void PageKeyDown(object sender, KeyEventArgs e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>sender</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd><p>The sender of the key down event</p>
-</dd>
+    <dd></dd>
     <dt><code>e</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.input.keyeventargs">KeyEventArgs</a></dt>
-    <dd><p>The key event args</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -2004,13 +1995,11 @@ the default action will occur
   
   </h3>
 
-  <div class="markdown level1 summary"><p>Closes the context pane and returns the user
-back to the item list where they can continue their search.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void ReturnToSearch()</code></pre>
+    <pre><code class="lang-csharp hljs">protected static void ReturnToSearch()</code></pre>
   </div>
 
 
