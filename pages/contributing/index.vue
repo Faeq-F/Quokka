@@ -1,8 +1,8 @@
 <script setup lang="ts">
 const loading = ref(true)
-const contributing = ref(`# Contributing to Gleam
+const contributing = ref(`# Contributing to Quokka
 
-Thanks for contributing to Quokka!
+Welcome! We appreciate your interest in making Quokka better.
 
 Before continuing please read our [code of conduct][code-of-conduct] which all
 contributors are expected to adhere to.
@@ -29,31 +29,59 @@ Please ensure the ticket is opened on the plugins kanban board if it only
 
 ## Contributing code changes
 
-Before working on code it is suggested that you read the ! file.
-It outlines fundamental components and design of this project.
+Before working on code it is suggested that you read the ['under the hood'][under-hood] docs.
+It outlines the fundamental components and design of this project.
 
-Code changes to Gleam are welcomed via the process below.
+[under-hood]: https://faeq-f.github.io/Quokka/documentation?section=under-hood
+
+To maintain consistency, please adhere to [conventional branch names][conventional-branch],
+ [conventional commit messages][conventional-commit], including [gitmoji][gitmoji] [(emojis)][gitmoji-site],
+  and the solution [\`.editorconfig\`][editor-config-file] settings.
+
+[conventional-branch]: https://conventional-branch.github.io/
+
+[conventional-commit]: https://www.conventionalcommits.org/
+
+[gitmoji]: https://github.com/carloscuesta/gitmoji/blob/master/README.md
+
+[gitmoji-site]: https://gitmoji.dev/
+
+[editor-config-file]: https://github.com/Faeq-F/Quokka/blob/main/.editorconfig
+
+---
+
+Code changes to Quokka are welcomed via the process below.
 
 1. Find or open a ticket relevant to the change you wish to make and
-   comment saying that you wish to work on this change. If the change
-   introduces new functionality or behaviour this would be a good time to
-   discuss the details of the change to ensure we are in agreement as to how
-   the new functionality should work.
+   comment saying that you wish to work on this change.
+
+   If the change introduces new functionality or behaviour this would be a good
+   time to discuss the details of the change to ensure we are in agreement as to
+   how the new functionality should work.
+
 3. Open a GitHub pull request with your changes.
+
 4. A Quokka team member will review the changes and may provide feedback to
    work on. Depending on the change there may be multiple rounds of feedback.
+
 5. Once the changes have been approved the code will be merged into the
    main branch.
 
-   done at end -  Update the [CHANGELOG.md](CHANGELOG.md) file with your changes.
+6. Update the [Changelog.md](changelog) file with your changes.
+
+[changelog]: https://faeq-f.github.io/Quokka/changelog
 `)
+
+// adapt code of conduct & attribute - link to site page like this
+
+// mention issue templates - fill the provided issue template
 
 contributing.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
 
 // onMounted(async () => {
 //   changelog.value = ""
 //   try {
-//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Changelog.md')
+//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Contributing.md')
 //     changelog.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
 //   } catch (err) {
 //     console.log('Error fetching changelog data:', err.toString())
