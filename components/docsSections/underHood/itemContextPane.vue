@@ -15,7 +15,8 @@
         <Code inline>&nbsp;Frame&nbsp;</Code>
       </a>
       <br />
-      <Code inline>&nbsp;YourContextPane : ItemContextPane : Page&nbsp;</Code>
+      <Code inline
+        lang="cs">&nbsp;YourContextPane : ItemContextPane : Page&nbsp;</Code>
     </DocNotice>
     <DocNotice type="tip" class="mt-4" style="width: calc(100% - 1.5rem)">
       When handling keyboard input, if the <Code
@@ -24,14 +25,14 @@
       they can continue their search using
       <Code inline>&nbsp;ReturnToSearch()&nbsp;</Code>
       <div style="width: calc(100% - 2.5rem);">
-        <Code>
+        <Code lang="cs">
           switch (e.Key)
           {
             case var value when value == (System.Windows.Input.Key)App.Current.Resources["ContextPaneKey"]:
               ReturnToSearch();
               break;
         </Code>
-        <Code>
+        <Code lang="cs">
           protected static void ReturnToSearch()
           {
             SearchWindow window = ((SearchWindow)Application.Current.MainWindow);
