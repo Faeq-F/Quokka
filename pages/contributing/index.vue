@@ -7,7 +7,7 @@ Welcome! We appreciate your interest in making Quokka better.
 Before continuing please read our [code of conduct][code-of-conduct] which all
 contributors are expected to adhere to.
 
-[code-of-conduct]: https://github.com/gleam-lang/gleam/blob/main/CODE_OF_CONDUCT.md
+[code-of-conduct]: https://faeq-f.github.io/Quokka/conduct
 
 
 ## Contributing bug reports
@@ -70,18 +70,18 @@ Code changes to Quokka are welcomed via the process below.
 6. Update the [Changelog.md](changelog) file with your changes.
 
 [changelog]: https://faeq-f.github.io/Quokka/changelog
+
+## Attribution
+
+These guidelines are adapted from the [Gleam contributing guidelines](https://github.com/gleam-lang/gleam/blob/main/CONTRIBUTING.md).
 `)
-
-// adapt code of conduct & attribute - link to site page like this
-
-// mention issue templates - fill the provided issue template
 
 contributing.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
 
 // onMounted(async () => {
 //   changelog.value = ""
 //   try {
-//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Contributing.md')
+//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/CONTRIBUTING.md')
 //     changelog.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
 //   } catch (err) {
 //     console.log('Error fetching changelog data:', err.toString())
@@ -90,8 +90,29 @@ contributing.value = contributing.value.substring(contributing.value.indexOf("\n
 //   }
 // })
 
-import { MdPreview } from 'md-editor-v3';
+import { config, MdPreview } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
+import LinkAttr from 'markdown-it-link-attributes';
+
+config({
+  markdownItPlugins(plugins, { editorId }) {
+    return [
+      {
+        type: 'linkAttr',
+        plugin: LinkAttr,
+        options: {
+          matcher(href: string) {
+            return !href.startsWith('#');
+          },
+          attrs: {
+            target: '_blank'
+          }
+        }
+      },
+    ]
+  }
+})
+
 import { useThemeHandler } from 'maz-ui'
 const themeHandler = useThemeHandler({
   watchChanges: true,
@@ -133,10 +154,10 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
       <MazAnimatedElement direction="up" :delay="900" :duration="700">
         <MazCardSpotlight class="min-h-[40vh] w-full">
           <nuxt-link
-            to="https://github.com/Faeq-F/Quokka/blob/main/Contributing.md"
+            to="https://github.com/Faeq-F/Quokka/blob/main/CONTRIBUTING.md"
             class="!no-underline flex items-center !not-italic">
             <UIcon name="i-lucide-book-open" class="mr-1.5 !size-4" />
-            <code>Contributing.md</code>
+            <code>CONTRIBUTING.md</code>
             <UIcon name="i-lucide-arrow-up-right" class="!size-2 mb-1" />
           </nuxt-link>
           <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
