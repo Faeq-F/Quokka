@@ -4,12 +4,16 @@ const links = [
     title: "Quokka",
     links: [
       {
+        text: "Changelog",
+        url: "/Quokka/changelog"
+      },
+      {
         text: "Releases",
-        url: ""
+        url: "https://github.com/Faeq-F/Quokka/releases"
       },
       {
         text: "Plugins",
-        url: ""
+        url: "/Quokka/plugin"
       },
       {
         text: "",
@@ -17,11 +21,11 @@ const links = [
       },
       {
         text: "Program source",
-        url: ""
+        url: "https://github.com/Faeq-F/Quokka/tree/main"
       },
       {
         text: "Website source",
-        url: ""
+        url: "https://github.com/Faeq-F/Quokka/tree/site"
       },
     ]
   },
@@ -30,15 +34,15 @@ const links = [
     links: [
       {
         text: "Installation",
-        url: ""
+        url: "/Quokka/documentation?section=installation"
       },
       {
         text: "How to use",
-        url: ""
+        url: "/Quokka/documentation?section=general-usage"
       },
       {
         text: "App Settings",
-        url: ""
+        url: "/Quokka/documentation?section=settings"
       },
       {
         text: "",
@@ -46,19 +50,23 @@ const links = [
       },
       {
         text: "Build the app",
-        url: ""
+        url: "/Quokka/documentation?section=build-app"
       },
       {
         text: "Create a plugin",
-        url: ""
+        url: "/Quokka/documentation?section=creating-plugin"
       },
       {
         text: "Contribute",
-        url: ""
+        url: "/Quokka/contributing"
+      },
+      {
+        text: "Kanban",
+        url: "https://volta.net/Faeq-F/Quokka"
       },
       {
         text: "Documentation",
-        url: ""
+        url: "/Quokka/documentation"
       },
     ]
   },
@@ -67,19 +75,19 @@ const links = [
     links: [
       {
         text: "FAQ",
-        url: ""
-      },
-      {
-        text: "Discussions",
-        url: ""
-      },
-      {
-        text: "Feedback",
-        url: ""
+        url: "/Quokka/#faq"
       },
       {
         text: "Report an Issue",
-        url: ""
+        url: "/Quokka/contributing"
+      },
+      {
+        text: "Code of Conduct",
+        url: "/Quokka/conduct"
+      },
+      {
+        text: "Discussions & Feedback",
+        url: "https://github.com/Faeq-F/Quokka/discussions"
       },
     ]
   }
@@ -125,7 +133,8 @@ import Link from '~/components/link.vue'
                     target="_blank">Faeq</a>
                 </MazAnimatedElement>
                 <div>
-                  <a href="" class="hover:underline">
+                  <a href="https://github.com/sponsors/Faeq-F" target="_blank"
+                    class="hover:underline">
                     <MazAnimatedElement direction="up" :delay="1100"
                       :duration="700" class="inline">
                       Support
@@ -158,22 +167,16 @@ import Link from '~/components/link.vue'
             <div class="max-w-32 w-32">
               <ul>
                 <li class="opacity-55 hover:opacity-75">
-                  <MazAnimatedElement direction="left" :delay="1550"
-                    :duration="700" class="inline">
-                    <Link url="/changelog">Changelog</Link>
-                  </MazAnimatedElement>
-                </li>
-                <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1600"
                     :duration="700" class="inline">
-                    <Link blank url="/license">
+                    <Link blank url="/Quokka/license">
                       License</Link>
                   </MazAnimatedElement>
                 </li>
                 <li class="opacity-55 hover:opacity-75">
                   <MazAnimatedElement direction="left" :delay="1650"
                     :duration="700" class="inline">
-                    <Link url="">Security Policy</Link>
+                    <Link url="/Quokka/security">Security Policy</Link>
                   </MazAnimatedElement>
                 </li>
               </ul>

@@ -76,6 +76,11 @@ export const useDocsStore = defineStore("docsStore", {
           icon: 'i-lucide-scale',
           to: '/license',
         },
+        {
+          label: 'Security Policy',
+          icon: 'i-lucide-shield-check',
+          to: '/security',
+        },
       ],
       [
         {
@@ -100,7 +105,7 @@ export const useDocsStore = defineStore("docsStore", {
         {
           label: 'Program Source',
           icon: 'i-lucide-folder-git',
-          to: 'https://github.com/Faeq-F/Quokka',
+          to: 'https://github.com/Faeq-F/Quokka/tree/main',
           target: '_blank'
         },
         {
@@ -112,28 +117,31 @@ export const useDocsStore = defineStore("docsStore", {
       ],
       [
         {
-          label: 'Discussions',
+          label: 'FAQ',
+          icon: 'i-lucide-message-circle-question-mark',
+          to: '/#faq',
+        },
+        {
+          label: 'Discussions & Feedback',
           icon: 'i-lucide-messages-square',
           to: 'https://github.com/Faeq-F/Quokka/discussions',
           target: '_blank'
         },
         {
-          label: 'Feedback',
-          icon: 'i-lucide-thumbs-up',
-          to: '',
-          target: '_blank'
+          label: 'Contribute',
+          icon: 'i-lucide-git-pull-request-arrow',
+          to: '/contributing',
         },
+      ], [
         {
-          label: 'Security Policy',
-          icon: 'i-lucide-shield-check',
-          to: '',
-          target: '_blank'
+          label: 'Code of Conduct',
+          icon: 'i-lucide-users-round',
+          to: '/conduct',
         },
         {
           label: 'Report an Issue',
-          icon: 'i-lucide-octagon-alert',
-          to: '',
-          target: '_blank'
+          icon: 'i-lucide-triangle-alert',
+          to: '/contributing',
         },
       ]
     ]
