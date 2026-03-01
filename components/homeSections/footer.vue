@@ -4,6 +4,14 @@ const links = [
     title: "Quokka",
     links: [
       {
+        text: "License",
+        url: "/Quokka/license"
+      },
+      {
+        text: "Security Policy",
+        url: "/Quokka/security"
+      },
+      {
         text: "Changelog",
         url: "/Quokka/changelog"
       },
@@ -62,7 +70,7 @@ const links = [
       },
       {
         text: "Kanban",
-        url: "https://volta.net/Faeq-F/Quokka"
+        url: "/Quokka/kanban"
       },
       {
         text: "Documentation",
@@ -99,91 +107,59 @@ import Link from '~/components/link.vue'
 
 <template>
   <div class="px-78">
-    <div class="w-full mb-8 mt-62 outfit !shadow-none p-4" id="footerCard">
+    <div class="w-full mb-8 mt-62 outfit rounded-lg !shadow-none p-4 h-[90vh]"
+      id="footerCard">
       <MazAnimatedElement direction="up" :duration="2000" class="inline">
-        <div>
-          <div class="flex justify-around pb-12">
+        <div class="mt-16">
+          <div class="flex justify-between pb-12">
             <div class="flex items-center">
               <div>
-                <MazAnimatedElement direction="up" :delay="600" :duration="700">
-                  <img src="/media/QuokkaLogo.svg"
-                    class="w-10 h-10 dark:invert-100 opacity-70" />
-                </MazAnimatedElement>
-              </div>
-              <div class="pl-2 text-gray-500 dark:text-gray-500">
-                <MazAnimatedElement direction="up" :delay="800" :duration="700"
-                  class="inline">
-                  Made
-                </MazAnimatedElement>
-                <MazAnimatedElement direction="up" :delay="850" :duration="700"
-                  class="inline">
-                  with
-                </MazAnimatedElement>
-                <MazAnimatedElement direction="up" :delay="900" :duration="700"
-                  class="inline">
-                  ❤️
-                </MazAnimatedElement>
-                <MazAnimatedElement direction="up" :delay="950" :duration="700"
-                  class="inline">
-                  by
-                </MazAnimatedElement>
-                <MazAnimatedElement direction="up" :delay="1000" :duration="700"
-                  class="inline">
-                  <a href="https://faeq-f.github.io/" class="hover:underline"
-                    target="_blank">Faeq</a>
-                </MazAnimatedElement>
+                <a href="https://faeq-f.github.io/" target="_blank">
+                  <MazAnimatedText tag="h1" text="Made with ❤️ by Faeq"
+                    :delay="800" :duration="1500" direction="up"
+                    :column-gap="0.3" :row-gap="0.3"
+                    class="outfit text-gray-500 dark:text-gray-400 " />
+                </a>
                 <div>
-                  <a href="https://github.com/sponsors/Faeq-F" target="_blank"
-                    class="hover:underline">
-                    <MazAnimatedElement direction="up" :delay="1100"
-                      :duration="700" class="inline">
-                      Support
-                    </MazAnimatedElement>
-                    <MazAnimatedElement direction="up" :delay="1150"
-                      :duration="700" class="inline">
-                      this
-                    </MazAnimatedElement>
-                    <MazAnimatedElement direction="up" :delay="1200"
-                      :duration="700" class="inline">
-                      project,
-                    </MazAnimatedElement>
-                    <MazAnimatedElement direction="up" :delay="1250"
-                      :duration="700" class="inline">
-                      Become
-                    </MazAnimatedElement>
-                    <MazAnimatedElement direction="up" :delay="1300"
-                      :duration="700" class="inline">
-                      a
-                    </MazAnimatedElement>
-                    <MazAnimatedElement direction="up" :delay="1350"
-                      :duration="700" class="inline">
-                      sponsor
+                  <a href="https://github.com/sponsors/Faeq-F" target="_blank">
+                    <div class="inline-block">
+                      <MazAnimatedText tag="h1"
+                        text="Support this project, become a sponsor"
+                        :delay="1100" :duration="1500" direction="up"
+                        :column-gap="0.3" :row-gap="0.3"
+                        class="outfit text-gray-500 dark:text-gray-400 inline-block" />
+                    </div>
+                    <MazAnimatedElement direction="up" :delay="2400"
+                      :duration="700"
+                      class="inline-block text-gray-500 dark:text-gray-400">
                       <UIcon name="i-lucide-arrow-up-right" class="-ml-1" />
                     </MazAnimatedElement>
                   </a>
                 </div>
               </div>
             </div>
-            <div class="max-w-32 w-32">
-              <ul>
-                <li class="opacity-55 hover:opacity-75">
-                  <MazAnimatedElement direction="left" :delay="1600"
-                    :duration="700" class="inline">
-                    <Link blank url="/Quokka/license">
-                      License</Link>
-                  </MazAnimatedElement>
-                </li>
-                <li class="opacity-55 hover:opacity-75">
-                  <MazAnimatedElement direction="left" :delay="1650"
-                    :duration="700" class="inline">
-                    <Link url="/Quokka/security">Security Policy</Link>
-                  </MazAnimatedElement>
-                </li>
-              </ul>
+            <div class="max-w-40 w-40">
+              <a href="https://cryptpad.fr/form/#/2/form/view/6rs9qL-abLVwLcWpptEL7vworI+n8OBxElh5svu5yD0/embed/"
+                target="_blank">
+                <div class="inline-block">
+                  <MazAnimatedText tag="h1" text="Contact the" :delay="1100"
+                    :duration="1500" direction="up" :column-gap="0.3"
+                    :row-gap="0.3"
+                    class="outfit text-gray-500 dark:text-gray-400 inline-block" />
+                  <MazAnimatedText tag="h1" text="Quokka team" :delay="2100"
+                    :duration="1500" direction="up" :column-gap="0.3"
+                    :row-gap="0.3"
+                    class="outfit text-gray-500 dark:text-gray-400 inline-block" />
+                </div>
+                <MazAnimatedElement direction="up" :delay="3100" :duration="700"
+                  class="inline-block text-gray-500 dark:text-gray-400">
+                  <UIcon name="i-lucide-arrow-up-right" class="-ml-1" />
+                </MazAnimatedElement>
+              </a>
             </div>
           </div>
 
-          <div class="flex justify-evenly">
+          <div class="flex justify-between mt-16 mb-24">
             <div v-for="(section, i) in links" :key="i">
 
               <MazAnimatedElement direction="left" :delay="1700" :duration="700"
@@ -209,6 +185,10 @@ import Link from '~/components/link.vue'
               </ul>
             </div>
           </div>
+          <MazAnimatedElement direction="up" :delay="3000" :duration="700">
+            <img src="/media/QuokkaTextLogo.svg"
+              class="w-full dark:invert-100 opacity-70" />
+          </MazAnimatedElement>
         </div>
       </MazAnimatedElement>
     </div>
