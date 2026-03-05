@@ -86,8 +86,7 @@ export const useDocsStore = defineStore("docsStore", {
         {
           label: 'Kanban',
           icon: 'i-lucide-square-kanban',
-          to: 'https://volta.net/Faeq-F/Quokka',
-          target: '_blank'
+          to: '/kanban',
         },
         {
           label: 'Changelog',

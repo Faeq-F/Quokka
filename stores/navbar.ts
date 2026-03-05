@@ -21,7 +21,6 @@ export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
             icon: 'i-lucide-box',
             to: '/plugin',
             active: false,
-            defaultOpen: true,
             children: [...pluginsChildren, {
               label: 'more...',
               icon: 'i-lucide-box',
