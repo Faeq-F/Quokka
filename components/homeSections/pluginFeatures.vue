@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { vFullscreenImg } from 'maz-ui'
+import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
 </script>
 <template>
   <div class=" w-full px-78 pt-52 outfit" id="plugin-features">
@@ -10,27 +10,12 @@ import { vFullscreenImg } from 'maz-ui'
     </MazAnimatedElement>
 
     <div class="outfit text-center pt-3 text-gray-500 dark:text-gray-400">
-      <MazAnimatedElement direction="up" :delay="800" :duration="700"
-        class="inline">
-        Ignore
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="850" :duration="700"
-        class="inline">
-        typos,
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="900" :duration="700"
-        class="inline">
-        scope
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="950" :duration="700"
-        class="inline">
-        searches,
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1000" :duration="700"
-        class="inline">
-        act
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1050" :duration="700"
+      <div class="inline-block">
+        <MazAnimatedText tag="h1" text="Ignore typos, scope searches, act"
+          :delay="800" :duration="1500" direction="up" :column-gap="0.3"
+          :row-gap="0.3" class="outfit text-gray-500 dark:text-gray-400" />
+      </div>
+      <MazAnimatedElement direction="right" :delay="1500" :duration="1000"
         class="inline italic">
         faster
       </MazAnimatedElement>

@@ -13,26 +13,10 @@ onMounted(async () => {
       <img src="/media/QuokkaTextLogo.svg"
         class="w-62 mx-auto my-0 dark:invert-100">
     </MazAnimatedElement>
-    <p class="text-gray-500 dark:text-gray-400 mb-2">
-      <MazAnimatedElement direction="up" :delay="1400" :duration="700"
-        class="inline">A
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1450" :duration="700"
-        class="inline">customizable
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1500" :duration="700"
-        class="inline">keystroke
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1550" :duration="700"
-        class="inline">launcher
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1600" :duration="700"
-        class="inline">with
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1650" :duration="700"
-        class="inline">plugins
-      </MazAnimatedElement>
-    </p>
+    <MazAnimatedText tag="h1"
+      text="A customizable keystroke launcher with plugins" :delay="1300"
+      :duration="1500" direction="up" :column-gap="0.3" :row-gap="0.3"
+      class="text-gray-500 dark:text-gray-400 mb-2" />
     <MazAnimatedElement direction="up" :delay="1775" :duration="700">
       <UButtonGroup class="mb-6">
         <UButton color="neutral" variant="outline" label="Download"

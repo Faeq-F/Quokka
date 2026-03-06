@@ -7,7 +7,7 @@ const faq = [
   },
   {
     question: 'How do I set the app to run at startup?',
-    answer: 'Answer 2',
+    answer: 'Quokka is a portable program https://portableapps.com/about/what_is_a_portable_app#definition by design. If this is a question you have, it is likely you do not wish to use the program in a portable manner - have a look at /documentation?section=installation <br/> ',
   },
   {
     question: 'How do I change the app font?',
@@ -31,69 +31,21 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
     </MazAnimatedElement>
 
     <div class="outfit text-center pt-3 text-gray-500 dark:text-gray-400">
-      <MazAnimatedElement direction="up" :delay="800" :duration="700"
-        class="inline">
-        No
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="850" :duration="700"
-        class="inline">
-        premium
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="900" :duration="700"
-        class="inline">
-        tiers
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="950" :duration="700"
-        class="inline">
-        or
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1000" :duration="700"
-        class="inline">
-        paywalls
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1050" :duration="700"
-        class="inline">
-        -
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1100" :duration="700"
-        class="inline">
-        everything's
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1150" :duration="700"
-        class="inline">
-        included,
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1200" :duration="700"
-        class="inline">
-        with
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1250" :duration="700"
-        class="inline">
-        no
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1300" :duration="700"
-        class="inline">
-        ads
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1350" :duration="700"
-        class="inline">
-        or
-      </MazAnimatedElement>
-      <MazAnimatedElement direction="up" :delay="1400" :duration="700"
-        class="inline">
-        tracking
-      </MazAnimatedElement>
+      <MazAnimatedText tag="h1"
+        text="No premium tiers or paywalls - everything's included, with no ads or tracking"
+        :delay="800" :duration="1500" direction="up" :column-gap="0.3"
+        :row-gap="0.3" />
     </div>
     <MazAnimatedElement direction="down" :delay="1600" :duration="700"
       class="flex items-center justify-center varela text-sm pl-4 pt-4 gap-4">
-      <nuxt-link to="">
+      <nuxt-link to="/changelog">
         <div class="flex items-center justify-center">
           <UIcon name="i-lucide-file-cog" class="size-4 mx-1 mb-1" />
           Changelog
         </div>
       </nuxt-link>
       <UIcon name="i-lucide-dot" class="size-4" />
-      <nuxt-link to="">
+      <nuxt-link to="/kanban">
         <div class="flex items-center">
           <UIcon name="i-lucide-square-kanban" class="size-4 mx-1 mb-1" />
           Kanban

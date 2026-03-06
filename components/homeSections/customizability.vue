@@ -16,6 +16,7 @@ function onSelect(index: number) {
 }
 
 import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
+import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
 
 </script>
 
@@ -68,26 +69,10 @@ import MazAnimatedElement from 'maz-ui/components/MazAnimatedElement'
 
       </div>
       <div class="mb-4 outfit">
-        <p class="text-gray-500 dark:text-gray-400 mb-6">
-          <MazAnimatedElement direction="up" :delay="700" :duration="700"
-            class="inline">Flexible,
-          </MazAnimatedElement>
-          <MazAnimatedElement direction="up" :delay="750" :duration="700"
-            class="inline">with
-          </MazAnimatedElement>
-          <MazAnimatedElement direction="up" :delay="800" :duration="700"
-            class="inline">an
-          </MazAnimatedElement>
-          <MazAnimatedElement direction="up" :delay="850" :duration="700"
-            class="inline">intuitive
-          </MazAnimatedElement>
-          <MazAnimatedElement direction="up" :delay="900" :duration="700"
-            class="inline">file-based
-          </MazAnimatedElement>
-          <MazAnimatedElement direction="up" :delay="950" :duration="700"
-            class="inline">configuration
-          </MazAnimatedElement>
-        </p>
+        <MazAnimatedText tag="h1"
+          text="Flexible, with an intuitive file-based configuration"
+          :delay="700" :duration="1500" direction="up" :column-gap="0.3"
+          :row-gap="0.3" class="outfit text-gray-500 dark:text-gray-400 mb-6" />
       </div>
 
       <MazAnimatedElement direction="left" :delay="1100" :duration="2000"
