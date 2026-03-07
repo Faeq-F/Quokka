@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css?family=Varela Round');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --headerFont: 'Varela Round';
+  --bs-font-sans-serif: 'Outfit';
+  --bs-border-radius: 15px;
+
+  --border-radius-button: 40px;
+  --card-box-shadow: 0 1px 2px 0 #3d41440f, 0 1px 3px 1px #3d414429;
+
+  --material-yellow-light: #e6dfbf;
+  --material-yellow-dark: #5a5338;
+
+  --material-blue-light: #c4d9f1;
+  --material-blue-dark: #383e5a;
+
+  --material-red-light: #f1c4c4;
+  --material-red-dark: #5a3838;
+
+  --material-warning-header: #f57f171a;
+  --material-warning-background: #f6e8bd;
+  --material-warning-background-dark: #57502c;
+
+  --material-info-header: #1976d21a;
+  --material-info-background: #e3f2fd;
+  --material-info-background-dark: #2c4557;
+
+  --material-danger-header: #d32f2f1a;
+  --material-danger-background: #ffebee;
+  --material-danger-background-dark: #572c2c;
+
+  --bs-body-bg: transparent;
+
+  --bs-code-color: #2B91AF;
+}
+
+*{
+  font-family: var(--bs-font-sans-serif), sans-serif;
+  transition: 200ms all;
+  scroll-behavior: smooth;
+}
+
+body{
+  transition: 200ms all ease-in-out;
+}
+
+::selection {
+  background-color: #eeeeee !important;
+}
+
+[data-bs-theme='dark'] ::selection {
+  background-color: #142550 !important;
+}
+
+/* HEADINGS */
+
+h1 {
+  font-weight: 600;
+  font-size: 32px;
+  font-family: var(--headerFont);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.8;
+  font-family: var(--headerFont);
+}
+
+h3 {
+  font-weight: 600 !important;
+    font-size: 17px;
+    line-height: 1.8;
+    font-family: var(--headerFont);
+}
+
+h5 {
+  font-size: 14px;
+  padding: 10px 0px;
+  font-family: var(--headerFont);
+}
+
+article h2,
+article h3,
+article h4 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+article h4 {
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ddd;
+}
+
+[data-bs-theme='dark'] article h4 {
+  border-color: #4a5565;
+}
+
+/** IMAGES **/
+img {
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--card-box-shadow);
+}
+
+/** SEARCH AND FILTER **/
+input.form-control {
+  border-radius: var(--border-radius-button);
+}
+
+form.filter {
+  margin: 0.3rem;
+}
+
+/** ALERTS **/
+.alert {
+  padding: 0;
+  border: none;
+  box-shadow: var(--card-box-shadow);
+}
+
+.alert>p {
+  padding: 0.2rem 0.7rem 0.7rem 1rem;
+}
+
+.alert>ul {
+  margin-bottom: 0;
+  padding: 5px 40px;
+}
+
+.alert>h5 {
+  padding: 0.5rem 0.7rem 0.7rem 1rem;
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.alert-info {
+  color: var(--material-blue-dark);
+  background-color: var(--material-info-background);
+}
+
+[data-bs-theme='dark'] .alert-info {
+  color: var(--material-blue-light);
+  background-color: var(--material-info-background-dark);
+}
+
+.alert-info>h5 {
+  background-color: var(--material-info-header);
+}
+
+.alert-warning {
+  color: var(--material-yellow-dark);
+  background-color: var(--material-warning-background);
+}
+
+[data-bs-theme='dark'] .alert-warning {
+  color: var(--material-yellow-light);
+  background-color: var(--material-warning-background-dark);
+}
+
+.alert-warning>h5 {
+  background-color: var(--material-warning-header);
+}
+
+.alert-danger {
+  color: var(--material-red-dark);
+  background-color: var(--material-danger-background);
+}
+
+[data-bs-theme='dark'] .alert-danger {
+  color: var(--material-red-light);
+  background-color: var(--material-danger-background-dark);
+}
+
+.alert-danger>h5 {
+  background-color: var(--material-danger-header);
+}
+
+:not(pre) > code {
+  padding: 5px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+  background: transparent;
+  border: 1px solid #dddddd;
+  border-radius: 7px;
+  font-size: .8rem;
+  line-height: inherit;
+  height: calc(.8rem + 10px);
+  margin-top: 2px;
+  color: #2B91AF;
+}
+
+pre {
+  margin: .5em 0;
+  overflow: auto;
+  border: 1px solid #dddddd;
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+[data-bs-theme='dark'] :not(pre) > code,
+[data-bs-theme='dark'] pre{
+  border-color: #4a5565;
+}
+
+code{
+  background-color: transparent !important;
+}
+
+header,
+footer {
+  display: none !important;
+}
+
+html {
+  background-color: transparent !important;
+}
+
+body {
+  scroll-behavior: smooth;
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/light-Point.cur), auto !important;
+}
+
+[data-bs-theme='dark'] body {
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/dark-Point.cur), auto !important;
+}
+
+a:-webkit-any-link,
+a,
+.toc .expand-stub:before{
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/light-Click.cur), auto !important;
+}
+
+[data-bs-theme='dark'] a:-webkit-any-link,
+[data-bs-theme='dark'] a,
+[data-bs-theme='dark'] .toc .expand-stub:before{
+  cursor: url(https://faeq-f.github.io/Quokka/cursors/dark-Click.cur), auto !important;
+}
+
+.hljs-title{
+  color: #7e5b22;
+}
+
+[data-bs-theme='dark'] .hljs-title{
+  color: #dcdcaa !important;
+}
+
+.hljs-function{
+  color: #2B91AF;
+}
+
+* {
+  scrollbar-color: gray transparent;
+  scrollbar-width: thin;
+}

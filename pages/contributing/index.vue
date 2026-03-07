@@ -16,16 +16,12 @@ If you have found a bug in Quokka please check to see if there is an open
 ticket for this problem on [our kanban board][issues]. If you cannot
 find an existing ticket for the bug please open a new one.
 
-[issues]: https://volta.net/Faeq-F/Quokka
+[issues]: https://faeq-f.github.io/Quokka/kanban
 
 A bug may be a technical problem such as a crash or an incorrect
 value from a query, or a user experience issue such as
 unclear or absent documentation. If you are unsure if your problem is a bug
 please open a ticket and we will work it out together.
-
-Please ensure the ticket is opened on the plugins kanban board if it only
- concerns a specific plugin. Links for the plugin kanban board can be found on
- its respective page as 'Kanban'.
 
 ## Contributing code changes
 
@@ -113,12 +109,10 @@ config({
   }
 })
 
-import { useThemeHandler } from 'maz-ui'
-const themeHandler = useThemeHandler({
-  watchChanges: true,
-})
-const theme = ref(themeHandler.selectedTheme.value)
-watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
+import { useTheme } from '@maz-ui/themes'
+const { colorMode } = useTheme()
+const theme = ref(colorMode.value)
+watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
 </script>
 <template>
   <div>
@@ -126,29 +120,9 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
       <MazAnimatedElement direction="up" :delay="200" :duration="700">
         <span class="text-6xl">Contributing</span>
       </MazAnimatedElement>
-      <p class="text-gray-500 dark:text-gray-400 mt-4">
-        <MazAnimatedElement direction="up" :delay="400" :duration="700"
-          class="inline">Help
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="450" :duration="700"
-          class="inline">shape
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="500" :duration="700"
-          class="inline">the
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="550" :duration="700"
-          class="inline">future
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="600" :duration="700"
-          class="inline">of
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="650" :duration="700"
-          class="inline">this
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="700" :duration="700"
-          class="inline">project
-        </MazAnimatedElement>
-      </p>
+      <MazAnimatedText tag="h1" text="Help shape the future of this project"
+        :delay="400" :duration="1500" direction="up" :column-gap="0.3"
+        :row-gap="0.3" class="text-gray-500 dark:text-gray-400 mt-4" />
     </div>
     <div class="w-full px-78 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="900" :duration="700">

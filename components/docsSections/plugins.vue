@@ -53,8 +53,7 @@ import ExternalLink from '~/components/link.vue'
           { label: 'Developed?', key: 'developed', width: '18rem' },
           { label: 'Planned / developed plugin', key: 'name', width: '36rem' },
           { label: 'Author', key: 'author' },
-        ]" :rows="allPlugins" search noSearchBy searchPlaceholder="Search..."
-        inputSize="sm">
+        ]" :rows="allPlugins" search inputSize="sm">
         <template #cell-name="{ row, value }">
           <ExternalLink :url='"/plugin/" + row.name.replace(" ", "~")'
             v-if="row.authorLink">

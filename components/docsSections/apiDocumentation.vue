@@ -3,7 +3,7 @@
 function applyThemeToAPIFrame() {
   APIframe.value.contentDocument.getElementsByTagName(
     "html"
-  )[0].dataset.bsTheme = themeHandler.selectedTheme.value;
+  )[0].dataset.bsTheme = colorMode.value;
   //open external links in a new tab
   for (var a of APIframe.value.contentDocument.body.getElementsByTagName(
     "a"
@@ -34,16 +34,14 @@ function iframeURLChange(iframe, callback) {
 }
 
 import { watch, onMounted, ref } from 'vue'
-import { useThemeHandler } from 'maz-ui'
-const themeHandler = useThemeHandler({
-  watchChanges: true,
-})
+import { useTheme } from '@maz-ui/themes'
+const { colorMode } = useTheme()
 const APIframe = ref(null)
 onMounted(() => {
   //when the iframe has loaded the doc, apply theme and show it
   APIframe.value.addEventListener("load", applyThemeToAPIFrame);
   //when user switches page theme, change theme of doc in iframe as well
-  watch(themeHandler.selectedTheme, async (_newTheme, _oldTheme) => applyThemeToAPIFrame())
+  watch(colorMode, async (_newTheme, _oldTheme) => applyThemeToAPIFrame())
   //hide the iframe when the url changes since the theme needs to be applied (prevents flashing of white bg when in dark mode)
   iframeURLChange(APIframe.value, function (iframe, url) {
     applyThemeToAPIFrame();

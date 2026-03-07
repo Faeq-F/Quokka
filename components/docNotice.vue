@@ -4,7 +4,7 @@ const props = defineProps({ type: String })
 
 const icon = computed(() => {
   if (props.type == 'warning') return "i-lucide-triangle-alert"
-  else if (props.type == 'danger') return "i-lucide-octagon-alert"
+  else if (props.type == 'destructive') return "i-lucide-octagon-alert"
   else if (props.type == 'tip') return "i-lucide-lightbulb"
   else if (props.type == 'success') return "i-lucide-check-check"
   else return 'i-lucide-info'
@@ -12,7 +12,7 @@ const icon = computed(() => {
 
 const iconColor = computed(() => {
   if (props.type == 'warning') return "#f0b100"
-  else if (props.type == 'danger') return "#fb2c36"
+  else if (props.type == 'destructive') return "#fb2c36"
   else if (props.type == 'tip') return "#d2afff"
   else if (props.type == 'success') return "hsl(130, 51%, 65%)"
   else return '#a7ccff'

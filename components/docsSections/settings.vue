@@ -4,6 +4,7 @@ import DocNotice from '~/components/docNotice.vue'
 import refreshLenis from '~/assets/scripts/lenis'
 import { useSettingsStore } from '~/stores/settings'
 const settings = useSettingsStore()
+import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
 </script>
 <template>
   <div>
@@ -38,8 +39,7 @@ const settings = useSettingsStore()
       <template #content-1>
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
-          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm" :headers="[
+          roundedSize="none" search inputSize="sm" :headers="[
             { label: 'Setting name', key: 'name', width: '12rem' },
             { label: 'Default Value', key: 'defaultValue', width: '12rem' },
             { label: 'Notes', key: 'notes' },
@@ -94,8 +94,7 @@ const settings = useSettingsStore()
         </div>
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
-          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm" :headers="[
+          roundedSize="none" search inputSize="sm" :headers="[
             { label: 'Setting type', key: 'type', width: '12rem' },
             { label: 'Notes', key: 'notes' },
           ]" :rows="settings.style">

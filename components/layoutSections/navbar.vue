@@ -31,24 +31,17 @@ rightItems = ref<NavigationMenuItem[][]>([
   ]
 ])
 
-import { useThemeHandler } from 'maz-ui'
+import { useTheme } from '@maz-ui/themes'
 
-const {
-  setDarkTheme,
-  setLightTheme,
-  setSystemTheme,
-  autoSetTheme
-} = useThemeHandler({
-  watchChanges: true,
-})
+const { setColorMode } = useTheme()
 
 function toggleTheme(theme) {
   if (theme == 1) {
-    setLightTheme()
+    setColorMode('light')
   } else if (theme == 0) {
-    setDarkTheme()
+    setColorMode('dark')
   } else {
-    setSystemTheme()
+    setColorMode('auto')
   }
 }
 
@@ -78,7 +71,6 @@ const themeItems = ref<NavigationMenuItem[][]>([
   ]
 ])
 
-autoSetTheme()
 </script>
 
 <template>

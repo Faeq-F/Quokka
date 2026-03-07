@@ -40,25 +40,15 @@ function checkTags(plugin) {
 <template>
   <div>
     <div class="text-center mb-16 mt-42 varela">
-      <MazAnimatedElement direction="up" :delay="200" :duration="700">
+      <MazAnimatedElement direction="up" :delay="200" :duration="700"
+        class="mb-4">
         <span class="text-6xl">Plugins</span>
       </MazAnimatedElement>
-      <p class="text-gray-500 dark:text-gray-400 mb-52 mt-4">
-        <MazAnimatedElement direction="up" :delay="400" :duration="700"
-          class="inline">Extend
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="450" :duration="700"
-          class="inline">your
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="500" :duration="700"
-          class="inline">launcher's
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="550" :duration="700"
-          class="inline">functionality
-        </MazAnimatedElement>
-      </p>
+      <MazAnimatedText tag="h1" text="Extend your launcher's functionality"
+        :delay="300" :duration="1500" direction="up" :column-gap="0.3"
+        :row-gap="0.3" class="text-gray-500 dark:text-gray-400" />
     </div>
-    <div class="w-full px-78 mb-4 outfit">
+    <div class="w-full px-78 mb-4 outfit mt-52">
       <MazAnimatedElement direction="down" :delay="800" :duration="700">
         <MazInput v-model="searchVal" placeholder="Search..." class="w-full"
           size="md" block>
@@ -75,7 +65,7 @@ function checkTags(plugin) {
               <MazSelect v-model="tagsVal"
                 :options="plugins.getSortedTags().map((tag) => tag.label)"
                 label="Filter..." multiple search :search-threshold="0.75"
-                size="sm" style="--maz-border-color: transparent;"
+                size="sm" id="plugin-filter" class="no-border-select"
                 @open="lowerCards = true" @close="lowerCards = false">
                 <template #no-results>
                   <div class="p-4 text-center">
@@ -107,3 +97,11 @@ function checkTags(plugin) {
     </div>
   </div>
 </template>
+
+<style>
+.no-border-select .m-input-wrapper {
+  --maz-tw-border-opacity: 0 !important;
+  border-color: transparent !important;
+  --maz-border: 0% 0% 0% !important;
+}
+</style>

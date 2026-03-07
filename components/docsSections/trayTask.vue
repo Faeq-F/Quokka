@@ -92,7 +92,7 @@ import DocNotice from '~/components/docNotice.vue'
         the application to see the changes.
       </DocNotice>
     </MazCardSpotlight>
-    <DocNotice type="danger" style="width: 100%;">
+    <DocNotice type="destructive" style="width: 100%;">
       Unfortunately system tray tasks for other applications cannot be
       accessed through the Quokka search window yet<br />
       This functionality may come in future (as a plugin).

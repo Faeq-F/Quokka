@@ -29,3 +29,7 @@ Quokka/
 Tests/
 _site/
 /Plugin*/
+.vs/
+*.xcf
+*.mkv
+QuokkaDocs/api/

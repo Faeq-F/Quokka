@@ -30,12 +30,10 @@ async function fetchData(_name) {
 
 import { MdPreview } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
-import { useThemeHandler } from 'maz-ui'
-const themeHandler = useThemeHandler({
-  watchChanges: true,
-})
-const theme = ref(themeHandler.selectedTheme.value)
-watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
+import { useTheme } from '@maz-ui/themes'
+const { colorMode } = useTheme()
+const theme = ref(colorMode.value)
+watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
 </script>
 
 <template>
@@ -85,14 +83,6 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
                 <li>
                   <div class="flex items-center">
                     <Link target="_blank"
-                      :url="'https://volta.net/' + plugin?.github">
-                      Kanban
-                    </Link>
-                  </div>
-                </li>
-                <li>
-                  <div class="flex items-center">
-                    <Link target="_blank"
                       :url="'https://github.com/' + plugin?.github">
                       Source code
                     </Link>
@@ -121,7 +111,7 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
           class="flex-1">
           <a :href="plugin?.downloadUrl" target="_blank"
             class="!no-underline !not-italic h-auto">
-            <MazCardSpotlight class="w-full ml-0 h-auto">
+            <MazCardSpotlight class="w-full ml-0 h-auto mt-1">
               <div class="flex items-center text-sm">
                 <UIcon name="i-lucide-plug-zap" class="mr-1.5 !size-4" />
                 <span>Latest Release</span>
@@ -129,7 +119,7 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
               </div>
               <USeparator class="my-3"
                 :ui="{ border: 'dark:border-gray-600' }" />
-              <span class="underline">v{{ plugin.version }}</span>
+              <span class="underline">v{{ plugin?.version }}</span>
             </MazCardSpotlight>
           </a>
         </MazAnimatedElement>

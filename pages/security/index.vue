@@ -51,12 +51,10 @@ config({
   }
 })
 
-import { useThemeHandler } from 'maz-ui'
-const themeHandler = useThemeHandler({
-  watchChanges: true,
-})
-const theme = ref(themeHandler.selectedTheme.value)
-watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
+import { useTheme } from '@maz-ui/themes'
+const { colorMode } = useTheme()
+const theme = ref(colorMode.value)
+watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
 </script>
 <template>
   <div>
@@ -64,23 +62,10 @@ watch(themeHandler.selectedTheme, async (newTheme, _oldTheme) => theme.value = n
       <MazAnimatedElement direction="up" :delay="200" :duration="700">
         <span class="text-6xl">Security Policy</span>
       </MazAnimatedElement>
-      <p class="text-gray-500 dark:text-gray-400 mt-4">
-        <MazAnimatedElement direction="up" :delay="400" :duration="700"
-          class="inline">Reporting
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="450" :duration="700"
-          class="inline">vulnerabilities
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="500" :duration="700"
-          class="inline">and
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="550" :duration="700"
-          class="inline">supported
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="600" :duration="700"
-          class="inline">versions
-        </MazAnimatedElement>
-      </p>
+      <MazAnimatedText tag="h1"
+        text="Reporting vulnerabilities and supported versions." :delay="400"
+        :duration="1500" direction="up" :column-gap="0.3" :row-gap="0.3"
+        class="text-gray-500 dark:text-gray-400 mt-4" />
     </div>
     <div class="w-full px-78 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="800" :duration="700">

@@ -10,32 +10,10 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
       <MazAnimatedElement direction="up" :delay="200" :duration="700">
         <span class="text-6xl">Kanban board</span>
       </MazAnimatedElement>
-      <p class="text-gray-500 dark:text-gray-400 mt-4">
-        <MazAnimatedElement direction="up" :delay="400" :duration="700"
-          class="inline">Tracking
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="450" :duration="700"
-          class="inline">project
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="500" :duration="700"
-          class="inline">progress,
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="550" :duration="700"
-          class="inline">active,
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="600" :duration="700"
-          class="inline">tasks,
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="650" :duration="700"
-          class="inline">and
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="700" :duration="700"
-          class="inline">upcoming
-        </MazAnimatedElement>
-        <MazAnimatedElement direction="up" :delay="750" :duration="700"
-          class="inline">features.
-        </MazAnimatedElement>
-      </p>
+      <MazAnimatedText tag="h1"
+        text="Tracking project progress, active tasks, and upcoming features."
+        :delay="400" :duration="1500" direction="up" :column-gap="0.3"
+        :row-gap="0.3" class="text-gray-500 dark:text-gray-400 mt-4" />
     </div>
     <div class="w-full px-78 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="900" :duration="700">

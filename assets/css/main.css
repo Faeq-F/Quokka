@@ -80,8 +80,12 @@ body{
   padding: 0 !important;
 }
 
+.m-table-header-search,
+.m-table-header-search .m-input {
+  width: 100%;
+}
+
 .m-table-header .m-input-wrapper {
-  width: calc(100vw - 49.5rem);
   background: transparent !important;
   border: none !important;
   border-bottom: var(--maz-border-color) solid 1px !important;
@@ -272,4 +276,30 @@ html.dark {
   syntax: "<length>";
   initial-value: 0px;
   inherits: true;
+}
+
+.md-editor-preview ol{
+  list-style: decimal;
+}
+
+.md-editor-preview table {
+  outline-offset: -1px;
+  border-radius: 1em;
+  outline: 1px solid #aaa;
+  display: table-cell !important;
+  word-break: break-word;
+  width: 100%;
+  margin: 4em !important;
+}
+
+.md-editor-preview table th:first-of-type {
+  width: 10em;
+}
+
+.md-editor-preview p {
+  word-break: break-word;
+}
+
+div.github-theme ol li+li:has(table) {
+  margin-top: 1em !important;
 }

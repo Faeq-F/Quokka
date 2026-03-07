@@ -1,0 +1,70 @@
+//docfx ./QuokkaDocs/docfx.json --serve
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "G:/Quokka/Quokka/",
+          "files": [
+            "Quokka.exe",
+            "PlugBoard/PluginCalculator/Plugin/PluginCalculator.dll",
+            "PlugBoard/PluginDeviceAddresses/Plugin/PluginDeviceAddresses.dll",
+            "PlugBoard/PluginEnglishDictionary/Plugin/PluginEnglishDictionary.dll",
+            "PlugBoard/PluginEverything/Plugin/PluginEverything.dll",
+            "PlugBoard/PluginGitmoji/Plugin/PluginGitmoji.dll",
+            "PlugBoard/PluginInstalledApps/Plugin/PluginInstalledApps.dll",
+            "PlugBoard/PluginPortableApps/Plugin/PluginPortableApps.dll",
+            "PlugBoard/PluginPowerCommands/Plugin/PluginPowerCommands.dll",
+            "PlugBoard/PluginSettings/Plugin/PluginSettings.dll",
+            "PlugBoard/PluginShellCommand/Plugin/PluginShellCommand.dll",
+            "PlugBoard/PluginTypedText/Plugin/PluginTypedText.dll",
+            "PlugBoard/PluginUnicodeCharacterLookup/Plugin/PluginUnicodeCharacterLookup.dll",
+            "PlugBoard/PluginWebSearch/Plugin/PluginWebSearch.dll",
+            "PlugBoard/PluginWindowSwitch/Plugin/PluginWindowSwitch.dll",
+            "PlugBoard/PluginWorkflows/Plugin/PluginWorkflows.dll"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "../public/APIdocs/",
+    "template": [
+      "default",
+      "modern",
+      "templates/material"
+    ],
+    "globalMetadata": {
+      "_appName": "QuokkaDocs",
+      "_appTitle": "QuokkaDocs",
+      "_appLogoPath": "../assets/media/QuokkaLogo.svg",
+      "_appFaviconPath": "../assets/media/QuokkaLogo.svg",
+      "_enableSearch": true,
+      "_appFooter": "<footer></footer>",
+      "_disableContribution": true,
+      "pdf": false,
+      "_disableNewTab": true
+    },
+    "postProcessors": [
+      "ExtractSearchIndex"
+    ]
+  }
+}

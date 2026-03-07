@@ -55,8 +55,7 @@ const signifiers = plugins.pluginsList.map((i) => {
       <template #content-1>
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
-          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm" :headers="[
+          roundedSize="none" search inputSize="sm" :headers="[
             { label: 'Plugin', key: 'plugin', width: '12rem' },
             { label: 'Default Special Command', key: 'command', width: '10rem' },
             { label: 'Use', key: 'use', width: '18rem' },
@@ -86,8 +85,7 @@ const signifiers = plugins.pluginsList.map((i) => {
       <template #content-2>
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <MazTable hoverable divider size="md" tableClass="!bg-transparent"
-          roundedSize="none" search noSearchBy searchPlaceholder="Search..."
-          inputSize="sm" :headers="[
+          roundedSize="none" search inputSize="sm" :headers="[
             { label: 'Plugin', key: 'plugin', width: '12rem' },
             { label: 'Default Command Signifier', key: 'signifier', width: '12rem' },
             { label: 'Use', key: 'use', width: '16rem' },
