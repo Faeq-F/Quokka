@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import navbar from '../components/layoutSections/navbar.vue'
+import navbar from '~/components/layoutSections/navbar.vue'
 import { VueLenis } from 'lenis/vue'
 import { ref } from 'vue';
 const LenisWrapper = ref();

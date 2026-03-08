@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Faq from '../components/homeSections/faq.vue'
-import Plugins from '../components/homeSections/plugins.vue'
-import PluginFeatures from '../components/homeSections/pluginFeatures.vue'
-import Customizability from '../components/homeSections/customizability.vue'
-import Landing from '../components/homeSections/landing.vue'
-import Footer from '../components/homeSections/footer.vue'
+import Faq from '~/components/homeSections/faq.vue'
+import Plugins from '~/components/homeSections/plugins.vue'
+import PluginFeatures from '~/components/homeSections/pluginFeatures.vue'
+import Customizability from '~/components/homeSections/customizability.vue'
+import Landing from '~/components/homeSections/landing.vue'
+import Footer from '~/components/homeSections/footer.vue'
 </script>
 
 <template>

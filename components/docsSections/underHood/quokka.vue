@@ -32,3 +32,9 @@
     </DocNotice>
   </div>
 </template>
+
+<script setup lang="ts">
+import Code from '~/components/code.vue'
+import DocNotice from '~/components/docNotice.vue'
+import ExternalLink from '~/components/link.vue'
+</script>

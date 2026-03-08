@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { useTheme } from '@maz-ui/themes'
+import type { ColorMode } from '@maz-ui/themes'
 const { isDark, toggleDarkMode, colorMode, setColorMode } = useTheme()
-const theme = ref(colorMode.value)
-watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString())
+const theme = ref<ColorMode>(colorMode.value)
+watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme)
 </script>
 <template>
   <div>

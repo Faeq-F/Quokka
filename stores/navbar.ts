@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { usePluginsStore } from './plugins'
+import { usePluginsStore } from '~/stores/plugins'
 
 export const useMiddleNavbarItems = defineStore("middleNavbarItems", {
   state: () => {

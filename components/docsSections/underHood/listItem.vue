@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import ExternalLink from '~/components/link.vue'
+import Code from '~/components/code.vue'
+import DocNotice from '~/components/docNotice.vue'
 </script>
 <template>
   <div class="p-10">
