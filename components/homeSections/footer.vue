@@ -106,17 +106,22 @@ import Link from '~/components/link.vue'
 </script>
 
 <template>
-  <div class="px-78">
-    <div class="w-full mb-8 mt-62 outfit rounded-lg !shadow-none p-4 h-[90vh]"
+  <div class="sm:px-78 min-h-[95vh]">
+    <div class="w-full mt-62 outfit rounded-lg !shadow-none p-4 pb-0"
       id="footerCard">
       <MazAnimatedElement direction="up" :duration="2000" class="inline">
-        <div class="mt-16">
-          <div class="flex justify-between pb-12">
+        <div class="flex-col gap-10 flex">
+          <MazAnimatedElement direction="up" :delay="800" :duration="700">
+            <img src="/media/QuokkaTextLogoFooter.png"
+              class="dark:invert-100 opacity-70 mask-t-from-60% mask-t-to-100% w-[70%] object-center mx-auto mb-24" />
+          </MazAnimatedElement>
+          <div
+            class="flex flex-col sm:flex-row justify-between pb-12 gap-4 sm:gap-unset">
             <div class="flex items-center">
               <div>
                 <a href="https://faeq-f.github.io/" target="_blank">
                   <MazAnimatedText tag="h1" text="Made with ❤️ by Faeq"
-                    :delay="800" :duration="1500" direction="up"
+                    :delay="1000" :duration="1500" direction="up"
                     :column-gap="0.3" :row-gap="0.3"
                     class="outfit text-gray-500 dark:text-gray-400 " />
                 </a>
@@ -125,7 +130,7 @@ import Link from '~/components/link.vue'
                     <div class="inline-block">
                       <MazAnimatedText tag="h1"
                         text="Support this project, become a sponsor"
-                        :delay="1100" :duration="1500" direction="up"
+                        :delay="1200" :duration="1500" direction="up"
                         :column-gap="0.3" :row-gap="0.3"
                         class="outfit text-gray-500 dark:text-gray-400 inline-block" />
                     </div>
@@ -159,7 +164,8 @@ import Link from '~/components/link.vue'
             </div>
           </div>
 
-          <div class="flex justify-between mt-16 mb-24">
+          <div
+            class="flex flex-col sm:flex-row justify-between mt-16 mb-24 gap-4 sm:gap-unset">
             <div v-for="(section, i) in links" :key="i">
 
               <MazAnimatedElement direction="left" :delay="1700" :duration="700"
@@ -185,10 +191,6 @@ import Link from '~/components/link.vue'
               </ul>
             </div>
           </div>
-          <MazAnimatedElement direction="up" :delay="3000" :duration="700">
-            <img src="/media/QuokkaTextLogo.svg"
-              class="w-full dark:invert-100 opacity-70" />
-          </MazAnimatedElement>
         </div>
       </MazAnimatedElement>
     </div>
