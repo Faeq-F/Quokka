@@ -16,33 +16,33 @@ import ExternalLink from '~/components/link.vue'
         </p>
       </template>
       <template #content-1>
-        You must install the package (likely through <ExternalLink
+        You must install the package (likely through <ExternalLink blank
           url="https://www.nuget.org/">NuGet</ExternalLink>&nbsp;) for your
         plugin's project. Unfortunately this is not enough since Quokka will
         need the package reference of the library. You will have to use
-        <ExternalLink
+        <ExternalLink blank
           url="https://learn.microsoft.com/en-us/dotnet/fundamentals/reflection/reflection">
           reflection
         </ExternalLink>&nbsp;
         to load the library at runtime and use the classes it provides.
         You can use
-        <ExternalLink url="https://github.com/NdubuisiJr/TypeExtender">
+        <ExternalLink blank url="https://github.com/NdubuisiJr/TypeExtender">
           TypeExtender</ExternalLink> too (Quokka has a reference to this).
         You can have a look at the following plugins as examples as to how
         to do this:<br /><br />
         <ul>
           <li>
-            <ExternalLink url="">
+            <ExternalLink url="/Quokka/plugin/Calculator">
               Plugin_Calculator
             </ExternalLink>
           </li>
           <li>
-            <ExternalLink url="">
+            <ExternalLink url="/Quokka/plugin/English~Dictionary">
               Plugin_EnglishDictionary
             </ExternalLink>
           </li>
           <li>
-            <ExternalLink url="">
+            <ExternalLink url="/Quokka/plugin/Everything">
               Plugin_Everything
             </ExternalLink>
           </li>

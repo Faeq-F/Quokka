@@ -17,7 +17,8 @@ import DocNotice from '~/components/docNotice.vue'
           A computer running Windows 7 or higher
         </li>
         <li>
-          <ExternalLink url=''>
+          <ExternalLink blank
+            url='https://learn.microsoft.com/en-us/dotnet/framework/install/versions-and-dependencies#net-framework-48'>
             .NET 4.8 Framework (pre-installed on Windows 10 and 11)
           </ExternalLink>
         </li>
@@ -40,7 +41,8 @@ import DocNotice from '~/components/docNotice.vue'
       <ul>
         <li>
           Go to the top of this page and click on the
-          <ExternalLink url=''>
+          <ExternalLink blank
+            url='https://github.com/Faeq-F/Quokka/releases/download/v2.0/Quokka.zip'>
             'Download Latest Release'
           </ExternalLink>
           &nbsp;button
@@ -69,12 +71,13 @@ import DocNotice from '~/components/docNotice.vue'
             / or start menu.
             <USeparator class="my-3 w-1/2 mx-auto"
               :ui="{ border: 'dark:border-gray-600' }" />
-            You can set up a task to run the program at
-            startup in Task Scheduler. Alternatively see the
-            <ExternalLink url=''>
-              FAQ
+            You can set up a task to
+            <ExternalLink blank
+              url='https://www.tenforums.com/tutorials/201678-how-use-task-scheduler-open-program-windows.html'>
+              run the program on device startup in Task Scheduler, or
+              alternatively
+              see / lookup other options.
             </ExternalLink>
-            &nbsp;on this.
           </DocNotice>
         </li>
       </ul>

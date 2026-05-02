@@ -5,7 +5,9 @@
     to compile the application.
     <DocNotice type="info" class="mt-4" style="width: calc(100% - 1.5rem)">
       Quokka targets .NET 4.8 for portability. This version comes
-      <ExternalLink url=''>
+      <ExternalLink
+        url='https://learn.microsoft.com/en-us/dotnet/framework/install/versions-and-dependencies#net-framework-48'
+        blank>
         pre-installed on Windows 10 and 11
       </ExternalLink>, allowing users to run the
       application without installing additional frameworks.<br />
