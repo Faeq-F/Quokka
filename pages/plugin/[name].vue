@@ -22,7 +22,7 @@ async function fetchData(_name) {
     readme.value = await $fetch('https://raw.githubusercontent.com/' + plugin?.github + '/main/README.md')
     contributors.value = await $fetch('https://api.github.com/repos/' + plugin?.github + '/contributors')
   } catch (err) {
-    console.log('Error fetching plugin data:', err.toString())
+    console.log('Error fetching plugin data:', (err as Error).toString())
   } finally {
     loading.value = false
   }
@@ -37,22 +37,22 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
 </script>
 
 <template>
-  <div class="mx-78 mt-24">
+  <div class="sm:mx-78 mt-24">
     <div class="flex flex-col items-center mb-16">
       <div class="flex items-center">
         <MazAnimatedElement direction="up" :delay="600" :duration="700">
-          <UIcon :name="'lucide-' + plugin.icon" class="!w-10 !h-10" />
+          <UIcon :name="'lucide-' + plugin!.icon" class="!w-10 !h-10" />
         </MazAnimatedElement>
         <MazAnimatedElement direction="right" :delay="800" :duration="700"
           class="inline font-bold varela pl-2 text-xl">
           <h1>
-            {{ plugin.name }}
+            {{ plugin!.name }}
           </h1>
         </MazAnimatedElement>
       </div>
       <MazAnimatedElement direction="down" :delay="1000" :duration="700"
         class="outfit">
-        {{ plugin.shortDescription }}
+        {{ plugin!.shortDescription }}
       </MazAnimatedElement>
     </div>
     <MazAnimatedElement direction="right" :duration="500" :delay="1200"
@@ -66,11 +66,12 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
         Plugins
       </nuxt-link>
       <UIcon name="i-lucide-chevron-right" class="mx-2" />
-      <UIcon :name="'lucide-' + plugin.icon" class="px-3" />
-      {{ plugin.name }}
+      <UIcon :name="'lucide-' + plugin!.icon" class="px-3" />
+      {{ plugin!.name }}
     </MazAnimatedElement>
-    <div class="flex gap-2 min-h-[30vh] pl-4 pr-2">
-      <div class="flex flex-col h-full w-1/4">
+    <div
+      class="flex flex-col-reverse sm:flex-row gap-2 min-h-[30vh] pl-4 pr-2 ">
+      <div class="flex flex-col h-full sm:w-1/4">
         <MazAnimatedElement direction="right" :delay="1400" :duration="700">
           <MazCardSpotlight class="w-full m-2 ml-0 h-full">
             <div class="flex items-center text-sm">
@@ -90,17 +91,23 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="">Discussions</Link>
+                    <Link blank
+                      url="https://github.com/Faeq-F/Quokka/discussions">
+                      Discussions</Link>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="">Feedback</Link>
+                    <Link blank
+                      url="https://github.com/Faeq-F/Quokka/discussions/categories/feedback">
+                      Feedback</Link>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-center">
-                    <Link url="">Report an Issue</Link>
+                    <Link blank
+                      :url="`https://github.com/Faeq-F/Quokka-${plugin?.name.replace(' ', '')}-Plugin/issues`">
+                      Report an Issue</Link>
                   </div>
                 </li>
               </ul>
@@ -125,7 +132,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
         </MazAnimatedElement>
       </div>
       <MazAnimatedElement direction="left" :delay="1800" :duration="700"
-        class="flex-auto h-auto mt-2">
+        class="flex-auto sm:h-auto mt-2 h-70">
         <MazCardSpotlight class="w-full h-full">
           <div class="flex items-center text-sm">
             <UIcon name="i-lucide-images" class="mr-1.5 !size-4" />
@@ -138,8 +145,9 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
         </MazCardSpotlight>
       </MazAnimatedElement>
     </div>
-    <div class="flex flex-row gap-2 mb-4">
-      <div class="basis-3/4 pt-4 pl-4 ">
+    <div
+      class="flex sm:flex-row flex-col sm:items-stretch items-center gap-2 mb-4">
+      <div class="sm:basis-3/4 pt-4 sm:pl-4 w-16/17">
         <MazAnimatedElement direction="right" :delay="2000" :duration="700">
           <MazCardSpotlight class="min-h-[40vh] w-full">
             <nuxt-link
@@ -156,7 +164,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
           </MazCardSpotlight>
         </MazAnimatedElement>
       </div>
-      <div class="basis-1/4 pt-4 pr-4 outfit flex flex-col">
+      <div class="basis-1/4 sm:pt-4 pr-4 outfit flex flex-col w-full">
         <MazAnimatedElement direction="left" :delay="2200" :duration="700">
           <MazCardSpotlight class="w-full m-2 mt-0">
             <div class="flex items-center text-sm">
@@ -164,7 +172,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
               <span>Tags</span>
             </div>
             <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
-            <UKbd v-for="(tag, i) in plugin.tags" :key="i"
+            <UKbd v-for="(tag, i) in plugin!.tags" :key="i"
               class="mx-0.5 outfit">
               <UIcon
                 :name="'i-lucide-' + plugins.tags.find((t) => t.label === tag)?.icon"
@@ -174,7 +182,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
           </MazCardSpotlight>
         </MazAnimatedElement>
         <MazAnimatedElement direction="left" :delay="2400" :duration="700"
-          class="flex-1">
+          class="flex-1 w-full">
           <MazCardSpotlight class="w-full h-full ml-2">
             <div class="flex items-center text-sm ">
               <UIcon name="i-lucide-git-pull-request-arrow"
@@ -182,21 +190,21 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
               <span>Author & Contributors</span>
             </div>
             <span class="text-xs">Plugin by
-              <nuxt-link :to="plugin.authorUrl">
+              <nuxt-link :to="plugin!.authorUrl">
                 <span
                   class="underline hover:text-gray-700 dark:hover:text-white">{{
-                    plugin.author }}</span>
+                    plugin!.author }}</span>
               </nuxt-link>
             </span>
             <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
             <div class="flex justify-around">
               <div v-for="(contributor, i) in contributors" :key="i"
                 class="flex items-center mt-2">
-                <nuxt-link :to="contributor.html_url"
+                <nuxt-link :to="contributor!.html_url" target="_blank"
                   class="!no-underline !not-italic flex items-center">
-                  <img :src="contributor.avatar_url" alt="avatar"
+                  <img :src="contributor!.avatar_url" alt="avatar"
                     class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-200 rounded-full mr-2 inline" />
-                  {{ contributor.login }}
+                  {{ contributor!.login }}
                 </nuxt-link>
               </div>
             </div>

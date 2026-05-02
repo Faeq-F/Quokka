@@ -71,6 +71,7 @@ const themeItems = ref<NavigationMenuItem[][]>([
   ]
 ])
 
+const device = useDevice()
 </script>
 
 <template>
@@ -79,26 +80,38 @@ const themeItems = ref<NavigationMenuItem[][]>([
     <div
       class="flex items-center gap-3 data-[orientation=horizontal]:border-b border-default data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48 border-b-2 border-accent sticky top-0 bg-white dark:bg-[var(--ui-bg)] z-10">
       <MazAnimatedElement direction="right" :delay='300' :duration="700">
-        <nuxt-link to="/" class="object-cover">
+        <nuxt-link to="/" class="">
           <img src="/media/QuokkaTextLogo.svg" alt="Quokka Logo"
-            class="h-10 dark:invert-100 ml-5 p-1 pl-2 " loading="lazy" />
+            class="object-contain h-10 dark:invert-100 ml-5 sm:p-1 sm:pl-2 p-0"
+            loading="lazy" />
         </nuxt-link>
       </MazAnimatedElement>
       <MazAnimatedElement direction="down" :delay="700" :duration="700"
         class="w-full justify-center flex">
         <UNavigationMenu highlight highlight-color="neutral" color="neutral"
           orientation="horizontal" :items="middleItems.items" variant="link"
+          :content-orientation="device.isMobile ? 'vertical' : 'horizontal'"
           :ui="{
-            viewport: 'mt-2 !px-70',
+            viewport: 'mt-2 sm:!px-70 !px-30',
             content: '',
             childLink: 'bg-white hover:bg-gray-100 dark:bg-[var(--ui-bg)] dark:hover:bg-gray-800',
             childLinkDescription: 'text-balance line-clamp-2'
-          }" />
+          }">
+          <template #item="{ item }" v-if="device.isMobile">
+            <UIcon :name="item.icon!" class="" />
+          </template>
+        </UNavigationMenu>
       </MazAnimatedElement>
+      <USeparator orientation="vertical" class="h-8 self-center ml-4"
+        v-if="device.isMobile" />
       <MazAnimatedElement direction="down" :delay="900" :duration="700"
         class="relative flex w-auto justify-end">
         <UNavigationMenu highlight highlight-color="neutral" color="neutral"
-          orientation="horizontal" v-if="rightItems" :items="rightItems" />
+          orientation="horizontal" v-if="rightItems" :items="rightItems">
+          <template #item="{ item }" v-if="device.isMobile">
+            <UIcon :name="item.icon!" class="" />
+          </template>
+        </UNavigationMenu>
         <!-- Theme Switch -->
         <USeparator orientation="vertical" class="h-8 self-center ml-4" />
         <UNavigationMenu content-orientation="vertical" color="neutral"
@@ -110,7 +123,7 @@ const themeItems = ref<NavigationMenuItem[][]>([
             childLinkDescription: 'line-clamp-1'
           }" class="relative flex w-auto justify-end">
           <template #item="{ item }">
-            <UIcon :name="item.icon" class="mx-4" />
+            <UIcon :name="item.icon!" class="mx-4" />
           </template>
         </UNavigationMenu>
       </MazAnimatedElement>

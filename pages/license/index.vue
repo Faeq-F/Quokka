@@ -6,10 +6,10 @@ const license = ref('')
 
 onMounted(async () => {
   try {
-    license.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/LICENCE')
+    license.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/LICENSE')
     license.value = license.value.trimStart()
   } catch (err) {
-    console.log('Error fetching license data:', err.toString())
+    console.log('Error fetching license data:', (err as Error).toString())
   } finally {
     loading.value = false
   }
@@ -26,7 +26,7 @@ onMounted(async () => {
         :delay="400" :duration="1500" direction="up" :column-gap="0.3"
         :row-gap="0.3" class="text-gray-500 dark:text-gray-400 mt-4" />
     </div>
-    <div class="w-full px-78 mb-4 mt-16 outfit">
+    <div class="w-full sm:px-78 px-4 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="850" :duration="700">
         <MazCardSpotlight class="w-full">
           <div class="">
@@ -44,7 +44,7 @@ onMounted(async () => {
                 <USeparator class="my-3"
                   :ui="{ border: 'dark:border-gray-600' }" />
               </div>
-              <div class="flex justify-end">
+              <div class="flex flex-col sm:flex-row gap-2 justify-end">
                 <div class="flex-1/3 pr-6">
                   Permissions of this strong copyleft license are conditioned on
                   making available complete source code of licensed works and

@@ -1,32 +1,20 @@
 <script setup lang="ts">
 const loading = ref(true)
-const contributing = ref(`# Security Policy
+const security = ref("")
 
-## Supported Versions
+security.value = security.value.substring(security.value.indexOf("\n") + 1)
 
-| Version    | Supported           |
-| ---------- | ------------------- |
-| 1.0        | no longer supported |
-| 2.0        | supported           |
-
-## Reporting a Vulnerability
-
-Please follow the [steps for contributing bug reports](https://faeq-f.github.io/Quokka/contributing) to report vulnerabilities.
-`)
-
-contributing.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
-
-// onMounted(async () => {
-//   changelog.value = ""
-//   try {
-//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/SECURITY.md')
-//     changelog.value = contributing.value.substring(contributing.value.indexOf("\n") + 1)
-//   } catch (err) {
-//     console.log('Error fetching changelog data:', err.toString())
-//   } finally {
-//     loading.value = false
-//   }
-// })
+onMounted(async () => {
+  security.value = ""
+  try {
+    security.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/SECURITY.md')
+    security.value = security.value.substring(security.value.indexOf("\n") + 1)
+  } catch (err) {
+    console.log('Error fetching security data:', err.toString())
+  } finally {
+    loading.value = false
+  }
+})
 
 import { config, MdPreview } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
@@ -67,7 +55,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
         :duration="1500" direction="up" :column-gap="0.3" :row-gap="0.3"
         class="text-gray-500 dark:text-gray-400 mt-4" />
     </div>
-    <div class="w-full px-78 mb-4 mt-16 outfit">
+    <div class="w-full sm:px-78 px-4 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="800" :duration="700">
         <MazCardSpotlight class="min-h-[40vh] w-full">
           <nuxt-link to="https://github.com/Faeq-F/Quokka/blob/main/SECURITY.md"
@@ -78,8 +66,7 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
           </nuxt-link>
           <USeparator class="my-3" :ui="{ border: 'dark:border-gray-600' }" />
           <MdPreview :theme="theme" previewTheme="github" codeTheme="github"
-            language="en-US" class="!bg-transparent"
-            :modelValue="contributing" />
+            language="en-US" class="!bg-transparent" :modelValue="security" />
           <!-- v-if="!loading" on MdPreview-->
         </MazCardSpotlight>
       </MazAnimatedElement>

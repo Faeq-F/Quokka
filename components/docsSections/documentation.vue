@@ -16,10 +16,10 @@ const middleItems = useMiddleNavbarItems()
     <div>
       If you have any questions or feedback, feel free to reach out
     </div>
-    <div class="flex w-full mt-12">
+    <div class="flex sm:flex-row flex-col w-full mt-12">
       <nuxt-link
         v-for="(item, i) in middleItems.items[0][1].children.slice(0, 3)"
-        :key="i" :to="item.to" class="w-1/3 m-3 h-36">
+        :key="i" :to="item.to" class="sm:w-1/3 m-3 h-36">
         <MazCardSpotlight class="w-full h-full">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="item.icon" />
@@ -33,10 +33,10 @@ const middleItems = useMiddleNavbarItems()
         </MazCardSpotlight>
       </nuxt-link>
     </div>
-    <div class="flex w-full">
+    <div class="flex w-full sm:flex-row flex-col">
       <nuxt-link
         v-for="(item, i) in middleItems.items[0][1].children.slice(3, 6)"
-        :key="i" :to="item.to" class="w-1/3 m-3 h-36">
+        :key="i" :to="item.to" class="sm:w-1/3 m-3 h-36">
         <MazCardSpotlight class="w-full h-full">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="item.icon" />
@@ -50,8 +50,8 @@ const middleItems = useMiddleNavbarItems()
         </MazCardSpotlight>
       </nuxt-link>
     </div>
-    <div class="flex w-full gap-6">
-      <nuxt-link :to="middleItems.items[0][1].children[6].to" class="w-1/2">
+    <div class="flex w-full sm:flex-row flex-col sm:gap-6 gap-1">
+      <nuxt-link :to="middleItems.items[0][1].children[6].to" class="sm:w-1/2">
         <MazCardSpotlight class="w-full h-36 mt-3">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="middleItems.items[0][1].children[6].icon" />
@@ -64,7 +64,7 @@ const middleItems = useMiddleNavbarItems()
           </div>
         </MazCardSpotlight>
       </nuxt-link>
-      <nuxt-link :to="middleItems.items[0][1].children[7].to" class="w-1/2">
+      <nuxt-link :to="middleItems.items[0][1].children[7].to" class="sm:w-1/2">
         <MazCardSpotlight class="w-full h-36 mt-3">
           <div class="flex flex-col justify-center items-center h-full">
             <UIcon :name="middleItems.items[0][1].children[7].icon" />

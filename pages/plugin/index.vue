@@ -48,7 +48,7 @@ function checkTags(plugin) {
         :delay="300" :duration="1500" direction="up" :column-gap="0.3"
         :row-gap="0.3" class="text-gray-500 dark:text-gray-400" />
     </div>
-    <div class="w-full px-78 mb-4 outfit mt-52">
+    <div class="w-full sm:px-78 px-2 mb-4 outfit mt-52">
       <MazAnimatedElement direction="down" :delay="800" :duration="700">
         <MazInput v-model="searchVal" placeholder="Search..." class="w-full"
           size="md" block>
@@ -80,9 +80,9 @@ function checkTags(plugin) {
     </div>
     <MazAnimatedElement direction="down" :delay="1200" :duration="700"
       class="-z-1 relative">
-      <USeparator label=" Results" class="px-88 outfit" />
+      <USeparator label=" Results" class="sm:px-88 outfit" />
     </MazAnimatedElement>
-    <div class="flex justify-evenly flex-wrap px-68">
+    <div class="flex justify-evenly flex-wrap sm:px-68">
       <span v-if="searched.length === 0" class="p-4 outfit">No results
         found</span>
       <template v-for="(plugin,

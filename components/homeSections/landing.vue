@@ -30,7 +30,7 @@ onMounted(async () => {
   </div>
 
   <MazAnimatedElement direction="up" :delay="1900" :duration="700">
-    <div class="flex p-90 py-0">
+    <div class="flex sm:p-90 p-4 sm:py-0">
       <div style="border-radius: 60px; overflow: hidden;"
         class="hover:px-4 transition-all duration-700 ease-in-out">
         <div class="overflow-hidden rounded-[60px] -m-4">

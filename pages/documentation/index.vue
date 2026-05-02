@@ -66,6 +66,12 @@ watch(applyPadding, async (_new, _old) => {
   else updatePadding(7)
 })
 
+const device = useDevice()
+if (device.isMobile) {
+  applyPadding.value = true
+  slider.value = 2
+}
+
 import { VueLenis } from 'lenis/vue'
 const LenisWrapper = ref();
 const LenisContent = ref();
@@ -79,7 +85,8 @@ const LenisContent = ref();
           icon="i-lucide-book-text" to="/documentation">
           Documentation
         </UButton>
-        <div class="flex items-center justify-start p-2 varela "
+        <div
+          class="flex items-center justify-start p-2 varela sm:text-md text-sm"
           v-if="displayedSection.section != 'documentation'">
           <USeparator orientation="vertical" class="mr-4"
             :ui="{ border: 'dark:border-gray-600 border-l-[0.5px] h-full' }" />
@@ -99,7 +106,7 @@ const LenisContent = ref();
           </MazAnimatedElement>
         </div>
       </div>
-      <div class="justify-end flex items-center">
+      <div class="justify-end items-center sm:flex hidden">
         <MazAnimatedElement direction="left" :duration="500"
           v-if="applyPadding && displayedSection.section != 'api-documentation' && slider != 23">
           <UButton class="mr-2" color="neutral" variant="ghost"
@@ -114,7 +121,7 @@ const LenisContent = ref();
             :tooltip="{ text: `${slider} rem`, delayDuration: 200 }"
             @update:modelValue="updatePadding" />
         </MazAnimatedElement>
-        <UButton class="mr-2" color="neutral" variant="ghost"
+        <UButton class="mr-2 " color="neutral" variant="ghost"
           :icon="displayedSection.section == 'api-documentation' ? 'i-lucide-fold-horizontal' : (applyPadding ? 'i-lucide-unfold-horizontal' : 'i-lucide-fold-horizontal')"
           @click="applyPadding = !applyPadding"
           :style="displayedSection.section == 'api-documentation' ? 'cursor: not-allowed !important;' : ''"
@@ -129,7 +136,7 @@ const LenisContent = ref();
         @mouseenter="sidebarHover = true" @mouseleave="sidebarHover = false">
         <UNavigationMenu orientation="vertical" :items="toc" class=" p-1 outfit"
           :ui="{
-            childList: sidebarHover ? 'transition-all duration-200 ease-out delay-300'
+            childList: sidebarHover ? 'sm:ms-5 ms-0 transition-all duration-200 ease-out delay-300'
               : 'ms-0 transition-all duration-200 ease-out delay-300', childItem: 'ps-0.5',
             linkLabel: '!font-light', linkTrailingIcon: sidebarHover ? '' : '!hidden'
           }" />
@@ -152,7 +159,7 @@ const LenisContent = ref();
           content: LenisContent,
           wrapper: LenisWrapper,
         }" />
-        <div ref="LenisContent" class="h-full w-full">
+        <div ref="LenisContent" class="h-full sm:w-full w-15/17">
           <Transition name="fade">
             <documentation v-if="displayedSection.section == 'documentation'" />
             <apiDocumentation
@@ -196,7 +203,8 @@ const LenisContent = ref();
 </style>
 <style lang="css">
 .docsContent a:has(code) *,
-.docsContent a {
+.docsContent a,
+#faq .w-full a {
   text-decoration: underline;
   text-decoration-color: #1f8fffde;
   text-underline-offset: 3px;

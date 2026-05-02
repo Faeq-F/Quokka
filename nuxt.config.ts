@@ -1,4 +1,3 @@
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
@@ -25,6 +24,7 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
+      include: ['maz-ui', '@maz-ui/nuxt'],
       esbuildOptions: {
         supported: {
           'top-level-await': true,
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxt/ui",
     "@pinia/nuxt",
-
+    '@nuxtjs/device',
   ],
   mazUi: {
     theme: {

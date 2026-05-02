@@ -1,69 +1,20 @@
 <script setup lang="ts">
 const loading = ref(true)
-const changelog = ref(`# Change Log
-
-All notable changes to Quokka will be documented in this file.
-
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
-
-<br /><br />
-
-## [Unreleased] - yyyy-mm-dd
-
-This version is a **complete rewrite**. Because of this, old configurations are
- **no longer supported**. To upgrade, please check your previous configuration
- for important preferences (like command signifiers) and **manually** add them
- to the new settings files.
-
-### ✨ Added
-
-- n/a
-
-### 👽️ Changed
-
-- n/a
-
-### 🗑️ Deprecated
-
-- n/a
-
-### 🔥 Removed
-
-- n/a
-
-### 🐛 Fixed
-
-- n/a
-
-### 🔒️ Security
-
-- n/a
-
-<br /><br />
-
-## [1.0] - 2022-07-18
-
-- 🎉 First release!
-
-[unreleased]: https://github.com/faeq-f/quokka/compare/oldCodebase...HEAD
-[2.0]: https://github.com/faeq-f/quokka/compare/oldCodebase...v2.0
-[1.0]: https://github.com/Faeq-F/Quokka/compare/v1.0...oldCodebase
-`)
+const changelog = ref("")
 
 changelog.value = changelog.value.substring(changelog.value.indexOf("\n") + 1)
 
-// onMounted(async () => {
-//   changelog.value = ""
-//   try {
-//     changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/CHANGELOG.md')
-//     changelog.value = changelog.value.substring(changelog.value.indexOf("\n") + 1)
-//   } catch (err) {
-//     console.log('Error fetching changelog data:', err.toString())
-//   } finally {
-//     loading.value = false
-//   }
-// })
+onMounted(async () => {
+  changelog.value = ""
+  try {
+    changelog.value = await $fetch('https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/CHANGELOG.md')
+    changelog.value = changelog.value.substring(changelog.value.indexOf("\n") + 1)
+  } catch (err) {
+    console.log('Error fetching changelog data:', err.toString())
+  } finally {
+    loading.value = false
+  }
+})
 
 import { MdPreview, type Themes, config } from 'md-editor-v3';
 import 'md-editor-v3/lib/preview.css';
@@ -101,9 +52,10 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme.toString(
       <MazAnimatedText tag="h1"
         text="Stay up to date with the latest additions, deprecations, and improvements across all versions."
         :delay="400" :duration="1500" direction="up" :column-gap="0.3"
-        :row-gap="0.3" class="text-gray-500 dark:text-gray-400 mt-4" />
+        :row-gap="0.3"
+        class="text-gray-500 dark:text-gray-400 mt-4 sm:px-0 px-4" />
     </div>
-    <div class="w-full px-78 mb-4 mt-16 outfit">
+    <div class="w-full sm:px-78 px-4 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="1200" :duration="700">
         <MazCardSpotlight class="min-h-[40vh] w-full">
           <nuxt-link

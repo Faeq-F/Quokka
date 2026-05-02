@@ -6,7 +6,7 @@ import PluginCard from '~/components/PluginCard.vue'
 </script>
 
 <template>
-  <div class="px-78 pt-62">
+  <div class="sm:px-78 pt-62 px-2">
     <MazCarousel hideScrollbar hide-scroll-buttons class="m-0 p-0 -mb-16">
       <template #title>
         <MazAnimatedElement direction="down" :delay="600" :duration="700"

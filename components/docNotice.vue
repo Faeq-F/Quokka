@@ -23,13 +23,16 @@ const outlineColor = computed(() => {
   else return props.type
 })
 
+const device = useDevice()
+
 </script>
 <template>
   <MazCardSpotlight class="m-2" :color="outlineColor">
-    <div class="flex items-center">
+    <div class="flex sm:flex-row flex-col items-center">
       <UIcon :name="icon" class="!size-5 min-w-5"
         :style="`color: ${iconColor};`" />
-      <USeparator orientation="vertical" class="h-7 mx-3"
+      <USeparator :orientation="device.isMobile ? 'horizontal' : 'vertical'"
+        class="h-7 mx-3 sm:my-0 my-3"
         :ui="{ border: 'dark:border-gray-600 h-full' }" />
       <div class="w-full">
         <slot />

@@ -23,6 +23,7 @@
     "@nuxt/scripts": "^0.11.7",
     "@nuxt/ui": "^3.1.2",
     "@nuxtjs/composition-api": "^0.34.0",
+    "@nuxtjs/device": "^4.0.0",
     "@pinia/nuxt": "^0.11.0",
     "@unhead/vue": "^2.0.10",
     "better-sqlite3": "^12.2.0",

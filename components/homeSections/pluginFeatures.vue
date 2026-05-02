@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
+const device = useDevice()
 </script>
 <template>
-  <div class=" w-full px-78 pt-52 outfit" id="plugin-features">
+  <div class=" w-full sm:px-78 pt-52 outfit" id="plugin-features">
     <MazAnimatedElement direction="up" :delay="600" :duration="700">
       <div class="font-bold text-4xl varela text-center">
         Streamline your Workflow
@@ -21,23 +22,28 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
       </MazAnimatedElement>
     </div>
     <MazAnimatedElement direction="right" :delay="1100" :duration="2000">
-      <div class="flex justify-around pt-10">
-        <MazCardSpotlight class="w-4/17 h-52 text-center" :padding="false">
+      <div
+        :class="device.isMobile ? 'flex flex-col pt-10 gap-4 items-center' : 'flex justify-around pt-10'">
+        <MazCardSpotlight class="sm:w-4/17 w-16/17 h-52 text-center"
+          :padding="false">
           <img src="/media/AppScreenshots/FuzzySearching.png"
             class="object-cover h-[85%] object-left" v-fullscreen-img />
           Fuzzy Searching
         </MazCardSpotlight>
-        <MazCardSpotlight class="w-4/17 h-52 text-center" :padding="false">
+        <MazCardSpotlight class="sm:w-4/17 w-16/17 h-52 text-center"
+          :padding="false">
           <img src="/media/AppScreenshots/SpecialCommands.png"
             class="object-cover h-[85%] object-left" v-fullscreen-img />
           Special Commands
         </MazCardSpotlight>
-        <MazCardSpotlight class="w-4/17 h-52 text-center" :padding="false">
+        <MazCardSpotlight class="sm:w-4/17 w-16/17 h-52 text-center"
+          :padding="false">
           <img src="/media/AppScreenshots/CommandSignifiers.png"
             class="object-cover h-[85%] object-left" v-fullscreen-img />
           Command Signifiers
         </MazCardSpotlight>
-        <MazCardSpotlight class="w-4/17 h-52 text-center" :padding="false">
+        <MazCardSpotlight class="sm:w-4/17 w-16/17 h-52 text-center"
+          :padding="false">
           <img src="/media/AppScreenshots/ContextPanes.png"
             class="object-cover h-[85%] object-left" v-fullscreen-img />
           Context Panes

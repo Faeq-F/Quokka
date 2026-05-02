@@ -14,9 +14,10 @@ watch(colorMode, async (newTheme, _oldTheme) => theme.value = newTheme)
       <MazAnimatedText tag="h1"
         text="Tracking project progress, active tasks, and upcoming features."
         :delay="400" :duration="1500" direction="up" :column-gap="0.3"
-        :row-gap="0.3" class="text-gray-500 dark:text-gray-400 mt-4" />
+        :row-gap="0.3"
+        class="text-gray-500 dark:text-gray-400 mt-4 sm:px-0 px-4" />
     </div>
-    <div class="w-full px-78 mb-4 mt-16 outfit">
+    <div class="w-full sm:px-78 px-4 mb-4 mt-16 outfit">
       <MazAnimatedElement direction="up" :delay="900" :duration="700">
         <MazCardSpotlight class="min-h-[40vh] w-full h-[90vh]" :padding="false">
           <iframe

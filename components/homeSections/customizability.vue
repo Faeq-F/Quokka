@@ -21,8 +21,9 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
 </script>
 
 <template>
-  <div class="flex px-78 pt-62" id="customizability">
-    <div class="inline">
+  <div class="flex flex-col-reverse items-center sm:flex-row sm:px-78 pt-62"
+    id="customizability">
+    <div class="sm:inline w-14/17 sm:w-fit sm:pt-0 pt-16">
       <MazAnimatedElement direction="right" :delay="1100" :duration="2000"
         class="flex flex-col">
         <MazCardSpotlight :padding="false">
@@ -59,7 +60,7 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
       </MazAnimatedElement>
     </div>
 
-    <div class="flex-2 w-full flex flex-col items-center pr-4 rounded-lg">
+    <div class="flex-2 w-full flex flex-col items-center sm:pr-4 rounded-lg">
       <div class="font-bold text-4xl text-center varela">
         <MazAnimatedElement direction="up" :delay="600" :duration="700"
           class="inline">
@@ -85,7 +86,7 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
           :loop="true" :ui="{
             container: 'transition-[height]',
             controls: 'absolute -bottom-4 inset-x-12',
-            dots: '-top-7',
+            dots: 'sm:-top-7',
             dot: 'w-6 h-1 bg-[#1f8fff33]',
           }">
           <img :src="item" class="rounded-lg mx-auto my-0" v-fullscreen-img />
