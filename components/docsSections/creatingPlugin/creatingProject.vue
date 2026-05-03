@@ -42,40 +42,44 @@ import DocNotice from '~/components/docNotice.vue'
         <Code lang="markup">
           &lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
 
-            &lt;PropertyGroup&gt;
-              &lt;TargetFramework&gt;net4.8-windows&lt;/TargetFramework&gt;
-              &lt;Nullable&gt;enable&lt;/Nullable&gt;
-              &lt;LangVersion&gt;10.0&lt;/LangVersion&gt;
-              &lt;UseWPF&gt;true&lt;/UseWPF&gt;
-              &lt;PublishSingleFile&gt;true&lt;/PublishSingleFile&gt;
-              &lt;SelfContained&gt;true&lt;/SelfContained&gt;
-              &lt;DebugType&gt;embedded&lt;/DebugType&gt;
-              &lt;AppendTargetFrameworkToOutputPath&gt;false&lt;/AppendTargetFrameworkToOutputPath&gt;
-              &lt;AppendRuntimeIdentifierToOutputPath&gt;false&lt;/AppendRuntimeIdentifierToOutputPath&gt;
+          &nbsp;&nbsp;&lt;PropertyGroup&gt;
+          &nbsp;&nbsp; &nbsp;&lt;TargetFramework&gt;net4.8-windows&lt;/TargetFramework&gt;
+          &nbsp;&nbsp; &nbsp;&lt;RuntimeIdentifier&gt;win-x64&lt;/RuntimeIdentifier&gt;
+          &nbsp;&nbsp; &nbsp;&lt;PublishReadyToRun&gt;true&lt;/PublishReadyToRun&gt;
+          &nbsp;&nbsp; &nbsp;&lt;Nullable&gt;enable&lt;/Nullable&gt;
+          &nbsp;&nbsp; &nbsp;&lt;LangVersion&gt;10.0&lt;/LangVersion&gt;
+          &nbsp;&nbsp; &nbsp;&lt;UseWPF&gt;true&lt;/UseWPF&gt;
+          &nbsp;&nbsp; &nbsp;&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+          &nbsp;&nbsp; &nbsp;&lt;SelfContained&gt;true&lt;/SelfContained&gt;
+          &nbsp;&nbsp; &nbsp;&lt;DebugType&gt;embedded&lt;/DebugType&gt;
+          &nbsp;&nbsp; &nbsp;&lt;AppendTargetFrameworkToOutputPath&gt;false&lt;/AppendTargetFrameworkToOutputPath&gt;
+          &nbsp;&nbsp; &nbsp;&lt;AppendRuntimeIdentifierToOutputPath&gt;false&lt;/AppendRuntimeIdentifierToOutputPath&gt;
 
-              &lt;Product&gt;Plugin_ShowTypedText&lt;/Product&gt;
-              &lt;BaseOutputPath&gt;
-                G:\Quokka\Quokka\PlugBoard\Plugin_ShowTypedText
-              &lt;/BaseOutputPath&gt;
-              &lt;Configurations&gt;Debug;Release;Plugin&lt;/Configurations&gt;
-            &lt;/PropertyGroup&gt;
+          &nbsp;&nbsp; &nbsp;&lt;Product&gt;PluginTypedText&lt;/Product&gt;
+          &nbsp;&nbsp; &nbsp;&lt;BaseOutputPath&gt;G:\Quokka\Quokka\PlugBoard\PluginTypedText&lt;/BaseOutputPath&gt;
+          &nbsp;&nbsp; &nbsp;&lt;Configurations&gt;Plugin&lt;/Configurations&gt;
 
-            &lt;PropertyGroup&gt;
-              &lt;GenerateDocumentationFile&gt;true&lt;/GenerateDocumentationFile&gt;
-              &lt;PlatformTarget&gt;AnyCPU&lt;/PlatformTarget&gt;
-            &lt;/PropertyGroup&gt;
+          &nbsp;&nbsp; &nbsp;&lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;
+          &nbsp;&nbsp; &nbsp;&lt;PlatformTarget&gt;AnyCPU&lt;/PlatformTarget&gt;
+          &nbsp;&nbsp; &nbsp;&lt;Optimize&gt;True&lt;/Optimize&gt;
+          &nbsp;&nbsp; &nbsp;&lt;EnforceCodeStyleInBuild&gt;True&lt;/EnforceCodeStyleInBuild&gt;
+          &nbsp;&nbsp; &nbsp;&lt;EnableNETAnalyzers&gt;True&lt;/EnableNETAnalyzers&gt;
+          &nbsp;&nbsp; &nbsp;&lt;AnalysisLevel&gt;latest-all&lt;/AnalysisLevel&gt;
+          &nbsp;&nbsp;&lt;/PropertyGroup&gt;
 
-            &lt;ItemGroup&gt;
-              &lt;ProjectReference Include=&quot;..\Quokka\Quokka.csproj&quot; /&gt;
-            &lt;/ItemGroup&gt;
+          &nbsp;&nbsp;&lt;ItemGroup&gt;
+          &nbsp;&nbsp; &nbsp;&lt;ProjectReference Include=&quot;..\Quokka\Quokka.csproj&quot;&gt;&lt;/ProjectReference&gt;
+          &nbsp;&nbsp;&lt;/ItemGroup&gt;
+
+          ...
 
           &lt;/Project&gt;
         </Code>
         <blockquote>
           This is a part of the
-          <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
+          <ExternalLink url="https://github.com/Faeq-F/Quokka-TypedText-Plugin"
             target="_blank">
-            ShowTypedText plugin
+            TypedText plugin
           </ExternalLink>
           &nbsp;(a demo plugin not made for use)
         </blockquote>

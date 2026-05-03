@@ -17,6 +17,7 @@ import DocNotice from '~/components/docNotice.vue'
           file add
         </span>
         <Code lang="cs">
+          using Quokka;
           using Quokka.PluginArch;
           using Quokka.ListItems;
         </Code>
@@ -28,30 +29,35 @@ import DocNotice from '~/components/docNotice.vue'
           class for your item type
         </span>
         <Code lang="cs">
-          class TypedTextItem : ListItem {
-            public string query;
+          class TypedTextItem : ListItem
+          &nbsp;&nbsp;{
 
-            public TypedTextItem(string query) {
-              this.Name = "Typed:" + query;
-              this.query = query;
-              this.Description = "The search field contains the above text";
-              this.Icon = new BitmapImage(new Uri(
-                Environment.CurrentDirectory +
-                "\\Config\\Resources\\information.png"));
-            }
+          &nbsp;&nbsp; &nbsp;readonly string query;
 
-            //When item is selected, copy text
-            public override void Execute() {
-              Clipboard.SetText(query);
-              App.Current.MainWindow.Close();
-            }
-          }
+          &nbsp;&nbsp; &nbsp;public TypedTextItem(string query)
+          &nbsp;&nbsp; &nbsp;{
+          &nbsp;&nbsp; &nbsp; &nbsp;Name = $&quot;You typed `{query}`&quot;;
+          &nbsp;&nbsp; &nbsp; &nbsp;Description = &quot;Hit the enter key to copy the text&quot;;
+          &nbsp;&nbsp; &nbsp; &nbsp;UiDispatcher.BeginInvoke(() =&gt;
+          &nbsp;&nbsp; &nbsp; &nbsp;{
+          &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Icon = new BitmapImage(new Uri(
+          &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Environment.CurrentDirectory + &quot;\\PlugBoard\\PluginTypedText\\Plugin\\text.png&quot;));
+          &nbsp;&nbsp; &nbsp; &nbsp;});
+          &nbsp;&nbsp; &nbsp; &nbsp;this.query = query;
+          &nbsp;&nbsp; &nbsp;}
+
+          &nbsp;&nbsp; &nbsp;public override void Execute()
+          &nbsp;&nbsp; &nbsp;{
+          &nbsp;&nbsp; &nbsp; &nbsp;System.Windows.Clipboard.SetText(query);
+          &nbsp;&nbsp; &nbsp; &nbsp;App.Current.MainWindow.Close();
+          &nbsp;&nbsp; &nbsp;}
+          &nbsp;&nbsp;}
         </Code>
         <blockquote>
           This is a part of the
-          <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
+          <ExternalLink url="https://github.com/Faeq-F/Quokka-TypedText-Plugin"
             target="_blank">
-            ShowTypedText plugin
+            TypedText plugin
           </ExternalLink>
           &nbsp;(a demo plugin not made for use)
         </blockquote>

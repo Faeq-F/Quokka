@@ -53,9 +53,9 @@ import refreshLenis from '~/assets/scripts/lenis';
           :ui="{ border: 'dark:border-gray-600 h-full' }" />
         <div>
           See an example from the
-          <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
+          <ExternalLink url="https://github.com/Faeq-F/Quokka-TypedText-Plugin"
             target="_blank">
-            ShowTypedText plugin
+            TypedText plugin
           </ExternalLink>
           &nbsp;(a demo plugin not made for use)
         </div>
@@ -211,9 +211,9 @@ import refreshLenis from '~/assets/scripts/lenis';
     </Code>
       <blockquote>
         This is a part of the
-        <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
+        <ExternalLink url="https://github.com/Faeq-F/Quokka-TypedText-Plugin"
           target="_blank">
-          ShowTypedText plugin
+          TypedText plugin
         </ExternalLink>
         &nbsp;(a demo plugin not made for use)
       </blockquote>

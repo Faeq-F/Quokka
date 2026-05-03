@@ -65,9 +65,9 @@ import refreshLenis from '~/assets/scripts/lenis';
         <div>
           A context pane tends to have extra information or actions.<br />
           See an example from the
-          <ExternalLink url="https://github.com/Faeq-F/TypedText-Plugins"
+          <ExternalLink url="https://github.com/Faeq-F/Quokka-TypedText-Plugin"
             target="_blank">
-            ShowTypedText plugin
+            TypedText plugin
           </ExternalLink>
           &nbsp;(a demo plugin not made for use)
         </div>
@@ -75,7 +75,7 @@ import refreshLenis from '~/assets/scripts/lenis';
     </template>
     <template #content-1>
       <Code lang="markup">
-        &lt;src:ItemContextPane x:Class=&quot;Plugin_ShowTypedText.ContextPane&quot;
+        &lt;src:ItemContextPane x:Class=&quot;Plugin_TypedText.ContextPane&quot;
           xmlns:src=&quot;clr-namespace:Quokka.ListItems;assembly=Quokka&quot;
           d:DesignHeight=&quot;300&quot; d:DesignWidth=&quot;800&quot; ... Title=&quot;ContextPane&quot;
           KeyDown=&quot;Page_KeyDown&quot;&gt;
@@ -118,7 +118,7 @@ import refreshLenis from '~/assets/scripts/lenis';
         using Quokka;
         ...
 
-        namespace Plugin_ShowTypedText {
+        namespace Plugin_TypedText {
 
           public partial class ContextPane : ItemContextPane {
 
