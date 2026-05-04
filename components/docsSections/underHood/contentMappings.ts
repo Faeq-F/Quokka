@@ -1,4 +1,3 @@
-// Content mapping configuration
 import ItemContextPane from '~/components/docsSections/underHood/itemContextPane.vue'
 import App from '~/components/docsSections/underHood/app.vue'
 import Quokka from '~/components/docsSections/underHood/quokka.vue'
@@ -14,6 +13,13 @@ import BuildSolution from '~/components/docsSections/underHood/buildSolution.vue
 import QuokkaSln from '~/components/docsSections/underHood/quokkaSln.vue'
 import AppFont from '~/components/docsSections/underHood/appFont.vue'
 import SettingParsers from '~/components/docsSections/underHood/settingParsers.vue'
+import AppPlugins from '~/components/docsSections/underHood/appPlugins.vue'
+import FuzzySearch from '~/components/docsSections/underHood/fuzzySearch.vue'
+import IconCache from '~/components/docsSections/underHood/IconCache.vue'
+import UiDispatcher from '~/components/docsSections/underHood/UiDispatcher.vue'
+import Plugin from '~/components/docsSections/underHood/plugin.vue'
+import AboutQuokkaItem from '~/components/docsSections/underHood/aboutQuokkaItem.vue'
+import PluginQuokka from '~/components/docsSections/underHood/pluginQuokka.vue'
 
 const contentMappings: Record<string, any> = {
   '.vs/': {
@@ -49,6 +55,21 @@ const contentMappings: Record<string, any> = {
   'NoListItem.cs': {
     description: 'The list item that appears when there are no results for a query.'
   },
+  'AppPlugins.cs': {
+    component: 'AppPlugins'
+  },
+  'FuzzySearch.cs': {
+    component: 'FuzzySearch'
+  },
+  'IconCache.cs': {
+    component: 'IconCache'
+  },
+  'Plugin.cs': {
+    component: 'Plugin'
+  },
+  'UiDispatcher.cs': {
+    component: 'UiDispatcher'
+  },
   'KeyDown.cs': {
     component: 'KeyDown'
   },
@@ -66,6 +87,30 @@ const contentMappings: Record<string, any> = {
   },
   'SettingParsers.cs': {
     component: 'SettingParsers'
+  },
+  'AboutQuokkaItem.cs': {
+    component: 'AboutQuokkaItem'
+  },
+  'ContextPane.xaml': {
+    description: 'The context pane that provides useful links about Quokka and a link to the licenses page.'
+  },
+  'ContextPane.xaml.cs': {
+    description: 'Contains the methods for handling context pane item actions, including copying links to the clipboard.'
+  },
+  'Licenses.xaml.cs': {
+    description: 'Contains the methods for handling license page actions, including copying links to the clipboard.'
+  },
+  'Licenses.xaml': {
+    description: 'The licenses page that displays the licenses for the application and its dependencies.'
+  },
+  'Plugin_Quokka.cs': {
+    component: 'PluginQuokka'
+  },
+  'SettingsFileWatcher.cs': {
+    description: 'Contains the logic for watching the settings file for changes, and displaying a suggestion to restart the application to apply changes.'
+  },
+  'UpdateChecker.cs': {
+    description: 'Contains the logic for checking if updates are available and notifying the user of their version status.'
   },
   'NotifyIconResources.xaml': {
     description: 'Defines the UI for the tray task and its context menu.'
@@ -138,12 +183,6 @@ const contentMappings: Record<string, any> = {
   }
 }
 
-const defaultContentItems = [
-  'AppPlugins.cs', 'FuzzySearch.cs', 'IconCache.cs', 'Plugin.cs', 'UiDispatcher.cs',
-  'AboutQuokkaItem.cs', 'ContextPane.xaml', 'ContextPane.xaml.cs', 'Licences.xaml.cs',
-  'Licenses.xaml', 'Plugin_Quokka.cs', 'SettingsFileWatcher.cs', 'UpdateChecker.cs',
-]
-
 const componentMap: Record<string, any> = {
   ItemContextPane,
   App,
@@ -160,6 +199,13 @@ const componentMap: Record<string, any> = {
   QuokkaSln,
   AppFont,
   SettingParsers,
+  AppPlugins,
+  FuzzySearch,
+  IconCache,
+  UiDispatcher,
+  Plugin,
+  AboutQuokkaItem,
+  PluginQuokka
 }
 
-export { contentMappings, defaultContentItems, componentMap };
+export { contentMappings, componentMap };

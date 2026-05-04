@@ -179,7 +179,7 @@ export const useUnderTheHoodStore = defineStore("underTheHoodStore", {
                     icon: 'i-lucide-toolbox'
                   },
                   {
-                    label: 'Licences.xaml.cs',
+                    label: 'Licenses.xaml.cs',
                     icon: 'i-lucide-scale'
                   },
                   {

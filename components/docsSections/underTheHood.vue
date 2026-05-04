@@ -5,7 +5,7 @@ import Home from '~/components/docsSections/underHood/home.vue';
 import type { TreeItem } from '@nuxt/ui';
 
 import File from '~/components/docsSections/underHood/file.vue'
-import { contentMappings, defaultContentItems, componentMap } from '~/components/docsSections/underHood/contentMappings';
+import { contentMappings, componentMap } from '~/components/docsSections/underHood/contentMappings';
 
 const fsLenisContent = ref();
 const fsLenisWrapper = ref();
@@ -124,17 +124,11 @@ const customComponent = computed(() => {
 
 const hasDescription = computed(() => {
   if (!itemContent.value) return false
-  return itemContent.value?.description || defaultContentItems.includes(selectedItem.value?.label)
+  return itemContent.value?.description
 })
 
 const description = computed(() => {
   if (itemContent.value?.description) return itemContent.value.description
-
-  // Default handling for items without specific content
-  if (defaultContentItems.includes(selectedItem.value?.label)) {
-    return ''
-  }
-
   return null
 })
 
@@ -154,7 +148,8 @@ watch(() => route.query.file, switchSectionTo, { immediate: true })
       </div>
       <div class="text-md outfit">The inner workings of the application</div>
     </div>
-    <div class="flex gap-2 w-full overflow-hidden">
+    <div
+      class="flex flex-col-reverse sm:flex-row sm:px-0 px-4 gap-2 w-full overflow-hidden">
       <MazCardSpotlight class="w-xl list-none max-h-[85vh] mb-4 resize-x">
         <div class="max-h-full h-full max-w-full w-full overflow-y-scroll"
           ref="fsLenisWrapper">
@@ -187,19 +182,13 @@ watch(() => route.query.file, switchSectionTo, { immediate: true })
                 @select="(v) => navigateTo(`/documentation?section=under-hood&file=${v.label}`)"
                 v-if="!selectedItem" />
               <div v-else :key="contentKey">
-                <!-- Always show file component -->
+                <!-- Always show header for file -->
                 <File v-if="selectedItem" :link="fileLink"
                   :item="selectedItem" />
-
                 <!-- Description content -->
                 <div v-if="hasDescription" class="p-10">
                   <div v-if="description" v-html="description"></div>
-
-                  <!-- Custom HTML content -->
-                  <div v-if="itemContent?.customContent"
-                    v-html="itemContent.customContent"></div>
                 </div>
-
                 <!-- Custom component content -->
                 <component v-if="hasCustomComponent" :is="customComponent" />
               </div>
