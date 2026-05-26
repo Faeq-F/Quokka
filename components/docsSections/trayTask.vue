@@ -59,7 +59,8 @@ import DocNotice from '~/components/docNotice.vue'
             <span class="flex gap-1">
               You can change which text editor opens the settings file
               through
-              <ExternalLink url='' class="flex">
+              <ExternalLink url='/Quokka/documentation?section=settings'
+                class="flex">
                 <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">TextEditor</Code>
                 <span>&nbsp;&nbsp;setting</span>
@@ -73,7 +74,8 @@ import DocNotice from '~/components/docNotice.vue'
             <span class="flex gap-1">
               You can change which file manager opens the
               <Code inline> PlugBoard </Code> folder through
-              <ExternalLink url='' class="flex">
+              <ExternalLink url='/Quokka/documentation?section=settings'
+                class="flex">
                 <span>the&nbsp;&nbsp;</span>
                 <Code inline class="!border-0">FileManager</Code>
                 <span>&nbsp;&nbsp;setting</span>

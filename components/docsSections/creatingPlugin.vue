@@ -19,8 +19,7 @@ import Link from '~/components/link.vue'
 
     <DocNotice type="info" class="w-full">
       Quokka is licensed under the
-      <Link blank url="https://github.com/Faeq-F/Quokka/blob/main/LICENCE"> GNU
-        General Public License v3.0</Link>
+      <Link url="/Quokka/license"> GNU General Public License v3.0</Link>
     </DocNotice>
 
     <div class="mb-2 mt-4">Steps</div>

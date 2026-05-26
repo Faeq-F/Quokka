@@ -34,7 +34,7 @@ const signifiers = plugins.pluginsList.map((i) => {
     </div>
     <DocNotice type="tip" style="width: 100%">
       Please check the
-      <ExternalLink url="/documentation?section=api-documentation">
+      <ExternalLink url="/Quokka/documentation?section=api-documentation">
         API Documentation
       </ExternalLink>
       &nbsp;for further details on the content covered on this page
@@ -69,7 +69,7 @@ const signifiers = plugins.pluginsList.map((i) => {
             </ul>
           </template>
           <template #cell-plugin="{ value }">
-            <ExternalLink :url='"/plugin/" + value.replace(" ", "~")'>
+            <ExternalLink :url='"/Quokka/plugin/" + value.replace(" ", "~")'>
               {{ value }}
             </ExternalLink>
           </template>
@@ -99,7 +99,7 @@ const signifiers = plugins.pluginsList.map((i) => {
             </ul>
           </template>
           <template #cell-plugin="{ value }">
-            <ExternalLink :url='"/plugin/" + value.replace(" ", "~")'>
+            <ExternalLink :url='"/Quokka/plugin/" + value.replace(" ", "~")'>
               {{ value }}
             </ExternalLink>
           </template>

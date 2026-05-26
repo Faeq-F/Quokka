@@ -25,7 +25,7 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
         Plugins may have their own, specific settings files in the root of
         their respective folders, in the PlugBoard.<br />
         Please consult their documentation (
-        <ExternalLink url="/documentation?section=api-documentation">
+        <ExternalLink url="/Quokka/documentation?section=api-documentation">
           API Documentation
         </ExternalLink>
         &nbsp;included) for default values, etc.
@@ -82,13 +82,13 @@ import { vFullscreenImg } from 'maz-ui/directives/vFullscreenImg'
         <USeparator :ui="{ border: 'dark:border-gray-600' }" />
         <div class="m-2">
           Quokka comes with the
-          <ExternalLink url="/#customizability">
+          <ExternalLink url="/Quokka/#customizability">
             'Windows light'
           </ExternalLink>
           &nbsp;theme by default.<br />
           To change it, you can edit the style settings in the settings file
           and / or you can use values in a
-          <ExternalLink url="/#customizability">
+          <ExternalLink url="/Quokka/#customizability">
             provided configuration
           </ExternalLink>.
         </div>

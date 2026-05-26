@@ -12,7 +12,7 @@ import DocNotice from '~/components/docNotice.vue'
     </div>
     <DocNotice type="info" class="m-2 w-full">
       Quokka is licensed under the
-      <ExternalLink url="/license">
+      <ExternalLink url="/Quokka/license">
         GNU General Public License v3.0
       </ExternalLink>
     </DocNotice>

@@ -55,7 +55,7 @@ import ExternalLink from '~/components/link.vue'
           { label: 'Author', key: 'author' },
         ]" :rows="allPlugins" search inputSize="sm">
         <template #cell-name="{ row, value }">
-          <ExternalLink :url='"/plugin/" + row.name.replace(" ", "~")'
+          <ExternalLink :url='"/Quokka/plugin/" + row.name.replace(" ", "~")'
             v-if="row.authorLink">
             {{ value }}
           </ExternalLink>
