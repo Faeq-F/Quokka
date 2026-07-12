@@ -1,4 +1,4 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+using Hardcodet.Wpf.TaskbarNotification;
 using Quokka.PluginArch;
 using System;
 using System.Diagnostics;
@@ -45,16 +45,22 @@ namespace Quokka
       //run anything needed for plugins on app exit
       try
       {
-        foreach (Plugin plugin in plugins)
+        if (plugins != null)
         {
-          plugin.OnAppShutdown();
+          foreach (Plugin plugin in plugins)
+          {
+            plugin.OnAppShutdown();
+          }
         }
       }
       catch (Exception ex)
       {
         ShowErrorMessageBox(ex, "Error with a plugin calling its OnAppShutdown()");
       }
-      notifyIcon!.Dispose(); //the icon would clean up automatically, but this is cleaner
+      if (notifyIcon != null)
+      {
+        notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
+      }
       base.OnExit(e);
     }
 

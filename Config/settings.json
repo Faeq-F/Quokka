@@ -50,7 +50,7 @@
       "TrayTaskContextMenuBorderColor": "#ddd",
       "TrayTaskContextMenuBorderThickness": "2",
       "TrayTaskContextMenuRounding": "8",
-      "TrayTaskContextMenuSeperatorColor": "#e5e5e5",
+      "TrayTaskContextMenuSeparatorColor": "#e5e5e5",
 
       "TrayTaskContextMenuDropShadowBlurRadius": "70",
       "TrayTaskContextMenuDropShadowOpacity": "0.1",

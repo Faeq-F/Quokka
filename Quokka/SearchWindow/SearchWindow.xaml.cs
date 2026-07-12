@@ -1,4 +1,4 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using Quokka.PluginArch;
 using System;
 using System.Collections.Generic;
@@ -115,6 +115,8 @@ namespace Quokka
       //fields needed for context panes
       searchBox = SearchTermTextBox;
       contextPaneFrame = ContextPane;
+
+      Loaded += SearchWindow_Loaded;
     }
 
     private void Exit(object sender, ExecutedRoutedEventArgs e)
@@ -306,6 +308,48 @@ namespace Quokka
     {
       Dispose(true);
       GC.SuppressFinalize(this);
+    }
+
+    // Ensure the window is in focus when opened
+
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    private static extern IntPtr GetForegroundWindow();
+
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    private static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
+
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    private static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
+
+    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+    private static extern bool SetForegroundWindow(IntPtr hWnd);
+
+    private static void ForceForegroundWindow(IntPtr hWnd)
+    {
+      IntPtr foregroundHWnd = GetForegroundWindow();
+      if (foregroundHWnd == hWnd) return;
+
+      uint foregroundThreadId = GetWindowThreadProcessId(foregroundHWnd, IntPtr.Zero);
+      uint ourThreadId = GetWindowThreadProcessId(hWnd, IntPtr.Zero);
+
+      if (foregroundThreadId != ourThreadId)
+      {
+        AttachThreadInput(foregroundThreadId, ourThreadId, true);
+        SetForegroundWindow(hWnd);
+        AttachThreadInput(foregroundThreadId, ourThreadId, false);
+      }
+      else
+      {
+        SetForegroundWindow(hWnd);
+      }
+    }
+
+    private void SearchWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+      var helper = new System.Windows.Interop.WindowInteropHelper(this);
+      ForceForegroundWindow(helper.Handle);
+      SearchTermTextBox.Focus();
     }
 
   }

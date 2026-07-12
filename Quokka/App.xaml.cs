@@ -1,4 +1,4 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+using Hardcodet.Wpf.TaskbarNotification;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -26,6 +26,42 @@ namespace Quokka
     protected override void OnStartup(StartupEventArgs e)
     {
       base.OnStartup(e);
+
+      // Set working directory to the application assembly directory to ensure correct relative paths
+      Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+      bool noElevationArg = false;
+      foreach (var arg in e.Args)
+      {
+        if (arg.Equals("--no-elevation", StringComparison.OrdinalIgnoreCase))
+        {
+          noElevationArg = true;
+          break;
+        }
+      }
+
+      if (!noElevationArg && !IsRunAsAdmin())
+      {
+        try
+        {
+          var processInfo = new System.Diagnostics.ProcessStartInfo
+          {
+            FileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName,
+            WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
+            UseShellExecute = true,
+            Verb = "runas",
+            Arguments = "--no-elevation"
+          };
+          System.Diagnostics.Process.Start(processInfo);
+          Application.Current.Shutdown();
+          return;
+        }
+        catch (System.ComponentModel.Win32Exception)
+        {
+          // User clicked "No" on the UAC prompt or canceled.
+          // If we don't get elevation, we continue running with standard privileges.
+        }
+      }
 
       notifyIcon = (TaskbarIcon)FindResource("LoadingNotifyIcon");
       notifyIcon.Icon = new Icon(File.OpenRead(Environment.CurrentDirectory + "\\Config\\Resources\\LoadingQuokkaTray.ico"));
@@ -82,6 +118,20 @@ namespace Quokka
             MessageBoxButton.OK,
             MessageBoxImage.Error
         );
+    }
+
+    private static bool IsRunAsAdmin()
+    {
+      try
+      {
+        System.Security.Principal.WindowsIdentity id = System.Security.Principal.WindowsIdentity.GetCurrent();
+        System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(id);
+        return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
+      }
+      catch
+      {
+        return false;
+      }
     }
 
     protected virtual void Dispose(bool disposing)
