@@ -117,6 +117,7 @@ namespace Quokka
       contextPaneFrame = ContextPane;
 
       Loaded += SearchWindow_Loaded;
+      PreviewKeyDown += SearchWindow_PreviewKeyDown;
     }
 
     private void Exit(object sender, ExecutedRoutedEventArgs e)
@@ -350,6 +351,16 @@ namespace Quokka
       var helper = new System.Windows.Interop.WindowInteropHelper(this);
       ForceForegroundWindow(helper.Handle);
       SearchTermTextBox.Focus();
+    }
+
+    private void SearchWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+      Key key = (e.Key == Key.ImeProcessed) ? e.ImeProcessedKey : e.Key;
+      if (key == Key.Escape)
+      {
+        Close();
+        e.Handled = true;
+      }
     }
 
   }

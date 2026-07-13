@@ -1,4 +1,4 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,8 +20,16 @@ namespace Quokka
         return;
       }
 
-      switch (e.Key)
+      Key key = (e.Key == Key.ImeProcessed) ? e.ImeProcessedKey : e.Key; // fix needing to hit escape twice
+      switch (key)
       {
+
+        case Key.Escape:
+          {
+            Close();
+            e.Handled = true;
+            return;
+          }
 
         case Key.Down:
           {

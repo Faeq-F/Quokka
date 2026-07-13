@@ -1,4 +1,4 @@
-﻿<Window
+<Window
   x:Class="Quokka.SearchWindow"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -277,7 +277,7 @@
                   MaxLines="1"
                   PreviewKeyDown="SearchTermTextBox_KeyDown"
                   SelectionBrush="{DynamicResource SearchFieldTxtSelColor}"
-                  SpellCheck.IsEnabled="True"
+                  SpellCheck.IsEnabled="False"
                   TextChanged="OnQueryChange"
                   UseLayoutRounding="True">
                   <TextBox.ContextMenu>
