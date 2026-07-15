@@ -1,4 +1,4 @@
-﻿using FuzzySharp.SimilarityRatio;
+using FuzzySharp.SimilarityRatio;
 using FuzzySharp.SimilarityRatio.Scorer;
 using FuzzySharp.SimilarityRatio.Scorer.Composite;
 using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
@@ -13,18 +13,21 @@ namespace Quokka.Settings
 {
 
   /// <summary>
-  /// All of the methods for parsing and evaluating different types of app settings.
+  /// Provides methods for parsing and evaluating different types of application settings.
   /// </summary>
   public static class SettingParsers
   {
 
     /// <summary>
-    /// Parses and evaluates settings that can have ScreenHeight and ScreenWidth values in them (i.e., the "WindowTopMargin", "WindowWidth" and "ListContainerMaxHeight" settings).
+    /// Parses and evaluates settings that can have screen dimensions (e.g., <c>ScreenHeight</c> or <c>ScreenWidth</c>) (i.e., the <c>WindowTopMargin</c>, <c>WindowWidth</c>, and <c>ListContainerMaxHeight</c> settings).
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.
+    /// The evaluated double value. If the setting cannot be parsed, returns <c>0</c> and displays an error.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="settingValue"/> is <see langword="null"/>.
+    /// </exception>
     public static double ParseScreenDimensionsSetting(string settingValue)
     {
       try
@@ -86,12 +89,15 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates HorizontalAlignment settings.
+    /// Parses and evaluates <see cref="HorizontalAlignment"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, HorizontalAlignment.Center is returned and an error message is shown to the user.
+    /// The evaluated <see cref="HorizontalAlignment"/> value. If the setting cannot be parsed, returns <see cref="HorizontalAlignment.Center"/> and displays an error.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="settingValue"/> is <see langword="null"/>.
+    /// </exception>
     public static HorizontalAlignment ParseHorizontalAlignmentSetting(string settingValue)
     {
       try
@@ -106,12 +112,15 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates RenderingBias settings.
+    /// Parses and evaluates <see cref="RenderingBias"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, RenderingBias.Quality is returned and an error message is shown to the user.
+    /// The evaluated <see cref="RenderingBias"/> value. If the setting cannot be parsed, returns <see cref="RenderingBias.Quality"/> and displays an error.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="settingValue"/> is <see langword="null"/>.
+    /// </exception>
     public static RenderingBias ParseRenderingBiasSetting(string settingValue)
     {
       try
@@ -126,12 +135,15 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates VerticalAlignment settings.
+    /// Parses and evaluates <see cref="VerticalAlignment"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, VerticalAlignment.Center is returned and an error message is shown to the user.
+    /// The evaluated <see cref="VerticalAlignment"/> value. If the setting cannot be parsed, returns <see cref="VerticalAlignment.Center"/> and displays an error.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="settingValue"/> is <see langword="null"/>.
+    /// </exception>
     public static VerticalAlignment ParseVerticalAlignmentSetting(string settingValue)
     {
       try
@@ -146,12 +158,15 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates Visibility settings.
+    /// Parses and evaluates <see cref="Visibility"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, Visibility.Visible is returned and an error message is shown to the user.
+    /// The evaluated <see cref="Visibility"/> value. If the setting cannot be parsed, returns <see cref="Visibility.Visible"/> and displays an error.
     /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="settingValue"/> is <see langword="null"/>.
+    /// </exception>
     public static Visibility ParseVisibilitySetting(string settingValue)
     {
       try
@@ -166,11 +181,11 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates Thickness settings.
+    /// Parses and evaluates <see cref="Thickness"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, a thickness of 0 is returned and an error message is shown to the user.
+    /// The evaluated <see cref="Thickness"/> value. If the setting cannot be parsed, returns a thickness of <c>0</c> and displays an error.
     /// </returns>
     public static Thickness ParseThicknessSetting(string settingValue)
     {
@@ -182,10 +197,12 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates CornerRadius settings.
+    /// Parses and evaluates <see cref="CornerRadius"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated.</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a corner radius of 0 is returned and an error message is shown to the user.</returns>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
+    /// <returns>
+    /// The evaluated <see cref="CornerRadius"/> value. If the setting cannot be parsed, returns a corner radius of <c>0</c> and displays an error.
+    /// </returns>
     public static CornerRadius ParseCornerRadiusSetting(string settingValue)
     {
       try
@@ -196,10 +213,12 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates double settings (i.e., of double type).
+    /// Parses and evaluates <see cref="double"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated (US culture-specific format).</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.</returns>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated (using US culture format).</param>
+    /// <returns>
+    /// The evaluated double value. If the setting cannot be parsed, returns <c>0</c> and displays an error.
+    /// </returns>
     public static Double ParseDoubleSetting(string settingValue)
     {
       try
@@ -210,10 +229,12 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates integer settings (i.e., of integer type).
+    /// Parses and evaluates <see cref="int"/> settings.
     /// </summary>
-    /// <param name="settingValue">The value of a setting to be evaluated (US culture-specific format).</param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, 0 is returned and an error message is shown to the user.</returns>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated (using US culture format).</param>
+    /// <returns>
+    /// The evaluated integer value. If the setting cannot be parsed, returns <c>0</c> and displays an error.
+    /// </returns>
     public static int ParseIntegerSetting(string settingValue)
     {
       try
@@ -224,15 +245,24 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates the setting for the scorer that is used during fuzzy search
+    /// Parses and evaluates the scorer setting used for fuzzy search.
     /// </summary>
-    /// <param name="settingValue">
-    /// The value of the setting to be evaluated.
-    /// 
-    /// Values accepted: 
-    /// ratio, partialRatio, tokenSet, partialTokenSet, tokenSort, partialTokenSort, tokenAbbreviation, partialTokenAbbreviation, weighted
+    /// <param name="settingValue">The string representation of the scorer setting value. Acceptable values:
+    /// <list type="bullet">
+    /// <item><description><c>ratio</c> (maps to <see cref="DefaultRatioScorer"/>)</description></item>
+    /// <item><description><c>partialRatio</c> (maps to <see cref="PartialRatioScorer"/>)</description></item>
+    /// <item><description><c>tokenSet</c> (maps to <see cref="TokenSetScorer"/>)</description></item>
+    /// <item><description><c>partialTokenSet</c> (maps to <see cref="PartialTokenSetScorer"/>)</description></item>
+    /// <item><description><c>tokenSort</c> (maps to <see cref="TokenSortScorer"/>)</description></item>
+    /// <item><description><c>partialTokenSort</c> (maps to <see cref="PartialTokenSortScorer"/>)</description></item>
+    /// <item><description><c>tokenAbbreviation</c> (maps to <see cref="TokenAbbreviationScorer"/>)</description></item>
+    /// <item><description><c>partialTokenAbbreviation</c> (maps to <see cref="PartialTokenAbbreviationScorer"/>)</description></item>
+    /// <item><description><c>weighted</c> (maps to <see cref="WeightedRatioScorer"/>)</description></item>
+    /// </list>
     /// </param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, a PartialRatioScorer will be used and an error message is shown to the user.</returns>
+    /// <returns>
+    /// The evaluated <see cref="IRatioScorer"/> instance. If the setting cannot be parsed, returns a scorer via <see cref="PartialRatioScorer"/> and displays an error.
+    /// </returns>
     public static IRatioScorer ParseScorerSetting(string settingValue)
     {
       switch (settingValue)
@@ -247,19 +277,17 @@ namespace Quokka.Settings
         case "partialTokenAbbreviation": return ScorerCache.Get<PartialTokenAbbreviationScorer>();
         case "weighted": return ScorerCache.Get<WeightedRatioScorer>();
         default:
-          MessageBox.Show("Could not parse the scorer setting with the value \"" + settingValue + "\"", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          App.ShowErrorMessageBox(new FormatException("Could not parse the scorer setting with the value \"" + settingValue + "\""), "Error");
           return ScorerCache.Get<PartialRatioScorer>();
       }
     }
 
     /// <summary>
-    /// Parses and evaluates SolidColorBrush settings.
+    /// Parses and evaluates <see cref="SolidColorBrush"/> settings.
     /// </summary>
-    /// <param name="settingValue">
-    /// The value of a setting to be evaluated.
-    /// </param>
+    /// <param name="settingValue">The string representation of the color value.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, a Transparent SolidColorBrush is returned and an error message is shown to the user.
+    /// The evaluated <see cref="SolidColorBrush"/> value. If the setting cannot be parsed, returns a transparent brush and displays an error.
     /// </returns>
     public static SolidColorBrush ParseSolidColorBrush(string settingValue)
     {
@@ -275,13 +303,11 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates FontWeight settings.
+    /// Parses and evaluates <see cref="FontWeight"/> settings.
     /// </summary>
-    /// <param name="settingValue">
-    /// The value of a setting to be evaluated.
-    /// </param>
+    /// <param name="settingValue">The string representation of the font weight value.</param>
     /// <returns>
-    /// The setting value evaluated. If the setting cannot be evaluated correctly, FontWeights.Normal is returned and an error message is shown to the user.
+    /// The evaluated <see cref="FontWeight"/> value. If the setting cannot be parsed, returns <see cref="FontWeights.Normal"/> and displays an error.
     /// </returns>
     public static FontWeight ParseFontWeight(string settingValue)
     {
@@ -297,14 +323,21 @@ namespace Quokka.Settings
     }
 
     /// <summary>
-    /// Parses and evaluates the setting for the animation to be used for the app results list.
+    /// Parses and evaluates the <see cref="AnimationSettings"/> to be used for the results list.
     /// </summary>
-    /// <param name="settingValue">
-    /// The value of the setting to be evaluated.
-    /// 
-    /// Values accepted: FadeIn, Unblur, ScaleFromLeft, ScaleFromTop, ScaleFromRight, ScaleFromBottom, ScaleHorizontally, ScaleVertically, SlideFromLeft, SlideFromTop, SlideFromRight, SlideFromBottom
+    /// <param name="settingValue">The string representation of the animation setting. Acceptable values:
+    /// <list type="bullet">
+    /// <item><description><c>FadeIn</c> (maps to <see cref="AnimationKind.FadeFrom"/>)</description></item>
+    /// <item><description><c>Unblur</c> (maps to <see cref="AnimationKind.BlurFrom"/>)</description></item>
+    /// <item><description><c>ScaleFromLeft</c>, <c>ScaleFromRight</c>, or <c>ScaleHorizontally</c> (maps to <see cref="AnimationKind.ScaleXFrom"/>)</description></item>
+    /// <item><description><c>ScaleFromTop</c>, <c>ScaleFromBottom</c>, or <c>ScaleVertically</c> (maps to <see cref="AnimationKind.ScaleYFrom"/>)</description></item>
+    /// <item><description><c>SlideFromLeft</c> or <c>SlideFromRight</c> (maps to <see cref="AnimationKind.TranslateXFrom"/>)</description></item>
+    /// <item><description><c>SlideFromTop</c> or <c>SlideFromBottom</c> (maps to <see cref="AnimationKind.TranslateYFrom"/>)</description></item>
+    /// </list>
     /// </param>
-    /// <returns>The setting value evaluated. If the setting cannot be evaluated correctly, an empty animation (no animation) will be used  and an error message is shown to the user.</returns>
+    /// <returns>
+    /// The evaluated <see cref="AnimationSettings"/> value. If the setting cannot be parsed, returns default animation settings and displays an error.
+    /// </returns>
     public static AnimationSettings ParseAnimationSetting(string settingValue)
     {
       double BlurRadius = (double)App.Current.Resources["AnimationBlurRadius"];
@@ -389,7 +422,7 @@ namespace Quokka.Settings
             OffsetY = new Offset { OffsetValue = Offset }
           };
         default:
-          MessageBox.Show("Could not parse the animation setting with the value \"" + settingValue + "\"", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+          App.ShowErrorMessageBox(new FormatException("Could not parse the animation setting with the value \"" + settingValue + "\""), "Error");
           return new AnimationSettings { };
       }
     }

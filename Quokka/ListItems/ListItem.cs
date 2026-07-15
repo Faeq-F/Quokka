@@ -1,26 +1,28 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Windows.Media;
 
 namespace Quokka.ListItems
 {
   /// <summary>
-  /// All list items should implement this class.
+  /// Represents the base class for all list items displayed in the launcher.
   /// </summary>
   public abstract class ListItem : INotifyPropertyChanged
   {
     /// <summary>
-    /// The name of the item (The main text that appears in the list)
+    /// Gets or sets the name of the item, which is the main text displayed in the results list.
     /// </summary>
     public string Name { get; set; } = "Item Name";
+
     /// <summary>
-    /// The description of / extra details about the item (The smaller text that appears in the list)
+    /// Gets or sets the description or extra details of the item, which is the smaller text displayed under the name.
     /// </summary>
     public string Description { get; set; } = "Item Description";
 
     private ImageSource? _icon;
+
     /// <summary>
-    /// The icon for the item
+    /// Gets or sets the icon for the item.
     /// </summary>
     public ImageSource? Icon
     {
@@ -36,25 +38,30 @@ namespace Quokka.ListItems
     }
 
     /// <summary>
-    /// What the item does when it is executed (Enter key pressed)
+    /// Runs the action associated with the list item when it is selected and executed.
     /// </summary>
     public abstract void Execute();
 
     /// <summary>
-    /// <inheritdoc/>
+    /// Returns a string representation of the list item.
     /// </summary>
-    /// <returns>The name of the ListItem with the description on a new line</returns>
+    /// <returns>
+    /// A string combining the <see cref="Name"/> and <see cref="Description"/>, separated by a newline.
+    /// </returns>
     public override string ToString()
     {
       return Name + "\n" + Description;
     }
 
     /// <summary>
-    /// <inheritdoc/>
+    /// Determines whether the specified object is equal to the current list item.
     /// </summary>
-    /// <param name="obj"><inheritdoc/></param>
-    /// <returns><inheritdoc/></returns>
-    public override bool Equals(object obj)
+    /// <param name="obj">The object to compare with the current list item.</param>
+    /// <returns>
+    /// <c>true</c> if the specified object is a <see cref="ListItem"/> and has the same string representation
+    /// (evaluated via <see cref="ToString"/>); otherwise, <c>false</c>.
+    /// </returns>
+    public override bool Equals(object? obj)
     {
       if (obj is not ListItem item)
       {
@@ -65,9 +72,11 @@ namespace Quokka.ListItems
     }
 
     /// <summary>
-    /// <inheritdoc/>
+    /// Serves as the default hash function.
     /// </summary>
-    /// <returns><inheritdoc/></returns>
+    /// <returns>
+    /// A hash code computed based on the string representation of the list item.
+    /// </returns>
     public override int GetHashCode()
     {
       int hash = 17;
@@ -76,13 +85,14 @@ namespace Quokka.ListItems
     }
 
     /// <summary>
-    /// <inheritdoc/>
+    /// Occurs when a property value changes.
     /// </summary>
     public event PropertyChangedEventHandler? PropertyChanged;
+
     /// <summary>
-    /// Raises the PropertyChanged event for a specified property. This method should be called whenever a property value changes to notify any subscribers of the change
+    /// Raises the <see cref="PropertyChanged"/> event.
     /// </summary>
-    /// <param name="propertyName">The name of the property that changed</param>
+    /// <param name="propertyName">The name of the property that changed.</param>
     protected void OnPropertyChanged(string propertyName)
     {
       PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

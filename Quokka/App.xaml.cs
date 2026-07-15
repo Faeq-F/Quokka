@@ -103,11 +103,9 @@ namespace Quokka
     }
 
     /// <summary>
-    /// Displays a message box to the user with an error icon and an OK button
+    /// Displays a message box to the user with an error icon and an OK button, or executes a custom error action if overridden.
     /// </summary>
-    /// <param name="exception">The exception that requires that the user sees the error message</param>
-    /// <param name="title">The title of the message box</param>
-    static public void ShowErrorMessageBox(Exception exception, String title)
+    public static Action<Exception, string> ShowErrorMessageBox { get; set; } = (exception, title) =>
     {
       if (exception == null)
         throw new ArgumentNullException(nameof(exception));
@@ -118,7 +116,7 @@ namespace Quokka
             MessageBoxButton.OK,
             MessageBoxImage.Error
         );
-    }
+    };
 
     private static bool IsRunAsAdmin()
     {

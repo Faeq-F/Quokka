@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -13,6 +13,13 @@ namespace Quokka.TheQuokkaPlugin
 
     private const string currentVersion = "2.0.0.0";
 
+    /// <summary>
+    /// Checks if a newer version of Quokka is available by downloading and parsing the remote version file.
+    /// </summary>
+    /// <returns>
+    /// A string representing the update check status: <c>"updated"</c> if on the latest version,
+    /// <c>"needs_update"</c> if a newer version is available, or <c>"error"</c> if the check failed.
+    /// </returns>
     internal static string CheckForUpdates()
     {
       var version_file = "https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Version";
@@ -54,6 +61,10 @@ namespace Quokka.TheQuokkaPlugin
       }
     }
 
+    /// <summary>
+    /// Runs the update check asynchronously and prompts the user with update dialogues if necessary.
+    /// </summary>
+    /// <param name="showUpdated">Specifies whether to show a message box indicating the application is up-to-date.</param>
     public static async void RunUpdateCheck(bool showUpdated)
     {
       switch (await Task.Run(() => CheckForUpdates()))

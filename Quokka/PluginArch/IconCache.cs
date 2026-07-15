@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Windows.Media;
@@ -8,17 +8,19 @@ namespace Quokka.PluginArch
 {
 
   /// <summary>
-  /// Caches ImageSources for ListItem Icons.
+  /// Provides caching of <see cref="ImageSource"/> instances for list item icons.
   /// </summary>
   public static class IconCache
   {
     private static readonly ConcurrentDictionary<string, ImageSource?> _cache = new();
 
     /// <summary>
-    /// Returns a frozen ImageSource for the given path.
-    /// Creates it once on the UI thread.
-    /// Returns null if creation fails.
+    /// Gets a frozen <see cref="ImageSource"/> for the specified file path, creating it on the UI thread, and caching it if it does not exist.
     /// </summary>
+    /// <param name="path">The file path of the icon to retrieve.</param>
+    /// <returns>
+    /// A frozen <see cref="ImageSource"/> representing the icon, or <see langword="null"/> if the icon cannot be created.
+    /// </returns>
     public static ImageSource? GetOrAdd(string path)
     {
       if (string.IsNullOrEmpty(path))

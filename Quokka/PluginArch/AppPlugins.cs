@@ -1,4 +1,4 @@
-﻿using Quokka.PluginArch;
+using Quokka.PluginArch;
 using Quokka.TheQuokkaPlugin;
 using System;
 using System.Collections.Generic;
@@ -20,9 +20,18 @@ namespace Quokka
     ///</summary>
     public static Collection<Plugin> Plugins => plugins;
 
+    /// <summary>
+    /// Gets a dictionary mapping plugin names to a value indicating whether they possess a custom context pane.
+    /// </summary>
     internal static Dictionary<String, bool> hasContextPane = new();
 
-    //returns the absolute path to the plugin's DLL
+    /// <summary>
+    /// Gets the absolute path to the assembly DLL file of the plugin at the specified directory.
+    /// </summary>
+    /// <param name="connector">The directory path of the plugin connector.</param>
+    /// <returns>
+    /// The absolute path to the plugin DLL file; otherwise, <see cref="string.Empty"/>.
+    /// </returns>
     private static string GetPluggerDll(string connector)
     {
       string[] files = Directory.GetFiles(
@@ -39,7 +48,9 @@ namespace Quokka
       return string.Empty;
     }
 
-    // grab plugins and run startup methods
+    /// <summary>
+    /// Discovers, loads, and initializes all plugins located inside the <c>PlugBoard</c> directory, and runs their startup methods.
+    /// </summary>
     private static void LoadPlugins()
     {
       if (Directory.Exists(Environment.CurrentDirectory + "\\PlugBoard"))

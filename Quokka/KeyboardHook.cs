@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -64,7 +64,7 @@ namespace Quokka
     private readonly Window _window = new();
     private int _currentId;
     /// <summary>
-    /// 
+    /// Initializes a new instance of the <see cref="KeyboardHook"/> class.
     /// </summary>
     public KeyboardHook()
     {
@@ -97,7 +97,7 @@ namespace Quokka
 
     #region IDisposable Members
     /// <summary>
-    /// 
+    /// Releases all resources used by the <see cref="KeyboardHook"/> class.
     /// </summary>
     public void Dispose()
     {
@@ -128,14 +128,14 @@ namespace Quokka
       _key = key;
     }
     /// <summary>
-    /// 
+    /// Gets the modifier keys associated with the pressed hot key.
     /// </summary>
     public ModifierKeys Modifier
     {
       get { return _modifier; }
     }
     /// <summary>
-    /// 
+    /// Gets the key associated with the pressed hot key.
     /// </summary>
     public Keys Key
     {
@@ -150,19 +150,19 @@ namespace Quokka
   public enum ModifierKeys
   {
     /// <summary>
-    /// 
+    /// Specifies the Alt key modifier.
     /// </summary>
     Alt = 1,
     /// <summary>
-    /// 
+    /// Specifies the Control key modifier.
     /// </summary>
     Control = 2,
     /// <summary>
-    /// 
+    /// Specifies the Shift key modifier.
     /// </summary>
     Shift = 4,
     /// <summary>
-    /// 
+    /// Specifies the Windows key modifier.
     /// </summary>
     Win = 8
   }

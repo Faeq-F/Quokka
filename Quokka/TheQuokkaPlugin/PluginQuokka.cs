@@ -1,4 +1,4 @@
-﻿namespace Quokka.TheQuokkaPlugin
+namespace Quokka.TheQuokkaPlugin
 {
   using Quokka.ListItems;
   using Quokka.PluginArch;
@@ -6,7 +6,7 @@
   using System.Collections.ObjectModel;
 
   /// <summary>
-  /// The Quokka Plugin
+  /// Represents the built-in plugin for the Quokka application, handling update checks and metadata.
   /// </summary>
   public partial class PluginQuokka : Plugin
   {
@@ -21,13 +21,13 @@
     /// </summary>
     /// <param name="query"><inheritdoc/></param>
     /// <returns>
-    /// An empty collection
+    /// An empty collection.
     /// </returns>
     public override Collection<ListItem> OnQueryChange(string query) { return new Collection<ListItem>(); }
 
     /// <summary>
     /// <inheritdoc/><br />
-    /// Checks for updates, if CheckForUpdates (in settings) is true
+    /// Checks for updates if the <c>CheckForUpdates</c> setting is enabled.
     /// </summary>
     public override void OnAppStartup()
     {
@@ -40,10 +40,10 @@
     }
 
     /// <summary>
-    /// Provides the AboutQuokkaItem
+    /// Provides the <see cref="AboutQuokkaItem"/> when the special command is invoked.
     /// </summary>
     /// <param name="command"><inheritdoc/></param>
-    /// <returns>The AboutQuokkaItem</returns>
+    /// <returns>A collection containing the <see cref="AboutQuokkaItem"/>.</returns>
     public override Collection<ListItem> OnSpecialCommand(string command)
     {
       return new Collection<ListItem>() { new AboutQuokkaItem() };
@@ -52,7 +52,7 @@
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <returns>The AboutCommand in settings</returns>
+    /// <returns>A collection containing the configured <c>AboutCommand</c> setting value.</returns>
     public override Collection<string> SpecialCommands()
     {
       return new Collection<string>() { (string)App.Current.Resources["AboutCommand"] };

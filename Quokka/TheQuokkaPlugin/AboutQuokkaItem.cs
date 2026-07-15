@@ -1,4 +1,4 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using Quokka.PluginArch;
 using System;
 using System.Windows;
@@ -6,9 +6,15 @@ using System.Windows;
 namespace Quokka.TheQuokkaPlugin
 {
 
+  /// <summary>
+  /// Represents a list item that displays information about the Quokka application.
+  /// </summary>
   class AboutQuokkaItem : ListItem
   {
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AboutQuokkaItem"/> class.
+    /// </summary>
     public AboutQuokkaItem()
     {
       Name = "About Quokka";
@@ -18,6 +24,9 @@ namespace Quokka.TheQuokkaPlugin
       );
     }
 
+    /// <summary>
+    /// Executes the action for the about item, navigating the main search window to the about context pane.
+    /// </summary>
     public override void Execute()
     {
       SearchWindow window = ((SearchWindow)Application.Current.MainWindow);

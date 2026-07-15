@@ -57,6 +57,9 @@ namespace Quokka
       set;
     }
 
+    /// <summary>
+    /// Gets or sets the collection of list items resulting from the last query evaluation.
+    /// </summary>
     private static Collection<ListItem>? ListOfResults { set; get; }
 
     private string query = "";
