@@ -1,14 +1,15 @@
+using Quokka.ListItems;
+using Quokka.PluginArch;
+using System;
+using System.Collections.ObjectModel;
+using System.Windows;
+
 namespace Quokka.TheQuokkaPlugin
 {
-  using Quokka.ListItems;
-  using Quokka.PluginArch;
-  using System;
-  using System.Collections.ObjectModel;
-
   /// <summary>
   /// Represents the built-in plugin for the Quokka application, handling update checks and metadata.
   /// </summary>
-  public partial class PluginQuokka : Plugin
+  public class PluginQuokka : Plugin
   {
 
     /// <summary>
@@ -23,7 +24,7 @@ namespace Quokka.TheQuokkaPlugin
     /// <returns>
     /// An empty collection.
     /// </returns>
-    public override Collection<ListItem> OnQueryChange(string query) { return new Collection<ListItem>(); }
+    public override Collection<ListItem> OnQueryChange(string query) { return new(); }
 
     /// <summary>
     /// <inheritdoc/><br />
@@ -31,7 +32,7 @@ namespace Quokka.TheQuokkaPlugin
     /// </summary>
     public override void OnAppStartup()
     {
-      if ((bool)App.Current.Resources["CheckForUpdates"])
+      if ((bool)Application.Current.Resources["CheckForUpdates"])
       {
         UpdateChecker.RunUpdateCheck(false);
       }
@@ -40,22 +41,29 @@ namespace Quokka.TheQuokkaPlugin
     }
 
     /// <summary>
-    /// Provides the <see cref="AboutQuokkaItem"/> when the special command is invoked.
+    /// Provides application control items when the special command is invoked.
     /// </summary>
     /// <param name="command"><inheritdoc/></param>
-    /// <returns>A collection containing the <see cref="AboutQuokkaItem"/>.</returns>
+    /// <returns>A collection containing the <see cref="AboutQuokkaItem"/>, <see cref="SettingsItem"/>, <see cref="PlugBoardItem"/>, <see cref="RestartQuokkaItem"/>, <see cref="ExitQuokkaItem"/>.</returns>
     public override Collection<ListItem> OnSpecialCommand(string command)
     {
-      return new Collection<ListItem>() { new AboutQuokkaItem() };
+      return new()
+      {
+        new AboutQuokkaItem(),
+        new SettingsItem(),
+        new PlugBoardItem(),
+        new RestartQuokkaItem(),
+        new ExitQuokkaItem()
+      };
     }
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <returns>A collection containing the configured <c>AboutCommand</c> setting value.</returns>
+    /// <returns>A collection containing the configured <c>AppControlCommand</c> setting value.</returns>
     public override Collection<string> SpecialCommands()
     {
-      return new Collection<string>() { (string)App.Current.Resources["AboutCommand"] };
+      return new() { (string)Application.Current.Resources["AppControlCommand"] };
     }
   }
 }

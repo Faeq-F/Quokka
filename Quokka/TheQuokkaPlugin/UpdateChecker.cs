@@ -1,6 +1,5 @@
 using System;
-using System.IO;
-using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -8,13 +7,14 @@ namespace Quokka.TheQuokkaPlugin
 {
   internal static class UpdateChecker
   {
+    private static readonly HttpClient HttpClient = new();
     private static string? download_link;
     private static string? version;
 
     private const string currentVersion = "2.0.0.0";
 
     /// <summary>
-    /// Checks if a newer version of Quokka is available by downloading and parsing the remote version file.
+    /// Checks if a newer version of Quokka is available by fetching and parsing the remote version text.
     /// </summary>
     /// <returns>
     /// A string representing the update check status: <c>"updated"</c> if on the latest version,
@@ -22,41 +22,24 @@ namespace Quokka.TheQuokkaPlugin
     /// </returns>
     internal static string CheckForUpdates()
     {
-      var version_file = "https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Version";
-      var temp_version_file = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\QuokkaVersion.txt";
+      const string versionFileUrl = "https://raw.githubusercontent.com/Faeq-F/Quokka/refs/heads/main/Version";
 
-      using (var webClient = new WebClient())
+      try
       {
-        try
+        string rawText = HttpClient.GetStringAsync(new Uri(versionFileUrl)).GetAwaiter().GetResult();
+        string[] version_data = rawText.Trim().Split('=');
+        if (version_data.Length >= 2)
         {
-          webClient.DownloadFile(address: version_file, fileName: temp_version_file);
+          version = version_data[0];
+          download_link = version_data[1];
+
+          return currentVersion == version ? "updated" : "needs_update";
         }
-        catch (Exception e)
-        {
-          App.ShowErrorMessageBox(e, "Could not check for updates");
-          return "error";
-        }
+        return "error";
       }
-
-      if (File.Exists(temp_version_file))
+      catch (Exception e)
       {
-        string[] version_data = File.ReadAllText(temp_version_file).Split('=');
-        version = version_data[0];
-        download_link = version_data[1];
-        File.Delete(temp_version_file);
-
-        if (currentVersion == version)
-        {
-          return "updated";
-        }
-        else
-        {
-          return "needs_update";
-        }
-
-      }
-      else
-      {
+        App.ShowErrorMessageBox(e, "Could not check for updates");
         return "error";
       }
     }
@@ -67,24 +50,24 @@ namespace Quokka.TheQuokkaPlugin
     /// <param name="showUpdated">Specifies whether to show a message box indicating the application is up-to-date.</param>
     public static async void RunUpdateCheck(bool showUpdated)
     {
-      switch (await Task.Run(() => CheckForUpdates()))
+      switch (await Task.Run(() => CheckForUpdates()).ConfigureAwait(true))
       {
 
         case "updated":
           {
             if (showUpdated)
             {
-              MessageBox.Show($"Quokka is on the latest version ({version!})", "Quokka is up-to-date", MessageBoxButton.OK, MessageBoxImage.Information);
+              MessageBox.Show($"Quokka is on the latest version ({version})", "Quokka is up-to-date", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             break;
           }
 
         case "needs_update":
           {
-            if (MessageBox.Show($"A new version ({version!}) is available\nPlease backup your data before installing the new version\n\nWould you like to copy the download link?",
+            if (MessageBox.Show($"A new version ({version}) is available\nPlease backup your data before installing the new version\n\nWould you like to copy the download link?",
               "New Version available", MessageBoxButton.YesNo, MessageBoxImage.Information) == MessageBoxResult.Yes)
             {
-              System.Windows.Clipboard.SetText(download_link);
+              Clipboard.SetText(download_link!);
             }
             break;
           }

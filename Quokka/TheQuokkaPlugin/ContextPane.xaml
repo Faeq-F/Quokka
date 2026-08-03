@@ -434,7 +434,7 @@
             Background="Transparent"
             BorderThickness="0"
             Click="DisplayLicenses"
-            Content="Licences"
+            Content="Licenses"
             FontFamily="{DynamicResource AppFont}"
             FontSize="{DynamicResource ContextPaneListItemSize}"
             Foreground="{DynamicResource ContextPaneListItemColor}"

@@ -1,8 +1,10 @@
-﻿using Quokka.ListItems;
+using Quokka.ListItems;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using Keys = System.Windows.Forms.Keys;
 
 namespace Quokka.TheQuokkaPlugin
 {
@@ -32,13 +34,17 @@ namespace Quokka.TheQuokkaPlugin
         switch (e.Key)
         {
           case Key.Enter:
-            if ((ButtonsListView.SelectedIndex == -1)) ButtonsListView.SelectedIndex = 0;
+            if (ButtonsListView.SelectedIndex == -1)
+            {
+              ButtonsListView.SelectedIndex = 0;
+            }
+
             Grid CurrentItem = (Grid)ButtonsListView.SelectedItem;
-            Button CurrentButton = (Button)((Grid)CurrentItem!.Children[1]).Children[0];
-            CurrentButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            Button CurrentButton = (Button)((Grid)CurrentItem.Children[1]).Children[0];
+            CurrentButton.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
             break;
           case Key.Down:
-            if ((ButtonsListView.SelectedIndex == -1))
+            if (ButtonsListView.SelectedIndex == -1)
             {
               ButtonsListView.SelectedIndex = 1;
             }
@@ -53,7 +59,7 @@ namespace Quokka.TheQuokkaPlugin
             ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
             break;
           case Key.Up:
-            if ((ButtonsListView.SelectedIndex == -1) || (ButtonsListView.SelectedIndex == 0))
+            if (ButtonsListView.SelectedIndex is -1 or 0)
             {
               ButtonsListView.SelectedIndex = ButtonsListView.Items.Count - 1;
             }
@@ -63,7 +69,7 @@ namespace Quokka.TheQuokkaPlugin
             }
             ButtonsListView.ScrollIntoView(ButtonsListView.SelectedItem);
             break;
-          case var value when value == (System.Windows.Input.Key)App.Current.Resources["ContextPaneKey"]:
+          case var value when value == KeyInterop.KeyFromVirtualKey((int)(Keys)Application.Current.Resources["ContextPaneKey"]):
             ReturnToSearch();
             break;
           default:
@@ -75,17 +81,17 @@ namespace Quokka.TheQuokkaPlugin
 
     private void CopySiteLink(object sender, RoutedEventArgs e)
     {
-      System.Windows.Clipboard.SetText("https://faeq-f.github.io/Quokka");
+      Clipboard.SetText("https://faeq-f.github.io/Quokka");
     }
 
     private void CopyReleaseLink(object sender, RoutedEventArgs e)
     {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/releases/tag/v2.0");
+      Clipboard.SetText("https://github.com/Faeq-F/Quokka/releases/tag/v2.0");
     }
 
     private void CopyChangelogLink(object sender, RoutedEventArgs e)
     {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/blob/v2.0/Changelog.md");
+      Clipboard.SetText("https://github.com/Faeq-F/Quokka/blob/v2.0/Changelog.md");
     }
 
     private void CheckForUpdates(object sender, RoutedEventArgs e)
@@ -95,18 +101,18 @@ namespace Quokka.TheQuokkaPlugin
 
     private void CopyIssuesLink(object sender, RoutedEventArgs e)
     {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/issues");
+      Clipboard.SetText("https://github.com/Faeq-F/Quokka/issues");
     }
 
     private void CopyDiscussionsLink(object sender, RoutedEventArgs e)
     {
-      System.Windows.Clipboard.SetText("https://github.com/Faeq-F/Quokka/discussions");
+      Clipboard.SetText("https://github.com/Faeq-F/Quokka/discussions");
     }
 
     private void DisplayLicenses(object sender, RoutedEventArgs e)
     {
-      ((SearchWindow)App.Current.MainWindow).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/licenses.xaml"));
-      ((SearchWindow)App.Current.MainWindow).SearchTermTextBox.Focus();
+      ((SearchWindow)Application.Current.MainWindow).ContextPane.Navigate(new Uri("pack://application:,,,/Quokka;component/thequokkaplugin/licenses.xaml"));
+      ((SearchWindow)Application.Current.MainWindow).SearchTermTextBox.Focus();
     }
   }
 }

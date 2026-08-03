@@ -9,7 +9,7 @@ namespace Quokka.TheQuokkaPlugin
   /// <summary>
   /// Represents a list item that displays information about the Quokka application.
   /// </summary>
-  class AboutQuokkaItem : ListItem
+  internal sealed class AboutQuokkaItem : ListItem
   {
 
     /// <summary>
@@ -29,10 +29,10 @@ namespace Quokka.TheQuokkaPlugin
     /// </summary>
     public override void Execute()
     {
-      SearchWindow window = ((SearchWindow)Application.Current.MainWindow);
+      SearchWindow window = (SearchWindow)Application.Current.MainWindow;
       window.ContextPaneFrame.Source = null; //makes showing a new pane more reliable
       window.ContextPaneFrame.Visibility = Visibility.Visible;
-      ((SearchWindow)App.Current.MainWindow).ContextPane.Navigate(new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
+      window.ContextPane.Navigate(new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
     }
   }
 }
