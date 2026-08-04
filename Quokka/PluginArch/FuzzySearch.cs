@@ -1,11 +1,11 @@
 using FuzzySharp;
 using FuzzySharp.Extractor;
-using FuzzySharp.SimilarityRatio;
-using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
+using FuzzySharp.SimilarityRatio.Scorer;
 using Quokka.ListItems;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace Quokka.PluginArch
 {
@@ -26,7 +26,7 @@ namespace Quokka.PluginArch
     public static Collection<ListItem> SearchAll(string query, Collection<ListItem> possibleResults, int cutoff = 0)
     {
       string[] stringifiedResults = possibleResults.Select(x => x.ToString()).ToArray();
-      IEnumerable<ExtractedResult<string>> StringResults = Process.ExtractAll(query, stringifiedResults, scorer: ScorerCache.Get<PartialRatioScorer>(), cutoff: cutoff);
+      IEnumerable<ExtractedResult<string>> StringResults = Process.ExtractAll(query, stringifiedResults, scorer: (IRatioScorer)Application.Current.Resources["Scorer"], cutoff: cutoff);
       return new Collection<ListItem>(StringResults.Select(x => possibleResults[x.Index]).ToList());
     }
 
@@ -41,11 +41,11 @@ namespace Quokka.PluginArch
     {
       return new Collection<ExtractedResult<string>>(
         Process.ExtractAll(query, possibleResults,
-        scorer: ScorerCache.Get<PartialRatioScorer>(), cutoff: cutoff).ToList());
+        scorer: (IRatioScorer)Application.Current.Resources["Scorer"], cutoff: cutoff).ToList());
     }
 
     /// <summary>
-    /// Scores all <paramref name="possibleResults"/> against the <paramref name="query"/> and sorts them with the highest score first (ideally used after applying a cutoff with <see cref="SearchAll"/>).
+    /// Scores all <paramref name="possibleResults"/> against the <paramref name="query"/> and sorts them with the highest score first (ideally used after applying a cutoff with <see cref="SearchAll(string, Collection{ListItem}, int)"/>).
     /// </summary>
     /// <param name="query">The user's query.</param>
     /// <param name="possibleResults">A collection of <see cref="ListItem"/>s representing the possible results.</param>
@@ -53,12 +53,12 @@ namespace Quokka.PluginArch
     public static Collection<ListItem> Sort(string query, Collection<ListItem> possibleResults)
     {
       string[] stringifiedResults = possibleResults.Select(x => x.ToString()).ToArray();
-      IEnumerable<ExtractedResult<string>> StringResults = Process.ExtractSorted(query, stringifiedResults, scorer: ScorerCache.Get<PartialRatioScorer>());
+      IEnumerable<ExtractedResult<string>> StringResults = Process.ExtractSorted(query, stringifiedResults, scorer: (IRatioScorer)Application.Current.Resources["Scorer"]);
       return new Collection<ListItem>(StringResults.Select(x => possibleResults[x.Index]).ToList());
     }
 
     /// <summary>
-    /// Scores all <paramref name="possibleResults"/> against the <paramref name="query"/> and sorts them with the highest score first (ideally used after applying a cutoff with <see cref="SearchAll"/>).
+    /// Scores all <paramref name="possibleResults"/> against the <paramref name="query"/> and sorts them with the highest score first (ideally used after applying a cutoff with <see cref="SearchAll(string, Collection{string}, int)"/>).
     /// </summary>
     /// <param name="query">The user's query.</param>
     /// <param name="possibleResults">A collection of strings representing the possible results.</param>
@@ -67,7 +67,7 @@ namespace Quokka.PluginArch
     {
       return new Collection<ExtractedResult<string>>(
         Process.ExtractSorted(query, possibleResults,
-        scorer: ScorerCache.Get<PartialRatioScorer>()).ToList());
+        scorer: (IRatioScorer)Application.Current.Resources["Scorer"]).ToList());
     }
   }
 }

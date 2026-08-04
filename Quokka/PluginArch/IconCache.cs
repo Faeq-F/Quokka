@@ -24,7 +24,9 @@ namespace Quokka.PluginArch
     public static ImageSource? GetOrAdd(string path)
     {
       if (string.IsNullOrEmpty(path))
+      {
         return null;
+      }
 
       // normalize path so cache keys are consistent
       string key;
@@ -46,14 +48,17 @@ namespace Quokka.PluginArch
       {
         try
         {
-          var uri = new Uri(fullPath, UriKind.Absolute);
-          var bmp = new BitmapImage();
+          Uri uri = new(fullPath, UriKind.Absolute);
+          BitmapImage bmp = new();
           bmp.BeginInit();
           bmp.UriSource = uri;
           bmp.CacheOption = BitmapCacheOption.OnLoad; // load immediately so file can be released
           bmp.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
           bmp.EndInit();
-          if (bmp.CanFreeze) bmp.Freeze();
+          if (bmp.CanFreeze)
+          {
+            bmp.Freeze();
+          }
           return bmp;
         }
         catch

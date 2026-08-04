@@ -76,7 +76,7 @@ namespace Quokka.PluginArch
     ///  These will be displayed in the search window's results list.
     ///  <br />Default behavior when not overridden: returns an empty collection.
     ///  </returns>
-    public virtual Collection<ListItem> OnSpecialCommand(string command) { return new Collection<ListItem>(); }
+    public virtual Collection<ListItem> OnSpecialCommand(string command) => new();
 
     /// <summary>
     ///  Gets special commands that should have unique results.
@@ -88,10 +88,10 @@ namespace Quokka.PluginArch
     ///  The special commands; the commands defined should be unique as to NOT CLASH with other plugins.
     ///  <br />Default behavior when not overridden: returns an empty Collection.
     ///  </returns>
-    public virtual Collection<string> SpecialCommands() { return new Collection<string>(); }
+    public virtual Collection<string> SpecialCommands() => new();
 
     /// <summary>
-    /// Runs when the user changes their query in the search window to include a 
+    /// Runs when the user changes their query in the search window to include a
     /// command signifier, provided by <see cref="CommandSignifiers"/>, at the beginning of their query.
     /// Used to give the user the results they want to see from the command.
     /// </summary>
@@ -100,10 +100,10 @@ namespace Quokka.PluginArch
     /// A Collection of <see cref="ListItem"/>s appropriate for the signifier and extra information that follows the <paramref name="command"/>.
     /// <br />Default behavior when not overridden: returns an empty collection.
     /// </returns>
-    public virtual Collection<ListItem> OnSignifier(string command) { return new Collection<ListItem>(); }
+    public virtual Collection<ListItem> OnSignifier(string command) => new();
 
     /// <summary>
-    /// Gets signifiers (prefixes) to produce commands that should take in 
+    /// Gets signifiers (prefixes) to produce commands that should take in
     /// extra information (after the prefix) to produce unique results.
     /// When a query starting with one of these signifiers is entered by the user, <see cref="OnSignifier"/> is called.
     /// <see cref="ListItem"/>s from other plugins will not appear when one of these commands is entered.
@@ -113,7 +113,7 @@ namespace Quokka.PluginArch
     /// The command signifiers; the signifiers defined should be unique as to NOT CLASH with other plugins.
     /// <br />Default behavior when not overridden: returns an empty Collection.
     /// </returns>
-    public virtual Collection<string> CommandSignifiers() { return new Collection<string>(); }
+    public virtual Collection<string> CommandSignifiers() => new();
 
   }
 }
