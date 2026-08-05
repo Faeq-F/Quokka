@@ -1,6 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using Keys = System.Windows.Forms.Keys;
 
 namespace Quokka.ListItems
 {
@@ -28,7 +29,7 @@ namespace Quokka.ListItems
       {
         switch (e.Key)
         {
-          case Key.Apps: //This is the menu key
+          case var value when value == KeyInterop.KeyFromVirtualKey((int)(Keys)Application.Current.Resources["ContextPaneKey"]):
             ReturnToSearch();
             break;
 
@@ -45,7 +46,7 @@ namespace Quokka.ListItems
     /// </summary>
     protected static void ReturnToSearch()
     {
-      SearchWindow window = ((SearchWindow)Application.Current.MainWindow);
+      SearchWindow window = (SearchWindow)Application.Current.MainWindow;
       window.ContextPaneFrame.Visibility = Visibility.Collapsed;
       window.SearchBox.Focus();
       window.ContextPaneFrame.Source = null; //makes showing a new pane more reliable

@@ -1,5 +1,6 @@
-﻿using Quokka.PluginArch;
+using Quokka.PluginArch;
 using System;
+using System.Windows;
 
 namespace Quokka.ListItems
 {
@@ -13,8 +14,8 @@ namespace Quokka.ListItems
     /// </summary>
     public LoadingListItem()
     {
-      Name = (string)App.Current.Resources["LoadingItemName"];
-      Description = (string)App.Current.Resources["LoadingItemDesc"];
+      Name = (string)Application.Current.Resources["LoadingItemName"];
+      Description = (string)Application.Current.Resources["LoadingItemDesc"];
       Icon = IconCache.GetOrAdd(
         Environment.CurrentDirectory + "\\Config\\Resources\\loading.png"
       );

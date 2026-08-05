@@ -1,5 +1,6 @@
-﻿using Quokka.PluginArch;
+using Quokka.PluginArch;
 using System;
+using System.Windows;
 
 namespace Quokka.ListItems
 {
@@ -13,8 +14,8 @@ namespace Quokka.ListItems
     /// </summary>
     public NoListItem()
     {
-      Name = (string)App.Current.Resources["NoResultsItemName"];
-      Description = (string)App.Current.Resources["NoResultsItemDesc"];
+      Name = (string)Application.Current.Resources["NoResultsItemName"];
+      Description = (string)Application.Current.Resources["NoResultsItemDesc"];
       Icon = IconCache.GetOrAdd(
         Environment.CurrentDirectory + "\\Config\\Resources\\information.png"
       );

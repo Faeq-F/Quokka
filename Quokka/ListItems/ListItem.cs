@@ -19,19 +19,17 @@ namespace Quokka.ListItems
     /// </summary>
     public string Description { get; set; } = "Item Description";
 
-    private ImageSource? _icon;
-
     /// <summary>
     /// Gets or sets the icon for the item.
     /// </summary>
     public ImageSource? Icon
     {
-      get => _icon;
+      get;
       set
       {
-        if (_icon != value)
+        if (field != value)
         {
-          _icon = value;
+          field = value;
           OnPropertyChanged(nameof(Icon));
         }
       }
@@ -48,10 +46,7 @@ namespace Quokka.ListItems
     /// <returns>
     /// A string combining the <see cref="Name"/> and <see cref="Description"/>, separated by a newline.
     /// </returns>
-    public override string ToString()
-    {
-      return Name + "\n" + Description;
-    }
+    public override string ToString() => Name + "\n" + Description;
 
     /// <summary>
     /// Determines whether the specified object is equal to the current list item.
@@ -63,12 +58,7 @@ namespace Quokka.ListItems
     /// </returns>
     public override bool Equals(object? obj)
     {
-      if (obj is not ListItem item)
-      {
-        return false;
-      }
-
-      return ToString().Equals(item.ToString(), StringComparison.Ordinal);
+      return obj is ListItem item && ToString().Equals(item.ToString(), StringComparison.Ordinal);
     }
 
     /// <summary>
@@ -79,9 +69,8 @@ namespace Quokka.ListItems
     /// </returns>
     public override int GetHashCode()
     {
-      int hash = 17;
-      hash = hash * 23 + ToString().GetHashCode();
-      return hash;
+      const int hash = 17;
+      return (hash * 23) + ToString().GetHashCode(StringComparison.Ordinal);
     }
 
     /// <summary>
