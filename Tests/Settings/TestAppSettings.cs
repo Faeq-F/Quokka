@@ -1,6 +1,6 @@
 using Newtonsoft.Json.Linq;
 using Quokka;
-using System.Reflection;
+using Quokka.Settings;
 using System.Windows;
 using System.Windows.Media;
 
@@ -18,23 +18,20 @@ namespace Tests.Settings
     {
       if (System.Windows.Application.Current == null)
       {
-        new App();
+        _ = new App();
       }
       // Mock ShowErrorMessageBox to prevent popups
-      App.ShowErrorMessageBox = (ex, title) => { };
+      App.ShowErrorMessageBox = (_, _) => { };
 
       // Ensure required resources for parsers exist
       System.Windows.Application.Current!.Resources["AnimationBlurRadius"] = 10.0;
       System.Windows.Application.Current!.Resources["AnimationOffset"] = 20;
     }
 
-    private void InvokeApplyAppSettings(JObject obj)
+    private static void InvokeApplyAppSettings(JObject obj)
     {
-      var appInstance = System.Windows.Application.Current as App;
-      appInstance.Should().NotBeNull();
-      var method = typeof(App).GetMethod("ApplyAppSettings", BindingFlags.NonPublic | BindingFlags.Instance);
-      method.Should().NotBeNull();
-      method!.Invoke(appInstance, new object[] { obj });
+      SettingsService settingsService = new();
+      settingsService.ApplyAppSettings(obj);
     }
 
     /// <summary>
@@ -43,9 +40,9 @@ namespace Tests.Settings
     [Fact]
     public void TestApplyAppSettings_WithIntSettings_AppliesCorrectly()
     {
-      var json = JObject.Parse("{ 'MaxResults': '15' }");
+      JObject json = JObject.Parse("{ 'MaxResults': '15' }");
       InvokeApplyAppSettings(json);
-      System.Windows.Application.Current!.Resources["MaxResults"].Should().Be(15);
+      System.Windows.Application.Current.Resources["MaxResults"].Should().Be(15);
     }
 
     /// <summary>
@@ -54,9 +51,9 @@ namespace Tests.Settings
     [Fact]
     public void TestApplyAppSettings_WithDoubleSettings_AppliesCorrectly()
     {
-      var json = JObject.Parse("{ 'AnimationDuration': '2.5' }");
+      JObject json = JObject.Parse("{ 'AppAnimationDurations': '2.5' }");
       InvokeApplyAppSettings(json);
-      System.Windows.Application.Current!.Resources["AnimationDuration"].Should().Be(2.5);
+      System.Windows.Application.Current.Resources["AppAnimationDurations"].Should().Be(2.5);
     }
 
     /// <summary>
@@ -65,9 +62,9 @@ namespace Tests.Settings
     [Fact]
     public void TestApplyAppSettings_WithColorSettings_AppliesCorrectly()
     {
-      var json = JObject.Parse("{ 'MainColor': '#FF0000' }");
+      JObject json = JObject.Parse("{ 'MainColor': '#FF0000' }");
       InvokeApplyAppSettings(json);
-      var brush = System.Windows.Application.Current!.Resources["MainColor"] as SolidColorBrush;
+      SolidColorBrush? brush = System.Windows.Application.Current.Resources["MainColor"] as SolidColorBrush;
       brush.Should().NotBeNull();
       brush!.Color.Should().Be(System.Windows.Media.Color.FromRgb(255, 0, 0));
     }
@@ -78,9 +75,9 @@ namespace Tests.Settings
     [Fact]
     public void TestApplyAppSettings_WithRoundingSettings_AppliesCorrectly()
     {
-      var json = JObject.Parse("{ 'BorderRounding': '4' }");
+      JObject json = JObject.Parse("{ 'BorderRounding': '4' }");
       InvokeApplyAppSettings(json);
-      var rounding = (CornerRadius)System.Windows.Application.Current!.Resources["BorderRounding"]!;
+      CornerRadius rounding = (CornerRadius)System.Windows.Application.Current.Resources["BorderRounding"];
       rounding.TopLeft.Should().Be(4);
     }
 
@@ -90,9 +87,71 @@ namespace Tests.Settings
     [Fact]
     public void TestApplyAppSettings_WithNestedJson_RecursesAndApplies()
     {
-      var json = JObject.Parse("{ 'NestedGroup': { 'Debounce': '150' } }");
+      JObject json = JObject.Parse("{ 'NestedGroup': { 'Debounce': '150' } }");
       InvokeApplyAppSettings(json);
-      System.Windows.Application.Current!.Resources["Debounce"].Should().Be(150);
+      System.Windows.Application.Current.Resources["Debounce"].Should().Be(150);
+    }
+
+    /// <summary>
+    /// Verifies that <see cref="Keys"/> values for key settings (<c>ContextPaneKey</c>, <c>ScrollLeftKey</c>, <c>ScrollRightKey</c>, <c>WindowHotKey</c>) are correctly parsed and applied to resources.
+    /// </summary>
+    [Fact]
+    public void TestApplyAppSettings_WithKeySettings_AppliesCorrectly()
+    {
+      JObject json = JObject.Parse("{ 'ContextPaneKey': 'Apps', 'ScrollLeftKey': 'PageUp', 'ScrollRightKey': 'PageDown', 'WindowHotKey': 'Space' }");
+      InvokeApplyAppSettings(json);
+      System.Windows.Application.Current.Resources["ContextPaneKey"].Should().Be(Keys.Apps);
+      System.Windows.Application.Current.Resources["ScrollLeftKey"].Should().Be(Keys.PageUp);
+      System.Windows.Application.Current.Resources["ScrollRightKey"].Should().Be(Keys.PageDown);
+      System.Windows.Application.Current.Resources["WindowHotKey"].Should().Be(Keys.Space);
+    }
+
+    /// <summary>
+    /// Verifies that invalid values for key settings fallback to default <see cref="Keys"/> values.
+    /// </summary>
+    [Fact]
+    public void TestApplyAppSettings_WithInvalidKeySettings_DefaultsCorrectly()
+    {
+      JObject json = JObject.Parse("{ 'ContextPaneKey': 'InvalidKey', 'ScrollLeftKey': 'InvalidKey', 'ScrollRightKey': 'InvalidKey', 'WindowHotKey': 'InvalidKey' }");
+      InvokeApplyAppSettings(json);
+      System.Windows.Application.Current.Resources["ContextPaneKey"].Should().Be(Keys.Apps);
+      System.Windows.Application.Current.Resources["ScrollLeftKey"].Should().Be(Keys.PageUp);
+      System.Windows.Application.Current.Resources["ScrollRightKey"].Should().Be(Keys.PageDown);
+      System.Windows.Application.Current.Resources["WindowHotKey"].Should().Be(Keys.Space);
+    }
+
+    /// <summary>
+    /// Verifies that <see cref="SettingsService.LoadAppSettings"/> asynchronously loads settings from a file path.
+    /// </summary>
+    [Fact]
+    public async Task TestLoadAppSettings_WithValidFile_LoadsSettings()
+    {
+      string tempFile = System.IO.Path.GetTempFileName();
+      try
+      {
+        System.IO.File.WriteAllText(tempFile, /*lang=json*/ "{ 'MaxResults': '25' }");
+        SettingsService service = new();
+        await service.LoadAppSettings(tempFile);
+        System.Windows.Application.Current.Resources["MaxResults"].Should().Be(25);
+      }
+      finally
+      {
+        if (System.IO.File.Exists(tempFile))
+        {
+          System.IO.File.Delete(tempFile);
+        }
+      }
+    }
+
+    /// <summary>
+    /// Verifies that <see cref="SettingsService.LoadAppSettings"/> throws an <see cref="ArgumentNullException"/> when given a <see langword="null"/> file path.
+    /// </summary>
+    [Fact]
+    public async Task TestLoadAppSettings_WithNullFilePath_ThrowsArgumentNullException()
+    {
+      SettingsService service = new();
+      Func<Task> action = async () => await service.LoadAppSettings(null!);
+      await action.Should().ThrowAsync<ArgumentNullException>();
     }
   }
 }

@@ -13,8 +13,8 @@ namespace Tests.ListItems
     [Fact]
     public void TestListItemEquality_WithSameNameAndDescription_ReturnsTrue()
     {
-      var item1 = new TestListItem("TestName", "TestDescription");
-      var item2 = new TestListItem("TestName", "TestDescription");
+      TestListItem item1 = new("TestName", "TestDescription");
+      TestListItem item2 = new("TestName", "TestDescription");
 
       item1.Equals(item2).Should().BeTrue();
       (item1 == item2).Should().BeFalse(); // reference inequality
@@ -26,9 +26,9 @@ namespace Tests.ListItems
     [Fact]
     public void TestListItemEquality_WithDifferentNameOrDescription_ReturnsFalse()
     {
-      var item1 = new TestListItem("TestName1", "TestDescription");
-      var item2 = new TestListItem("TestName2", "TestDescription");
-      var item3 = new TestListItem("TestName1", "TestDescription3");
+      TestListItem item1 = new("TestName1", "TestDescription");
+      TestListItem item2 = new("TestName2", "TestDescription");
+      TestListItem item3 = new("TestName1", "TestDescription3");
 
       item1.Equals(item2).Should().BeFalse();
       item1.Equals(item3).Should().BeFalse();
@@ -40,7 +40,7 @@ namespace Tests.ListItems
     [Fact]
     public void TestListItemEquality_WithNullOrOtherTypes_ReturnsFalse()
     {
-      var item = new TestListItem("TestName", "TestDescription");
+      TestListItem item = new("TestName", "TestDescription");
 
       item!.Equals(null).Should().BeFalse();
       item!.Equals("some string").Should().BeFalse();
@@ -52,8 +52,8 @@ namespace Tests.ListItems
     [Fact]
     public void TestListItemHashCode_WithEqualItems_ReturnsSameHashCode()
     {
-      var item1 = new TestListItem("TestName", "TestDescription");
-      var item2 = new TestListItem("TestName", "TestDescription");
+      TestListItem item1 = new("TestName", "TestDescription");
+      TestListItem item2 = new("TestName", "TestDescription");
 
       item1.GetHashCode().Should().Be(item2.GetHashCode());
     }
@@ -64,8 +64,8 @@ namespace Tests.ListItems
     [Fact]
     public void TestListItemHashCode_WithUnequalItems_ReturnsDifferentHashCode()
     {
-      var item1 = new TestListItem("TestName1", "TestDescription");
-      var item2 = new TestListItem("TestName2", "TestDescription");
+      TestListItem item1 = new("TestName1", "TestDescription");
+      TestListItem item2 = new("TestName2", "TestDescription");
 
       item1.GetHashCode().Should().NotBe(item2.GetHashCode());
     }

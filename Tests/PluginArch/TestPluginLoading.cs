@@ -2,6 +2,8 @@ using Quokka;
 using Quokka.PluginArch;
 using System.IO;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Tests.PluginArch
 {
@@ -24,7 +26,7 @@ namespace Tests.PluginArch
       // Clean up legacy temp plugboard directories from previous runs
       try
       {
-        foreach (var dir in Directory.GetDirectories(_originalCurrentDirectory, "TempPlugBoard_*"))
+        foreach (string dir in Directory.GetDirectories(_originalCurrentDirectory, "TempPlugBoard_*"))
         {
           try
           {
@@ -50,71 +52,118 @@ namespace Tests.PluginArch
       // Set the CurrentDirectory to our temp folder so App.LoadPlugins finds it
       Environment.CurrentDirectory = _tempPlugBoardPath;
 
-      // Reset the plugins collection so we start clean
-      var pluginsField = typeof(App).GetField("plugins", BindingFlags.NonPublic | BindingFlags.Static);
-      if (pluginsField != null)
-      {
-        var list = pluginsField.GetValue(null) as System.Collections.ObjectModel.Collection<Plugin>;
-        list?.Clear();
-      }
-
-      var hasContextPaneField = typeof(App).GetField("hasContextPane", BindingFlags.NonPublic | BindingFlags.Static);
-      if (hasContextPaneField != null)
-      {
-        var dict = hasContextPaneField.GetValue(null) as System.Collections.Generic.Dictionary<string, bool>;
-        dict?.Clear();
-      }
+      // Reset the plugins collection and context pane dictionary so we start clean
+      App.Plugins.Clear();
+      App.HasContextPane.Clear();
 
       // Mock ShowErrorMessageBox to prevent any modal dialog boxes
-      App.ShowErrorMessageBox = (exception, title) => { };
+      App.ShowErrorMessageBox = (_, _) => { };
 
       // Register AssemblyResolve to bridge assembly loading context gaps
       AppDomain.CurrentDomain.AssemblyResolve += ResolveQuokkaAssembly;
     }
 
-    private Assembly? ResolveQuokkaAssembly(object sender, ResolveEventArgs args)
-    {
-      if (args.Name.StartsWith("Quokka,", StringComparison.OrdinalIgnoreCase))
-      {
-        return typeof(App).Assembly;
-      }
-      return null;
-    }
+    private Assembly? ResolveQuokkaAssembly(object? sender, ResolveEventArgs args) =>
+      args.Name.StartsWith("Quokka,", StringComparison.OrdinalIgnoreCase)
+        ? typeof(App).Assembly
+        : null;
 
     /// <summary>
-    /// Verifies that <c>LoadPlugins</c> discovers, loads, and starts plugins successfully.
+    /// Verifies that <c>LoadAsync</c> discovers, loads, and starts plugins successfully.
     /// </summary>
     [Fact]
-    public void TestLoadPlugins_DiscoversAndLoadsPlugins()
+    public async Task TestLoadPlugins_DiscoversAndLoadsPlugins()
     {
       // 1. Copy the compiled plugin's folder structure from BuildOutput for integration testing
-      string sourcePlugBoard = @"C:\Users\faeqf\Documents\git\Quokka\BuildOutput\Quokka\PlugBoard";
-      string pluginSubDir = "PluginCalculator";
+      const string sourcePlugBoard = @"C:\Users\faeqf\Documents\git\Quokka\BuildOutput\Quokka\PlugBoard";
+      const string pluginSubDir = "PluginCalculator";
       string sourcePluginDir = Path.Combine(sourcePlugBoard, pluginSubDir, "Plugin");
       string destPluginDir = Path.Combine(_tempPlugBoardPath, "PlugBoard", pluginSubDir, "Plugin");
 
       if (Directory.Exists(sourcePluginDir))
       {
         Directory.CreateDirectory(destPluginDir);
-        foreach (var file in Directory.GetFiles(sourcePluginDir))
+        foreach (string file in Directory.GetFiles(sourcePluginDir))
         {
           File.Copy(file, Path.Combine(destPluginDir, Path.GetFileName(file)), overwrite: true);
         }
       }
 
-      // 2. Invoke LoadPlugins via Reflection
-      MethodInfo? loadPluginsMethod = typeof(App).GetMethod("LoadPlugins", BindingFlags.NonPublic | BindingFlags.Static);
-      loadPluginsMethod.Should().NotBeNull();
-      loadPluginsMethod!.Invoke(null, null);
+      // 2. Instantiate and run PluginLoader directly
+      string plugBoardPath = Path.Combine(_tempPlugBoardPath, "PlugBoard");
+      PluginLoader loader = new(plugBoardPath);
+      PluginLoadResult result = await loader.LoadAsync((_, _) => { });
 
       // 3. Assertions
-      App.Plugins.Should().NotBeEmpty();
-      App.Plugins.Should().Contain(p => p.PluginName == "PluginQuokka"); // internal plugin is always loaded
+      if (Directory.Exists(sourcePluginDir))
+      {
+        result.LoadedPlugins.Should().NotBeEmpty();
+        result.LoadedPlugins.Should().Contain(p => p.PluginName == "Calculator");
+        result.HasContextPane.Should().ContainKey("PluginCalculator");
+        result.HasContextPane["PluginCalculator"].Should().BeTrue();
+      }
+    }
+
+    /// <summary>
+    /// Verifies that <c>LoadAsync</c> discovers and loads plugins successfully.
+    /// </summary>
+    [Fact]
+    public async Task TestLoadAsync_DiscoversAndLoadsPlugins()
+    {
+      // 1. Copy the compiled plugin's folder structure from BuildOutput for integration testing
+      const string sourcePlugBoard = @"C:\Users\faeqf\Documents\git\Quokka\BuildOutput\Quokka\PlugBoard";
+      const string pluginSubDir = "PluginCalculator";
+      string sourcePluginDir = Path.Combine(sourcePlugBoard, pluginSubDir, "Plugin");
+      string destPluginDir = Path.Combine(_tempPlugBoardPath, "PlugBoard", pluginSubDir, "Plugin");
 
       if (Directory.Exists(sourcePluginDir))
       {
-        App.Plugins.Should().Contain(p => p.PluginName == "Calculator");
+        Directory.CreateDirectory(destPluginDir);
+        foreach (string file in Directory.GetFiles(sourcePluginDir))
+        {
+          File.Copy(file, Path.Combine(destPluginDir, Path.GetFileName(file)), overwrite: true);
+        }
       }
+
+      // 2. Instantiate and run PluginLoader directly
+      string plugBoardPath = Path.Combine(_tempPlugBoardPath, "PlugBoard");
+      PluginLoader loader = new(plugBoardPath);
+      PluginLoadResult result = await loader.LoadAsync((_, _) => { });
+
+      // 3. Assertions
+      if (Directory.Exists(sourcePluginDir))
+      {
+        result.LoadedPlugins.Should().NotBeEmpty();
+        result.LoadedPlugins.Should().Contain(p => p.PluginName == "Calculator");
+        result.HasContextPane.Should().ContainKey("PluginCalculator");
+        result.HasContextPane["PluginCalculator"].Should().BeTrue();
+      }
+    }
+
+    /// <summary>
+    /// Verifies that <c>LoadAsync</c> respects the cancellation token and throws.
+    /// </summary>
+    [Fact]
+    public async Task TestLoadAsync_WithCanceledToken_CancelsOperation()
+    {
+      string plugBoardPath = Path.Combine(_tempPlugBoardPath, "PlugBoard");
+      PluginLoader loader = new(plugBoardPath);
+      using CancellationTokenSource cts = new();
+      cts.Cancel();
+      Func<Task> action = () => loader.LoadAsync((_, _) => { }, cts.Token);
+      await action.Should().ThrowAsync<OperationCanceledException>();
+    }
+
+    /// <summary>
+    /// Verifies that invalid or non-existent plugin directories do not cause crashes.
+    /// </summary>
+    [Fact]
+    public async Task TestLoadAsync_WithInvalidDirectory_HandlesGracefully()
+    {
+      string invalidPath = Path.Combine(_tempPlugBoardPath, "NonExistentFolder");
+      PluginLoader loader = new(invalidPath);
+      PluginLoadResult result = await loader.LoadAsync((_, _) => { });
+      result.LoadedPlugins.Should().BeEmpty();
     }
 
     /// <summary>
@@ -135,6 +184,7 @@ namespace Tests.PluginArch
       {
         // Ignore cleanup errors in tests
       }
+      GC.SuppressFinalize(this);
     }
   }
 }

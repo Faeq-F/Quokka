@@ -1,6 +1,7 @@
 using Quokka.ListItems;
 using Quokka.PluginArch;
 using System.Collections.ObjectModel;
+using FuzzySharp.Extractor;
 
 namespace Tests.PluginArch
 {
@@ -10,18 +11,29 @@ namespace Tests.PluginArch
   public class TestFuzzySearch
   {
     /// <summary>
+    /// Initializes a new instance of the <see cref="TestFuzzySearch"/> class and configures application resources.
+    /// </summary>
+    public TestFuzzySearch()
+    {
+      if (System.Windows.Application.Current == null)
+      {
+        _ = new System.Windows.Application();
+      }
+      System.Windows.Application.Current!.Resources["Scorer"] ??= Quokka.Settings.SettingParsers.ParseScorerSetting("");
+    }
+    /// <summary>
     /// Verifies that <see cref="FuzzySearch.SearchAll(string, Collection{ListItem}, int)"/> returns matching <see cref="ListItem"/>s based on similarity.
     /// </summary>
     [Fact]
     public void TestSearchAll_WithListItems_ReturnsExpectedMatches()
     {
-      var item1 = new TestListItem("Apple");
-      var item2 = new TestListItem("Banana");
-      var item3 = new TestListItem("zzzzzz");
-      var item4 = new TestListItem("Apricot");
-      var items = new Collection<ListItem> { item1, item2, item3, item4 };
+      TestListItem item1 = new("Apple");
+      TestListItem item2 = new("Banana");
+      TestListItem item3 = new("zzzzzz");
+      TestListItem item4 = new("Apricot");
+      Collection<ListItem> items = new() { item1, item2, item3, item4 };
 
-      var results = FuzzySearch.SearchAll("Ap", items, cutoff: 1);
+      Collection<ListItem> results = FuzzySearch.SearchAll("Ap", items, cutoff: 1);
 
       results.Should().Contain(item1);
       results.Should().Contain(item2);
@@ -35,11 +47,11 @@ namespace Tests.PluginArch
     [Fact]
     public void TestSearchAll_WithListItemsAndCutoff_FiltersCorrectly()
     {
-      var item1 = new TestListItem("Apple");
-      var item2 = new TestListItem("Banana");
-      var items = new Collection<ListItem> { item1, item2 };
+      TestListItem item1 = new("Apple");
+      TestListItem item2 = new("Banana");
+      Collection<ListItem> items = new() { item1, item2 };
 
-      var results = FuzzySearch.SearchAll("Apple", items, cutoff: 80);
+      Collection<ListItem> results = FuzzySearch.SearchAll("Apple", items, cutoff: 80);
 
       results.Should().Contain(item1);
       results.Should().NotContain(item2);
@@ -51,9 +63,9 @@ namespace Tests.PluginArch
     [Fact]
     public void TestSearchAll_WithStrings_ReturnsExpectedScores()
     {
-      var items = new Collection<string> { "Apple", "Banana", "zzzzzz", "Apricot" };
+      Collection<string> items = new() { "Apple", "Banana", "zzzzzz", "Apricot" };
 
-      var results = FuzzySearch.SearchAll("Ap", items, cutoff: 1);
+      Collection<ExtractedResult<string>> results = FuzzySearch.SearchAll("Ap", items, cutoff: 1);
 
       results.Should().HaveCount(3);
       results.Should().Contain(r => r.Value == "Apple");
@@ -68,12 +80,12 @@ namespace Tests.PluginArch
     [Fact]
     public void TestSort_WithListItems_ReturnsSortedResults()
     {
-      var item1 = new TestListItem("Banana");
-      var item2 = new TestListItem("Apple");
-      var item3 = new TestListItem("zzzzzz");
-      var items = new Collection<ListItem> { item1, item2, item3 };
+      TestListItem item1 = new("Banana");
+      TestListItem item2 = new("Apple");
+      TestListItem item3 = new("zzzzzz");
+      Collection<ListItem> items = new() { item1, item2, item3 };
 
-      var results = FuzzySearch.Sort("Apple", items);
+      Collection<ListItem> results = FuzzySearch.Sort("Apple", items);
 
       results.Should().HaveCount(3);
       results[0].Should().Be(item2);
@@ -87,9 +99,9 @@ namespace Tests.PluginArch
     [Fact]
     public void TestSort_WithStrings_ReturnsSortedResults()
     {
-      var items = new Collection<string> { "Banana", "Apple", "zzzzzz" };
+      Collection<string> items = new() { "Banana", "Apple", "zzzzzz" };
 
-      var results = FuzzySearch.Sort("Apple", items);
+      Collection<ExtractedResult<string>> results = FuzzySearch.Sort("Apple", items);
 
       results.Should().HaveCount(3);
       results[0].Value.Should().Be("Apple");

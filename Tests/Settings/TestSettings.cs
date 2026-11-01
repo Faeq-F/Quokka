@@ -1,13 +1,14 @@
-using Quokka.Settings;
-using System.Windows;
-using XamlFlair;
 using FuzzySharp.SimilarityRatio;
 using FuzzySharp.SimilarityRatio.Scorer;
 using FuzzySharp.SimilarityRatio.Scorer.Composite;
 using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
+using Quokka;
+using Quokka.Settings;
+using System.Windows;
+using XamlFlair;
 using static System.Windows.SystemParameters;
 
-namespace Tests
+namespace Tests.Settings
 {
 
   /// <summary>
@@ -20,28 +21,39 @@ namespace Tests
     /// </summary>
     public TestSettings()
     {
-      Quokka.App.ShowErrorMessageBox = (exception, title) => { };
+      App.ShowErrorMessageBox = (_, _) => { };
       if (System.Windows.Application.Current == null)
       {
-        new Quokka.App();
+        _ = new App();
       }
-      System.Windows.Application.Current!.Resources["AnimationBlurRadius"] = 10.0;
-      System.Windows.Application.Current!.Resources["AnimationOffset"] = 20;
+      System.Windows.Application.Current!.Resources["AppAnimationDuration"] = 200.0;
+      System.Windows.Application.Current!.Resources["WindowAnimationBlurRadius"] = 10.0;
+      System.Windows.Application.Current!.Resources["WindowAnimationOffset"] = 20;
+      System.Windows.Application.Current!.Resources["ResultsListAnimationBlurRadius"] = 10.0;
+      System.Windows.Application.Current!.Resources["ResultsListAnimationOffset"] = 20;
+      System.Windows.Application.Current!.Resources["ContextPaneAnimationBlurRadius"] = 10.0;
+      System.Windows.Application.Current!.Resources["ContextPaneAnimationOffset"] = 20;
     }
 
     /// <summary>
     /// Testing parsing of Screen Dimensions settings,<br />
-    /// i.e., whether settings that can have screen dimensions values in them, are read and evaluated correctly.
+    /// i.e., whether settings that can have screen percentage values (%H, %W) or fixed numbers are evaluated correctly.
     /// </summary>
     [Fact]
     public void TestScreenDimensionsParsing()
     {
-      string[] possibleSettingValues = { "PrimaryScreenHeight/3", "PrimaryScreenHeight/ 2", "PrimaryScreenWidth / 3",
-        "PrimaryScreenHeight", "PrimaryScreenWidth", "PrimaryScreenHeight*4", "PrimaryScreenHeight-56", "PrimaryScreenHeight+20"};
-      double[] correspondingValues = { (PrimaryScreenHeight / 3), (PrimaryScreenHeight / 2), (PrimaryScreenWidth / 3), (PrimaryScreenHeight), (PrimaryScreenWidth), (PrimaryScreenHeight * 4), (PrimaryScreenHeight - 56), (PrimaryScreenHeight + 20) };
+      const double screenH = 1080.0;
+      const double screenW = 1920.0;
+      string[] possibleSettingValues = [ "33.33%H", "50%H", "25%W",
+        "100%H", "100%W", "50%H*2", "50%H-50", "50%H+20", "700",
+        "10+50%H", "100+50%H*2", "50%H+25%W", "1000-200*2+50%H", "-50+50%H" ];
+      double[] correspondingValues = [ screenH * (33.33 / 100.0), screenH * 0.5, screenW * 0.25,
+        screenH, screenW, screenH * 0.5 * 2, (screenH * 0.5) - 50, (screenH * 0.5) + 20, 700.0,
+        10 + (screenH * 0.5), 100 + (screenH * 0.5 * 2), (screenH * 0.5) + (screenW * 0.25), 1000 - (200 * 2) + (screenH * 0.5), -50 + (screenH * 0.5) ];
       for (int index = 0; index < possibleSettingValues.Length; index++)
       {
-        SettingParsers.ParseScreenDimensionsSetting(possibleSettingValues[index]).Should().Be(correspondingValues[index]);
+        SettingParsers.ParseScreenDimensionsSetting(possibleSettingValues[index], screenH, screenW)
+          .Should().BeApproximately(correspondingValues[index], 0.001);
       }
     }
 
@@ -51,10 +63,10 @@ namespace Tests
     [Fact]
     public void TestScreenDimensionsParsing_WithInvalidInput_ReturnsZero()
     {
-      string[] invalidSettingValues = { "abc", "PrimaryScreenHeight/abc", "PrimaryScreenHeight//", "PrimaryScreenWidth * ", "PrimaryScreenWidth + abc" };
-      foreach (var value in invalidSettingValues)
+      string[] invalidSettingValues = ["abc", "50%H/abc", "50%H//", "50%W * ", "50%W + abc"];
+      foreach (string value in invalidSettingValues)
       {
-        SettingParsers.ParseScreenDimensionsSetting(value).Should().Be(0);
+        SettingParsers.ParseScreenDimensionsSetting(value, 1080.0, 1920.0).Should().Be(0);
       }
     }
 
@@ -64,7 +76,7 @@ namespace Tests
     [Fact]
     public void TestScreenDimensionsParsing_WithNullInput_ReturnsZero()
     {
-      SettingParsers.ParseScreenDimensionsSetting(null!).Should().Be(0);
+      SettingParsers.ParseScreenDimensionsSetting(null!, 1080.0, 1920.0).Should().Be(0);
     }
 
     /// <summary>
@@ -73,8 +85,8 @@ namespace Tests
     [Fact]
     public void TestAnimationSettingParsing()
     {
-      var testCases = new (string Value, AnimationKind Kind)[]
-      {
+      (string Value, AnimationKind Kind)[] testCases =
+      [
         ("FadeIn", AnimationKind.FadeFrom),
         ("Unblur", AnimationKind.BlurFrom),
         ("ScaleFromLeft", AnimationKind.ScaleXFrom),
@@ -87,13 +99,13 @@ namespace Tests
         ("SlideFromTop", AnimationKind.TranslateYFrom),
         ("SlideFromRight", AnimationKind.TranslateXFrom),
         ("SlideFromBottom", AnimationKind.TranslateYFrom)
-      };
+      ];
 
-      foreach (var testCase in testCases)
+      foreach ((string Value, AnimationKind Kind) in testCases)
       {
-        var result = SettingParsers.ParseAnimationSetting(testCase.Value);
+        AnimationSettings result = SettingParsers.ParseAnimationSetting(Value, 10.0, 20);
         result.Should().NotBeNull();
-        result.Kind.Should().Be(testCase.Kind);
+        result.Kind.Should().Be(Kind);
       }
     }
 
@@ -103,7 +115,7 @@ namespace Tests
     [Fact]
     public void TestAnimationSettingParsing_WithInvalidInput_ReturnsDefaultAnimation()
     {
-      var result = SettingParsers.ParseAnimationSetting("InvalidAnimation");
+      AnimationSettings result = SettingParsers.ParseAnimationSetting("InvalidAnimation", 10.0, 20);
       result.Should().NotBeNull();
       result.Kind.Should().Be(AnimationKind.FadeTo);
     }
@@ -114,8 +126,8 @@ namespace Tests
     [Fact]
     public void TestScorerSettingParsing()
     {
-      var testCases = new (string Value, Type ExpectedType)[]
-      {
+      (string Value, Type ExpectedType)[] testCases =
+      [
         ("ratio", typeof(DefaultRatioScorer)),
         ("partialRatio", typeof(PartialRatioScorer)),
         ("tokenSet", typeof(TokenSetScorer)),
@@ -125,13 +137,13 @@ namespace Tests
         ("tokenAbbreviation", typeof(TokenAbbreviationScorer)),
         ("partialTokenAbbreviation", typeof(PartialTokenAbbreviationScorer)),
         ("weighted", typeof(WeightedRatioScorer))
-      };
+      ];
 
-      foreach (var testCase in testCases)
+      foreach ((string value, Type expectedType) in testCases)
       {
-        var result = SettingParsers.ParseScorerSetting(testCase.Value);
+        IRatioScorer result = SettingParsers.ParseScorerSetting(value);
         result.Should().NotBeNull();
-        result.Should().BeOfType(testCase.ExpectedType);
+        result.Should().BeOfType(expectedType);
       }
     }
 
@@ -141,10 +153,92 @@ namespace Tests
     [Fact]
     public void TestScorerSettingParsing_WithInvalidInput_ReturnsPartialRatioScorer()
     {
-      var result = SettingParsers.ParseScorerSetting("InvalidScorer");
+      IRatioScorer result = SettingParsers.ParseScorerSetting("InvalidScorer");
       result.Should().NotBeNull();
       result.Should().BeOfType<PartialRatioScorer>();
     }
 
+    /// <summary>
+    /// Verifies that passing <see langword="null"/> or malformed string inputs to setting parsers returns safe default fallbacks.
+    /// </summary>
+    [Fact]
+    public void TestParsers_WithNullOrInvalidInput_ReturnsDefaultFallbacks()
+    {
+      SettingParsers.ParseScreenDimensionsSetting(null!, 1080.0, 1920.0).Should().Be(0);
+      SettingParsers.ParseHorizontalAlignmentSetting(null!).Should().Be(System.Windows.HorizontalAlignment.Center);
+      SettingParsers.ParseVerticalAlignmentSetting(null!).Should().Be(VerticalAlignment.Center);
+      SettingParsers.ParseVisibilitySetting(null!).Should().Be(Visibility.Visible);
+      SettingParsers.ParseThicknessSetting("invalid_thickness").Should().Be(new Thickness(0));
+      SettingParsers.ParseCornerRadiusSetting("invalid_radius").Should().Be(new CornerRadius(0));
+      SettingParsers.ParseDoubleSetting("invalid_double").Should().Be(0);
+      SettingParsers.ParseIntegerSetting("invalid_int").Should().Be(0);
+      SettingParsers.ParseSolidColorBrush("invalid_color").Color.Should().Be(System.Windows.Media.Colors.Transparent);
+      SettingParsers.ParseFontWeight("invalid_weight").Should().Be(FontWeights.Normal);
+    }
+
+    /// <summary>
+    /// Verifies parsing of valid key setting strings into their corresponding <see cref="Keys"/> values.
+    /// </summary>
+    [Fact]
+    public void TestKeySettingParsing()
+    {
+      SettingParsers.ParseKeySetting("Apps", Keys.Apps).Should().Be(Keys.Apps);
+      SettingParsers.ParseKeySetting("PageUp", Keys.Apps).Should().Be(Keys.PageUp);
+      SettingParsers.ParseKeySetting("PageDown", Keys.Apps).Should().Be(Keys.PageDown);
+      SettingParsers.ParseKeySetting("Space", Keys.Apps).Should().Be(Keys.Space);
+    }
+
+    /// <summary>
+    /// Verifies that invalid key setting strings or <see langword="null"/> return the specified default key without throwing.
+    /// </summary>
+    [Fact]
+    public void TestKeySettingParsing_WithInvalidInput_ReturnsDefaultKey()
+    {
+      SettingParsers.ParseKeySetting("InvalidKeyName", Keys.PageUp).Should().Be(Keys.PageUp);
+      SettingParsers.ParseKeySetting(null!, Keys.PageDown).Should().Be(Keys.PageDown);
+    }
+
+    /// <summary>
+    /// Verifies parsing of boolean settings and graceful fallback on invalid input.
+    /// </summary>
+    [Fact]
+    public void TestBooleanSettingParsing()
+    {
+      SettingParsers.ParseBooleanSetting("true", false).Should().BeTrue();
+      SettingParsers.ParseBooleanSetting("false", true).Should().BeFalse();
+      SettingParsers.ParseBooleanSetting("invalid", true).Should().BeTrue();
+      SettingParsers.ParseBooleanSetting(null!, false).Should().BeFalse();
+    }
+
+    /// <summary>
+    /// Verifies parsing of path settings and graceful fallback on invalid input.
+    /// </summary>
+    [Fact]
+    public void TestPathSettingParsing()
+    {
+      SettingParsers.ParsePathSetting(@"C:\Windows\explorer.exe", @"C:\fallback.exe").Should().Be(@"C:\Windows\explorer.exe");
+      SettingParsers.ParsePathSetting(null!, @"C:\fallback.exe").Should().Be(@"C:\fallback.exe");
+    }
+
+    /// <summary>
+    /// Verifies parsing of string settings and graceful fallback on invalid input.
+    /// </summary>
+    [Fact]
+    public void TestStringSettingParsing()
+    {
+      SettingParsers.ParseStringSetting("AboutQuokka", "default").Should().Be("AboutQuokka");
+      SettingParsers.ParseStringSetting(null!, "default").Should().Be("default");
+    }
+
+    /// <summary>
+    /// Verifies parsing of modifier key settings and graceful fallback on invalid input.
+    /// </summary>
+    [Fact]
+    public void TestModifierKeysSettingParsing()
+    {
+      SettingParsers.ParseModifierKeysSetting("Alt", ModifierKeys.Control).Should().Be(ModifierKeys.Alt);
+      SettingParsers.ParseModifierKeysSetting("InvalidModifier", ModifierKeys.Control).Should().Be(ModifierKeys.Control);
+      SettingParsers.ParseModifierKeysSetting(null!, ModifierKeys.Control).Should().Be(ModifierKeys.Control);
+    }
   }
 }
