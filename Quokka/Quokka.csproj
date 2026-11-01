@@ -1,17 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net4.8-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <PublishReadyToRun>true</PublishReadyToRun>
     <Nullable>enable</Nullable>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
-    <SelfContained>true</SelfContained>
+    <SelfContained>false</SelfContained>
     <DebugType>embedded</DebugType>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishDir>..\BuildOutput\Quokka\</PublishDir>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <ApplicationIcon>..\Config\Resources\QuokkaTray.ico</ApplicationIcon>
@@ -41,6 +43,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="PInvoke.User32" Version="0.7.124" />
     <PackageReference Include="TypeExtender" Version="1.0.4" />
+    <PackageReference Include="WinCopies.Util" Version="3.21.0" />
     <PackageReference Include="WinCopies.WindowsAPICodePack.Shell" Version="2.12.0.2" />
     <PackageReference Include="XamlFlair.WPF" Version="1.2.13" />
   </ItemGroup>
@@ -91,6 +94,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\plug.png</TargetPath>
     </ContentWithTargetPath>
+    <ContentWithTargetPath Include="..\Config\Resources\plugin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Config\Resources\plugin.png</TargetPath>
+    </ContentWithTargetPath>
     <ContentWithTargetPath Include="..\Config\Resources\QuokkaTray.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\Resources\QuokkaTray.ico</TargetPath>
@@ -126,6 +133,10 @@
     <ContentWithTargetPath Include="..\Config\settings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <TargetPath>Config\settings.json</TargetPath>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="..\Config\Resources\desktop.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>desktop.ini</TargetPath>
     </ContentWithTargetPath>
   </ItemGroup>
   <ItemGroup>
