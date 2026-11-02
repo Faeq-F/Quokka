@@ -17,7 +17,7 @@ namespace Quokka
     public static void OpenPlugBoard()
     {
       using Process folderopener = new();
-      folderopener.StartInfo.FileName = (string)App.Current.Resources["FileManager"];
+      folderopener.StartInfo.FileName = (string)Current.Resources["FileManager"];
       folderopener.StartInfo.Arguments = Environment.CurrentDirectory + "\\PlugBoard\\";
       folderopener.Start();
     }
@@ -28,10 +28,82 @@ namespace Quokka
     public static void OpenSettingsFile()
     {
       using Process fileOpener = new();
-      fileOpener.StartInfo.FileName = (string)App.Current.Resources["TextEditor"];
+      fileOpener.StartInfo.FileName = (string)Current.Resources["TextEditor"];
       fileOpener.StartInfo.Arguments =
           Environment.CurrentDirectory + "\\Config\\settings.json";
       fileOpener.Start();
+    }
+
+    /// <summary>
+    /// Opens the specified plugin's directory within the user's file manager.
+    /// </summary>
+    /// <param name="pluginName">The name of the plugin folder.</param>
+    public static void OpenPluginFolder(string pluginName)
+    {
+      ArgumentNullException.ThrowIfNull(pluginName);
+      string pluginDir = System.IO.Path.Combine(Environment.CurrentDirectory, "PlugBoard", pluginName, "Plugin");
+
+      if (!System.IO.Directory.Exists(pluginDir))
+      {
+        pluginDir = System.IO.Path.Combine(Environment.CurrentDirectory, "PlugBoard");
+      }
+
+      if (System.IO.Directory.Exists(pluginDir))
+      {
+        Process.Start("explorer.exe", pluginDir);
+      }
+    }
+
+    /// <summary>
+    /// Opens the specified plugin's settings file in the user's text editor.
+    /// </summary>
+    /// <param name="pluginName">The name of the plugin folder.</param>
+    public static void OpenPluginSettingsFile(string pluginName)
+    {
+      ArgumentNullException.ThrowIfNull(pluginName);
+      string settingsPath = System.IO.Path.Combine(Environment.CurrentDirectory, "PlugBoard", pluginName, "Plugin", "settings.json");
+      if (!System.IO.File.Exists(settingsPath))
+      {
+        settingsPath = System.IO.Path.Combine(Environment.CurrentDirectory, "PlugBoard", pluginName, "settings.json");
+      }
+
+      if (System.IO.File.Exists(settingsPath))
+      {
+        string? textEditor = Current?.Resources["TextEditor"] as string;
+        if (!string.IsNullOrEmpty(textEditor) && System.IO.File.Exists(textEditor))
+        {
+          using Process fileOpener = new();
+          fileOpener.StartInfo.FileName = textEditor;
+          fileOpener.StartInfo.Arguments = settingsPath;
+          fileOpener.Start();
+        }
+        else
+        {
+          Process.Start(new ProcessStartInfo
+          {
+            FileName = settingsPath,
+            UseShellExecute = true
+          });
+        }
+      }
+    }
+
+    /// <summary>
+    /// Restarts the Quokka application.
+    /// </summary>
+    public static void RestartApp()
+    {
+      string exePath = Process.GetCurrentProcess().MainModule?.FileName ?? Environment.ProcessPath ?? string.Empty;
+      if (!string.IsNullOrEmpty(exePath))
+      {
+        ProcessStartInfo startInfo = new(exePath)
+        {
+          WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
+          UseShellExecute = true
+        };
+        Process.Start(startInfo);
+      }
+      Current.Shutdown();
     }
 
 
@@ -45,9 +117,9 @@ namespace Quokka
       //run anything needed for plugins on app exit
       try
       {
-        if (plugins != null)
+        if (Plugins is not null)
         {
-          foreach (Plugin plugin in plugins)
+          foreach (Plugin plugin in Plugins)
           {
             plugin.OnAppShutdown();
           }
@@ -57,25 +129,13 @@ namespace Quokka
       {
         ShowErrorMessageBox(ex, "Error with a plugin calling its OnAppShutdown()");
       }
-      if (notifyIcon != null)
-      {
-        notifyIcon.Dispose(); //the icon would clean up automatically, but this is cleaner
-      }
+      notifyIcon?.Dispose();
       base.OnExit(e);
     }
 
-    private void CreateSearchWindow(object? sender, KeyPressedEventArgs e)
+    private static void CreateSearchWindow(object? sender, KeyPressedEventArgs e)
     {
-      bool windowOpen = false;
-      foreach (var wnd in Current.Windows)
-      {
-        if (wnd is SearchWindow)
-        {
-          windowOpen = true;
-          break;
-        }
-      }
-      if (!windowOpen)
+      if (Current.MainWindow is null)
       {
         Current.MainWindow = new SearchWindow();
         Current.MainWindow.Show();
