@@ -1,12 +1,14 @@
 {
   "GeneralSettings": {
-    "AboutCommand": "AboutQuokka",
+    "AppControlCommand": "Quokka",
     "CheckForUpdates": true,
 
     "Keys": {
       "WindowHotKey": "Space",
       "WindowHotKeyModifier": "Alt",
-      "ContextPaneKey": "Apps"
+      "ContextPaneKey": "Apps",
+      "ScrollLeftKey": "PageUp",
+      "ScrollRightKey": "PageDown"
     },
 
     "Search": {
@@ -28,40 +30,48 @@
 
   "StyleSettings": {
     "AppFont": "Varela Round",
+    "AppAnimationDurations": "250",
 
     "AppWindow": {
-      "WindowTopMargin": "PrimaryScreenHeight/3",
+      "WindowTopMargin": "33.33%H",
       "WindowWidth": "700",
+      "UseWorkingArea": false,
       "WindowColor": "White",
       "WindowBorderColor": "#dddddd",
       "WindowBorderThickness": "1",
       "WindowRounding": "8",
       "WindowPadding": "0,0,0,0",
 
-      "DropShadowBlurRadius": "70",
+      "DropShadowBlurRadius": "20",
       "DropShadowOpacity": "0.1",
-      "DropShadowDirection": "315",
+      "DropShadowDirection": "270",
       "DropShadowShadowDepth": "2",
-      "DropShadowRenderingBias": "Quality"
+      "DropShadowRenderingBias": "Quality",
+
+      "WindowAnimationBlurRadius": "100",
+      "WindowAnimationOffset": "1500",
+      "WindowAnimation": "FadeIn",
+      "WindowExitAnimation": "FadeOut"
     },
 
     "TrayTask": {
       "TrayTaskContextMenuColor": "#fff",
       "TrayTaskContextMenuBorderColor": "#ddd",
-      "TrayTaskContextMenuBorderThickness": "2",
+      "TrayTaskContextMenuBorderThickness": "1",
       "TrayTaskContextMenuRounding": "8",
+      "TrayTaskContextMenuMargin": "15",
       "TrayTaskContextMenuSeparatorColor": "#e5e5e5",
 
-      "TrayTaskContextMenuDropShadowBlurRadius": "70",
+      "TrayTaskContextMenuDropShadowBlurRadius": "20",
       "TrayTaskContextMenuDropShadowOpacity": "0.1",
-      "TrayTaskContextMenuDropShadowDirection": "315",
+      "TrayTaskContextMenuDropShadowDirection": "270",
       "TrayTaskContextMenuDropShadowShadowDepth": "2",
-      "TrayTaskContextMenuDropShadowRenderingBias": "Performance",
+      "TrayTaskContextMenuDropShadowRenderingBias": "Quality",
 
       "Items": {
         "TrayTaskContextMenuItemMargin": "3",
         "TrayTaskContextMenuItemIconSize": "32",
-        "TrayTaskContextMenuItemIconMargin": "0,0,5,0",
+        "TrayTaskContextMenuItemIconMargin": "3",
         "TrayTaskContextMenuItemTxtColor": "Black",
         "TrayTaskContextMenuItemColor": "Transparent",
         "TrayTaskContextMenuItemBorderColor": "Transparent",
@@ -103,17 +113,21 @@
         "ListContainerRounding": "0",
         "ListContainerColor": "Transparent",
         "ListContainerMinHeight": "0",
-        "ListContainerMaxHeight": "PrimaryScreenHeight"
+        "ListContainerMaxHeight": "100%H"
       },
 
       "List": {
         "ListMargin": "3",
         "ScrollBarWidth": "10",
         "HorizontalScrollIncrementingWidth": "3",
-        "AnimationBlurRadius": "24",
-        "AnimationOffset": "50",
-        "Animation": "FadeIn",
-        "AnimationDuration": "200",
+        "ResultsListAnimationBlurRadius": "50",
+        "ResultsListAnimationOffset": "100",
+        "ResultsListAnimation": "FadeIn",
+        "ResultsListExitAnimation": "FadeOut",
+        "ContextPaneAnimationBlurRadius": "50",
+        "ContextPaneAnimationOffset": "100",
+        "ContextPaneAnimation": "FadeIn",
+        "ContextPaneExitAnimation": "FadeOut",
 
         "ScrollBarBackground": {
           "ScrollBarBgVisibility": "Visible",
@@ -205,7 +219,7 @@
               "ContextPaneListItemMargin": "0, 0, 0, 0",
 
               "ContextPaneListItemIconSize": "32",
-              "ContextPaneListItemIconMargin": "8,0,-3,0",
+              "ContextPaneListItemIconMargin": "0,0,8,0",
               "ContextPaneListItemTextPadding": "10,10,10,0",
               "ContextPaneListItemSize": "12",
               "ContextPaneListItemColor": "Black",

@@ -3,7 +3,9 @@ using FuzzySharp.SimilarityRatio.Scorer;
 using FuzzySharp.SimilarityRatio.Scorer.Composite;
 using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
@@ -19,71 +21,113 @@ namespace Quokka.Settings
   {
 
     /// <summary>
-    /// Parses and evaluates settings that can have screen dimensions (e.g., <c>ScreenHeight</c> or <c>ScreenWidth</c>) (i.e., the <c>WindowTopMargin</c>, <c>WindowWidth</c>, and <c>ListContainerMaxHeight</c> settings).
+    /// Parses and evaluates settings that can have screen dimensions
+    /// (i.e., the <c>WindowTopMargin</c>, <c>WindowWidth</c>, and <c>ListContainerMaxHeight</c> settings),
+    /// resolved against the given active screen dimensions.
+    /// Supports percentage tokens <c>%H</c> (percentage of <paramref name="activeScreenHeight"/>)
+    /// and <c>%W</c> (percentage of <paramref name="activeScreenWidth"/>), as well as
+    /// fixed numeric values and optional arithmetic operators (<c>+</c>, <c>-</c>, <c>*</c>, <c>/</c>).
     /// </summary>
     /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
+    /// <param name="activeScreenHeight">The height of the active screen in device-independent pixels.</param>
+    /// <param name="activeScreenWidth">The width of the active screen in device-independent pixels.</param>
     /// <returns>
     /// The evaluated double value. If the setting cannot be parsed, returns <c>0</c> and displays an error.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="settingValue"/> is <see langword="null"/>.
-    /// </exception>
-    public static double ParseScreenDimensionsSetting(string settingValue)
+    public static double ParseScreenDimensionsSetting(string settingValue, double activeScreenHeight, double activeScreenWidth)
     {
       try
       {
-        if (settingValue == null)
+        ArgumentNullException.ThrowIfNull(settingValue);
+        settingValue = settingValue.Trim().Replace(" ", "", StringComparison.Ordinal);
+        if (string.IsNullOrEmpty(settingValue))
         {
-          throw new ArgumentNullException(nameof(settingValue));
-        }
-        settingValue = settingValue.Trim().Replace(" ", "");
-        double output = 0;
-        string pastScreen = "";
-        if (settingValue.Contains("PrimaryScreenHeight"))
-        {
-          pastScreen = settingValue.Replace("PrimaryScreenHeight", "");
-          output = SystemParameters.PrimaryScreenHeight;
-        }
-        else if (settingValue.Contains("PrimaryScreenWidth"))
-        {
-          pastScreen = settingValue.Replace("PrimaryScreenWidth", "");
-          output = SystemParameters.PrimaryScreenWidth;
-        }
-        else
-        {
-          output = double.Parse(settingValue, new CultureInfo("en-US"));
-          return output;
+          return 0;
         }
 
-        if (pastScreen.Length > 0)
+        // Replace %H and %W tokens with calculated numeric values in the string
+        while (settingValue.Contains("%H", StringComparison.Ordinal))
         {
-          char op = pastScreen[0];
-          double optionalValue = double.Parse(pastScreen.Substring(1), new CultureInfo("en-US"));
-          switch (op)
+          int tokenIdx = settingValue.IndexOf("%H", StringComparison.Ordinal);
+          int startIdx = tokenIdx - 1;
+          while (startIdx >= 0 && (char.IsDigit(settingValue[startIdx]) || settingValue[startIdx] == '.'))
           {
-            case '/':
-              output /= optionalValue;
-              break;
+            startIdx--;
+          }
+          startIdx++;
 
-            case '*':
-              output *= optionalValue;
-              break;
+          double percentage = double.Parse(settingValue[startIdx..tokenIdx], CultureInfo.InvariantCulture);
+          double val = activeScreenHeight * (percentage / 100.0);
+          settingValue = string.Concat(settingValue.AsSpan(0, startIdx), val.ToString(CultureInfo.InvariantCulture), settingValue.AsSpan(tokenIdx + 2));
+        }
 
-            case '+':
-              output += optionalValue;
-              break;
+        while (settingValue.Contains("%W", StringComparison.Ordinal))
+        {
+          int tokenIdx = settingValue.IndexOf("%W", StringComparison.Ordinal);
+          int startIdx = tokenIdx - 1;
+          while (startIdx >= 0 && (char.IsDigit(settingValue[startIdx]) || settingValue[startIdx] == '.'))
+          {
+            startIdx--;
+          }
+          startIdx++;
 
-            case '-':
-              output -= optionalValue;
-              break;
+          double percentage = double.Parse(settingValue[startIdx..tokenIdx], CultureInfo.InvariantCulture);
+          double val = activeScreenWidth * (percentage / 100.0);
+          settingValue = string.Concat(settingValue.AsSpan(0, startIdx), val.ToString(CultureInfo.InvariantCulture), settingValue.AsSpan(tokenIdx + 2));
+        }
+
+        // Parse numbers and operators (+, -, *, /) left-to-right
+        List<double> numbers = [];
+        List<char> operators = [];
+
+        int numStart = 0;
+        for (int i = 0; i < settingValue.Length; i++)
+        {
+          char c = settingValue[i];
+          if (c is '+' or '-' or '*' or '/')
+          {
+            if (i == 0 && c == '-')
+            {
+              // Leading negative sign
+              continue;
+            }
+            numbers.Add(double.Parse(settingValue[numStart..i], CultureInfo.InvariantCulture));
+            operators.Add(c);
+            numStart = i + 1;
+          }
+        }
+        numbers.Add(double.Parse(settingValue[numStart..], CultureInfo.InvariantCulture));
+
+        // Evaluate multiplication and division first
+        for (int i = 0; i < operators.Count; i++)
+        {
+          if (operators[i] is '*' or '/')
+          {
+            double res = operators[i] == '*' ? numbers[i] * numbers[i + 1] : numbers[i] / numbers[i + 1];
+            numbers[i] = res;
+            numbers.RemoveAt(i + 1);
+            operators.RemoveAt(i);
+            i--;
           }
         }
 
-        return output;
+        // Evaluate addition and subtraction
+        double result = numbers[0];
+        for (int i = 0; i < operators.Count; i++)
+        {
+          result = operators[i] switch
+          {
+            '+' => result + numbers[i + 1],
+            '-' => result - numbers[i + 1],
+            _ => throw new ArgumentException($"Invalid operator '{operators[i]}'")
+          };
+        }
+
+        return result;
       }
-      catch (Exception e) when (e is System.FormatException || e is System.ArgumentException)
+      catch (Exception e) when (e is FormatException or ArgumentException or OverflowException)
       {
-        App.ShowErrorMessageBox(e, "Could not parse a screen dimensions setting with the value \"" + settingValue + "\"");
+        App.ShowErrorMessageBox(e, $"Could not parse a screen dimensions setting with the value \"{settingValue}\"");
         return 0;
       }
     }
@@ -95,20 +139,14 @@ namespace Quokka.Settings
     /// <returns>
     /// The evaluated <see cref="HorizontalAlignment"/> value. If the setting cannot be parsed, returns <see cref="HorizontalAlignment.Center"/> and displays an error.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="settingValue"/> is <see langword="null"/>.
-    /// </exception>
     public static HorizontalAlignment ParseHorizontalAlignmentSetting(string settingValue)
     {
       try
       {
-        if (settingValue == null)
-        {
-          throw new ArgumentNullException(nameof(settingValue));
-        }
-        return (HorizontalAlignment)Enum.Parse(typeof(HorizontalAlignment), settingValue.ToString(), true);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<HorizontalAlignment>(settingValue, ignoreCase: true);
       }
-      catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a horizontal alignment setting with the value \"" + settingValue + "\""); return HorizontalAlignment.Center; }
+      catch (ArgumentException e) { App.ShowErrorMessageBox(e, $"Could not parse a horizontal alignment setting with the value \"{settingValue}\""); return HorizontalAlignment.Center; }
     }
 
     /// <summary>
@@ -118,20 +156,14 @@ namespace Quokka.Settings
     /// <returns>
     /// The evaluated <see cref="RenderingBias"/> value. If the setting cannot be parsed, returns <see cref="RenderingBias.Quality"/> and displays an error.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="settingValue"/> is <see langword="null"/>.
-    /// </exception>
     public static RenderingBias ParseRenderingBiasSetting(string settingValue)
     {
       try
       {
-        if (settingValue == null)
-        {
-          throw new ArgumentNullException(nameof(settingValue));
-        }
-        return (RenderingBias)Enum.Parse(typeof(RenderingBias), settingValue.ToString(), true);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<RenderingBias>(settingValue, ignoreCase: true);
       }
-      catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a rendering bias setting with the value \"" + settingValue + "\""); return RenderingBias.Quality; }
+      catch (ArgumentException e) { App.ShowErrorMessageBox(e, $"Could not parse a rendering bias setting with the value \"{settingValue}\""); return RenderingBias.Quality; }
     }
 
     /// <summary>
@@ -141,20 +173,14 @@ namespace Quokka.Settings
     /// <returns>
     /// The evaluated <see cref="VerticalAlignment"/> value. If the setting cannot be parsed, returns <see cref="VerticalAlignment.Center"/> and displays an error.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="settingValue"/> is <see langword="null"/>.
-    /// </exception>
     public static VerticalAlignment ParseVerticalAlignmentSetting(string settingValue)
     {
       try
       {
-        if (settingValue == null)
-        {
-          throw new ArgumentNullException(nameof(settingValue));
-        }
-        return (VerticalAlignment)Enum.Parse(typeof(VerticalAlignment), settingValue.ToString(), true);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<VerticalAlignment>(settingValue, ignoreCase: true);
       }
-      catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a vertical alignment setting with the value \"" + settingValue + "\""); return VerticalAlignment.Center; }
+      catch (ArgumentException e) { App.ShowErrorMessageBox(e, $"Could not parse a vertical alignment setting with the value \"{settingValue}\""); return VerticalAlignment.Center; }
     }
 
     /// <summary>
@@ -164,20 +190,14 @@ namespace Quokka.Settings
     /// <returns>
     /// The evaluated <see cref="Visibility"/> value. If the setting cannot be parsed, returns <see cref="Visibility.Visible"/> and displays an error.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="settingValue"/> is <see langword="null"/>.
-    /// </exception>
     public static Visibility ParseVisibilitySetting(string settingValue)
     {
       try
       {
-        if (settingValue == null)
-        {
-          throw new ArgumentNullException(nameof(settingValue));
-        }
-        return (Visibility)Enum.Parse(typeof(Visibility), settingValue.ToString(), true);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<Visibility>(settingValue, ignoreCase: true);
       }
-      catch (System.ArgumentException e) { App.ShowErrorMessageBox(e, "Could not parse a visibility setting with the value \"" + settingValue + "\""); return Visibility.Visible; }
+      catch (ArgumentException e) { App.ShowErrorMessageBox(e, $"Could not parse a visibility setting with the value \"{settingValue}\""); return Visibility.Visible; }
     }
 
     /// <summary>
@@ -191,9 +211,14 @@ namespace Quokka.Settings
     {
       try
       {
-        return (Thickness)new ThicknessConverter().ConvertFromString(settingValue)!;
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return new ThicknessConverter().ConvertFromString(settingValue) is Thickness t ? t : new Thickness(0);
       }
-      catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a thickness setting with the value \"" + settingValue + "\""); return (Thickness)new ThicknessConverter().ConvertFromString("0")!; }
+      catch (Exception e) when (e is FormatException or NotSupportedException or ArgumentException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a thickness setting with the value \"{settingValue}\"");
+        return new Thickness(0);
+      }
     }
 
     /// <summary>
@@ -207,9 +232,14 @@ namespace Quokka.Settings
     {
       try
       {
-        return (CornerRadius)new CornerRadiusConverter().ConvertFromString(settingValue)!;
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return new CornerRadiusConverter().ConvertFromString(settingValue) is CornerRadius c ? c : new CornerRadius(0);
       }
-      catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a corner radius setting with the value \"" + settingValue + "\""); return (CornerRadius)new CornerRadiusConverter().ConvertFromString("0")!; }
+      catch (Exception e) when (e is FormatException or NotSupportedException or ArgumentException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a corner radius setting with the value \"{settingValue}\"");
+        return new CornerRadius(0);
+      }
     }
 
     /// <summary>
@@ -219,13 +249,18 @@ namespace Quokka.Settings
     /// <returns>
     /// The evaluated double value. If the setting cannot be parsed, returns <c>0</c> and displays an error.
     /// </returns>
-    public static Double ParseDoubleSetting(string settingValue)
+    public static double ParseDoubleSetting(string settingValue)
     {
       try
       {
+        ArgumentNullException.ThrowIfNull(settingValue);
         return double.Parse(settingValue, new CultureInfo("en-US"));
       }
-      catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse a double setting with the value \"" + settingValue + "\""); return 0; }
+      catch (Exception e) when (e is FormatException or OverflowException or ArgumentException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a double setting with the value \"{settingValue}\"");
+        return 0;
+      }
     }
 
     /// <summary>
@@ -239,13 +274,18 @@ namespace Quokka.Settings
     {
       try
       {
+        ArgumentNullException.ThrowIfNull(settingValue);
         return int.Parse(settingValue, new CultureInfo("en-US"));
       }
-      catch (System.FormatException e) { App.ShowErrorMessageBox(e, "Could not parse an integer setting with the value \"" + settingValue + "\""); return 0; }
+      catch (Exception e) when (e is FormatException or OverflowException or ArgumentException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse an integer setting with the value \"{settingValue}\"");
+        return 0;
+      }
     }
 
     /// <summary>
-    /// Parses and evaluates the scorer setting used for fuzzy search.
+    /// Parses and evaluates <see cref="IRatioScorer"/> settings.
     /// </summary>
     /// <param name="settingValue">The string representation of the scorer setting value. Acceptable values:
     /// <list type="bullet">
@@ -277,7 +317,7 @@ namespace Quokka.Settings
         case "partialTokenAbbreviation": return ScorerCache.Get<PartialTokenAbbreviationScorer>();
         case "weighted": return ScorerCache.Get<WeightedRatioScorer>();
         default:
-          App.ShowErrorMessageBox(new FormatException("Could not parse the scorer setting with the value \"" + settingValue + "\""), "Error");
+          App.ShowErrorMessageBox(new FormatException($"Could not parse the scorer setting with the value \"{settingValue}\""), "Error");
           return ScorerCache.Get<PartialRatioScorer>();
       }
     }
@@ -287,18 +327,19 @@ namespace Quokka.Settings
     /// </summary>
     /// <param name="settingValue">The string representation of the color value.</param>
     /// <returns>
-    /// The evaluated <see cref="SolidColorBrush"/> value. If the setting cannot be parsed, returns a transparent brush and displays an error.
+    /// The evaluated <see cref="SolidColorBrush"/> value. If the setting cannot be parsed, returns <see cref="Brushes.Transparent"/> and displays an error.
     /// </returns>
     public static SolidColorBrush ParseSolidColorBrush(string settingValue)
     {
       try
       {
-        return (SolidColorBrush)new BrushConverter().ConvertFromString(settingValue);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return new BrushConverter().ConvertFromString(settingValue) as SolidColorBrush ?? Brushes.Transparent;
       }
-      catch (System.FormatException e)
+      catch (Exception e) when (e is FormatException or NotSupportedException or ArgumentException)
       {
-        App.ShowErrorMessageBox(e, "Could not parse a color setting with the value \"" + settingValue + "\"");
-        return (SolidColorBrush)new BrushConverter().ConvertFromString("Transparent")!;
+        App.ShowErrorMessageBox(e, $"Could not parse a color setting with the value \"{settingValue}\"");
+        return Brushes.Transparent;
       }
     }
 
@@ -313,17 +354,18 @@ namespace Quokka.Settings
     {
       try
       {
-        return (FontWeight)new FontWeightConverter().ConvertFromString(settingValue);
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return new FontWeightConverter().ConvertFromString(settingValue) is FontWeight fw ? fw : FontWeights.Normal;
       }
-      catch (System.FormatException e)
+      catch (Exception e) when (e is FormatException or NotSupportedException or ArgumentException)
       {
-        App.ShowErrorMessageBox(e, "Could not parse a font weight setting with the value \"" + settingValue + "\"");
-        return (FontWeight)new FontWeightConverter().ConvertFromString("Normal")!;
+        App.ShowErrorMessageBox(e, $"Could not parse a font weight setting with the value \"{settingValue}\"");
+        return FontWeights.Normal;
       }
     }
 
     /// <summary>
-    /// Parses and evaluates the <see cref="AnimationSettings"/> to be used for the results list.
+    /// Parses and evaluates the <see cref="AnimationSettings"/> to be used for element animations.
     /// </summary>
     /// <param name="settingValue">The string representation of the animation setting. Acceptable values:
     /// <list type="bullet">
@@ -333,97 +375,283 @@ namespace Quokka.Settings
     /// <item><description><c>ScaleFromTop</c>, <c>ScaleFromBottom</c>, or <c>ScaleVertically</c> (maps to <see cref="AnimationKind.ScaleYFrom"/>)</description></item>
     /// <item><description><c>SlideFromLeft</c> or <c>SlideFromRight</c> (maps to <see cref="AnimationKind.TranslateXFrom"/>)</description></item>
     /// <item><description><c>SlideFromTop</c> or <c>SlideFromBottom</c> (maps to <see cref="AnimationKind.TranslateYFrom"/>)</description></item>
+    /// <item><description><c>FadeOut</c> (maps to <see cref="AnimationKind.FadeTo"/>)</description></item>
+    /// <item><description><c>Blur</c> (maps to <see cref="AnimationKind.BlurTo"/>)</description></item>
+    /// <item><description><c>SlideToLeft</c> or <c>SlideToRight</c> (maps to <see cref="AnimationKind.TranslateXTo"/>)</description></item>
+    /// <item><description><c>SlideToTop</c> or <c>SlideToBottom</c> (maps to <see cref="AnimationKind.TranslateYTo"/>)</description></item>
+    /// <item><description><c>ScaleToLeft</c> or <c>ScaleToRight</c> (maps to <see cref="AnimationKind.ScaleXTo"/>)</description></item>
+    /// <item><description><c>ScaleToTop</c> or <c>ScaleToBottom</c> (maps to <see cref="AnimationKind.ScaleYTo"/>)</description></item>
     /// </list>
     /// </param>
+    /// <param name="blurRadius">Specifies the blur radius value for blur animations.</param>
+    /// <param name="offset">Specifies the offset distance value for slide animations.</param>
+    /// <param name="duration">Specifies the duration of the animation in milliseconds.</param>
     /// <returns>
     /// The evaluated <see cref="AnimationSettings"/> value. If the setting cannot be parsed, returns default animation settings and displays an error.
     /// </returns>
-    public static AnimationSettings ParseAnimationSetting(string settingValue)
+    public static AnimationSettings ParseAnimationSetting(string settingValue, double blurRadius = 24.0, int offset = 50, double duration = 500.0)
     {
-      double BlurRadius = (double)App.Current.Resources["AnimationBlurRadius"];
-      int Offset = (int)App.Current.Resources["AnimationOffset"];
-      int NegativeOffset = 0 - Offset;
-      switch (settingValue)
+      int negativeOffset = 0 - offset;
+      AnimationSettings? setting = settingValue switch
       {
-        case "FadeIn":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.FadeFrom,
-            Opacity = 0
-          };
-        case "Unblur":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.BlurFrom,
-            BlurRadius = BlurRadius
-          };
-        case "ScaleFromLeft":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleXFrom,
-            ScaleX = 0,
-            TransformCenterPoint = new Point(0, 0.5)
-          };
-        case "ScaleFromTop":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleYFrom,
-            ScaleY = 0,
-            TransformCenterPoint = new Point(0.5, 0)
-          };
-        case "ScaleFromRight":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleXFrom,
-            ScaleX = 0,
-            TransformCenterPoint = new Point(1, 0.5)
-          };
-        case "ScaleFromBottom":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleYFrom,
-            ScaleY = 0,
-            TransformCenterPoint = new Point(0.5, 1)
-          };
-        case "ScaleHorizontally":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleXFrom,
-            ScaleX = 0
-          };
-        case "ScaleVertically":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.ScaleYFrom,
-            ScaleY = 0
-          };
-        case "SlideFromLeft":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.TranslateXFrom,
-            OffsetX = new Offset { OffsetValue = NegativeOffset }
-          };
-        case "SlideFromTop":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.TranslateYFrom,
-            OffsetY = new Offset { OffsetValue = NegativeOffset }
-          };
-        case "SlideFromRight":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.TranslateXFrom,
-            OffsetX = new Offset { OffsetValue = Offset }
-          };
-        case "SlideFromBottom":
-          return new AnimationSettings
-          {
-            Kind = AnimationKind.TranslateYFrom,
-            OffsetY = new Offset { OffsetValue = Offset }
-          };
-        default:
-          App.ShowErrorMessageBox(new FormatException("Could not parse the animation setting with the value \"" + settingValue + "\""), "Error");
-          return new AnimationSettings { };
+        "FadeIn" => new AnimationSettings
+        {
+          Kind = AnimationKind.FadeFrom,
+          Opacity = 0
+        },
+        "Unblur" => new AnimationSettings
+        {
+          Kind = AnimationKind.BlurFrom,
+          BlurRadius = blurRadius
+        },
+        "ScaleFromLeft" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleXFrom,
+          ScaleX = 0,
+          TransformCenterPoint = new Point(0, 0.5)
+        },
+        "ScaleFromTop" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleYFrom,
+          ScaleY = 0,
+          TransformCenterPoint = new Point(0.5, 0)
+        },
+        "ScaleFromRight" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleXFrom,
+          ScaleX = 0,
+          TransformCenterPoint = new Point(1, 0.5)
+        },
+        "ScaleFromBottom" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleYFrom,
+          ScaleY = 0,
+          TransformCenterPoint = new Point(0.5, 1)
+        },
+        "ScaleHorizontally" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleXFrom,
+          ScaleX = 0
+        },
+        "ScaleVertically" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleYFrom,
+          ScaleY = 0
+        },
+        "SlideFromLeft" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateXFrom,
+          OffsetX = new Offset { OffsetValue = negativeOffset }
+        },
+        "SlideFromTop" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateYFrom,
+          OffsetY = new Offset { OffsetValue = negativeOffset }
+        },
+        "SlideFromRight" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateXFrom,
+          OffsetX = new Offset { OffsetValue = offset }
+        },
+        "SlideFromBottom" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateYFrom,
+          OffsetY = new Offset { OffsetValue = offset }
+        },
+        "FadeOut" => new AnimationSettings
+        {
+          Kind = AnimationKind.FadeTo,
+          Opacity = 0
+        },
+        "SlideToLeft" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateXTo,
+          OffsetX = new Offset { OffsetValue = negativeOffset }
+        },
+        "SlideToTop" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateYTo,
+          OffsetY = new Offset { OffsetValue = negativeOffset }
+        },
+        "SlideToRight" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateXTo,
+          OffsetX = new Offset { OffsetValue = offset }
+        },
+        "SlideToBottom" => new AnimationSettings
+        {
+          Kind = AnimationKind.TranslateYTo,
+          OffsetY = new Offset { OffsetValue = offset }
+        },
+        "ScaleToLeft" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleXTo,
+          ScaleX = 0,
+          TransformCenterPoint = new Point(0, 0.5)
+        },
+        "ScaleToTop" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleYTo,
+          ScaleY = 0,
+          TransformCenterPoint = new Point(0.5, 0)
+        },
+        "ScaleToRight" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleXTo,
+          ScaleX = 0,
+          TransformCenterPoint = new Point(1, 0.5)
+        },
+        "ScaleToBottom" => new AnimationSettings
+        {
+          Kind = AnimationKind.ScaleYTo,
+          ScaleY = 0,
+          TransformCenterPoint = new Point(0.5, 1)
+        },
+        "Blur" => new AnimationSettings
+        {
+          Kind = AnimationKind.BlurTo,
+          BlurRadius = blurRadius
+        },
+        _ => null
+      };
+      if (setting is null)
+      {
+        App.ShowErrorMessageBox(new FormatException($"Could not parse the animation setting with the value \"{settingValue}\""), "Error");
+        setting = new AnimationSettings();
+      }
+      setting.Duration = duration;
+      return setting;
+    }
+
+    /// <summary>
+    /// Parses and evaluates <see cref="System.Windows.Forms.Keys"/> settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the setting value to be evaluated.</param>
+    /// <param name="defaultKey">Specifies the default <see cref="System.Windows.Forms.Keys"/> value to return if parsing fails.</param>
+    /// <returns>
+    /// The evaluated <see cref="System.Windows.Forms.Keys"/> value. If the setting cannot be parsed, returns <paramref name="defaultKey"/> and displays an error.
+    /// </returns>
+    public static System.Windows.Forms.Keys ParseKeySetting(string settingValue, System.Windows.Forms.Keys defaultKey)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<System.Windows.Forms.Keys>(settingValue, ignoreCase: true);
+      }
+      catch (Exception e) when (e is ArgumentException or FormatException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a key setting with the value \"{settingValue}\"");
+        return defaultKey;
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates <see cref="bool"/> settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the boolean value to be evaluated.</param>
+    /// <param name="defaultValue">Specifies the default boolean value to return if parsing fails.</param>
+    /// <returns>
+    /// The evaluated boolean value. If the setting cannot be parsed, returns <paramref name="defaultValue"/> and displays an error.
+    /// </returns>
+    public static bool ParseBooleanSetting(string settingValue, bool defaultValue = true)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return bool.Parse(settingValue);
+      }
+      catch (Exception e) when (e is FormatException or ArgumentException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a boolean setting with the value \"{settingValue}\"");
+        return defaultValue;
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates <see cref="FontFamily"/> font settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the font setting value.</param>
+    /// <param name="defaultFont">Specifies the default <see cref="FontFamily"/> to return if parsing fails.</param>
+    /// <returns>
+    /// The evaluated <see cref="FontFamily"/> instance. If the setting cannot be parsed, returns <paramref name="defaultFont"/> and displays an error.
+    /// </returns>
+    public static FontFamily ParseFontFamilySetting(string settingValue, FontFamily defaultFont)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return new FontFamily(Path.GetFullPath("./Config/Resources/#") + settingValue);
+      }
+      catch (Exception e) when (e is ArgumentException or FormatException or System.Security.SecurityException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a font setting with the value \"{settingValue}\"");
+        return defaultFont;
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates path settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the path to be evaluated.</param>
+    /// <param name="defaultPath">Specifies the default path string to return if parsing fails.</param>
+    /// <returns>
+    /// The full path string. If the setting cannot be parsed, returns <paramref name="defaultPath"/> and displays an error.
+    /// </returns>
+    public static string ParsePathSetting(string settingValue, string defaultPath)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Path.GetFullPath(settingValue);
+      }
+      catch (Exception e) when (e is ArgumentException or PathTooLongException or NotSupportedException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a path setting with the value \"{settingValue}\"");
+        return defaultPath;
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates string settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the setting value.</param>
+    /// <param name="defaultValue">Specifies the default string value to return if parsing fails.</param>
+    /// <returns>
+    /// The evaluated string setting. If the setting cannot be parsed, returns <paramref name="defaultValue"/> and displays an error.
+    /// </returns>
+    public static string ParseStringSetting(string settingValue, string defaultValue)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return settingValue;
+      }
+      catch (Exception e) when (e is ArgumentNullException or FormatException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a string setting with the value \"{settingValue}\"");
+        return defaultValue;
+      }
+    }
+
+    /// <summary>
+    /// Parses and evaluates <see cref="ModifierKeys"/> settings.
+    /// </summary>
+    /// <param name="settingValue">The string representation of the modifier key value to be evaluated.</param>
+    /// <param name="defaultModifier">Specifies the default <see cref="ModifierKeys"/> value to return if parsing fails.</param>
+    /// <returns>
+    /// The evaluated <see cref="ModifierKeys"/> value. If the setting cannot be parsed, returns <paramref name="defaultModifier"/> and displays an error.
+    /// </returns>
+    public static ModifierKeys ParseModifierKeysSetting(string settingValue, ModifierKeys defaultModifier = ModifierKeys.Alt)
+    {
+      try
+      {
+        ArgumentNullException.ThrowIfNull(settingValue);
+        return Enum.Parse<ModifierKeys>(settingValue, ignoreCase: true);
+      }
+      catch (Exception e) when (e is ArgumentException or FormatException)
+      {
+        App.ShowErrorMessageBox(e, $"Could not parse a modifier key setting with the value \"{settingValue}\"");
+        return defaultModifier;
       }
     }
   }
