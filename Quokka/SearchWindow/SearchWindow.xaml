@@ -15,8 +15,8 @@
   ShowInTaskbar="False"
   Topmost="True"
   UseLayoutRounding="True"
-  WindowStartupLocation="CenterScreen"
-  WindowState="Maximized"
+  WindowStartupLocation="Manual"
+  WindowState="Normal"
   WindowStyle="None"
   mc:Ignorable="d">
   <Window.Resources>
@@ -26,20 +26,11 @@
       </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
   </Window.Resources>
-  <Window.Triggers>
-    <EventTrigger RoutedEvent="Loaded">
-      <BeginStoryboard>
-        <Storyboard Storyboard.TargetProperty="Opacity" Duration="0:0:0.5">
-          <DoubleAnimation From="0" To="2" />
-        </Storyboard>
-      </BeginStoryboard>
-    </EventTrigger>
-  </Window.Triggers>
   <Border
     x:Name="Container"
-    Width="{DynamicResource WindowWidth}"
     Height="auto"
-    Margin="{DynamicResource WindowTopMargin}"
+    xf:Animations.Primary="{DynamicResource WindowAnimation}"
+    xf:Animations.AllowOpacityReset="False"
     Padding="{DynamicResource WindowPadding}"
     VerticalAlignment="Top"
     d:Background="White"
@@ -68,6 +59,7 @@
     <Grid
       x:Name="SearchWindowGrid"
       HorizontalAlignment="Center"
+      ClipToBounds="True"
       VerticalAlignment="Top">
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
@@ -76,15 +68,16 @@
       <Grid
         x:Name="ListContainer"
         Grid.Row="1"
+        ClipToBounds="True"
         Margin="{DynamicResource ListContainerMargin}"
         VerticalAlignment="Top"
         Panel.ZIndex="0"
         d:Margin="0,3,0,0">
         <Border
           x:Name="ResultsBox"
+          ClipToBounds="True"
           Height="auto"
           MinHeight="{DynamicResource ListContainerMinHeight}"
-          MaxHeight="{DynamicResource ListContainerMaxHeight}"
           d:Background="White"
           d:BorderBrush="Transparent"
           d:BorderThickness="2"
@@ -96,6 +89,7 @@
           CornerRadius="{DynamicResource ListContainerRounding}">
           <xfc:AnimatedListView
             x:Name="ResultsListView"
+            xf:Animations.AllowOpacityReset="False"
             Margin="{DynamicResource ListMargin}"
             d:Margin="10,10,10,10"
             Background="Transparent"
@@ -119,7 +113,7 @@
                       <Border
                         x:Name="Bd"
                         Padding="3"
-                        xf:Animations.Primary="{DynamicResource Animation}"
+                        xf:Animations.Primary="{DynamicResource ResultsListAnimation}"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="{DynamicResource ListItemBorderThickness}"
@@ -216,9 +210,9 @@
         </Border>
         <Frame
           x:Name="ContextPane"
-          xf:Animations.Primary="{xf:Animate BasedOn={StaticResource FadeIn},
-                                             Event=Visibility}"
-          xf:Animations.Secondary="{StaticResource FadeOut}"
+          xf:Animations.Primary="{DynamicResource ContextPaneAnimation}"
+          xf:Animations.Secondary="{DynamicResource ContextPaneExitAnimation}"
+          xf:Animations.AllowOpacityReset="False"
           NavigationUIVisibility="Hidden" />
       </Grid>
       <Grid Grid.Row="0" Panel.ZIndex="999">

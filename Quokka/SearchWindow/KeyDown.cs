@@ -1,16 +1,21 @@
 using Quokka.ListItems;
+using Quokka.TheQuokkaPlugin;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using XamlFlair;
+using Keys = System.Windows.Forms.Keys;
 
 namespace Quokka
 {
 
+#pragma warning disable CA2216 // SearchWindow does not allocate or hold unmanaged native pointers requiring a finalizer.
   public partial class SearchWindow : Window, IDisposable
+#pragma warning restore CA2216
   {
-    private void SearchTermTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+    private async void SearchTermTextBox_KeyDown(object sender, KeyEventArgs e)
     {
 
       //If the ContextPane is open - focus the actions list
@@ -33,7 +38,7 @@ namespace Quokka
 
         case Key.Down:
           {
-            if ((ResultsListView.SelectedIndex == -1))
+            if (ResultsListView.SelectedIndex == -1)
             {
               ResultsListView.SelectedIndex = 1; // select second item if on search bar
             }
@@ -51,7 +56,7 @@ namespace Quokka
 
         case Key.Up:
           {
-            if ((ResultsListView.SelectedIndex == -1) || (ResultsListView.SelectedIndex == 0))
+            if (ResultsListView.SelectedIndex is -1 or 0)
             {
               // select last item if on search bar or at first item
               ResultsListView.SelectedIndex = ResultsListView.Items.Count - 1;
@@ -64,42 +69,60 @@ namespace Quokka
             break;
           }
 
-        case var value when value == (System.Windows.Input.Key)App.Current.Resources["ContextPaneKey"]:
+        case var value when value == KeyInterop.KeyFromVirtualKey((int)(Keys)Application.Current.Resources["ContextPaneKey"]):
           {
 
             if (!string.IsNullOrEmpty(query))
             {
               if (ContextPane.Visibility == Visibility.Visible)
               {
-                ContextPane.Visibility = Visibility.Collapsed; // close frame
+                await CloseContextPaneAsync().ConfigureAwait(true); // close frame asynchronously with exit animation
               }
               else
               {
 
                 //find which plugin's frame to open
-                if ((ResultsListView.SelectedIndex == -1)) ResultsListView.SelectedIndex = 0;
-                string PluginName = ResultsListView.SelectedItem.GetType().Namespace.ToString();
+                if (ResultsListView.SelectedIndex == -1)
+                {
+                  ResultsListView.SelectedIndex = 0;
+                }
+                string PluginName = ResultsListView.SelectedItem!.GetType().Namespace!;
 
                 // open that plugin's frame
-                if (PluginName == "Quokka.TheQuokkaPlugin")
+                Uri? targetUri = null;
+                if (ResultsListView.SelectedItem is PlugBoardItem)
                 {
-                  SelectedItem = (ResultsListView.SelectedItem as ListItem)!;
-                  ContextPane.Navigate(new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative));
-                  ContextPane.Visibility = Visibility.Visible;
-
+                  targetUri = new Uri("/Quokka;component/thequokkaplugin/plugboardcontextpane.xaml", UriKind.Relative);
                 }
-                else if (PluginName != "Quokka.ListItems" && App.hasContextPane[PluginName] == true)
+                else if (ResultsListView.SelectedItem is AboutQuokkaItem)
                 {
-                  SelectedItem = (ResultsListView.SelectedItem as ListItem)!;
-                  ContextPane.Navigate(new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml"));
+                  targetUri = new Uri("/Quokka;component/thequokkaplugin/contextpane.xaml", UriKind.Relative);
+                }
+                else if (PluginName != "Quokka.ListItems" && App.HasContextPane[PluginName])
+                {
+                  targetUri = new Uri("pack://application:,,,/" + PluginName + ";component/ContextPane.xaml");
+                }
+
+                if (targetUri != null)
+                {
+                  SelectedItem = (ListItem)ResultsListView.SelectedItem;
+                  ContextPane.Navigate(targetUri);
+
+                  Animations.SetSecondaryBinding(ContextPane, false);
+                  if (Application.Current.Resources["ContextPaneAnimation"] is AnimationSettings enterAnim)
+                  {
+                    Animations.SetPrimary(ContextPane, enterAnim);
+                  }
                   ContextPane.Visibility = Visibility.Visible;
+                  Animations.SetPrimaryBinding(ContextPane, false);
+                  Animations.SetPrimaryBinding(ContextPane, true);
                 }
               }
             }
             break;
           }
 
-        case Key.Left:
+        case var value when value == KeyInterop.KeyFromVirtualKey((int)(Keys)Application.Current.Resources["ScrollLeftKey"]):
           {
             ListBoxItem CurrentListBoxItem = (ListBoxItem)
               ResultsListView.ItemContainerGenerator.ContainerFromItem(ResultsListView.Items.CurrentItem);
@@ -119,7 +142,7 @@ namespace Quokka
                 if (ListBoxItemScrollViewer.HorizontalOffset != 0)
                 {
                   ListBoxItemScrollViewer.ScrollToHorizontalOffset(
-                    ListBoxItemScrollViewer.HorizontalOffset - (double)App.Current.Resources["HorizontalScrollIncrementingWidth"]);
+                    ListBoxItemScrollViewer.HorizontalOffset - (double)Application.Current.Resources["HorizontalScrollIncrementingWidth"]);
                 }
                 else { return; }
               }
@@ -129,7 +152,7 @@ namespace Quokka
             break;
           }
 
-        case Key.Right:
+        case var value when value == KeyInterop.KeyFromVirtualKey((int)(Keys)Application.Current.Resources["ScrollRightKey"]):
           {
             ListBoxItem CurrentListBoxItem = (ListBoxItem)
               ResultsListView.ItemContainerGenerator.ContainerFromItem(ResultsListView.Items.CurrentItem);
@@ -149,7 +172,7 @@ namespace Quokka
                 if (ListBoxItemScrollViewer.HorizontalOffset != ListBoxItemScrollViewer.ScrollableWidth)
                 {
                   ListBoxItemScrollViewer.ScrollToHorizontalOffset(
-                    ListBoxItemScrollViewer.HorizontalOffset + (double)App.Current.Resources["HorizontalScrollIncrementingWidth"]);
+                    ListBoxItemScrollViewer.HorizontalOffset + (double)Application.Current.Resources["HorizontalScrollIncrementingWidth"]);
 
                 }
                 else { return; }
@@ -171,7 +194,7 @@ namespace Quokka
       for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
       {
         DependencyObject child = VisualTreeHelper.GetChild(obj, i);
-        if (child != null && child is childItem item)
+        if (child is childItem item)
         {
           return item;
         }
@@ -181,7 +204,9 @@ namespace Quokka
           {
             childItem? childOfChild = FindVisualChild<childItem>(child);
             if (childOfChild != null)
+            {
               return childOfChild;
+            }
           }
         }
       }

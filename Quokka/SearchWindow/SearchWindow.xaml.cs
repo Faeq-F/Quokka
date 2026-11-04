@@ -4,11 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using XamlFlair;
+using static Quokka.Settings.SettingParsers;
 
 namespace Quokka
 {
@@ -16,40 +19,29 @@ namespace Quokka
   /// <summary>
   ///   The search window - interaction logic for SearchWindow.xaml.
   /// </summary>
+#pragma warning disable CA2216 // SearchWindow does not allocate or hold unmanaged native pointers requiring a finalizer.
   public partial class SearchWindow : Window
+#pragma warning restore CA2216
   {
+    private bool _isClosing;
 
     /// <summary>
-    ///   Used by ContextPanes (Pages) - the frame on which
-    ///   context panes are displayed.
+    ///   The frame in which context panes are displayed (used by ContextPanes).
     /// </summary>
-    public Frame ContextPaneFrame
-    {
-      get => contextPaneFrame;
-    }
-    private readonly Frame contextPaneFrame;
+    public Frame ContextPaneFrame => ContextPane;
 
     /// <summary>
-    ///   Used by ContextPanes (Pages) - the app settings.
+    ///   The app settings (used by ContextPanes).
     /// </summary>
-    public static ResourceDictionary ContextPaneSettingsDict
-    {
-      get => Application.Current.Resources;
-    }
+    public static ResourceDictionary ContextPaneSettingsDict => Application.Current.Resources;
 
     /// <summary>
-    ///   Used by ContextPanes (Pages) - the TextBox in
-    ///   which the user enters their query.
+    ///   The TextBox in which the user enters their query (used by ContextPanes).
     /// </summary>
-    public TextBox SearchBox
-    {
-      get => searchBox;
-    }
-    private readonly TextBox searchBox;
+    public TextBox SearchBox => SearchTermTextBox;
 
     /// <summary>
-    ///   Used by ContextPanes (Pages) - the currently
-    ///   selected ListItem.
+    ///   The currently selected ListItem (used by ContextPanes).
     /// </summary>
     public ListItem? SelectedItem
     {
@@ -74,6 +66,8 @@ namespace Quokka
     /// </summary>
     public SearchWindow()
     {
+      _previousForegroundWindow = GetForegroundWindow();
+      _activeScreen = System.Windows.Forms.Screen.FromPoint(System.Windows.Forms.Control.MousePosition);
       InitializeComponent();
 
       // initial look
@@ -85,12 +79,7 @@ namespace Quokka
       {
         Width = new GridLength((double)Application.Current.Resources["SearchIconWidth"], GridUnitType.Star)
       };
-      ColumnDefinition c2 = new()
-      {
-        Width = new GridLength((double)Application.Current.Resources["WindowWidth"] - (double)Application.Current.Resources["SearchIconWidth"], GridUnitType.Star)
-      };
       SearchBoxGrid.ColumnDefinitions.Add(c1);
-      SearchBoxGrid.ColumnDefinitions.Add(c2);
 
       //run anything needed for plugins on window startup
       try
@@ -102,30 +91,21 @@ namespace Quokka
       }
       catch (Exception ex)
       {
-        Quokka.App.ShowErrorMessageBox(ex, "Error with a plugin calling its OnSearchWindowStartup()");
+        App.ShowErrorMessageBox(ex, "Error with a plugin calling its OnSearchWindowStartup()");
       }
 
       //Escape key to close window
       RoutedCommand ExitWindow = new();
       ExitWindow.InputGestures.Add(new KeyGesture(Key.Escape));
-      CommandBindings.Add(new CommandBinding(ExitWindow, Exit));
+      CommandBindings.Add(new CommandBinding(ExitWindow, (_, _) => Close()));
 
       //Enter key to choose item
       RoutedCommand ExecuteItemCommand = new();
       ExecuteItemCommand.InputGestures.Add(new KeyGesture(Key.Enter));
       CommandBindings.Add(new CommandBinding(ExecuteItemCommand, ListItem_Click));
 
-      //fields needed for context panes
-      searchBox = SearchTermTextBox;
-      contextPaneFrame = ContextPane;
-
       Loaded += SearchWindow_Loaded;
       PreviewKeyDown += SearchWindow_PreviewKeyDown;
-    }
-
-    private void Exit(object sender, ExecutedRoutedEventArgs e)
-    {
-      Close();
     }
 
     /// <summary>
@@ -133,18 +113,24 @@ namespace Quokka
     ///   ListItem is not selected yet, the first item in
     ///   the results list is executed.
     /// </summary>
-    /// <param name="e">
-    ///   The arguments for the event.
-    /// </param>
     /// <param name="sender">
     ///   The element from which the event is triggered.
+    /// </param>
+    /// <param name="e">
+    ///   The arguments for the event.
     /// </param>
     private void ListItem_Click(object sender, RoutedEventArgs e)
     {
       if (ResultsListView != null)
       {
-        if (ResultsListView.SelectedIndex > -1) ((ListItem)ResultsListView.SelectedItem).Execute();
-        else ((ListItem)ResultsListView.Items.GetItemAt(0)).Execute();
+        if (ResultsListView.SelectedIndex > -1)
+        {
+          ((ListItem)ResultsListView.SelectedItem).Execute();
+        }
+        else
+        {
+          ((ListItem)ResultsListView.Items.GetItemAt(0)).Execute();
+        }
       }
     }
 
@@ -196,7 +182,10 @@ namespace Quokka
               {
                 ListOfResults = plugin.OnSignifier(command);
                 //Check if items were shown
-                if (ListOfResults.Count == 0) ListOfResults.Add(new NoListItem());
+                if (ListOfResults.Count == 0)
+                {
+                  ListOfResults.Add(new NoListItem());
+                }
                 return ListOfResults;
               }
             }
@@ -209,7 +198,7 @@ namespace Quokka
         }
         catch (Exception ex)
         {
-          Quokka.App.ShowErrorMessageBox(ex, "Could not produce list items");
+          App.ShowErrorMessageBox(ex, "Could not produce list items");
         }
         //sort by relevance
         ListOfResults = new Collection<ListItem>(
@@ -238,11 +227,11 @@ namespace Quokka
     ///   when the user changes the query entered in the
     ///   search bar.
     /// </summary>
-    /// <param name="e">
-    ///   The arguments for the event.
-    /// </param>
     /// <param name="sender">
     ///   The element from which the event is triggered.
+    /// </param>
+    /// <param name="e">
+    ///   The arguments for the event.
     /// </param>
     private async void OnQueryChange(object sender, RoutedEventArgs e)
     {
@@ -255,19 +244,28 @@ namespace Quokka
       ResultsListView.SelectedIndex = 0;
       ResultsListView.ScrollIntoView(ResultsListView.SelectedItem);
       // Close context pane if it was open
-      if (ContextPane.Visibility == Visibility.Visible) ContextPane.Visibility = Visibility.Collapsed;
+      await CloseContextPaneAsync().ConfigureAwait(true);
       //get text from sender
       TextBox textBox = (sender as TextBox)!;
       query = textBox.Text;
-      //show loading item
-      ResultsListView.ItemsSource = new List<ListItem>() { new LoadingListItem() };
-      ResultsListView.SelectedIndex = -1;
-      ListContainer.Visibility = Visibility.Visible;
+      //show loading item if not already showing one
+      List<ListItem>? currentItems = ResultsListView.ItemsSource as List<ListItem>;
+      if (currentItems is null || currentItems.FirstOrDefault() is not LoadingListItem)
+      {
+        if (currentItems?.Count > 0)
+        {
+          if (!await AnimateResultsListExitAsync(token).ConfigureAwait(true))
+          {
+            return;
+          }
+        }
+        ApplyResultsListItems(new List<ListItem>() { new LoadingListItem() });
+      }
 
       // debounce to avoid running work for every keystroke
       try
       {
-        await Task.Delay((int)App.Current.Resources["Debounce"], token).ConfigureAwait(true);
+        await Task.Delay((int)Application.Current.Resources["Debounce"], token).ConfigureAwait(true);
       }
       catch (OperationCanceledException)
       {
@@ -292,14 +290,91 @@ namespace Quokka
 
       if (Results.Count == 0)
       {
-        ListContainer.Visibility = Visibility.Collapsed; return;
+        ListContainer.Visibility = Visibility.Collapsed;
+        return;
       }
 
-      ResultsListView.ItemsSource = Results;
-      ResultsListView.SelectedIndex = -1;
-      ListContainer.Visibility = Visibility.Visible;
+      if (!await AnimateResultsListExitAsync(token).ConfigureAwait(true))
+      {
+        return;
+      }
+
+      ApplyResultsListItems(Results);
     }
 
+    /// <summary>
+    /// Animates the exit transition of <see cref="ResultsListView"/> using the configured exit animation settings.
+    /// </summary>
+    /// <param name="token">The cancellation token to observe.</param>
+    /// <returns><c>true</c> if the exit animation completed without cancellation; otherwise, <c>false</c>.</returns>
+    private async Task<bool> AnimateResultsListExitAsync(CancellationToken token)
+    {
+      if (Application.Current.Resources["ResultsListExitAnimation"] is AnimationSettings exitAnim)
+      {
+        Animations.SetSecondary(ResultsListView, exitAnim);
+        Animations.SetSecondaryBinding(ResultsListView, false);
+        Animations.SetSecondaryBinding(ResultsListView, true);
+        try
+        {
+          await Task.Delay((int)exitAnim.Duration, token).ConfigureAwait(true);
+        }
+        catch (OperationCanceledException)
+        {
+          Animations.SetSecondaryBinding(ResultsListView, false);
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    /// <summary>
+    /// Binds new items to <see cref="ResultsListView"/> and triggers the entrance animation.
+    /// </summary>
+    /// <param name="items">The list of items to display.</param>
+    private void ApplyResultsListItems(List<ListItem> items)
+    {
+      Animations.SetSecondaryBinding(ResultsListView, false);
+      ResultsListView.ItemsSource = items;
+      ResultsListView.SelectedIndex = -1;
+      ListContainer.Visibility = Visibility.Visible;
+      if (Application.Current.Resources["ResultsListAnimation"] is AnimationSettings enterAnim)
+      {
+        Animations.SetPrimary(ResultsListView, enterAnim);
+        Animations.SetPrimaryBinding(ResultsListView, false);
+        Animations.SetPrimaryBinding(ResultsListView, true);
+      }
+    }
+
+    /// <summary>
+    /// Closes the <see cref="ContextPane"/> asynchronously with its exit animation if visible.
+    /// </summary>
+    /// <returns>A task representing the asynchronous operation.</returns>
+    public async Task CloseContextPaneAsync()
+    {
+      if (ContextPane.Visibility == Visibility.Visible)
+      {
+        if (Application.Current.Resources["ContextPaneExitAnimation"] is AnimationSettings exitAnim)
+        {
+          Animations.SetPrimaryBinding(ContextPane, false);
+          Animations.SetPrimary(ContextPane, null);
+          Animations.SetSecondary(ContextPane, exitAnim);
+          Animations.SetSecondaryBinding(ContextPane, false);
+          Animations.SetSecondaryBinding(ContextPane, true);
+          await Task.Delay((int)exitAnim.Duration).ConfigureAwait(true);
+        }
+
+        Animations.SetSecondaryBinding(ContextPane, false);
+        ContextPane.Visibility = Visibility.Collapsed;
+        ContextPane.Opacity = 1.0;
+        ContextPane.Source = null; //makes showing a new pane more reliable
+      }
+    }
+
+    /// <summary>
+    /// Releases unmanaged and optionally managed resources.
+    /// </summary>
+    /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
     protected virtual void Dispose(bool disposing)
     {
       if (disposing)
@@ -308,6 +383,9 @@ namespace Quokka
       }
     }
 
+    /// <summary>
+    /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+    /// </summary>
     public void Dispose()
     {
       Dispose(true);
@@ -316,44 +394,128 @@ namespace Quokka
 
     // Ensure the window is in focus when opened
 
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
+    [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     private static extern IntPtr GetForegroundWindow();
 
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    private static extern uint GetWindowThreadProcessId(IntPtr hWnd, IntPtr ProcessId);
-
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    private static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
-
-    [System.Runtime.InteropServices.DllImport("user32.dll")]
-    [return: System.Runtime.InteropServices.MarshalAs(System.Runtime.InteropServices.UnmanagedType.Bool)]
+    [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    [return: MarshalAs(UnmanagedType.Bool)]
     private static extern bool SetForegroundWindow(IntPtr hWnd);
 
+    [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
+    private static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
+
+    private const byte VK_MENU = 0x12;
+    private const uint KEYEVENTF_KEYUP = 0x0002;
+
+    private readonly IntPtr _previousForegroundWindow;
+
+    private readonly System.Windows.Forms.Screen _activeScreen;
+
+    /// <summary>
+    /// Forces the window specified by <paramref name="hWnd"/> into the foreground.
+    /// </summary>
+    /// <param name="hWnd">The handle of the window to bring to the foreground.</param>
     private static void ForceForegroundWindow(IntPtr hWnd)
     {
-      IntPtr foregroundHWnd = GetForegroundWindow();
-      if (foregroundHWnd == hWnd) return;
-
-      uint foregroundThreadId = GetWindowThreadProcessId(foregroundHWnd, IntPtr.Zero);
-      uint ourThreadId = GetWindowThreadProcessId(hWnd, IntPtr.Zero);
-
-      if (foregroundThreadId != ourThreadId)
+      if (hWnd == IntPtr.Zero || hWnd == GetForegroundWindow())
       {
-        AttachThreadInput(foregroundThreadId, ourThreadId, true);
-        SetForegroundWindow(hWnd);
-        AttachThreadInput(foregroundThreadId, ourThreadId, false);
+        return;
       }
-      else
+
+      // Simulate a dummy Alt key press/release to grant user input authority to the calling thread.
+      // This bypasses Windows OS foreground lock restrictions (SPI_SETFOREGROUNDLOCKTIMEOUT)
+      // and guarantees SetForegroundWindow activates the target window.
+      keybd_event(VK_MENU, 0, 0, UIntPtr.Zero);
+      SetForegroundWindow(hWnd);
+      keybd_event(VK_MENU, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
+    }
+
+    /// <inheritdoc />
+    protected override void OnSourceInitialized(EventArgs e)
+    {
+      base.OnSourceInitialized(e);
+
+      // Resolve the active screen bounds and convert physical pixels → DIPs
+      bool useWorkingArea = Application.Current.Resources["UseWorkingArea"] is true;
+      System.Drawing.Rectangle bounds = useWorkingArea ? _activeScreen.WorkingArea : _activeScreen.Bounds;
+
+      PresentationSource source = PresentationSource.FromVisual(this);
+      if (source?.CompositionTarget != null)
       {
-        SetForegroundWindow(hWnd);
+        double dpiX = source.CompositionTarget.TransformFromDevice.M11;
+        double dpiY = source.CompositionTarget.TransformFromDevice.M22;
+
+        double screenW = bounds.Width * dpiX;
+        double screenH = bounds.Height * dpiY;
+        double screenL = bounds.Left * dpiX;
+        double screenT = bounds.Top * dpiY;
+
+        // Size and position the window to cover the active screen
+        Left = screenL;
+        Top = screenT;
+        Width = screenW;
+        Height = screenH;
+
+        // Parse screen-dimension settings against the active screen
+        double windowWidth = ParseScreenDimensionsSetting(
+          (string)Application.Current.Resources["WindowWidth"], screenH, screenW);
+        double topMargin = ParseScreenDimensionsSetting(
+          (string)Application.Current.Resources["WindowTopMargin"], screenH, screenW);
+        double maxHeight = ParseScreenDimensionsSetting(
+          (string)Application.Current.Resources["ListContainerMaxHeight"], screenH, screenW);
+
+        Container.Width = windowWidth;
+        Container.Margin = new Thickness(0, topMargin, 0, 0);
+        ResultsBox.MaxHeight = maxHeight;
+
+        // Add the second search box column now that we know the window width
+        SearchBoxGrid.ColumnDefinitions.Add(new ColumnDefinition()
+        {
+          Width = new GridLength(windowWidth - (double)Application.Current.Resources["SearchIconWidth"], GridUnitType.Star)
+        });
       }
     }
 
     private void SearchWindow_Loaded(object sender, RoutedEventArgs e)
     {
-      var helper = new System.Windows.Interop.WindowInteropHelper(this);
+      System.Windows.Interop.WindowInteropHelper helper = new(this);
       ForceForegroundWindow(helper.Handle);
       SearchTermTextBox.Focus();
+    }
+
+    /// <inheritdoc />
+    protected override async void OnClosing(System.ComponentModel.CancelEventArgs e)
+    {
+      ArgumentNullException.ThrowIfNull(e);
+
+      if (!_isClosing && Application.Current.Resources["WindowExitAnimation"] is AnimationSettings exitAnim)
+      {
+        e.Cancel = true;
+        _isClosing = true;
+
+        Animations.SetSecondary(Container, exitAnim);
+        Animations.SetSecondaryBinding(Container, false);
+        Animations.SetSecondaryBinding(Container, true);
+        await Task.Delay((int)exitAnim.Duration).ConfigureAwait(true);
+
+        Close();
+        return;
+      }
+
+      base.OnClosing(e);
+    }
+
+    /// <inheritdoc />
+    protected override void OnClosed(EventArgs e)
+    {
+      base.OnClosed(e);
+      if (_previousForegroundWindow != IntPtr.Zero)
+      {
+        ForceForegroundWindow(_previousForegroundWindow);
+      }
     }
 
     private void SearchWindow_PreviewKeyDown(object sender, KeyEventArgs e)
