@@ -30,6 +30,13 @@ namespace Quokka.PluginArch
     public abstract string PluginName { get; set; }
 
     /// <summary>
+    ///  Gets the icon for the plugin.
+    ///  <br />Default behavior when not overridden: returns the default plugin icon via the <see cref="IconCache"/>.
+    ///  </summary>
+    public virtual System.Windows.Media.ImageSource? PluginIcon =>
+      IconCache.GetOrAdd(System.IO.Path.Combine(System.Environment.CurrentDirectory, "Config", "Resources", "plugin.png"));
+
+    /// <summary>
     ///  Runs just before the application shuts down,
     ///  i.e., when the user clicks `exit` in the tray task context menu.
     ///  Useful for any clean-up required.

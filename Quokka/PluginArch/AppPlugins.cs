@@ -39,6 +39,7 @@ namespace Quokka
         Plugins = allPlugins;
 
         HasContextPane = result.HasContextPane;
+        HasContextPane.Add("Quokka.TheQuokkaPlugin", false);
 
         // run anything needed for plugins on app startup
         foreach (Plugin plugin in Plugins)
