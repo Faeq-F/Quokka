@@ -1,9 +1,12 @@
 using Hardcodet.Wpf.TaskbarNotification;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Quokka.Settings;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace Quokka
@@ -16,6 +19,7 @@ namespace Quokka
   {
 
     private readonly KeyboardHook hook = new();
+    private readonly SettingsService _settingsService = new();
 
     /// <summary>
     /// The entry point for the app. Loads all of the settings in the app settings file,
@@ -23,15 +27,17 @@ namespace Quokka
     /// Also runs all of the plugins' OnAppStartup() methods.
     /// </summary>
     /// <param name="e">The arguments for the Startup event.</param>
-    protected override void OnStartup(StartupEventArgs e)
+    protected override async void OnStartup(StartupEventArgs e)
     {
+      ArgumentNullException.ThrowIfNull(e);
+
       base.OnStartup(e);
 
       // Set working directory to the application assembly directory to ensure correct relative paths
       Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
       bool noElevationArg = false;
-      foreach (var arg in e.Args)
+      foreach (string arg in e.Args)
       {
         if (arg.Equals("--no-elevation", StringComparison.OrdinalIgnoreCase))
         {
@@ -44,16 +50,16 @@ namespace Quokka
       {
         try
         {
-          var processInfo = new System.Diagnostics.ProcessStartInfo
+          ProcessStartInfo processInfo = new()
           {
-            FileName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName,
+            FileName = Process.GetCurrentProcess().MainModule?.FileName ?? Environment.ProcessPath ?? string.Empty,
             WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory,
             UseShellExecute = true,
             Verb = "runas",
             Arguments = "--no-elevation"
           };
-          System.Diagnostics.Process.Start(processInfo);
-          Application.Current.Shutdown();
+          Process.Start(processInfo);
+          Current.Shutdown();
           return;
         }
         catch (System.ComponentModel.Win32Exception)
@@ -68,7 +74,8 @@ namespace Quokka
 
       try
       {
-        ApplyAppSettings(JObject.Parse(File.ReadAllText(Environment.CurrentDirectory + "\\Config\\settings.json")));
+        string settingsPath = Path.Combine(Environment.CurrentDirectory, "Config", "settings.json");
+        await _settingsService.LoadAppSettings(settingsPath).ConfigureAwait(true);
       }
       catch (JsonReaderException exception)
       {
@@ -76,13 +83,11 @@ namespace Quokka
         Environment.Exit(-1);
       }
 
-      LoadPlugins();
-
-      XamlFlair.Animations.OverrideDefaultSettings(duration: (double)App.Current.Resources["AnimationDuration"]);
+      await LoadPluginsAsync().ConfigureAwait(true);
 
       try
       {
-        hook.KeyPressed += new EventHandler<KeyPressedEventArgs>(CreateSearchWindow);
+        hook.KeyPressed += CreateSearchWindow;
         hook.RegisterHotKey((ModifierKeys)Current.Resources["WindowHotKeyModifier"], (System.Windows.Forms.Keys)Current.Resources["WindowHotKey"]);
       }
       catch (InvalidOperationException exception)
@@ -107,15 +112,31 @@ namespace Quokka
     /// </summary>
     public static Action<Exception, string> ShowErrorMessageBox { get; set; } = (exception, title) =>
     {
-      if (exception == null)
-        throw new ArgumentNullException(nameof(exception));
+      ArgumentNullException.ThrowIfNull(exception);
+
+      string details = exception.Message;
+      if (exception.InnerException != null)
+      {
+        details += $"\n\nInner Exception: {exception.InnerException.Message}";
+      }
+
+      string? rawStackTrace = exception.InnerException?.StackTrace ?? exception.StackTrace;
+      if (!string.IsNullOrEmpty(rawStackTrace))
+      {
+        string[] lines = rawStackTrace.Split('\n');
+        IEnumerable<string> quokkaLines = lines.Where(l => l.Contains("Quokka", StringComparison.Ordinal) || l.Contains("Plugin", StringComparison.Ordinal));
+        string filteredTrace = quokkaLines.Any()
+          ? string.Join('\n', quokkaLines)
+          : string.Join('\n', lines.Take(15)); // Helps find source instead of where it bubbled to
+        details += $"\n\nStack Trace:\n{filteredTrace}";
+      }
 
       MessageBox.Show(
-            $"{exception.Message}\n\n{exception.StackTrace}",
-            title,
-            MessageBoxButton.OK,
-            MessageBoxImage.Error
-        );
+        details,
+        title,
+        MessageBoxButton.OK,
+        MessageBoxImage.Error
+      );
     };
 
     private static bool IsRunAsAdmin()
@@ -123,7 +144,7 @@ namespace Quokka
       try
       {
         System.Security.Principal.WindowsIdentity id = System.Security.Principal.WindowsIdentity.GetCurrent();
-        System.Security.Principal.WindowsPrincipal principal = new System.Security.Principal.WindowsPrincipal(id);
+        System.Security.Principal.WindowsPrincipal principal = new(id);
         return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
       }
       catch
@@ -132,6 +153,10 @@ namespace Quokka
       }
     }
 
+    /// <summary>
+    /// Releases unmanaged and optionally managed resources.
+    /// </summary>
+    /// <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
     protected virtual void Dispose(bool disposing)
     {
       if (disposing)
@@ -141,6 +166,9 @@ namespace Quokka
       }
     }
 
+    /// <summary>
+    /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+    /// </summary>
     public void Dispose()
     {
       Dispose(true);

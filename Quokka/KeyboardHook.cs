@@ -12,21 +12,23 @@ namespace Quokka
   {
     // Registers a hot key with Windows.
     [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
     // Unregisters the hot key with Windows.
     [DllImport("user32.dll")]
+    [DefaultDllImportSearchPaths(DllImportSearchPath.System32)]
     private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
     /// <summary>
     /// Represents the window that is used internally to get the messages.
     /// </summary>
-    private class Window : NativeWindow, IDisposable
+    private sealed class Window : NativeWindow, IDisposable
     {
       private const int WM_HOTKEY = 0x0312;
 
       public Window()
       {
         // create the handle for the window.
-        this.CreateHandle(new CreateParams());
+        CreateHandle(new CreateParams());
       }
 
       /// <summary>
@@ -55,7 +57,7 @@ namespace Quokka
 
       public void Dispose()
       {
-        this.DestroyHandle();
+        DestroyHandle();
       }
 
       #endregion
@@ -69,10 +71,7 @@ namespace Quokka
     public KeyboardHook()
     {
       // register the event of the inner native window.
-      _window.KeyPressed += delegate (object? sender, KeyPressedEventArgs args)
-      {
-        KeyPressed?.Invoke(this, args);
-      };
+      _window.KeyPressed += (sender, args) => KeyPressed?.Invoke(this, args);
     }
 
     /// <summary>
@@ -87,7 +86,9 @@ namespace Quokka
 
       // register the hot key.
       if (!RegisterHotKey(_window.Handle, _currentId, (uint)modifier, (uint)key))
+      {
         throw new InvalidOperationException("Couldn’t register the hot key.");
+      }
     }
 
     /// <summary>
@@ -109,6 +110,7 @@ namespace Quokka
 
       // dispose the inner native window.
       _window.Dispose();
+      GC.SuppressFinalize(this);
     }
 
     #endregion
@@ -119,28 +121,20 @@ namespace Quokka
   /// </summary>
   public class KeyPressedEventArgs : EventArgs
   {
-    private readonly ModifierKeys _modifier;
-    private readonly Keys _key;
-
     internal KeyPressedEventArgs(ModifierKeys modifier, Keys key)
     {
-      _modifier = modifier;
-      _key = key;
+      Modifier = modifier;
+      Key = key;
     }
     /// <summary>
     /// Gets the modifier keys associated with the pressed hot key.
     /// </summary>
-    public ModifierKeys Modifier
-    {
-      get { return _modifier; }
-    }
+    public ModifierKeys Modifier { get; }
+
     /// <summary>
     /// Gets the key associated with the pressed hot key.
     /// </summary>
-    public Keys Key
-    {
-      get { return _key; }
-    }
+    public Keys Key { get; }
   }
 
   /// <summary>

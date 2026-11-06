@@ -44,12 +44,11 @@ namespace Quokka.ListItems
     /// Closes the context pane and returns the user
     /// back to the item list where they can continue their search.
     /// </summary>
-    protected static void ReturnToSearch()
+    protected static async void ReturnToSearch()
     {
       SearchWindow window = (SearchWindow)Application.Current.MainWindow;
-      window.ContextPaneFrame.Visibility = Visibility.Collapsed;
       window.SearchBox.Focus();
-      window.ContextPaneFrame.Source = null; //makes showing a new pane more reliable
+      await window.CloseContextPaneAsync().ConfigureAwait(true);
     }
   }
 }
